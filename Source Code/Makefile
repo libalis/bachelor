@@ -14,7 +14,7 @@ $(BUILD_DIR)/$(PROGRAM): $(patsubst $(C_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard
 	mkdir -p $(BUILD_DIR)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-$(BUILD_DIR)/%.o: $(C_DIR)/%.cpp $(H_DIR)/%.hpp
+$(BUILD_DIR)/%.o: $(C_DIR)/%.cpp $(wildcard $(H_DIR)/%.hpp)
 	mkdir -p $(BUILD_DIR)
 	$(CC) -o $@ -c $< $(LDFLAGS)
 
