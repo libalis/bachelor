@@ -6,8 +6,8 @@ SC_MODULE(tb) {
     sc_out<sc_int<16>> inp;
     sc_in<sc_int<16>> outp;
 
-    void source();
-    void sink();
+    void source(void);
+    void sink(void);
 
     SC_CTOR(tb) {
         SC_CTHREAD(source, clk.pos());

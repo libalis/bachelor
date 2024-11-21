@@ -6,7 +6,7 @@ SC_MODULE(fir) {
     sc_in<sc_int<16>> inp;
     sc_out<sc_int<16>> outp;
 
-    void fir_main();
+    void fir_main(void);
 
     SC_CTOR(fir) {
         SC_CTHREAD(fir_main, clk.pos());
