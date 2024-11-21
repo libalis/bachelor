@@ -11,6 +11,6 @@ SC_MODULE(and2) {
 
     SC_CTOR(and2) {
         SC_METHOD(func);
-        sensitive << clk.neg();
+        sensitive << clk.pos();
     }
 };
