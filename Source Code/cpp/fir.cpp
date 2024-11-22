@@ -17,6 +17,7 @@ void fir::fir_main(void) {
         sc_int<16> out_val;
 
         inp_rdy.write(1);
+        wait(10000);
         do {
             wait();
         } while (!inp_vld.read());
