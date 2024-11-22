@@ -19,8 +19,9 @@ make
 ## Support
 Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 ## Roadmap
-- [ ] Learn SystemC
+- [X] Learn SystemC
 - [X] Implement a Makefile
+- [ ] Implement a full adder
 - [ ] Implement the balanced ternary system
 - [ ] Implement the balanced ternary system addition
 - [ ] Implement the balanced ternary system multiplication
