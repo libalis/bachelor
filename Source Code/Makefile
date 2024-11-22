@@ -7,9 +7,11 @@ DAT_DIR := ./dat
 HPP_DIR := ./hpp
 
 all: $(BUILD_DIR)/$(PROGRAM)
+	./$(BUILD_DIR)/$(PROGRAM)
+	@make check
 
 clean:
-	rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR) $(DAT_DIR)/output.dat
 
 check:
 	@echo "********************************"
