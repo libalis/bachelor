@@ -1,4 +1,4 @@
-PROGRAM := tut
+PROGRAM := sata
 CC := g++
 LDFLAGS := -lsystemc
 BUILD_DIR := ./build
@@ -15,7 +15,7 @@ clean:
 
 check:
 	@echo "********************************"
-	@if diff -w $(DAT_DIR)/ref_output.dat $(DAT_DIR)/output.dat; then \
+	@if diff -w $(DAT_DIR)/*; then \
 		echo -e "\tSIMULATION PASSED"; \
 	else \
 		echo -e "\tSIMULATION FAILED"; \
