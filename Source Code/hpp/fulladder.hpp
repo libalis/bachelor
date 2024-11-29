@@ -4,23 +4,18 @@
     #include <systemc.h>
 
     SC_MODULE(FULLADDER) {
-        sc_in<bool> clock, reset;
+        sc_in<bool> input0;
+        sc_in<bool> input1;
+        sc_in<bool> carry_in;
 
-        sc_in<bool> a, b, c_in;
-
-        sc_in<bool> input_valid;
-        sc_out<bool> input_ready;
-
-        sc_out<bool> s, c_out;
-
-        sc_out<bool> output_valid;
-        sc_in<bool> output_ready;
+        sc_out<bool> sum;
+        sc_out<bool> carry_out;
 
         void add(void);
 
         SC_CTOR(FULLADDER) {
-            SC_CTHREAD(add, clock.pos());
-            reset_signal_is(reset, true);
+            SC_METHOD(add);
+            sensitive << input0 << input1 << carry_in;
         }
     };
 #endif

@@ -4,29 +4,32 @@
     #include <systemc.h>
 
     SC_MODULE(TESTBENCH) {
+        int counter;
         ofstream output_dat;
 
         sc_in<bool> clock;
-        sc_out<bool> reset;
 
-        sc_out<bool> a, b, c_in;
+        sc_out<bool> input0;
+        sc_out<bool> input1;
+        sc_out<bool> carry_in;
 
-        sc_out<bool> input_valid;
-        sc_in<bool> input_ready;
-
-        sc_in<bool> s, c_out;
-
-        sc_in<bool> output_valid;
-        sc_out<bool> output_ready;
+        sc_in<bool> sum;
+        sc_in<bool> carry_out;
 
         void source(void);
         void sink(void);
 
         SC_CTOR(TESTBENCH) {
+            counter = 0;
             output_dat.open("./dat/output.dat");
 
-            SC_CTHREAD(source, clock.pos());
-            SC_CTHREAD(sink, clock.neg());
+            SC_METHOD(source);
+            sensitive << clock.pos();
+            dont_initialize();
+
+            SC_METHOD(sink);
+            sensitive << clock.pos();
+            dont_initialize();
         }
 
         ~TESTBENCH(void) {
