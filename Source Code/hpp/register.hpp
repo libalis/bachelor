@@ -18,6 +18,7 @@
         SC_CTOR(REGISTER) {
             SC_METHOD(sink);
             sensitive << register_clock.pos();
+            dont_initialize();
         }
     };
     template class REGISTER<TRITS>;

@@ -16,7 +16,7 @@ clean:
 
 check:
 	@echo "********************************"
-	@if diff -w $(DAT_DIR)/*; then \
+	@if diff -w $(DAT_DIR)/output*; then \
 		echo -e "\tSIMULATION PASSED"; \
 	else \
 		echo -e "\tSIMULATION FAILED"; \
