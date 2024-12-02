@@ -1,6 +1,6 @@
 #include "../hpp/fulladder.hpp"
 
 void FULLADDER::add(void) {
-    sum.write(input0.read() ^ input1.read() ^ carry_in.read());
-    carry_out.write((input0.read() & input1.read()) | (carry_in.read() & (input0.read() ^ input1.read())));
+    fulladder_sum.write(fulladder_a.read() ^ fulladder_b.read() ^ fulladder_carry_in.read());
+    fulladder_carry_out.write((fulladder_a.read() & fulladder_b.read()) | (fulladder_carry_in.read() & (fulladder_a.read() ^ fulladder_b.read())));
 }

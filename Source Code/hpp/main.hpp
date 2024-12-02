@@ -3,42 +3,38 @@
 
     #include <systemc.h>
 
+    #include "../hpp/adder.hpp"
     #include "../hpp/testbench.hpp"
-    #include "../hpp/fulladder.hpp"
 
+    template <size_t T>
     SC_MODULE(MAIN) {
-        TESTBENCH *tb;
-        FULLADDER *fa;
+        ADDER<T> *adder;
+        TESTBENCH<T> *testbench;
 
-        sc_clock clock_signal;
+        sc_clock main_clock;
 
-        sc_signal<bool> input0_signal;
-        sc_signal<bool> input1_signal;
-        sc_signal<bool> carry_in_signal;
+        sc_signal<btint<T>> main_a;
+        sc_signal<btint<T>> main_b;
 
-        sc_signal<bool> sum_signal;
-        sc_signal<bool> carry_out_signal;
+        sc_signal<btint<T + 1>> main_sum;
 
-        SC_CTOR(MAIN) : clock_signal("clock_signal", 10, SC_NS) {
-            tb = new TESTBENCH("tb");
-            tb->clock(clock_signal);
-            tb->input0(input0_signal);
-            tb->input1(input1_signal);
-            tb->carry_in(carry_in_signal);
-            tb->sum(sum_signal);
-            tb->carry_out(carry_out_signal);
+        SC_CTOR(MAIN) : main_clock("main_clock", 10, SC_NS) {
+            adder = new ADDER<T>("adder");
+            adder->adder_a(main_a);
+            adder->adder_b(main_b);
+            adder->adder_sum(main_sum);
 
-            fa = new FULLADDER("fa");
-            fa->input0(input0_signal);
-            fa->input1(input1_signal);
-            fa->carry_in(carry_in_signal);
-            fa->sum(sum_signal);
-            fa->carry_out(carry_out_signal);
+            testbench = new TESTBENCH<T>("testbench");
+            testbench->testbench_clock(main_clock);
+            testbench->testbench_a(main_a);
+            testbench->testbench_b(main_b);
+            testbench->testbench_sum(main_sum);
         }
 
         ~MAIN(void) {
-            delete tb;
-            delete fa;
+            delete adder;
+            delete testbench;
         }
     };
+    template class MAIN<TRITS>;
 #endif

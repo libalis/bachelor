@@ -3,37 +3,35 @@
 
     #include <systemc.h>
 
+    #include "../hpp/btint.hpp"
+
+    template <size_t T>
     SC_MODULE(TESTBENCH) {
-        int counter;
-        ofstream output_dat;
+        ofstream testbench_output_dat;
 
-        sc_in<bool> clock;
+        sc_in<bool> testbench_clock;
 
-        sc_out<bool> input0;
-        sc_out<bool> input1;
-        sc_out<bool> carry_in;
+        sc_out<btint<T>> testbench_a;
+        sc_out<btint<T>> testbench_b;
 
-        sc_in<bool> sum;
-        sc_in<bool> carry_out;
+        sc_in<btint<T + 1>> testbench_sum;
 
         void source(void);
         void sink(void);
 
         SC_CTOR(TESTBENCH) {
-            counter = 0;
-            output_dat.open("./dat/output.dat");
+            testbench_output_dat.open("./dat/output.dat");
 
             SC_METHOD(source);
-            sensitive << clock.pos();
-            dont_initialize();
+            sensitive << testbench_clock.pos();
 
             SC_METHOD(sink);
-            sensitive << clock.pos();
-            dont_initialize();
+            sensitive << testbench_sum;
         }
 
         ~TESTBENCH(void) {
-            output_dat.close();
+            testbench_output_dat.close();
         }
     };
+    template class TESTBENCH<TRITS>;
 #endif

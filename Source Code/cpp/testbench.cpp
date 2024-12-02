@@ -1,28 +1,38 @@
 #include "../hpp/testbench.hpp"
 
-void TESTBENCH::source(void) {
-    bool inputs[8][3] = {{0, 0, 0},
-                         {0, 0, 1},
-                         {0, 1, 0},
-                         {0, 1, 1},
-                         {1, 0, 0},
-                         {1, 0, 1},
-                         {1, 1, 0},
-                         {1, 1, 1}};
-    input0.write(inputs[counter][0]);
-    input1.write(inputs[counter][1]);
-    carry_in.write(inputs[counter][2]);
-    counter++;
+template <size_t T>
+void TESTBENCH<T>::source(void) {
+    btint<T> a;
+    a.btint_a[1] = 0;
+    a.btint_b[1] = 0;
+    a.btint_a[3] = 1;
+    a.btint_b[3] = 1;
+    btint<T> b;
+    b.btint_a[0] = 1;
+    b.btint_b[0] = 1;
+    b.btint_a[1] = 1;
+    b.btint_b[1] = 1;
+    b.btint_a[2] = 1;
+    b.btint_b[2] = 1;
+    testbench_a.write(a);
+    testbench_b.write(b);
 }
 
-void TESTBENCH::sink(void) {
-    if(counter == 0) {
-        next_trigger();
-    } else if(counter == 9) {
-        cout << "@" << sc_time_stamp() << endl;
+template <size_t T>
+void TESTBENCH<T>::sink(void) {
+    btint<T + 1> sum;
+    sum.btint_a[0] = 0;
+    sum.btint_b[0] = 0;
+    sum.btint_a[1] = 1;
+    sum.btint_b[1] = 1;
+    sum.btint_a[2] = 1;
+    sum.btint_b[2] = 1;
+    sum.btint_a[3] = 0;
+    sum.btint_b[3] = 0;
+    sum.btint_a[4] = 1;
+    sum.btint_b[4] = 1;
+    cout << "@" << sc_time_stamp() << "\t" << testbench_a.read() << " + " << testbench_b.read() << " = " << testbench_sum.read() << endl;
+    if(testbench_sum.read() == sum) {
         sc_stop();
-    } else {
-        cout << "@" << sc_time_stamp() << "\t" << input0.read() << " + " << input1.read() << " + " << carry_in.read() << " = " << sum.read() << ", carry: " << carry_out.read() << endl;
-        output_dat << input0.read() << " + " << input1.read() << " + " << carry_in.read() << " = " << sum.read() << ", carry: " << carry_out.read() << endl;
     }
 }

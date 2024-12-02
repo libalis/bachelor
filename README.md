@@ -24,8 +24,9 @@ Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 - [X] Implement a full adder
 - [X] Implement a test bench
 - [X] Implement a main function
-- [ ] Implement the balanced ternary system
-- [ ] Implement the balanced ternary system addition
+- [X] Implement a register
+- [X] Implement the balanced ternary system
+- [X] Implement the balanced ternary system addition
 - [ ] Implement the balanced ternary system multiplication
 - [ ] Implement the systolic array
 - [ ] Make the systolic array parameterized
