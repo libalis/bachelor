@@ -69,6 +69,8 @@ void TESTBENCH<T>::sink(void) {
     if(counter != 0 && counter % 2 == 0) {
         cout << "@" << sc_time_stamp() << "\t" << testbench_a.read() << " + " << testbench_b.read() << " = " << testbench_sum.read() << endl;
         output_dat << testbench_a.read() << " + " << testbench_b.read() << " = " << testbench_sum.read() << endl;
+        cout << "\t(" << testbench_a.read().to_int() << " + " << testbench_b.read().to_int() << " = " << testbench_sum.read().to_int() << ")" << endl;
+        output_dat << "(" << testbench_a.read().to_int() << " + " << testbench_b.read().to_int() << " = " << testbench_sum.read().to_int() << ")" << endl;
     }
     if(counter == 2) {
         cout << "@" << sc_time_stamp() << endl;

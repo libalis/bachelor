@@ -25,6 +25,14 @@
             }
             return true;
         }
+
+        int to_int() const {
+            int os = 0;
+            for(int i = T - 1; i >= 0; i--) {
+                os = os * 2 + btint_a[i] + btint_b[i] - 1;
+            }
+            return os;
+        }
     };
 
     template <size_t T>
