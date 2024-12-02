@@ -28,6 +28,8 @@
         sc_signal<bool> input_a[2][T];
         sc_signal<bool> input_b[2][T];
 
+        sc_in<bool> adder_clock;
+
         sc_in<btint<T>> adder_a;
         sc_in<btint<T>> adder_b;
 
@@ -64,6 +66,8 @@
                 fa[1][i]->fulladder_sum(register_input[1][i]);
                 fa[1][i]->fulladder_carry_out(register_input[0][i + 1]);
             }
+
+            r->register_clock(adder_clock);
 
             for(int i = 0; i < T + 1; i++) {
                 if(i == 0) {

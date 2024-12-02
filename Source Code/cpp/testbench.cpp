@@ -16,6 +16,7 @@ void TESTBENCH<T>::source(void) {
     b.btint_b[2] = 1;
     testbench_a.write(a);
     testbench_b.write(b);
+    counter++;
 }
 
 template <size_t T>
@@ -32,7 +33,8 @@ void TESTBENCH<T>::sink(void) {
     sum.btint_a[4] = 1;
     sum.btint_b[4] = 1;
     cout << "@" << sc_time_stamp() << "\t" << testbench_a.read() << " + " << testbench_b.read() << " = " << testbench_sum.read() << endl;
-    if(testbench_sum.read() == sum) {
+    if(counter == 3) {
+        cout << "@" << sc_time_stamp() << endl;
         sc_stop();
     }
 }

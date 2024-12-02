@@ -1,9 +1,9 @@
 #include <systemc.h>
 
-#include "../hpp/main.hpp"
+#include "../hpp/testbench.hpp"
 
 int sc_main(int argc, char *argv[]) {
-    MAIN<TRITS> main("main");
+    TESTBENCH<TRITS> tb("tb");
     cout << "@" << sc_time_stamp() << endl;
     sc_start();
     return 0;
