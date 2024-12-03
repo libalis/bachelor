@@ -1,8 +1,6 @@
 #ifndef REGISTER_HPP
     #define REGISTER_HPP
 
-    #include <systemc.h>
-
     #include "../hpp/btint.hpp"
 
     template <size_t T>

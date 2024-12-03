@@ -7,7 +7,7 @@ DAT_DIR := ./dat
 HPP_DIR := ./hpp
 
 all: $(BUILD_DIR)/$(PROGRAM)
-	./$(BUILD_DIR)/$(PROGRAM)
+	$(BUILD_DIR)/$(PROGRAM)
 	@make check
 
 clean:

@@ -6,7 +6,7 @@ CPP_DIR := ./cpp
 HPP_DIR := ./hpp
 
 all: $(BUILD_DIR)/$(PROGRAM)
-	./$(BUILD_DIR)/$(PROGRAM)
+	$(BUILD_DIR)/$(PROGRAM)
 
 clean:
 	rm -rf $(BUILD_DIR)

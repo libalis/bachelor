@@ -1,5 +1,3 @@
-#include <sstream>
-
 #include "../hpp/testbench.hpp"
 
 using namespace std;
@@ -11,45 +9,53 @@ void TESTBENCH<T>::count(void) {
 
 template <size_t T>
 void TESTBENCH<T>::source(void) {
-    btint<T> a, b, *c = &a;
-    string line, word;
-    bool skip = false;
-    int index = T - 1;
+    btint<T> a, b, *c;
+    bool subtract;
+    string line;
+    int index;
     while(getline(input_dat, line)) {
-        stringstream ss(line);
-        while(ss >> word) {
-            for(char character : word) {
-                if(skip) {
-                    skip = false;
-                } else {
-                    switch(character) {
-                        case '-':
-                            c->btint_a[index] = 0;
-                            c->btint_b[index] = 0;
-                            skip = true;
-                            index = (index == 0) ? T - 1 : index - 1;
-                            break;
-                        case '0':
-                            c->btint_a[index] = 0;
-                            c->btint_b[index] = 1;
-                            index = (index == 0) ? T - 1 : index - 1;
-                            break;
-                        case '1':
-                            c->btint_a[index] = 1;
-                            c->btint_b[index] = 1;
-                            index = (index == 0) ? T - 1 : index - 1;
-                            break;
-                        case '+':
-                            c = &b;
-                            break;
-                        default:
-                            break;
+        c = &a;
+        subtract = 0;
+        index = T - 1;
+        for(int i = 0; i < line.length(); i++) {
+            switch(line[i]) {
+                case '-':
+                    if(line[i + 1] == '1') {
+                        c->btint_a[index] = 0;
+                        c->btint_b[index] = 0;
+                        index--;
+                        i++;
+                    } else {
+                        c = &b;
+                        subtract = 1;
+                        index = T - 1;
                     }
-                }
+                    break;
+                case '0':
+                    c->btint_a[index] = 0;
+                    c->btint_b[index] = 1;
+                    index--;
+                    break;
+                case '1':
+                    c->btint_a[index] = 1;
+                    c->btint_b[index] = 1;
+                    index--;
+                    break;
+                case '+':
+                    c = &b;
+                    index = T - 1;
+                    break;
+                default:
+                    break;
             }
         }
-        testbench_a.write(a);
-        testbench_b.write(b);
+        if(!subtract) {
+            testbench_adder_a.write(a);
+            testbench_adder_b.write(b);
+        } else {
+            testbench_subtractor_a.write(a);
+            testbench_subtractor_b.write(b);
+        }
     }
 }
 
@@ -66,12 +72,14 @@ void TESTBENCH<T>::sink(void) {
     sum.btint_b[3] = 0;
     sum.btint_a[4] = 1;
     sum.btint_b[4] = 1;
-    if(counter != 0 && counter % 2 == 0) {
-        cout << "@" << sc_time_stamp() << "\t" << testbench_a.read() << " + " << testbench_b.read() << " = " << testbench_sum.read() << endl;
-        output_dat << testbench_a.read() << " + " << testbench_b.read() << " = " << testbench_sum.read() << endl;
-        cout << "\t(" << testbench_a.read().to_int() << " + " << testbench_b.read().to_int() << " = " << testbench_sum.read().to_int() << ")" << endl;
-        output_dat << "(" << testbench_a.read().to_int() << " + " << testbench_b.read().to_int() << " = " << testbench_sum.read().to_int() << ")" << endl;
-    }
+    cout << "@" << sc_time_stamp() << "\t" << testbench_adder_a.read() << " + " << testbench_adder_b.read() << " = " << testbench_adder_sum.read() << endl;
+    output_dat << testbench_adder_a.read() << " + " << testbench_adder_b.read() << " = " << testbench_adder_sum.read() << endl;
+    cout << "\t(" << testbench_adder_a.read().to_int() << " + " << testbench_adder_b.read().to_int() << " = " << testbench_adder_sum.read().to_int() << ")" << endl;
+    output_dat << "(" << testbench_adder_a.read().to_int() << " + " << testbench_adder_b.read().to_int() << " = " << testbench_adder_sum.read().to_int() << ")" << endl;
+    cout << "@" << sc_time_stamp() << "\t" << testbench_subtractor_a.read() << " - " << testbench_subtractor_b.read() << " = " << testbench_subtractor_sum.read() << endl;
+    output_dat << testbench_subtractor_a.read() << " - " << testbench_subtractor_b.read() << " = " << testbench_subtractor_sum.read() << endl;
+    cout << "\t(" << testbench_subtractor_a.read().to_int() << " - " << testbench_subtractor_b.read().to_int() << " = " << testbench_subtractor_sum.read().to_int() << ")" << endl;
+    output_dat << "(" << testbench_subtractor_a.read().to_int() << " - " << testbench_subtractor_b.read().to_int() << " = " << testbench_subtractor_sum.read().to_int() << ")" << endl;
     if(counter == 2) {
         cout << "@" << sc_time_stamp() << endl;
         sc_stop();

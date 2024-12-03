@@ -1,7 +1,9 @@
 #ifndef BTINT_HPP
     #define BTINT_HPP
 
-    #define TRITS (4)
+    #ifndef TRITS
+        #define TRITS (4)
+    #endif
 
     #include <systemc.h>
 

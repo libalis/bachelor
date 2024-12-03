@@ -20,16 +20,17 @@ make
 Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 ## Roadmap
 - [X] Learn SystemC
-- [X] Implement a Makefile
-- [X] Implement a full adder
-- [X] Implement a test bench
-- [X] Implement a main function
-- [X] Implement a register
-- [X] Implement the balanced ternary system
-- [X] Implement the balanced ternary system addition
-- [ ] Implement the balanced ternary system multiplication
-- [ ] Implement the systolic array
-- [ ] Make the systolic array parameterized
+- [X] Implement Makefile
+- [X] Implement full adder
+- [X] Implement test bench
+- [X] Implement main function
+- [X] Implement register
+- [X] Implement balanced ternary system
+- [X] Implement balanced ternary system addition
+- [X] Implement balanced ternary system subtraction
+- [ ] Implement balanced ternary system multiplication
+- [ ] Implement systolic array
+- [ ] Make systolic array parameterized
 ## Contributing
 Not open to contributions
 ## Authors and acknowledgment

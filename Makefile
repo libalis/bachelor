@@ -1,12 +1,7 @@
-SUBDIRS := $(wildcard */.)
+SUBDIR := $(shell find -mindepth 2 -maxdepth 2 -type f -iname Makefile -exec dirname {} \;)
 
-all: $(SUBDIRS)
-clean: $(SUBDIRS)
-check: $(SUBDIRS)
+all:
+	$(MAKE) -C "$(SUBDIR)" clean
+	$(MAKE) -C "$(SUBDIR)"
 
-$(SUBDIRS):
-	@if [ -f "$@/Makefile" ]; then \
-		$(MAKE) -C $@ $(MAKECMDGOALS); \
-	fi
-
-.PHONY: all clean check $(SUBDIRS)
+.PHONY: all

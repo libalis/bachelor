@@ -1,5 +1,3 @@
-#include <systemc.h>
-
 #include "../hpp/testbench.hpp"
 
 int sc_main(int argc, char *argv[]) {
