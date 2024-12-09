@@ -24,7 +24,6 @@ Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 - [X] Implement full adder
 - [X] Implement test bench
 - [X] Implement main function
-- [X] Implement register
 - [X] Implement balanced ternary system
 - [X] Implement balanced ternary system addition
 - [X] Implement balanced ternary system subtraction

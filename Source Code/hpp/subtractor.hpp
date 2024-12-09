@@ -7,9 +7,7 @@
     SC_MODULE(SUBTRACTOR) {
         ADDER<T> *a;
 
-        sc_signal<btint<T>> b;
-
-        sc_in<bool> subtractor_clock;
+        sc_signal<btint<T>> adder_b;
 
         sc_in<btint<T>> subtractor_a;
         sc_in<btint<T>> subtractor_b;
@@ -20,9 +18,8 @@
 
         SC_CTOR(SUBTRACTOR) {
             a = new ADDER<T>("a");
-            a->adder_clock(subtractor_clock);
             a->adder_a(subtractor_a);
-            a->adder_b(b);
+            a->adder_b(adder_b);
             a->adder_sum(subtractor_sum);
 
             SC_METHOD(source);
