@@ -38,14 +38,14 @@
             return value;
         }
 
-        void shift_right(int index) {
-            for(int i = 0; i <= index; i++) {
-                for(int j = 0; j < T - 1; j++) {
-                    btint_a[j] = btint_a[j + 1];
-                    btint_b[j] = btint_b[j + 1];
+        void shift_left(int index) {
+            for(int i = 0; i < index; i++) {
+                for(int j = T - 1; j > 0; j--) {
+                    btint_a[j] = btint_a[j - 1];
+                    btint_b[j] = btint_b[j - 1];
                 }
-                btint_a[T - 1] = 0;
-                btint_b[T - 1] = 1;
+                btint_a[0] = 0;
+                btint_b[0] = 1;
             }
         }
     };

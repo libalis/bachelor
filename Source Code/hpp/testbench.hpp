@@ -1,53 +1,40 @@
 #ifndef TESTBENCH_HPP
     #define TESTBENCH_HPP
 
-    #include "../hpp/subtractor.hpp"
+    #include "../hpp/adder_subtractor.hpp"
 
     template <size_t T>
     SC_MODULE(TESTBENCH) {
         sc_clock clock;
-
-        bool add;
         bool eof;
 
         ifstream input_dat;
         ofstream output_dat;
 
-        ADDER<T> *a;
+        ADDER_SUBTRACTOR<T> *adder_subtractor;
 
-        sc_signal<btint<T>> adder_a;
-        sc_signal<btint<T>> adder_b;
+        sc_signal<btint<T>> adder_subtractor_a;
+        sc_signal<btint<T>> adder_subtractor_b;
+        sc_signal<bool> adder_subtractor_add;
 
-        sc_signal<btint<T + 1>> adder_sum;
-
-        SUBTRACTOR<T> *s;
-
-        sc_signal<btint<T>> subtractor_a;
-        sc_signal<btint<T>> subtractor_b;
-
-        sc_signal<btint<T + 1>> subtractor_sum;
+        sc_signal<btint<T + 1>> adder_subtractor_sum;
 
         sc_in<bool> testbench_clock;
 
         void source(void);
         void sink(void);
 
-        SC_CTOR(TESTBENCH) : clock("main_clock", 10, SC_NS) {
-            add = 0;
+        SC_CTOR(TESTBENCH) : clock("clock", 10, SC_NS) {
             eof = 0;
 
             input_dat.open("./dat/input.dat");
             output_dat.open("./dat/output.dat");
 
-            a = new ADDER<T>("a");
-            a->adder_a(adder_a);
-            a->adder_b(adder_b);
-            a->adder_sum(adder_sum);
-
-            s = new SUBTRACTOR<T>("s");
-            s->subtractor_a(subtractor_a);
-            s->subtractor_b(subtractor_b);
-            s->subtractor_sum(subtractor_sum);
+            adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
+            adder_subtractor->adder_subtractor_a(adder_subtractor_a);
+            adder_subtractor->adder_subtractor_b(adder_subtractor_b);
+            adder_subtractor->adder_subtractor_add(adder_subtractor_add);
+            adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
 
             this->testbench_clock(clock);
 
@@ -64,8 +51,7 @@
             input_dat.close();
             output_dat.close();
 
-            delete a;
-            delete s;
+            delete adder_subtractor;
         }
     };
     template class TESTBENCH<TRITS>;
