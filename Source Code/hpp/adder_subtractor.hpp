@@ -22,7 +22,7 @@
 
         sc_in<btint<T>> adder_subtractor_a;
         sc_in<btint<T>> adder_subtractor_b;
-        sc_in<bool> adder_subtractor_add;
+        sc_in<bool> adder_subtractor_subtract;
 
         sc_out<btint<T + 1>> adder_subtractor_sum;
 
@@ -63,7 +63,7 @@
             }
 
             SC_METHOD(source);
-            sensitive << adder_subtractor_a << adder_subtractor_b << adder_subtractor_add;
+            sensitive << adder_subtractor_a << adder_subtractor_b << adder_subtractor_subtract;
 
             SC_METHOD(sink);
             for(int i = 0; i < T + 1; i++) {
@@ -81,4 +81,5 @@
         }
     };
     template class ADDER_SUBTRACTOR<TRITS>;
+    template class ADDER_SUBTRACTOR<2 * TRITS - 1>;
 #endif

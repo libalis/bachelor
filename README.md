@@ -27,7 +27,7 @@ Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 - [X] Implement balanced ternary system
 - [X] Implement balanced ternary system addition
 - [X] Implement balanced ternary system subtraction
-- [ ] Implement balanced ternary system multiplication
+- [X] Implement balanced ternary system multiplication
 - [ ] Implement systolic array
 - [ ] Make systolic array parameterized
 ## Contributing

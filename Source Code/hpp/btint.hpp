@@ -5,6 +5,7 @@
         #define TRITS (64)
     #endif
 
+    #include <algorithm>
     #include <systemc.h>
 
     using namespace std;
@@ -21,9 +22,34 @@
             }
         }
 
-        bool operator==(const btint<T> &rhs) const {
+        template <size_t U>
+        btint(const btint<U> &value) {
+            for(int i = 0; i < min(T, U); i++) {
+                btint_a[i] = value.btint_a[i];
+                btint_b[i] = value.btint_b[i];
+            }
+            for(int i = min(T, U); i < T; i++) {
+                btint_a[i] = 0;
+                btint_b[i] = 1;
+            }
+        }
+
+        btint<T> shift_left(int index) const {
+            btint<T> value = *this;
+            for(int i = 0; i < index; i++) {
+                for(int j = T - 1; j > 0; j--) {
+                    value.btint_a[j] = value.btint_a[j - 1];
+                    value.btint_b[j] = value.btint_b[j - 1];
+                }
+                value.btint_a[0] = 0;
+                value.btint_b[0] = 1;
+            }
+            return value;
+        }
+
+        bool operator==(const btint<T> &value) const {
             for(int i = 0; i < T; i++) {
-                if(btint_a[i] != rhs.btint_a[i] || btint_b[i] != rhs.btint_b[i]) {
+                if(btint_a[i] != value.btint_a[i] || btint_b[i] != value.btint_b[i]) {
                     return false;
                 }
             }
@@ -36,17 +62,6 @@
                 value = value * 2 + btint_a[i] + btint_b[i] - 1;
             }
             return value;
-        }
-
-        void shift_left(int index) {
-            for(int i = 0; i < index; i++) {
-                for(int j = T - 1; j > 0; j--) {
-                    btint_a[j] = btint_a[j - 1];
-                    btint_b[j] = btint_b[j - 1];
-                }
-                btint_a[0] = 0;
-                btint_b[0] = 1;
-            }
         }
     };
 
