@@ -17,93 +17,101 @@
 
         btint() {
             for(int i = 0; i < T; i++) {
-                btint_a[i] = 0;
-                btint_b[i] = 1;
+                set_value(i, 0);
             }
         }
 
         template <size_t U>
         btint(const btint<U> &value) {
             for(int i = 0; i < min(T, U); i++) {
-                btint_a[i] = value.btint_a[i];
-                btint_b[i] = value.btint_b[i];
+                set_value(i, value.get_value(i));
             }
             for(int i = min(T, U); i < T; i++) {
-                btint_a[i] = 0;
-                btint_b[i] = 1;
+                set_value(i, 0);
             }
         }
 
         btint(int value) {
             for(int i = 0; i < T; i++) {
-                btint_a[i] = 0;
-                btint_b[i] = 1;
+                set_value(i, 0);
             }
             bool isNegative = value < 0;
             if(isNegative) {
                 value = -value;
             }
-            int index = 0;
+            int i = 0;
             while(value) {
                 if(value % 2) {
-                    btint_a[index] = 1;
-                    btint_b[index++] = 1;
+                    set_value(i++, 1);
                     value -= 1;
                 } else {
-                    btint_a[index] = 0;
-                    btint_b[index++] = 1;
+                    set_value(i++, 0);
                 }
                 value /= 2;
             }
             if(isNegative) {
                 for(int i = 0; i < T; i++) {
-                    if(this->value(i)) {
-                        btint_a[i] = !btint_a[i];
-                        btint_b[i] = !btint_b[i];
-                    }
+                    set_value(i, -get_value(i));
                 }
             }
         }
 
-        btint<T> shift_left(int index) const {
-            btint<T> value = *this;
+        btint shift_left(int index) {
             for(int i = 0; i < index; i++) {
                 for(int j = T - 1; j > 0; j--) {
-                    value.btint_a[j] = value.btint_a[j - 1];
-                    value.btint_b[j] = value.btint_b[j - 1];
+                    set_value(j, get_value(j - 1));
                 }
-                value.btint_a[0] = 0;
-                value.btint_b[0] = 1;
+                set_value(0, 0);
             }
-            return value;
+            return *this;
         }
 
-        bool operator==(const btint<T> &value) const {
-            for(int i = 0; i < T; i++) {
-                if(btint_a[i] != value.btint_a[i] || btint_b[i] != value.btint_b[i]) {
-                    return false;
-                }
+        btint set_value(int index, int decimal_value) {
+            switch(decimal_value) {
+                case -1:
+                    btint_a[index] = 0;
+                    btint_b[index] = 0;
+                    break;
+                case 0:
+                    btint_a[index] = 0;
+                    btint_b[index] = 1;
+                    break;
+                case 1:
+                    btint_a[index] = 1;
+                    btint_b[index] = 1;
+                    break;
+                default:
+                    break;
             }
-            return true;
+            return *this;
         }
 
-        int value(int index) const {
+        int get_value(int index) const {
             return btint_a[index] + btint_b[index] - 1;
         }
 
         int to_int() const {
             int value = 0;
             for(int i = T - 1; i >= 0; i--) {
-                value = value * 2 + this->value(i);
+                value = value * 2 + get_value(i);
             }
             return value;
+        }
+
+        bool operator==(const btint<T> &value) const {
+            for(int i = 0; i < T; i++) {
+                if(get_value(i) != value.get_value(i)) {
+                    return false;
+                }
+            }
+            return true;
         }
     };
 
     template <size_t T>
     ostream &operator<<(ostream &os, const btint<T> &value) {
         for(int i = T - 1; i >= 0; i--) {
-            os << value.btint_a[i] + value.btint_b[i] - 1;
+            os << value.get_value(i);
         }
         return os;
     }

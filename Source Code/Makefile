@@ -16,10 +16,10 @@ clean:
 
 check:
 	@echo "********************************"
-	@if diff -w $(DAT_DIR)/output*; then \
-		echo -e "\tSIMULATION PASSED"; \
+	@if diff -w $(DAT_DIR)/output.dat $(DAT_DIR)/reference_output.dat; then \
+	    echo -e "\033[32m\tSIMULATION PASSED\033[0m"; \
 	else \
-		echo -e "\tSIMULATION FAILED"; \
+	    echo -e "\033[31m\tSIMULATION FAILED\033[0m"; \
 	fi
 	@echo "********************************"
 

@@ -15,9 +15,9 @@ void MULTIPLIER_REGISTER<T>::sink(void) {
     } else {
         adder_subtractor_a.write(btint<2 * T - 1>());
     }
-    if(multiplier_register_b.read().value(index)) {
+    if(multiplier_register_b.read().get_value(index)) {
         adder_subtractor_b.write(((btint<2 * T - 1>)multiplier_register_a.read()).shift_left(index));
-        adder_subtractor_subtract.write(multiplier_register_b.read().value(index) == 1 ? 0 : 1);
+        adder_subtractor_subtract.write(multiplier_register_b.read().get_value(index) == 1 ? 0 : 1);
     } else {
         adder_subtractor_b.write(btint<2 * T - 1>());
         adder_subtractor_subtract.write(0);

@@ -5,14 +5,14 @@ if [[ $? -ne 0 || -z "$INPUT_FILE" ]]; then
 fi
 CFLAGS="-DINPUT_DAT=\\\"$INPUT_FILE\\\""
 
-OUTPUT_FILE=$(dialog --title "Output file" --fselect "./dat/output.dat" 10 50 3>&1 1>&2 2>&3)
-if [[ $? -ne 0 || -z "$OUTPUT_FILE" ]]; then
+OUTPUT_DIRECTORY=$(dialog --title "Output directory" --dselect "./dat" 10 50 3>&1 1>&2 2>&3)
+if [[ $? -ne 0 || -z "$OUTPUT_DIRECTORY" ]]; then
     exit 1
 fi
-CFLAGS="$CFLAGS -DOUTPUT_DAT=\\\"$OUTPUT_FILE\\\""
+CFLAGS="$CFLAGS -DOUTPUT_DAT=\\\"$OUTPUT_DIRECTORY/output.dat\\\""
 
 TRITS=$(dialog --title "Number of ternary bits" --inputbox "Enter a number:" 10 50 4 3>&1 1>&2 2>&3)
-if [[ $? -ne 0 || -z "$OUTPUT_FILE" || ! "$TRITS" =~ ^[0-9]+$ ]]; then
+if [[ $? -ne 0 || -z "$TRITS" || ! "$TRITS" =~ ^[0-9]+$ ]]; then
     exit 1
 fi
 CFLAGS="$CFLAGS -DTRITS=$TRITS"
@@ -32,4 +32,4 @@ fi
 
 clear
 make clean
-make CFLAGS="$CFLAGS"
+make CFLAGS="$CFLAGS" DAT_DIR="$OUTPUT_DIRECTORY"
