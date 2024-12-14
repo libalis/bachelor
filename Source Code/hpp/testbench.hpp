@@ -1,6 +1,14 @@
 #ifndef TESTBENCH_HPP
     #define TESTBENCH_HPP
 
+    #ifndef INPUT_DAT
+        #define INPUT_DAT ("./dat/input.dat")
+    #endif
+
+    #ifndef OUTPUT_DAT
+        #define OUTPUT_DAT ("./dat/output.dat")
+    #endif
+
     #include "../hpp/multiplier.hpp"
 
     template <size_t T>
@@ -19,14 +27,22 @@
         sc_signal<btint<T>> adder_subtractor_b;
         sc_signal<bool> adder_subtractor_subtract;
 
-        sc_signal<btint<T + 1>> adder_subtractor_sum;
+        #ifndef FIXED_TRITS
+            sc_signal<btint<T + 1>> adder_subtractor_sum;
+        #else
+            sc_signal<btint<T>> adder_subtractor_sum;
+        #endif
 
         MULTIPLIER<T> *multiplier;
 
         sc_signal<btint<T>> multiplier_a;
         sc_signal<btint<T>> multiplier_b;
 
-        sc_signal<btint<2 * T>> multiplier_product;
+        #ifndef FIXED_TRITS
+            sc_signal<btint<2 * T>> multiplier_product;
+        #else
+            sc_signal<btint<T>> multiplier_product;
+        #endif
 
         sc_in<bool> testbench_clock;
 
@@ -38,8 +54,8 @@
             lock = 0;
             eof = 0;
 
-            input_dat.open("./dat/input.dat");
-            output_dat.open("./dat/output.dat");
+            input_dat.open(INPUT_DAT);
+            output_dat.open(OUTPUT_DAT);
 
             adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
             adder_subtractor->adder_subtractor_a(adder_subtractor_a);

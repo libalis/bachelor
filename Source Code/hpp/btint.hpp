@@ -2,7 +2,7 @@
     #define BTINT_HPP
 
     #ifndef TRITS
-        #define TRITS (64)
+        #define TRITS (32)
     #endif
 
     #include <algorithm>
@@ -34,6 +34,37 @@
             }
         }
 
+        btint(int value) {
+            for(int i = 0; i < T; i++) {
+                btint_a[i] = 0;
+                btint_b[i] = 1;
+            }
+            bool isNegative = value < 0;
+            if(isNegative) {
+                value = -value;
+            }
+            int index = 0;
+            while(value) {
+                if(value % 2) {
+                    btint_a[index] = 1;
+                    btint_b[index++] = 1;
+                    value -= 1;
+                } else {
+                    btint_a[index] = 0;
+                    btint_b[index++] = 1;
+                }
+                value /= 2;
+            }
+            if(isNegative) {
+                for(int i = 0; i < T; i++) {
+                    if(this->value(i)) {
+                        btint_a[i] = !btint_a[i];
+                        btint_b[i] = !btint_b[i];
+                    }
+                }
+            }
+        }
+
         btint<T> shift_left(int index) const {
             btint<T> value = *this;
             for(int i = 0; i < index; i++) {
@@ -56,10 +87,14 @@
             return true;
         }
 
+        int value(int index) const {
+            return btint_a[index] + btint_b[index] - 1;
+        }
+
         int to_int() const {
             int value = 0;
             for(int i = T - 1; i >= 0; i--) {
-                value = value * 2 + btint_a[i] + btint_b[i] - 1;
+                value = value * 2 + this->value(i);
             }
             return value;
         }

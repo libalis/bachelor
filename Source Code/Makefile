@@ -1,6 +1,6 @@
 PROGRAM := sata
 CC := g++
-CFLAGS := -DTRITS=4
+CFLAGS := -g
 LDFLAGS := -lsystemc
 BUILD_DIR := ./build
 CPP_DIR := ./cpp
@@ -12,7 +12,7 @@ all: $(BUILD_DIR)/$(PROGRAM)
 	@make check
 
 clean:
-	rm -rf $(BUILD_DIR) $(DAT_DIR)/output.dat
+	rm -rf $(BUILD_DIR)
 
 check:
 	@echo "********************************"
@@ -23,6 +23,9 @@ check:
 	fi
 	@echo "********************************"
 
+config:
+	sh/config.sh
+
 $(BUILD_DIR)/$(PROGRAM): $(patsubst $(CPP_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(CPP_DIR)/*.cpp))
 	mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
@@ -31,4 +34,4 @@ $(BUILD_DIR)/%.o: $(CPP_DIR)/%.cpp $(wildcard $(HPP_DIR)/%.hpp)
 	mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $@ -c $< $(LDFLAGS)
 
-.PHONY: all clean check
+.PHONY: all clean check config

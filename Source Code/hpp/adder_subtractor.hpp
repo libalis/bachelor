@@ -24,7 +24,11 @@
         sc_in<btint<T>> adder_subtractor_b;
         sc_in<bool> adder_subtractor_subtract;
 
-        sc_out<btint<T + 1>> adder_subtractor_sum;
+        #ifndef FIXED_TRITS
+            sc_out<btint<T + 1>> adder_subtractor_sum;
+        #else
+            sc_out<btint<T>> adder_subtractor_sum;
+        #endif
 
         void source(void);
         void sink(void);
@@ -51,10 +55,10 @@
             }
 
             for(int i = 0; i < T; i++) {
-                if(i == 0) {
-                    fulladder[1][i]->fulladder_a(one);
-                } else {
+                if(i) {
                     fulladder[1][i]->fulladder_a(fulladder_carry_out[i - 1]);
+                } else {
+                    fulladder[1][i]->fulladder_a(one);
                 }
                 fulladder[1][i]->fulladder_b(fulladder_sum[i]);
                 fulladder[1][i]->fulladder_carry_in(input_b[1][i]);
@@ -81,5 +85,7 @@
         }
     };
     template class ADDER_SUBTRACTOR<TRITS>;
-    template class ADDER_SUBTRACTOR<2 * TRITS - 1>;
+    #ifndef FIXED_TRITS
+        template class ADDER_SUBTRACTOR<2 * TRITS - 1>;
+    #endif
 #endif
