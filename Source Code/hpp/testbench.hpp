@@ -27,22 +27,14 @@
         sc_signal<btint<T>> adder_subtractor_b;
         sc_signal<bool> adder_subtractor_subtract;
 
-        #ifndef FIXED_TRITS
-            sc_signal<btint<T + 1>> adder_subtractor_sum;
-        #else
-            sc_signal<btint<T>> adder_subtractor_sum;
-        #endif
+        sc_signal<btint<T + 1>> adder_subtractor_sum;
 
         MULTIPLIER<T> *multiplier;
 
         sc_signal<btint<T>> multiplier_a;
         sc_signal<btint<T>> multiplier_b;
 
-        #ifndef FIXED_TRITS
-            sc_signal<btint<2 * T>> multiplier_product;
-        #else
-            sc_signal<btint<T>> multiplier_product;
-        #endif
+        sc_signal<btint<2 * T>> multiplier_product;
 
         sc_in<bool> testbench_clock;
 

@@ -12,11 +12,7 @@
         sc_in<btint<T>> multiplier_a;
         sc_in<btint<T>> multiplier_b;
 
-        #ifndef FIXED_TRITS
-            sc_out<btint<2 * T>> multiplier_product;
-        #else
-            sc_out<btint<T>> multiplier_product;
-        #endif
+        sc_out<btint<2 * T>> multiplier_product;
 
         SC_CTOR(MULTIPLIER) {
             multiplier_register = new MULTIPLIER_REGISTER<T>("multiplier_register");

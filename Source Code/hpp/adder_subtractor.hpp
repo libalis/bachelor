@@ -24,11 +24,7 @@
         sc_in<btint<T>> adder_subtractor_b;
         sc_in<bool> adder_subtractor_subtract;
 
-        #ifndef FIXED_TRITS
-            sc_out<btint<T + 1>> adder_subtractor_sum;
-        #else
-            sc_out<btint<T>> adder_subtractor_sum;
-        #endif
+        sc_out<btint<T + 1>> adder_subtractor_sum;
 
         void source(void);
         void sink(void);
@@ -85,7 +81,5 @@
         }
     };
     template class ADDER_SUBTRACTOR<TRITS>;
-    #ifndef FIXED_TRITS
-        template class ADDER_SUBTRACTOR<2 * TRITS - 1>;
-    #endif
+    template class ADDER_SUBTRACTOR<2 * TRITS - 1>;
 #endif

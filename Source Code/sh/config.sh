@@ -17,17 +17,13 @@ if [[ $? -ne 0 || -z "$TRITS" || ! "$TRITS" =~ ^[0-9]+$ ]]; then
 fi
 CFLAGS="$CFLAGS -DTRITS=$TRITS"
 
-OPTIONS=$(dialog --title "Optional flags" --checklist "Select desired options:" 10 50 2 \
-    1 "Decimal input file" off \
-    2 "Fixed number of ternary bits" off 3>&1 1>&2 2>&3)
+OPTIONS=$(dialog --title "Optional flags" --checklist "Select desired options:" 10 50 1 \
+    1 "Decimal input file" off 3>&1 1>&2 2>&3)
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
 if [[ "$OPTIONS" =~ "1" ]]; then
     CFLAGS="$CFLAGS -DDECIMAL_INPUT"
-fi
-if [[ "$OPTIONS" =~ "2" ]]; then
-    CFLAGS="$CFLAGS -DFIXED_TRITS"
 fi
 
 clear
