@@ -1,31 +1,93 @@
 #!/bin/bash
-INPUT_FILE=$(dialog --title "Input file" --fselect "./dat/input.dat" 10 50 3>&1 1>&2 2>&3)
-if [[ $? -ne 0 || -z "$INPUT_FILE" ]]; then
-    exit 1
-fi
-CFLAGS="-DINPUT_DAT=\\\"$INPUT_FILE\\\""
+PROGRAM="sata"
+CFLAGS=""
+BUILD_DIR="./build"
 
-OUTPUT_DIRECTORY=$(dialog --title "Output directory" --dselect "./dat" 10 50 3>&1 1>&2 2>&3)
-if [[ $? -ne 0 || -z "$OUTPUT_DIRECTORY" ]]; then
-    exit 1
-fi
-CFLAGS="$CFLAGS -DOUTPUT_DAT=\\\"$OUTPUT_DIRECTORY/output.dat\\\""
+decimal_input() {
+    DECIMAL_INPUT=$(dialog --title "Decimal input" --defaultno --yesno \
+        "\nPlease choose whether your input file is in decimal format or not:" 10 70 3>&1 1>&2 2>&3)
+    if [[ $? -eq 0 ]]; then
+        if [ -n "$CFLAGS" ]; then
+            CFLAGS="$CFLAGS -DDECIMAL_INPUT"
+        else
+            CFLAGS="-DDECIMAL_INPUT"
+        fi
+    fi
+    input_file
+}
 
-TRITS=$(dialog --title "Number of ternary bits" --inputbox "Enter a number:" 10 50 4 3>&1 1>&2 2>&3)
-if [[ $? -ne 0 || -z "$TRITS" || ! "$TRITS" =~ ^[0-9]+$ ]]; then
-    exit 1
-fi
-CFLAGS="$CFLAGS -DTRITS=$TRITS"
+input_file() {
+    INPUT_FILE=$(dialog --title "Input file" --fselect "./dat/input.dat" 10 70 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$INPUT_FILE" ]]; then
+        exit
+    elif [ -n "$CFLAGS" ]; then
+        CFLAGS="$CFLAGS -DINPUT_DAT=\\\"$INPUT_FILE\\\""
+    else
+        CFLAGS="-DINPUT_DAT=\\\"$INPUT_FILE\\\""
+    fi
+    output_directory
+}
 
-OPTIONS=$(dialog --title "Optional flags" --checklist "Select desired options:" 10 50 1 \
-    1 "Decimal input file" off 3>&1 1>&2 2>&3)
-if [[ $? -ne 0 ]]; then
-    exit 1
-fi
-if [[ "$OPTIONS" =~ "1" ]]; then
-    CFLAGS="$CFLAGS -DDECIMAL_INPUT"
-fi
+main() {
+    MAIN=$(dialog --title "Parameterized Systolic Arrays with Ternary Arithmetic" --msgbox \
+        "\nAn implementation of parameterized systolic arrays, the balanced ternary system, its addition and multiplication in SystemC\
+        \n\nThe following dialogs will guide you through the process of building the perfect executable for your needs" 10 70 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 ]]; then
+        exit
+    fi
+    trits
+}
 
+options() {
+    OPTIONS=$(dialog --title "Optional flags" --checklist "\nPlease select your desired options:" 10 70 1 \
+        1 "Debbuging" on 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 ]]; then
+        exit
+    elif [[ "$OPTIONS" =~ "1" ]]; then
+        if [ -n "$CFLAGS" ]; then
+            CFLAGS="$CFLAGS -g"
+        else
+            CFLAGS="-g"
+        fi
+    fi
+    summary
+}
+
+output_directory() {
+    OUTPUT_DIRECTORY=$(dialog --title "Output directory" --dselect "./dat" 10 70 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$OUTPUT_DIRECTORY" ]]; then
+        exit
+    elif [ -n "$CFLAGS" ]; then
+        CFLAGS="$CFLAGS -DOUTPUT_DAT=\\\"$OUTPUT_DIRECTORY/output.dat\\\""
+    else
+        CFLAGS="-DOUTPUT_DAT=\\\"$OUTPUT_DIRECTORY/output.dat\\\""
+    fi
+    options
+}
+
+summary() {
+    SUMMARY=$(dialog --title "Summary" --colors --msgbox \
+        "\nThe following flags have been selected: \
+        \n\nCFLAGS=\"\Z2$CFLAGS\Zn\"" 10 70 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 ]]; then
+        exit
+    fi
+}
+
+trits() {
+    TRITS=$(dialog --title "Number of ternary bits" --inputbox "\nPlease select your desired number of ternary bits (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$TRITS" || ! "$TRITS" =~ ^[1-9]+[0-9]*$ ]]; then
+        exit
+    elif [ -n "$CFLAGS" ]; then
+        CFLAGS="$CFLAGS -DTRITS=$TRITS"
+    else
+        CFLAGS="-DTRITS=$TRITS"
+    fi
+    decimal_input
+}
+
+main
 clear
 make clean
-make CFLAGS="$CFLAGS" DAT_DIR="$OUTPUT_DIRECTORY"
+make CFLAGS="$CFLAGS"
+$BUILD_DIR/$PROGRAM
