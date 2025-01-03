@@ -5,19 +5,25 @@ BUILD_DIR="./build"
 
 decimal_input() {
     DECIMAL_INPUT=$(dialog --title "Decimal input" --defaultno --yesno \
-        "\nPlease choose whether your input file is in decimal format or not:" 10 70 3>&1 1>&2 2>&3)
+        "\nIs your input file in decimal format?" 10 70 3>&1 1>&2 2>&3)
     if [[ $? -eq 0 ]]; then
         if [ -n "$CFLAGS" ]; then
             CFLAGS="$CFLAGS -DDECIMAL_INPUT"
         else
             CFLAGS="-DDECIMAL_INPUT"
         fi
+        DEFAULT_FILE="./dat/decimal_input.dat"
+    else
+        DEFAULT_FILE="./dat/input.dat"
     fi
     input_file
 }
 
 input_file() {
-    INPUT_FILE=$(dialog --title "Input file" --fselect "./dat/input.dat" 10 70 3>&1 1>&2 2>&3)
+    if [ -z "$DEFAULT_FILE" ]; then
+        DEFAULT_FILE="./dat/input.dat"
+    fi
+    INPUT_FILE=$(dialog --title "Input file" --fselect "$DEFAULT_FILE" 10 70 3>&1 1>&2 2>&3)
     if [[ $? -ne 0 || -z "$INPUT_FILE" ]]; then
         exit
     elif [ -n "$CFLAGS" ]; then
@@ -26,6 +32,21 @@ input_file() {
         CFLAGS="-DINPUT_DAT=\\\"$INPUT_FILE\\\""
     fi
     output_directory
+}
+
+input_output() {
+    INPUT_OUTPUT=$(dialog --title "Input/output" --defaultno --yesno \
+        "\nDo you want to enable input and output files?" 10 70 3>&1 1>&2 2>&3)
+    if [[ $? -eq 0 ]]; then
+        if [ -n "$CFLAGS" ]; then
+            CFLAGS="$CFLAGS -DINPUT_OUTPUT"
+        else
+            CFLAGS="-DINPUT_OUTPUT"
+        fi
+        decimal_input
+    else
+        options
+    fi
 }
 
 main() {
@@ -83,7 +104,7 @@ trits() {
     else
         CFLAGS="-DTRITS=$TRITS"
     fi
-    decimal_input
+    input_output
 }
 
 main
