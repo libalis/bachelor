@@ -2,7 +2,7 @@
     #define BTINT_HPP
 
     #ifndef TRITS
-        #define TRITS (32)
+        #define TRITS (4)
     #endif
 
     #include <algorithm>

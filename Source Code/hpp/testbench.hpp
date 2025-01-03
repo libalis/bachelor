@@ -18,8 +18,10 @@
         int lock;
         bool eof;
 
-        ifstream input_dat;
-        ofstream output_dat;
+        #ifdef INPUT_OUTPUT
+            ifstream input_dat;
+            ofstream output_dat;
+        #endif
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
@@ -46,8 +48,10 @@
             lock = 0;
             eof = 0;
 
-            input_dat.open(INPUT_DAT);
-            output_dat.open(OUTPUT_DAT);
+            #ifdef INPUT_OUTPUT
+                input_dat.open(INPUT_DAT);
+                output_dat.open(OUTPUT_DAT);
+            #endif
 
             adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
             adder_subtractor->adder_subtractor_a(adder_subtractor_a);
@@ -73,8 +77,10 @@
         }
 
         ~TESTBENCH(void) {
-            input_dat.close();
-            output_dat.close();
+            #ifdef INPUT_OUTPUT
+                input_dat.close();
+                output_dat.close();
+            #endif
 
             delete adder_subtractor;
         }
