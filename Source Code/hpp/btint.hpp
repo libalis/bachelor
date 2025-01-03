@@ -66,6 +66,16 @@
             return *this;
         }
 
+        btint shift_right(int index) {
+            for(int i = 0; i < index; i++) {
+                for(int j = 0; j < T - 1; j++) {
+                    set_value(j, get_value(j + 1));
+                }
+                set_value(T - 1, 0);
+            }
+            return *this;
+        }
+
         btint set_value(int index, int decimal_value) {
             switch(decimal_value) {
                 case -1:
