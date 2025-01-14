@@ -4,27 +4,28 @@
     #include "adder_subtractor.hpp"
     #include "shift_register.hpp"
 
+    template <size_t T>
     SC_MODULE(MULTIPLIER) {
-        btint<4> b;
+        btint<T> b;
         bool init;
 
-        ADDER_SUBTRACTOR<4> *adder_subtractor;
+        ADDER_SUBTRACTOR<T> *adder_subtractor;
 
-        sc_signal<btint<4>> adder_subtractor_a;
-        sc_signal<btint<4>> adder_subtractor_b;
+        sc_signal<btint<T>> adder_subtractor_a;
+        sc_signal<btint<T>> adder_subtractor_b;
         sc_signal<bool> adder_subtractor_subtract;
 
-        sc_signal<btint<4 + 1>> adder_subtractor_sum;
+        sc_signal<btint<T + 1>> adder_subtractor_sum;
 
-        SHIFT_REGISTER *shift_register;
+        SHIFT_REGISTER<T> *shift_register;
 
-        sc_signal<btint<4 - 1>> shift_register_state;
+        sc_signal<btint<T - 1>> shift_register_state;
 
         sc_in<bool> multiplier_clock;
-        sc_in<btint<4>> multiplier_a;
-        sc_in<btint<4>> multiplier_b;
+        sc_in<btint<T>> multiplier_a;
+        sc_in<btint<T>> multiplier_b;
 
-        sc_out<btint<4 * 2>> multiplier_product;
+        sc_out<btint<T * 2>> multiplier_product;
 
         void source(void);
         void sink(void);
@@ -32,13 +33,13 @@
         SC_CTOR(MULTIPLIER) {
             init = 0;
 
-            adder_subtractor = new ADDER_SUBTRACTOR<4>("adder_subtractor");
+            adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
             adder_subtractor->adder_subtractor_a(adder_subtractor_a);
             adder_subtractor->adder_subtractor_b(adder_subtractor_b);
             adder_subtractor->adder_subtractor_subtract(adder_subtractor_subtract);
             adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
 
-            shift_register = new SHIFT_REGISTER("shift_register");
+            shift_register = new SHIFT_REGISTER<T>("shift_register");
             shift_register->shift_register_clock(multiplier_clock);
             shift_register->shift_register_input(adder_subtractor_sum);
             shift_register->shift_register_state(shift_register_state);
@@ -57,4 +58,5 @@
             delete shift_register;
         }
     };
+    template class MULTIPLIER<TRITS>;
 #endif

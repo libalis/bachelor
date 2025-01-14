@@ -31,12 +31,12 @@
 
         sc_signal<btint<T + 1>> adder_subtractor_sum;
 
-        MULTIPLIER *multiplier;
+        MULTIPLIER<T> *multiplier;
 
-        sc_signal<btint<4>> multiplier_a;
-        sc_signal<btint<4>> multiplier_b;
+        sc_signal<btint<T>> multiplier_a;
+        sc_signal<btint<T>> multiplier_b;
 
-        sc_signal<btint<4 * 2>> multiplier_product;
+        sc_signal<btint<T * 2>> multiplier_product;
 
         sc_in<bool> testbench_clock;
 
@@ -59,7 +59,7 @@
             adder_subtractor->adder_subtractor_subtract(adder_subtractor_subtract);
             adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
 
-            multiplier = new MULTIPLIER("multiplier");
+            multiplier = new MULTIPLIER<T>("multiplier");
             multiplier->multiplier_clock(clock);
             multiplier->multiplier_a(multiplier_a);
             multiplier->multiplier_b(multiplier_b);

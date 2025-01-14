@@ -3,14 +3,15 @@
 
     #include "btint.hpp"
 
+    template <size_t T>
     SC_MODULE(SHIFT_REGISTER) {
-        btint<4> state;
+        btint<T> state;
 
         sc_in<bool> shift_register_clock;
-        sc_in<btint<4 + 1>> shift_register_input;
+        sc_in<btint<T + 1>> shift_register_input;
 
-        sc_out<btint<4 - 1>> shift_register_state;
-        sc_out<btint<4>> shift_register_output;
+        sc_out<btint<T - 1>> shift_register_state;
+        sc_out<btint<T>> shift_register_output;
 
         void shift(void);
 
@@ -20,4 +21,5 @@
             dont_initialize();
         }
     };
+    template class SHIFT_REGISTER<TRITS>;
 #endif

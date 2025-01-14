@@ -81,5 +81,4 @@
         }
     };
     template class ADDER_SUBTRACTOR<TRITS>;
-    template class ADDER_SUBTRACTOR<2 * TRITS - 1>;
 #endif
