@@ -57,23 +57,25 @@
         }
 
         btint shift_left(int index) {
+            btint value;
             for(int i = 0; i < index; i++) {
                 for(int j = T - 1; j > 0; j--) {
-                    set_value(j, get_value(j - 1));
+                    value.set_value(j, get_value(j - 1));
                 }
-                set_value(0, 0);
+                value.set_value(0, 0);
             }
-            return *this;
+            return value;
         }
 
         btint shift_right(int index) {
+            btint value;
             for(int i = 0; i < index; i++) {
                 for(int j = 0; j < T - 1; j++) {
-                    set_value(j, get_value(j + 1));
+                    value.set_value(j, get_value(j + 1));
                 }
-                set_value(T - 1, 0);
+                value.set_value(T - 1, 0);
             }
-            return *this;
+            return value;
         }
 
         btint set_value(int index, int decimal_value) {

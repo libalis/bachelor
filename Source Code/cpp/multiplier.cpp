@@ -20,7 +20,7 @@ void MULTIPLIER<T>::sink(void) {
     } else {
         adder_subtractor_b.write(multiplier_a.read());
     }
-    b.shift_right(1);
+    b = b.shift_right(1);
     for(int i = 0; i < T + 1; i++) {
         product.btint_a[i + T - 1] = adder_subtractor_sum.read().btint_a[i];
         product.btint_b[i + T - 1] = adder_subtractor_sum.read().btint_b[i];

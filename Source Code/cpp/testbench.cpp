@@ -43,7 +43,7 @@ void TESTBENCH<T>::source(void) {
                     isNegative = 1;
                 } else if(isdigit(line[i])) {
                     #ifndef DECIMAL_INPUT
-                        btint_c->shift_left(1);
+                        *btint_c = btint_c->shift_left(1);
                         btint_c->set_value(0, isNegative ? -stoi(string(1, line[i])) : stoi(string(1, line[i])));
                         isNegative = 0;
                     #else

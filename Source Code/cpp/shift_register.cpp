@@ -3,7 +3,7 @@
 template <size_t T>
 void SHIFT_REGISTER<T>::shift(void) {
     btint<T> output;
-    state.shift_right(1);
+    state = state.shift_right(1);
     state.btint_a[T - 1] = shift_register_input.read().btint_a[0];
     state.btint_b[T - 1] = shift_register_input.read().btint_b[0];
     shift_register_state.write(state);
