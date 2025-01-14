@@ -14,20 +14,18 @@ void MULTIPLIER<T>::sink(void) {
         init = 0;
         return;
     }
-    adder_subtractor_subtract.write(!(b.btint_a[0] && b.btint_b[0]));
-    if(b.btint_a[0] ^ b.btint_b[0]) {
-        adder_subtractor_b.write(btint<T>());
-    } else {
+    adder_subtractor_subtract.write(b.get_value(0) == -1);
+    if(b.get_value(0)) {
         adder_subtractor_b.write(multiplier_a.read());
+    } else {
+        adder_subtractor_b.write(btint<T>());
     }
     b = b.shift_right(1);
     for(int i = 0; i < T + 1; i++) {
-        product.btint_a[i + T - 1] = adder_subtractor_sum.read().btint_a[i];
-        product.btint_b[i + T - 1] = adder_subtractor_sum.read().btint_b[i];
+        product.set_value(i + T - 1, adder_subtractor_sum.read().get_value(i));
     }
     for(int i = 0; i < T - 1; i++) {
-        product.btint_a[i] = shift_register_state.read().btint_a[i];
-        product.btint_b[i] = shift_register_state.read().btint_b[i];
+        product.set_value(i, shift_register_state.read().get_value(i));
     }
     multiplier_product.write(product);
 }
