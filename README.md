@@ -5,12 +5,19 @@
 An implementation of parameterized systolic arrays, the balanced ternary system, its addition and multiplication in SystemC
 ## Installation
 ### Dependencies
-- [GNU Compiler Collection](https://gcc.gnu.org/)
+- [CMake](https://www.cmake.org)
+- [Dialog](https://invisible-island.net/dialog)
+- [GNU Compiler Collection](https://gcc.gnu.org)
 - [GNU Make](https://www.gnu.org/software/make)
-- [SystemC](http://www.accellera.org/downloads/standards/systemc)
+- [Intel Compiler for SystemC](https://github.com/intel/systemc-compiler)
+- [SystemC](https://www.accellera.org/downloads/standards/systemc)
 ```sh
 make clean
 make
+```
+Or using the dialog:
+```sh
+make config
 ```
 ## Usage
 ```sh
