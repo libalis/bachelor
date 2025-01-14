@@ -1,8 +1,8 @@
 #ifndef ADDER_SUBTRACTOR_HPP
     #define ADDER_SUBTRACTOR_HPP
 
-    #include "../hpp/btint.hpp"
-    #include "../hpp/fulladder.hpp"
+    #include "btint.hpp"
+    #include "fulladder.hpp"
 
     using namespace std;
 
