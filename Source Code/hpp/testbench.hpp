@@ -9,6 +9,10 @@
         #define OUTPUT_DAT ("./dat/output.dat")
     #endif
 
+    #ifdef INPUT_OUTPUT
+        #include <fstream>
+    #endif
+
     #include "multiplier.hpp"
 
     template <size_t T>
@@ -33,6 +37,7 @@
 
         MULTIPLIER<T> *multiplier;
 
+        sc_signal<bool> multiplier_reset;
         sc_signal<btint<T>> multiplier_a;
         sc_signal<btint<T>> multiplier_b;
 
@@ -61,6 +66,7 @@
 
             multiplier = new MULTIPLIER<T>("multiplier");
             multiplier->multiplier_clock(clock);
+            multiplier->multiplier_reset(multiplier_reset);
             multiplier->multiplier_a(multiplier_a);
             multiplier->multiplier_b(multiplier_b);
             multiplier->multiplier_product(multiplier_product);

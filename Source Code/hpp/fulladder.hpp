@@ -1,7 +1,9 @@
 #ifndef FULLADDER_HPP
     #define FULLADDER_HPP
 
-    #include <systemc.h>
+    #include <systemc>
+
+    using namespace sc_core;
 
     SC_MODULE(FULLADDER) {
         sc_in<bool> fulladder_a;

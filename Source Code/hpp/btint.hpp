@@ -6,9 +6,10 @@
     #endif
 
     #include <algorithm>
-    #include <systemc.h>
+    #include <systemc>
 
     using namespace std;
+    using namespace sc_core;
 
     template <size_t T>
     struct btint {

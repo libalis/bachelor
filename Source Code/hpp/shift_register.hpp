@@ -8,6 +8,7 @@
         btint<T> state;
 
         sc_in<bool> shift_register_clock;
+        sc_in<bool> shift_register_reset;
         sc_in<btint<T + 1>> shift_register_input;
 
         sc_out<btint<T - 1>> shift_register_state;

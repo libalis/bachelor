@@ -4,8 +4,6 @@
     #include "btint.hpp"
     #include "fulladder.hpp"
 
-    using namespace std;
-
     template <size_t T>
     SC_MODULE(ADDER_SUBTRACTOR) {
         sc_signal<bool> one;
