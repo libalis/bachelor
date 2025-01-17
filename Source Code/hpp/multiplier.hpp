@@ -43,9 +43,7 @@
             shift_register->shift_register_state(shift_register_state);
             shift_register->shift_register_output(adder_subtractor_a);
 
-            SC_METHOD(multiply);
-            sensitive << multiplier_clock.pos();
-            dont_initialize();
+            SC_CTHREAD(multiply, multiplier_clock.pos());
         }
 
         ~MULTIPLIER(void) {

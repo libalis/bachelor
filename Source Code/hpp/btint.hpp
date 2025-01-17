@@ -62,6 +62,7 @@
             btint value;
             value.btint_a = btint_a << index;
             value.btint_b = btint_b << index;
+            value.set_value(T - 1, 0);
             return value;
         }
 
@@ -69,6 +70,7 @@
             btint value;
             value.btint_a = btint_a >> index;
             value.btint_b = btint_b >> index;
+            value.set_value(T - 1, 0);
             return value;
         }
 
