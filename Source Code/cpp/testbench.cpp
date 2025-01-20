@@ -27,7 +27,7 @@ void TESTBENCH<T>::source(void) {
                             break;
                         case '*':
                             multiply = 1;
-                            lock = T + 1;
+                            lock = T + 3;
                             break;
                         default:
                             break;
@@ -70,7 +70,7 @@ void TESTBENCH<T>::source(void) {
             eof = 1;
         } else {
             multiply = 1;
-            lock = T + 1;
+            lock = T + 3;
             multiplier_reset.write(1);
             multiplier_a.write(btint<T>(6));
             multiplier_b.write(btint<T>(7));

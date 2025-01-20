@@ -14,8 +14,8 @@
 
     template <size_t T>
     struct btint {
-        sc_uint<T> btint_a;
-        sc_uint<T> btint_b;
+        sc_biguint<T> btint_a;
+        sc_biguint<T> btint_b;
 
         btint() {
             for(int i = 0; i < T; i++) {
@@ -62,7 +62,7 @@
             btint value;
             value.btint_a = btint_a << index;
             value.btint_b = btint_b << index;
-            value.set_value(T - 1, 0);
+            value.set_value(0, 0);
             return value;
         }
 
