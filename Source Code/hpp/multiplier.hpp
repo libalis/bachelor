@@ -1,13 +1,18 @@
 #ifndef MULTIPLIER_HPP
     #define MULTIPLIER_HPP
 
+    #ifndef MULTIPLIER_LOCK
+        #define MULTIPLIER_LOCK (T + 3)
+    #endif
+
     #include "adder_subtractor.hpp"
     #include "shift_register.hpp"
 
     template <size_t T>
     SC_MODULE(MULTIPLIER) {
-        btint<T> b;
         btint<T + 1> sum;
+        btint<T> b;
+        int lock;
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
@@ -19,6 +24,8 @@
 
         SHIFT_REGISTER<T> *shift_register;
 
+        sc_signal<bool> shift_register_reset;
+
         sc_signal<btint<T - 1>> shift_register_state;
 
         sc_in<bool> multiplier_clock;
@@ -28,6 +35,7 @@
 
         sc_out<btint<T * 2>> multiplier_product;
 
+        void reset(void);
         void multiply(void);
 
         SC_CTOR(MULTIPLIER) {
@@ -39,10 +47,13 @@
 
             shift_register = new SHIFT_REGISTER<T>("shift_register");
             shift_register->shift_register_clock(multiplier_clock);
-            shift_register->shift_register_reset(multiplier_reset);
+            shift_register->shift_register_reset(shift_register_reset);
             shift_register->shift_register_input(adder_subtractor_sum);
             shift_register->shift_register_state(shift_register_state);
             shift_register->shift_register_output(adder_subtractor_a);
+
+            SC_METHOD(reset);
+            sensitive << multiplier_reset << multiplier_a << multiplier_b;
 
             SC_METHOD(multiply);
             sensitive << multiplier_clock.pos();

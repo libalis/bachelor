@@ -6,7 +6,6 @@ void TESTBENCH<T>::source(void) {
         string line;
         if(lock) {
             lock--;
-            multiplier_reset.write(0);
         } else if(!getline(input_dat, line)) {
             eof = 1;
         } else {
@@ -27,7 +26,7 @@ void TESTBENCH<T>::source(void) {
                             break;
                         case '*':
                             multiply = 1;
-                            lock = T + 3;
+                            lock = MULTIPLIER_LOCK;
                             break;
                         default:
                             break;
@@ -54,7 +53,6 @@ void TESTBENCH<T>::source(void) {
                 *btint_c = btint<T>(isNegative ? -*decimal_c : *decimal_c);
             #endif
             if(multiply) {
-                multiplier_reset.write(1);
                 multiplier_a.write(btint_a);
                 multiplier_b.write(btint_b);
             } else {
@@ -65,13 +63,11 @@ void TESTBENCH<T>::source(void) {
     #else
         if(lock) {
             lock--;
-            multiplier_reset.write(0);
         } else if(multiply) {
             eof = 1;
         } else {
             multiply = 1;
-            lock = T + 3;
-            multiplier_reset.write(1);
+            lock = MULTIPLIER_LOCK;
             multiplier_a.write(btint<T>(6));
             multiplier_b.write(btint<T>(7));
         }

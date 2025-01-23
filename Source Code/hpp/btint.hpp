@@ -43,6 +43,9 @@
             }
             int i = 0;
             while(value) {
+                if(i >= T) {
+                    break;
+                }
                 if(value % 2) {
                     set_value(i++, 1);
                     value -= 1;
