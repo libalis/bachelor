@@ -11,6 +11,8 @@
     template <size_t T>
     SC_MODULE(MULTIPLIER) {
         btint<T + 1> sum;
+        btint<T> a_old;
+        btint<T> b_old;
         btint<T> b;
         int lock;
 
@@ -35,7 +37,6 @@
 
         sc_out<btint<T * 2>> multiplier_product;
 
-        void reset(void);
         void multiply(void);
 
         SC_CTOR(MULTIPLIER) {
@@ -52,11 +53,7 @@
             shift_register->shift_register_state(shift_register_state);
             shift_register->shift_register_output(adder_subtractor_a);
 
-            SC_METHOD(reset);
-            sensitive << multiplier_reset << multiplier_a << multiplier_b;
-
-            SC_METHOD(multiply);
-            sensitive << multiplier_clock.pos();
+            SC_CTHREAD(multiply, multiplier_clock.pos());
             dont_initialize();
         }
 
