@@ -61,7 +61,7 @@
             }
         }
 
-        btint shift_left(int index) {
+        btint shift_left(int index) const {
             btint value;
             value.btint_a = btint_a << index;
             value.btint_b = btint_b << index;
@@ -69,7 +69,7 @@
             return value;
         }
 
-        btint shift_right(int index) {
+        btint shift_right(int index) const {
             btint value;
             value.btint_a = btint_a >> index;
             value.btint_b = btint_b >> index;
