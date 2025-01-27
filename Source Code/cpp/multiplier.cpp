@@ -35,9 +35,7 @@ void MULTIPLIER<T>::multiply(void) {
             for(int i = 0; i < T; i++) {
                 product.set_value(i + T, adder_subtractor_a.read().get_value(i));
             }
-            if(lock == 1) {
-                multiplier_product.write(product);
-            }
+            multiplier_product.write(product);
         }
         if(lock > 0) {
             lock--;
