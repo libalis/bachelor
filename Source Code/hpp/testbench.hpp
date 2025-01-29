@@ -17,15 +17,7 @@
 
     template <size_t T>
     SC_MODULE(TESTBENCH) {
-        sc_clock clock;
-        bool multiply;
-        int lock;
-        bool eof;
-
-        #ifdef INPUT_OUTPUT
-            ifstream input_dat;
-            ofstream output_dat;
-        #endif
+        sc_in<bool> testbench_clock;
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
@@ -43,20 +35,21 @@
 
         sc_signal<btint<T * 2>> multiplier_product;
 
-        sc_in<bool> testbench_clock;
+        sc_clock clock;
+        bool multiply;
+        int lock;
+        bool eof;
+
+        #ifdef INPUT_OUTPUT
+            ifstream input_dat;
+            ofstream output_dat;
+        #endif
 
         void source(void);
         void sink(void);
 
         SC_CTOR(TESTBENCH) : clock("clock", 10, SC_NS) {
-            multiply = 0;
-            lock = 0;
-            eof = 0;
-
-            #ifdef INPUT_OUTPUT
-                input_dat.open(INPUT_DAT);
-                output_dat.open(OUTPUT_DAT);
-            #endif
+            this->testbench_clock(clock);
 
             adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
             adder_subtractor->adder_subtractor_a(adder_subtractor_a);
@@ -71,7 +64,14 @@
             multiplier->multiplier_b(multiplier_b);
             multiplier->multiplier_product(multiplier_product);
 
-            this->testbench_clock(clock);
+            multiply = 0;
+            lock = 0;
+            eof = 0;
+
+            #ifdef INPUT_OUTPUT
+                input_dat.open(INPUT_DAT);
+                output_dat.open(OUTPUT_DAT);
+            #endif
 
             SC_METHOD(source);
             sensitive << testbench_clock.pos();
@@ -83,13 +83,13 @@
         }
 
         ~TESTBENCH(void) {
+            delete adder_subtractor;
+            delete multiplier;
+
             #ifdef INPUT_OUTPUT
                 input_dat.close();
                 output_dat.close();
             #endif
-
-            delete adder_subtractor;
-            delete multiplier;
         }
     };
     template class TESTBENCH<TRITS>;

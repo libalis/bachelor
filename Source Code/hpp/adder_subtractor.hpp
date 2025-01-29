@@ -6,6 +6,12 @@
 
     template <size_t T>
     SC_MODULE(ADDER_SUBTRACTOR) {
+        sc_in<btint<T>> adder_subtractor_a;
+        sc_in<btint<T>> adder_subtractor_b;
+        sc_in<bool> adder_subtractor_subtract;
+
+        sc_out<btint<T + 1>> adder_subtractor_sum;
+
         sc_signal<bool> one;
 
         sc_signal<bool> input_a[2][T];
@@ -17,12 +23,6 @@
 
         sc_signal<bool> fulladder_sum[T];
         sc_signal<bool> fulladder_carry_out[T - 1];
-
-        sc_in<btint<T>> adder_subtractor_a;
-        sc_in<btint<T>> adder_subtractor_b;
-        sc_in<bool> adder_subtractor_subtract;
-
-        sc_out<btint<T + 1>> adder_subtractor_sum;
 
         void source(void);
         void sink(void);

@@ -10,10 +10,12 @@
 
     template <size_t T>
     SC_MODULE(MULTIPLIER) {
-        btint<T> a_old;
-        btint<T> b_old;
-        btint<T> b;
-        int lock;
+        sc_in<bool> multiplier_clock;
+        sc_in<bool> multiplier_reset;
+        sc_in<btint<T>> multiplier_a;
+        sc_in<btint<T>> multiplier_b;
+
+        sc_out<btint<T * 2>> multiplier_product;
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
@@ -29,12 +31,10 @@
 
         sc_signal<btint<T>> shift_register_state;
 
-        sc_in<bool> multiplier_clock;
-        sc_in<bool> multiplier_reset;
-        sc_in<btint<T>> multiplier_a;
-        sc_in<btint<T>> multiplier_b;
-
-        sc_out<btint<T * 2>> multiplier_product;
+        btint<T> a_old;
+        btint<T> b_old;
+        btint<T> b;
+        int lock;
 
         void multiply(void);
 
@@ -51,6 +51,8 @@
             shift_register->shift_register_input(adder_subtractor_sum);
             shift_register->shift_register_state(shift_register_state);
             shift_register->shift_register_output(adder_subtractor_a);
+
+            lock = 0;
 
             SC_CTHREAD(multiply, multiplier_clock.pos());
             reset_signal_is(multiplier_reset, true);
