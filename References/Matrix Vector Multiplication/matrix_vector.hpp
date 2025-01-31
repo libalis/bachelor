@@ -17,10 +17,10 @@ SC_MODULE(matrix_vector) {
     sc_in<bool> in_clk;
     sc_in<bool> in_rst;
     matrix_vector_control mvc;
-    sys_cell c0;
-    sys_cell c1;
-    sys_cell c2;
-    sys_cell c3;
+    cell c0;
+    cell c1;
+    cell c2;
+    cell c3;
     void func_mv();
     SC_CTOR(matrix_vector) : mvc("mvc"), c0("c0"), c1("c1"), c2("c2"), c3("c3") {
         func_mv();

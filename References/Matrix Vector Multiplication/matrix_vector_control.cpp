@@ -25,7 +25,7 @@ void matrix_vector_control::func() {
             for(int i = 0; i < X; i++) {
                 mvc_result[i].write(result[i]);
             }
-            if(index[Y-1] >= X) {
+            if(index[Y-1] >= X + 1) {
                 done.write(true);
             } else {
                 done.write(false);
@@ -59,6 +59,6 @@ void matrix_vector_control::func() {
                 }
             }
         }
-        wait();
+        wait(8 + 3 + Y);
     }
 }

@@ -59,10 +59,10 @@ int sc_main(int argc, char *argv[]) {
         sc_trace(fp, top->mv.in_c[i], inc);
         sc_trace(fp, top->mv.out_c[i], outc);
     }
-    sc_trace(fp, top->mv.c0.reg, "reg0");
-    sc_trace(fp, top->mv.c1.reg, "reg1");
-    sc_trace(fp, top->mv.c2.reg, "reg2");
-    sc_trace(fp, top->mv.c3.reg, "reg3");
+    sc_trace(fp, top->mv.c0.state, "state0");
+    sc_trace(fp, top->mv.c1.state, "state1");
+    sc_trace(fp, top->mv.c2.state, "state2");
+    sc_trace(fp, top->mv.c3.state, "state3");
     sc_start();
     sc_close_vcd_trace_file(fp);
     return 0;

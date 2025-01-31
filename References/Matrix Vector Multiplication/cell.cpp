@@ -1,10 +1,17 @@
 #include "cell.hpp"
-void sys_cell::func() {
-    b_out.write(b_in.read());
-    if(write_in.read()) {
-        reg = b_in.read();
-        c_out.write(0);
-    } else {
-        c_out.write(c_in.read() + reg * b_in.read());
+
+void cell::compute(void) {
+    cell_b_out.write(cell_b_in.read());
+    cell_c_out.write(0);
+    state = cell_b_in.read();
+    wait();
+    while(true) {
+        cell_b_out.write(cell_b_in.read());
+        multiplier_a.write(btint<8>(state));
+        multiplier_b.write(btint<8>(cell_b_in.read()));
+        adder_subtractor_a.write(multiplier_product.read());
+        adder_subtractor_b.write(btint<8>(cell_c_in.read()));
+        cell_c_out.write(adder_subtractor_sum.read().to_int());
+        wait();
     }
 }
