@@ -64,7 +64,8 @@
         }
 
         btint<TRITS> check_overflow() const {
-            btint value = btint(this->to_int());
+            btint value(to_int());
+            value.overflow = overflow;
             bool overflow = 0;
             for(int i = TRITS; i < T; i++) {
                 if(value.get_value(i)) {
