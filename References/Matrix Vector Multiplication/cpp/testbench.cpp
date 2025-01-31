@@ -1,5 +1,7 @@
-#include "tb.hpp"
-void testbench::source() {
+#include "../hpp/testbench.hpp"
+
+template <size_t T>
+void TESTBENCH<T>::source(void) {
     valid.write(0);
     rst.write(1);
     wait();
@@ -8,21 +10,23 @@ void testbench::source() {
     printf("Matrix:\n");
     for(int i = 0; i < X; i++) {
         for(int j = 0; j < Y; j++) {
-            tb_matrix[i][j].write(m[i][j]);
-            printf("%3.d ",m[i][j].to_int());
+            tb_matrix[i][j].write(m<T>[i][j]);
+            printf("%3.d ",m<T>[i][j].to_int());
         }
         printf("\n");
     }
     printf("Vektor:\n");
     for(int i = 0; i < Y; i++) {
-        tb_vector[i].write(v[i]);
-        printf("%3.d ",v[i].to_int());
+        tb_vector[i].write(v<T>[i]);
+        printf("%3.d ",v<T>[i].to_int());
         printf("\n");
     }
     valid.write(1);
 }
-void testbench::sink() {
-    sc_int<8> indata[X];
+
+template <size_t T>
+void TESTBENCH<T>::sink(void) {
+    sc_int<T> indata[X];
     do {
         wait();
     } while(!done);

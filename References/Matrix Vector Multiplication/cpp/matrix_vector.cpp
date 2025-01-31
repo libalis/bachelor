@@ -1,5 +1,7 @@
-#include "matrix_vector.hpp"
-void matrix_vector::func_mv() {
+#include "../hpp/matrix_vector.hpp"
+
+template <size_t T>
+void MATRIX_VECTOR<T>::construct(void) {
     #pragma HLS ARRAY_PARTITION variable=in_matrix complete dim=2
     #pragma HLS ARRAY_PARTITION variable=in_vector complete dim=1
     #pragma HLS ARRAY_PARTITION variable=out_result complete dim=1
