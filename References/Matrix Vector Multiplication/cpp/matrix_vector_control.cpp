@@ -10,8 +10,8 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
     #pragma HLS ARRAY_PARTITION variable=in_b complete dim=1
     #pragma HLS ARRAY_PARTITION variable=in_c complete dim=1
     #pragma HLS ARRAY_PARTITION variable=mvc_result complete dim=1
-    sc_int<T> result[X];
-    sc_int<T> index[Y];
+    btint<T> result[X];
+    int index[Y];
     bool vec_done;
     for(int i = 0; i < X; i++) {
         result[i] = 0;
@@ -35,7 +35,7 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
             }
             if(!vec_done) {
                 for(int i = 0; i < Y; i++) {
-                    sc_int<T> temp = vector[i].read();
+                    btint<T> temp = vector[i].read();
                     in_b[i].write(temp);
                     write_reg.write(true);
                 }
@@ -46,7 +46,7 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
                     if(index[i] < 0 || index[i] > X-1) {
                         in_b[i].write(0);
                     } else {
-                        sc_int<T> temp = matrix[index[i]][i].read();
+                        btint<T> temp = matrix[index[i]][i].read();
                         in_b[i].write(temp);
                     }
                 }

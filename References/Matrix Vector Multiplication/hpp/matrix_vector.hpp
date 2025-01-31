@@ -8,13 +8,13 @@
 
     template <size_t T>
     SC_MODULE(MATRIX_VECTOR) {
-        sc_in<sc_int<T>> in_matrix[X][Y];
-        sc_in<sc_int<T>> in_vector[Y];
-        sc_out<sc_int<T>> out_result[X];
-        sc_signal<sc_int<T>> out_b[Y];
-        sc_signal<sc_int<T>> out_c[Y];
-        sc_signal<sc_int<T>> in_b[Y];
-        sc_signal<sc_int<T>> in_c[Y];
+        sc_in<btint<T>> in_matrix[X][Y];
+        sc_in<btint<T>> in_vector[Y];
+        sc_out<btint<T>> out_result[X];
+        sc_signal<btint<T>> out_b[Y];
+        sc_signal<btint<T>> out_c[Y];
+        sc_signal<btint<T>> in_b[Y];
+        sc_signal<btint<T>> in_c[Y];
         sc_signal<bool> out_write;
         sc_signal<bool> in_write;
         sc_signal<bool> done;

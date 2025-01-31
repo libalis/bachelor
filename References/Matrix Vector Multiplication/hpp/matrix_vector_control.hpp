@@ -10,15 +10,15 @@
     SC_MODULE(MATRIX_VECTOR_CONTROL) {
         sc_in<bool> clk;
         sc_in<bool> rst;
-        sc_in<sc_int<T>> out_c[Y];
-        sc_in<sc_int<T>> matrix[X][Y];
-        sc_in<sc_int<T>> vector[Y];
+        sc_in<btint<T>> out_c[Y];
+        sc_in<btint<T>> matrix[X][Y];
+        sc_in<btint<T>> vector[Y];
         sc_in<bool> data_valid;
         sc_out<bool> write_reg;
-        sc_out<sc_int<T>> in_b[Y];
-        sc_out<sc_int<T>> in_c[Y];
+        sc_out<btint<T>> in_b[Y];
+        sc_out<btint<T>> in_c[Y];
         sc_out<bool> done;
-        sc_out<sc_int<T>> mvc_result[X];
+        sc_out<btint<T>> mvc_result[X];
         void control(void);
         SC_CTOR(MATRIX_VECTOR_CONTROL) {
             SC_CTHREAD(control, clk.pos());

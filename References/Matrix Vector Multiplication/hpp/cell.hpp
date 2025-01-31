@@ -7,11 +7,11 @@
     SC_MODULE(CELL) {
         sc_in<bool> cell_clock;
         sc_in<bool> cell_reset;
-        sc_in<sc_int<T>> cell_b_in;
-        sc_in<sc_int<T>> cell_c_in;
+        sc_in<btint<T>> cell_b_in;
+        sc_in<btint<T>> cell_c_in;
 
-        sc_out<sc_int<T>> cell_b_out;
-        sc_out<sc_int<T>> cell_c_out;
+        sc_out<btint<T>> cell_b_out;
+        sc_out<btint<T>> cell_c_out;
 
         sc_signal<bool> zero;
 
@@ -29,7 +29,7 @@
 
         sc_signal<btint<T * 2>> multiplier_product;
 
-        sc_int<T> state;
+        btint<T> state;
 
         void compute(void);
 

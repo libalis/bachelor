@@ -26,7 +26,7 @@ void TESTBENCH<T>::source(void) {
 
 template <size_t T>
 void TESTBENCH<T>::sink(void) {
-    sc_int<T> indata[X];
+    btint<T> indata[X];
     do {
         wait();
     } while(!done);

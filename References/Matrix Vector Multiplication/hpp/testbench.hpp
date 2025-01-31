@@ -12,9 +12,9 @@
         sc_out<bool> rst;
         sc_out<bool> valid;
         sc_in<bool> done;
-        sc_in<sc_int<T>> result[X];
-        sc_out<sc_int<T>> tb_matrix[X][Y];
-        sc_out<sc_int<T>> tb_vector[Y];
+        sc_in<btint<T>> result[X];
+        sc_out<btint<T>> tb_matrix[X][Y];
+        sc_out<btint<T>> tb_vector[Y];
         void source(void);
         void sink(void);
         SC_CTOR(TESTBENCH) {
