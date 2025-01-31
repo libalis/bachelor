@@ -2,7 +2,7 @@
     #define BTINT_HPP
 
     #ifndef TRITS
-        #define TRITS (4)
+        #define TRITS (8)
     #endif
 
     #include <algorithm>
@@ -16,6 +16,7 @@
     struct btint {
         sc_biguint<T> btint_a;
         sc_biguint<T> btint_b;
+        bool overflow = 0;
 
         btint() {
             for(int i = 0; i < T; i++) {
@@ -44,6 +45,7 @@
             int i = 0;
             while(value) {
                 if(i >= T) {
+                    overflow = 1;
                     break;
                 }
                 if(value % 2) {
@@ -62,17 +64,24 @@
         }
 
         btint<TRITS> check_overflow() const {
-            btint value = btint<T>(this->to_int());
-            if(TRITS < T) {
-                if(value.get_value(TRITS)) {
-                    cout << "Possible Overflow" << endl;
-                } else if(get_value(TRITS)) {
-                    cout << "Pseudo Overflow" << endl;
-                } else {
-                    cout << "No Overflow" << endl;
+            btint value = btint(this->to_int());
+            bool overflow = 0;
+            for(int i = TRITS; i < T; i++) {
+                if(value.get_value(i)) {
+                    value.overflow = 1;
+                    break;
                 }
+                if(get_value(i)) {
+                    overflow = 1;
+                    break;
+                }
+            }
+            if(value.overflow) {
+                cout << "Possible Overflow" << endl;
+            } else if(overflow) {
+                cout << "Pseudo Overflow" << endl;
             } else {
-                cout << "No Overflow Check Possible" << endl;
+                cout << "No Overflow" << endl;
             }
             return value;
         }
