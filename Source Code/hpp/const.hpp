@@ -1,6 +1,6 @@
 #include <systemc.h>
 
-#include "../../../Source Code/hpp/btint.hpp"
+#include "btint.hpp"
 
 #ifndef CONST_HPP
     #define CONST_HPP

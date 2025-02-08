@@ -3,7 +3,7 @@
 
     #include <systemc.h>
 
-    #include "../../../Source Code/hpp/btint.hpp"
+    #include "btint.hpp"
     #include "const.hpp"
 
     template <size_t T>

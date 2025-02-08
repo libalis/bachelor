@@ -1,7 +1,7 @@
 #ifndef CELL_HPP
     #define CELL_HPP
 
-    #include "../../../Source Code/hpp/multiplier.hpp"
+    #include "multiplier.hpp"
 
     template <size_t T>
     SC_MODULE(CELL) {

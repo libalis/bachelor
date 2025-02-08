@@ -1,6 +1,6 @@
 #include "../hpp/matrix_vector_control.hpp"
 #include "../hpp/const.hpp"
-#include "../../../Source Code/hpp/multiplier.hpp"
+#include "../hpp/multiplier.hpp"
 
 template <size_t T>
 void MATRIX_VECTOR_CONTROL<T>::control(void) {

@@ -9,36 +9,21 @@
         #define OUTPUT_DAT ("./dat/output.dat")
     #endif
 
-    #ifdef INPUT_OUTPUT
-        #include <fstream>
-    #endif
+    #include <systemc.h>
 
-    #include "multiplier.hpp"
+    #include "btint.hpp"
+    #include "const.hpp"
 
     template <size_t T>
     SC_MODULE(TESTBENCH) {
         sc_in<bool> testbench_clock;
+        sc_in<btint<T>> testbench_result[X];
+        sc_in<bool> testbench_done;
 
-        ADDER_SUBTRACTOR<T> *adder_subtractor;
-
-        sc_signal<btint<T>> adder_subtractor_a;
-        sc_signal<btint<T>> adder_subtractor_b;
-        sc_signal<bool> adder_subtractor_subtract;
-
-        sc_signal<btint<T + 1>> adder_subtractor_sum;
-
-        MULTIPLIER<T> *multiplier;
-
-        sc_signal<bool> multiplier_reset;
-        sc_signal<btint<T>> multiplier_a;
-        sc_signal<btint<T>> multiplier_b;
-
-        sc_signal<btint<T * 2>> multiplier_product;
-
-        sc_clock clock;
-        bool multiply;
-        int lock;
-        bool eof;
+        sc_out<bool> testbench_reset;
+        sc_out<bool> testbench_valid;
+        sc_out<btint<T>> testbench_matrix[X][Y];
+        sc_out<btint<T>> testbench_vector[Y];
 
         #ifdef INPUT_OUTPUT
             ifstream input_dat;
@@ -48,44 +33,17 @@
         void source(void);
         void sink(void);
 
-        SC_CTOR(TESTBENCH) : clock("clock", 10, SC_NS) {
-            this->testbench_clock(clock);
-
-            adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
-            adder_subtractor->adder_subtractor_a(adder_subtractor_a);
-            adder_subtractor->adder_subtractor_b(adder_subtractor_b);
-            adder_subtractor->adder_subtractor_subtract(adder_subtractor_subtract);
-            adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
-
-            multiplier = new MULTIPLIER<T>("multiplier");
-            multiplier->multiplier_clock(clock);
-            multiplier->multiplier_reset(multiplier_reset);
-            multiplier->multiplier_a(multiplier_a);
-            multiplier->multiplier_b(multiplier_b);
-            multiplier->multiplier_product(multiplier_product);
-
-            multiply = 0;
-            lock = 0;
-            eof = 0;
-
+        SC_CTOR(TESTBENCH) {
             #ifdef INPUT_OUTPUT
                 input_dat.open(INPUT_DAT);
                 output_dat.open(OUTPUT_DAT);
             #endif
 
-            SC_METHOD(source);
-            sensitive << testbench_clock.pos();
-            dont_initialize();
-
-            SC_METHOD(sink);
-            sensitive << testbench_clock.pos();
-            dont_initialize();
+            SC_CTHREAD(source, testbench_clock.pos());
+            SC_CTHREAD(sink, testbench_clock.pos());
         }
 
         ~TESTBENCH(void) {
-            delete adder_subtractor;
-            delete multiplier;
-
             #ifdef INPUT_OUTPUT
                 input_dat.close();
                 output_dat.close();
