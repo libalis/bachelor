@@ -17,10 +17,7 @@
         sc_out<btint<T>> matrix_vector_result[X];
         sc_out<bool> matrix_vector_done;
 
-        CELL<T> *cell_0;
-        CELL<T> *cell_1;
-        CELL<T> *cell_2;
-        CELL<T> *cell_3;
+        CELL<T> *cell[Y];
 
         sc_signal<bool> cell_reset;
         sc_signal<btint<T>> cell_b_in[Y];
@@ -36,10 +33,9 @@
         SC_CTOR(MATRIX_VECTOR) {
             matrix_vector_control = new MATRIX_VECTOR_CONTROL<T>("matrix_vector_control");
 
-            cell_0 = new CELL<T>("cell_0");
-            cell_1 = new CELL<T>("cell_1");
-            cell_2 = new CELL<T>("cell_2");
-            cell_3 = new CELL<T>("cell_3");
+            for(int i = 0; i < Y; i++) {
+                cell[i] = new CELL<T>(("cell_" + to_string(i)).c_str());
+            }
 
             construct();
         }
@@ -47,10 +43,9 @@
         ~MATRIX_VECTOR(void) {
             delete matrix_vector_control;
 
-            delete cell_0;
-            delete cell_1;
-            delete cell_2;
-            delete cell_3;
+            for(int i = 0; i < Y; i++) {
+                delete cell[i];
+            }
         }
     };
     template class MATRIX_VECTOR<TRITS>;
