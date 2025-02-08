@@ -1,47 +1,68 @@
 #include <systemc.h>
 
-#include "../hpp/testbench.hpp"
 #include "../hpp/matrix_vector.hpp"
+#include "../hpp/testbench.hpp"
 
 template <size_t T>
 SC_MODULE(SYSTEM) {
-    TESTBENCH<T> tb;
-    MATRIX_VECTOR<T> mv;
-    sc_signal<bool> rst_sig;
-    sc_signal<bool> done_sig;
-    sc_signal<bool> valid_sig;
-    sc_signal<btint<T>> matrix_sig[X][Y];
-    sc_signal<btint<T>> vector_sig[Y];
-    sc_signal<btint<T>> result_sig[X];
-    sc_clock clk_sig;
-    SC_CTOR(SYSTEM) : clk_sig("clk_sig", 10, SC_NS), tb("tb"), mv("mv") {
-        tb.clk(clk_sig);
-        tb.rst(rst_sig);
-        tb.done(done_sig);
-        tb.valid(valid_sig);
-        mv.in_clk(clk_sig);
-        mv.in_rst(rst_sig);
-        mv.valid_in(valid_sig);
-        mv.done_out(done_sig);
-        for(int i = 0; i < X; i++) {
-            tb.result[i](result_sig[i]);
-            mv.out_result[i](result_sig[i]);
-        }
+    MATRIX_VECTOR<T> *matrix_vector;
+
+    sc_signal<bool> matrix_vector_reset;
+    sc_signal<bool> matrix_vector_valid;
+    sc_signal<btint<T>> matrix_vector_matrix[X][Y];
+    sc_signal<btint<T>> matrix_vector_vector[Y];
+
+    sc_signal<btint<T>> matrix_vector_result[X];
+    sc_signal<bool> matrix_vector_done;
+
+    TESTBENCH<T> *testbench;
+
+    sc_clock system_clock;
+
+    SC_CTOR(SYSTEM) : system_clock("system_clock", 10, SC_NS) {
+        matrix_vector = new MATRIX_VECTOR<T>("matrix_vector");
+        matrix_vector->matrix_vector_clock(system_clock);
+        matrix_vector->matrix_vector_reset(matrix_vector_reset);
+        matrix_vector->matrix_vector_valid(matrix_vector_valid);
         for(int i = 0; i < X; i++) {
             for(int j = 0; j < Y; j++) {
-                tb.tb_matrix[i][j](matrix_sig[i][j]);
-                mv.in_matrix[i][j](matrix_sig[i][j]);
+                matrix_vector->matrix_vector_matrix[i][j](matrix_vector_matrix[i][j]);
             }
         }
         for(int i = 0; i < Y; i++) {
-            tb.tb_vector[i](vector_sig[i]);
-            mv.in_vector[i](vector_sig[i]);
+            matrix_vector->matrix_vector_vector[i](matrix_vector_vector[i]);
         }
+        for(int i = 0; i < X; i++) {
+            matrix_vector->matrix_vector_result[i](matrix_vector_result[i]);
+        }
+        matrix_vector->matrix_vector_done(matrix_vector_done);
+
+        testbench = new TESTBENCH<T>("testbench");
+        testbench->testbench_clock(system_clock);
+        testbench->testbench_reset(matrix_vector_reset);
+        testbench->testbench_valid(matrix_vector_valid);
+        for(int i = 0; i < X; i++) {
+            for(int j = 0; j < Y; j++) {
+                testbench->testbench_matrix[i][j](matrix_vector_matrix[i][j]);
+            }
+        }
+        for(int i = 0; i < Y; i++) {
+            testbench->testbench_vector[i](matrix_vector_vector[i]);
+        }
+        for(int i = 0; i < X; i++) {
+            testbench->testbench_result[i](matrix_vector_result[i]);
+        }
+        testbench->testbench_done(matrix_vector_done);
+    }
+
+    ~SYSTEM(void) {
+        delete matrix_vector;
+        delete testbench;
     }
 };
 
 int sc_main(int argc, char *argv[]) {
-    SYSTEM<TRITS> top("top");
+    SYSTEM<TRITS> system("system");
     sc_start();
     return 0;
 }

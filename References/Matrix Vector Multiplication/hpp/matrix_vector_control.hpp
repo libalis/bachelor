@@ -3,26 +3,29 @@
 
     #include <systemc.h>
 
-    #include "const.hpp"
     #include "../../../Source Code/hpp/btint.hpp"
+    #include "const.hpp"
 
     template <size_t T>
     SC_MODULE(MATRIX_VECTOR_CONTROL) {
-        sc_in<bool> clk;
-        sc_in<bool> rst;
-        sc_in<btint<T>> out_c[Y];
-        sc_in<btint<T>> matrix[X][Y];
-        sc_in<btint<T>> vector[Y];
-        sc_in<bool> data_valid;
-        sc_out<bool> write_reg;
-        sc_out<btint<T>> in_b[Y];
-        sc_out<btint<T>> in_c[Y];
-        sc_out<bool> done;
-        sc_out<btint<T>> mvc_result[X];
+        sc_in<bool> matrix_vector_control_clock;
+        sc_in<bool> matrix_vector_control_reset;
+        sc_in<bool> matrix_vector_control_valid;
+        sc_in<btint<T>> matrix_vector_control_matrix[X][Y];
+        sc_in<btint<T>> matrix_vector_control_vector[Y];
+        sc_in<btint<T>> matrix_vector_control_c_out[Y];
+
+        sc_out<btint<T>> matrix_vector_control_result[X];
+        sc_out<btint<T>> matrix_vector_control_b_in[Y];
+        sc_out<btint<T>> matrix_vector_control_c_in[Y];
+        sc_out<bool> matrix_vector_control_reset_out;
+        sc_out<bool> matrix_vector_control_done;
+
         void control(void);
+
         SC_CTOR(MATRIX_VECTOR_CONTROL) {
-            SC_CTHREAD(control, clk.pos());
-            reset_signal_is(rst, true);
+            SC_CTHREAD(control, matrix_vector_control_clock.pos());
+            reset_signal_is(matrix_vector_control_reset, true);
         }
     };
     template class MATRIX_VECTOR_CONTROL<TRITS>;
