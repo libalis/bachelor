@@ -43,7 +43,7 @@ input_output() {
         else
             CFLAGS="-DINPUT_OUTPUT"
         fi
-        decimal_input
+        x
     else
         options
     fi
@@ -105,6 +105,30 @@ trits() {
         CFLAGS="-DTRITS=$TRITS"
     fi
     input_output
+}
+
+x() {
+    X=$(dialog --title "X dimension" --inputbox "\nPlease select your desired X dimension (>= 1):" 10 70 3 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$X" || ! "$X" =~ ^[1-9]+[0-9]*$ ]]; then
+        exit
+    elif [ -n "$CFLAGS" ]; then
+        CFLAGS="$CFLAGS -DX=$X"
+    else
+        CFLAGS="-DX=$X"
+    fi
+    y
+}
+
+y() {
+    Y=$(dialog --title "Y dimension" --inputbox "\nPlease select your desired Y dimension (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$Y" || ! "$Y" =~ ^[1-9]+[0-9]*$ ]]; then
+        exit
+    elif [ -n "$CFLAGS" ]; then
+        CFLAGS="$CFLAGS -DY=$Y"
+    else
+        CFLAGS="-DY=$Y"
+    fi
+    decimal_input
 }
 
 main

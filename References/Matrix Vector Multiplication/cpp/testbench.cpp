@@ -2,6 +2,64 @@
 
 template <size_t T>
 void TESTBENCH<T>::source(void) {
+    #ifdef INPUT_OUTPUT
+        string line;
+        int i = 0;
+        while(i < X) {
+            getline(input_dat, line);
+            char *token = strtok(&line[0], " \n");
+            int j = 0;
+            while(j < Y) {
+                #ifdef DECIMAL_INPUT
+                    m<T>[i][j] = stoi(string(token));
+                #else
+                    m<T>[i][j] = btint<T>();
+                    bool isNegative;
+                    for(char value : string(token)) {
+                        switch(value) {
+                            case '-':
+                                isNegative = 1;
+                                break;
+                            default:
+                                m<T>[i][j] = m<T>[i][j].shift_left(1);
+                                m<T>[i][j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
+                                isNegative = 0;
+                                break;
+                        }
+                    }
+                #endif
+                token = strtok(NULL, " \n");
+                j++;
+            }
+            i++;
+        }
+        getline(input_dat, line);
+        getline(input_dat, line);
+        char *token = strtok(&line[0], " \n");
+        int j = 0;
+        while(j < Y) {
+            #ifdef DECIMAL_INPUT
+                v<T>[j] = stoi(string(token));
+            #else
+                v<T>[j] = btint<T>();
+                bool isNegative;
+                for(char value : string(token)) {
+                    switch(value) {
+                        case '-':
+                            isNegative = 1;
+                            break;
+                        default:
+                            v<T>[j] = v<T>[j].shift_left(1);
+                            v<T>[j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
+                            isNegative = 0;
+                            break;
+                    }
+                }
+            #endif
+            token = strtok(NULL, " \n");
+            j++;
+        }
+    #endif
     testbench_valid.write(0);
     testbench_reset.write(1);
     wait();
@@ -11,14 +69,14 @@ void TESTBENCH<T>::source(void) {
     for(int i = 0; i < X; i++) {
         for(int j = 0; j < Y; j++) {
             testbench_matrix[i][j].write(m<T>[i][j]);
-            printf("%5.d ", m<T>[i][j].to_int());
+            printf("%3d ", m<T>[i][j].to_int());
         }
         printf("\n");
     }
     printf("Vektor:\n");
     for(int i = 0; i < Y; i++) {
         testbench_vector[i].write(v<T>[i]);
-        printf("%5.d ", v<T>[i].to_int());
+        printf("%3d ", v<T>[i].to_int());
         printf("\n");
     }
     testbench_valid.write(1);
@@ -34,8 +92,11 @@ void TESTBENCH<T>::sink(void) {
     printf("Result:\n");
     for(int i = 0; i < X; i++) {
         indata[i] = testbench_result[i].read();
-        printf("%5.d ", indata[i].to_int());
+        printf("%3d ", indata[i].to_int());
         printf("\n");
+        #ifdef INPUT_OUTPUT
+            output_dat << indata[i].to_int() << endl;
+        #endif
     }
     sc_stop();
 }
