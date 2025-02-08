@@ -1,5 +1,3 @@
-#include <systemc.h>
-
 #include "../hpp/matrix_vector.hpp"
 #include "../hpp/testbench.hpp"
 
@@ -9,10 +7,10 @@ SC_MODULE(SYSTEM) {
 
     sc_signal<bool> matrix_vector_reset;
     sc_signal<bool> matrix_vector_valid;
-    sc_signal<btint<T>> matrix_vector_matrix[X][Y];
-    sc_signal<btint<T>> matrix_vector_vector[Y];
+    sc_signal<btint<T>> matrix_vector_matrix[X_DIMENSION][Y_DIMENSION];
+    sc_signal<btint<T>> matrix_vector_vector[Y_DIMENSION];
 
-    sc_signal<btint<T>> matrix_vector_result[X];
+    sc_signal<btint<T>> matrix_vector_result[X_DIMENSION];
     sc_signal<bool> matrix_vector_done;
 
     TESTBENCH<T> *testbench;
@@ -24,15 +22,15 @@ SC_MODULE(SYSTEM) {
         matrix_vector->matrix_vector_clock(system_clock);
         matrix_vector->matrix_vector_reset(matrix_vector_reset);
         matrix_vector->matrix_vector_valid(matrix_vector_valid);
-        for(int i = 0; i < X; i++) {
-            for(int j = 0; j < Y; j++) {
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
                 matrix_vector->matrix_vector_matrix[i][j](matrix_vector_matrix[i][j]);
             }
         }
-        for(int i = 0; i < Y; i++) {
+        for(int i = 0; i < Y_DIMENSION; i++) {
             matrix_vector->matrix_vector_vector[i](matrix_vector_vector[i]);
         }
-        for(int i = 0; i < X; i++) {
+        for(int i = 0; i < X_DIMENSION; i++) {
             matrix_vector->matrix_vector_result[i](matrix_vector_result[i]);
         }
         matrix_vector->matrix_vector_done(matrix_vector_done);
@@ -41,15 +39,15 @@ SC_MODULE(SYSTEM) {
         testbench->testbench_clock(system_clock);
         testbench->testbench_reset(matrix_vector_reset);
         testbench->testbench_valid(matrix_vector_valid);
-        for(int i = 0; i < X; i++) {
-            for(int j = 0; j < Y; j++) {
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
                 testbench->testbench_matrix[i][j](matrix_vector_matrix[i][j]);
             }
         }
-        for(int i = 0; i < Y; i++) {
+        for(int i = 0; i < Y_DIMENSION; i++) {
             testbench->testbench_vector[i](matrix_vector_vector[i]);
         }
-        for(int i = 0; i < X; i++) {
+        for(int i = 0; i < X_DIMENSION; i++) {
             testbench->testbench_result[i](matrix_vector_result[i]);
         }
         testbench->testbench_done(matrix_vector_done);

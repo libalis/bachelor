@@ -43,7 +43,7 @@ input_output() {
         else
             CFLAGS="-DINPUT_OUTPUT"
         fi
-        x
+        x_dimension
     else
         options
     fi
@@ -96,7 +96,7 @@ summary() {
 }
 
 trits() {
-    TRITS=$(dialog --title "Number of ternary bits" --inputbox "\nPlease select your desired number of ternary bits (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
+    TRITS=$(dialog --title "Number of ternary bits" --inputbox "\nPlease select your desired number of ternary bits (>= 1):" 10 70 8 3>&1 1>&2 2>&3)
     if [[ $? -ne 0 || -z "$TRITS" || ! "$TRITS" =~ ^[1-9]+[0-9]*$ ]]; then
         exit
     elif [ -n "$CFLAGS" ]; then
@@ -107,26 +107,26 @@ trits() {
     input_output
 }
 
-x() {
-    X=$(dialog --title "X dimension" --inputbox "\nPlease select your desired X dimension (>= 1):" 10 70 3 3>&1 1>&2 2>&3)
-    if [[ $? -ne 0 || -z "$X" || ! "$X" =~ ^[1-9]+[0-9]*$ ]]; then
+x_dimension() {
+    X_DIMENSION=$(dialog --title "X dimension" --inputbox "\nPlease select your desired X dimension (>= 1):" 10 70 3 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$X_DIMENSION" || ! "$X_DIMENSION" =~ ^[1-9]+[0-9]*$ ]]; then
         exit
     elif [ -n "$CFLAGS" ]; then
-        CFLAGS="$CFLAGS -DX=$X"
+        CFLAGS="$CFLAGS -DX_DIMENSION=$X_DIMENSION"
     else
-        CFLAGS="-DX=$X"
+        CFLAGS="-DX_DIMENSION=$X_DIMENSION"
     fi
-    y
+    y_dimension
 }
 
-y() {
-    Y=$(dialog --title "Y dimension" --inputbox "\nPlease select your desired Y dimension (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
-    if [[ $? -ne 0 || -z "$Y" || ! "$Y" =~ ^[1-9]+[0-9]*$ ]]; then
+y_dimension() {
+    Y_DIMENSION=$(dialog --title "Y dimension" --inputbox "\nPlease select your desired Y dimension (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
+    if [[ $? -ne 0 || -z "$Y_DIMENSION" || ! "$Y_DIMENSION" =~ ^[1-9]+[0-9]*$ ]]; then
         exit
     elif [ -n "$CFLAGS" ]; then
-        CFLAGS="$CFLAGS -DY=$Y"
+        CFLAGS="$CFLAGS -DY_DIMENSION=$Y_DIMENSION"
     else
-        CFLAGS="-DY=$Y"
+        CFLAGS="-DY_DIMENSION=$Y_DIMENSION"
     fi
     decimal_input
 }

@@ -5,11 +5,11 @@ void TESTBENCH<T>::source(void) {
     #ifdef INPUT_OUTPUT
         string line;
         int i = 0;
-        while(i < X) {
+        while(i < X_DIMENSION) {
             getline(input_dat, line);
             char *token = strtok(&line[0], " \n");
             int j = 0;
-            while(j < Y) {
+            while(j < Y_DIMENSION) {
                 #ifdef DECIMAL_INPUT
                     m<T>[i][j] = stoi(string(token));
                 #else
@@ -37,7 +37,7 @@ void TESTBENCH<T>::source(void) {
         getline(input_dat, line);
         char *token = strtok(&line[0], " \n");
         int j = 0;
-        while(j < Y) {
+        while(j < Y_DIMENSION) {
             #ifdef DECIMAL_INPUT
                 v<T>[j] = stoi(string(token));
             #else
@@ -66,15 +66,15 @@ void TESTBENCH<T>::source(void) {
     testbench_reset.write(0);
     wait();
     printf("Matrix:\n");
-    for(int i = 0; i < X; i++) {
-        for(int j = 0; j < Y; j++) {
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
             testbench_matrix[i][j].write(m<T>[i][j]);
             printf("%3d ", m<T>[i][j].to_int());
         }
         printf("\n");
     }
     printf("Vektor:\n");
-    for(int i = 0; i < Y; i++) {
+    for(int i = 0; i < Y_DIMENSION; i++) {
         testbench_vector[i].write(v<T>[i]);
         printf("%3d ", v<T>[i].to_int());
         printf("\n");
@@ -84,13 +84,13 @@ void TESTBENCH<T>::source(void) {
 
 template <size_t T>
 void TESTBENCH<T>::sink(void) {
-    btint<T> indata[X];
+    btint<T> indata[X_DIMENSION];
     do {
         wait();
     } while(!testbench_done);
     wait();
     printf("Result:\n");
-    for(int i = 0; i < X; i++) {
+    for(int i = 0; i < X_DIMENSION; i++) {
         indata[i] = testbench_result[i].read();
         printf("%3d ", indata[i].to_int());
         printf("\n");

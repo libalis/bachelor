@@ -9,7 +9,7 @@ void MATRIX_VECTOR<T>::construct(void) {
     #pragma HLS ARRAY_PARTITION variable=out_c complete dim=1
     #pragma HLS ARRAY_PARTITION variable=in_b complete dim=1
     #pragma HLS ARRAY_PARTITION variable=in_c complete dim=1
-    for(int i = 0; i < Y; i++) {
+    for(int i = 0; i < Y_DIMENSION; i++) {
         cell[i]->cell_clock(matrix_vector_clock);
         cell[i]->cell_reset(cell_reset);
         cell[i]->cell_b_in(cell_b_in[i]);
@@ -20,21 +20,21 @@ void MATRIX_VECTOR<T>::construct(void) {
     matrix_vector_control->matrix_vector_control_clock(matrix_vector_clock);
     matrix_vector_control->matrix_vector_control_reset(matrix_vector_reset);
     matrix_vector_control->matrix_vector_control_valid(matrix_vector_valid);
-    for(int i = 0; i < X; i++) {
-        for(int j = 0; j < Y; j++) {
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
             matrix_vector_control->matrix_vector_control_matrix[i][j](matrix_vector_matrix[i][j]);
         }
     }
-    for(int i = 0; i < Y; i++) {
+    for(int i = 0; i < Y_DIMENSION; i++) {
         matrix_vector_control->matrix_vector_control_vector[i](matrix_vector_vector[i]);
     }
-    for(int i = 0; i < Y; i++) {
+    for(int i = 0; i < Y_DIMENSION; i++) {
         matrix_vector_control->matrix_vector_control_c_out[i](cell_c_out[i]);
     }
-    for(int i = 0; i < X; i++) {
+    for(int i = 0; i < X_DIMENSION; i++) {
         matrix_vector_control->matrix_vector_control_result[i](matrix_vector_result[i]);
     }
-    for(int i = 0; i < Y; i++) {
+    for(int i = 0; i < Y_DIMENSION; i++) {
         matrix_vector_control->matrix_vector_control_b_in[i](cell_b_in[i]);
         matrix_vector_control->matrix_vector_control_c_in[i](cell_c_in[i]);
     }
