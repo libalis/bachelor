@@ -35,13 +35,12 @@ Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 - [X] Implement balanced ternary system addition
 - [X] Implement balanced ternary system subtraction
 - [X] Implement balanced ternary system multiplication
-- [ ] Implement systolic array
-- [ ] Make systolic array parameterized
+- [X] Implement systolic array
+- [X] Make systolic array parameterized
+- [ ] Make systolic array synthesizable
 ## Contributing
 Not open to contributions
 ## Authors and acknowledgment
 Robert Kagan
-## Licence
-Source available (Proprietary)
 ## Project status
 In active development
