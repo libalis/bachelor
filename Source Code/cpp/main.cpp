@@ -3,6 +3,15 @@
 
 template <size_t T>
 SC_MODULE(SYSTEM) {
+    FULLADDER *fulladder;
+
+    sc_signal<bool> fulladder_a;
+    sc_signal<bool> fulladder_b;
+    sc_signal<bool> fulladder_carry_in;
+
+    sc_signal<bool> fulladder_sum;
+    sc_signal<bool> fulladder_carry_out;
+
     MATRIX_VECTOR<T> *matrix_vector;
 
     sc_signal<bool> matrix_vector_reset;
@@ -18,6 +27,13 @@ SC_MODULE(SYSTEM) {
     sc_clock system_clock;
 
     SC_CTOR(SYSTEM) : system_clock("system_clock", 10, SC_NS) {
+        fulladder = new FULLADDER("fulladder");
+        fulladder->fulladder_a(fulladder_a);
+        fulladder->fulladder_b(fulladder_b);
+        fulladder->fulladder_carry_in(fulladder_carry_in);
+        fulladder->fulladder_sum(fulladder_sum);
+        fulladder->fulladder_carry_out(fulladder_carry_out);
+
         matrix_vector = new MATRIX_VECTOR<T>("matrix_vector");
         matrix_vector->matrix_vector_clock(system_clock);
         matrix_vector->matrix_vector_reset(matrix_vector_reset);
@@ -54,6 +70,7 @@ SC_MODULE(SYSTEM) {
     }
 
     ~SYSTEM(void) {
+        delete fulladder;
         delete matrix_vector;
         delete testbench;
     }
