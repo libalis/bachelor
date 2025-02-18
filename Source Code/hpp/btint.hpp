@@ -160,4 +160,26 @@
             }
         }
     };
+
+    template <size_t T>
+    sc_biguint<2 * T + 1> btint_to_biguint(btint<T> input) {
+        sc_biguint<2 * T + 1> output;
+        for(int i = 0; i < T; i++) {
+            output[2 * i] = input.btint_a[i];
+            output[2 * i + 1] = input.btint_b[i];
+        }
+        output[2 * T] = input.overflow;
+        return output;
+    }
+
+    template <size_t T>
+    btint<T> biguint_to_btint(sc_biguint<2 * T + 1> input) {
+        btint<T> output;
+        for(int i = 0; i < T; i++) {
+            output.btint_a[i] = input[2 * i];
+            output.btint_b[i] = input[2 * i + 1];
+        }
+        output.overflow = input[2 * T];
+        return output;
+    }
 #endif

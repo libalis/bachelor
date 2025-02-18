@@ -1,16 +1,20 @@
 #ifndef ADDER_SUBTRACTOR_HPP
     #define ADDER_SUBTRACTOR_HPP
 
+    #ifndef ADDER_SUBTRACTOR_LOCK
+        #define ADDER_SUBTRACTOR_LOCK (4)
+    #endif
+
     #include "btint.hpp"
     #include "fulladder.hpp"
 
     template <size_t T>
     SC_MODULE(ADDER_SUBTRACTOR) {
-        sc_in<btint<T>> adder_subtractor_a;
-        sc_in<btint<T>> adder_subtractor_b;
+        sc_in<sc_biguint<2 * T + 1>> adder_subtractor_a;
+        sc_in<sc_biguint<2 * T + 1>> adder_subtractor_b;
         sc_in<bool> adder_subtractor_subtract;
 
-        sc_out<btint<T + 1>> adder_subtractor_sum;
+        sc_out<sc_biguint<2 * (T + 1) + 1>> adder_subtractor_sum;
 
         sc_signal<bool> one;
 

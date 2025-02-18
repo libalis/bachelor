@@ -62,6 +62,6 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
                 }
             }
         }
-        wait(MULTIPLIER_LOCK + 4);
+        wait(MULTIPLIER_LOCK + ADDER_SUBTRACTOR_LOCK);
     }
 }

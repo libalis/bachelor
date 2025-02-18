@@ -19,11 +19,11 @@
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
-        sc_signal<btint<T>> adder_subtractor_a;
-        sc_signal<btint<T>> adder_subtractor_b;
+        sc_signal<sc_biguint<2 * T + 1>> adder_subtractor_a;
+        sc_signal<sc_biguint<2 * T + 1>> adder_subtractor_b;
         sc_signal<bool> adder_subtractor_subtract;
 
-        sc_signal<btint<T + 1>> adder_subtractor_sum;
+        sc_signal<sc_biguint<2 * (T + 1) + 1>> adder_subtractor_sum;
 
         SHIFT_REGISTER<T> *shift_register;
 

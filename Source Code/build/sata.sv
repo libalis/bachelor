@@ -7,9 +7,211 @@
 
 //==============================================================================
 //
+// Module: ADDER_SUBTRACTOR ()
+//
+module ADDER_SUBTRACTOR // "system.adder_subtractor"
+(
+    input logic [16:0] adder_subtractor_a,
+    input logic [16:0] adder_subtractor_b,
+    input logic adder_subtractor_subtract,
+    output logic [18:0] adder_subtractor_sum
+);
+
+// Variables generated for SystemC signals
+logic one;
+logic input_a[2][8];
+logic input_b[2][8];
+logic output_sum[2][9];
+logic fulladder_sum[8];
+logic fulladder_carry_out[7];
+
+//------------------------------------------------------------------------------
+// Method process: source (adder_subtractor.cpp:4:1) 
+
+always_comb 
+begin : source     // adder_subtractor.cpp:4:1
+    for (integer i = 0; i < 8; i++)
+    begin
+        input_a[0][i] = adder_subtractor_a[2 * i];
+        input_a[1][i] = adder_subtractor_a[2 * i + 1];
+        input_b[0][i] = adder_subtractor_b[2 * i] ^ adder_subtractor_subtract;
+        input_b[1][i] = adder_subtractor_b[2 * i + 1] ^ adder_subtractor_subtract;
+    end
+end
+
+//------------------------------------------------------------------------------
+// Method process: sink (adder_subtractor.cpp:14:1) 
+
+always_comb 
+begin : sink     // adder_subtractor.cpp:14:1
+    logic [18:0] sum;
+    sum = 0;
+    for (integer i = 0; i < 8 + 1; i++)
+    begin
+        sum[2 * i] = output_sum[0][i];
+        sum[2 * i + 1] = output_sum[1][i];
+    end
+    sum[2 * (8 + 1)] = |(sum[2 * 8] + sum[2 * 8 + 1] - 1);
+    adder_subtractor_sum = sum;
+end
+
+
+//------------------------------------------------------------------------------
+// Child module instances
+
+FULLADDER fulladder_0_0
+(
+  .fulladder_a(input_a[0][0]),
+  .fulladder_b(input_b[0][0]),
+  .fulladder_carry_in(input_a[1][0]),
+  .fulladder_sum(fulladder_sum[0]),
+  .fulladder_carry_out(fulladder_carry_out[0])
+);
+
+FULLADDER fulladder_0_1
+(
+  .fulladder_a(input_a[0][1]),
+  .fulladder_b(input_b[0][1]),
+  .fulladder_carry_in(input_a[1][1]),
+  .fulladder_sum(fulladder_sum[1]),
+  .fulladder_carry_out(fulladder_carry_out[1])
+);
+
+FULLADDER fulladder_0_2
+(
+  .fulladder_a(input_a[0][2]),
+  .fulladder_b(input_b[0][2]),
+  .fulladder_carry_in(input_a[1][2]),
+  .fulladder_sum(fulladder_sum[2]),
+  .fulladder_carry_out(fulladder_carry_out[2])
+);
+
+FULLADDER fulladder_0_3
+(
+  .fulladder_a(input_a[0][3]),
+  .fulladder_b(input_b[0][3]),
+  .fulladder_carry_in(input_a[1][3]),
+  .fulladder_sum(fulladder_sum[3]),
+  .fulladder_carry_out(fulladder_carry_out[3])
+);
+
+FULLADDER fulladder_0_4
+(
+  .fulladder_a(input_a[0][4]),
+  .fulladder_b(input_b[0][4]),
+  .fulladder_carry_in(input_a[1][4]),
+  .fulladder_sum(fulladder_sum[4]),
+  .fulladder_carry_out(fulladder_carry_out[4])
+);
+
+FULLADDER fulladder_0_5
+(
+  .fulladder_a(input_a[0][5]),
+  .fulladder_b(input_b[0][5]),
+  .fulladder_carry_in(input_a[1][5]),
+  .fulladder_sum(fulladder_sum[5]),
+  .fulladder_carry_out(fulladder_carry_out[5])
+);
+
+FULLADDER fulladder_0_6
+(
+  .fulladder_a(input_a[0][6]),
+  .fulladder_b(input_b[0][6]),
+  .fulladder_carry_in(input_a[1][6]),
+  .fulladder_sum(fulladder_sum[6]),
+  .fulladder_carry_out(fulladder_carry_out[6])
+);
+
+FULLADDER fulladder_0_7
+(
+  .fulladder_a(input_a[0][7]),
+  .fulladder_b(input_b[0][7]),
+  .fulladder_carry_in(input_a[1][7]),
+  .fulladder_sum(fulladder_sum[7]),
+  .fulladder_carry_out(output_sum[1][8])
+);
+
+FULLADDER fulladder_1_0
+(
+  .fulladder_a(one),
+  .fulladder_b(fulladder_sum[0]),
+  .fulladder_carry_in(input_b[1][0]),
+  .fulladder_sum(output_sum[1][0]),
+  .fulladder_carry_out(output_sum[0][1])
+);
+
+FULLADDER fulladder_1_1
+(
+  .fulladder_a(fulladder_carry_out[0]),
+  .fulladder_b(fulladder_sum[1]),
+  .fulladder_carry_in(input_b[1][1]),
+  .fulladder_sum(output_sum[1][1]),
+  .fulladder_carry_out(output_sum[0][2])
+);
+
+FULLADDER fulladder_1_2
+(
+  .fulladder_a(fulladder_carry_out[1]),
+  .fulladder_b(fulladder_sum[2]),
+  .fulladder_carry_in(input_b[1][2]),
+  .fulladder_sum(output_sum[1][2]),
+  .fulladder_carry_out(output_sum[0][3])
+);
+
+FULLADDER fulladder_1_3
+(
+  .fulladder_a(fulladder_carry_out[2]),
+  .fulladder_b(fulladder_sum[3]),
+  .fulladder_carry_in(input_b[1][3]),
+  .fulladder_sum(output_sum[1][3]),
+  .fulladder_carry_out(output_sum[0][4])
+);
+
+FULLADDER fulladder_1_4
+(
+  .fulladder_a(fulladder_carry_out[3]),
+  .fulladder_b(fulladder_sum[4]),
+  .fulladder_carry_in(input_b[1][4]),
+  .fulladder_sum(output_sum[1][4]),
+  .fulladder_carry_out(output_sum[0][5])
+);
+
+FULLADDER fulladder_1_5
+(
+  .fulladder_a(fulladder_carry_out[4]),
+  .fulladder_b(fulladder_sum[5]),
+  .fulladder_carry_in(input_b[1][5]),
+  .fulladder_sum(output_sum[1][5]),
+  .fulladder_carry_out(output_sum[0][6])
+);
+
+FULLADDER fulladder_1_6
+(
+  .fulladder_a(fulladder_carry_out[5]),
+  .fulladder_b(fulladder_sum[6]),
+  .fulladder_carry_in(input_b[1][6]),
+  .fulladder_sum(output_sum[1][6]),
+  .fulladder_carry_out(output_sum[0][7])
+);
+
+FULLADDER fulladder_1_7
+(
+  .fulladder_a(fulladder_carry_out[6]),
+  .fulladder_b(fulladder_sum[7]),
+  .fulladder_carry_in(input_b[1][7]),
+  .fulladder_sum(output_sum[1][7]),
+  .fulladder_carry_out(output_sum[0][8])
+);
+
+endmodule
+
+
+
+//==============================================================================
+//
 // Module: FULLADDER ()
 //
-module FULLADDER // "system.fulladder"
+module FULLADDER // "system.adder_subtractor.fulladder_0_0"
 (
     input logic fulladder_a,
     input logic fulladder_b,
