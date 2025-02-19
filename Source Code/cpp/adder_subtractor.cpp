@@ -12,7 +12,7 @@ void ADDER_SUBTRACTOR<T>::source(void) {
 
 template <size_t T>
 void ADDER_SUBTRACTOR<T>::sink(void) {
-    sc_biguint<2 * (T + 1) + 1> sum;
+    BTINT<T + 1> sum;
     for(int i = 0; i < T + 1; i++) {
         sum[2 * i] = output_sum[0][i];
         sum[2 * i + 1] = output_sum[1][i];

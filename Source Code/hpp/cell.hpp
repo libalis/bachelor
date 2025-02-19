@@ -17,10 +17,10 @@
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
-        sc_signal<sc_biguint<2 * T + 1>> adder_subtractor_a;
-        sc_signal<sc_biguint<2 * T + 1>> adder_subtractor_b;
+        sc_signal<BTINT<T>> adder_subtractor_a;
+        sc_signal<BTINT<T>> adder_subtractor_b;
 
-        sc_signal<sc_biguint<2 * (T + 1) + 1>> adder_subtractor_sum;
+        sc_signal<BTINT<T + 1>> adder_subtractor_sum;
 
         MULTIPLIER<T> *multiplier;
 

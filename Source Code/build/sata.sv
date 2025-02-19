@@ -7,226 +7,271 @@
 
 //==============================================================================
 //
-// Module: ADDER_SUBTRACTOR ()
+// Module: SHIFT_REGISTER ()
 //
-module ADDER_SUBTRACTOR // "system.adder_subtractor"
+module SHIFT_REGISTER // "system.shift_register"
 (
-    input logic [16:0] adder_subtractor_a,
-    input logic [16:0] adder_subtractor_b,
-    input logic adder_subtractor_subtract,
-    output logic [18:0] adder_subtractor_sum
+    input logic shift_register_clock,
+    input logic shift_register_reset,
+    input logic [18:0] shift_register_input,
+    output logic [16:0] shift_register_state,
+    output logic [16:0] shift_register_output
 );
 
-// Variables generated for SystemC signals
-logic one;
-logic input_a[2][8];
-logic input_b[2][8];
-logic output_sum[2][9];
-logic fulladder_sum[8];
-logic fulladder_carry_out[7];
-
 //------------------------------------------------------------------------------
-// Method process: source (adder_subtractor.cpp:4:1) 
+// Clocked THREAD: shift (shift_register.cpp:4:1) 
 
-always_comb 
-begin : source     // adder_subtractor.cpp:4:1
-    for (integer i = 0; i < 8; i++)
-    begin
-        input_a[0][i] = adder_subtractor_a[2 * i];
-        input_a[1][i] = adder_subtractor_a[2 * i + 1];
-        input_b[0][i] = adder_subtractor_b[2 * i] ^ adder_subtractor_subtract;
-        input_b[1][i] = adder_subtractor_b[2 * i + 1] ^ adder_subtractor_subtract;
-    end
+// Thread-local variables
+logic [16:0] shift_register_state_next;
+logic [16:0] shift_register_output_next;
+logic [16:0] output_v;
+logic [16:0] output_v_next;
+
+// Next-state combinational logic
+always_comb begin : shift_comb     // shift_register.cpp:4:1
+    shift_func;
 end
-
-//------------------------------------------------------------------------------
-// Method process: sink (adder_subtractor.cpp:14:1) 
-
-always_comb 
-begin : sink     // adder_subtractor.cpp:14:1
-    logic [18:0] sum;
-    sum = 0;
-    for (integer i = 0; i < 8 + 1; i++)
+function void shift_func;
+    logic [16:0] TMP_0;
+    logic [16:0] output_v_1;
+    logic [16:0] TMP_1;
+    logic [16:0] input_v;
+    integer index;
+    integer value;
+    logic [16:0] output_v_2;
+    logic [16:0] TMP_2;
+    logic [16:0] input_v_1;
+    logic value_1;
+    logic [16:0] output_v_3;
+    logic [16:0] TMP_3;
+    logic [16:0] TMP_4;
+    logic [16:0] TMP_5;
+    logic [16:0] TMP_6;
+    logic [16:0] input_v_2;
+    integer index_1;
+    logic [16:0] output_v_4;
+    logic [16:0] TMP_7;
+    logic TMP_8;
+    logic [16:0] input_v_3;
+    logic [16:0] TMP_9;
+    integer TMP_11;
+    logic [18:0] input_v_4;
+    integer index_2;
+    logic [16:0] TMP_12;
+    integer TMP_15;
+    logic [16:0] TMP_16;
+    TMP_6 = 0;
+    output_v_4 = 0;
+    TMP_7 = 0;
+    TMP_8 = 0;
+    input_v_3 = 0;
+    TMP_9 = 0;
+    TMP_11 = 0;
+    TMP_12 = 0;
+    TMP_15 = 0;
+    TMP_16 = 0;
+    output_v_next = output_v;
+    shift_register_output_next = shift_register_output;
+    shift_register_state_next = shift_register_state;
+    input_v_2 = shift_register_state; index_1 = 1;
+    // Call btint_shift_right() begin
+    output_v_4 = input_v_2;
+    for (integer i_1 = 0; i_1 < index_1; i_1++)
     begin
-        sum[2 * i] = output_sum[0][i];
-        sum[2 * i + 1] = output_sum[1][i];
+        output_v_4 = output_v_4 >>> 2;
+        input_v = output_v_4; index = 8 - 1; value = 0;
+        // Call btint_set_value() begin
+        output_v_2 = input_v;
+        case (0)
+        -1 : begin
+            output_v_2[2 * index] = 0;
+            output_v_2[2 * index + 1] = 0;
+        end
+        0 : begin
+            output_v_2[2 * index] = 0;
+            output_v_2[2 * index + 1] = 1;
+        end
+        1 : begin
+            output_v_2[2 * index] = 1;
+            output_v_2[2 * index + 1] = 1;
+        end
+        default : begin
+        end
+        endcase
+        TMP_7 = output_v_2;
+        // Call btint_set_value() end
+        output_v_4 = TMP_7;
     end
-    sum[2 * (8 + 1)] = |(sum[2 * 8] + sum[2 * 8 + 1] - 1);
-    adder_subtractor_sum = sum;
-end
+    input_v_3 = input_v_2;
+    // Call btint_get_overflow() begin
+    TMP_8 = input_v_3[2 * 8];
+    // Call btint_get_overflow() end
+    input_v_1 = output_v_4; value_1 = TMP_8;
+    // Call btint_set_overflow() begin
+    output_v_3 = input_v_1;
+    output_v_3[2 * 8] = value_1;
+    TMP_9 = output_v_3;
+    // Call btint_set_overflow() end
+    output_v_4 = TMP_9;
+    TMP_6 = output_v_4;
+    // Call btint_shift_right() end
+    input_v_4 = shift_register_input; index_2 = 0;
+    // Call btint_get_value() begin
+    TMP_11 = input_v_4[2 * index_2] + input_v_4[2 * index_2 + 1] - 1;
+    // Call btint_get_value() end
+    input_v = TMP_6; index = 8 - 1; value = TMP_11;
+    // Call btint_set_value() begin
+    output_v_2 = input_v;
+    case (value)
+    -1 : begin
+        output_v_2[2 * index] = 0;
+        output_v_2[2 * index + 1] = 0;
+    end
+    0 : begin
+        output_v_2[2 * index] = 0;
+        output_v_2[2 * index + 1] = 1;
+    end
+    1 : begin
+        output_v_2[2 * index] = 1;
+        output_v_2[2 * index + 1] = 1;
+    end
+    default : begin
+    end
+    endcase
+    TMP_12 = output_v_2;
+    // Call btint_set_value() end
+    shift_register_state_next = TMP_12;
+    for (integer i_2 = 0; i_2 < 8; i_2++)
+    begin
+        input_v_4 = shift_register_input; index_2 = i_2 + 1;
+        // Call btint_get_value() begin
+        TMP_15 = input_v_4[2 * index_2] + input_v_4[2 * index_2 + 1] - 1;
+        // Call btint_get_value() end
+        input_v = output_v_next; index = i_2; value = TMP_15;
+        // Call btint_set_value() begin
+        output_v_2 = input_v;
+        case (value)
+        -1 : begin
+            output_v_2[2 * index] = 0;
+            output_v_2[2 * index + 1] = 0;
+        end
+        0 : begin
+            output_v_2[2 * index] = 0;
+            output_v_2[2 * index + 1] = 1;
+        end
+        1 : begin
+            output_v_2[2 * index] = 1;
+            output_v_2[2 * index + 1] = 1;
+        end
+        default : begin
+        end
+        endcase
+        TMP_16 = output_v_2;
+        // Call btint_set_value() end
+        output_v_next = TMP_16;
+    end
+    shift_register_output_next = output_v_next;
+endfunction
 
-
-//------------------------------------------------------------------------------
-// Child module instances
-
-FULLADDER fulladder_0_0
-(
-  .fulladder_a(input_a[0][0]),
-  .fulladder_b(input_b[0][0]),
-  .fulladder_carry_in(input_a[1][0]),
-  .fulladder_sum(fulladder_sum[0]),
-  .fulladder_carry_out(fulladder_carry_out[0])
-);
-
-FULLADDER fulladder_0_1
-(
-  .fulladder_a(input_a[0][1]),
-  .fulladder_b(input_b[0][1]),
-  .fulladder_carry_in(input_a[1][1]),
-  .fulladder_sum(fulladder_sum[1]),
-  .fulladder_carry_out(fulladder_carry_out[1])
-);
-
-FULLADDER fulladder_0_2
-(
-  .fulladder_a(input_a[0][2]),
-  .fulladder_b(input_b[0][2]),
-  .fulladder_carry_in(input_a[1][2]),
-  .fulladder_sum(fulladder_sum[2]),
-  .fulladder_carry_out(fulladder_carry_out[2])
-);
-
-FULLADDER fulladder_0_3
-(
-  .fulladder_a(input_a[0][3]),
-  .fulladder_b(input_b[0][3]),
-  .fulladder_carry_in(input_a[1][3]),
-  .fulladder_sum(fulladder_sum[3]),
-  .fulladder_carry_out(fulladder_carry_out[3])
-);
-
-FULLADDER fulladder_0_4
-(
-  .fulladder_a(input_a[0][4]),
-  .fulladder_b(input_b[0][4]),
-  .fulladder_carry_in(input_a[1][4]),
-  .fulladder_sum(fulladder_sum[4]),
-  .fulladder_carry_out(fulladder_carry_out[4])
-);
-
-FULLADDER fulladder_0_5
-(
-  .fulladder_a(input_a[0][5]),
-  .fulladder_b(input_b[0][5]),
-  .fulladder_carry_in(input_a[1][5]),
-  .fulladder_sum(fulladder_sum[5]),
-  .fulladder_carry_out(fulladder_carry_out[5])
-);
-
-FULLADDER fulladder_0_6
-(
-  .fulladder_a(input_a[0][6]),
-  .fulladder_b(input_b[0][6]),
-  .fulladder_carry_in(input_a[1][6]),
-  .fulladder_sum(fulladder_sum[6]),
-  .fulladder_carry_out(fulladder_carry_out[6])
-);
-
-FULLADDER fulladder_0_7
-(
-  .fulladder_a(input_a[0][7]),
-  .fulladder_b(input_b[0][7]),
-  .fulladder_carry_in(input_a[1][7]),
-  .fulladder_sum(fulladder_sum[7]),
-  .fulladder_carry_out(output_sum[1][8])
-);
-
-FULLADDER fulladder_1_0
-(
-  .fulladder_a(one),
-  .fulladder_b(fulladder_sum[0]),
-  .fulladder_carry_in(input_b[1][0]),
-  .fulladder_sum(output_sum[1][0]),
-  .fulladder_carry_out(output_sum[0][1])
-);
-
-FULLADDER fulladder_1_1
-(
-  .fulladder_a(fulladder_carry_out[0]),
-  .fulladder_b(fulladder_sum[1]),
-  .fulladder_carry_in(input_b[1][1]),
-  .fulladder_sum(output_sum[1][1]),
-  .fulladder_carry_out(output_sum[0][2])
-);
-
-FULLADDER fulladder_1_2
-(
-  .fulladder_a(fulladder_carry_out[1]),
-  .fulladder_b(fulladder_sum[2]),
-  .fulladder_carry_in(input_b[1][2]),
-  .fulladder_sum(output_sum[1][2]),
-  .fulladder_carry_out(output_sum[0][3])
-);
-
-FULLADDER fulladder_1_3
-(
-  .fulladder_a(fulladder_carry_out[2]),
-  .fulladder_b(fulladder_sum[3]),
-  .fulladder_carry_in(input_b[1][3]),
-  .fulladder_sum(output_sum[1][3]),
-  .fulladder_carry_out(output_sum[0][4])
-);
-
-FULLADDER fulladder_1_4
-(
-  .fulladder_a(fulladder_carry_out[3]),
-  .fulladder_b(fulladder_sum[4]),
-  .fulladder_carry_in(input_b[1][4]),
-  .fulladder_sum(output_sum[1][4]),
-  .fulladder_carry_out(output_sum[0][5])
-);
-
-FULLADDER fulladder_1_5
-(
-  .fulladder_a(fulladder_carry_out[4]),
-  .fulladder_b(fulladder_sum[5]),
-  .fulladder_carry_in(input_b[1][5]),
-  .fulladder_sum(output_sum[1][5]),
-  .fulladder_carry_out(output_sum[0][6])
-);
-
-FULLADDER fulladder_1_6
-(
-  .fulladder_a(fulladder_carry_out[5]),
-  .fulladder_b(fulladder_sum[6]),
-  .fulladder_carry_in(input_b[1][6]),
-  .fulladder_sum(output_sum[1][6]),
-  .fulladder_carry_out(output_sum[0][7])
-);
-
-FULLADDER fulladder_1_7
-(
-  .fulladder_a(fulladder_carry_out[6]),
-  .fulladder_b(fulladder_sum[7]),
-  .fulladder_carry_in(input_b[1][7]),
-  .fulladder_sum(output_sum[1][7]),
-  .fulladder_carry_out(output_sum[0][8])
-);
-
-endmodule
-
-
-
-//==============================================================================
-//
-// Module: FULLADDER ()
-//
-module FULLADDER // "system.adder_subtractor.fulladder_0_0"
-(
-    input logic fulladder_a,
-    input logic fulladder_b,
-    input logic fulladder_carry_in,
-    output logic fulladder_sum,
-    output logic fulladder_carry_out
-);
-
-//------------------------------------------------------------------------------
-// Method process: add (fulladder.hpp:16:9) 
-
-always_comb 
-begin : add     // fulladder.hpp:16:9
-    fulladder_sum = fulladder_a ^ fulladder_b ^ fulladder_carry_in;
-    fulladder_carry_out = (fulladder_a & fulladder_b) | (fulladder_carry_in & (fulladder_a ^ fulladder_b));
+// Synchronous register update
+always_ff @(posedge shift_register_clock /*sync shift_register_reset*/) 
+begin : shift_ff
+    if ( shift_register_reset ) begin
+        logic [16:0] TMP_0;
+        logic [16:0] output_v_1;
+        logic [16:0] TMP_1;
+        logic [16:0] input_v;
+        integer index;
+        integer value;
+        logic [16:0] output_v_2;
+        logic [16:0] TMP_2;
+        logic [16:0] input_v_1;
+        logic value_1;
+        logic [16:0] output_v_3;
+        logic [16:0] TMP_3;
+        logic [16:0] TMP_4;
+        logic [16:0] TMP_5;
+        output_v <= 0;
+        // Call btint_reset() begin
+        output_v_1 = 0;
+        for (integer i = 0; i < 8; i++)
+        begin
+            input_v = output_v_1; index = i; value = 0;
+            // Call btint_set_value() begin
+            output_v_2 = input_v;
+            case (0)
+            -1 : begin
+                output_v_2[2 * index] = 0;
+                output_v_2[2 * index + 1] = 0;
+            end
+            0 : begin
+                output_v_2[2 * index] = 0;
+                output_v_2[2 * index + 1] = 1;
+            end
+            1 : begin
+                output_v_2[2 * index] = 1;
+                output_v_2[2 * index + 1] = 1;
+            end
+            default : begin
+            end
+            endcase
+            TMP_1 = output_v_2;
+            // Call btint_set_value() end
+            output_v_1 = TMP_1;
+        end
+        input_v_1 = output_v_1; value_1 = 0;
+        // Call btint_set_overflow() begin
+        output_v_3 = input_v_1;
+        output_v_3[2 * 8] = value_1;
+        TMP_2 = output_v_3;
+        // Call btint_set_overflow() end
+        output_v_1 = TMP_2;
+        TMP_0 = output_v_1;
+        // Call btint_reset() end
+        shift_register_state <= TMP_0;
+        // Call btint_reset() begin
+        output_v_1 = 0;
+        for (integer i = 0; i < 8; i++)
+        begin
+            input_v = output_v_1; index = i; value = 0;
+            // Call btint_set_value() begin
+            output_v_2 = input_v;
+            case (0)
+            -1 : begin
+                output_v_2[2 * index] = 0;
+                output_v_2[2 * index + 1] = 0;
+            end
+            0 : begin
+                output_v_2[2 * index] = 0;
+                output_v_2[2 * index + 1] = 1;
+            end
+            1 : begin
+                output_v_2[2 * index] = 1;
+                output_v_2[2 * index + 1] = 1;
+            end
+            default : begin
+            end
+            endcase
+            TMP_4 = output_v_2;
+            // Call btint_set_value() end
+            output_v_1 = TMP_4;
+        end
+        input_v_1 = output_v_1; value_1 = 0;
+        // Call btint_set_overflow() begin
+        output_v_3 = input_v_1;
+        output_v_3[2 * 8] = value_1;
+        TMP_5 = output_v_3;
+        // Call btint_set_overflow() end
+        output_v_1 = TMP_5;
+        TMP_3 = output_v_1;
+        // Call btint_reset() end
+        shift_register_output <= TMP_3;
+    end
+    else begin
+        shift_register_state <= shift_register_state_next;
+        shift_register_output <= shift_register_output_next;
+        output_v <= output_v_next;
+    end
 end
 
 endmodule

@@ -7,10 +7,10 @@
     SC_MODULE(SHIFT_REGISTER) {
         sc_in<bool> shift_register_clock;
         sc_in<bool> shift_register_reset;
-        sc_in<sc_biguint<2 * (T + 1) + 1>> shift_register_input;
+        sc_in<BTINT<T + 1>> shift_register_input;
 
-        sc_out<btint<T>> shift_register_state;
-        sc_out<sc_biguint<2 * T + 1>> shift_register_output;
+        sc_out<BTINT<T>> shift_register_state;
+        sc_out<BTINT<T>> shift_register_output;
 
         void shift(void);
 

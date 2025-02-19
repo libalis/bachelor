@@ -162,8 +162,71 @@
     };
 
     template <size_t T>
-    sc_biguint<2 * T + 1> btint_to_biguint(btint<T> input) {
-        sc_biguint<2 * T + 1> output;
+    using BTINT = sc_biguint<2 * (T) + 1>;
+
+    template <size_t T>
+    bool btint_get_overflow(BTINT<T> input) {
+        return input[2 * T];
+    }
+
+    template <size_t T>
+    int btint_get_value(BTINT<T> input, int index) {
+        return (bool)input[2 * index] + (bool)input[2 * index + 1] - 1;
+    }
+
+    template <size_t T>
+    BTINT<T> btint_set_overflow(BTINT<T> input, bool value) {
+        BTINT<T> output = input;
+        output[2 * T] = value;
+        return output;
+    }
+
+    template <size_t T>
+    BTINT<T> btint_set_value(BTINT<T> input, int index, int value) {
+        BTINT<T> output = input;
+        switch(value) {
+            case -1:
+                output[2 * index] = 0;
+                output[2 * index + 1] = 0;
+                break;
+            case 0:
+                output[2 * index] = 0;
+                output[2 * index + 1] = 1;
+                break;
+            case 1:
+                output[2 * index] = 1;
+                output[2 * index + 1] = 1;
+                break;
+            default:
+                break;
+        }
+        return output;
+    }
+
+    template <size_t T>
+    BTINT<T> btint_reset(void) {
+        BTINT<T> output;
+        for(int i = 0; i < T; i++) {
+            output = btint_set_value<T>(output, i, 0);
+        }
+        output = btint_set_overflow<T>(output, 0);
+        return output;
+    }
+
+    template <size_t T>
+    BTINT<T> btint_shift_right(BTINT<T> input, int index) {
+        BTINT<T> output = input;
+        for(int i = 0; i < index; i++) {
+            output = output >> 2;
+            output = btint_set_value<T>(output, T - 1, 0);
+        }
+        output = btint_set_overflow<T>(output, btint_get_overflow<T>(input));
+        return output;
+    }
+
+    template <size_t T>
+    BTINT<T> btint_to_biguint(btint<T> input) {
+        BTINT<T> output;
         for(int i = 0; i < T; i++) {
             output[2 * i] = input.btint_a[i];
             output[2 * i + 1] = input.btint_b[i];
@@ -173,7 +236,7 @@
     }
 
     template <size_t T>
-    btint<T> biguint_to_btint(sc_biguint<2 * T + 1> input) {
+    btint<T> biguint_to_btint(BTINT<T> input) {
         btint<T> output;
         for(int i = 0; i < T; i++) {
             output.btint_a[i] = input[2 * i];

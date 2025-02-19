@@ -30,7 +30,7 @@ void MULTIPLIER<T>::multiply(void) {
             b = b.shift_right(1);
             shift_register_reset.write(0);
             for(int i = 0; i < T; i++) {
-                product.set_value(i, shift_register_state.read().get_value(i));
+                product.set_value(i, biguint_to_btint<T>(shift_register_state.read()).get_value(i));
             }
             for(int i = 0; i < T; i++) {
                 product.set_value(i + T, biguint_to_btint<T>(adder_subtractor_a.read()).get_value(i));

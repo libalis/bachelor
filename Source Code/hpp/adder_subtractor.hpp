@@ -10,11 +10,11 @@
 
     template <size_t T>
     SC_MODULE(ADDER_SUBTRACTOR) {
-        sc_in<sc_biguint<2 * T + 1>> adder_subtractor_a;
-        sc_in<sc_biguint<2 * T + 1>> adder_subtractor_b;
+        sc_in<BTINT<T>> adder_subtractor_a;
+        sc_in<BTINT<T>> adder_subtractor_b;
         sc_in<bool> adder_subtractor_subtract;
 
-        sc_out<sc_biguint<2 * (T + 1) + 1>> adder_subtractor_sum;
+        sc_out<BTINT<T + 1>> adder_subtractor_sum;
 
         sc_signal<bool> one;
 
