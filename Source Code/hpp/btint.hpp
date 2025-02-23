@@ -5,7 +5,6 @@
         #define TRITS (8)
     #endif
 
-    #include <algorithm>
     #include <systemc>
 
     using namespace std;
@@ -16,27 +15,36 @@
     struct btint {
         sc_biguint<T> btint_a;
         sc_biguint<T> btint_b;
-        bool overflow = 0;
+        sc_biguint<2> overflow;
 
-        btint() {
-            for(int i = 0; i < T; i++) {
-                set_value(i, 0);
+        btint check_overflow(void) const {
+            btint output = from_int(to_int());
+            output.overflow = overflow;
+            bool overflow = 0;
+            for(int i = TRITS; i < T; i++) {
+                if(output.get_value(i)) {
+                    output = output.set_overflow(output.get_value(i));
+                    break;
+                }
+                if(get_value(i)) {
+                    overflow = 1;
+                    break;
+                }
             }
+            if(output.get_overflow()) {
+                cout << "Possible Overflow" << endl;
+            } else if(overflow) {
+                cout << "Pseudo Overflow" << endl;
+            } else {
+                cout << "No Overflow" << endl;
+            }
+            return output;
         }
 
-        template <size_t U>
-        btint(const btint<U> &value) {
-            for(int i = 0; i < min(T, U); i++) {
-                set_value(i, value.get_value(i));
-            }
-            for(int i = min(T, U); i < T; i++) {
-                set_value(i, 0);
-            }
-        }
-
-        btint(int value) {
+        btint from_int(int value) const {
+            btint output;
             for(int i = 0; i < T; i++) {
-                set_value(i, 0);
+                output = output.set_value(i, 0);
             }
             bool isNegative = value < 0;
             if(isNegative) {
@@ -45,97 +53,125 @@
             int i = 0;
             while(value) {
                 if(i >= T) {
-                    overflow = 1;
+                    output = output.set_overflow(1);
                     break;
                 }
                 if(value % 2) {
-                    set_value(i++, 1);
+                    output = output.set_value(i++, 1);
                     value -= 1;
                 } else {
-                    set_value(i++, 0);
+                    output = output.set_value(i++, 0);
                 }
                 value /= 2;
             }
             if(isNegative) {
                 for(int i = 0; i < T; i++) {
-                    set_value(i, -get_value(i));
+                    output = output.set_value(i, -output.get_value(i));
                 }
+                output = output.set_overflow(-1);
             }
+            return output;
         }
 
-        btint<TRITS> check_overflow() const {
-            btint value(to_int());
-            value.overflow = overflow;
-            bool overflow = 0;
-            for(int i = TRITS; i < T; i++) {
-                if(value.get_value(i)) {
-                    value.overflow = 1;
-                    break;
-                }
-                if(get_value(i)) {
-                    overflow = 1;
-                    break;
-                }
-            }
-            if(value.overflow) {
-                cout << "Possible Overflow" << endl;
-            } else if(overflow) {
-                cout << "Pseudo Overflow" << endl;
-            } else {
-                cout << "No Overflow" << endl;
-            }
-            return value;
-        }
-
-        btint shift_left(int index) const {
-            btint value;
-            value.btint_a = btint_a << index;
-            value.btint_b = btint_b << index;
-            value.set_value(0, 0);
-            return value;
-        }
-
-        btint shift_right(int index) const {
-            btint value;
-            value.btint_a = btint_a >> index;
-            value.btint_b = btint_b >> index;
-            value.set_value(T - 1, 0);
-            return value;
-        }
-
-        btint set_value(int index, int decimal_value) {
-            switch(decimal_value) {
-                case -1:
-                    btint_a[index] = 0;
-                    btint_b[index] = 0;
-                    break;
-                case 0:
-                    btint_a[index] = 0;
-                    btint_b[index] = 1;
-                    break;
-                case 1:
-                    btint_a[index] = 1;
-                    btint_b[index] = 1;
-                    break;
-                default:
-                    break;
-            }
-            return *this;
+        int get_overflow(void) const {
+            return overflow[0] + overflow[1] - 1;
         }
 
         int get_value(int index) const {
             return btint_a[index] + btint_b[index] - 1;
         }
 
-        int to_int() const {
-            int value = 0;
-            for(int i = T - 1; i >= 0; i--) {
-                value = value * 2 + get_value(i);
-            }
-            return value;
+        btint<TRITS> range(int from, int to) const {
+            btint<TRITS> output;
+            output.btint_a = btint_a.range(from, to);
+            output.btint_b = btint_b.range(from, to);
+            output.overflow = overflow;
+            return output;
         }
 
-        bool operator==(const btint<T> &value) const {
+        btint set_overflow(int value) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            switch(value) {
+                case -1:
+                    output.overflow[0] = 0;
+                    output.overflow[1] = 0;
+                    break;
+                case 0:
+                    output.overflow[0] = 0;
+                    output.overflow[1] = 1;
+                    break;
+                case 1:
+                    output.overflow[0] = 1;
+                    output.overflow[1] = 1;
+                    break;
+                default:
+                    break;
+            }
+            return output;
+        }
+
+        btint set_value(int index, int value) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            switch(value) {
+                case -1:
+                    output.btint_a[index] = 0;
+                    output.btint_b[index] = 0;
+                    break;
+                case 0:
+                    output.btint_a[index] = 0;
+                    output.btint_b[index] = 1;
+                    break;
+                case 1:
+                    output.btint_a[index] = 1;
+                    output.btint_b[index] = 1;
+                    break;
+                default:
+                    break;
+            }
+            return output;
+        }
+
+        btint shift_left(int index) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            for(int i = 0; i < index; i++) {
+                output.btint_a = output.btint_a << 1;
+                output.btint_b = output.btint_b << 1;
+                output = output.set_value(0, 0);
+            }
+            return output;
+        }
+
+        btint shift_right(int index) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            for(int i = 0; i < index; i++) {
+                output.btint_a = output.btint_a >> 1;
+                output.btint_b = output.btint_b >> 1;
+                output = output.set_value(T - 1, 0);
+            }
+            return output;
+        }
+
+        int to_int(void) const {
+            int output = 0;
+            for(int i = T - 1; i >= 0; i--) {
+                output = 2 * output + get_value(i);
+            }
+            return output;
+        }
+
+        bool operator==(const btint<T> &value) {
             for(int i = 0; i < T; i++) {
                 if(get_value(i) != value.get_value(i)) {
                     return false;
@@ -151,7 +187,7 @@
             return os;
         }
 
-        friend void sc_trace(sc_trace_file *&file, const btint<T> &value, string &name) {
+        friend inline void sc_trace(sc_trace_file *&file, const btint<T> &value, string &name) {
             sc_trace(file, value.btint_a, name + ".btint_a");
             sc_trace(file, value.btint_b, name + ".btint_b");
             for(int i = 0; i < T; i++) {
@@ -160,89 +196,4 @@
             }
         }
     };
-
-    template <size_t T>
-    using BTINT = sc_biguint<2 * (T) + 1>;
-
-    template <size_t T>
-    bool btint_get_overflow(BTINT<T> input) {
-        return input[2 * T];
-    }
-
-    template <size_t T>
-    int btint_get_value(BTINT<T> input, int index) {
-        return (bool)input[2 * index] + (bool)input[2 * index + 1] - 1;
-    }
-
-    template <size_t T>
-    BTINT<T> btint_set_overflow(BTINT<T> input, bool value) {
-        BTINT<T> output = input;
-        output[2 * T] = value;
-        return output;
-    }
-
-    template <size_t T>
-    BTINT<T> btint_set_value(BTINT<T> input, int index, int value) {
-        BTINT<T> output = input;
-        switch(value) {
-            case -1:
-                output[2 * index] = 0;
-                output[2 * index + 1] = 0;
-                break;
-            case 0:
-                output[2 * index] = 0;
-                output[2 * index + 1] = 1;
-                break;
-            case 1:
-                output[2 * index] = 1;
-                output[2 * index + 1] = 1;
-                break;
-            default:
-                break;
-        }
-        return output;
-    }
-
-    template <size_t T>
-    BTINT<T> btint_reset(void) {
-        BTINT<T> output;
-        for(int i = 0; i < T; i++) {
-            output = btint_set_value<T>(output, i, 0);
-        }
-        output = btint_set_overflow<T>(output, 0);
-        return output;
-    }
-
-    template <size_t T>
-    BTINT<T> btint_shift_right(BTINT<T> input, int index) {
-        BTINT<T> output = input;
-        for(int i = 0; i < index; i++) {
-            output = output >> 2;
-            output = btint_set_value<T>(output, T - 1, 0);
-        }
-        output = btint_set_overflow<T>(output, btint_get_overflow<T>(input));
-        return output;
-    }
-
-    template <size_t T>
-    BTINT<T> btint_to_biguint(btint<T> input) {
-        BTINT<T> output;
-        for(int i = 0; i < T; i++) {
-            output[2 * i] = input.btint_a[i];
-            output[2 * i + 1] = input.btint_b[i];
-        }
-        output[2 * T] = input.overflow;
-        return output;
-    }
-
-    template <size_t T>
-    btint<T> biguint_to_btint(BTINT<T> input) {
-        btint<T> output;
-        for(int i = 0; i < T; i++) {
-            output.btint_a[i] = input[2 * i];
-            output.btint_b[i] = input[2 * i + 1];
-        }
-        output.overflow = input[2 * T];
-        return output;
-    }
 #endif

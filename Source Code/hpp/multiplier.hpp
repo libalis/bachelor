@@ -15,21 +15,21 @@
         sc_in<btint<T>> multiplier_a;
         sc_in<btint<T>> multiplier_b;
 
-        sc_out<btint<T * 2>> multiplier_product;
+        sc_out<btint<2 * T>> multiplier_product;
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
-        sc_signal<BTINT<T>> adder_subtractor_a;
-        sc_signal<BTINT<T>> adder_subtractor_b;
+        sc_signal<btint<T>> adder_subtractor_a;
+        sc_signal<btint<T>> adder_subtractor_b;
         sc_signal<bool> adder_subtractor_subtract;
 
-        sc_signal<BTINT<T + 1>> adder_subtractor_sum;
+        sc_signal<btint<T + 1>> adder_subtractor_sum;
 
         SHIFT_REGISTER<T> *shift_register;
 
         sc_signal<bool> shift_register_reset;
 
-        sc_signal<BTINT<T>> shift_register_state;
+        sc_signal<btint<T>> shift_register_state;
 
         btint<T> a_old;
         btint<T> b_old;

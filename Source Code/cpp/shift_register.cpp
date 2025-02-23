@@ -2,16 +2,12 @@
 
 template <size_t T>
 void SHIFT_REGISTER<T>::shift(void) {
-    BTINT<T> output;
-    shift_register_state.write(btint_reset<T>());
-    shift_register_output.write(btint_reset<T>());
+    shift_register_state.write(shift_register_state.read().from_int(0));
+    shift_register_output.write(shift_register_output.read().from_int(0));
     wait();
     while(true) {
-        shift_register_state.write(btint_set_value<T>(btint_shift_right<T>(shift_register_state.read(), 1), T - 1, btint_get_value<T + 1>(shift_register_input.read(), 0)));
-        for(int i = 0; i < T; i++) {
-            output = btint_set_value<T>(output, i, btint_get_value<T + 1>(shift_register_input.read(), i + 1));
-        }
-        shift_register_output.write(output);
+        shift_register_state.write(shift_register_state.read().shift_right(1).set_value(T - 1, shift_register_input.read().get_value(0)));
+        shift_register_output.write(shift_register_input.read().range(T, 1));
         wait();
     }
 }

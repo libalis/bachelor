@@ -17,17 +17,17 @@
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
-        sc_signal<BTINT<T>> adder_subtractor_a;
-        sc_signal<BTINT<T>> adder_subtractor_b;
+        sc_signal<btint<T>> adder_subtractor_a;
+        sc_signal<btint<T>> adder_subtractor_b;
 
-        sc_signal<BTINT<T + 1>> adder_subtractor_sum;
+        sc_signal<btint<T + 1>> adder_subtractor_sum;
 
         MULTIPLIER<T> *multiplier;
 
         sc_signal<btint<T>> multiplier_a;
         sc_signal<btint<T>> multiplier_b;
 
-        sc_signal<btint<T * 2>> multiplier_product;
+        sc_signal<btint<2 * T>> multiplier_product;
 
         btint<T> state;
 

@@ -6,10 +6,10 @@ SC_MODULE(SYSTEM) {
     SHIFT_REGISTER<T> *shift_register;
 
     sc_signal<bool> shift_register_reset;
-    sc_signal<BTINT<T + 1>> shift_register_input;
+    sc_signal<btint<T + 1>> shift_register_input;
 
-    sc_signal<BTINT<T>> shift_register_state;
-    sc_signal<BTINT<T>> shift_register_output;
+    sc_signal<btint<T>> shift_register_state;
+    sc_signal<btint<T>> shift_register_output;
 
     MATRIX_VECTOR<T> *matrix_vector;
 

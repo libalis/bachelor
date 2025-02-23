@@ -11,9 +11,9 @@ void TESTBENCH<T>::source(void) {
             int j = 0;
             while(j < Y_DIMENSION) {
                 #ifdef DECIMAL_INPUT
-                    m<T>[i][j] = stoi(string(token));
+                    m<T>[i][j] = m<T>[i][j].from_int(stoi(string(token)));
                 #else
-                    m<T>[i][j] = btint<T>();
+                    m<T>[i][j] = m<T>[i][j].from_int(0);
                     bool isNegative;
                     for(char value : string(token)) {
                         switch(value) {
@@ -22,7 +22,7 @@ void TESTBENCH<T>::source(void) {
                                 break;
                             default:
                                 m<T>[i][j] = m<T>[i][j].shift_left(1);
-                                m<T>[i][j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
+                                m<T>[i][j] = m<T>[i][j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
                                 isNegative = 0;
                                 break;
                         }
@@ -39,9 +39,9 @@ void TESTBENCH<T>::source(void) {
         int j = 0;
         while(j < Y_DIMENSION) {
             #ifdef DECIMAL_INPUT
-                v<T>[j] = stoi(string(token));
+                v<T>[j] = v<T>[j].from_int(stoi(string(token)));
             #else
-                v<T>[j] = btint<T>();
+                v<T>[j] = v<T>[j].from_int(0);
                 bool isNegative;
                 for(char value : string(token)) {
                     switch(value) {
@@ -50,7 +50,7 @@ void TESTBENCH<T>::source(void) {
                             break;
                         default:
                             v<T>[j] = v<T>[j].shift_left(1);
-                            v<T>[j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
+                            v<T>[j] = v<T>[j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
                             isNegative = 0;
                             break;
                     }
