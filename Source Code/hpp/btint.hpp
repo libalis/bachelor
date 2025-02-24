@@ -41,6 +41,14 @@
             return output;
         }
 
+        btint<2 * T> concatenate(btint low) const {
+            btint<2 * T> output;
+            output.btint_a = (btint_a, low.btint_a);
+            output.btint_b = (btint_b, low.btint_b);
+            output.overflow = overflow;
+            return output;
+        }
+
         btint from_int(int value) const {
             btint output;
             for(int i = 0; i < T; i++) {

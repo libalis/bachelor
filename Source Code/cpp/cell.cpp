@@ -3,7 +3,7 @@
 template <size_t T>
 void CELL<T>::compute(void) {
     cell_b_out.write(cell_b_in.read());
-    cell_c_out.write(cell_c_out.read().from_int(0));
+    cell_c_out.write(btint<T>().from_int(0));
     state = cell_b_in.read();
     wait();
     while(true) {

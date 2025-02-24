@@ -16,9 +16,9 @@
         btint<T> m[X_DIMENSION][Y_DIMENSION];
     #else
         const btint<T> m[X_DIMENSION][Y_DIMENSION] = {
-            {m<T>[0][0].from_int(1), m<T>[0][1].from_int(2), m<T>[0][2].from_int(3), m<T>[0][3].from_int(4)},
-            {m<T>[1][0].from_int(2), m<T>[1][1].from_int(3), m<T>[1][2].from_int(4), m<T>[1][3].from_int(5)},
-            {m<T>[2][0].from_int(3), m<T>[2][1].from_int(4), m<T>[2][2].from_int(5), m<T>[2][3].from_int(6)}
+            {btint<T>().from_int(1), btint<T>().from_int(2), btint<T>().from_int(3), btint<T>().from_int(4)},
+            {btint<T>().from_int(2), btint<T>().from_int(3), btint<T>().from_int(4), btint<T>().from_int(5)},
+            {btint<T>().from_int(3), btint<T>().from_int(4), btint<T>().from_int(5), btint<T>().from_int(6)}
         };
     #endif
 
@@ -26,6 +26,6 @@
     #ifdef INPUT_OUTPUT
         btint<T> v[Y_DIMENSION];
     #else
-        const btint<T> v[Y_DIMENSION] = {v<T>[0].from_int(1), v<T>[1].from_int(2), v<T>[2].from_int(3), v<T>[3].from_int(4)};
+        const btint<T> v[Y_DIMENSION] = {btint<T>().from_int(1), btint<T>().from_int(2), btint<T>().from_int(3), btint<T>().from_int(4)};
     #endif
 #endif

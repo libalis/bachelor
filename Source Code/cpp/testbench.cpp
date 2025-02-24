@@ -11,9 +11,9 @@ void TESTBENCH<T>::source(void) {
             int j = 0;
             while(j < Y_DIMENSION) {
                 #ifdef DECIMAL_INPUT
-                    m<T>[i][j] = m<T>[i][j].from_int(stoi(string(token)));
+                    m<T>[i][j] = btint<T>().from_int(stoi(string(token)));
                 #else
-                    m<T>[i][j] = m<T>[i][j].from_int(0);
+                    m<T>[i][j] = btint<T>().from_int(0);
                     bool isNegative;
                     for(char value : string(token)) {
                         switch(value) {
@@ -39,9 +39,9 @@ void TESTBENCH<T>::source(void) {
         int j = 0;
         while(j < Y_DIMENSION) {
             #ifdef DECIMAL_INPUT
-                v<T>[j] = v<T>[j].from_int(stoi(string(token)));
+                v<T>[j] = btint<T>().from_int(stoi(string(token)));
             #else
-                v<T>[j] = v<T>[j].from_int(0);
+                v<T>[j] = btint<T>().from_int(0);
                 bool isNegative;
                 for(char value : string(token)) {
                     switch(value) {
