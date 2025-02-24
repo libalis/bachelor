@@ -83,8 +83,8 @@
 
         btint<TRITS> range(int from, int to) const {
             btint<TRITS> output;
-            output.btint_a = btint_a.range(from, to);
-            output.btint_b = btint_b.range(from, to);
+            output.btint_a = btint_a.range(TRITS - 1 + to, to);
+            output.btint_b = btint_b.range(TRITS - 1 + to, to);
             output.overflow = overflow;
             return output;
         }
