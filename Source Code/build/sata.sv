@@ -7,9 +7,600 @@
 
 //==============================================================================
 //
+// Module: CELL ()
+//
+module CELL // "system.cell"
+(
+    input logic cell_clock,
+    input logic cell_reset,
+    input logic [7:0] cell_b_in_btint_a,
+    input logic [7:0] cell_b_in_btint_b,
+    input logic [1:0] cell_b_in_overflow,
+    input logic [7:0] cell_c_in_btint_a,
+    input logic [7:0] cell_c_in_btint_b,
+    input logic [1:0] cell_c_in_overflow,
+    output logic [7:0] cell_b_out_btint_a,
+    output logic [7:0] cell_b_out_btint_b,
+    output logic [1:0] cell_b_out_overflow,
+    output logic [7:0] cell_c_out_btint_a,
+    output logic [7:0] cell_c_out_btint_b,
+    output logic [1:0] cell_c_out_overflow
+);
+
+// Variables generated for SystemC signals
+logic zero;
+logic [7:0] adder_subtractor_a_btint_a;
+logic [7:0] adder_subtractor_a_btint_b;
+logic [1:0] adder_subtractor_a_overflow;
+logic [7:0] adder_subtractor_b_btint_a;
+logic [7:0] adder_subtractor_b_btint_b;
+logic [1:0] adder_subtractor_b_overflow;
+logic [8:0] adder_subtractor_sum_btint_a;
+logic [8:0] adder_subtractor_sum_btint_b;
+logic [1:0] adder_subtractor_sum_overflow;
+logic [7:0] multiplier_a_btint_a;
+logic [7:0] multiplier_a_btint_b;
+logic [1:0] multiplier_a_overflow;
+logic [7:0] multiplier_b_btint_a;
+logic [7:0] multiplier_b_btint_b;
+logic [1:0] multiplier_b_overflow;
+logic [15:0] multiplier_product_btint_a;
+logic [15:0] multiplier_product_btint_b;
+logic [1:0] multiplier_product_overflow;
+
+//------------------------------------------------------------------------------
+// Clocked THREAD: compute (cell.cpp:4:1) 
+
+// Thread-local variables
+logic [7:0] cell_b_out_btint_a_next;
+logic [7:0] cell_b_out_btint_b_next;
+logic [1:0] cell_b_out_overflow_next;
+logic [7:0] cell_c_out_btint_a_next;
+logic [7:0] cell_c_out_btint_b_next;
+logic [1:0] cell_c_out_overflow_next;
+logic [7:0] state_btint_a;
+logic [7:0] state_btint_a_next;
+logic [7:0] state_btint_b;
+logic [7:0] state_btint_b_next;
+logic [1:0] state_overflow;
+logic [1:0] state_overflow_next;
+logic [7:0] multiplier_a_btint_a_next;
+logic [7:0] multiplier_a_btint_b_next;
+logic [1:0] multiplier_a_overflow_next;
+logic [7:0] multiplier_b_btint_a_next;
+logic [7:0] multiplier_b_btint_b_next;
+logic [1:0] multiplier_b_overflow_next;
+logic [7:0] adder_subtractor_a_btint_a_next;
+logic [7:0] adder_subtractor_a_btint_b_next;
+logic [1:0] adder_subtractor_a_overflow_next;
+logic [7:0] adder_subtractor_b_btint_a_next;
+logic [7:0] adder_subtractor_b_btint_b_next;
+logic [1:0] adder_subtractor_b_overflow_next;
+
+// Next-state combinational logic
+always_comb begin : compute_comb     // cell.cpp:4:1
+    compute_func;
+end
+function void compute_func;
+    logic [8:0] sum_btint_a;
+    logic [8:0] sum_btint_b;
+    logic [1:0] sum_overflow;
+    logic [15:0] product_btint_a;
+    logic [15:0] product_btint_b;
+    logic [1:0] product_overflow;
+    integer TMP_0_value;
+    logic [7:0] output_btint_a;
+    logic [7:0] output_btint_b;
+    logic [1:0] output_overflow;
+    integer output_index;
+    integer output_value;
+    logic [7:0] output_btint_a_1;
+    logic [7:0] output_btint_b_1;
+    logic [1:0] output_overflow_1;
+    logic [7:0] TMP_2_btint_a;
+    logic [7:0] TMP_2_btint_b;
+    logic [1:0] TMP_2_overflow;
+    logic TMP_0_isNegative;
+    integer TMP_0_i;
+    logic [7:0] TMP_1_btint_a;
+    logic [7:0] TMP_1_btint_b;
+    logic [1:0] TMP_1_overflow;
+    integer product_from;
+    integer product_to;
+    logic [7:0] output_btint_a_2;
+    logic [7:0] output_btint_b_2;
+    logic [1:0] output_overflow_2;
+    logic [7:0] TMP_3_btint_a;
+    logic [7:0] TMP_3_btint_b;
+    logic [1:0] TMP_3_overflow;
+    integer sum_from;
+    integer sum_to;
+    logic [7:0] output_btint_a_3;
+    logic [7:0] output_btint_b_3;
+    logic [1:0] output_overflow_3;
+    logic [7:0] TMP_4_btint_a;
+    logic [7:0] TMP_4_btint_b;
+    logic [1:0] TMP_4_overflow;
+    output_btint_a_2 = 0;
+    output_btint_b_2 = 0;
+    output_overflow_2 = 0;
+    TMP_3_btint_a = 0;
+    TMP_3_btint_b = 0;
+    TMP_3_overflow = 0;
+    output_btint_a_3 = 0;
+    output_btint_b_3 = 0;
+    output_overflow_3 = 0;
+    TMP_4_btint_a = 0;
+    TMP_4_btint_b = 0;
+    TMP_4_overflow = 0;
+    adder_subtractor_a_btint_a_next = adder_subtractor_a_btint_a;
+    adder_subtractor_a_btint_b_next = adder_subtractor_a_btint_b;
+    adder_subtractor_a_overflow_next = adder_subtractor_a_overflow;
+    adder_subtractor_b_btint_a_next = adder_subtractor_b_btint_a;
+    adder_subtractor_b_btint_b_next = adder_subtractor_b_btint_b;
+    adder_subtractor_b_overflow_next = adder_subtractor_b_overflow;
+    cell_b_out_btint_a_next = cell_b_out_btint_a;
+    cell_b_out_btint_b_next = cell_b_out_btint_b;
+    cell_b_out_overflow_next = cell_b_out_overflow;
+    cell_c_out_btint_a_next = cell_c_out_btint_a;
+    cell_c_out_btint_b_next = cell_c_out_btint_b;
+    cell_c_out_overflow_next = cell_c_out_overflow;
+    multiplier_a_btint_a_next = multiplier_a_btint_a;
+    multiplier_a_btint_b_next = multiplier_a_btint_b;
+    multiplier_a_overflow_next = multiplier_a_overflow;
+    multiplier_b_btint_a_next = multiplier_b_btint_a;
+    multiplier_b_btint_b_next = multiplier_b_btint_b;
+    multiplier_b_overflow_next = multiplier_b_overflow;
+    state_btint_a_next = state_btint_a;
+    state_btint_b_next = state_btint_b;
+    state_overflow_next = state_overflow;
+    sum_btint_a = adder_subtractor_sum_btint_a; sum_btint_b = adder_subtractor_sum_btint_b; sum_overflow = adder_subtractor_sum_overflow;
+    product_btint_a = multiplier_product_btint_a; product_btint_b = multiplier_product_btint_b; product_overflow = multiplier_product_overflow;
+    cell_b_out_btint_a_next = cell_b_in_btint_a; cell_b_out_btint_b_next = cell_b_in_btint_b; cell_b_out_overflow_next = cell_b_in_overflow;
+    multiplier_a_btint_a_next = state_btint_a_next; multiplier_a_btint_b_next = state_btint_b_next; multiplier_a_overflow_next = state_overflow_next;
+    multiplier_b_btint_a_next = cell_b_in_btint_a; multiplier_b_btint_b_next = cell_b_in_btint_b; multiplier_b_overflow_next = cell_b_in_overflow;
+    product_from = 8 - 1; product_to = 0;
+    // Call range() begin
+    output_btint_a_2 = 0;
+    output_btint_b_2 = 0;
+    output_overflow_2 = 0;
+    output_btint_a_2 = product_btint_a[product_to +: 8];
+    output_btint_b_2 = product_btint_b[product_to +: 8];
+    output_overflow_2 = product_overflow;
+    TMP_3_btint_a = output_btint_a_2; TMP_3_btint_b = output_btint_b_2; TMP_3_overflow = output_overflow_2;
+    // Call range() end
+    adder_subtractor_a_btint_a_next = TMP_3_btint_a; adder_subtractor_a_btint_b_next = TMP_3_btint_b; adder_subtractor_a_overflow_next = TMP_3_overflow;
+    adder_subtractor_b_btint_a_next = cell_c_in_btint_a; adder_subtractor_b_btint_b_next = cell_c_in_btint_b; adder_subtractor_b_overflow_next = cell_c_in_overflow;
+    sum_from = 8 - 1; sum_to = 0;
+    // Call range() begin
+    output_btint_a_3 = 0;
+    output_btint_b_3 = 0;
+    output_overflow_3 = 0;
+    output_btint_a_3 = sum_btint_a[sum_to +: 8];
+    output_btint_b_3 = sum_btint_b[sum_to +: 8];
+    output_overflow_3 = sum_overflow;
+    TMP_4_btint_a = output_btint_a_3; TMP_4_btint_b = output_btint_b_3; TMP_4_overflow = output_overflow_3;
+    // Call range() end
+    cell_c_out_btint_a_next = TMP_4_btint_a; cell_c_out_btint_b_next = TMP_4_btint_b; cell_c_out_overflow_next = TMP_4_overflow;
+endfunction
+
+// Synchronous register update
+always_ff @(posedge cell_clock /*sync cell_reset*/) 
+begin : compute_ff
+    if ( cell_reset ) begin
+        logic [8:0] sum_btint_a;
+        logic [8:0] sum_btint_b;
+        logic [1:0] sum_overflow;
+        logic [15:0] product_btint_a;
+        logic [15:0] product_btint_b;
+        logic [1:0] product_overflow;
+        integer TMP_0_value;
+        logic [7:0] output_btint_a;
+        logic [7:0] output_btint_b;
+        logic [1:0] output_overflow;
+        integer output_index;
+        integer output_value;
+        logic [7:0] output_btint_a_1;
+        logic [7:0] output_btint_b_1;
+        logic [1:0] output_overflow_1;
+        logic [7:0] TMP_2_btint_a;
+        logic [7:0] TMP_2_btint_b;
+        logic [1:0] TMP_2_overflow;
+        logic TMP_0_isNegative;
+        integer TMP_0_i;
+        logic [7:0] TMP_1_btint_a;
+        logic [7:0] TMP_1_btint_b;
+        logic [1:0] TMP_1_overflow;
+        sum_btint_a = 0;
+        sum_btint_b = 0;
+        sum_overflow = 0;
+        product_btint_a = 0;
+        product_btint_b = 0;
+        product_overflow = 0;
+        cell_b_out_btint_a <= cell_b_in_btint_a; cell_b_out_btint_b <= cell_b_in_btint_b; cell_b_out_overflow <= cell_b_in_overflow;
+        TMP_0_value = 0;
+        // Call from_int() begin
+        output_btint_a = 0;
+        output_btint_b = 0;
+        output_overflow = 0;
+        for (integer i = 0; i < 8; i++)
+        begin
+            output_index = i; output_value = 0;
+            // Call set_value() begin
+            output_btint_a_1 = 0;
+            output_btint_b_1 = 0;
+            output_overflow_1 = 0;
+            output_btint_a_1 = output_btint_a;
+            output_btint_b_1 = output_btint_b;
+            output_overflow_1 = output_overflow;
+            case (0)
+            0 : begin
+                output_btint_a_1[output_index] = 0;
+                output_btint_b_1[output_index] = 1;
+            end
+            endcase
+            TMP_2_btint_a = output_btint_a_1; TMP_2_btint_b = output_btint_b_1; TMP_2_overflow = output_overflow_1;
+            // Call set_value() end
+            output_btint_a = TMP_2_btint_a; output_btint_b = TMP_2_btint_b; output_overflow = TMP_2_overflow;
+        end
+        TMP_0_isNegative = TMP_0_value < 0;
+        TMP_0_i = 0;
+        TMP_1_btint_a = output_btint_a; TMP_1_btint_b = output_btint_b; TMP_1_overflow = output_overflow;
+        // Call from_int() end
+        cell_c_out_btint_a <= TMP_1_btint_a; cell_c_out_btint_b <= TMP_1_btint_b; cell_c_out_overflow <= TMP_1_overflow;
+        state_btint_a <= cell_b_in_btint_a; state_btint_b <= cell_b_in_btint_b; state_overflow <= cell_b_in_overflow;
+    end
+    else begin
+        cell_b_out_btint_a <= cell_b_out_btint_a_next;
+        cell_b_out_btint_b <= cell_b_out_btint_b_next;
+        cell_b_out_overflow <= cell_b_out_overflow_next;
+        cell_c_out_btint_a <= cell_c_out_btint_a_next;
+        cell_c_out_btint_b <= cell_c_out_btint_b_next;
+        cell_c_out_overflow <= cell_c_out_overflow_next;
+        state_btint_a <= state_btint_a_next;
+        state_btint_b <= state_btint_b_next;
+        state_overflow <= state_overflow_next;
+        multiplier_a_btint_a <= multiplier_a_btint_a_next;
+        multiplier_a_btint_b <= multiplier_a_btint_b_next;
+        multiplier_a_overflow <= multiplier_a_overflow_next;
+        multiplier_b_btint_a <= multiplier_b_btint_a_next;
+        multiplier_b_btint_b <= multiplier_b_btint_b_next;
+        multiplier_b_overflow <= multiplier_b_overflow_next;
+        adder_subtractor_a_btint_a <= adder_subtractor_a_btint_a_next;
+        adder_subtractor_a_btint_b <= adder_subtractor_a_btint_b_next;
+        adder_subtractor_a_overflow <= adder_subtractor_a_overflow_next;
+        adder_subtractor_b_btint_a <= adder_subtractor_b_btint_a_next;
+        adder_subtractor_b_btint_b <= adder_subtractor_b_btint_b_next;
+        adder_subtractor_b_overflow <= adder_subtractor_b_overflow_next;
+    end
+end
+
+
+//------------------------------------------------------------------------------
+// Child module instances
+
+ADDER_SUBTRACTOR adder_subtractor
+(
+  .adder_subtractor_a_btint_a(adder_subtractor_a_btint_a),
+  .adder_subtractor_a_btint_b(adder_subtractor_a_btint_b),
+  .adder_subtractor_a_overflow(adder_subtractor_a_overflow),
+  .adder_subtractor_b_btint_a(adder_subtractor_b_btint_a),
+  .adder_subtractor_b_btint_b(adder_subtractor_b_btint_b),
+  .adder_subtractor_b_overflow(adder_subtractor_b_overflow),
+  .adder_subtractor_subtract(zero),
+  .adder_subtractor_sum_btint_a(adder_subtractor_sum_btint_a),
+  .adder_subtractor_sum_btint_b(adder_subtractor_sum_btint_b),
+  .adder_subtractor_sum_overflow(adder_subtractor_sum_overflow)
+);
+
+MULTIPLIER multiplier
+(
+  .multiplier_clock(cell_clock),
+  .multiplier_reset(zero),
+  .multiplier_a_btint_a(multiplier_a_btint_a),
+  .multiplier_a_btint_b(multiplier_a_btint_b),
+  .multiplier_a_overflow(multiplier_a_overflow),
+  .multiplier_b_btint_a(multiplier_b_btint_a),
+  .multiplier_b_btint_b(multiplier_b_btint_b),
+  .multiplier_b_overflow(multiplier_b_overflow),
+  .multiplier_product_btint_a(multiplier_product_btint_a),
+  .multiplier_product_btint_b(multiplier_product_btint_b),
+  .multiplier_product_overflow(multiplier_product_overflow)
+);
+
+endmodule
+
+
+
+//==============================================================================
+//
+// Module: ADDER_SUBTRACTOR ()
+//
+module ADDER_SUBTRACTOR // "system.cell.adder_subtractor"
+(
+    input logic [7:0] adder_subtractor_a_btint_a,
+    input logic [7:0] adder_subtractor_a_btint_b,
+    input logic [1:0] adder_subtractor_a_overflow,
+    input logic [7:0] adder_subtractor_b_btint_a,
+    input logic [7:0] adder_subtractor_b_btint_b,
+    input logic [1:0] adder_subtractor_b_overflow,
+    input logic adder_subtractor_subtract,
+    output logic [8:0] adder_subtractor_sum_btint_a,
+    output logic [8:0] adder_subtractor_sum_btint_b,
+    output logic [1:0] adder_subtractor_sum_overflow
+);
+
+// Variables generated for SystemC signals
+logic one;
+logic input_a[2][8];
+logic input_b[2][8];
+logic output_sum[2][9];
+logic fulladder_sum[8];
+logic fulladder_carry_out[7];
+
+//------------------------------------------------------------------------------
+// Method process: source (adder_subtractor.cpp:4:1) 
+
+always_comb 
+begin : source     // adder_subtractor.cpp:4:1
+    for (integer i = 0; i < 8; i++)
+    begin
+        input_a[0][i] = adder_subtractor_a_btint_a[i];
+        input_a[1][i] = adder_subtractor_a_btint_b[i];
+        input_b[0][i] = adder_subtractor_b_btint_a[i] ^ adder_subtractor_subtract;
+        input_b[1][i] = adder_subtractor_b_btint_b[i] ^ adder_subtractor_subtract;
+    end
+end
+
+//------------------------------------------------------------------------------
+// Method process: sink (adder_subtractor.cpp:14:1) 
+
+always_comb 
+begin : sink     // adder_subtractor.cpp:14:1
+    logic [8:0] sum_btint_a;
+    logic [8:0] sum_btint_b;
+    logic [1:0] sum_overflow;
+    integer TMP_0;
+    integer sum_index;
+    integer sum_value;
+    logic [8:0] output_btint_a;
+    logic [8:0] output_btint_b;
+    logic [1:0] output_overflow;
+    logic [8:0] TMP_1_btint_a;
+    logic [8:0] TMP_1_btint_b;
+    logic [1:0] TMP_1_overflow;
+    TMP_0 = 0;
+    output_btint_a = 0;
+    output_btint_b = 0;
+    output_overflow = 0;
+    TMP_1_btint_a = 0;
+    TMP_1_btint_b = 0;
+    TMP_1_overflow = 0;
+    sum_btint_a = 0;
+    sum_btint_b = 0;
+    sum_overflow = 0;
+    for (integer i = 0; i < 8 + 1; i++)
+    begin
+        sum_btint_a[i] = output_sum[0][i];
+        sum_btint_b[i] = output_sum[1][i];
+    end
+    sum_index = 8;
+    // Call get_value() begin
+    TMP_0 = sum_btint_a[sum_index] + sum_btint_b[sum_index] - 1;
+    // Call get_value() end
+    sum_value = TMP_0;
+    // Call set_overflow() begin
+    output_btint_a = 0;
+    output_btint_b = 0;
+    output_overflow = 0;
+    output_btint_a = sum_btint_a;
+    output_btint_b = sum_btint_b;
+    output_overflow = sum_overflow;
+    case (sum_value)
+    -1 : begin
+        output_overflow[0] = 0;
+        output_overflow[1] = 0;
+    end
+    0 : begin
+        output_overflow[0] = 0;
+        output_overflow[1] = 1;
+    end
+    1 : begin
+        output_overflow[0] = 1;
+        output_overflow[1] = 1;
+    end
+    default : begin
+    end
+    endcase
+    TMP_1_btint_a = output_btint_a; TMP_1_btint_b = output_btint_b; TMP_1_overflow = output_overflow;
+    // Call set_overflow() end
+    sum_btint_a = TMP_1_btint_a; sum_btint_b = TMP_1_btint_b; sum_overflow = TMP_1_overflow;
+    adder_subtractor_sum_btint_a = sum_btint_a; adder_subtractor_sum_btint_b = sum_btint_b; adder_subtractor_sum_overflow = sum_overflow;
+end
+
+
+//------------------------------------------------------------------------------
+// Child module instances
+
+FULLADDER fulladder_0_0
+(
+  .fulladder_a(input_a[0][0]),
+  .fulladder_b(input_b[0][0]),
+  .fulladder_carry_in(input_a[1][0]),
+  .fulladder_sum(fulladder_sum[0]),
+  .fulladder_carry_out(fulladder_carry_out[0])
+);
+
+FULLADDER fulladder_0_1
+(
+  .fulladder_a(input_a[0][1]),
+  .fulladder_b(input_b[0][1]),
+  .fulladder_carry_in(input_a[1][1]),
+  .fulladder_sum(fulladder_sum[1]),
+  .fulladder_carry_out(fulladder_carry_out[1])
+);
+
+FULLADDER fulladder_0_2
+(
+  .fulladder_a(input_a[0][2]),
+  .fulladder_b(input_b[0][2]),
+  .fulladder_carry_in(input_a[1][2]),
+  .fulladder_sum(fulladder_sum[2]),
+  .fulladder_carry_out(fulladder_carry_out[2])
+);
+
+FULLADDER fulladder_0_3
+(
+  .fulladder_a(input_a[0][3]),
+  .fulladder_b(input_b[0][3]),
+  .fulladder_carry_in(input_a[1][3]),
+  .fulladder_sum(fulladder_sum[3]),
+  .fulladder_carry_out(fulladder_carry_out[3])
+);
+
+FULLADDER fulladder_0_4
+(
+  .fulladder_a(input_a[0][4]),
+  .fulladder_b(input_b[0][4]),
+  .fulladder_carry_in(input_a[1][4]),
+  .fulladder_sum(fulladder_sum[4]),
+  .fulladder_carry_out(fulladder_carry_out[4])
+);
+
+FULLADDER fulladder_0_5
+(
+  .fulladder_a(input_a[0][5]),
+  .fulladder_b(input_b[0][5]),
+  .fulladder_carry_in(input_a[1][5]),
+  .fulladder_sum(fulladder_sum[5]),
+  .fulladder_carry_out(fulladder_carry_out[5])
+);
+
+FULLADDER fulladder_0_6
+(
+  .fulladder_a(input_a[0][6]),
+  .fulladder_b(input_b[0][6]),
+  .fulladder_carry_in(input_a[1][6]),
+  .fulladder_sum(fulladder_sum[6]),
+  .fulladder_carry_out(fulladder_carry_out[6])
+);
+
+FULLADDER fulladder_0_7
+(
+  .fulladder_a(input_a[0][7]),
+  .fulladder_b(input_b[0][7]),
+  .fulladder_carry_in(input_a[1][7]),
+  .fulladder_sum(fulladder_sum[7]),
+  .fulladder_carry_out(output_sum[1][8])
+);
+
+FULLADDER fulladder_1_0
+(
+  .fulladder_a(one),
+  .fulladder_b(fulladder_sum[0]),
+  .fulladder_carry_in(input_b[1][0]),
+  .fulladder_sum(output_sum[1][0]),
+  .fulladder_carry_out(output_sum[0][1])
+);
+
+FULLADDER fulladder_1_1
+(
+  .fulladder_a(fulladder_carry_out[0]),
+  .fulladder_b(fulladder_sum[1]),
+  .fulladder_carry_in(input_b[1][1]),
+  .fulladder_sum(output_sum[1][1]),
+  .fulladder_carry_out(output_sum[0][2])
+);
+
+FULLADDER fulladder_1_2
+(
+  .fulladder_a(fulladder_carry_out[1]),
+  .fulladder_b(fulladder_sum[2]),
+  .fulladder_carry_in(input_b[1][2]),
+  .fulladder_sum(output_sum[1][2]),
+  .fulladder_carry_out(output_sum[0][3])
+);
+
+FULLADDER fulladder_1_3
+(
+  .fulladder_a(fulladder_carry_out[2]),
+  .fulladder_b(fulladder_sum[3]),
+  .fulladder_carry_in(input_b[1][3]),
+  .fulladder_sum(output_sum[1][3]),
+  .fulladder_carry_out(output_sum[0][4])
+);
+
+FULLADDER fulladder_1_4
+(
+  .fulladder_a(fulladder_carry_out[3]),
+  .fulladder_b(fulladder_sum[4]),
+  .fulladder_carry_in(input_b[1][4]),
+  .fulladder_sum(output_sum[1][4]),
+  .fulladder_carry_out(output_sum[0][5])
+);
+
+FULLADDER fulladder_1_5
+(
+  .fulladder_a(fulladder_carry_out[4]),
+  .fulladder_b(fulladder_sum[5]),
+  .fulladder_carry_in(input_b[1][5]),
+  .fulladder_sum(output_sum[1][5]),
+  .fulladder_carry_out(output_sum[0][6])
+);
+
+FULLADDER fulladder_1_6
+(
+  .fulladder_a(fulladder_carry_out[5]),
+  .fulladder_b(fulladder_sum[6]),
+  .fulladder_carry_in(input_b[1][6]),
+  .fulladder_sum(output_sum[1][6]),
+  .fulladder_carry_out(output_sum[0][7])
+);
+
+FULLADDER fulladder_1_7
+(
+  .fulladder_a(fulladder_carry_out[6]),
+  .fulladder_b(fulladder_sum[7]),
+  .fulladder_carry_in(input_b[1][7]),
+  .fulladder_sum(output_sum[1][7]),
+  .fulladder_carry_out(output_sum[0][8])
+);
+
+endmodule
+
+
+
+//==============================================================================
+//
+// Module: FULLADDER ()
+//
+module FULLADDER // "system.cell.adder_subtractor.fulladder_0_0"
+(
+    input logic fulladder_a,
+    input logic fulladder_b,
+    input logic fulladder_carry_in,
+    output logic fulladder_sum,
+    output logic fulladder_carry_out
+);
+
+//------------------------------------------------------------------------------
+// Method process: add (fulladder.hpp:16:9) 
+
+always_comb 
+begin : add     // fulladder.hpp:16:9
+    fulladder_sum = fulladder_a ^ fulladder_b ^ fulladder_carry_in;
+    fulladder_carry_out = (fulladder_a & fulladder_b) | (fulladder_carry_in & (fulladder_a ^ fulladder_b));
+end
+
+endmodule
+
+
+
+//==============================================================================
+//
 // Module: MULTIPLIER ()
 //
-module MULTIPLIER // "system.multiplier"
+module MULTIPLIER // "system.cell.multiplier"
 (
     input logic multiplier_clock,
     input logic multiplier_reset,
@@ -994,293 +1585,9 @@ endmodule
 
 //==============================================================================
 //
-// Module: ADDER_SUBTRACTOR ()
-//
-module ADDER_SUBTRACTOR // "system.multiplier.adder_subtractor"
-(
-    input logic [7:0] adder_subtractor_a_btint_a,
-    input logic [7:0] adder_subtractor_a_btint_b,
-    input logic [1:0] adder_subtractor_a_overflow,
-    input logic [7:0] adder_subtractor_b_btint_a,
-    input logic [7:0] adder_subtractor_b_btint_b,
-    input logic [1:0] adder_subtractor_b_overflow,
-    input logic adder_subtractor_subtract,
-    output logic [8:0] adder_subtractor_sum_btint_a,
-    output logic [8:0] adder_subtractor_sum_btint_b,
-    output logic [1:0] adder_subtractor_sum_overflow
-);
-
-// Variables generated for SystemC signals
-logic one;
-logic input_a[2][8];
-logic input_b[2][8];
-logic output_sum[2][9];
-logic fulladder_sum[8];
-logic fulladder_carry_out[7];
-
-//------------------------------------------------------------------------------
-// Method process: source (adder_subtractor.cpp:4:1) 
-
-always_comb 
-begin : source     // adder_subtractor.cpp:4:1
-    for (integer i = 0; i < 8; i++)
-    begin
-        input_a[0][i] = adder_subtractor_a_btint_a[i];
-        input_a[1][i] = adder_subtractor_a_btint_b[i];
-        input_b[0][i] = adder_subtractor_b_btint_a[i] ^ adder_subtractor_subtract;
-        input_b[1][i] = adder_subtractor_b_btint_b[i] ^ adder_subtractor_subtract;
-    end
-end
-
-//------------------------------------------------------------------------------
-// Method process: sink (adder_subtractor.cpp:14:1) 
-
-always_comb 
-begin : sink     // adder_subtractor.cpp:14:1
-    logic [8:0] sum_btint_a;
-    logic [8:0] sum_btint_b;
-    logic [1:0] sum_overflow;
-    integer TMP_0;
-    integer sum_index;
-    integer sum_value;
-    logic [8:0] output_btint_a;
-    logic [8:0] output_btint_b;
-    logic [1:0] output_overflow;
-    logic [8:0] TMP_1_btint_a;
-    logic [8:0] TMP_1_btint_b;
-    logic [1:0] TMP_1_overflow;
-    TMP_0 = 0;
-    output_btint_a = 0;
-    output_btint_b = 0;
-    output_overflow = 0;
-    TMP_1_btint_a = 0;
-    TMP_1_btint_b = 0;
-    TMP_1_overflow = 0;
-    sum_btint_a = 0;
-    sum_btint_b = 0;
-    sum_overflow = 0;
-    for (integer i = 0; i < 8 + 1; i++)
-    begin
-        sum_btint_a[i] = output_sum[0][i];
-        sum_btint_b[i] = output_sum[1][i];
-    end
-    sum_index = 8;
-    // Call get_value() begin
-    TMP_0 = sum_btint_a[sum_index] + sum_btint_b[sum_index] - 1;
-    // Call get_value() end
-    sum_value = TMP_0;
-    // Call set_overflow() begin
-    output_btint_a = 0;
-    output_btint_b = 0;
-    output_overflow = 0;
-    output_btint_a = sum_btint_a;
-    output_btint_b = sum_btint_b;
-    output_overflow = sum_overflow;
-    case (sum_value)
-    -1 : begin
-        output_overflow[0] = 0;
-        output_overflow[1] = 0;
-    end
-    0 : begin
-        output_overflow[0] = 0;
-        output_overflow[1] = 1;
-    end
-    1 : begin
-        output_overflow[0] = 1;
-        output_overflow[1] = 1;
-    end
-    default : begin
-    end
-    endcase
-    TMP_1_btint_a = output_btint_a; TMP_1_btint_b = output_btint_b; TMP_1_overflow = output_overflow;
-    // Call set_overflow() end
-    sum_btint_a = TMP_1_btint_a; sum_btint_b = TMP_1_btint_b; sum_overflow = TMP_1_overflow;
-    adder_subtractor_sum_btint_a = sum_btint_a; adder_subtractor_sum_btint_b = sum_btint_b; adder_subtractor_sum_overflow = sum_overflow;
-end
-
-
-//------------------------------------------------------------------------------
-// Child module instances
-
-FULLADDER fulladder_0_0
-(
-  .fulladder_a(input_a[0][0]),
-  .fulladder_b(input_b[0][0]),
-  .fulladder_carry_in(input_a[1][0]),
-  .fulladder_sum(fulladder_sum[0]),
-  .fulladder_carry_out(fulladder_carry_out[0])
-);
-
-FULLADDER fulladder_0_1
-(
-  .fulladder_a(input_a[0][1]),
-  .fulladder_b(input_b[0][1]),
-  .fulladder_carry_in(input_a[1][1]),
-  .fulladder_sum(fulladder_sum[1]),
-  .fulladder_carry_out(fulladder_carry_out[1])
-);
-
-FULLADDER fulladder_0_2
-(
-  .fulladder_a(input_a[0][2]),
-  .fulladder_b(input_b[0][2]),
-  .fulladder_carry_in(input_a[1][2]),
-  .fulladder_sum(fulladder_sum[2]),
-  .fulladder_carry_out(fulladder_carry_out[2])
-);
-
-FULLADDER fulladder_0_3
-(
-  .fulladder_a(input_a[0][3]),
-  .fulladder_b(input_b[0][3]),
-  .fulladder_carry_in(input_a[1][3]),
-  .fulladder_sum(fulladder_sum[3]),
-  .fulladder_carry_out(fulladder_carry_out[3])
-);
-
-FULLADDER fulladder_0_4
-(
-  .fulladder_a(input_a[0][4]),
-  .fulladder_b(input_b[0][4]),
-  .fulladder_carry_in(input_a[1][4]),
-  .fulladder_sum(fulladder_sum[4]),
-  .fulladder_carry_out(fulladder_carry_out[4])
-);
-
-FULLADDER fulladder_0_5
-(
-  .fulladder_a(input_a[0][5]),
-  .fulladder_b(input_b[0][5]),
-  .fulladder_carry_in(input_a[1][5]),
-  .fulladder_sum(fulladder_sum[5]),
-  .fulladder_carry_out(fulladder_carry_out[5])
-);
-
-FULLADDER fulladder_0_6
-(
-  .fulladder_a(input_a[0][6]),
-  .fulladder_b(input_b[0][6]),
-  .fulladder_carry_in(input_a[1][6]),
-  .fulladder_sum(fulladder_sum[6]),
-  .fulladder_carry_out(fulladder_carry_out[6])
-);
-
-FULLADDER fulladder_0_7
-(
-  .fulladder_a(input_a[0][7]),
-  .fulladder_b(input_b[0][7]),
-  .fulladder_carry_in(input_a[1][7]),
-  .fulladder_sum(fulladder_sum[7]),
-  .fulladder_carry_out(output_sum[1][8])
-);
-
-FULLADDER fulladder_1_0
-(
-  .fulladder_a(one),
-  .fulladder_b(fulladder_sum[0]),
-  .fulladder_carry_in(input_b[1][0]),
-  .fulladder_sum(output_sum[1][0]),
-  .fulladder_carry_out(output_sum[0][1])
-);
-
-FULLADDER fulladder_1_1
-(
-  .fulladder_a(fulladder_carry_out[0]),
-  .fulladder_b(fulladder_sum[1]),
-  .fulladder_carry_in(input_b[1][1]),
-  .fulladder_sum(output_sum[1][1]),
-  .fulladder_carry_out(output_sum[0][2])
-);
-
-FULLADDER fulladder_1_2
-(
-  .fulladder_a(fulladder_carry_out[1]),
-  .fulladder_b(fulladder_sum[2]),
-  .fulladder_carry_in(input_b[1][2]),
-  .fulladder_sum(output_sum[1][2]),
-  .fulladder_carry_out(output_sum[0][3])
-);
-
-FULLADDER fulladder_1_3
-(
-  .fulladder_a(fulladder_carry_out[2]),
-  .fulladder_b(fulladder_sum[3]),
-  .fulladder_carry_in(input_b[1][3]),
-  .fulladder_sum(output_sum[1][3]),
-  .fulladder_carry_out(output_sum[0][4])
-);
-
-FULLADDER fulladder_1_4
-(
-  .fulladder_a(fulladder_carry_out[3]),
-  .fulladder_b(fulladder_sum[4]),
-  .fulladder_carry_in(input_b[1][4]),
-  .fulladder_sum(output_sum[1][4]),
-  .fulladder_carry_out(output_sum[0][5])
-);
-
-FULLADDER fulladder_1_5
-(
-  .fulladder_a(fulladder_carry_out[4]),
-  .fulladder_b(fulladder_sum[5]),
-  .fulladder_carry_in(input_b[1][5]),
-  .fulladder_sum(output_sum[1][5]),
-  .fulladder_carry_out(output_sum[0][6])
-);
-
-FULLADDER fulladder_1_6
-(
-  .fulladder_a(fulladder_carry_out[5]),
-  .fulladder_b(fulladder_sum[6]),
-  .fulladder_carry_in(input_b[1][6]),
-  .fulladder_sum(output_sum[1][6]),
-  .fulladder_carry_out(output_sum[0][7])
-);
-
-FULLADDER fulladder_1_7
-(
-  .fulladder_a(fulladder_carry_out[6]),
-  .fulladder_b(fulladder_sum[7]),
-  .fulladder_carry_in(input_b[1][7]),
-  .fulladder_sum(output_sum[1][7]),
-  .fulladder_carry_out(output_sum[0][8])
-);
-
-endmodule
-
-
-
-//==============================================================================
-//
-// Module: FULLADDER ()
-//
-module FULLADDER // "system.multiplier.adder_subtractor.fulladder_0_0"
-(
-    input logic fulladder_a,
-    input logic fulladder_b,
-    input logic fulladder_carry_in,
-    output logic fulladder_sum,
-    output logic fulladder_carry_out
-);
-
-//------------------------------------------------------------------------------
-// Method process: add (fulladder.hpp:16:9) 
-
-always_comb 
-begin : add     // fulladder.hpp:16:9
-    fulladder_sum = fulladder_a ^ fulladder_b ^ fulladder_carry_in;
-    fulladder_carry_out = (fulladder_a & fulladder_b) | (fulladder_carry_in & (fulladder_a ^ fulladder_b));
-end
-
-endmodule
-
-
-
-//==============================================================================
-//
 // Module: SHIFT_REGISTER ()
 //
-module SHIFT_REGISTER // "system.multiplier.shift_register"
+module SHIFT_REGISTER // "system.cell.multiplier.shift_register"
 (
     input logic shift_register_clock,
     input logic shift_register_reset,
