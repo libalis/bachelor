@@ -37,9 +37,10 @@ Open an issue on [GitHub](https://github.com/libalis/bachelor/issues)
 - [X] Implement balanced ternary system addition
 - [X] Implement balanced ternary system subtraction
 - [X] Implement balanced ternary system multiplication
-- [X] Implement systolic array
-- [X] Make systolic array parameterized
-- [ ] Make systolic array synthesizable
+- [X] Implement balanced ternary system systolic array
+- [X] Make balanced ternary system systolic array parameterized
+- [X] Make balanced ternary system systolic array synthesizable
+- [ ] Synthesize balanced ternary system systolic array
 ## Status
 In active development
 ## Authors
