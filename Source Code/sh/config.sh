@@ -1,7 +1,5 @@
 #!/bin/bash
-PROGRAM="sata"
 CFLAGS=""
-BUILD_DIR="./build"
 
 decimal_input() {
     DECIMAL_INPUT=$(dialog --title "Decimal input" --defaultno --yesno \
@@ -135,4 +133,3 @@ main
 clear
 make clean
 make CFLAGS="$CFLAGS"
-$BUILD_DIR/$PROGRAM

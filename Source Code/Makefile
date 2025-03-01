@@ -1,4 +1,4 @@
-PROGRAM := sata
+PROGRAM := bachelor
 CC := g++
 CFLAGS := -g
 LDFLAGS := -lsystemc
