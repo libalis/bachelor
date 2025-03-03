@@ -13,7 +13,7 @@ void TESTBENCH<T>::source(void) {
                 #ifdef DECIMAL_INPUT
                     m<T>[i][j] = btint<T>().from_int(stoi(string(token)));
                 #else
-                    m<T>[i][j] = btint<T>().from_int(0);
+                    m<T>[i][j] = BTINT_ZERO(T);
                     bool isNegative;
                     for(char value : string(token)) {
                         switch(value) {
@@ -41,7 +41,7 @@ void TESTBENCH<T>::source(void) {
             #ifdef DECIMAL_INPUT
                 v<T>[j] = btint<T>().from_int(stoi(string(token)));
             #else
-                v<T>[j] = btint<T>().from_int(0);
+                v<T>[j] = BTINT_ZERO(T);
                 bool isNegative;
                 for(char value : string(token)) {
                     switch(value) {

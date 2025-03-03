@@ -5,7 +5,7 @@ void CELL<T>::compute(void) {
     btint<T + 1> sum;
     btint<2 * T> product;
     cell_b_out.write(cell_b_in.read());
-    cell_c_out.write(btint<T>().from_int(0));
+    cell_c_out.write(BTINT_ZERO(T));
     state = cell_b_in.read();
     wait();
     while(true) {

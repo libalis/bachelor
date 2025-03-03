@@ -4,8 +4,8 @@ template <size_t T>
 void SHIFT_REGISTER<T>::shift(void) {
     btint<T + 1> input;
     btint<T> state;
-    shift_register_state.write(btint<T>().from_int(0));
-    shift_register_output.write(btint<T>().from_int(0));
+    shift_register_state.write(BTINT_ZERO(T));
+    shift_register_output.write(BTINT_ZERO(T));
     wait();
     while(true) {
         input = shift_register_input.read();

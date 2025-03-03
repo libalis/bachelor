@@ -7,13 +7,13 @@ void MULTIPLIER<T>::multiply(void) {
     btint<T> a;
     btint<T> state;
     btint<2 * T> product;
-    a_old = btint<T>().from_int(0);
-    b_old = btint<T>().from_int(0);
-    b = btint<T>().from_int(0);
+    a_old = BTINT_ZERO(T);
+    b_old = BTINT_ZERO(T);
+    b = BTINT_ZERO(T);
     lock = MULTIPLIER_LOCK;
-    adder_subtractor_b.write(btint<T>().from_int(0));
+    adder_subtractor_b.write(BTINT_ZERO(T));
     shift_register_reset.write(1);
-    multiplier_product.write(btint<2 * T>().from_int(0));
+    multiplier_product.write(BTINT_ZERO(2 * T));
     wait();
     while(true) {
         input_a = multiplier_a.read();
@@ -25,14 +25,14 @@ void MULTIPLIER<T>::multiply(void) {
             b_old = multiplier_b.read();
             b = multiplier_b.read();
             lock = MULTIPLIER_LOCK;
-            adder_subtractor_b.write(btint<T>().from_int(0));
+            adder_subtractor_b.write(BTINT_ZERO(T));
             shift_register_reset.write(1);
-            multiplier_product.write(btint<2 * T>().from_int(0));
+            multiplier_product.write(BTINT_ZERO(2 * T));
         } else if(lock > 0) {
             if(b.get_value(0)) {
                 adder_subtractor_b.write(multiplier_a.read());
             } else {
-                adder_subtractor_b.write(btint<T>().from_int(0));
+                adder_subtractor_b.write(BTINT_ZERO(T));
             }
             adder_subtractor_subtract.write(b.get_value(0) == -1);
             b = b.shift_right(1);

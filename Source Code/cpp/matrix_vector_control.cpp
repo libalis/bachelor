@@ -14,14 +14,21 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
     int index[Y_DIMENSION];
     bool vector_done;
     for(int i = 0; i < X_DIMENSION; i++) {
-        result[i] = btint<T>().from_int(0);
+        result[i] = BTINT_ZERO(T);
     }
     for(int i = 0; i < Y_DIMENSION; i++) {
         index[i] = 0 - i;
     }
+    vector_done = false;
+    for(int i = 0; i < X_DIMENSION; i++) {
+        matrix_vector_control_result[i].write(BTINT_ZERO(T));
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        matrix_vector_control_b_in[i].write(BTINT_ZERO(T));
+        matrix_vector_control_c_in[i].write(BTINT_ZERO(T));
+    }
     matrix_vector_control_reset_out.write(false);
     matrix_vector_control_done.write(false);
-    vector_done = false;
     wait();
     while(true) {
         if(matrix_vector_control_valid.read()) {
@@ -44,13 +51,13 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
                 matrix_vector_control_reset_out.write(false);
                 for(int i = 0; i < Y_DIMENSION; i++) {
                     if(index[i] < 0 || index[i] > X_DIMENSION-1) {
-                        matrix_vector_control_b_in[i].write(btint<T>().from_int(0));
+                        matrix_vector_control_b_in[i].write(BTINT_ZERO(T));
                     } else {
                         btint<T> tmp = matrix_vector_control_matrix[index[i]][i].read();
                         matrix_vector_control_b_in[i].write(tmp);
                     }
                 }
-                matrix_vector_control_c_in[0].write(btint<T>().from_int(0));
+                matrix_vector_control_c_in[0].write(BTINT_ZERO(T));
                 for(int i = 1; i < Y_DIMENSION; i++) {
                     matrix_vector_control_c_in[i].write(matrix_vector_control_c_out[i-1].read());
                 }

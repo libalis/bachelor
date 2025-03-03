@@ -1,8 +1,12 @@
 #ifndef BTINT_HPP
     #define BTINT_HPP
 
+    #ifndef BTINT_ZERO
+        #define BTINT_ZERO(T) (btint<T>().from_int(0))
+    #endif
+
     #ifndef TRITS
-        #define TRITS (8)
+        #define TRITS (4)
     #endif
 
     #include <systemc>
@@ -179,7 +183,7 @@
             return output;
         }
 
-        bool operator==(const btint<T> &value) {
+        bool operator==(const btint &value) {
             for(int i = 0; i < T; i++) {
                 if(get_value(i) != value.get_value(i)) {
                     return false;
@@ -188,14 +192,14 @@
             return true;
         }
 
-        friend ostream &operator<<(ostream &os, const btint<T> &value) {
+        friend ostream &operator<<(ostream &os, const btint &value) {
             for(int i = T - 1; i >= 0; i--) {
                 os << value.get_value(i);
             }
             return os;
         }
 
-        friend inline void sc_trace(sc_trace_file *&file, const btint<T> &value, string &name) {
+        friend inline void sc_trace(sc_trace_file *&file, const btint &value, string &name) {
             sc_trace(file, value.btint_a, name + ".btint_a");
             sc_trace(file, value.btint_b, name + ".btint_b");
             for(int i = 0; i < T; i++) {
