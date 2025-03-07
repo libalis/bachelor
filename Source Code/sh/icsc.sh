@@ -8,7 +8,7 @@ icsc/install.sh
 source setenv.sh
 
 git clone https://github.com/libalis/bachelor.git designs/bachelor
-echo "add_subdirectory(designs/bachelor)" >> CMakeLists.txt
+echo -e "\nadd_subdirectory(designs/bachelor)" >> CMakeLists.txt
 
 mkdir -p build
 cd build
