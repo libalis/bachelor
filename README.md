@@ -28,21 +28,21 @@ An implementation of parameterized systolic arrays, the balanced ternary system,
 | [SystemC](https://www.accellera.org/downloads/standards/systemc) | 3.0 | 2.3 |
 
 (Compatibility with other versions is possible, but not guaranteed)
-## Prerequisite
+## Automated installation (binary and synthesis)
 ```bash
-cd "Source Code"
+curl https://raw.githubusercontent.com/libalis/bachelor/refs/heads/main/Source%20Code/sh/icsc.sh | bash
 ```
-## Installation
+## Manual installation (binary only)
 ```bash
+# 1. Clone the git repository:
+git clone https://github.com/libalis/bachelor.git
+cd "bachelor/Source Code"
+# 2. Compile using the defaults:
 make clean
 make
-```
-Or using the dialog:
-```bash
+# Or using the dialog:
 make config
-```
-## Usage
-```bash
+# 3. Run the compiled binary:
 ./build/bachelor
 ```
 ## Support
