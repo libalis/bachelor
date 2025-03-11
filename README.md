@@ -25,12 +25,14 @@ An implementation of parameterized systolic arrays, the balanced ternary system,
 | [GNU Compiler Collection](https://gcc.gnu.org) | 14.2 | - |
 | [GNU Make](https://www.gnu.org/software/make) | 4.4 | - |
 | [Intel Compiler for SystemC](https://github.com/intel/systemc-compiler) | 1.6.13 | [1.6.12](https://github.com/intel/systemc-compiler/issues/80) |
+| [Stack](https://www.haskellstack.org) | 3.3 | - |
 | [SystemC](https://www.accellera.org/downloads/standards/systemc) | 3.0 | 2.3 |
+| [SystemVerilog to Verilog](https://github.com/zachjs/sv2v) | 0.0.12 | - |
 
 (Compatibility with other versions is possible, but not guaranteed)
 ## Automated installation (binary and synthesis)
 ```bash
-curl https://raw.githubusercontent.com/libalis/bachelor/refs/heads/main/Source%20Code/sh/icsc.sh | bash
+curl https://raw.githubusercontent.com/libalis/bachelor/refs/heads/main/Source%20Code/sh/install.sh | bash
 ```
 ## Manual installation (binary only)
 ```bash
