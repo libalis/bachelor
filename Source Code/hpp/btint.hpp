@@ -6,7 +6,7 @@
     #endif
 
     #ifndef TRITS
-        #define TRITS (4)
+        #define TRITS (8)
     #endif
 
     #include <systemc>

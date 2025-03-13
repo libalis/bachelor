@@ -1,0 +1,443 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Mar 13 19:44:48 2025
+# Process ID         : 153400
+# Current directory  : /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1
+# Command line       : vivado -log MATRIX_VECTOR.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MATRIX_VECTOR.tcl
+# Log file           : /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/MATRIX_VECTOR.vds
+# Journal file       : /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/vivado.jou
+# Running On         : arch
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz
+# CPU Frequency      : 3722.918 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 16494 MB
+# Swap memory        : 17179 MB
+# Total Virtual      : 33674 MB
+# Available Virtual  : 26628 MB
+#-----------------------------------------------------------
+source MATRIX_VECTOR.tcl -notrace
+Command: synth_design -top MATRIX_VECTOR -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 153495
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1952.098 ; gain = 434.832 ; free physical = 2716 ; free virtual = 24277
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'MATRIX_VECTOR' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1]
+INFO: [Synth 8-6157] synthesizing module 'CELL' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:133]
+INFO: [Synth 8-6157] synthesizing module 'ADDER_SUBTRACTOR' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:461]
+INFO: [Synth 8-6157] synthesizing module 'FULLADDER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:686]
+INFO: [Synth 8-6155] done synthesizing module 'FULLADDER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:686]
+INFO: [Synth 8-6155] done synthesizing module 'ADDER_SUBTRACTOR' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:461]
+INFO: [Synth 8-6157] synthesizing module 'MULTIPLIER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:707]
+INFO: [Synth 8-6157] synthesizing module 'SHIFT_REGISTER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1763]
+INFO: [Synth 8-6155] done synthesizing module 'SHIFT_REGISTER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1763]
+INFO: [Synth 8-6155] done synthesizing module 'MULTIPLIER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:707]
+INFO: [Synth 8-6155] done synthesizing module 'CELL' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:133]
+INFO: [Synth 8-6157] synthesizing module 'MATRIX_VECTOR_CONTROL' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2171]
+INFO: [Synth 8-6155] done synthesizing module 'MATRIX_VECTOR_CONTROL' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2171]
+INFO: [Synth 8-6157] synthesizing module 'UART_TRANSMITTER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3069]
+WARNING: [Synth 8-324] index 2 out of range [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3183]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3138]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TRANSMITTER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3069]
+INFO: [Synth 8-6155] done synthesizing module 'MATRIX_VECTOR' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1]
+WARNING: [Synth 8-3848] Net output_sum[0][0] in module/entity ADDER_SUBTRACTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:487]
+WARNING: [Synth 8-3848] Net one in module/entity ADDER_SUBTRACTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:484]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.input_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2057]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.input_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2058]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.input_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2059]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.state_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2060]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.state_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2061]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.state_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2062]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_0_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2063]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2064]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2065]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2066]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_index_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2071]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2072]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_a_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2073]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_b_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2074]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_overflow_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2075]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_2_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2095]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_2_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2096]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_2_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2097]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_0_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2103]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_0_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2104]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_1_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2105]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_1_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2106]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_1_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2107]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_3_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2111]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_a_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2112]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_b_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2113]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_overflow_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2114]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_index_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2119]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_value_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2120]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_a_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2121]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_btint_b_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2122]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.output_overflow_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2123]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_5_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2143]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_5_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2144]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_5_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2145]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_3_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2151]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_3_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2152]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_4_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2153]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_4_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2154]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_2.TMP_4_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2155]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_a_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1509]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_a_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1510]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_a_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1511]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_b_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1512]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_b_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1513]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_b_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1514]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1515]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1516]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1517]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.state_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1518]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.state_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1519]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.state_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1520]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.product_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1521]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.product_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1522]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.product_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1523]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_0_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1524]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1525]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1526]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1527]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_index_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1532]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1533]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1534]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1535]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1536]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_2_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1546]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_2_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1547]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_2_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1548]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_0_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1554]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_0_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1555]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_1_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1556]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_1_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1557]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_1_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1558]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_old_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1561]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_3_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1562]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1563]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1564]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1565]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_index_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1570]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_value_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1571]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1572]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1573]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1574]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_5_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1584]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_5_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1585]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_5_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1586]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_3_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1592]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_3_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1593]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_4_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1594]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_4_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1595]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_4_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1596]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.b_old_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1599]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_6_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1600]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_4_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1601]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_4_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1602]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_4_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1603]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_index_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1608]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_value_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1609]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_5_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1610]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_5_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1611]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_5_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1612]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3848] Net zero in module/entity CELL does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:164]
+WARNING: [Synth 8-3848] Net matrix_vector_matrix_btint_a in module/entity MATRIX_VECTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:13]
+WARNING: [Synth 8-3848] Net matrix_vector_matrix_btint_b in module/entity MATRIX_VECTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:14]
+WARNING: [Synth 8-3848] Net matrix_vector_matrix_overflow in module/entity MATRIX_VECTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:15]
+WARNING: [Synth 8-3848] Net matrix_vector_vector_btint_a in module/entity MATRIX_VECTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:16]
+WARNING: [Synth 8-3848] Net matrix_vector_vector_btint_b in module/entity MATRIX_VECTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:17]
+WARNING: [Synth 8-3848] Net matrix_vector_vector_overflow in module/entity MATRIX_VECTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:18]
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[5] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[4] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[3] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[2] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[1] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[0] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[1] in module MULTIPLIER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[0] in module MULTIPLIER is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2033.066 ; gain = 515.801 ; free physical = 2645 ; free virtual = 24207
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2050.879 ; gain = 533.613 ; free physical = 2633 ; free virtual = 24196
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2050.879 ; gain = 533.613 ; free physical = 2633 ; free virtual = 24196
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2050.879 ; gain = 0.000 ; free physical = 2631 ; free virtual = 24193
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc:362]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc:367]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc:372]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc:375]
+Finished Parsing XDC File [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MATRIX_VECTOR_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/MATRIX_VECTOR_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2266.660 ; gain = 0.000 ; free physical = 2552 ; free virtual = 24115
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2266.660 ; gain = 0.000 ; free physical = 2560 ; free virtual = 24123
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2266.660 ; gain = 749.395 ; free physical = 2561 ; free virtual = 24124
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2282.664 ; gain = 765.398 ; free physical = 2561 ; free virtual = 24124
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2282.664 ; gain = 765.398 ; free physical = 2561 ; free virtual = 24124
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'transmit_PROC_STATE_reg' in module 'UART_TRANSMITTER'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              000
+                 iSTATE3 |                              001 |                              001
+                 iSTATE0 |                              010 |                              010
+                 iSTATE1 |                              011 |                              011
+                 iSTATE2 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'transmit_PROC_STATE_reg' using encoding 'sequential' in module 'UART_TRANSMITTER'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2282.664 ; gain = 765.398 ; free physical = 2567 ; free virtual = 24130
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 52    
+	   4 Input   32 Bit       Adders := 112   
+	   2 Input   32 Bit       Adders := 18    
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 12    
+	   3 Input    2 Bit       Adders := 36    
++---XORs : 
+	   2 Input      1 Bit         XORs := 384   
++---Registers : 
+	              128 Bit    Registers := 1     
+	               32 Bit    Registers := 10    
+	               24 Bit    Registers := 6     
+	               16 Bit    Registers := 8     
+	                8 Bit    Registers := 106   
+	                6 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 44    
+	                1 Bit    Registers := 12    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 11    
+	   5 Input   32 Bit        Muxes := 2     
+	   2 Input   24 Bit        Muxes := 4     
+	   5 Input   24 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 25    
+	   2 Input    6 Bit        Muxes := 4     
+	   2 Input    3 Bit        Muxes := 6     
+	   5 Input    3 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 8     
+	   2 Input    2 Bit        Muxes := 40    
+	   3 Input    1 Bit        Muxes := 9     
+	   2 Input    1 Bit        Muxes := 29    
+	   5 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[1] in module MULTIPLIER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[0] in module MULTIPLIER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[1] in module MULTIPLIER__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[0] in module MULTIPLIER__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[1] in module MULTIPLIER__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[0] in module MULTIPLIER__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[1] in module MULTIPLIER__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[0] in module MULTIPLIER__1 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2282.664 ; gain = 765.398 ; free physical = 2593 ; free virtual = 24161
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2303.664 ; gain = 786.398 ; free physical = 2552 ; free virtual = 24123
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2304.664 ; gain = 787.398 ; free physical = 2552 ; free virtual = 24122
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2332.711 ; gain = 815.445 ; free physical = 2536 ; free virtual = 24107
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2405 ; free virtual = 23973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2405 ; free virtual = 23973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2401 ; free virtual = 23969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2401 ; free virtual = 23969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2401 ; free virtual = 23969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2401 ; free virtual = 23969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |   375|
+|3     |LUT1   |   742|
+|4     |LUT2   |   214|
+|5     |LUT3   |   175|
+|6     |LUT4   |   202|
+|7     |LUT5   |   156|
+|8     |LUT6   |   144|
+|9     |FDRE   |   347|
+|10    |FDSE   |   178|
+|11    |IBUF   |     3|
+|12    |OBUF   |     4|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.523 ; gain = 965.258 ; free physical = 2405 ; free virtual = 23973
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 29 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2482.523 ; gain = 749.477 ; free physical = 2400 ; free virtual = 23969
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2482.531 ; gain = 965.258 ; free physical = 2400 ; free virtual = 23968
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2482.531 ; gain = 0.000 ; free physical = 2569 ; free virtual = 24137
+INFO: [Netlist 29-17] Analyzing 375 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2594.551 ; gain = 0.000 ; free physical = 2568 ; free virtual = 24138
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 66d6930c
+INFO: [Common 17-83] Releasing license: Synthesis
+35 Infos, 156 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:32 . Memory (MB): peak = 2594.551 ; gain = 1135.785 ; free physical = 2569 ; free virtual = 24139
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1643.737; main = 1609.271; forked = 270.983
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3209.379; main = 2594.555; forked = 926.711
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2642.562 ; gain = 0.000 ; free physical = 2569 ; free virtual = 24139
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/MATRIX_VECTOR.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file MATRIX_VECTOR_utilization_synth.rpt -pb MATRIX_VECTOR_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 13 19:45:23 2025...

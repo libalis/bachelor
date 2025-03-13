@@ -8,7 +8,7 @@
     #endif
 
     #ifndef Y_DIMENSION
-        #define Y_DIMENSION (3)
+        #define Y_DIMENSION (4)
     #endif
 
     template <size_t T>
@@ -16,9 +16,9 @@
         btint<T> m[X_DIMENSION][Y_DIMENSION];
     #else
         const btint<T> m[X_DIMENSION][Y_DIMENSION] = {
-            {btint<T>().from_int(-1), btint<T>().from_int(-1), btint<T>().from_int(-1)},
-            {btint<T>().from_int(0), btint<T>().from_int(0), btint<T>().from_int(0)},
-            {btint<T>().from_int(1), btint<T>().from_int(1), btint<T>().from_int(1)}
+            {btint<T>().from_int(1), btint<T>().from_int(2), btint<T>().from_int(3), btint<T>().from_int(4)},
+            {btint<T>().from_int(2), btint<T>().from_int(3), btint<T>().from_int(4), btint<T>().from_int(5)},
+            {btint<T>().from_int(3), btint<T>().from_int(4), btint<T>().from_int(5), btint<T>().from_int(6)}
         };
     #endif
 
@@ -26,6 +26,6 @@
     #ifdef INPUT_OUTPUT
         btint<T> v[Y_DIMENSION];
     #else
-        const btint<T> v[Y_DIMENSION] = {btint<T>().from_int(1), btint<T>().from_int(2), btint<T>().from_int(3)};
+        const btint<T> v[Y_DIMENSION] = {btint<T>().from_int(1), btint<T>().from_int(2), btint<T>().from_int(3), btint<T>().from_int(4)};
     #endif
 #endif

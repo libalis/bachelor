@@ -12,7 +12,7 @@ An implementation of parameterized systolic arrays, the balanced ternary system,
 | --- | --- | --- |
 | -1 | 0 | 0 |
 | 0 | 0 | 1 |
-| or | 1 | 0 |
+| Or | 1 | 0 |
 | 1 | 1 | 1 |
 
 (Decimal = Balanced ternary a + Balanced ternary b - 1)

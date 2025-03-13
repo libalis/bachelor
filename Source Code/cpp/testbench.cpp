@@ -1,4 +1,5 @@
 #include "../hpp/testbench.hpp"
+#include "../hpp/uart_transmitter.hpp"
 
 template <size_t T>
 void TESTBENCH<T>::source(void) {
@@ -84,7 +85,7 @@ void TESTBENCH<T>::source(void) {
 
 template <size_t T>
 void TESTBENCH<T>::sink(void) {
-    btint<T> indata[X_DIMENSION];
+    /*btint<T> indata[X_DIMENSION];
     do {
         wait();
     } while(!testbench_done);
@@ -98,5 +99,14 @@ void TESTBENCH<T>::sink(void) {
             output_dat << indata[i].to_int() << endl;
         #endif
     }
+    sc_stop();*/
+    int lock = 0;
+    do {
+        for(int i = 0; i < X_DIMENSION; i++) {
+            cout << uart_transmitter_output[i].read();
+        }
+        cout << endl;
+        wait();
+    } while(!testbench_done || lock++ <= UART_TRANSMITTER_LOCK);
     sc_stop();
 }
