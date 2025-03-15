@@ -108,8 +108,6 @@ set rc [catch {
   set_param runs.launchOptions { -jobs 8  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg484-1
-  set_property board_part_repo_paths {/home/robert/.Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store} [current_project]
-  set_property board_part avnet.com:zedboard:part0:1.4 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }

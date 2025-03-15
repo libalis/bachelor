@@ -13,7 +13,7 @@ SC_MODULE(SYSTEM) {
     sc_signal<btint<T>> matrix_vector_result[X_DIMENSION];
     sc_signal<bool> matrix_vector_done;
 
-    sc_signal<bool> uart_transmitter_output[X_DIMENSION];
+    sc_signal<bool> uart_transmitter_output;
 
     TESTBENCH<T> *testbench;
 
@@ -36,9 +36,7 @@ SC_MODULE(SYSTEM) {
             matrix_vector->matrix_vector_result[i](matrix_vector_result[i]);
         }*/
         matrix_vector->matrix_vector_done(matrix_vector_done);
-        for(int i = 0; i < X_DIMENSION; i++) {
-            matrix_vector->uart_transmitter_output[i](uart_transmitter_output[i]);
-        }
+        matrix_vector->uart_transmitter_output(uart_transmitter_output);
 
         testbench = new TESTBENCH<T>("testbench");
         testbench->testbench_clock(system_clock);
@@ -56,9 +54,7 @@ SC_MODULE(SYSTEM) {
             testbench->testbench_result[i](matrix_vector_result[i]);
         }
         testbench->testbench_done(matrix_vector_done);
-        for(int i = 0; i < X_DIMENSION; i++) {
-            testbench->uart_transmitter_output[i](uart_transmitter_output[i]);
-        }
+        testbench->uart_transmitter_output(uart_transmitter_output);
     }
 
     ~SYSTEM(void) {

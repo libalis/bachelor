@@ -172,14 +172,14 @@ set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
 # ----------------------------------------------------------------------------
 # User LEDs - Bank 33
 # ----------------------------------------------------------------------------
-set_property PACKAGE_PIN T22 [get_ports {uart_transmitter_output[0]}];  # "LD0"
-set_property PACKAGE_PIN T21 [get_ports {uart_transmitter_output[1]}];  # "LD1"
-set_property PACKAGE_PIN U22 [get_ports {uart_transmitter_output[2]}];  # "LD2"
+set_property PACKAGE_PIN T22 [get_ports {matrix_vector_done}];  # "LD0"
+#set_property PACKAGE_PIN T21 [get_ports {LD1}];  # "LD1"
+#set_property PACKAGE_PIN U22 [get_ports {LD2}];  # "LD2"
 #set_property PACKAGE_PIN U21 [get_ports {LD3}];  # "LD3"
 #set_property PACKAGE_PIN V22 [get_ports {LD4}];  # "LD4"
 #set_property PACKAGE_PIN W22 [get_ports {LD5}];  # "LD5"
 #set_property PACKAGE_PIN U19 [get_ports {LD6}];  # "LD6"
-set_property PACKAGE_PIN U14 [get_ports {matrix_vector_done}];  # "LD7"
+#set_property PACKAGE_PIN U14 [get_ports {LD7}];  # "LD7"
 
 # ----------------------------------------------------------------------------
 # VGA Output - Bank 33
@@ -255,7 +255,7 @@ set_property PACKAGE_PIN G22 [get_ports {matrix_vector_valid}];  # "SW1"
 ## FMC Expansion Connector - Bank 13
 ## ----------------------------------------------------------------------------
 #set_property PACKAGE_PIN R7 [get_ports {FMC_SCL}];  # "FMC-SCL"
-#set_property PACKAGE_PIN U7 [get_ports {FMC_SDA}];  # "FMC-SDA"
+set_property PACKAGE_PIN U7 [get_ports {uart_transmitter_output}];  # "FMC-SDA"
 
 ## ----------------------------------------------------------------------------
 ## FMC Expansion Connector - Bank 33

@@ -32,7 +32,7 @@
 
         UART_TRANSMITTER<T> *uart_transmitter;
 
-        sc_out<bool> uart_transmitter_output[X_DIMENSION];
+        sc_out<bool> uart_transmitter_output;
 
         void construct(void);
 
@@ -57,9 +57,7 @@
             for(int i = 0; i < X_DIMENSION; i++) {
                 uart_transmitter->uart_transmitter_input[i](matrix_vector_result[i]);
             }
-            for(int i = 0; i < X_DIMENSION; i++) {
-                uart_transmitter->uart_transmitter_output[i](uart_transmitter_output[i]);
-            }
+            uart_transmitter->uart_transmitter_output(uart_transmitter_output);
 
             construct();
         }

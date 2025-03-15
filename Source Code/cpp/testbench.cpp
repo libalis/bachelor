@@ -1,5 +1,4 @@
 #include "../hpp/testbench.hpp"
-#include "../hpp/uart_transmitter.hpp"
 
 template <size_t T>
 void TESTBENCH<T>::source(void) {
@@ -100,13 +99,9 @@ void TESTBENCH<T>::sink(void) {
         #endif
     }
     sc_stop();*/
-    int lock = 0;
     do {
-        for(int i = 0; i < X_DIMENSION; i++) {
-            cout << uart_transmitter_output[i].read();
-        }
+        cout << uart_transmitter_output.read();
         cout << endl;
         wait();
-    } while(!testbench_done || lock++ <= UART_TRANSMITTER_LOCK);
-    sc_stop();
+    } while(1);
 }

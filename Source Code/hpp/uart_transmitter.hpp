@@ -1,10 +1,6 @@
 #ifndef UART_TRANSMITTER_HPP
     #define UART_TRANSMITTER_HPP
 
-    #ifndef UART_TRANSMITTER_LOCK
-        #define UART_TRANSMITTER_LOCK (5 * T)
-    #endif
-
     #include "const.hpp"
 
     template <size_t T>
@@ -13,7 +9,7 @@
         sc_in<bool> uart_transmitter_reset;
         sc_in<btint<T>> uart_transmitter_input[X_DIMENSION];
 
-        sc_out<bool> uart_transmitter_output[X_DIMENSION];
+        sc_out<bool> uart_transmitter_output;
 
         void transmit(void);
 

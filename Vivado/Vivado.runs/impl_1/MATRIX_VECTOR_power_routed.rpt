@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Thu Mar 13 19:46:20 2025
+| Date             : Sat Mar 15 19:06:41 2025
 | Host             : arch running 64-bit unknown
 | Command          : report_power -file MATRIX_VECTOR_power_routed.rpt -pb MATRIX_VECTOR_power_summary_routed.pb -rpx MATRIX_VECTOR_power_routed.rpx
 | Design           : MATRIX_VECTOR
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.961        |
+| Total On-Chip Power (W)  | 4.141        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.729        |
-| Device Static (W)        | 0.232        |
+| Dynamic (W)              | 3.897        |
+| Device Static (W)        | 0.244        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 39.3         |
-| Junction Temperature (C) | 70.7         |
+| Max Ambient (C)          | 37.2         |
+| Junction Temperature (C) | 72.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     1.492 |     2559 |       --- |             --- |
-|   LUT as Logic |     1.076 |     1450 |     53200 |            2.73 |
-|   CARRY4       |     0.401 |      375 |     13300 |            2.82 |
-|   Register     |     0.008 |      526 |    106400 |            0.49 |
+| Slice Logic    |     1.743 |     2724 |       --- |             --- |
+|   LUT as Logic |     1.206 |     1550 |     53200 |            2.91 |
+|   CARRY4       |     0.503 |      410 |     13300 |            3.08 |
+|   Register     |     0.028 |      586 |    106400 |            0.55 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |       24 |       --- |             --- |
-| Signals        |     1.302 |     1797 |       --- |             --- |
-| I/O            |     0.935 |        7 |       200 |            3.50 |
-| Static Power   |     0.232 |          |           |                 |
-| Total          |     3.961 |          |           |                 |
+| Signals        |     1.682 |     2008 |       --- |             --- |
+| I/O            |     0.472 |        5 |       200 |            2.50 |
+| Static Power   |     0.244 |          |           |                 |
+| Total          |     4.141 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     2.842 |       2.798 |      0.043 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.061 |       0.034 |      0.027 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.264 |       0.263 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     3.476 |       3.429 |      0.047 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.046 |       0.017 |      0.029 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.133 |       0.132 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -84,7 +84,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.073 |       0.000 |      0.073 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.079 |       0.000 |      0.079 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -145,17 +145,17 @@ Table of Contents
 +-------------------------+-----------+
 | Name                    | Power (W) |
 +-------------------------+-----------+
-| MATRIX_VECTOR           |     3.729 |
-|   cell_0                |     0.648 |
-|     multiplier          |     0.647 |
-|   cell_1                |     0.625 |
-|     multiplier          |     0.624 |
-|   cell_2                |     0.607 |
-|     multiplier          |     0.606 |
-|   cell_3                |     0.367 |
-|     multiplier          |     0.366 |
-|   matrix_vector_control |     0.168 |
-|   uart_transmitter      |     0.339 |
+| MATRIX_VECTOR           |     3.897 |
+|   cell_0                |     0.624 |
+|     multiplier          |     0.623 |
+|   cell_1                |     0.610 |
+|     multiplier          |     0.609 |
+|   cell_2                |     0.632 |
+|     multiplier          |     0.631 |
+|   cell_3                |     0.369 |
+|     multiplier          |     0.367 |
+|   matrix_vector_control |     0.158 |
+|   uart_transmitter      |     0.990 |
 +-------------------------+-----------+
 
 

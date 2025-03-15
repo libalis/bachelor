@@ -9,7 +9,7 @@ module MATRIX_VECTOR (
 	input wire matrix_vector_reset;
 	input wire matrix_vector_valid;
 	output wire matrix_vector_done;
-	output wire [0:2] uart_transmitter_output;
+	output wire uart_transmitter_output;
 	wire [95:0] matrix_vector_matrix_btint_a;
 	wire [95:0] matrix_vector_matrix_btint_b;
 	wire [23:0] matrix_vector_matrix_overflow;
@@ -3080,14 +3080,18 @@ module UART_TRANSMITTER (
 	input wire [23:0] uart_transmitter_input_btint_a;
 	input wire [23:0] uart_transmitter_input_btint_b;
 	input wire [5:0] uart_transmitter_input_overflow;
-	output reg [0:2] uart_transmitter_output;
-	reg [0:2] uart_transmitter_output_next;
+	output reg uart_transmitter_output;
+	reg uart_transmitter_output_next;
+	reg signed [31:0] k;
+	reg signed [31:0] k_next;
 	reg signed [31:0] j;
 	reg signed [31:0] j_next;
 	reg signed [31:0] i;
 	reg signed [31:0] i_next;
 	reg [23:0] input_btint_a;
 	reg [23:0] input_btint_a_next;
+	reg signed [31:0] k0;
+	reg signed [31:0] k_next0;
 	reg [23:0] input_btint_b;
 	reg [23:0] input_btint_b_next;
 	reg [5:0] input_overflow;
@@ -3133,168 +3137,154 @@ module UART_TRANSMITTER (
 			input_btint_b_next = input_btint_b;
 			input_overflow_next = input_overflow;
 			j_next = j;
+			k_next = k;
+			k_next0 = k0;
 			uart_transmitter_output_next = uart_transmitter_output;
 			transmit_PROC_STATE_next = transmit_PROC_STATE;
 			case (transmit_PROC_STATE)
 				0: begin
 					begin : sv2v_autoblock_1
-						integer i_2;
-						for (i_2 = 0; i_2 < 3; i_2 = i_2 + 1)
+						integer i_1;
+						for (i_1 = 0; i_1 < 3; i_1 = i_1 + 1)
 							begin
-								input_btint_a_next[(2 - i_2) * 8+:8] = uart_transmitter_input_btint_a[(2 - i_2) * 8+:8];
-								input_btint_b_next[(2 - i_2) * 8+:8] = uart_transmitter_input_btint_b[(2 - i_2) * 8+:8];
-								input_overflow_next[(2 - i_2) * 2+:2] = uart_transmitter_input_overflow[(2 - i_2) * 2+:2];
+								input_btint_a_next[(2 - i_1) * 8+:8] = uart_transmitter_input_btint_a[(2 - i_1) * 8+:8];
+								input_btint_b_next[(2 - i_1) * 8+:8] = uart_transmitter_input_btint_b[(2 - i_1) * 8+:8];
+								input_overflow_next[(2 - i_1) * 2+:2] = uart_transmitter_input_overflow[(2 - i_1) * 2+:2];
 							end
 					end
 					i_next = 0;
-					begin : sv2v_autoblock_2
-						integer j_1;
-						for (j_1 = 0; j_1 < 3; j_1 = j_1 + 1)
-							uart_transmitter_output_next[j_1] = 0;
-					end
+					j_next = 7;
+					uart_transmitter_output_next = 0;
 					transmit_PROC_STATE_next = 1;
 					_sv2v_jump = 2'b11;
 				end
 				1: begin
-					begin : sv2v_autoblock_3
-						integer j_2;
-						for (j_2 = 0; j_2 < 3; j_2 = j_2 + 1)
-							uart_transmitter_output_next[j_2] = input_btint_a_next[(2 - j_2) * 8];
-					end
+					k_next0 = 0;
+					uart_transmitter_output_next = input_btint_a_next[(2 - i_next) * 8];
 					transmit_PROC_STATE_next = 2;
 					_sv2v_jump = 2'b11;
 				end
 				2: begin
-					begin : sv2v_autoblock_4
-						integer j_3;
-						for (j_3 = 0; j_3 < 3; j_3 = j_3 + 1)
-							uart_transmitter_output_next[j_3] = input_btint_b_next[(2 - j_3) * 8];
-					end
-					begin : sv2v_autoblock_5
-						integer j_4;
-						for (j_4 = 0; j_4 < 3; j_4 = j_4 + 1)
+					uart_transmitter_output_next = input_btint_b_next[(2 - i_next) * 8];
+					input_index = 1;
+					output_btint_a = 0;
+					output_btint_b = 0;
+					output_overflow = 0;
+					output_btint_a[i_next] = input_btint_a_next[(2 - i_next) * 8+:8];
+					output_btint_b[i_next] = input_btint_b_next[(2 - i_next) * 8+:8];
+					output_overflow[i_next] = input_overflow_next[(2 - i_next) * 2+:2];
+					begin : sv2v_autoblock_2
+						integer i_2;
+						for (i_2 = 0; i_2 < input_index; i_2 = i_2 + 1)
 							begin
-								input_index = 1;
-								output_btint_a = 0;
-								output_btint_b = 0;
-								output_overflow = 0;
-								output_btint_a[j_4] = input_btint_a_next[(2 - j_4) * 8+:8];
-								output_btint_b[j_4] = input_btint_b_next[(2 - j_4) * 8+:8];
-								output_overflow[j_4] = input_overflow_next[(2 - j_4) * 2+:2];
-								begin : sv2v_autoblock_6
-									integer i_3;
-									for (i_3 = 0; i_3 < input_index; i_3 = i_3 + 1)
-										begin
-											output_btint_a[j_4] = output_btint_a[j_4] >>> 1;
-											output_btint_b[j_4] = output_btint_b[j_4] >>> 1;
-											output_index = 7;
-											output_value = 0;
-											output_btint_a_1 = 0;
-											output_btint_b_1 = 0;
-											output_overflow_1 = 0;
-											output_btint_a_1 = output_btint_a;
-											output_btint_b_1 = output_btint_b;
-											output_overflow_1 = output_overflow;
-											case (0)
-												0: begin
-													output_btint_a_1[output_index] = 0;
-													output_btint_b_1[output_index] = 1;
-												end
-											endcase
-											TMP_1_btint_a = output_btint_a_1;
-											TMP_1_btint_b = output_btint_b_1;
-											TMP_1_overflow = output_overflow_1;
-											output_btint_a = TMP_1_btint_a;
-											output_btint_b = TMP_1_btint_b;
-											output_overflow = TMP_1_overflow;
-										end
-								end
-								TMP_0_btint_a = output_btint_a;
-								TMP_0_btint_b = output_btint_b;
-								TMP_0_overflow = output_overflow;
-								input_btint_a_next[(2 - j_4) * 8+:8] = TMP_0_btint_a;
-								input_btint_b_next[(2 - j_4) * 8+:8] = TMP_0_btint_b;
-								input_overflow_next[(2 - j_4) * 2+:2] = TMP_0_overflow;
+								output_btint_a[i_next] = output_btint_a[i_next] >>> 1;
+								output_btint_b[i_next] = output_btint_b[i_next] >>> 1;
+								output_index = 7;
+								output_value = 0;
+								output_btint_a_1 = 0;
+								output_btint_b_1 = 0;
+								output_overflow_1 = 0;
+								output_btint_a_1 = output_btint_a;
+								output_btint_b_1 = output_btint_b;
+								output_overflow_1 = output_overflow;
+								case (0)
+									0: begin
+										output_btint_a_1[output_index] = 0;
+										output_btint_b_1[output_index] = 1;
+									end
+								endcase
+								TMP_1_btint_a = output_btint_a_1;
+								TMP_1_btint_b = output_btint_b_1;
+								TMP_1_overflow = output_overflow_1;
+								output_btint_a = TMP_1_btint_a;
+								output_btint_b = TMP_1_btint_b;
+								output_overflow = TMP_1_overflow;
 							end
 					end
+					TMP_0_btint_a = output_btint_a;
+					TMP_0_btint_b = output_btint_b;
+					TMP_0_overflow = output_overflow;
+					input_btint_a_next[(2 - i_next) * 8+:8] = TMP_0_btint_a;
+					input_btint_b_next[(2 - i_next) * 8+:8] = TMP_0_btint_b;
+					input_overflow_next[(2 - i_next) * 2+:2] = TMP_0_overflow;
 					transmit_PROC_STATE_next = 3;
 					_sv2v_jump = 2'b11;
 				end
 				3: begin
-					j_next = 0;
-					begin : sv2v_autoblock_7
-						integer k;
-						for (k = 0; k < 3; k = k + 1)
-							uart_transmitter_output_next[k] = 1;
+					k_next0 = k_next0 + 1;
+					if (k_next0 < 4) begin
+						uart_transmitter_output_next = input_btint_a_next[(2 - i_next) * 8];
+						transmit_PROC_STATE_next = 2;
+						_sv2v_jump = 2'b11;
 					end
-					transmit_PROC_STATE_next = 4;
-					_sv2v_jump = 2'b11;
+					if (_sv2v_jump == 2'b00) begin
+						k_next = 0;
+						uart_transmitter_output_next = 1;
+						transmit_PROC_STATE_next = 4;
+						_sv2v_jump = 2'b11;
+					end
 				end
 				4: begin
-					j_next = j_next + 1;
-					if (j_next < 2) begin
-						begin : sv2v_autoblock_8
-							integer k;
-							for (k = 0; k < 3; k = k + 1)
-								uart_transmitter_output_next[k] = 1;
-						end
+					k_next = k_next + 1;
+					if (k_next < 2) begin
+						uart_transmitter_output_next = 1;
 						transmit_PROC_STATE_next = 4;
 						_sv2v_jump = 2'b11;
 					end
 					if (_sv2v_jump == 2'b00) begin
-						i_next = i_next + 1;
-						if (i_next < 8) begin
-							begin : sv2v_autoblock_9
-								integer j_1;
-								for (j_1 = 0; j_1 < 3; j_1 = j_1 + 1)
-									uart_transmitter_output_next[j_1] = 0;
-							end
+						j_next = j_next - 4;
+						if (j_next >= 0) begin
+							uart_transmitter_output_next = 0;
 							transmit_PROC_STATE_next = 1;
 							_sv2v_jump = 2'b11;
 						end
 						if (_sv2v_jump == 2'b00) begin
-							begin : sv2v_autoblock_10
-								integer i_2;
-								for (i_2 = 0; i_2 < 3; i_2 = i_2 + 1)
-									begin
-										input_btint_a_next[(2 - i_2) * 8+:8] = uart_transmitter_input_btint_a[(2 - i_2) * 8+:8];
-										input_btint_b_next[(2 - i_2) * 8+:8] = uart_transmitter_input_btint_b[(2 - i_2) * 8+:8];
-										input_overflow_next[(2 - i_2) * 2+:2] = uart_transmitter_input_overflow[(2 - i_2) * 2+:2];
-									end
+							i_next = i_next + 1;
+							if (i_next < 3) begin
+								j_next = 7;
+								uart_transmitter_output_next = 0;
+								transmit_PROC_STATE_next = 1;
+								_sv2v_jump = 2'b11;
 							end
-							i_next = 0;
-							begin : sv2v_autoblock_11
-								integer j_1;
-								for (j_1 = 0; j_1 < 3; j_1 = j_1 + 1)
-									uart_transmitter_output_next[j_1] = 0;
+							if (_sv2v_jump == 2'b00) begin
+								begin : sv2v_autoblock_3
+									integer i_1;
+									for (i_1 = 0; i_1 < 3; i_1 = i_1 + 1)
+										begin
+											input_btint_a_next[(2 - i_1) * 8+:8] = uart_transmitter_input_btint_a[(2 - i_1) * 8+:8];
+											input_btint_b_next[(2 - i_1) * 8+:8] = uart_transmitter_input_btint_b[(2 - i_1) * 8+:8];
+											input_overflow_next[(2 - i_1) * 2+:2] = uart_transmitter_input_overflow[(2 - i_1) * 2+:2];
+										end
+								end
+								i_next = 0;
+								j_next = 7;
+								uart_transmitter_output_next = 0;
+								transmit_PROC_STATE_next = 1;
+								_sv2v_jump = 2'b11;
 							end
-							transmit_PROC_STATE_next = 1;
-							_sv2v_jump = 2'b11;
 						end
 					end
 				end
 			endcase
 		end
 	endtask
-	always @(uart_transmitter_input_overflow or uart_transmitter_input_btint_b or uart_transmitter_input_btint_a or i_next or j_next or input_overflow_next or input_btint_b_next or input_btint_a_next or input_btint_b_next or input_btint_a_next or uart_transmitter_input_overflow or uart_transmitter_input_btint_b or uart_transmitter_input_btint_a or transmit_PROC_STATE or transmit_PROC_STATE or uart_transmitter_output or j or input_overflow or input_btint_b or input_btint_a or i or _sv2v_0) begin : transmit_comb
+	always @(uart_transmitter_input_overflow or uart_transmitter_input_btint_b or uart_transmitter_input_btint_a or i_next or j_next or j_next or k_next or i_next or input_btint_a_next or k_next0 or i_next or i_next or i_next or i_next or i_next or i_next or i_next or i_next or input_overflow_next or i_next or i_next or input_btint_b_next or i_next or i_next or input_btint_a_next or i_next or i_next or input_btint_b_next or i_next or input_btint_a_next or uart_transmitter_input_overflow or uart_transmitter_input_btint_b or uart_transmitter_input_btint_a or transmit_PROC_STATE or transmit_PROC_STATE or uart_transmitter_output or k0 or k or j or input_overflow or input_btint_b or input_btint_a or i or _sv2v_0) begin : transmit_comb
 		if (_sv2v_0)
 			;
 		transmit_func;
 	end
 	always @(posedge uart_transmitter_clock) begin : transmit_ff
 		if (~uart_transmitter_reset) begin
-			begin : sv2v_autoblock_12
-				integer i_1;
-				for (i_1 = 0; i_1 < 3; i_1 = i_1 + 1)
-					uart_transmitter_output[i_1] <= 1;
-			end
+			uart_transmitter_output <= 1;
 			transmit_PROC_STATE <= 0;
 		end
 		else begin
 			uart_transmitter_output <= uart_transmitter_output_next;
+			k <= k_next;
 			j <= j_next;
 			i <= i_next;
 			input_btint_a <= input_btint_a_next;
+			k0 <= k_next0;
 			input_btint_b <= input_btint_b_next;
 			input_overflow <= input_overflow_next;
 			transmit_PROC_STATE <= transmit_PROC_STATE_next;

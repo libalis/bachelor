@@ -66,8 +66,6 @@ set_property webtalk.parent_dir /home/robert/Downloads/Bachelor/Vivado/Vivado.ca
 set_property parent.project_path /home/robert/Downloads/Bachelor/Vivado/Vivado.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {/home/robert/.Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store} [current_project]
-set_property board_part avnet.com:zedboard:part0:1.4 [current_project]
 set_property ip_output_repo /home/robert/Downloads/Bachelor/Vivado/Vivado.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -86,6 +84,8 @@ read_xdc {{/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc}}
 set_property used_in_implementation false [get_files {{/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/robert/Downloads/Bachelor/Vivado/Vivado.srcs/utils_1/imports/synth_1/MATRIX_VECTOR.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
