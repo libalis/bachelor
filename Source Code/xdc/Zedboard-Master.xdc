@@ -79,7 +79,7 @@
 # ----------------------------------------------------------------------------
 # Clock Source - Bank 13
 # ----------------------------------------------------------------------------
-set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
+#set_property PACKAGE_PIN Y9 [get_ports {GCLK}];  # "GCLK"
 
 # ----------------------------------------------------------------------------
 # JA Pmod - Bank 13
@@ -172,7 +172,7 @@ set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
 # ----------------------------------------------------------------------------
 # User LEDs - Bank 33
 # ----------------------------------------------------------------------------
-set_property PACKAGE_PIN T22 [get_ports {matrix_vector_done}];  # "LD0"
+#set_property PACKAGE_PIN T22 [get_ports {LD0}];  # "LD0"
 #set_property PACKAGE_PIN T21 [get_ports {LD1}];  # "LD1"
 #set_property PACKAGE_PIN U22 [get_ports {LD2}];  # "LD2"
 #set_property PACKAGE_PIN U21 [get_ports {LD3}];  # "LD3"
@@ -234,8 +234,8 @@ set_property PACKAGE_PIN T22 [get_ports {matrix_vector_done}];  # "LD0"
 ## ----------------------------------------------------------------------------
 ## User DIP Switches - Bank 35
 ## ----------------------------------------------------------------------------
-set_property PACKAGE_PIN F22 [get_ports {matrix_vector_reset}];  # "SW0"
-set_property PACKAGE_PIN G22 [get_ports {matrix_vector_valid}];  # "SW1"
+#set_property PACKAGE_PIN F22 [get_ports {SW0}];  # "SW0"
+#set_property PACKAGE_PIN G22 [get_ports {SW1}];  # "SW1"
 #set_property PACKAGE_PIN H22 [get_ports {SW2}];  # "SW2"
 #set_property PACKAGE_PIN F21 [get_ports {SW3}];  # "SW3"
 #set_property PACKAGE_PIN H19 [get_ports {SW4}];  # "SW4"
@@ -255,7 +255,7 @@ set_property PACKAGE_PIN G22 [get_ports {matrix_vector_valid}];  # "SW1"
 ## FMC Expansion Connector - Bank 13
 ## ----------------------------------------------------------------------------
 #set_property PACKAGE_PIN R7 [get_ports {FMC_SCL}];  # "FMC-SCL"
-set_property PACKAGE_PIN U7 [get_ports {uart_transmitter_output}];  # "FMC-SDA"
+#set_property PACKAGE_PIN U7 [get_ports {FMC_SDA}];  # "FMC-SDA"
 
 ## ----------------------------------------------------------------------------
 ## FMC Expansion Connector - Bank 33

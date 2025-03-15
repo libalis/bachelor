@@ -26,8 +26,6 @@
         sc_out<btint<T>> testbench_matrix[X_DIMENSION][Y_DIMENSION];
         sc_out<btint<T>> testbench_vector[Y_DIMENSION];
 
-        sc_in<bool> uart_transmitter_output;
-
         #ifdef INPUT_OUTPUT
             ifstream input_dat;
             ofstream output_dat;

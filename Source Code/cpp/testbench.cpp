@@ -84,7 +84,7 @@ void TESTBENCH<T>::source(void) {
 
 template <size_t T>
 void TESTBENCH<T>::sink(void) {
-    /*btint<T> indata[X_DIMENSION];
+    btint<T> indata[X_DIMENSION];
     do {
         wait();
     } while(!testbench_done);
@@ -98,10 +98,5 @@ void TESTBENCH<T>::sink(void) {
             output_dat << indata[i].to_int() << endl;
         #endif
     }
-    sc_stop();*/
-    do {
-        cout << uart_transmitter_output.read();
-        cout << endl;
-        wait();
-    } while(1);
+    sc_stop();
 }

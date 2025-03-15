@@ -1,0 +1,11 @@
+verilog xil_defaultlib --include "../../../../Vivado.gen/sources_1/bd/bachelor/ipshared/814a/hdl/verilog" --include "../../../../Vivado.gen/sources_1/bd/bachelor/ipshared/1017/hdl/verilog" --include "../../../../Vivado.gen/sources_1/bd/bachelor/ipshared/4506/hdl" --include "../../../../Vivado.gen/sources_1/bd/bachelor/ipshared/3cbc" \
+"../../../bd/bachelor/ip/bachelor_MATRIX_VECTOR_0_1/sim/bachelor_MATRIX_VECTOR_0_1.v" \
+"../../../bd/bachelor/ip/bachelor_vio_0_1/sim/bachelor_vio_0_1.v" \
+"../../../bd/bachelor/ip/bachelor_clk_wiz_3/bachelor_clk_wiz_3_clk_wiz.v" \
+"../../../bd/bachelor/ip/bachelor_clk_wiz_3/bachelor_clk_wiz_3.v" \
+"../../../bd/bachelor/sim/bachelor.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

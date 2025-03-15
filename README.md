@@ -30,7 +30,7 @@ An implementation of parameterized systolic arrays, the balanced ternary system,
 | [SystemVerilog to Verilog](https://github.com/zachjs/sv2v) | 0.0.12 | - |
 
 (Compatibility with other versions is possible, but not guaranteed)
-## Automated installation (binary and synthesis)
+## Automated installation (binary, synthesis, and conversion)
 ```bash
 curl https://raw.githubusercontent.com/libalis/bachelor/refs/heads/main/Source%20Code/sh/install.sh | bash
 ```

@@ -26,6 +26,5 @@ void UART_TRANSMITTER<T>::transmit(void) {
                 }
             }
         }
-        sc_stop();
     }
 }

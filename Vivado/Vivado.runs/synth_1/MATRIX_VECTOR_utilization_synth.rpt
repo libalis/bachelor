@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Sat Mar 15 19:05:42 2025
+| Date         : Sat Mar 15 19:48:02 2025
 | Host         : arch running 64-bit unknown
 | Command      : report_utilization -file MATRIX_VECTOR_utilization_synth.rpt -pb MATRIX_VECTOR_utilization_synth.pb
 | Design       : MATRIX_VECTOR
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 1550 |     0 |          0 |     53200 |  2.91 |
-|   LUT as Logic          | 1550 |     0 |          0 |     53200 |  2.91 |
+| Slice LUTs*             | 4195 |     0 |          0 |     53200 |  7.89 |
+|   LUT as Logic          | 4195 |     0 |          0 |     53200 |  7.89 |
 |   LUT as Memory         |    0 |     0 |          0 |     17400 |  0.00 |
-| Slice Registers         |  585 |     0 |          0 |    106400 |  0.55 |
-|   Register as Flip Flop |  585 |     0 |          0 |    106400 |  0.55 |
+| Slice Registers         | 1198 |     0 |          0 |    106400 |  1.13 |
+|   Register as Flip Flop | 1198 |     0 |          0 |    106400 |  1.13 |
 |   Register as Latch     |    0 |     0 |          0 |    106400 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |     13300 |  0.00 |
@@ -59,8 +59,8 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 176   |          Yes |         Set |            - |
-| 409   |          Yes |       Reset |            - |
+| 362   |          Yes |         Set |            - |
+| 836   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,24 +90,24 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 4. IO and GT Specific
 ---------------------
 
-+-----------------------------+------+-------+------------+-----------+-------+
-|          Site Type          | Used | Fixed | Prohibited | Available | Util% |
-+-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    5 |     0 |          0 |       200 |  2.50 |
-| Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
-| Bonded IOPADs               |    0 |     0 |          0 |       130 |  0.00 |
-| PHY_CONTROL                 |    0 |     0 |          0 |         4 |  0.00 |
-| PHASER_REF                  |    0 |     0 |          0 |         4 |  0.00 |
-| OUT_FIFO                    |    0 |     0 |          0 |        16 |  0.00 |
-| IN_FIFO                     |    0 |     0 |          0 |        16 |  0.00 |
-| IDELAYCTRL                  |    0 |     0 |          0 |         4 |  0.00 |
-| IBUFDS                      |    0 |     0 |          0 |       192 |  0.00 |
-| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        16 |  0.00 |
-| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        16 |  0.00 |
-| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       200 |  0.00 |
-| ILOGIC                      |    0 |     0 |          0 |       200 |  0.00 |
-| OLOGIC                      |    0 |     0 |          0 |       200 |  0.00 |
-+-----------------------------+------+-------+------------+-----------+-------+
++-----------------------------+------+-------+------------+-----------+--------+
+|          Site Type          | Used | Fixed | Prohibited | Available |  Util% |
++-----------------------------+------+-------+------------+-----------+--------+
+| Bonded IOB                  |  314 |     0 |          0 |       200 | 157.00 |
+| Bonded IPADs                |    0 |     0 |          0 |         2 |   0.00 |
+| Bonded IOPADs               |    0 |     0 |          0 |       130 |   0.00 |
+| PHY_CONTROL                 |    0 |     0 |          0 |         4 |   0.00 |
+| PHASER_REF                  |    0 |     0 |          0 |         4 |   0.00 |
+| OUT_FIFO                    |    0 |     0 |          0 |        16 |   0.00 |
+| IN_FIFO                     |    0 |     0 |          0 |        16 |   0.00 |
+| IDELAYCTRL                  |    0 |     0 |          0 |         4 |   0.00 |
+| IBUFDS                      |    0 |     0 |          0 |       192 |   0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        16 |   0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        16 |   0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       200 |   0.00 |
+| ILOGIC                      |    0 |     0 |          0 |       200 |   0.00 |
+| OLOGIC                      |    0 |     0 |          0 |       200 |   0.00 |
++-----------------------------+------+-------+------------+-----------+--------+
 
 
 5. Clocking
@@ -149,17 +149,17 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT1     |  830 |                 LUT |
-| CARRY4   |  410 |          CarryLogic |
-| FDRE     |  409 |        Flop & Latch |
-| LUT4     |  201 |                 LUT |
-| LUT2     |  201 |                 LUT |
-| FDSE     |  176 |        Flop & Latch |
-| LUT6     |  172 |                 LUT |
-| LUT5     |  154 |                 LUT |
-| LUT3     |  145 |                 LUT |
-| IBUF     |    3 |                  IO |
-| OBUF     |    2 |                  IO |
+| LUT1     | 2781 |                 LUT |
+| LUT2     | 1036 |                 LUT |
+| CARRY4   |  976 |          CarryLogic |
+| FDRE     |  836 |        Flop & Latch |
+| FDSE     |  362 |        Flop & Latch |
+| LUT4     |  305 |                 LUT |
+| LUT5     |  286 |                 LUT |
+| IBUF     |  259 |                  IO |
+| LUT3     |  206 |                 LUT |
+| LUT6     |  138 |                 LUT |
+| OBUF     |   55 |                  IO |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
