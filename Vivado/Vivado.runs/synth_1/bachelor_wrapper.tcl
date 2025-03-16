@@ -56,6 +56,8 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 2
+set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -73,6 +75,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   {/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v}
+  {/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v}
   /home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/hdl/bachelor_wrapper.v
 }
 add_files /home/robert/Downloads/Bachelor/Vivado/Vivado.srcs/sources_1/bd/bachelor/bachelor.bd

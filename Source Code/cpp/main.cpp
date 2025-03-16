@@ -1,5 +1,6 @@
 #include "../hpp/matrix_vector.hpp"
 #include "../hpp/testbench.hpp"
+#include "../hpp/uart_transmitter.hpp"
 
 template <size_t T>
 SC_MODULE(SYSTEM) {
@@ -14,6 +15,13 @@ SC_MODULE(SYSTEM) {
     sc_signal<bool> matrix_vector_done;
 
     TESTBENCH<T> *testbench;
+
+    UART_TRANSMITTER<T> *uart_transmitter;
+
+    sc_signal<bool> uart_transmitter_reset;
+    sc_signal<btint<T>> uart_transmitter_input[X_DIMENSION];
+
+    sc_signal<bool> uart_transmitter_output;
 
     sc_clock system_clock;
 
@@ -51,6 +59,14 @@ SC_MODULE(SYSTEM) {
             testbench->testbench_result[i](matrix_vector_result[i]);
         }
         testbench->testbench_done(matrix_vector_done);
+
+        uart_transmitter = new UART_TRANSMITTER<T>("uart_transmitter");
+        uart_transmitter->uart_transmitter_clock(system_clock);
+        uart_transmitter->uart_transmitter_reset(uart_transmitter_reset);
+        for(int i = 0; i < X_DIMENSION; i++) {
+            uart_transmitter->uart_transmitter_input[i](uart_transmitter_input[i]);
+        }
+        uart_transmitter->uart_transmitter_output(uart_transmitter_output);
     }
 
     ~SYSTEM(void) {

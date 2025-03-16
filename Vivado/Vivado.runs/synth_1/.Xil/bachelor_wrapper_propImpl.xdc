@@ -8,6 +8,10 @@ create_waiver -type CDC -id CDC-1 -from [get_pins -filter {REF_PIN_NAME=~C} -of_
 current_instance
 set_property src_info {type:XDC file:2 line:82 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
+set_property src_info {type:XDC file:2 line:205 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN P16 [get_ports {matrix_vector_reset}];  # "BTNC"
+set_property src_info {type:XDC file:2 line:258 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN U7 [get_ports {uart_transmitter_output}];  # "FMC-SDA"
 set_property src_info {type:XDC file:2 line:362 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
 set_property src_info {type:XDC file:2 line:367 export:INPUT save:INPUT read:READ} [current_design]

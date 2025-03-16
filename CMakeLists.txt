@@ -11,3 +11,7 @@ include_directories("$ENV{ICSC_HOME}/include" "Source Code/hpp")
 file(GLOB SOURCES "Source Code/cpp/*.cpp")
 add_executable(bachelor ${SOURCES})
 svc_target(bachelor INIT_LOCAL_VARS ELAB_TOP system.matrix_vector)
+
+project(uart_transmitter)
+add_executable(uart_transmitter ${SOURCES})
+svc_target(uart_transmitter INIT_LOCAL_VARS ELAB_TOP system.uart_transmitter)

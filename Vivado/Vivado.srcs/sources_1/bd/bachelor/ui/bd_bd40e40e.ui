@@ -1,28 +1,32 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"2.0",
-   "Default View_TopLeft":"-228,-106",
+   "Default View_ScaleFactor":"1.25922",
+   "Default View_TopLeft":"-196,-230",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_matrix_vector_clock -pg 1 -lvl 0 -x 0 -y 30 -defaultsOSRD
-preplace inst MATRIX_VECTOR_0 -pg 1 -lvl 2 -x 650 -y 150 -defaultsOSRD
-preplace inst vio_0 -pg 1 -lvl 1 -x 200 -y 160 -defaultsOSRD
-preplace netloc MATRIX_VECTOR_0_matrix_vector_done 1 0 3 20 310 NJ 310 940
-preplace netloc MATRIX_VECTOR_0_matrix_vector_result_btint_a 1 0 3 40 10 NJ 10 940
-preplace netloc MATRIX_VECTOR_0_matrix_vector_result_btint_b 1 0 3 40 290 NJ 290 960
-preplace netloc MATRIX_VECTOR_0_matrix_vector_result_overflow 1 0 3 30 300 NJ 300 950
-preplace netloc vio_0_probe_out0 1 1 1 N 90
-preplace netloc vio_0_probe_out1 1 1 1 N 110
-preplace netloc vio_0_probe_out2 1 1 1 N 130
-preplace netloc vio_0_probe_out3 1 1 1 N 150
-preplace netloc vio_0_probe_out4 1 1 1 N 170
-preplace netloc vio_0_probe_out5 1 1 1 N 190
-preplace netloc vio_0_probe_out6 1 1 1 N 210
-preplace netloc vio_0_probe_out7 1 1 1 N 230
-preplace netloc matrix_vector_clock_0_1 1 0 2 20 30 360J
-levelinfo -pg 1 0 200 650 980
-pagesize -pg 1 -db -bbox -sgen -200 0 980 320
+preplace port port-id_matrix_vector_clock -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace port port-id_matrix_vector_reset -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace port port-id_uart_transmitter_output -pg 1 -lvl 4 -x 1530 -y 100 -defaultsOSRD
+preplace inst MATRIX_VECTOR_0 -pg 1 -lvl 2 -x 670 -y 230 -defaultsOSRD
+preplace inst vio_0 -pg 1 -lvl 1 -x 210 -y 250 -defaultsOSRD
+preplace inst UART_TRANSMITTER_0 -pg 1 -lvl 3 -x 1250 -y 100 -defaultsOSRD
+preplace netloc MATRIX_VECTOR_0_matrix_vector_done 1 0 3 40 80 NJ 80 980
+preplace netloc MATRIX_VECTOR_0_matrix_vector_result_btint_a 1 0 3 30 70 NJ 70 970
+preplace netloc MATRIX_VECTOR_0_matrix_vector_result_btint_b 1 0 3 50 90 NJ 90 960
+preplace netloc MATRIX_VECTOR_0_matrix_vector_result_overflow 1 0 3 50 370 NJ 370 990
+preplace netloc matrix_vector_clock_0_1 1 0 3 20 120 380 60 N
+preplace netloc matrix_vector_reset_0_1 1 0 2 NJ 130 370J
+preplace netloc vio_0_probe_out0 1 1 1 N 190
+preplace netloc vio_0_probe_out1 1 1 1 N 210
+preplace netloc vio_0_probe_out2 1 1 1 N 230
+preplace netloc vio_0_probe_out3 1 1 1 N 250
+preplace netloc vio_0_probe_out4 1 1 1 N 270
+preplace netloc vio_0_probe_out5 1 1 1 N 290
+preplace netloc UART_TRANSMITTER_0_uart_transmitter_output 1 3 1 N 100
+preplace netloc vio_0_probe_out6 1 1 1 N 310
+levelinfo -pg 1 0 210 670 1250 1530
+pagesize -pg 1 -db -bbox -sgen -200 0 1760 380
 "
 }
 {

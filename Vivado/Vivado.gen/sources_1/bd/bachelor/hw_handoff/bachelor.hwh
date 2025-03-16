@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Mar 16 02:06:15 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Mar 16 19:27:30 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="bachelor" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -8,6 +8,17 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_clock"/>
         <CONNECTION INSTANCE="vio_0" PORT="clk"/>
+        <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_clock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="matrix_vector_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_matrix_vector_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="uart_transmitter_output" SIGIS="undef" SIGNAME="UART_TRANSMITTER_0_uart_transmitter_output">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_output"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -30,61 +41,105 @@
         <PORT DIR="O" NAME="matrix_vector_done" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_done">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_in3"/>
+            <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="95" NAME="matrix_vector_matrix_btint_a" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out2">
+        <PORT DIR="I" LEFT="95" NAME="matrix_vector_matrix_btint_a" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="vio_0" PORT="probe_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="95" NAME="matrix_vector_matrix_btint_b" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_out2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="95" NAME="matrix_vector_matrix_btint_b" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out3">
+        <PORT DIR="I" LEFT="23" NAME="matrix_vector_matrix_overflow" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out3">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_out3"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="23" NAME="matrix_vector_matrix_overflow" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out4">
+        <PORT DIR="I" NAME="matrix_vector_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_matrix_vector_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="vio_0" PORT="probe_out4"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="matrix_vector_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="vio_0_probe_out0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="vio_0" PORT="probe_out0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="matrix_vector_reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="23" NAME="matrix_vector_result_btint_a" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_result_btint_a">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_in0"/>
+            <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_input_btint_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="23" NAME="matrix_vector_result_btint_b" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_result_btint_b">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_in1"/>
+            <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_input_btint_b"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="5" NAME="matrix_vector_result_overflow" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_result_overflow">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_in2"/>
+            <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_input_overflow"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="matrix_vector_valid" SIGIS="undef" SIGNAME="vio_0_probe_out1">
+        <PORT DIR="I" NAME="matrix_vector_valid" SIGIS="undef" SIGNAME="vio_0_probe_out0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="vio_0" PORT="probe_out1"/>
+            <CONNECTION INSTANCE="vio_0" PORT="probe_out0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="matrix_vector_vector_btint_a" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out5">
+        <PORT DIR="I" LEFT="31" NAME="matrix_vector_vector_btint_a" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="vio_0" PORT="probe_out4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="matrix_vector_vector_btint_b" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out5">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_out5"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="matrix_vector_vector_btint_b" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out6">
+        <PORT DIR="I" LEFT="7" NAME="matrix_vector_vector_overflow" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out6">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vio_0" PORT="probe_out6"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="matrix_vector_vector_overflow" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out7">
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/UART_TRANSMITTER_0" HWVERSION="1.0" INSTANCE="UART_TRANSMITTER_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UART_TRANSMITTER" VLNV="xilinx.com:module_ref:UART_TRANSMITTER:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="bachelor_UART_TRANSMITTER_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="uart_transmitter_clock" SIGIS="clk" SIGNAME="External_Ports_matrix_vector_clock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="vio_0" PORT="probe_out7"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="matrix_vector_clock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="uart_transmitter_input_btint_a" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_result_btint_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_result_btint_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="uart_transmitter_input_btint_b" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_result_btint_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_result_btint_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="uart_transmitter_input_overflow" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_result_overflow">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_result_overflow"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="uart_transmitter_output" SIGIS="undef" SIGNAME="UART_TRANSMITTER_0_uart_transmitter_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="uart_transmitter_output"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="uart_transmitter_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="MATRIX_VECTOR_0_matrix_vector_done">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_done"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -111,7 +166,7 @@
         <PARAMETER NAME="C_MINOR_VERSION" VALUE="1"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_PROBE_IN" VALUE="4"/>
-        <PARAMETER NAME="C_NUM_PROBE_OUT" VALUE="8"/>
+        <PARAMETER NAME="C_NUM_PROBE_OUT" VALUE="7"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE_IN0_WIDTH" VALUE="24"/>
         <PARAMETER NAME="C_PROBE_IN100_WIDTH" VALUE="1"/>
@@ -591,8 +646,8 @@
         <PARAMETER NAME="C_PROBE_OUT199_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT19_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT19_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE_OUT1_INIT_VAL" VALUE="0x0"/>
-        <PARAMETER NAME="C_PROBE_OUT1_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE_OUT1_INIT_VAL" VALUE="0x000000000000000000000000"/>
+        <PARAMETER NAME="C_PROBE_OUT1_WIDTH" VALUE="96"/>
         <PARAMETER NAME="C_PROBE_OUT200_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT200_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT201_INIT_VAL" VALUE="0x0"/>
@@ -747,8 +802,8 @@
         <PARAMETER NAME="C_PROBE_OUT38_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT39_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT39_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE_OUT3_INIT_VAL" VALUE="0x000000000000000000000000"/>
-        <PARAMETER NAME="C_PROBE_OUT3_WIDTH" VALUE="96"/>
+        <PARAMETER NAME="C_PROBE_OUT3_INIT_VAL" VALUE="0x000000"/>
+        <PARAMETER NAME="C_PROBE_OUT3_WIDTH" VALUE="24"/>
         <PARAMETER NAME="C_PROBE_OUT40_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT40_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT41_INIT_VAL" VALUE="0x0"/>
@@ -769,8 +824,8 @@
         <PARAMETER NAME="C_PROBE_OUT48_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT49_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT49_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE_OUT4_INIT_VAL" VALUE="0x000000"/>
-        <PARAMETER NAME="C_PROBE_OUT4_WIDTH" VALUE="24"/>
+        <PARAMETER NAME="C_PROBE_OUT4_INIT_VAL" VALUE="0x00000000"/>
+        <PARAMETER NAME="C_PROBE_OUT4_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_PROBE_OUT50_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT50_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT51_INIT_VAL" VALUE="0x0"/>
@@ -813,8 +868,8 @@
         <PARAMETER NAME="C_PROBE_OUT68_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT69_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT69_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE_OUT6_INIT_VAL" VALUE="0x00000000"/>
-        <PARAMETER NAME="C_PROBE_OUT6_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_PROBE_OUT6_INIT_VAL" VALUE="0x00"/>
+        <PARAMETER NAME="C_PROBE_OUT6_WIDTH" VALUE="8"/>
         <PARAMETER NAME="C_PROBE_OUT70_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT70_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT71_INIT_VAL" VALUE="0x0"/>
@@ -835,8 +890,8 @@
         <PARAMETER NAME="C_PROBE_OUT78_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT79_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT79_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE_OUT7_INIT_VAL" VALUE="0x00"/>
-        <PARAMETER NAME="C_PROBE_OUT7_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_PROBE_OUT7_INIT_VAL" VALUE="0x0"/>
+        <PARAMETER NAME="C_PROBE_OUT7_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT80_INIT_VAL" VALUE="0x0"/>
         <PARAMETER NAME="C_PROBE_OUT80_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE_OUT81_INIT_VAL" VALUE="0x0"/>
@@ -916,40 +971,35 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="probe_out0" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_reset"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="probe_out1" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out1">
-          <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_valid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="95" NAME="probe_out2" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out2">
+        <PORT DIR="O" LEFT="95" NAME="probe_out1" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_matrix_btint_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="95" NAME="probe_out3" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out3">
+        <PORT DIR="O" LEFT="95" NAME="probe_out2" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_matrix_btint_b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="23" NAME="probe_out4" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out4">
+        <PORT DIR="O" LEFT="23" NAME="probe_out3" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out3">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_matrix_overflow"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="probe_out5" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out5">
+        <PORT DIR="O" LEFT="31" NAME="probe_out4" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out4">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_vector_btint_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="probe_out6" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out6">
+        <PORT DIR="O" LEFT="31" NAME="probe_out5" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out5">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_vector_btint_b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="probe_out7" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out7">
+        <PORT DIR="O" LEFT="7" NAME="probe_out6" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out6">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_vector_overflow"/>
           </CONNECTIONS>

@@ -12,6 +12,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_MA
 # IP: bd/bachelor/ip/bachelor_vio_0_1/bachelor_vio_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_vio_0_1 || ORIG_REF_NAME==bachelor_vio_0_1} -quiet] -quiet
 
+# IP: bd/bachelor/ip/bachelor_UART_TRANSMITTER_0_0/bachelor_UART_TRANSMITTER_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_UART_TRANSMITTER_0_0 || ORIG_REF_NAME==bachelor_UART_TRANSMITTER_0_0} -quiet] -quiet
+
 # XDC: /home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_vio_0_1/bachelor_vio_0_1.xdc
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_vio_0_1 || ORIG_REF_NAME==bachelor_vio_0_1} -quiet] -quiet
 

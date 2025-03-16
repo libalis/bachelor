@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Sun Mar 16 02:10:17 2025
+| Date             : Sun Mar 16 19:30:53 2025
 | Host             : arch running 64-bit unknown
 | Command          : report_power -file bachelor_wrapper_power_routed.rpt -pb bachelor_wrapper_power_summary_routed.pb -rpx bachelor_wrapper_power_routed.rpx
 | Design           : bachelor_wrapper
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.105        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.002        |
+| Dynamic (W)              | 0.003        |
 | Device Static (W)        | 0.103        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 83.8         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.001 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |     9920 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     5173 |     53200 |            9.72 |
-|   CARRY4                 |    <0.001 |      995 |     13300 |            7.48 |
-|   Register               |    <0.001 |     3176 |    106400 |            2.98 |
+| Slice Logic              |    <0.001 |    10529 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     5249 |     53200 |            9.87 |
+|   CARRY4                 |    <0.001 |     1047 |     13300 |            7.87 |
+|   Register               |    <0.001 |     3311 |    106400 |            3.11 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     17400 |            0.14 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |      145 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |       49 |     53200 |            0.09 |
-| Signals                  |    <0.001 |     8027 |       --- |             --- |
-| I/O                      |    <0.001 |        1 |       200 |            0.50 |
+|   Others                 |     0.000 |      144 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |        8 |     53200 |            0.02 |
+| Signals                  |    <0.001 |     8371 |       --- |             --- |
+| I/O                      |    <0.001 |        3 |       200 |            1.50 |
 | Static Power             |     0.103 |          |           |                 |
 | Total                    |     0.105 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.010 |       0.002 |      0.007 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.010 |       0.003 |      0.007 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -150,7 +150,8 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| bachelor_wrapper         |     0.002 |
+| bachelor_wrapper         |     0.003 |
+|   bachelor_i             |     0.001 |
 |   dbg_hub                |     0.002 |
 |     inst                 |     0.002 |
 |       BSCANID.u_xsdbm_id |     0.002 |
