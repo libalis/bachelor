@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log MATRIX_VECTOR.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source MATRIX_VECTOR.tcl
+EAStep vivado -log bachelor_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bachelor_wrapper.tcl

@@ -1,89 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1742064435">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1742087177">
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="MATRIX_VECTOR_postroute_physopted.rqs"/>
-  <File Type="ROUTE-RQS" Name="MATRIX_VECTOR_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="bachelor_wrapper_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS" Name="bachelor_wrapper_routed.rqs"/>
+  <File Type="RBD_FILE" Name="bachelor_wrapper.rbd"/>
+  <File Type="NPI_FILE" Name="bachelor_wrapper.npi"/>
+  <File Type="RNPI_FILE" Name="bachelor_wrapper.rnpi"/>
+  <File Type="CFI_FILE" Name="bachelor_wrapper.cfi"/>
+  <File Type="RCFI_FILE" Name="bachelor_wrapper.rcfi"/>
+  <File Type="PL-PDI-FILE" Name="bachelor_wrapper_pld.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="bachelor_wrapper_boot.pdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="bachelor_wrapper_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="bachelor_wrapper_postroute_physopt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="bachelor_wrapper_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="bachelor_wrapper_postplace_pwropt.dcp"/>
+  <File Type="PWROPT-DCP" Name="bachelor_wrapper_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="bachelor_wrapper_placed.dcp"/>
+  <File Type="OPT-DCP" Name="bachelor_wrapper_opt.dcp"/>
+  <File Type="ROUTE-TIMING-PB" Name="bachelor_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="bachelor_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="bachelor_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="bachelor_wrapper_routed.dcp"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="OPT-HWDEF" Name="bachelor_wrapper.hwdef"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BG-BGN" Name="MATRIX_VECTOR.bgn"/>
-  <File Type="BITSTR-SYSDEF" Name="MATRIX_VECTOR.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="MATRIX_VECTOR.ltx"/>
-  <File Type="RBD_FILE" Name="MATRIX_VECTOR.rbd"/>
-  <File Type="NPI_FILE" Name="MATRIX_VECTOR.npi"/>
-  <File Type="RNPI_FILE" Name="MATRIX_VECTOR.rnpi"/>
-  <File Type="CFI_FILE" Name="MATRIX_VECTOR.cfi"/>
-  <File Type="RCFI_FILE" Name="MATRIX_VECTOR.rcfi"/>
-  <File Type="PL-PDI-FILE" Name="MATRIX_VECTOR_pld.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="MATRIX_VECTOR_boot.pdi"/>
-  <File Type="RDI-RDI" Name="MATRIX_VECTOR.vdi"/>
-  <File Type="PDI-FILE" Name="MATRIX_VECTOR.pdi"/>
-  <File Type="BITSTR-MMI" Name="MATRIX_VECTOR.mmi"/>
-  <File Type="BITSTR-BMM" Name="MATRIX_VECTOR_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="MATRIX_VECTOR.nky"/>
-  <File Type="BITSTR-RBT" Name="MATRIX_VECTOR.rbt"/>
-  <File Type="BITSTR-MSK" Name="MATRIX_VECTOR.msk"/>
-  <File Type="BG-BIN" Name="MATRIX_VECTOR.bin"/>
+  <File Type="BITSTR-LTX" Name="bachelor_wrapper.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="bachelor_wrapper.sysdef"/>
+  <File Type="BITSTR-MMI" Name="bachelor_wrapper.mmi"/>
+  <File Type="BITSTR-BMM" Name="bachelor_wrapper_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="bachelor_wrapper.nky"/>
+  <File Type="BITSTR-RBT" Name="bachelor_wrapper.rbt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
-  <File Type="BG-BIT" Name="MATRIX_VECTOR.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="MATRIX_VECTOR_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="MATRIX_VECTOR_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="MATRIX_VECTOR_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="MATRIX_VECTOR_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="MATRIX_VECTOR_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="MATRIX_VECTOR_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="MATRIX_VECTOR_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="MATRIX_VECTOR_postroute_physopt.dcp"/>
-  <File Type="BG-DRC" Name="MATRIX_VECTOR.drc"/>
-  <File Type="ROUTE-RQS-PB" Name="MATRIX_VECTOR_rqs_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="MATRIX_VECTOR_bus_skew_routed.rpx"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="MATRIX_VECTOR_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW" Name="MATRIX_VECTOR_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="MATRIX_VECTOR_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="MATRIX_VECTOR_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="MATRIX_VECTOR_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="MATRIX_VECTOR_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="MATRIX_VECTOR_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="MATRIX_VECTOR_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="MATRIX_VECTOR_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="MATRIX_VECTOR_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="MATRIX_VECTOR_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="MATRIX_VECTOR_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="MATRIX_VECTOR_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="MATRIX_VECTOR_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="MATRIX_VECTOR_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="MATRIX_VECTOR_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="MATRIX_VECTOR_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="MATRIX_VECTOR_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="MATRIX_VECTOR_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="MATRIX_VECTOR_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="MATRIX_VECTOR_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="MATRIX_VECTOR_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="MATRIX_VECTOR_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="MATRIX_VECTOR_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="MATRIX_VECTOR_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="MATRIX_VECTOR_postplace_pwropt.dcp"/>
-  <File Type="PLACE-RQA-PB" Name="MATRIX_VECTOR_rqa_placed.pb"/>
-  <File Type="PLACE-TIMING" Name="MATRIX_VECTOR_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="MATRIX_VECTOR_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="MATRIX_VECTOR_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="MATRIX_VECTOR_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="MATRIX_VECTOR_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="MATRIX_VECTOR_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="MATRIX_VECTOR_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="MATRIX_VECTOR_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="MATRIX_VECTOR_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="MATRIX_VECTOR_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="MATRIX_VECTOR_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="MATRIX_VECTOR_pwropt.dcp"/>
-  <File Type="OPT-RQA-PB" Name="MATRIX_VECTOR_rqa_opted.pb"/>
-  <File Type="OPT-HWDEF" Name="MATRIX_VECTOR.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="MATRIX_VECTOR_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="MATRIX_VECTOR_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="MATRIX_VECTOR_opt.dcp"/>
-  <File Type="OPT-TIMING" Name="MATRIX_VECTOR_timing_summary_opted.rpt"/>
-  <File Type="REPORTS-TCL" Name="MATRIX_VECTOR_reports.tcl"/>
-  <File Type="INIT-TIMING" Name="MATRIX_VECTOR_timing_summary_init.rpt"/>
-  <File Type="PA-TCL" Name="MATRIX_VECTOR.tcl"/>
+  <File Type="BG-BIT" Name="bachelor_wrapper.bit"/>
+  <File Type="PDI-FILE" Name="bachelor_wrapper.pdi"/>
+  <File Type="RDI-RDI" Name="bachelor_wrapper.vdi"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="bachelor_wrapper_timing_summary_routed.rpt"/>
+  <File Type="BG-BIN" Name="bachelor_wrapper.bin"/>
+  <File Type="PLACE-IO" Name="bachelor_wrapper_io_placed.rpt"/>
+  <File Type="OPT-DRC" Name="bachelor_wrapper_drc_opted.rpt"/>
+  <File Type="PLACE-CTRL" Name="bachelor_wrapper_control_sets_placed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="bachelor_wrapper_methodology_drc_routed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="bachelor_wrapper_utilization_placed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="bachelor_wrapper_timing_summary_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="bachelor_wrapper_reports.tcl"/>
+  <File Type="PA-TCL" Name="bachelor_wrapper.tcl"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="bachelor_wrapper_methodology_drc_routed.pb"/>
+  <File Type="BG-BGN" Name="bachelor_wrapper.bgn"/>
+  <File Type="PLACE-UTIL" Name="bachelor_wrapper_utilization_placed.rpt"/>
+  <File Type="ROUTE-STATUS" Name="bachelor_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="bachelor_wrapper_route_status.pb"/>
+  <File Type="BG-DRC" Name="bachelor_wrapper.drc"/>
+  <File Type="ROUTE-PWR" Name="bachelor_wrapper_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="bachelor_wrapper_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="bachelor_wrapper_power_summary_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="bachelor_wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="bachelor_wrapper_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-RPX" Name="bachelor_wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="bachelor_wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="bachelor_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="bachelor_wrapper_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="bachelor_wrapper_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="bachelor_wrapper_bus_skew_routed.pb"/>
+  <File Type="BITSTR-MSK" Name="bachelor_wrapper.msk"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="bachelor_wrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="bachelor_wrapper_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="bachelor_wrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="bachelor_wrapper_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="bachelor_wrapper_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="bachelor_wrapper_bus_skew_postroute_physopted.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../Source Code/build/bachelor.v">
@@ -95,7 +81,13 @@
     </File>
     <File Path="$PSRCDIR/sources_1/bd/bachelor/bachelor.bd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PGENDIR/sources_1/bd/bachelor/hdl/bachelor_wrapper.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -103,10 +95,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="MATRIX_VECTOR"/>
-      <Option Name="TopLib" Val="xil_defaultlib"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../Source Code/build/bachelor.v"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="bachelor_wrapper"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

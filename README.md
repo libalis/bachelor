@@ -62,7 +62,7 @@ Open an issue [here](https://github.com/libalis/bachelor/issues)
 - [X] Implement balanced ternary system systolic array
 - [X] Make balanced ternary system systolic array parameterized
 - [X] Make balanced ternary system systolic array synthesizable
-- [ ] Synthesize balanced ternary system systolic array
+- [X] Synthesize balanced ternary system systolic array
 ## Status
 In active development
 ## Author

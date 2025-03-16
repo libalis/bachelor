@@ -1,0 +1,85 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Mar 16 02:18:05 2025
+# Process ID         : 121720
+# Current directory  : /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1
+# Command line       : vivado -log bachelor_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source bachelor_wrapper.tcl -notrace
+# Log file           : /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper.vdi
+# Journal file       : /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/vivado.jou
+# Running On         : arch
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz
+# CPU Frequency      : 2478.750 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 16494 MB
+# Swap memory        : 17179 MB
+# Total Virtual      : 33674 MB
+# Available Virtual  : 27968 MB
+#-----------------------------------------------------------
+source bachelor_wrapper.tcl -notrace
+Command: open_checkpoint bachelor_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1423.422 ; gain = 0.000 ; free physical = 3078 ; free virtual = 26056
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1535.789 ; gain = 0.000 ; free physical = 3269 ; free virtual = 25940
+INFO: [Netlist 29-17] Analyzing 1050 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1609.570 ; gain = 2.000 ; free physical = 3250 ; free virtual = 25921
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2786 ; free virtual = 25494
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2786 ; free virtual = 25494
+Read PlaceDB: Time (s): cpu = 00:00:00.44 ; elapsed = 00:00:00.45 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2782 ; free virtual = 25492
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2782 ; free virtual = 25492
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2782 ; free virtual = 25492
+Read Physdb Files: Time (s): cpu = 00:00:00.71 ; elapsed = 00:00:00.55 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2782 ; free virtual = 25492
+Restored from archive | CPU: 0.770000 secs | Memory: 10.804649 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.76 ; elapsed = 00:00:00.61 . Memory (MB): peak = 2290.375 ; gain = 5.938 ; free physical = 2782 ; free virtual = 25492
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2290.375 ; gain = 0.000 ; free physical = 2783 ; free virtual = 25493
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2024.2 (64-bit) build 5239630
+WARNING: [Vivado 12-23575] Critical violations of the methodology design rules detected. Critical violations may contribute to timing failures or cause functional issues in hardware. Run report_methodology for more information.
+open_checkpoint: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2294.375 ; gain = 870.953 ; free physical = 2783 ; free virtual = 25493
+Command: write_bitstream -force bachelor_wrapper.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./bachelor_wrapper.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+23 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 2920.918 ; gain = 626.543 ; free physical = 2282 ; free virtual = 24954
+INFO: [Common 17-206] Exiting Vivado at Sun Mar 16 02:18:53 2025...
