@@ -7,27 +7,27 @@ void MULTIPLIER<T>::multiply(void) {
     btint<T> a;
     btint<T> state;
     btint<2 * T> product;
+    adder_subtractor_b.write(BTINT_ZERO(T));
+    shift_register_reset.write(1);
+    multiplier_product.write(BTINT_ZERO(2 * T));
     a_old = BTINT_ZERO(T);
     b_old = BTINT_ZERO(T);
     b = BTINT_ZERO(T);
     lock = MULTIPLIER_LOCK;
-    adder_subtractor_b.write(BTINT_ZERO(T));
-    shift_register_reset.write(1);
-    multiplier_product.write(BTINT_ZERO(2 * T));
     wait();
     while(true) {
         input_a = multiplier_a.read();
         input_b = multiplier_b.read();
         a = adder_subtractor_a.read();
         state = shift_register_state.read();
-        if(a_old.to_int() != input_a.to_int() || b_old.to_int() != input_b.to_int()) {
+        if(input_a.to_int() != a_old.to_int() || input_b.to_int() != b_old.to_int()) {
+            adder_subtractor_b.write(BTINT_ZERO(T));
+            shift_register_reset.write(1);
+            multiplier_product.write(BTINT_ZERO(2 * T));
             a_old = multiplier_a.read();
             b_old = multiplier_b.read();
             b = multiplier_b.read();
             lock = MULTIPLIER_LOCK;
-            adder_subtractor_b.write(BTINT_ZERO(T));
-            shift_register_reset.write(1);
-            multiplier_product.write(BTINT_ZERO(2 * T));
         } else if(lock > 0) {
             if(b.get_value(0)) {
                 adder_subtractor_b.write(multiplier_a.read());

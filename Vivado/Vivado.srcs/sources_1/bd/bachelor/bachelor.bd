@@ -1,19 +1,19 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xCB9D98C6FD692D38",
+      "boundary_crc": "0x643DEC1803ED7F00",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../Vivado.gen/sources_1/bd/bachelor",
       "name": "bachelor",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "None",
-      "tool_version": "2024.2",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.2",
       "validated": "true"
     },
     "design_tree": {
       "MATRIX_VECTOR_0": "",
-      "vio_0": "",
-      "UART_TRANSMITTER_0": ""
+      "UART_TRANSMITTER_0": "",
+      "vio_0": ""
     },
     "ports": {
       "matrix_vector_clock": {
@@ -58,17 +58,14 @@
             "value_src": "default"
           }
         }
-      },
-      "uart_transmitter_output": {
-        "direction": "O"
       }
     },
     "components": {
       "MATRIX_VECTOR_0": {
         "vlnv": "xilinx.com:module_ref:MATRIX_VECTOR:1.0",
         "ip_revision": "1",
-        "xci_name": "bachelor_MATRIX_VECTOR_0_1",
-        "xci_path": "ip/bachelor_MATRIX_VECTOR_0_1/bachelor_MATRIX_VECTOR_0_1.xci",
+        "xci_name": "bachelor_MATRIX_VECTOR_0_0",
+        "xci_path": "ip/bachelor_MATRIX_VECTOR_0_0/bachelor_MATRIX_VECTOR_0_0.xci",
         "inst_hier_path": "MATRIX_VECTOR_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -147,51 +144,6 @@
           }
         }
       },
-      "vio_0": {
-        "vlnv": "xilinx.com:ip:vio:3.0",
-        "ip_revision": "26",
-        "xci_name": "bachelor_vio_0_1",
-        "xci_path": "ip/bachelor_vio_0_1/bachelor_vio_0_1.xci",
-        "inst_hier_path": "vio_0",
-        "parameters": {
-          "C_NUM_PROBE_IN": {
-            "value": "4"
-          },
-          "C_NUM_PROBE_OUT": {
-            "value": "7"
-          },
-          "C_PROBE_IN0_WIDTH": {
-            "value": "24"
-          },
-          "C_PROBE_IN1_WIDTH": {
-            "value": "24"
-          },
-          "C_PROBE_IN2_WIDTH": {
-            "value": "6"
-          },
-          "C_PROBE_OUT1_WIDTH": {
-            "value": "96"
-          },
-          "C_PROBE_OUT2_WIDTH": {
-            "value": "96"
-          },
-          "C_PROBE_OUT3_WIDTH": {
-            "value": "24"
-          },
-          "C_PROBE_OUT4_WIDTH": {
-            "value": "32"
-          },
-          "C_PROBE_OUT5_WIDTH": {
-            "value": "32"
-          },
-          "C_PROBE_OUT6_WIDTH": {
-            "value": "8"
-          },
-          "C_PROBE_OUT7_WIDTH": {
-            "value": "1"
-          }
-        }
-      },
       "UART_TRANSMITTER_0": {
         "vlnv": "xilinx.com:module_ref:UART_TRANSMITTER:1.0",
         "ip_revision": "1",
@@ -241,6 +193,39 @@
             "direction": "O"
           }
         }
+      },
+      "vio_0": {
+        "vlnv": "xilinx.com:ip:vio:3.0",
+        "ip_revision": "24",
+        "xci_name": "bachelor_vio_0_0",
+        "xci_path": "ip/bachelor_vio_0_0/bachelor_vio_0_0.xci",
+        "inst_hier_path": "vio_0",
+        "parameters": {
+          "C_NUM_PROBE_IN": {
+            "value": "5"
+          },
+          "C_NUM_PROBE_OUT": {
+            "value": "7"
+          },
+          "C_PROBE_OUT1_WIDTH": {
+            "value": "96"
+          },
+          "C_PROBE_OUT2_WIDTH": {
+            "value": "96"
+          },
+          "C_PROBE_OUT3_WIDTH": {
+            "value": "24"
+          },
+          "C_PROBE_OUT4_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT5_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT6_WIDTH": {
+            "value": "8"
+          }
+        }
       }
     },
     "nets": {
@@ -275,10 +260,10 @@
       "UART_TRANSMITTER_0_uart_transmitter_output": {
         "ports": [
           "UART_TRANSMITTER_0/uart_transmitter_output",
-          "uart_transmitter_output"
+          "vio_0/probe_in4"
         ]
       },
-      "matrix_vector_clock_0_1": {
+      "matrix_vector_clock_1": {
         "ports": [
           "matrix_vector_clock",
           "MATRIX_VECTOR_0/matrix_vector_clock",
@@ -286,7 +271,7 @@
           "UART_TRANSMITTER_0/uart_transmitter_clock"
         ]
       },
-      "matrix_vector_reset_0_1": {
+      "matrix_vector_reset_1": {
         "ports": [
           "matrix_vector_reset",
           "MATRIX_VECTOR_0/matrix_vector_reset"

@@ -255,7 +255,7 @@ set_property PACKAGE_PIN P16 [get_ports {matrix_vector_reset}];  # "BTNC"
 ## FMC Expansion Connector - Bank 13
 ## ----------------------------------------------------------------------------
 #set_property PACKAGE_PIN R7 [get_ports {FMC_SCL}];  # "FMC-SCL"
-set_property PACKAGE_PIN U7 [get_ports {uart_transmitter_output}];  # "FMC-SDA"
+#set_property PACKAGE_PIN U7 [get_ports {FMC-SDA}];  # "FMC-SDA"
 
 ## ----------------------------------------------------------------------------
 ## FMC Expansion Connector - Bank 33

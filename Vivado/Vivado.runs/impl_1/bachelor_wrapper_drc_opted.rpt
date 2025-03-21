@@ -1,7 +1,7 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Sun Mar 16 19:29:57 2025
+| Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date         : Fri Mar 21 18:58:05 2025
 | Host         : arch running 64-bit unknown
 | Command      : report_drc -file bachelor_wrapper_drc_opted.rpt -pb bachelor_wrapper_drc_opted.pb -rpx bachelor_wrapper_drc_opted.rpx
 | Design       : bachelor_wrapper
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
            Ruledeck: default
-             Max checks: <unlimited>
-             Checks found: 1
-+--------+----------+--------------------+--------+
-| Rule   | Severity | Description        | Checks |
-+--------+----------+--------------------+--------+
-| ZPS7-1 | Warning  | PS7 block required | 1      |
-+--------+----------+--------------------+--------+
+             Max violations: <unlimited>
+             Violations found: 1
++--------+----------+--------------------+------------+
+| Rule   | Severity | Description        | Violations |
++--------+----------+--------------------+------------+
+| ZPS7-1 | Warning  | PS7 block required | 1          |
++--------+----------+--------------------+------------+
 
 2. REPORT DETAILS
 -----------------

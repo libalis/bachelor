@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:UART_TRANSMITTER:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "UART_TRANSMITTER,Vivado 2024.2" *)
+(* X_CORE_INFO = "UART_TRANSMITTER,Vivado 2023.2" *)
 (* CHECK_LICENSE_TYPE = "bachelor_UART_TRANSMITTER_0_0,UART_TRANSMITTER,{}" *)
-(* CORE_GENERATION_INFO = "bachelor_UART_TRANSMITTER_0_0,UART_TRANSMITTER,{x_ipProduct=Vivado 2024.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=UART_TRANSMITTER,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "bachelor_UART_TRANSMITTER_0_0,UART_TRANSMITTER,{x_ipProduct=Vivado 2023.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=UART_TRANSMITTER,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bachelor_UART_TRANSMITTER_0_0 (
@@ -64,13 +64,11 @@ module bachelor_UART_TRANSMITTER_0_0 (
   uart_transmitter_output
 );
 
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 uart_transmitter_clock CLK" *)
-(* X_INTERFACE_MODE = "slave" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart_transmitter_clock, ASSOCIATED_RESET uart_transmitter_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bachelor_matrix_vector_clock_0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 uart_transmitter_clock CLK" *)
 input wire uart_transmitter_clock;
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 uart_transmitter_reset RST" *)
-(* X_INTERFACE_MODE = "slave" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart_transmitter_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 uart_transmitter_reset RST" *)
 input wire uart_transmitter_reset;
 input wire [23 : 0] uart_transmitter_input_btint_a;
 input wire [23 : 0] uart_transmitter_input_btint_b;

@@ -29,8 +29,28 @@ void MATRIX_VECTOR_CONTROL<T>::control(void) {
     }
     matrix_vector_control_reset_out.write(false);
     matrix_vector_control_done.write(false);
+    valid_old = 0;
     wait();
     while(true) {
+        if(matrix_vector_control_valid.read() != valid_old) {
+            for(int i = 0; i < X_DIMENSION; i++) {
+                result[i] = BTINT_ZERO(T);
+            }
+            for(int i = 0; i < Y_DIMENSION; i++) {
+                index[i] = 0 - i;
+            }
+            vector_done = false;
+            for(int i = 0; i < X_DIMENSION; i++) {
+                matrix_vector_control_result[i].write(BTINT_ZERO(T));
+            }
+            for(int i = 0; i < Y_DIMENSION; i++) {
+                matrix_vector_control_b_in[i].write(BTINT_ZERO(T));
+                matrix_vector_control_c_in[i].write(BTINT_ZERO(T));
+            }
+            matrix_vector_control_reset_out.write(false);
+            matrix_vector_control_done.write(false);
+            valid_old = matrix_vector_control_valid.read();
+        }
         if(matrix_vector_control_valid.read()) {
             for(int i = 0; i < X_DIMENSION; i++) {
                 matrix_vector_control_result[i].write(result[i]);

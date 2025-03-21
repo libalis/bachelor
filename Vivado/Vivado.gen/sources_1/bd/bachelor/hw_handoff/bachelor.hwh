@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Mar 16 19:27:30 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Mar 21 18:54:15 2025" VIVADOVERSION="2023.2">
 
-  <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="bachelor" PACKAGE="clg484" SPEEDGRADE="-1"/>
+  <SYSTEMINFO ARCH="zynq" BOARD="avnet.com:zedboard:part0:1.4" DEVICE="7z020" NAME="bachelor" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="matrix_vector_clock" SIGIS="clk" SIGNAME="External_Ports_matrix_vector_clock">
@@ -16,11 +16,6 @@
         <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_reset"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="uart_transmitter_output" SIGIS="undef" SIGNAME="UART_TRANSMITTER_0_uart_transmitter_output">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_output"/>
-      </CONNECTIONS>
-    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -29,7 +24,7 @@
     <MODULE COREREVISION="1" FULLNAME="/MATRIX_VECTOR_0" HWVERSION="1.0" INSTANCE="MATRIX_VECTOR_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="MATRIX_VECTOR" VLNV="xilinx.com:module_ref:MATRIX_VECTOR:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="bachelor_MATRIX_VECTOR_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="bachelor_MATRIX_VECTOR_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -134,7 +129,7 @@
         </PORT>
         <PORT DIR="O" NAME="uart_transmitter_output" SIGIS="undef" SIGNAME="UART_TRANSMITTER_0_uart_transmitter_output">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="uart_transmitter_output"/>
+            <CONNECTION INSTANCE="vio_0" PORT="probe_in4"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="uart_transmitter_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="MATRIX_VECTOR_0_matrix_vector_done">
@@ -145,7 +140,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="26" FULLNAME="/vio_0" HWVERSION="3.0" INSTANCE="vio_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="vio" VLNV="xilinx.com:ip:vio:3.0">
+    <MODULE COREREVISION="24" FULLNAME="/vio_0" HWVERSION="3.0" INSTANCE="vio_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="vio" VLNV="xilinx.com:ip:vio:3.0">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=vio;v=v3_0;d=pg159-vio.pdf"/>
       </DOCUMENTS>
@@ -165,7 +160,7 @@
         <PARAMETER NAME="C_MAJOR_VERSION" VALUE="2013"/>
         <PARAMETER NAME="C_MINOR_VERSION" VALUE="1"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
-        <PARAMETER NAME="C_NUM_PROBE_IN" VALUE="4"/>
+        <PARAMETER NAME="C_NUM_PROBE_IN" VALUE="5"/>
         <PARAMETER NAME="C_NUM_PROBE_OUT" VALUE="7"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE_IN0_WIDTH" VALUE="24"/>
@@ -940,7 +935,7 @@
         <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
         <PARAMETER NAME="C_XLNX_HW_PROBE_INFO" VALUE="DEFAULT"/>
         <PARAMETER NAME="C_XSDB_SLAVE_TYPE" VALUE="33"/>
-        <PARAMETER NAME="Component_Name" VALUE="bachelor_vio_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="bachelor_vio_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -967,6 +962,11 @@
         <PORT DIR="I" LEFT="0" NAME="probe_in3" RIGHT="0" SIGIS="undef" SIGNAME="MATRIX_VECTOR_0_matrix_vector_done">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MATRIX_VECTOR_0" PORT="matrix_vector_done"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe_in4" RIGHT="0" SIGIS="undef" SIGNAME="UART_TRANSMITTER_0_uart_transmitter_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_TRANSMITTER_0" PORT="uart_transmitter_output"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="probe_out0" RIGHT="0" SIGIS="undef" SIGNAME="vio_0_probe_out0">

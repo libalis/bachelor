@@ -63,13 +63,11 @@ module bachelor_UART_TRANSMITTER_0_0 (
   uart_transmitter_output
 );
 
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 uart_transmitter_clock CLK" *)
-(* X_INTERFACE_MODE = "slave" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart_transmitter_clock, ASSOCIATED_RESET uart_transmitter_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bachelor_matrix_vector_clock_0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 uart_transmitter_clock CLK" *)
 input wire uart_transmitter_clock;
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 uart_transmitter_reset RST" *)
-(* X_INTERFACE_MODE = "slave" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart_transmitter_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 uart_transmitter_reset RST" *)
 input wire uart_transmitter_reset;
 input wire [23 : 0] uart_transmitter_input_btint_a;
 input wire [23 : 0] uart_transmitter_input_btint_b;

@@ -73,12 +73,54 @@ void TESTBENCH<T>::source(void) {
         }
         printf("\n");
     }
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            for(int k = T - 1; k >= 0; k--) {
+                cout << m<T>[i][j].btint_a[k];
+            }
+        }
+    }
+    cout << endl;
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            for(int k = T - 1; k >= 0; k--) {
+                cout << m<T>[i][j].btint_b[k];
+            }
+        }
+    }
+    cout << endl;
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            for(int k = 1; k >= 0; k--) {
+                cout << m<T>[i][j].overflow[k];
+            }
+        }
+    }
+    cout << endl;
     printf("Vektor:\n");
     for(int i = 0; i < Y_DIMENSION; i++) {
         testbench_vector[i].write(v<T>[i]);
         printf("%3d ", v<T>[i].to_int());
         printf("\n");
     }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        for(int j = T - 1; j >= 0; j--) {
+            cout << v<T>[i].btint_a[j];
+        }
+    }
+    cout << endl;
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        for(int j = T - 1; j >= 0; j--) {
+            cout << v<T>[i].btint_b[j];
+        }
+    }
+    cout << endl;
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        for(int j = 1; j >= 0; j--) {
+            cout << v<T>[i].overflow[j];
+        }
+    }
+    cout << endl;
     testbench_valid.write(1);
 }
 
@@ -97,6 +139,23 @@ void TESTBENCH<T>::sink(void) {
         #ifdef INPUT_OUTPUT
             output_dat << indata[i].to_int() << endl;
         #endif
+    }
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = T - 1; j >= 0; j--) {
+            cout << indata[i].btint_a[j];
+        }
+    }
+    cout << endl;
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = T - 1; j >= 0; j--) {
+            cout << indata[i].btint_b[j];
+        }
+    }
+    cout << endl;
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 1; j >= 0; j--) {
+            cout << indata[i].overflow[j];
+        }
     }
     sc_stop();
 }

@@ -19,7 +19,7 @@ An implementation of parameterized systolic arrays, the balanced ternary system,
 ## Dependencies
 | Dependency name | Tested version | Minimum version |
 | --- | --- | --- |
-| [AMD Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html) | 2024.2 | 2019.1 |
+| [AMD Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html) | 2023.2 | 2019.1 |
 | [CMake](https://www.cmake.org) | 3.31 | 3.12 |
 | [Dialog](https://invisible-island.net/dialog) | 1.3 | - |
 | [GNU Compiler Collection](https://gcc.gnu.org) | 14.2 | - |

@@ -802,21 +802,21 @@ module MULTIPLIER (
 		reg [7:0] TMP_1_btint_b;
 		reg [1:0] TMP_1_overflow;
 		integer TMP_3_value;
-		reg [7:0] output_btint_a_2;
-		reg [7:0] output_btint_b_2;
+		reg [15:0] output_btint_a_2;
+		reg [15:0] output_btint_b_2;
 		reg [1:0] output_overflow_2;
 		integer output_index_1;
 		integer output_value_1;
-		reg [7:0] output_btint_a_3;
-		reg [7:0] output_btint_b_3;
+		reg [15:0] output_btint_a_3;
+		reg [15:0] output_btint_b_3;
 		reg [1:0] output_overflow_3;
-		reg [7:0] TMP_5_btint_a;
-		reg [7:0] TMP_5_btint_b;
+		reg [15:0] TMP_5_btint_a;
+		reg [15:0] TMP_5_btint_b;
 		reg [1:0] TMP_5_overflow;
 		reg TMP_3_isNegative;
 		integer TMP_3_i;
-		reg [7:0] TMP_4_btint_a;
-		reg [7:0] TMP_4_btint_b;
+		reg [15:0] TMP_4_btint_a;
+		reg [15:0] TMP_4_btint_b;
 		reg [1:0] TMP_4_overflow;
 		integer TMP_6_value;
 		reg [7:0] output_btint_a_4;
@@ -853,38 +853,38 @@ module MULTIPLIER (
 		reg [7:0] TMP_10_btint_b;
 		reg [1:0] TMP_10_overflow;
 		integer TMP_12_value;
-		reg [15:0] output_btint_a_8;
-		reg [15:0] output_btint_b_8;
+		reg [7:0] output_btint_a_8;
+		reg [7:0] output_btint_b_8;
 		reg [1:0] output_overflow_8;
 		integer output_index_4;
 		integer output_value_4;
-		reg [15:0] output_btint_a_9;
-		reg [15:0] output_btint_b_9;
+		reg [7:0] output_btint_a_9;
+		reg [7:0] output_btint_b_9;
 		reg [1:0] output_overflow_9;
-		reg [15:0] TMP_14_btint_a;
-		reg [15:0] TMP_14_btint_b;
+		reg [7:0] TMP_14_btint_a;
+		reg [7:0] TMP_14_btint_b;
 		reg [1:0] TMP_14_overflow;
 		reg TMP_12_isNegative;
 		integer TMP_12_i;
-		reg [15:0] TMP_13_btint_a;
-		reg [15:0] TMP_13_btint_b;
+		reg [7:0] TMP_13_btint_a;
+		reg [7:0] TMP_13_btint_b;
 		reg [1:0] TMP_13_overflow;
 		integer TMP_15;
-		integer output_v;
-		integer TMP_16;
-		integer index;
-		integer TMP_17;
 		integer input_a_output_v;
-		integer TMP_18;
+		integer TMP_16;
 		integer input_a_index;
+		integer TMP_17;
+		integer output_v;
+		integer TMP_18;
+		integer index;
 		integer TMP_19;
-		integer output_v_1;
-		integer TMP_20;
-		integer index_1;
-		integer TMP_21;
 		integer input_b_output_v;
-		integer TMP_22;
+		integer TMP_20;
 		integer input_b_index;
+		integer TMP_21;
+		integer output_v_1;
+		integer TMP_22;
+		integer index_1;
 		integer TMP_23_value;
 		reg [7:0] output_btint_a_10;
 		reg [7:0] output_btint_b_10;
@@ -975,21 +975,21 @@ module MULTIPLIER (
 		reg [1:0] TMP_39_overflow;
 		begin
 			TMP_15 = 0;
-			output_v = 0;
-			TMP_16 = 0;
-			index = 0;
-			TMP_17 = 0;
 			input_a_output_v = 0;
-			TMP_18 = 0;
+			TMP_16 = 0;
 			input_a_index = 0;
+			TMP_17 = 0;
+			output_v = 0;
+			TMP_18 = 0;
+			index = 0;
 			TMP_19 = 0;
-			output_v_1 = 0;
-			TMP_20 = 0;
-			index_1 = 0;
-			TMP_21 = 0;
 			input_b_output_v = 0;
-			TMP_22 = 0;
+			TMP_20 = 0;
 			input_b_index = 0;
+			TMP_21 = 0;
+			output_v_1 = 0;
+			TMP_22 = 0;
+			index_1 = 0;
 			TMP_23_value = 0;
 			output_btint_a_10 = 0;
 			output_btint_b_10 = 0;
@@ -1106,61 +1106,51 @@ module MULTIPLIER (
 			state_btint_a = shift_register_state_btint_a;
 			state_btint_b = shift_register_state_btint_b;
 			state_overflow = shift_register_state_overflow;
-			output_v = 0;
+			input_a_output_v = 0;
 			begin : sv2v_autoblock_1
 				integer i_5;
 				for (i_5 = 7; i_5 >= 0; i_5 = i_5 - 1)
 					begin
-						index = i_5;
-						TMP_16 = (a_old_btint_a_next[index] + a_old_btint_b_next[index]) - 1;
-						output_v = (2 * output_v) + TMP_16;
+						input_a_index = i_5;
+						TMP_16 = (input_a_btint_a[input_a_index] + input_a_btint_b[input_a_index]) - 1;
+						input_a_output_v = (2 * input_a_output_v) + TMP_16;
 					end
 			end
-			TMP_15 = output_v;
-			input_a_output_v = 0;
+			TMP_15 = input_a_output_v;
+			output_v = 0;
 			begin : sv2v_autoblock_2
 				integer i_6;
 				for (i_6 = 7; i_6 >= 0; i_6 = i_6 - 1)
 					begin
-						input_a_index = i_6;
-						TMP_18 = (input_a_btint_a[input_a_index] + input_a_btint_b[input_a_index]) - 1;
-						input_a_output_v = (2 * input_a_output_v) + TMP_18;
+						index = i_6;
+						TMP_18 = (a_old_btint_a_next[index] + a_old_btint_b_next[index]) - 1;
+						output_v = (2 * output_v) + TMP_18;
 					end
 			end
-			TMP_17 = input_a_output_v;
-			output_v_1 = 0;
+			TMP_17 = output_v;
+			input_b_output_v = 0;
 			begin : sv2v_autoblock_3
 				integer i_7;
 				for (i_7 = 7; i_7 >= 0; i_7 = i_7 - 1)
 					begin
-						index_1 = i_7;
-						TMP_20 = (b_old_btint_a_next[index_1] + b_old_btint_b_next[index_1]) - 1;
-						output_v_1 = (2 * output_v_1) + TMP_20;
+						input_b_index = i_7;
+						TMP_20 = (input_b_btint_a[input_b_index] + input_b_btint_b[input_b_index]) - 1;
+						input_b_output_v = (2 * input_b_output_v) + TMP_20;
 					end
 			end
-			TMP_19 = output_v_1;
-			input_b_output_v = 0;
+			TMP_19 = input_b_output_v;
+			output_v_1 = 0;
 			begin : sv2v_autoblock_4
 				integer i_8;
 				for (i_8 = 7; i_8 >= 0; i_8 = i_8 - 1)
 					begin
-						input_b_index = i_8;
-						TMP_22 = (input_b_btint_a[input_b_index] + input_b_btint_b[input_b_index]) - 1;
-						input_b_output_v = (2 * input_b_output_v) + TMP_22;
+						index_1 = i_8;
+						TMP_22 = (b_old_btint_a_next[index_1] + b_old_btint_b_next[index_1]) - 1;
+						output_v_1 = (2 * output_v_1) + TMP_22;
 					end
 			end
-			TMP_21 = input_b_output_v;
+			TMP_21 = output_v_1;
 			if ((TMP_15 != TMP_17) || (TMP_19 != TMP_21)) begin
-				a_old_btint_a_next = multiplier_a_btint_a;
-				a_old_btint_b_next = multiplier_a_btint_b;
-				a_old_overflow = multiplier_a_overflow;
-				b_old_btint_a_next = multiplier_b_btint_a;
-				b_old_btint_b_next = multiplier_b_btint_b;
-				b_old_overflow = multiplier_b_overflow;
-				b_btint_a_next = multiplier_b_btint_a;
-				b_btint_b_next = multiplier_b_btint_b;
-				b_overflow_next = multiplier_b_overflow;
-				lock_next = 11;
 				TMP_23_value = 0;
 				output_btint_a_10 = 0;
 				output_btint_b_10 = 0;
@@ -1238,6 +1228,16 @@ module MULTIPLIER (
 				multiplier_product_btint_a_next = TMP_27_btint_a;
 				multiplier_product_btint_b_next = TMP_27_btint_b;
 				multiplier_product_overflow_next = TMP_27_overflow;
+				a_old_btint_a_next = multiplier_a_btint_a;
+				a_old_btint_b_next = multiplier_a_btint_b;
+				a_old_overflow = multiplier_a_overflow;
+				b_old_btint_a_next = multiplier_b_btint_a;
+				b_old_btint_b_next = multiplier_b_btint_b;
+				b_old_overflow = multiplier_b_overflow;
+				b_btint_a_next = multiplier_b_btint_a;
+				b_btint_b_next = multiplier_b_btint_b;
+				b_overflow_next = multiplier_b_overflow;
+				lock_next = 11;
 			end
 			else if (lock_next > 0) begin
 				index_2 = 0;
@@ -1436,21 +1436,21 @@ module MULTIPLIER (
 			reg [7:0] TMP_1_btint_b;
 			reg [1:0] TMP_1_overflow;
 			integer TMP_3_value;
-			reg [7:0] output_btint_a_2;
-			reg [7:0] output_btint_b_2;
+			reg [15:0] output_btint_a_2;
+			reg [15:0] output_btint_b_2;
 			reg [1:0] output_overflow_2;
 			integer output_index_1;
 			integer output_value_1;
-			reg [7:0] output_btint_a_3;
-			reg [7:0] output_btint_b_3;
+			reg [15:0] output_btint_a_3;
+			reg [15:0] output_btint_b_3;
 			reg [1:0] output_overflow_3;
-			reg [7:0] TMP_5_btint_a;
-			reg [7:0] TMP_5_btint_b;
+			reg [15:0] TMP_5_btint_a;
+			reg [15:0] TMP_5_btint_b;
 			reg [1:0] TMP_5_overflow;
 			reg TMP_3_isNegative;
 			integer TMP_3_i;
-			reg [7:0] TMP_4_btint_a;
-			reg [7:0] TMP_4_btint_b;
+			reg [15:0] TMP_4_btint_a;
+			reg [15:0] TMP_4_btint_b;
 			reg [1:0] TMP_4_overflow;
 			integer TMP_6_value;
 			reg [7:0] output_btint_a_4;
@@ -1487,21 +1487,21 @@ module MULTIPLIER (
 			reg [7:0] TMP_10_btint_b;
 			reg [1:0] TMP_10_overflow;
 			integer TMP_12_value;
-			reg [15:0] output_btint_a_8;
-			reg [15:0] output_btint_b_8;
+			reg [7:0] output_btint_a_8;
+			reg [7:0] output_btint_b_8;
 			reg [1:0] output_overflow_8;
 			integer output_index_4;
 			integer output_value_4;
-			reg [15:0] output_btint_a_9;
-			reg [15:0] output_btint_b_9;
+			reg [7:0] output_btint_a_9;
+			reg [7:0] output_btint_b_9;
 			reg [1:0] output_overflow_9;
-			reg [15:0] TMP_14_btint_a;
-			reg [15:0] TMP_14_btint_b;
+			reg [7:0] TMP_14_btint_a;
+			reg [7:0] TMP_14_btint_b;
 			reg [1:0] TMP_14_overflow;
 			reg TMP_12_isNegative;
 			integer TMP_12_i;
-			reg [15:0] TMP_13_btint_a;
-			reg [15:0] TMP_13_btint_b;
+			reg [7:0] TMP_13_btint_a;
+			reg [7:0] TMP_13_btint_b;
 			reg [1:0] TMP_13_overflow;
 			reg [1:0] a_old_overflow;
 			reg [1:0] b_old_overflow;
@@ -1555,16 +1555,17 @@ module MULTIPLIER (
 			TMP_1_btint_a = output_btint_a;
 			TMP_1_btint_b = output_btint_b;
 			TMP_1_overflow = output_overflow;
-			a_old_btint_a <= TMP_1_btint_a;
-			a_old_btint_b <= TMP_1_btint_b;
-			a_old_overflow = TMP_1_overflow;
+			adder_subtractor_b_btint_a <= TMP_1_btint_a;
+			adder_subtractor_b_btint_b <= TMP_1_btint_b;
+			adder_subtractor_b_overflow <= TMP_1_overflow;
+			shift_register_reset <= 1;
 			TMP_3_value = 0;
 			output_btint_a_2 = 0;
 			output_btint_b_2 = 0;
 			output_overflow_2 = 0;
 			begin : sv2v_autoblock_12
 				integer i_1;
-				for (i_1 = 0; i_1 < 8; i_1 = i_1 + 1)
+				for (i_1 = 0; i_1 < 16; i_1 = i_1 + 1)
 					begin
 						output_index_1 = i_1;
 						output_value_1 = 0;
@@ -1593,9 +1594,9 @@ module MULTIPLIER (
 			TMP_4_btint_a = output_btint_a_2;
 			TMP_4_btint_b = output_btint_b_2;
 			TMP_4_overflow = output_overflow_2;
-			b_old_btint_a <= TMP_4_btint_a;
-			b_old_btint_b <= TMP_4_btint_b;
-			b_old_overflow = TMP_4_overflow;
+			multiplier_product_btint_a <= TMP_4_btint_a;
+			multiplier_product_btint_b <= TMP_4_btint_b;
+			multiplier_product_overflow <= TMP_4_overflow;
 			TMP_6_value = 0;
 			output_btint_a_4 = 0;
 			output_btint_b_4 = 0;
@@ -1631,10 +1632,9 @@ module MULTIPLIER (
 			TMP_7_btint_a = output_btint_a_4;
 			TMP_7_btint_b = output_btint_b_4;
 			TMP_7_overflow = output_overflow_4;
-			b_btint_a <= TMP_7_btint_a;
-			b_btint_b <= TMP_7_btint_b;
-			b_overflow <= TMP_7_overflow;
-			lock <= 11;
+			a_old_btint_a <= TMP_7_btint_a;
+			a_old_btint_b <= TMP_7_btint_b;
+			a_old_overflow = TMP_7_overflow;
 			TMP_9_value = 0;
 			output_btint_a_6 = 0;
 			output_btint_b_6 = 0;
@@ -1670,17 +1670,16 @@ module MULTIPLIER (
 			TMP_10_btint_a = output_btint_a_6;
 			TMP_10_btint_b = output_btint_b_6;
 			TMP_10_overflow = output_overflow_6;
-			adder_subtractor_b_btint_a <= TMP_10_btint_a;
-			adder_subtractor_b_btint_b <= TMP_10_btint_b;
-			adder_subtractor_b_overflow <= TMP_10_overflow;
-			shift_register_reset <= 1;
+			b_old_btint_a <= TMP_10_btint_a;
+			b_old_btint_b <= TMP_10_btint_b;
+			b_old_overflow = TMP_10_overflow;
 			TMP_12_value = 0;
 			output_btint_a_8 = 0;
 			output_btint_b_8 = 0;
 			output_overflow_8 = 0;
 			begin : sv2v_autoblock_15
 				integer i_4;
-				for (i_4 = 0; i_4 < 16; i_4 = i_4 + 1)
+				for (i_4 = 0; i_4 < 8; i_4 = i_4 + 1)
 					begin
 						output_index_4 = i_4;
 						output_value_4 = 0;
@@ -1709,9 +1708,10 @@ module MULTIPLIER (
 			TMP_13_btint_a = output_btint_a_8;
 			TMP_13_btint_b = output_btint_b_8;
 			TMP_13_overflow = output_overflow_8;
-			multiplier_product_btint_a <= TMP_13_btint_a;
-			multiplier_product_btint_b <= TMP_13_btint_b;
-			multiplier_product_overflow <= TMP_13_overflow;
+			b_btint_a <= TMP_13_btint_a;
+			b_btint_b <= TMP_13_btint_b;
+			b_overflow <= TMP_13_overflow;
+			lock <= 11;
 		end
 		else begin
 			adder_subtractor_b_btint_a <= adder_subtractor_b_btint_a_next;
@@ -2229,6 +2229,8 @@ module MATRIX_VECTOR_CONTROL (
 	reg [7:0] matrix_vector_control_c_in_overflow_next;
 	reg matrix_vector_control_reset_out_next;
 	reg matrix_vector_control_done_next;
+	reg valid_old;
+	reg valid_old_next;
 	reg [23:0] result_btint_a;
 	reg [23:0] result_btint_a_next;
 	reg [23:0] result_btint_b;
@@ -2310,9 +2312,6 @@ module MATRIX_VECTOR_CONTROL (
 		reg [7:0] TMP_10_btint_a;
 		reg [7:0] TMP_10_btint_b;
 		reg [1:0] TMP_10_overflow;
-		reg [7:0] tmp_btint_a;
-		reg [7:0] tmp_btint_b;
-		reg [1:0] tmp_overflow;
 		integer TMP_12_value;
 		reg [7:0] output_btint_a_8;
 		reg [7:0] output_btint_b_8;
@@ -2330,9 +2329,6 @@ module MATRIX_VECTOR_CONTROL (
 		reg [7:0] TMP_13_btint_a;
 		reg [7:0] TMP_13_btint_b;
 		reg [1:0] TMP_13_overflow;
-		reg [7:0] tmp_btint_a_1;
-		reg [7:0] tmp_btint_b_1;
-		reg [1:0] tmp_overflow_1;
 		integer TMP_15_value;
 		reg [7:0] output_btint_a_10;
 		reg [7:0] output_btint_b_10;
@@ -2384,12 +2380,151 @@ module MATRIX_VECTOR_CONTROL (
 		reg [7:0] TMP_22_btint_a;
 		reg [7:0] TMP_22_btint_b;
 		reg [1:0] TMP_22_overflow;
+		reg [7:0] tmp_btint_a;
+		reg [7:0] tmp_btint_b;
+		reg [1:0] tmp_overflow;
+		integer TMP_24_value;
+		reg [7:0] output_btint_a_16;
+		reg [7:0] output_btint_b_16;
+		reg [1:0] output_overflow_16;
+		integer output_index_8;
+		integer output_value_8;
+		reg [7:0] output_btint_a_17;
+		reg [7:0] output_btint_b_17;
+		reg [1:0] output_overflow_17;
+		reg [7:0] TMP_26_btint_a;
+		reg [7:0] TMP_26_btint_b;
+		reg [1:0] TMP_26_overflow;
+		reg TMP_24_isNegative;
+		integer TMP_24_i;
+		reg [7:0] TMP_25_btint_a;
+		reg [7:0] TMP_25_btint_b;
+		reg [1:0] TMP_25_overflow;
+		reg [7:0] tmp_btint_a_1;
+		reg [7:0] tmp_btint_b_1;
+		reg [1:0] tmp_overflow_1;
+		integer TMP_27_value;
+		reg [7:0] output_btint_a_18;
+		reg [7:0] output_btint_b_18;
+		reg [1:0] output_overflow_18;
+		integer output_index_9;
+		integer output_value_9;
+		reg [7:0] output_btint_a_19;
+		reg [7:0] output_btint_b_19;
+		reg [1:0] output_overflow_19;
+		reg [7:0] TMP_29_btint_a;
+		reg [7:0] TMP_29_btint_b;
+		reg [1:0] TMP_29_overflow;
+		reg TMP_27_isNegative;
+		integer TMP_27_i;
+		reg [7:0] TMP_28_btint_a;
+		reg [7:0] TMP_28_btint_b;
+		reg [1:0] TMP_28_overflow;
+		integer TMP_30_value;
+		reg [7:0] output_btint_a_20;
+		reg [7:0] output_btint_b_20;
+		reg [1:0] output_overflow_20;
+		integer output_index_10;
+		integer output_value_10;
+		reg [7:0] output_btint_a_21;
+		reg [7:0] output_btint_b_21;
+		reg [1:0] output_overflow_21;
+		reg [7:0] TMP_32_btint_a;
+		reg [7:0] TMP_32_btint_b;
+		reg [1:0] TMP_32_overflow;
+		reg TMP_30_isNegative;
+		integer TMP_30_i;
+		reg [7:0] TMP_31_btint_a;
+		reg [7:0] TMP_31_btint_b;
+		reg [1:0] TMP_31_overflow;
+		integer TMP_33_value;
+		reg [7:0] output_btint_a_22;
+		reg [7:0] output_btint_b_22;
+		reg [1:0] output_overflow_22;
+		integer output_index_11;
+		integer output_value_11;
+		reg [7:0] output_btint_a_23;
+		reg [7:0] output_btint_b_23;
+		reg [1:0] output_overflow_23;
+		reg [7:0] TMP_35_btint_a;
+		reg [7:0] TMP_35_btint_b;
+		reg [1:0] TMP_35_overflow;
+		reg TMP_33_isNegative;
+		integer TMP_33_i;
+		reg [7:0] TMP_34_btint_a;
+		reg [7:0] TMP_34_btint_b;
+		reg [1:0] TMP_34_overflow;
+		integer TMP_36_value;
+		reg [7:0] output_btint_a_24;
+		reg [7:0] output_btint_b_24;
+		reg [1:0] output_overflow_24;
+		integer output_index_12;
+		integer output_value_12;
+		reg [7:0] output_btint_a_25;
+		reg [7:0] output_btint_b_25;
+		reg [1:0] output_overflow_25;
+		reg [7:0] TMP_38_btint_a;
+		reg [7:0] TMP_38_btint_b;
+		reg [1:0] TMP_38_overflow;
+		reg TMP_36_isNegative;
+		integer TMP_36_i;
+		reg [7:0] TMP_37_btint_a;
+		reg [7:0] TMP_37_btint_b;
+		reg [1:0] TMP_37_overflow;
+		integer TMP_39_value;
+		reg [7:0] output_btint_a_26;
+		reg [7:0] output_btint_b_26;
+		reg [1:0] output_overflow_26;
+		integer output_index_13;
+		integer output_value_13;
+		reg [7:0] output_btint_a_27;
+		reg [7:0] output_btint_b_27;
+		reg [1:0] output_overflow_27;
+		reg [7:0] TMP_41_btint_a;
+		reg [7:0] TMP_41_btint_b;
+		reg [1:0] TMP_41_overflow;
+		reg TMP_39_isNegative;
+		integer TMP_39_i;
+		reg [7:0] TMP_40_btint_a;
+		reg [7:0] TMP_40_btint_b;
+		reg [1:0] TMP_40_overflow;
+		integer TMP_42_value;
+		reg [7:0] output_btint_a_28;
+		reg [7:0] output_btint_b_28;
+		reg [1:0] output_overflow_28;
+		integer output_index_14;
+		integer output_value_14;
+		reg [7:0] output_btint_a_29;
+		reg [7:0] output_btint_b_29;
+		reg [1:0] output_overflow_29;
+		reg [7:0] TMP_44_btint_a;
+		reg [7:0] TMP_44_btint_b;
+		reg [1:0] TMP_44_overflow;
+		reg TMP_42_isNegative;
+		integer TMP_42_i;
+		reg [7:0] TMP_43_btint_a;
+		reg [7:0] TMP_43_btint_b;
+		reg [1:0] TMP_43_overflow;
+		integer TMP_45_value;
+		reg [7:0] output_btint_a_30;
+		reg [7:0] output_btint_b_30;
+		reg [1:0] output_overflow_30;
+		integer output_index_15;
+		integer output_value_15;
+		reg [7:0] output_btint_a_31;
+		reg [7:0] output_btint_b_31;
+		reg [1:0] output_overflow_31;
+		reg [7:0] TMP_47_btint_a;
+		reg [7:0] TMP_47_btint_b;
+		reg [1:0] TMP_47_overflow;
+		reg TMP_45_isNegative;
+		integer TMP_45_i;
+		reg [7:0] TMP_46_btint_a;
+		reg [7:0] TMP_46_btint_b;
+		reg [1:0] TMP_46_overflow;
 		reg [0:1] _sv2v_jump;
 		begin
 			_sv2v_jump = 2'b00;
-			tmp_btint_a = 0;
-			tmp_btint_b = 0;
-			tmp_overflow = 0;
 			TMP_12_value = 0;
 			output_btint_a_8 = 0;
 			output_btint_b_8 = 0;
@@ -2407,9 +2542,6 @@ module MATRIX_VECTOR_CONTROL (
 			TMP_13_btint_a = 0;
 			TMP_13_btint_b = 0;
 			TMP_13_overflow = 0;
-			tmp_btint_a_1 = 0;
-			tmp_btint_b_1 = 0;
-			tmp_overflow_1 = 0;
 			TMP_15_value = 0;
 			output_btint_a_10 = 0;
 			output_btint_b_10 = 0;
@@ -2461,6 +2593,148 @@ module MATRIX_VECTOR_CONTROL (
 			TMP_22_btint_a = 0;
 			TMP_22_btint_b = 0;
 			TMP_22_overflow = 0;
+			tmp_btint_a = 0;
+			tmp_btint_b = 0;
+			tmp_overflow = 0;
+			TMP_24_value = 0;
+			output_btint_a_16 = 0;
+			output_btint_b_16 = 0;
+			output_overflow_16 = 0;
+			output_index_8 = 0;
+			output_value_8 = 0;
+			output_btint_a_17 = 0;
+			output_btint_b_17 = 0;
+			output_overflow_17 = 0;
+			TMP_26_btint_a = 0;
+			TMP_26_btint_b = 0;
+			TMP_26_overflow = 0;
+			TMP_24_isNegative = 0;
+			TMP_24_i = 0;
+			TMP_25_btint_a = 0;
+			TMP_25_btint_b = 0;
+			TMP_25_overflow = 0;
+			tmp_btint_a_1 = 0;
+			tmp_btint_b_1 = 0;
+			tmp_overflow_1 = 0;
+			TMP_27_value = 0;
+			output_btint_a_18 = 0;
+			output_btint_b_18 = 0;
+			output_overflow_18 = 0;
+			output_index_9 = 0;
+			output_value_9 = 0;
+			output_btint_a_19 = 0;
+			output_btint_b_19 = 0;
+			output_overflow_19 = 0;
+			TMP_29_btint_a = 0;
+			TMP_29_btint_b = 0;
+			TMP_29_overflow = 0;
+			TMP_27_isNegative = 0;
+			TMP_27_i = 0;
+			TMP_28_btint_a = 0;
+			TMP_28_btint_b = 0;
+			TMP_28_overflow = 0;
+			TMP_30_value = 0;
+			output_btint_a_20 = 0;
+			output_btint_b_20 = 0;
+			output_overflow_20 = 0;
+			output_index_10 = 0;
+			output_value_10 = 0;
+			output_btint_a_21 = 0;
+			output_btint_b_21 = 0;
+			output_overflow_21 = 0;
+			TMP_32_btint_a = 0;
+			TMP_32_btint_b = 0;
+			TMP_32_overflow = 0;
+			TMP_30_isNegative = 0;
+			TMP_30_i = 0;
+			TMP_31_btint_a = 0;
+			TMP_31_btint_b = 0;
+			TMP_31_overflow = 0;
+			TMP_33_value = 0;
+			output_btint_a_22 = 0;
+			output_btint_b_22 = 0;
+			output_overflow_22 = 0;
+			output_index_11 = 0;
+			output_value_11 = 0;
+			output_btint_a_23 = 0;
+			output_btint_b_23 = 0;
+			output_overflow_23 = 0;
+			TMP_35_btint_a = 0;
+			TMP_35_btint_b = 0;
+			TMP_35_overflow = 0;
+			TMP_33_isNegative = 0;
+			TMP_33_i = 0;
+			TMP_34_btint_a = 0;
+			TMP_34_btint_b = 0;
+			TMP_34_overflow = 0;
+			TMP_36_value = 0;
+			output_btint_a_24 = 0;
+			output_btint_b_24 = 0;
+			output_overflow_24 = 0;
+			output_index_12 = 0;
+			output_value_12 = 0;
+			output_btint_a_25 = 0;
+			output_btint_b_25 = 0;
+			output_overflow_25 = 0;
+			TMP_38_btint_a = 0;
+			TMP_38_btint_b = 0;
+			TMP_38_overflow = 0;
+			TMP_36_isNegative = 0;
+			TMP_36_i = 0;
+			TMP_37_btint_a = 0;
+			TMP_37_btint_b = 0;
+			TMP_37_overflow = 0;
+			TMP_39_value = 0;
+			output_btint_a_26 = 0;
+			output_btint_b_26 = 0;
+			output_overflow_26 = 0;
+			output_index_13 = 0;
+			output_value_13 = 0;
+			output_btint_a_27 = 0;
+			output_btint_b_27 = 0;
+			output_overflow_27 = 0;
+			TMP_41_btint_a = 0;
+			TMP_41_btint_b = 0;
+			TMP_41_overflow = 0;
+			TMP_39_isNegative = 0;
+			TMP_39_i = 0;
+			TMP_40_btint_a = 0;
+			TMP_40_btint_b = 0;
+			TMP_40_overflow = 0;
+			TMP_42_value = 0;
+			output_btint_a_28 = 0;
+			output_btint_b_28 = 0;
+			output_overflow_28 = 0;
+			output_index_14 = 0;
+			output_value_14 = 0;
+			output_btint_a_29 = 0;
+			output_btint_b_29 = 0;
+			output_overflow_29 = 0;
+			TMP_44_btint_a = 0;
+			TMP_44_btint_b = 0;
+			TMP_44_overflow = 0;
+			TMP_42_isNegative = 0;
+			TMP_42_i = 0;
+			TMP_43_btint_a = 0;
+			TMP_43_btint_b = 0;
+			TMP_43_overflow = 0;
+			TMP_45_value = 0;
+			output_btint_a_30 = 0;
+			output_btint_b_30 = 0;
+			output_overflow_30 = 0;
+			output_index_15 = 0;
+			output_value_15 = 0;
+			output_btint_a_31 = 0;
+			output_btint_b_31 = 0;
+			output_overflow_31 = 0;
+			TMP_47_btint_a = 0;
+			TMP_47_btint_b = 0;
+			TMP_47_overflow = 0;
+			TMP_45_isNegative = 0;
+			TMP_45_i = 0;
+			TMP_46_btint_a = 0;
+			TMP_46_btint_b = 0;
+			TMP_46_overflow = 0;
 			index_next = index;
 			matrix_vector_control_b_in_btint_a_next = matrix_vector_control_b_in_btint_a;
 			matrix_vector_control_b_in_btint_b_next = matrix_vector_control_b_in_btint_b;
@@ -2476,19 +2750,201 @@ module MATRIX_VECTOR_CONTROL (
 			result_btint_a_next = result_btint_a;
 			result_btint_b_next = result_btint_b;
 			result_overflow_next = result_overflow;
+			valid_old_next = valid_old;
 			vector_done_next = vector_done;
 			control_WAIT_N_COUNTER_next = control_WAIT_N_COUNTER;
 			control_PROC_STATE_next = control_PROC_STATE;
 			case (control_PROC_STATE)
 				0: begin
-					if (matrix_vector_control_valid) begin
+					if (matrix_vector_control_valid != valid_old_next) begin
 						begin : sv2v_autoblock_1
 							integer i_8;
 							for (i_8 = 0; i_8 < 3; i_8 = i_8 + 1)
 								begin
-									matrix_vector_control_result_btint_a_next[(2 - i_8) * 8+:8] = result_btint_a_next[(2 - i_8) * 8+:8];
-									matrix_vector_control_result_btint_b_next[(2 - i_8) * 8+:8] = result_btint_b_next[(2 - i_8) * 8+:8];
-									matrix_vector_control_result_overflow_next[(2 - i_8) * 2+:2] = result_overflow_next[(2 - i_8) * 2+:2];
+									TMP_12_value = 0;
+									output_btint_a_8 = 0;
+									output_btint_b_8 = 0;
+									output_overflow_8 = 0;
+									begin : sv2v_autoblock_2
+										integer i_9;
+										for (i_9 = 0; i_9 < 8; i_9 = i_9 + 1)
+											begin
+												output_index_4 = i_9;
+												output_value_4 = 0;
+												output_btint_a_9 = 0;
+												output_btint_b_9 = 0;
+												output_overflow_9 = 0;
+												output_btint_a_9 = output_btint_a_8;
+												output_btint_b_9 = output_btint_b_8;
+												output_overflow_9 = output_overflow_8;
+												case (0)
+													0: begin
+														output_btint_a_9[output_index_4] = 0;
+														output_btint_b_9[output_index_4] = 1;
+													end
+												endcase
+												TMP_14_btint_a = output_btint_a_9;
+												TMP_14_btint_b = output_btint_b_9;
+												TMP_14_overflow = output_overflow_9;
+												output_btint_a_8 = TMP_14_btint_a;
+												output_btint_b_8 = TMP_14_btint_b;
+												output_overflow_8 = TMP_14_overflow;
+											end
+									end
+									TMP_12_isNegative = TMP_12_value < 0;
+									TMP_12_i = 0;
+									TMP_13_btint_a = output_btint_a_8;
+									TMP_13_btint_b = output_btint_b_8;
+									TMP_13_overflow = output_overflow_8;
+									result_btint_a_next[(2 - i_8) * 8+:8] = TMP_13_btint_a;
+									result_btint_b_next[(2 - i_8) * 8+:8] = TMP_13_btint_b;
+									result_overflow_next[(2 - i_8) * 2+:2] = TMP_13_overflow;
+								end
+						end
+						begin : sv2v_autoblock_3
+							integer i_10;
+							for (i_10 = 0; i_10 < 4; i_10 = i_10 + 1)
+								index_next[(3 - i_10) * 32+:32] = -i_10;
+						end
+						vector_done_next = 0;
+						begin : sv2v_autoblock_4
+							integer i_11;
+							for (i_11 = 0; i_11 < 3; i_11 = i_11 + 1)
+								begin
+									TMP_15_value = 0;
+									output_btint_a_10 = 0;
+									output_btint_b_10 = 0;
+									output_overflow_10 = 0;
+									begin : sv2v_autoblock_5
+										integer i_12;
+										for (i_12 = 0; i_12 < 8; i_12 = i_12 + 1)
+											begin
+												output_index_5 = i_12;
+												output_value_5 = 0;
+												output_btint_a_11 = 0;
+												output_btint_b_11 = 0;
+												output_overflow_11 = 0;
+												output_btint_a_11 = output_btint_a_10;
+												output_btint_b_11 = output_btint_b_10;
+												output_overflow_11 = output_overflow_10;
+												case (0)
+													0: begin
+														output_btint_a_11[output_index_5] = 0;
+														output_btint_b_11[output_index_5] = 1;
+													end
+												endcase
+												TMP_17_btint_a = output_btint_a_11;
+												TMP_17_btint_b = output_btint_b_11;
+												TMP_17_overflow = output_overflow_11;
+												output_btint_a_10 = TMP_17_btint_a;
+												output_btint_b_10 = TMP_17_btint_b;
+												output_overflow_10 = TMP_17_overflow;
+											end
+									end
+									TMP_15_isNegative = TMP_15_value < 0;
+									TMP_15_i = 0;
+									TMP_16_btint_a = output_btint_a_10;
+									TMP_16_btint_b = output_btint_b_10;
+									TMP_16_overflow = output_overflow_10;
+									matrix_vector_control_result_btint_a_next[(2 - i_11) * 8+:8] = TMP_16_btint_a;
+									matrix_vector_control_result_btint_b_next[(2 - i_11) * 8+:8] = TMP_16_btint_b;
+									matrix_vector_control_result_overflow_next[(2 - i_11) * 2+:2] = TMP_16_overflow;
+								end
+						end
+						begin : sv2v_autoblock_6
+							integer i_13;
+							for (i_13 = 0; i_13 < 4; i_13 = i_13 + 1)
+								begin
+									TMP_18_value = 0;
+									output_btint_a_12 = 0;
+									output_btint_b_12 = 0;
+									output_overflow_12 = 0;
+									begin : sv2v_autoblock_7
+										integer i_14;
+										for (i_14 = 0; i_14 < 8; i_14 = i_14 + 1)
+											begin
+												output_index_6 = i_14;
+												output_value_6 = 0;
+												output_btint_a_13 = 0;
+												output_btint_b_13 = 0;
+												output_overflow_13 = 0;
+												output_btint_a_13 = output_btint_a_12;
+												output_btint_b_13 = output_btint_b_12;
+												output_overflow_13 = output_overflow_12;
+												case (0)
+													0: begin
+														output_btint_a_13[output_index_6] = 0;
+														output_btint_b_13[output_index_6] = 1;
+													end
+												endcase
+												TMP_20_btint_a = output_btint_a_13;
+												TMP_20_btint_b = output_btint_b_13;
+												TMP_20_overflow = output_overflow_13;
+												output_btint_a_12 = TMP_20_btint_a;
+												output_btint_b_12 = TMP_20_btint_b;
+												output_overflow_12 = TMP_20_overflow;
+											end
+									end
+									TMP_18_isNegative = TMP_18_value < 0;
+									TMP_18_i = 0;
+									TMP_19_btint_a = output_btint_a_12;
+									TMP_19_btint_b = output_btint_b_12;
+									TMP_19_overflow = output_overflow_12;
+									matrix_vector_control_b_in_btint_a_next[(3 - i_13) * 8+:8] = TMP_19_btint_a;
+									matrix_vector_control_b_in_btint_b_next[(3 - i_13) * 8+:8] = TMP_19_btint_b;
+									matrix_vector_control_b_in_overflow_next[(3 - i_13) * 2+:2] = TMP_19_overflow;
+									TMP_21_value = 0;
+									output_btint_a_14 = 0;
+									output_btint_b_14 = 0;
+									output_overflow_14 = 0;
+									begin : sv2v_autoblock_8
+										integer i_15;
+										for (i_15 = 0; i_15 < 8; i_15 = i_15 + 1)
+											begin
+												output_index_7 = i_15;
+												output_value_7 = 0;
+												output_btint_a_15 = 0;
+												output_btint_b_15 = 0;
+												output_overflow_15 = 0;
+												output_btint_a_15 = output_btint_a_14;
+												output_btint_b_15 = output_btint_b_14;
+												output_overflow_15 = output_overflow_14;
+												case (0)
+													0: begin
+														output_btint_a_15[output_index_7] = 0;
+														output_btint_b_15[output_index_7] = 1;
+													end
+												endcase
+												TMP_23_btint_a = output_btint_a_15;
+												TMP_23_btint_b = output_btint_b_15;
+												TMP_23_overflow = output_overflow_15;
+												output_btint_a_14 = TMP_23_btint_a;
+												output_btint_b_14 = TMP_23_btint_b;
+												output_overflow_14 = TMP_23_overflow;
+											end
+									end
+									TMP_21_isNegative = TMP_21_value < 0;
+									TMP_21_i = 0;
+									TMP_22_btint_a = output_btint_a_14;
+									TMP_22_btint_b = output_btint_b_14;
+									TMP_22_overflow = output_overflow_14;
+									matrix_vector_control_c_in_btint_a_next[(3 - i_13) * 8+:8] = TMP_22_btint_a;
+									matrix_vector_control_c_in_btint_b_next[(3 - i_13) * 8+:8] = TMP_22_btint_b;
+									matrix_vector_control_c_in_overflow_next[(3 - i_13) * 2+:2] = TMP_22_overflow;
+								end
+						end
+						matrix_vector_control_reset_out_next = 0;
+						matrix_vector_control_done_next = 0;
+						valid_old_next = matrix_vector_control_valid;
+					end
+					if (matrix_vector_control_valid) begin
+						begin : sv2v_autoblock_9
+							integer i_16;
+							for (i_16 = 0; i_16 < 3; i_16 = i_16 + 1)
+								begin
+									matrix_vector_control_result_btint_a_next[(2 - i_16) * 8+:8] = result_btint_a_next[(2 - i_16) * 8+:8];
+									matrix_vector_control_result_btint_b_next[(2 - i_16) * 8+:8] = result_btint_b_next[(2 - i_16) * 8+:8];
+									matrix_vector_control_result_overflow_next[(2 - i_16) * 2+:2] = result_overflow_next[(2 - i_16) * 2+:2];
 								end
 						end
 						if (index_next[0+:32] >= 4)
@@ -2496,16 +2952,16 @@ module MATRIX_VECTOR_CONTROL (
 						else
 							matrix_vector_control_done_next = 0;
 						if (!vector_done_next) begin
-							begin : sv2v_autoblock_2
-								integer i_9;
-								for (i_9 = 0; i_9 < 4; i_9 = i_9 + 1)
+							begin : sv2v_autoblock_10
+								integer i_17;
+								for (i_17 = 0; i_17 < 4; i_17 = i_17 + 1)
 									begin
-										tmp_btint_a = matrix_vector_control_vector_btint_a[(3 - i_9) * 8+:8];
-										tmp_btint_b = matrix_vector_control_vector_btint_b[(3 - i_9) * 8+:8];
-										tmp_overflow = matrix_vector_control_vector_overflow[(3 - i_9) * 2+:2];
-										matrix_vector_control_b_in_btint_a_next[(3 - i_9) * 8+:8] = tmp_btint_a;
-										matrix_vector_control_b_in_btint_b_next[(3 - i_9) * 8+:8] = tmp_btint_b;
-										matrix_vector_control_b_in_overflow_next[(3 - i_9) * 2+:2] = tmp_overflow;
+										tmp_btint_a = matrix_vector_control_vector_btint_a[(3 - i_17) * 8+:8];
+										tmp_btint_b = matrix_vector_control_vector_btint_b[(3 - i_17) * 8+:8];
+										tmp_overflow = matrix_vector_control_vector_overflow[(3 - i_17) * 2+:2];
+										matrix_vector_control_b_in_btint_a_next[(3 - i_17) * 8+:8] = tmp_btint_a;
+										matrix_vector_control_b_in_btint_b_next[(3 - i_17) * 8+:8] = tmp_btint_b;
+										matrix_vector_control_b_in_overflow_next[(3 - i_17) * 2+:2] = tmp_overflow;
 										matrix_vector_control_reset_out_next = 1;
 									end
 							end
@@ -2513,103 +2969,103 @@ module MATRIX_VECTOR_CONTROL (
 						end
 						else begin
 							matrix_vector_control_reset_out_next = 0;
-							begin : sv2v_autoblock_3
-								integer i_10;
-								for (i_10 = 0; i_10 < 4; i_10 = i_10 + 1)
-									if ((index_next[(3 - i_10) * 32+:32] < 0) || (index_next[(3 - i_10) * 32+:32] > 2)) begin
-										TMP_12_value = 0;
-										output_btint_a_8 = 0;
-										output_btint_b_8 = 0;
-										output_overflow_8 = 0;
-										begin : sv2v_autoblock_4
-											integer i_11;
-											for (i_11 = 0; i_11 < 8; i_11 = i_11 + 1)
+							begin : sv2v_autoblock_11
+								integer i_18;
+								for (i_18 = 0; i_18 < 4; i_18 = i_18 + 1)
+									if ((index_next[(3 - i_18) * 32+:32] < 0) || (index_next[(3 - i_18) * 32+:32] > 2)) begin
+										TMP_24_value = 0;
+										output_btint_a_16 = 0;
+										output_btint_b_16 = 0;
+										output_overflow_16 = 0;
+										begin : sv2v_autoblock_12
+											integer i_19;
+											for (i_19 = 0; i_19 < 8; i_19 = i_19 + 1)
 												begin
-													output_index_4 = i_11;
-													output_value_4 = 0;
-													output_btint_a_9 = 0;
-													output_btint_b_9 = 0;
-													output_overflow_9 = 0;
-													output_btint_a_9 = output_btint_a_8;
-													output_btint_b_9 = output_btint_b_8;
-													output_overflow_9 = output_overflow_8;
+													output_index_8 = i_19;
+													output_value_8 = 0;
+													output_btint_a_17 = 0;
+													output_btint_b_17 = 0;
+													output_overflow_17 = 0;
+													output_btint_a_17 = output_btint_a_16;
+													output_btint_b_17 = output_btint_b_16;
+													output_overflow_17 = output_overflow_16;
 													case (0)
 														0: begin
-															output_btint_a_9[output_index_4] = 0;
-															output_btint_b_9[output_index_4] = 1;
+															output_btint_a_17[output_index_8] = 0;
+															output_btint_b_17[output_index_8] = 1;
 														end
 													endcase
-													TMP_14_btint_a = output_btint_a_9;
-													TMP_14_btint_b = output_btint_b_9;
-													TMP_14_overflow = output_overflow_9;
-													output_btint_a_8 = TMP_14_btint_a;
-													output_btint_b_8 = TMP_14_btint_b;
-													output_overflow_8 = TMP_14_overflow;
+													TMP_26_btint_a = output_btint_a_17;
+													TMP_26_btint_b = output_btint_b_17;
+													TMP_26_overflow = output_overflow_17;
+													output_btint_a_16 = TMP_26_btint_a;
+													output_btint_b_16 = TMP_26_btint_b;
+													output_overflow_16 = TMP_26_overflow;
 												end
 										end
-										TMP_12_isNegative = TMP_12_value < 0;
-										TMP_12_i = 0;
-										TMP_13_btint_a = output_btint_a_8;
-										TMP_13_btint_b = output_btint_b_8;
-										TMP_13_overflow = output_overflow_8;
-										matrix_vector_control_b_in_btint_a_next[(3 - i_10) * 8+:8] = TMP_13_btint_a;
-										matrix_vector_control_b_in_btint_b_next[(3 - i_10) * 8+:8] = TMP_13_btint_b;
-										matrix_vector_control_b_in_overflow_next[(3 - i_10) * 2+:2] = TMP_13_overflow;
+										TMP_24_isNegative = TMP_24_value < 0;
+										TMP_24_i = 0;
+										TMP_25_btint_a = output_btint_a_16;
+										TMP_25_btint_b = output_btint_b_16;
+										TMP_25_overflow = output_overflow_16;
+										matrix_vector_control_b_in_btint_a_next[(3 - i_18) * 8+:8] = TMP_25_btint_a;
+										matrix_vector_control_b_in_btint_b_next[(3 - i_18) * 8+:8] = TMP_25_btint_b;
+										matrix_vector_control_b_in_overflow_next[(3 - i_18) * 2+:2] = TMP_25_overflow;
 									end
 									else begin
-										tmp_btint_a_1 = matrix_vector_control_matrix_btint_a[(((2 - index_next[(3 - i_10) * 32+:32]) * 4) + (3 - i_10)) * 8+:8];
-										tmp_btint_b_1 = matrix_vector_control_matrix_btint_b[(((2 - index_next[(3 - i_10) * 32+:32]) * 4) + (3 - i_10)) * 8+:8];
-										tmp_overflow_1 = matrix_vector_control_matrix_overflow[(((2 - index_next[(3 - i_10) * 32+:32]) * 4) + (3 - i_10)) * 2+:2];
-										matrix_vector_control_b_in_btint_a_next[(3 - i_10) * 8+:8] = tmp_btint_a_1;
-										matrix_vector_control_b_in_btint_b_next[(3 - i_10) * 8+:8] = tmp_btint_b_1;
-										matrix_vector_control_b_in_overflow_next[(3 - i_10) * 2+:2] = tmp_overflow_1;
+										tmp_btint_a_1 = matrix_vector_control_matrix_btint_a[(((2 - index_next[(3 - i_18) * 32+:32]) * 4) + (3 - i_18)) * 8+:8];
+										tmp_btint_b_1 = matrix_vector_control_matrix_btint_b[(((2 - index_next[(3 - i_18) * 32+:32]) * 4) + (3 - i_18)) * 8+:8];
+										tmp_overflow_1 = matrix_vector_control_matrix_overflow[(((2 - index_next[(3 - i_18) * 32+:32]) * 4) + (3 - i_18)) * 2+:2];
+										matrix_vector_control_b_in_btint_a_next[(3 - i_18) * 8+:8] = tmp_btint_a_1;
+										matrix_vector_control_b_in_btint_b_next[(3 - i_18) * 8+:8] = tmp_btint_b_1;
+										matrix_vector_control_b_in_overflow_next[(3 - i_18) * 2+:2] = tmp_overflow_1;
 									end
 							end
-							TMP_15_value = 0;
-							output_btint_a_10 = 0;
-							output_btint_b_10 = 0;
-							output_overflow_10 = 0;
-							begin : sv2v_autoblock_5
-								integer i_12;
-								for (i_12 = 0; i_12 < 8; i_12 = i_12 + 1)
+							TMP_27_value = 0;
+							output_btint_a_18 = 0;
+							output_btint_b_18 = 0;
+							output_overflow_18 = 0;
+							begin : sv2v_autoblock_13
+								integer i_20;
+								for (i_20 = 0; i_20 < 8; i_20 = i_20 + 1)
 									begin
-										output_index_5 = i_12;
-										output_value_5 = 0;
-										output_btint_a_11 = 0;
-										output_btint_b_11 = 0;
-										output_overflow_11 = 0;
-										output_btint_a_11 = output_btint_a_10;
-										output_btint_b_11 = output_btint_b_10;
-										output_overflow_11 = output_overflow_10;
+										output_index_9 = i_20;
+										output_value_9 = 0;
+										output_btint_a_19 = 0;
+										output_btint_b_19 = 0;
+										output_overflow_19 = 0;
+										output_btint_a_19 = output_btint_a_18;
+										output_btint_b_19 = output_btint_b_18;
+										output_overflow_19 = output_overflow_18;
 										case (0)
 											0: begin
-												output_btint_a_11[output_index_5] = 0;
-												output_btint_b_11[output_index_5] = 1;
+												output_btint_a_19[output_index_9] = 0;
+												output_btint_b_19[output_index_9] = 1;
 											end
 										endcase
-										TMP_17_btint_a = output_btint_a_11;
-										TMP_17_btint_b = output_btint_b_11;
-										TMP_17_overflow = output_overflow_11;
-										output_btint_a_10 = TMP_17_btint_a;
-										output_btint_b_10 = TMP_17_btint_b;
-										output_overflow_10 = TMP_17_overflow;
+										TMP_29_btint_a = output_btint_a_19;
+										TMP_29_btint_b = output_btint_b_19;
+										TMP_29_overflow = output_overflow_19;
+										output_btint_a_18 = TMP_29_btint_a;
+										output_btint_b_18 = TMP_29_btint_b;
+										output_overflow_18 = TMP_29_overflow;
 									end
 							end
-							TMP_15_isNegative = TMP_15_value < 0;
-							TMP_15_i = 0;
-							TMP_16_btint_a = output_btint_a_10;
-							TMP_16_btint_b = output_btint_b_10;
-							TMP_16_overflow = output_overflow_10;
-							matrix_vector_control_c_in_btint_a_next[24+:8] = TMP_16_btint_a;
-							matrix_vector_control_c_in_btint_b_next[24+:8] = TMP_16_btint_b;
-							matrix_vector_control_c_in_overflow_next[6+:2] = TMP_16_overflow;
-							begin : sv2v_autoblock_6
-								integer i_13;
-								for (i_13 = 1; i_13 < 4; i_13 = i_13 + 1)
+							TMP_27_isNegative = TMP_27_value < 0;
+							TMP_27_i = 0;
+							TMP_28_btint_a = output_btint_a_18;
+							TMP_28_btint_b = output_btint_b_18;
+							TMP_28_overflow = output_overflow_18;
+							matrix_vector_control_c_in_btint_a_next[24+:8] = TMP_28_btint_a;
+							matrix_vector_control_c_in_btint_b_next[24+:8] = TMP_28_btint_b;
+							matrix_vector_control_c_in_overflow_next[6+:2] = TMP_28_overflow;
+							begin : sv2v_autoblock_14
+								integer i_21;
+								for (i_21 = 1; i_21 < 4; i_21 = i_21 + 1)
 									begin
-										matrix_vector_control_c_in_btint_a_next[(3 - i_13) * 8+:8] = matrix_vector_control_c_out_btint_a[(4 - i_13) * 8+:8];
-										matrix_vector_control_c_in_btint_b_next[(3 - i_13) * 8+:8] = matrix_vector_control_c_out_btint_b[(4 - i_13) * 8+:8];
-										matrix_vector_control_c_in_overflow_next[(3 - i_13) * 2+:2] = matrix_vector_control_c_out_overflow[(4 - i_13) * 2+:2];
+										matrix_vector_control_c_in_btint_a_next[(3 - i_21) * 8+:8] = matrix_vector_control_c_out_btint_a[(4 - i_21) * 8+:8];
+										matrix_vector_control_c_in_btint_b_next[(3 - i_21) * 8+:8] = matrix_vector_control_c_out_btint_b[(4 - i_21) * 8+:8];
+										matrix_vector_control_c_in_overflow_next[(3 - i_21) * 2+:2] = matrix_vector_control_c_out_overflow[(4 - i_21) * 2+:2];
 									end
 							end
 							if ((index_next[0+:32] >= 1) && (index_next[0+:32] <= 3)) begin
@@ -2617,10 +3073,10 @@ module MATRIX_VECTOR_CONTROL (
 								result_btint_b_next[(3 - index_next[0+:32]) * 8+:8] = matrix_vector_control_c_out_btint_b[0+:8];
 								result_overflow_next[(3 - index_next[0+:32]) * 2+:2] = matrix_vector_control_c_out_overflow[0+:2];
 							end
-							begin : sv2v_autoblock_7
-								integer i_14;
-								for (i_14 = 0; i_14 < 4; i_14 = i_14 + 1)
-									index_next[(3 - i_14) * 32+:32] = index_next[(3 - i_14) * 32+:32] + 1;
+							begin : sv2v_autoblock_15
+								integer i_22;
+								for (i_22 = 0; i_22 < 4; i_22 = i_22 + 1)
+									index_next[(3 - i_22) * 32+:32] = index_next[(3 - i_22) * 32+:32] + 1;
 							end
 						end
 					end
@@ -2635,14 +3091,195 @@ module MATRIX_VECTOR_CONTROL (
 						_sv2v_jump = 2'b11;
 					end
 					if (_sv2v_jump == 2'b00) begin
-						if (matrix_vector_control_valid) begin
-							begin : sv2v_autoblock_8
+						if (matrix_vector_control_valid != valid_old_next) begin
+							begin : sv2v_autoblock_16
 								integer i_8;
 								for (i_8 = 0; i_8 < 3; i_8 = i_8 + 1)
 									begin
-										matrix_vector_control_result_btint_a_next[(2 - i_8) * 8+:8] = result_btint_a_next[(2 - i_8) * 8+:8];
-										matrix_vector_control_result_btint_b_next[(2 - i_8) * 8+:8] = result_btint_b_next[(2 - i_8) * 8+:8];
-										matrix_vector_control_result_overflow_next[(2 - i_8) * 2+:2] = result_overflow_next[(2 - i_8) * 2+:2];
+										TMP_30_value = 0;
+										output_btint_a_20 = 0;
+										output_btint_b_20 = 0;
+										output_overflow_20 = 0;
+										begin : sv2v_autoblock_17
+											integer i_23;
+											for (i_23 = 0; i_23 < 8; i_23 = i_23 + 1)
+												begin
+													output_index_10 = i_23;
+													output_value_10 = 0;
+													output_btint_a_21 = 0;
+													output_btint_b_21 = 0;
+													output_overflow_21 = 0;
+													output_btint_a_21 = output_btint_a_20;
+													output_btint_b_21 = output_btint_b_20;
+													output_overflow_21 = output_overflow_20;
+													case (0)
+														0: begin
+															output_btint_a_21[output_index_10] = 0;
+															output_btint_b_21[output_index_10] = 1;
+														end
+													endcase
+													TMP_32_btint_a = output_btint_a_21;
+													TMP_32_btint_b = output_btint_b_21;
+													TMP_32_overflow = output_overflow_21;
+													output_btint_a_20 = TMP_32_btint_a;
+													output_btint_b_20 = TMP_32_btint_b;
+													output_overflow_20 = TMP_32_overflow;
+												end
+										end
+										TMP_30_isNegative = TMP_30_value < 0;
+										TMP_30_i = 0;
+										TMP_31_btint_a = output_btint_a_20;
+										TMP_31_btint_b = output_btint_b_20;
+										TMP_31_overflow = output_overflow_20;
+										result_btint_a_next[(2 - i_8) * 8+:8] = TMP_31_btint_a;
+										result_btint_b_next[(2 - i_8) * 8+:8] = TMP_31_btint_b;
+										result_overflow_next[(2 - i_8) * 2+:2] = TMP_31_overflow;
+									end
+							end
+							begin : sv2v_autoblock_18
+								integer i_10;
+								for (i_10 = 0; i_10 < 4; i_10 = i_10 + 1)
+									index_next[(3 - i_10) * 32+:32] = -i_10;
+							end
+							vector_done_next = 0;
+							begin : sv2v_autoblock_19
+								integer i_11;
+								for (i_11 = 0; i_11 < 3; i_11 = i_11 + 1)
+									begin
+										TMP_33_value = 0;
+										output_btint_a_22 = 0;
+										output_btint_b_22 = 0;
+										output_overflow_22 = 0;
+										begin : sv2v_autoblock_20
+											integer i_24;
+											for (i_24 = 0; i_24 < 8; i_24 = i_24 + 1)
+												begin
+													output_index_11 = i_24;
+													output_value_11 = 0;
+													output_btint_a_23 = 0;
+													output_btint_b_23 = 0;
+													output_overflow_23 = 0;
+													output_btint_a_23 = output_btint_a_22;
+													output_btint_b_23 = output_btint_b_22;
+													output_overflow_23 = output_overflow_22;
+													case (0)
+														0: begin
+															output_btint_a_23[output_index_11] = 0;
+															output_btint_b_23[output_index_11] = 1;
+														end
+													endcase
+													TMP_35_btint_a = output_btint_a_23;
+													TMP_35_btint_b = output_btint_b_23;
+													TMP_35_overflow = output_overflow_23;
+													output_btint_a_22 = TMP_35_btint_a;
+													output_btint_b_22 = TMP_35_btint_b;
+													output_overflow_22 = TMP_35_overflow;
+												end
+										end
+										TMP_33_isNegative = TMP_33_value < 0;
+										TMP_33_i = 0;
+										TMP_34_btint_a = output_btint_a_22;
+										TMP_34_btint_b = output_btint_b_22;
+										TMP_34_overflow = output_overflow_22;
+										matrix_vector_control_result_btint_a_next[(2 - i_11) * 8+:8] = TMP_34_btint_a;
+										matrix_vector_control_result_btint_b_next[(2 - i_11) * 8+:8] = TMP_34_btint_b;
+										matrix_vector_control_result_overflow_next[(2 - i_11) * 2+:2] = TMP_34_overflow;
+									end
+							end
+							begin : sv2v_autoblock_21
+								integer i_13;
+								for (i_13 = 0; i_13 < 4; i_13 = i_13 + 1)
+									begin
+										TMP_36_value = 0;
+										output_btint_a_24 = 0;
+										output_btint_b_24 = 0;
+										output_overflow_24 = 0;
+										begin : sv2v_autoblock_22
+											integer i_25;
+											for (i_25 = 0; i_25 < 8; i_25 = i_25 + 1)
+												begin
+													output_index_12 = i_25;
+													output_value_12 = 0;
+													output_btint_a_25 = 0;
+													output_btint_b_25 = 0;
+													output_overflow_25 = 0;
+													output_btint_a_25 = output_btint_a_24;
+													output_btint_b_25 = output_btint_b_24;
+													output_overflow_25 = output_overflow_24;
+													case (0)
+														0: begin
+															output_btint_a_25[output_index_12] = 0;
+															output_btint_b_25[output_index_12] = 1;
+														end
+													endcase
+													TMP_38_btint_a = output_btint_a_25;
+													TMP_38_btint_b = output_btint_b_25;
+													TMP_38_overflow = output_overflow_25;
+													output_btint_a_24 = TMP_38_btint_a;
+													output_btint_b_24 = TMP_38_btint_b;
+													output_overflow_24 = TMP_38_overflow;
+												end
+										end
+										TMP_36_isNegative = TMP_36_value < 0;
+										TMP_36_i = 0;
+										TMP_37_btint_a = output_btint_a_24;
+										TMP_37_btint_b = output_btint_b_24;
+										TMP_37_overflow = output_overflow_24;
+										matrix_vector_control_b_in_btint_a_next[(3 - i_13) * 8+:8] = TMP_37_btint_a;
+										matrix_vector_control_b_in_btint_b_next[(3 - i_13) * 8+:8] = TMP_37_btint_b;
+										matrix_vector_control_b_in_overflow_next[(3 - i_13) * 2+:2] = TMP_37_overflow;
+										TMP_39_value = 0;
+										output_btint_a_26 = 0;
+										output_btint_b_26 = 0;
+										output_overflow_26 = 0;
+										begin : sv2v_autoblock_23
+											integer i_26;
+											for (i_26 = 0; i_26 < 8; i_26 = i_26 + 1)
+												begin
+													output_index_13 = i_26;
+													output_value_13 = 0;
+													output_btint_a_27 = 0;
+													output_btint_b_27 = 0;
+													output_overflow_27 = 0;
+													output_btint_a_27 = output_btint_a_26;
+													output_btint_b_27 = output_btint_b_26;
+													output_overflow_27 = output_overflow_26;
+													case (0)
+														0: begin
+															output_btint_a_27[output_index_13] = 0;
+															output_btint_b_27[output_index_13] = 1;
+														end
+													endcase
+													TMP_41_btint_a = output_btint_a_27;
+													TMP_41_btint_b = output_btint_b_27;
+													TMP_41_overflow = output_overflow_27;
+													output_btint_a_26 = TMP_41_btint_a;
+													output_btint_b_26 = TMP_41_btint_b;
+													output_overflow_26 = TMP_41_overflow;
+												end
+										end
+										TMP_39_isNegative = TMP_39_value < 0;
+										TMP_39_i = 0;
+										TMP_40_btint_a = output_btint_a_26;
+										TMP_40_btint_b = output_btint_b_26;
+										TMP_40_overflow = output_overflow_26;
+										matrix_vector_control_c_in_btint_a_next[(3 - i_13) * 8+:8] = TMP_40_btint_a;
+										matrix_vector_control_c_in_btint_b_next[(3 - i_13) * 8+:8] = TMP_40_btint_b;
+										matrix_vector_control_c_in_overflow_next[(3 - i_13) * 2+:2] = TMP_40_overflow;
+									end
+							end
+							matrix_vector_control_reset_out_next = 0;
+							matrix_vector_control_done_next = 0;
+							valid_old_next = matrix_vector_control_valid;
+						end
+						if (matrix_vector_control_valid) begin
+							begin : sv2v_autoblock_24
+								integer i_16;
+								for (i_16 = 0; i_16 < 3; i_16 = i_16 + 1)
+									begin
+										matrix_vector_control_result_btint_a_next[(2 - i_16) * 8+:8] = result_btint_a_next[(2 - i_16) * 8+:8];
+										matrix_vector_control_result_btint_b_next[(2 - i_16) * 8+:8] = result_btint_b_next[(2 - i_16) * 8+:8];
+										matrix_vector_control_result_overflow_next[(2 - i_16) * 2+:2] = result_overflow_next[(2 - i_16) * 2+:2];
 									end
 							end
 							if (index_next[0+:32] >= 4)
@@ -2650,16 +3287,16 @@ module MATRIX_VECTOR_CONTROL (
 							else
 								matrix_vector_control_done_next = 0;
 							if (!vector_done_next) begin
-								begin : sv2v_autoblock_9
-									integer i_9;
-									for (i_9 = 0; i_9 < 4; i_9 = i_9 + 1)
+								begin : sv2v_autoblock_25
+									integer i_17;
+									for (i_17 = 0; i_17 < 4; i_17 = i_17 + 1)
 										begin
-											tmp_btint_a = matrix_vector_control_vector_btint_a[(3 - i_9) * 8+:8];
-											tmp_btint_b = matrix_vector_control_vector_btint_b[(3 - i_9) * 8+:8];
-											tmp_overflow = matrix_vector_control_vector_overflow[(3 - i_9) * 2+:2];
-											matrix_vector_control_b_in_btint_a_next[(3 - i_9) * 8+:8] = tmp_btint_a;
-											matrix_vector_control_b_in_btint_b_next[(3 - i_9) * 8+:8] = tmp_btint_b;
-											matrix_vector_control_b_in_overflow_next[(3 - i_9) * 2+:2] = tmp_overflow;
+											tmp_btint_a = matrix_vector_control_vector_btint_a[(3 - i_17) * 8+:8];
+											tmp_btint_b = matrix_vector_control_vector_btint_b[(3 - i_17) * 8+:8];
+											tmp_overflow = matrix_vector_control_vector_overflow[(3 - i_17) * 2+:2];
+											matrix_vector_control_b_in_btint_a_next[(3 - i_17) * 8+:8] = tmp_btint_a;
+											matrix_vector_control_b_in_btint_b_next[(3 - i_17) * 8+:8] = tmp_btint_b;
+											matrix_vector_control_b_in_overflow_next[(3 - i_17) * 2+:2] = tmp_overflow;
 											matrix_vector_control_reset_out_next = 1;
 										end
 								end
@@ -2667,103 +3304,103 @@ module MATRIX_VECTOR_CONTROL (
 							end
 							else begin
 								matrix_vector_control_reset_out_next = 0;
-								begin : sv2v_autoblock_10
-									integer i_10;
-									for (i_10 = 0; i_10 < 4; i_10 = i_10 + 1)
-										if ((index_next[(3 - i_10) * 32+:32] < 0) || (index_next[(3 - i_10) * 32+:32] > 2)) begin
-											TMP_18_value = 0;
-											output_btint_a_12 = 0;
-											output_btint_b_12 = 0;
-											output_overflow_12 = 0;
-											begin : sv2v_autoblock_11
-												integer i_15;
-												for (i_15 = 0; i_15 < 8; i_15 = i_15 + 1)
+								begin : sv2v_autoblock_26
+									integer i_18;
+									for (i_18 = 0; i_18 < 4; i_18 = i_18 + 1)
+										if ((index_next[(3 - i_18) * 32+:32] < 0) || (index_next[(3 - i_18) * 32+:32] > 2)) begin
+											TMP_42_value = 0;
+											output_btint_a_28 = 0;
+											output_btint_b_28 = 0;
+											output_overflow_28 = 0;
+											begin : sv2v_autoblock_27
+												integer i_27;
+												for (i_27 = 0; i_27 < 8; i_27 = i_27 + 1)
 													begin
-														output_index_6 = i_15;
-														output_value_6 = 0;
-														output_btint_a_13 = 0;
-														output_btint_b_13 = 0;
-														output_overflow_13 = 0;
-														output_btint_a_13 = output_btint_a_12;
-														output_btint_b_13 = output_btint_b_12;
-														output_overflow_13 = output_overflow_12;
+														output_index_14 = i_27;
+														output_value_14 = 0;
+														output_btint_a_29 = 0;
+														output_btint_b_29 = 0;
+														output_overflow_29 = 0;
+														output_btint_a_29 = output_btint_a_28;
+														output_btint_b_29 = output_btint_b_28;
+														output_overflow_29 = output_overflow_28;
 														case (0)
 															0: begin
-																output_btint_a_13[output_index_6] = 0;
-																output_btint_b_13[output_index_6] = 1;
+																output_btint_a_29[output_index_14] = 0;
+																output_btint_b_29[output_index_14] = 1;
 															end
 														endcase
-														TMP_20_btint_a = output_btint_a_13;
-														TMP_20_btint_b = output_btint_b_13;
-														TMP_20_overflow = output_overflow_13;
-														output_btint_a_12 = TMP_20_btint_a;
-														output_btint_b_12 = TMP_20_btint_b;
-														output_overflow_12 = TMP_20_overflow;
+														TMP_44_btint_a = output_btint_a_29;
+														TMP_44_btint_b = output_btint_b_29;
+														TMP_44_overflow = output_overflow_29;
+														output_btint_a_28 = TMP_44_btint_a;
+														output_btint_b_28 = TMP_44_btint_b;
+														output_overflow_28 = TMP_44_overflow;
 													end
 											end
-											TMP_18_isNegative = TMP_18_value < 0;
-											TMP_18_i = 0;
-											TMP_19_btint_a = output_btint_a_12;
-											TMP_19_btint_b = output_btint_b_12;
-											TMP_19_overflow = output_overflow_12;
-											matrix_vector_control_b_in_btint_a_next[(3 - i_10) * 8+:8] = TMP_19_btint_a;
-											matrix_vector_control_b_in_btint_b_next[(3 - i_10) * 8+:8] = TMP_19_btint_b;
-											matrix_vector_control_b_in_overflow_next[(3 - i_10) * 2+:2] = TMP_19_overflow;
+											TMP_42_isNegative = TMP_42_value < 0;
+											TMP_42_i = 0;
+											TMP_43_btint_a = output_btint_a_28;
+											TMP_43_btint_b = output_btint_b_28;
+											TMP_43_overflow = output_overflow_28;
+											matrix_vector_control_b_in_btint_a_next[(3 - i_18) * 8+:8] = TMP_43_btint_a;
+											matrix_vector_control_b_in_btint_b_next[(3 - i_18) * 8+:8] = TMP_43_btint_b;
+											matrix_vector_control_b_in_overflow_next[(3 - i_18) * 2+:2] = TMP_43_overflow;
 										end
 										else begin
-											tmp_btint_a_1 = matrix_vector_control_matrix_btint_a[(((2 - index_next[(3 - i_10) * 32+:32]) * 4) + (3 - i_10)) * 8+:8];
-											tmp_btint_b_1 = matrix_vector_control_matrix_btint_b[(((2 - index_next[(3 - i_10) * 32+:32]) * 4) + (3 - i_10)) * 8+:8];
-											tmp_overflow_1 = matrix_vector_control_matrix_overflow[(((2 - index_next[(3 - i_10) * 32+:32]) * 4) + (3 - i_10)) * 2+:2];
-											matrix_vector_control_b_in_btint_a_next[(3 - i_10) * 8+:8] = tmp_btint_a_1;
-											matrix_vector_control_b_in_btint_b_next[(3 - i_10) * 8+:8] = tmp_btint_b_1;
-											matrix_vector_control_b_in_overflow_next[(3 - i_10) * 2+:2] = tmp_overflow_1;
+											tmp_btint_a_1 = matrix_vector_control_matrix_btint_a[(((2 - index_next[(3 - i_18) * 32+:32]) * 4) + (3 - i_18)) * 8+:8];
+											tmp_btint_b_1 = matrix_vector_control_matrix_btint_b[(((2 - index_next[(3 - i_18) * 32+:32]) * 4) + (3 - i_18)) * 8+:8];
+											tmp_overflow_1 = matrix_vector_control_matrix_overflow[(((2 - index_next[(3 - i_18) * 32+:32]) * 4) + (3 - i_18)) * 2+:2];
+											matrix_vector_control_b_in_btint_a_next[(3 - i_18) * 8+:8] = tmp_btint_a_1;
+											matrix_vector_control_b_in_btint_b_next[(3 - i_18) * 8+:8] = tmp_btint_b_1;
+											matrix_vector_control_b_in_overflow_next[(3 - i_18) * 2+:2] = tmp_overflow_1;
 										end
 								end
-								TMP_21_value = 0;
-								output_btint_a_14 = 0;
-								output_btint_b_14 = 0;
-								output_overflow_14 = 0;
-								begin : sv2v_autoblock_12
-									integer i_16;
-									for (i_16 = 0; i_16 < 8; i_16 = i_16 + 1)
+								TMP_45_value = 0;
+								output_btint_a_30 = 0;
+								output_btint_b_30 = 0;
+								output_overflow_30 = 0;
+								begin : sv2v_autoblock_28
+									integer i_28;
+									for (i_28 = 0; i_28 < 8; i_28 = i_28 + 1)
 										begin
-											output_index_7 = i_16;
-											output_value_7 = 0;
-											output_btint_a_15 = 0;
-											output_btint_b_15 = 0;
-											output_overflow_15 = 0;
-											output_btint_a_15 = output_btint_a_14;
-											output_btint_b_15 = output_btint_b_14;
-											output_overflow_15 = output_overflow_14;
+											output_index_15 = i_28;
+											output_value_15 = 0;
+											output_btint_a_31 = 0;
+											output_btint_b_31 = 0;
+											output_overflow_31 = 0;
+											output_btint_a_31 = output_btint_a_30;
+											output_btint_b_31 = output_btint_b_30;
+											output_overflow_31 = output_overflow_30;
 											case (0)
 												0: begin
-													output_btint_a_15[output_index_7] = 0;
-													output_btint_b_15[output_index_7] = 1;
+													output_btint_a_31[output_index_15] = 0;
+													output_btint_b_31[output_index_15] = 1;
 												end
 											endcase
-											TMP_23_btint_a = output_btint_a_15;
-											TMP_23_btint_b = output_btint_b_15;
-											TMP_23_overflow = output_overflow_15;
-											output_btint_a_14 = TMP_23_btint_a;
-											output_btint_b_14 = TMP_23_btint_b;
-											output_overflow_14 = TMP_23_overflow;
+											TMP_47_btint_a = output_btint_a_31;
+											TMP_47_btint_b = output_btint_b_31;
+											TMP_47_overflow = output_overflow_31;
+											output_btint_a_30 = TMP_47_btint_a;
+											output_btint_b_30 = TMP_47_btint_b;
+											output_overflow_30 = TMP_47_overflow;
 										end
 								end
-								TMP_21_isNegative = TMP_21_value < 0;
-								TMP_21_i = 0;
-								TMP_22_btint_a = output_btint_a_14;
-								TMP_22_btint_b = output_btint_b_14;
-								TMP_22_overflow = output_overflow_14;
-								matrix_vector_control_c_in_btint_a_next[24+:8] = TMP_22_btint_a;
-								matrix_vector_control_c_in_btint_b_next[24+:8] = TMP_22_btint_b;
-								matrix_vector_control_c_in_overflow_next[6+:2] = TMP_22_overflow;
-								begin : sv2v_autoblock_13
-									integer i_13;
-									for (i_13 = 1; i_13 < 4; i_13 = i_13 + 1)
+								TMP_45_isNegative = TMP_45_value < 0;
+								TMP_45_i = 0;
+								TMP_46_btint_a = output_btint_a_30;
+								TMP_46_btint_b = output_btint_b_30;
+								TMP_46_overflow = output_overflow_30;
+								matrix_vector_control_c_in_btint_a_next[24+:8] = TMP_46_btint_a;
+								matrix_vector_control_c_in_btint_b_next[24+:8] = TMP_46_btint_b;
+								matrix_vector_control_c_in_overflow_next[6+:2] = TMP_46_overflow;
+								begin : sv2v_autoblock_29
+									integer i_21;
+									for (i_21 = 1; i_21 < 4; i_21 = i_21 + 1)
 										begin
-											matrix_vector_control_c_in_btint_a_next[(3 - i_13) * 8+:8] = matrix_vector_control_c_out_btint_a[(4 - i_13) * 8+:8];
-											matrix_vector_control_c_in_btint_b_next[(3 - i_13) * 8+:8] = matrix_vector_control_c_out_btint_b[(4 - i_13) * 8+:8];
-											matrix_vector_control_c_in_overflow_next[(3 - i_13) * 2+:2] = matrix_vector_control_c_out_overflow[(4 - i_13) * 2+:2];
+											matrix_vector_control_c_in_btint_a_next[(3 - i_21) * 8+:8] = matrix_vector_control_c_out_btint_a[(4 - i_21) * 8+:8];
+											matrix_vector_control_c_in_btint_b_next[(3 - i_21) * 8+:8] = matrix_vector_control_c_out_btint_b[(4 - i_21) * 8+:8];
+											matrix_vector_control_c_in_overflow_next[(3 - i_21) * 2+:2] = matrix_vector_control_c_out_overflow[(4 - i_21) * 2+:2];
 										end
 								end
 								if ((index_next[0+:32] >= 1) && (index_next[0+:32] <= 3)) begin
@@ -2771,10 +3408,10 @@ module MATRIX_VECTOR_CONTROL (
 									result_btint_b_next[(3 - index_next[0+:32]) * 8+:8] = matrix_vector_control_c_out_btint_b[0+:8];
 									result_overflow_next[(3 - index_next[0+:32]) * 2+:2] = matrix_vector_control_c_out_overflow[0+:2];
 								end
-								begin : sv2v_autoblock_14
-									integer i_14;
-									for (i_14 = 0; i_14 < 4; i_14 = i_14 + 1)
-										index_next[(3 - i_14) * 32+:32] = index_next[(3 - i_14) * 32+:32] + 1;
+								begin : sv2v_autoblock_30
+									integer i_22;
+									for (i_22 = 0; i_22 < 4; i_22 = i_22 + 1)
+										index_next[(3 - i_22) * 32+:32] = index_next[(3 - i_22) * 32+:32] + 1;
 								end
 							end
 						end
@@ -2786,13 +3423,13 @@ module MATRIX_VECTOR_CONTROL (
 			endcase
 		end
 	endtask
-	always @(matrix_vector_control_c_out_overflow[0+:2] or index_next[0+:32] or matrix_vector_control_c_out_btint_b[0+:8] or index_next[0+:32] or matrix_vector_control_c_out_btint_a[0+:8] or index_next[0+:32] or index_next[0+:32] or index_next[0+:32] or matrix_vector_control_c_out_overflow or matrix_vector_control_c_out_btint_b or matrix_vector_control_c_out_btint_a or index_next or matrix_vector_control_matrix_overflow or index_next or matrix_vector_control_matrix_btint_b or index_next or matrix_vector_control_matrix_btint_a or index_next or index_next or matrix_vector_control_vector_overflow or matrix_vector_control_vector_btint_b or matrix_vector_control_vector_btint_a or vector_done_next or index_next[0+:32] or result_overflow_next or result_btint_b_next or result_btint_a_next or matrix_vector_control_valid or control_WAIT_N_COUNTER or control_WAIT_N_COUNTER or matrix_vector_control_c_out_overflow[0+:2] or index_next[0+:32] or matrix_vector_control_c_out_btint_b[0+:8] or index_next[0+:32] or matrix_vector_control_c_out_btint_a[0+:8] or index_next[0+:32] or index_next[0+:32] or index_next[0+:32] or matrix_vector_control_c_out_overflow or matrix_vector_control_c_out_btint_b or matrix_vector_control_c_out_btint_a or index_next or matrix_vector_control_matrix_overflow or index_next or matrix_vector_control_matrix_btint_b or index_next or matrix_vector_control_matrix_btint_a or index_next or index_next or matrix_vector_control_vector_overflow or matrix_vector_control_vector_btint_b or matrix_vector_control_vector_btint_a or vector_done_next or index_next[0+:32] or result_overflow_next or result_btint_b_next or result_btint_a_next or matrix_vector_control_valid or control_PROC_STATE or control_PROC_STATE or control_WAIT_N_COUNTER or vector_done or result_overflow or result_btint_b or result_btint_a or matrix_vector_control_result_overflow or matrix_vector_control_result_btint_b or matrix_vector_control_result_btint_a or matrix_vector_control_reset_out or matrix_vector_control_done or matrix_vector_control_c_in_overflow or matrix_vector_control_c_in_btint_b or matrix_vector_control_c_in_btint_a or matrix_vector_control_b_in_overflow or matrix_vector_control_b_in_btint_b or matrix_vector_control_b_in_btint_a or index or _sv2v_0) begin : control_comb
+	always @(matrix_vector_control_c_out_overflow[0+:2] or index_next[0+:32] or matrix_vector_control_c_out_btint_b[0+:8] or index_next[0+:32] or matrix_vector_control_c_out_btint_a[0+:8] or index_next[0+:32] or index_next[0+:32] or index_next[0+:32] or matrix_vector_control_c_out_overflow or matrix_vector_control_c_out_btint_b or matrix_vector_control_c_out_btint_a or index_next or matrix_vector_control_matrix_overflow or index_next or matrix_vector_control_matrix_btint_b or index_next or matrix_vector_control_matrix_btint_a or index_next or index_next or matrix_vector_control_vector_overflow or matrix_vector_control_vector_btint_b or matrix_vector_control_vector_btint_a or vector_done_next or index_next[0+:32] or result_overflow_next or result_btint_b_next or result_btint_a_next or matrix_vector_control_valid or matrix_vector_control_valid or valid_old_next or matrix_vector_control_valid or control_WAIT_N_COUNTER or control_WAIT_N_COUNTER or matrix_vector_control_c_out_overflow[0+:2] or index_next[0+:32] or matrix_vector_control_c_out_btint_b[0+:8] or index_next[0+:32] or matrix_vector_control_c_out_btint_a[0+:8] or index_next[0+:32] or index_next[0+:32] or index_next[0+:32] or matrix_vector_control_c_out_overflow or matrix_vector_control_c_out_btint_b or matrix_vector_control_c_out_btint_a or index_next or matrix_vector_control_matrix_overflow or index_next or matrix_vector_control_matrix_btint_b or index_next or matrix_vector_control_matrix_btint_a or index_next or index_next or matrix_vector_control_vector_overflow or matrix_vector_control_vector_btint_b or matrix_vector_control_vector_btint_a or vector_done_next or index_next[0+:32] or result_overflow_next or result_btint_b_next or result_btint_a_next or matrix_vector_control_valid or matrix_vector_control_valid or valid_old_next or matrix_vector_control_valid or control_PROC_STATE or control_PROC_STATE or control_WAIT_N_COUNTER or vector_done or valid_old or result_overflow or result_btint_b or result_btint_a or matrix_vector_control_result_overflow or matrix_vector_control_result_btint_b or matrix_vector_control_result_btint_a or matrix_vector_control_reset_out or matrix_vector_control_done or matrix_vector_control_c_in_overflow or matrix_vector_control_c_in_btint_b or matrix_vector_control_c_in_btint_a or matrix_vector_control_b_in_overflow or matrix_vector_control_b_in_btint_b or matrix_vector_control_b_in_btint_a or index or _sv2v_0) begin : control_comb
 		if (_sv2v_0)
 			;
 		control_func;
 	end
 	always @(posedge matrix_vector_control_clock) begin : control_ff
-		if (matrix_vector_control_reset) begin : sv2v_autoblock_15
+		if (matrix_vector_control_reset) begin : sv2v_autoblock_31
 			integer TMP_0_value;
 			reg [7:0] output_btint_a;
 			reg [7:0] output_btint_b;
@@ -2861,7 +3498,7 @@ module MATRIX_VECTOR_CONTROL (
 			reg [7:0] TMP_10_btint_a;
 			reg [7:0] TMP_10_btint_b;
 			reg [1:0] TMP_10_overflow;
-			begin : sv2v_autoblock_16
+			begin : sv2v_autoblock_32
 				integer i;
 				for (i = 0; i < 3; i = i + 1)
 					begin
@@ -2869,7 +3506,7 @@ module MATRIX_VECTOR_CONTROL (
 						output_btint_a = 0;
 						output_btint_b = 0;
 						output_overflow = 0;
-						begin : sv2v_autoblock_17
+						begin : sv2v_autoblock_33
 							integer i_1;
 							for (i_1 = 0; i_1 < 8; i_1 = i_1 + 1)
 								begin
@@ -2905,13 +3542,13 @@ module MATRIX_VECTOR_CONTROL (
 						result_overflow[(2 - i) * 2+:2] <= TMP_1_overflow;
 					end
 			end
-			begin : sv2v_autoblock_18
+			begin : sv2v_autoblock_34
 				integer i_2;
 				for (i_2 = 0; i_2 < 4; i_2 = i_2 + 1)
 					index[(3 - i_2) * 32+:32] <= -i_2;
 			end
 			vector_done <= 0;
-			begin : sv2v_autoblock_19
+			begin : sv2v_autoblock_35
 				integer i_3;
 				for (i_3 = 0; i_3 < 3; i_3 = i_3 + 1)
 					begin
@@ -2919,7 +3556,7 @@ module MATRIX_VECTOR_CONTROL (
 						output_btint_a_2 = 0;
 						output_btint_b_2 = 0;
 						output_overflow_2 = 0;
-						begin : sv2v_autoblock_20
+						begin : sv2v_autoblock_36
 							integer i_4;
 							for (i_4 = 0; i_4 < 8; i_4 = i_4 + 1)
 								begin
@@ -2955,7 +3592,7 @@ module MATRIX_VECTOR_CONTROL (
 						matrix_vector_control_result_overflow[(2 - i_3) * 2+:2] <= TMP_4_overflow;
 					end
 			end
-			begin : sv2v_autoblock_21
+			begin : sv2v_autoblock_37
 				integer i_5;
 				for (i_5 = 0; i_5 < 4; i_5 = i_5 + 1)
 					begin
@@ -2963,7 +3600,7 @@ module MATRIX_VECTOR_CONTROL (
 						output_btint_a_4 = 0;
 						output_btint_b_4 = 0;
 						output_overflow_4 = 0;
-						begin : sv2v_autoblock_22
+						begin : sv2v_autoblock_38
 							integer i_6;
 							for (i_6 = 0; i_6 < 8; i_6 = i_6 + 1)
 								begin
@@ -3001,7 +3638,7 @@ module MATRIX_VECTOR_CONTROL (
 						output_btint_a_6 = 0;
 						output_btint_b_6 = 0;
 						output_overflow_6 = 0;
-						begin : sv2v_autoblock_23
+						begin : sv2v_autoblock_39
 							integer i_7;
 							for (i_7 = 0; i_7 < 8; i_7 = i_7 + 1)
 								begin
@@ -3039,6 +3676,7 @@ module MATRIX_VECTOR_CONTROL (
 			end
 			matrix_vector_control_reset_out <= 0;
 			matrix_vector_control_done <= 0;
+			valid_old <= 0;
 			control_PROC_STATE <= 0;
 			control_WAIT_N_COUNTER <= 0;
 		end
@@ -3055,6 +3693,7 @@ module MATRIX_VECTOR_CONTROL (
 			matrix_vector_control_c_in_overflow <= matrix_vector_control_c_in_overflow_next;
 			matrix_vector_control_reset_out <= matrix_vector_control_reset_out_next;
 			matrix_vector_control_done <= matrix_vector_control_done_next;
+			valid_old <= valid_old_next;
 			result_btint_a <= result_btint_a_next;
 			result_btint_b <= result_btint_b_next;
 			result_overflow <= result_overflow_next;

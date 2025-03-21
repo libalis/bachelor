@@ -18,6 +18,8 @@
         sc_out<bool> matrix_vector_control_reset_out;
         sc_out<bool> matrix_vector_control_done;
 
+        bool valid_old;
+
         void control(void);
 
         SC_CTOR(MATRIX_VECTOR_CONTROL) {
