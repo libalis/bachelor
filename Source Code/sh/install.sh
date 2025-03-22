@@ -1,7 +1,7 @@
 #!/bin/bash
 rm -rfv sc_tools
 
-export ICSC_HOME=sc_tools
+export ICSC_HOME=$(pwd)/sc_tools
 git clone https://github.com/intel/systemc-compiler $ICSC_HOME/icsc
 cd $ICSC_HOME
 icsc/install.sh
