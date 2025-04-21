@@ -33,7 +33,7 @@ void sys_cell::func() {
 			reg_u = a_in.read();
 			c_out_u.write(0);
 		} else {
-
+			c_out_u.write(c_in_u.read() + reg_u * a_in.read());
 		}
 	}
 }
