@@ -86,24 +86,6 @@ int sc_main(int argc, char *argv[]) {
             sc_trace(fp, top->k.s_out[i * X + j], outs);
         }
     }
-    sc_trace(fp, top->k.c0.reg_u, "regu0");
-    sc_trace(fp, top->k.c0.reg_d, "regd0");
-    sc_trace(fp, top->k.c1.reg_u, "regu1");
-    sc_trace(fp, top->k.c1.reg_d, "regd1");
-    sc_trace(fp, top->k.c2.reg_u, "regu2");
-    sc_trace(fp, top->k.c2.reg_d, "regd2");
-    sc_trace(fp, top->k.c3.reg_u, "regu3");
-    sc_trace(fp, top->k.c3.reg_d, "regd3");
-    sc_trace(fp, top->k.c4.reg_u, "regu4");
-    sc_trace(fp, top->k.c4.reg_d, "regd4");
-    sc_trace(fp, top->k.c5.reg_u, "regu5");
-    sc_trace(fp, top->k.c5.reg_d, "regd5");
-    sc_trace(fp, top->k.c6.reg_u, "regu6");
-    sc_trace(fp, top->k.c6.reg_d, "regd6");
-    sc_trace(fp, top->k.c7.reg_u, "regu7");
-    sc_trace(fp, top->k.c7.reg_d, "regd7");
-    sc_trace(fp, top->k.c8.reg_u, "regu8");
-    sc_trace(fp, top->k.c8.reg_d, "regd8");
     sc_start();
     sc_close_vcd_trace_file(fp);
     return 0;

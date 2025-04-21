@@ -2,6 +2,8 @@
 #include "control.hpp"
 #include <systemc.h>
 
+using namespace std;
+
 SC_MODULE(kombi) {
     sc_in<bool> in_clk;
     sc_in<bool> in_rst;
@@ -24,14 +26,12 @@ SC_MODULE(kombi) {
     // Module Deklaration
     kombi_control kombic;
     // define cells
-    sys_cell c0;
-    sys_cell c1;
-    sys_cell c2;
-    sys_cell c3;
-    sys_cell c4;
-    sys_cell c5;
-    sys_cell c6;
-    sys_cell c7;
-    sys_cell c8;
-    SC_CTOR(kombi) : kombic("kombic"), c0("c0"), c1("c1"), c2("c2"), c3("c3"), c4("c4"), c5("c5"), c6("c6"), c7("c7"), c8("c8") { func(); }
+    sys_cell *cell[X];
+    SC_CTOR(kombi) : kombic("kombic") {
+        for(int i = 0; i < X; i++) {
+            cell[i] = new sys_cell(("cell_" + to_string(i)).c_str());
+        }
+
+        func();
+    }
 };
