@@ -8,8 +8,8 @@ SC_MODULE(SYSTEM) {
 
     sc_signal<bool> rst_sig;
     sc_signal<bool> done_sig;
-    sc_signal<sc_int<8>> result_sig_u[X][X];
-    sc_signal<sc_int<8>> result_sig_d[X][X];
+    sc_signal<btint<8>> result_sig_u[X_DIMENSION][X_DIMENSION];
+    sc_signal<btint<8>> result_sig_d[X_DIMENSION][X_DIMENSION];
     sc_clock clk_sig;
 
     SC_CTOR(SYSTEM) : clk_sig("clk_sig", 10, SC_NS), tb("tb"), k("k") {
@@ -21,12 +21,12 @@ SC_MODULE(SYSTEM) {
         k.in_clk(clk_sig);
         k.in_rst(rst_sig);
         k.done_out(done_sig);
-        for (int i = 0; i < X; i++) {
-            for (int j = 0; j < X; j++) {
+        for (int i = 0; i < X_DIMENSION; i++) {
+            for (int j = 0; j < X_DIMENSION; j++) {
                 tb.result_u[i][j](result_sig_u[i][j]);
                 tb.result_d[i][j](result_sig_d[i][j]);
-                k.out_result_u[i * X + j](result_sig_u[i][j]);
-                k.out_result_d[i * X + j](result_sig_d[i][j]);
+                k.out_result_u[i * X_DIMENSION + j](result_sig_u[i][j]);
+                k.out_result_d[i * X_DIMENSION + j](result_sig_d[i][j]);
             }
         }
     }
@@ -54,7 +54,7 @@ int sc_main(int argc, char *argv[]) {
     char ins[7] = {'i', 'n', '_', 's', (char)(48), (char)(48), (char)NULL};
     char outs[8] = {'o', 'u', 't', '_', 's', (char)(48), (char)(48), (char)NULL};
 
-    for (int i = 0; i < X; i++) {
+    for (int i = 0; i < X_DIMENSION; i++) {
         ina[4] = (char)(48 + i);
         outa[5] = (char)(48 + i);
         incu[6] = (char)(48 + i);
@@ -65,7 +65,7 @@ int sc_main(int argc, char *argv[]) {
         outs[5] = (char)(48 + i);
         regu[5] = (char)(48 + i);
         regd[5] = (char)(48 + i);
-        for (int j = 0; j < X; j++) {
+        for (int j = 0; j < X_DIMENSION; j++) {
             ina[5] = (char)(48 + j);
             outa[6] = (char)(48 + j);
             incu[7] = (char)(48 + j);
@@ -76,14 +76,8 @@ int sc_main(int argc, char *argv[]) {
             outs[6] = (char)(48 + j);
             regu[6] = (char)(48 + j);
             regd[6] = (char)(48 + j);
-            sc_trace(fp, top->k.in_a[i * X + j], ina);
-            sc_trace(fp, top->k.out_a[i * X + j], outa);
-            sc_trace(fp, top->k.in_c_u[i * X + j], incu);
-            sc_trace(fp, top->k.out_c_u[i * X + j], outcu);
-            sc_trace(fp, top->k.in_c_d[i * X + j], incd);
-            sc_trace(fp, top->k.out_c_d[i * X + j], outcd);
-            sc_trace(fp, top->k.s_in[i * X + j], ins);
-            sc_trace(fp, top->k.s_out[i * X + j], outs);
+            sc_trace(fp, top->k.s_in[i * X_DIMENSION + j], ins);
+            sc_trace(fp, top->k.s_out[i * X_DIMENSION + j], outs);
         }
     }
     sc_start();

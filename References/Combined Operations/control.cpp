@@ -1,5 +1,8 @@
 #include "const.hpp"
 #include "control.hpp"
+#include "../../Source Code/hpp/multiplier.hpp"
+
+#define T (8)
 
 void kombi_control::func() {
 #pragma HLS ARRAY_PARTITION variable = out_a complete dim = 1
@@ -17,20 +20,20 @@ void kombi_control::func() {
 #pragma HLS ARRAY_PARTITION variable = out_result_d complete dim = 1
 #pragma HLS PIPELINE
 
-    sc_int<8> result_u[X * X];
-    sc_int<8> result_d[X * X];
-    sc_int<8> reg[X * X];
+    btint<8> result_u[X_DIMENSION * X_DIMENSION];
+    btint<8> result_d[X_DIMENSION * X_DIMENSION];
+    sc_int<8> reg[X_DIMENSION * X_DIMENSION];
     sc_int<8> steps;
-    sc_int<8> indexa[X];
+    sc_int<8> indexa[X_DIMENSION];
     sc_int<8> indexb;
     bool load_done;
     // Reset
-    for (int i = 0; i < X; i++) {
-        indexa[i] = 0 - i;
-        for (int j = 0; j < X; j++) {
-            result_u[i * X + j] = 0;
-            result_d[i * X + j] = 0;
-            op_in[i * X + j].write(1);
+    for (int i = 0; i < X_DIMENSION; i++) {
+        indexa[i] = 0 - i - 1;
+        for (int j = 0; j < X_DIMENSION; j++) {
+            result_u[i * X_DIMENSION + j] = BTINT_ZERO(8);
+            result_d[i * X_DIMENSION + j] = BTINT_ZERO(8);
+            op_in[i * X_DIMENSION + j].write(1);
         }
     }
     load_done = false;
@@ -40,180 +43,180 @@ void kombi_control::func() {
     wait();
     // Reset Ende
     while (true) {
-        for (int i = 0; i < X; i++) {
-            for (int j = 0; j < X; j++) {
-                out_result_u[i * X + j].write(result_u[i * X + j]);
-                out_result_d[i * X + j].write(result_d[i * X + j]);
+        for (int i = 0; i < X_DIMENSION; i++) {
+            for (int j = 0; j < X_DIMENSION; j++) {
+                out_result_u[i * X_DIMENSION + j].write(result_u[i * X_DIMENSION + j]);
+                out_result_d[i * X_DIMENSION + j].write(result_d[i * X_DIMENSION + j]);
             }
         }
         // op in
-        for (int j = 0; j < X; j++) {
+        for (int j = 0; j < X_DIMENSION; j++) {
             if (op == 0) {
-                op_in[0 * X + j].write(1);
+                op_in[0 * X_DIMENSION + j].write(1);
             } else {
-                op_in[0 * X + j].write(0);
+                op_in[0 * X_DIMENSION + j].write(0);
             }
         }
         // a und op verbindung
-        for (int i = 0; i < X; i++) {
-            for (int j = 0; j < X - 1; j++) {
-                in_a[(j + 1) * X + i].write(out_a[j * X + i].read());
-                op_in[(j + 1) * X + i].write(op_out[j * X + i].read());
+        for (int i = 0; i < X_DIMENSION; i++) {
+            for (int j = 0; j < X_DIMENSION - 1; j++) {
+                in_a[(j + 1) * X_DIMENSION + i].write(out_a[j * X_DIMENSION + i].read());
+                op_in[(j + 1) * X_DIMENSION + i].write(op_out[j * X_DIMENSION + i].read());
             }
         }
         // c verbindungen
-        for (int i = 0; i < X; i++) {
-            for (int j = 0; j < X - 1; j++) {
-                in_c_u[i * X + j + 1].write(out_c_u[i * X + j].read());
-                in_c_d[i * X + j + 1].write(out_c_d[i * X + j].read());
+        for (int i = 0; i < X_DIMENSION; i++) {
+            for (int j = 0; j < X_DIMENSION - 1; j++) {
+                in_c_u[i * X_DIMENSION + j + 1].write(out_c_u[i * X_DIMENSION + j].read());
+                in_c_d[i * X_DIMENSION + j + 1].write(out_c_d[i * X_DIMENSION + j].read());
             }
         }
         // Unterschiedlich je nach OP
         if (op == 0) { // Inversion
-            for (int i = 0; i < X; i++) {
-                if (steps >= 2 * X - 2 - i) {
+            for (int i = 0; i < X_DIMENSION; i++) {
+                if (steps >= 2 * X_DIMENSION - 2 - i) {
                     s_mm[i].write(true);
                 } else {
                     s_mm[i].write(false);
                 }
             }
-            if (steps >= 3 * X - 2) {
+            if (steps >= 3 * X_DIMENSION - 2) {
                 done.write(true);
             } else {
                 done.write(false);
             }
             // s und c in
-            for (int i = 0; i < X; i++) {
-                if (steps != X - 1) {
-                    s_in[i * X + 0].write(0);
-                    in_c_u[i * X + 0].write(0);
-                    in_c_d[i * X + 0].write(0);
+            for (int i = 0; i < X_DIMENSION; i++) {
+                if (steps != X_DIMENSION - 1) {
+                    s_in[i * X_DIMENSION + 0].write(0);
+                    in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
+                    in_c_d[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
                 } else {
-                    s_in[i * X + 0].write(1);
-                    in_c_u[i * X + 0].write(1);
-                    in_c_d[i * X + 0].write(1);
+                    s_in[i * X_DIMENSION + 0].write(1);
+                    in_c_u[i * X_DIMENSION + 0].write(btint<8>().from_int(1));
+                    in_c_d[i * X_DIMENSION + 0].write(btint<8>().from_int(1));
                 }
             }
             // a in
-            for (int i = 0, k = 0; i < X; i++, k += 2) {
-                if (steps >= 0 + k && steps < X + i) {
-                    in_a[0 * X + i].write(matrixa[(X - 1 - steps + i)][X - 1 - i]);
+            for (int i = 0, k = 0; i < X_DIMENSION; i++, k += 2) {
+                if (steps >= 0 + k && steps < X_DIMENSION + i) {
+                    in_a[0 * X_DIMENSION + i].write(m_a<8>[(X_DIMENSION - 1 - steps + i)][X_DIMENSION - 1 - i]);
                 } else {
-                    in_a[0 * X + i].write(0);
+                    in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(8));
                 }
             }
             // ergebnis
-            for (int i = 0; i < X; i++) {
-                if (steps >= 2 * X - 1 && steps < 2 * X + i) {
-                    result_u[(2 * X - 1 - steps + i) * X + i] = out_c_u[i * X + X - 1].read();
-                    result_d[(2 * X - 1 - steps + i) * X + i] = out_c_d[i * X + X - 1].read();
+            for (int i = 0; i < X_DIMENSION; i++) {
+                if (steps >= 2 * X_DIMENSION - 1 && steps < 2 * X_DIMENSION + i) {
+                    result_u[(2 * X_DIMENSION - 1 - steps + i) * X_DIMENSION + i] = out_c_u[i * X_DIMENSION + X_DIMENSION - 1].read();
+                    result_d[(2 * X_DIMENSION - 1 - steps + i) * X_DIMENSION + i] = out_c_d[i * X_DIMENSION + X_DIMENSION - 1].read();
                 }
             }
             // s verbindungen mit reg
-            for (int i = 1; i < X; i++) {
-                for (int j = X - 1 - i; j < X - 1; j++) {
-                    s_in[i * X + j + 1] = reg[i * X + j + 1];
-                    reg[i * X + j + 1] = s_out[i * X + j].read();
+            for (int i = 1; i < X_DIMENSION; i++) {
+                for (int j = X_DIMENSION - 1 - i; j < X_DIMENSION - 1; j++) {
+                    s_in[i * X_DIMENSION + j + 1] = reg[i * X_DIMENSION + j + 1];
+                    reg[i * X_DIMENSION + j + 1] = s_out[i * X_DIMENSION + j].read();
                 }
             }
             // s verbindungen ohne reg
-            for (int i = 0; i < X - 1; i++) {
-                for (int j = 0; j < X - 1 - i; j++) {
-                    s_in[i * X + j + 1].write(s_out[i * X + j].read());
+            for (int i = 0; i < X_DIMENSION - 1; i++) {
+                for (int j = 0; j < X_DIMENSION - 1 - i; j++) {
+                    s_in[i * X_DIMENSION + j + 1].write(s_out[i * X_DIMENSION + j].read());
                 }
             }
             // Schritte hochzaehlen
             steps++;
         } else if (op == 1) { // Matrix-Matrix-Multiplikation
-            if (indexa[0] >= 3 * X - 2) {
+            if (indexa[0] >= 3 * X_DIMENSION - 1) {
                 done.write(true);
             } else {
                 done.write(false);
             }
 
-            for (int i = 0; i < X; i++) {
-                in_c_u[i * X + 0].write(0);
+            for (int i = 0; i < X_DIMENSION; i++) {
+                in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
             }
 
-            for (int i = 0; i < X; i++) {
-                if (indexa[0] >= X + i && indexa[0] < X + X + i) {
-                    result_u[(indexa[0] - X - i) * X + i] = out_c_u[i * X + X - 1].read();
+            for (int i = 0; i < X_DIMENSION; i++) {
+                if (indexa[0] >= X_DIMENSION + i && indexa[0] < X_DIMENSION + X_DIMENSION + i) {
+                    result_u[(indexa[0] - X_DIMENSION - i) * X_DIMENSION + i] = out_c_u[i * X_DIMENSION + X_DIMENSION - 1].read();
                 }
             }
             if (!load_done) {
                 // Load Matrix b to Reg
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     s_mm[i].write(false);
                 }
-                for (int i = 0; i < X; i++) {
-                    in_a[0 * X + i].write(matrixb[i][(X - 1 - indexb)]);
+                for (int i = 0; i < X_DIMENSION; i++) {
+                    in_a[0 * X_DIMENSION + i].write(m_b<8>[i][(X_DIMENSION - 1 - indexb)]);
                 }
-                if (indexb >= X - 1) {
+                if (indexb >= X_DIMENSION - 1) {
                     load_done = true;
-                    for (int i = 0; i < X; i++) {
+                    for (int i = 0; i < X_DIMENSION; i++) {
                         s_mm[i].write(true);
                     }
                 } else {
                     indexb += 1;
                 }
             } else {
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     s_mm[i].write(false);
                 }
-                for (int i = 0; i < X; i++) {
-                    if (indexa[i] < 0 || indexa[i] > X - 1) {
-                        in_a[0 * X + i].write(0);
+                for (int i = 0; i < X_DIMENSION; i++) {
+                    if (indexa[i] < 0 || indexa[i] > X_DIMENSION - 1) {
+                        in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(8));
                     } else {
-                        in_a[0 * X + i].write(matrixa[(indexa[i])][i]);
+                        in_a[0 * X_DIMENSION + i].write(m_a<8>[(indexa[i])][i]);
                     }
                 }
                 // Indizes hochzaehlen
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     indexa[i]++;
                 }
             }
         } else { // Matrix-Vektor-Multiplikation
-            if (indexa[X - 1] >= X) {
+            if (indexa[X_DIMENSION - 1] >= X_DIMENSION + 1) {
                 done.write(true);
             } else {
                 done.write(false);
             }
 
             if (!load_done) {
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     // Vektor
-                    in_a[0 * X + i].write(vektor[i]);
-                    for (int i = 0; i < X; i++) {
+                    in_a[0 * X_DIMENSION + i].write(v<8>[i]);
+                    for (int i = 0; i < X_DIMENSION; i++) {
                         s_mm[i].write(true);
                     }
                 }
                 load_done = true;
             } else {
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     s_mm[i].write(false);
                 }
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     // Matrix
-                    if (indexa[i] < 0 || indexa[i] > X - 1) {
-                        in_a[0 * X + i].write(0);
+                    if (indexa[i] < 0 || indexa[i] > X_DIMENSION - 1) {
+                        in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(8));
                     } else {
-                        in_a[0 * X + i].write(matrixa[(indexa[i])][i]);
+                        in_a[0 * X_DIMENSION + i].write(m_a<8>[(indexa[i])][i]);
                     }
                 }
 
-                for (int i = 0; i < X; i++) {
-                    in_c_u[i * X + 0].write(0);
+                for (int i = 0; i < X_DIMENSION; i++) {
+                    in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
                 }
 
-                if (indexa[X - 1] >= 1 && indexa[X - 1] <= X) {
-                    result_u[(indexa[X - 1] - 1) * X + 0] = out_c_u[0 * X + X - 1].read();
+                if (indexa[X_DIMENSION - 1] >= 1 && indexa[X_DIMENSION - 1] <= X_DIMENSION) {
+                    result_u[(indexa[X_DIMENSION - 1] - 1) * X_DIMENSION + 0] = out_c_u[0 * X_DIMENSION + X_DIMENSION - 1].read();
                 }
                 // Indizes hochzaehlen
-                for (int i = 0; i < X; i++) {
+                for (int i = 0; i < X_DIMENSION; i++) {
                     indexa[i]++;
                 }
             }
         }
-        wait(); // warte auf naechsten clk
+        wait(MULTIPLIER_LOCK + ADDER_SUBTRACTOR_LOCK); // warte auf naechsten clk
     }
 }

@@ -4,7 +4,7 @@ INCLUDE_DIRS= -I. -I$(SYSTEMC_HOME)/include
 
 HEADERS= cell.hpp const.hpp control.hpp kombi.hpp tb.hpp
 
-SOURCES= cell.cpp main.cpp control.cpp kombi.cpp tb.cpp
+SOURCES= cell.cpp main.cpp control.cpp kombi.cpp tb.cpp ../../Source\ Code/cpp/adder_subtractor.cpp ../../Source\ Code/cpp/fulladder.cpp ../../Source\ Code/cpp/multiplier.cpp ../../Source\ Code/cpp/shift_register.cpp
 
 DEPENDENCIES= \
 	Makefile \

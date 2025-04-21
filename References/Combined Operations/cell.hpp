@@ -1,20 +1,70 @@
-#include <systemc.h>
+#ifndef CELL_HPP
+    #define CELL_HPP
 
-SC_MODULE(sys_cell) {
-    sc_in<sc_int<8>> a_in, c_in_u, c_in_d;
-    sc_in<bool> s_in;
-    sc_in<bool> s_mm;
-    sc_in<bool> op_in;
-    sc_out<sc_int<8>> a_out, c_out_u, c_out_d;
-    sc_out<bool> s_out;
-    sc_out<bool> op_out;
+    #include "../../Source Code/hpp/multiplier.hpp"
 
-    sc_int<8> reg_u, reg_d;
+    template <size_t T>
+    SC_MODULE(CELL) {
+        sc_in<bool> cell_clock;
+        sc_in<bool> cell_reset;
+        sc_in<btint<T>> cell_a_in;
+        sc_in<btint<T>> cell_c_in_u;
+        sc_in<btint<T>> cell_c_in_d;
+        sc_in<bool> cell_s_in;
+        sc_in<bool> cell_s_mm;
+        sc_in<bool> cell_op_in;
 
-    void func();
+        sc_out<btint<T>> cell_a_out;
+        sc_out<btint<T>> cell_c_out_u;
+        sc_out<btint<T>> cell_c_out_d;
+        sc_out<bool> cell_s_out;
+        sc_out<bool> cell_op_out;
 
-    SC_CTOR(sys_cell) {
-        SC_METHOD(func);
-        sensitive << a_in << c_in_u << c_in_d << s_in << s_mm << op_in;
-    }
-};
+        sc_signal<bool> zero;
+
+        ADDER_SUBTRACTOR<T> *adder_subtractor;
+
+        sc_signal<btint<T>> adder_subtractor_a;
+        sc_signal<btint<T>> adder_subtractor_b;
+
+        sc_signal<btint<T + 1>> adder_subtractor_sum;
+
+        MULTIPLIER<T> *multiplier;
+
+        sc_signal<btint<T>> multiplier_a;
+        sc_signal<btint<T>> multiplier_b;
+
+        sc_signal<btint<2 * T>> multiplier_product;
+
+        btint<T> state_u;
+        btint<T> state_d;
+
+        void compute(void);
+
+        SC_CTOR(CELL) {
+            zero.write(0);
+
+            adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
+            adder_subtractor->adder_subtractor_a(adder_subtractor_a);
+            adder_subtractor->adder_subtractor_b(adder_subtractor_b);
+            adder_subtractor->adder_subtractor_subtract(zero);
+            adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
+
+            multiplier = new MULTIPLIER<T>("multiplier");
+            multiplier->multiplier_clock(cell_clock);
+            multiplier->multiplier_reset(zero);
+            multiplier->multiplier_a(multiplier_a);
+            multiplier->multiplier_b(multiplier_b);
+            multiplier->multiplier_product(multiplier_product);
+
+            SC_CTHREAD(compute, cell_clock.pos());
+            reset_signal_is(cell_reset, true);
+        }
+
+        ~CELL(void) {
+            delete adder_subtractor;
+            delete multiplier;
+        }
+    };
+    template class CELL<TRITS>;
+#endif

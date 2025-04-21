@@ -1,39 +1,58 @@
 #include "cell.hpp"
 
-void sys_cell::func() {
-    a_out.write(a_in.read());
-    s_out.write(s_in.read());
-    op_out.write(op_in.read());
-
-    if (op_in.read() == 1) {
-        if (s_mm.read()) {
-            if (s_in.read()) {
-                reg_u = c_in_u.read();
-                reg_d = c_in_d.read() * a_in.read();
-                c_out_u.write(c_in_u.read());
-                c_out_d.write(c_in_d.read() * a_in.read());
-            } else {
-                if (c_in_u.read() == 0) {
-                    c_out_u = -reg_u * a_in.read();
-                    c_out_d = reg_d;
-                } else if (a_in.read() == 0 || reg_u == 0) {
-                    c_out_u = c_in_u.read();
-                    c_out_d = c_in_d.read();
+template <size_t T>
+void CELL<T>::compute(void) {
+    btint<T + 1> sum;
+    btint<2 * T> product;
+    cell_a_out.write(cell_a_in.read());
+    cell_c_out_u.write(BTINT_ZERO(T));
+    // cell_c_out_d
+    cell_s_out.write(cell_s_in.read());
+    cell_op_out.write(cell_op_in.read());
+    state_u = cell_a_in.read();
+    // state_d
+    wait();
+    while(true) {
+        sum = adder_subtractor_sum.read();
+        product = multiplier_product.read();
+        cell_a_out.write(cell_a_in.read());
+        cell_s_out.write(cell_s_in.read());
+        cell_op_out.write(cell_op_in.read());
+        if(cell_op_in.read() == 1) {
+            /*if(cell_s_mm.read()) {
+                if(cell_s_in.read()) {
+                    state_u = cell_c_in_u.read();
+                    state_d = cell_c_in_d.read() * cell_a_in.read();
+                    cell_c_out_u.write(cell_c_in_u.read());
+                    cell_c_out_d.write(cell_c_in_d.read() * cell_a_in.read());
                 } else {
-                    c_out_u = c_in_u.read() * reg_d - reg_u * a_in.read() * c_in_d.read();
-                    c_out_d = c_in_d.read() * reg_d;
+                    if(cell_c_in_u.read() == 0) {
+                        cell_c_out_u = -state_u * cell_a_in.read();
+                        cell_c_out_d = state_d;
+                    } else if(cell_a_in.read() == 0 || state_u == 0) {
+                        cell_c_out_u = cell_c_in_u.read();
+                        cell_c_out_d = cell_c_in_d.read();
+                    } else {
+                        cell_c_out_u = cell_c_in_u.read() * state_d - state_u * cell_a_in.read() * cell_c_in_d.read();
+                        cell_c_out_d = cell_c_in_d.read() * state_d;
+                    }
                 }
+            } else {
+                cell_c_out_u = cell_c_in_u.read();
+                cell_c_out_d = cell_c_in_d.read();
+            }*/
+        } else {
+            if(cell_s_mm.read()) {
+                state_u = cell_a_in.read();
+                cell_c_out_u.write(BTINT_ZERO(T));
+            } else {
+                multiplier_a.write(state_u);
+                multiplier_b.write(cell_a_in.read());
+                adder_subtractor_a.write(product.range(T - 1, 0));
+                adder_subtractor_b.write(cell_c_in_u.read());
+                cell_c_out_u.write(sum.range(T - 1, 0));
             }
-        } else {
-            c_out_u = c_in_u.read();
-            c_out_d = c_in_d.read();
         }
-    } else {
-        if (s_mm.read()) {
-            reg_u = a_in.read();
-            c_out_u.write(0);
-        } else {
-            c_out_u.write(c_in_u.read() + reg_u * a_in.read());
-        }
+        wait();
     }
 }
