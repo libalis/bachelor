@@ -8,8 +8,8 @@ SC_MODULE(SYSTEM) {
 
     sc_signal<bool> rst_sig;
     sc_signal<bool> done_sig;
-    sc_signal<btint<8>> result_sig_u[X_DIMENSION][X_DIMENSION];
-    sc_signal<btint<8>> result_sig_d[X_DIMENSION][X_DIMENSION];
+    sc_signal<btint<32>> result_sig_u[X_DIMENSION][X_DIMENSION];
+    sc_signal<btint<32>> result_sig_d[X_DIMENSION][X_DIMENSION];
     sc_clock clk_sig;
 
     SC_CTOR(SYSTEM) : clk_sig("clk_sig", 10, SC_NS), tb("tb"), k("k") {

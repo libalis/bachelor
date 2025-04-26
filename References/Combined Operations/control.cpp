@@ -2,7 +2,7 @@
 #include "control.hpp"
 #include "../../Source Code/hpp/multiplier.hpp"
 
-#define T (8)
+#define T (32)
 
 void kombi_control::func() {
 #pragma HLS ARRAY_PARTITION variable = out_a complete dim = 1
@@ -20,19 +20,20 @@ void kombi_control::func() {
 #pragma HLS ARRAY_PARTITION variable = out_result_d complete dim = 1
 #pragma HLS PIPELINE
 
-    btint<8> result_u[X_DIMENSION * X_DIMENSION];
-    btint<8> result_d[X_DIMENSION * X_DIMENSION];
-    sc_int<8> reg[X_DIMENSION * X_DIMENSION];
-    sc_int<8> steps;
-    sc_int<8> indexa[X_DIMENSION];
-    sc_int<8> indexb;
+    btint<32> result_u[X_DIMENSION * X_DIMENSION];
+    btint<32> result_d[X_DIMENSION * X_DIMENSION];
+    sc_int<32> reg[X_DIMENSION * X_DIMENSION];
+    sc_int<32> steps;
+    sc_int<32> indexa[X_DIMENSION];
+    sc_int<32> indexb;
     bool load_done;
     // Reset
     for (int i = 0; i < X_DIMENSION; i++) {
         indexa[i] = 0 - i - 1;
         for (int j = 0; j < X_DIMENSION; j++) {
-            result_u[i * X_DIMENSION + j] = BTINT_ZERO(8);
-            result_d[i * X_DIMENSION + j] = BTINT_ZERO(8);
+            in_a[i * X_DIMENSION + j].write(BTINT_ZERO(32));
+            result_u[i * X_DIMENSION + j] = BTINT_ZERO(32);
+            result_d[i * X_DIMENSION + j] = BTINT_ZERO(32);
             op_in[i * X_DIMENSION + j].write(1);
         }
     }
@@ -80,7 +81,7 @@ void kombi_control::func() {
                     s_mm[i].write(false);
                 }
             }
-            if (steps >= 3 * X_DIMENSION - 2) {
+            if (steps >= 3 * X_DIMENSION - 1) {
                 done.write(true);
             } else {
                 done.write(false);
@@ -89,20 +90,20 @@ void kombi_control::func() {
             for (int i = 0; i < X_DIMENSION; i++) {
                 if (steps != X_DIMENSION - 1) {
                     s_in[i * X_DIMENSION + 0].write(0);
-                    in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
-                    in_c_d[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
+                    in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(32));
+                    in_c_d[i * X_DIMENSION + 0].write(BTINT_ZERO(32));
                 } else {
                     s_in[i * X_DIMENSION + 0].write(1);
-                    in_c_u[i * X_DIMENSION + 0].write(btint<8>().from_int(1));
-                    in_c_d[i * X_DIMENSION + 0].write(btint<8>().from_int(1));
+                    in_c_u[i * X_DIMENSION + 0].write(btint<32>().from_int(1));
+                    in_c_d[i * X_DIMENSION + 0].write(btint<32>().from_int(1));
                 }
             }
             // a in
             for (int i = 0, k = 0; i < X_DIMENSION; i++, k += 2) {
                 if (steps >= 0 + k && steps < X_DIMENSION + i) {
-                    in_a[0 * X_DIMENSION + i].write(m_a<8>[(X_DIMENSION - 1 - steps + i)][X_DIMENSION - 1 - i]);
+                    in_a[0 * X_DIMENSION + i].write(m_a<32>[(X_DIMENSION - 1 - steps + i)][X_DIMENSION - 1 - i]);
                 } else {
-                    in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(8));
+                    in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(32));
                 }
             }
             // ergebnis
@@ -135,7 +136,7 @@ void kombi_control::func() {
             }
 
             for (int i = 0; i < X_DIMENSION; i++) {
-                in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
+                in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(32));
             }
 
             for (int i = 0; i < X_DIMENSION; i++) {
@@ -149,7 +150,7 @@ void kombi_control::func() {
                     s_mm[i].write(false);
                 }
                 for (int i = 0; i < X_DIMENSION; i++) {
-                    in_a[0 * X_DIMENSION + i].write(m_b<8>[i][(X_DIMENSION - 1 - indexb)]);
+                    in_a[0 * X_DIMENSION + i].write(m_b<32>[i][(X_DIMENSION - 1 - indexb)]);
                 }
                 if (indexb >= X_DIMENSION - 1) {
                     load_done = true;
@@ -165,9 +166,9 @@ void kombi_control::func() {
                 }
                 for (int i = 0; i < X_DIMENSION; i++) {
                     if (indexa[i] < 0 || indexa[i] > X_DIMENSION - 1) {
-                        in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(8));
+                        in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(32));
                     } else {
-                        in_a[0 * X_DIMENSION + i].write(m_a<8>[(indexa[i])][i]);
+                        in_a[0 * X_DIMENSION + i].write(m_a<32>[(indexa[i])][i]);
                     }
                 }
                 // Indizes hochzaehlen
@@ -185,7 +186,7 @@ void kombi_control::func() {
             if (!load_done) {
                 for (int i = 0; i < X_DIMENSION; i++) {
                     // Vektor
-                    in_a[0 * X_DIMENSION + i].write(v<8>[i]);
+                    in_a[0 * X_DIMENSION + i].write(v<32>[i]);
                     for (int i = 0; i < X_DIMENSION; i++) {
                         s_mm[i].write(true);
                     }
@@ -198,14 +199,14 @@ void kombi_control::func() {
                 for (int i = 0; i < X_DIMENSION; i++) {
                     // Matrix
                     if (indexa[i] < 0 || indexa[i] > X_DIMENSION - 1) {
-                        in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(8));
+                        in_a[0 * X_DIMENSION + i].write(BTINT_ZERO(32));
                     } else {
-                        in_a[0 * X_DIMENSION + i].write(m_a<8>[(indexa[i])][i]);
+                        in_a[0 * X_DIMENSION + i].write(m_a<32>[(indexa[i])][i]);
                     }
                 }
 
                 for (int i = 0; i < X_DIMENSION; i++) {
-                    in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(8));
+                    in_c_u[i * X_DIMENSION + 0].write(BTINT_ZERO(32));
                 }
 
                 if (indexa[X_DIMENSION - 1] >= 1 && indexa[X_DIMENSION - 1] <= X_DIMENSION) {
@@ -217,6 +218,6 @@ void kombi_control::func() {
                 }
             }
         }
-        wait(MULTIPLIER_LOCK + ADDER_SUBTRACTOR_LOCK); // warte auf naechsten clk
+        wait(3 * MULTIPLIER_LOCK + ADDER_SUBTRACTOR_LOCK); // warte auf naechsten clk
     }
 }

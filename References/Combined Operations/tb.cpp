@@ -11,7 +11,7 @@ void testbench::source() {
         printf("Matrix a:\n");
         for (int i = 0; i < X_DIMENSION; i++) {
             for (int j = 0; j < X_DIMENSION; j++) {
-                printf("%7.3f ", (float)m_a<8>[i][j].to_int());
+                printf("%7.3f ", (float)m_a<32>[i][j].to_int());
             }
             printf("\n");
         }
@@ -20,14 +20,14 @@ void testbench::source() {
         printf("Matrix a:\n");
         for (int i = 0; i < X_DIMENSION; i++) {
             for (int j = 0; j < X_DIMENSION; j++) {
-                printf("%3d ", m_a<8>[i][j].to_int());
+                printf("%3d ", m_a<32>[i][j].to_int());
             }
             printf("\n");
         }
         printf("Matrix b:\n");
         for (int i = 0; i < X_DIMENSION; i++) {
             for (int j = 0; j < X_DIMENSION; j++) {
-                printf("%3d ", m_b<8>[i][j].to_int());
+                printf("%3d ", m_b<32>[i][j].to_int());
             }
             printf("\n");
         }
@@ -36,21 +36,21 @@ void testbench::source() {
         printf("Matrix a:\n");
         for (int i = 0; i < X_DIMENSION; i++) {
             for (int j = 0; j < X_DIMENSION; j++) {
-                printf("%3d ", m_a<8>[i][j].to_int());
+                printf("%3d ", m_a<32>[i][j].to_int());
             }
             printf("\n");
         }
         printf("Vektor:\n");
         for (int i = 0; i < X_DIMENSION; i++) {
-            printf("%3d", v<8>[i].to_int());
+            printf("%3d", v<32>[i].to_int());
             printf("\n");
         }
     }
 }
 
 void testbench::sink() {
-    btint<8> indata_u[X_DIMENSION][X_DIMENSION];
-    btint<8> indata_d[X_DIMENSION][X_DIMENSION];
+    btint<32> indata_u[X_DIMENSION][X_DIMENSION];
+    btint<32> indata_d[X_DIMENSION][X_DIMENSION];
     do {
         wait();
     } while (!done);

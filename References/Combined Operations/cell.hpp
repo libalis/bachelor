@@ -20,21 +20,21 @@
         sc_out<bool> cell_s_out;
         sc_out<bool> cell_op_out;
 
-        sc_signal<bool> zero;
-
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
         sc_signal<btint<T>> adder_subtractor_a;
         sc_signal<btint<T>> adder_subtractor_b;
+        sc_signal<bool> adder_subtractor_subtract;
 
         sc_signal<btint<T + 1>> adder_subtractor_sum;
 
-        MULTIPLIER<T> *multiplier;
+        MULTIPLIER<T> *multiplier[4];
 
-        sc_signal<btint<T>> multiplier_a;
-        sc_signal<btint<T>> multiplier_b;
+        sc_signal<bool> multiplier_reset[4];
+        sc_signal<btint<T>> multiplier_a[4];
+        sc_signal<btint<T>> multiplier_b[4];
 
-        sc_signal<btint<2 * T>> multiplier_product;
+        sc_signal<btint<2 * T>> multiplier_product[4];
 
         btint<T> state_u;
         btint<T> state_d;
@@ -42,20 +42,20 @@
         void compute(void);
 
         SC_CTOR(CELL) {
-            zero.write(0);
-
             adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
             adder_subtractor->adder_subtractor_a(adder_subtractor_a);
             adder_subtractor->adder_subtractor_b(adder_subtractor_b);
-            adder_subtractor->adder_subtractor_subtract(zero);
+            adder_subtractor->adder_subtractor_subtract(adder_subtractor_subtract);
             adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
 
-            multiplier = new MULTIPLIER<T>("multiplier");
-            multiplier->multiplier_clock(cell_clock);
-            multiplier->multiplier_reset(zero);
-            multiplier->multiplier_a(multiplier_a);
-            multiplier->multiplier_b(multiplier_b);
-            multiplier->multiplier_product(multiplier_product);
+            for(int i = 0; i < 4; i++) {
+                multiplier[i] = new MULTIPLIER<T>(("multiplier_" + to_string(i)).c_str());
+                multiplier[i]->multiplier_clock(cell_clock);
+                multiplier[i]->multiplier_reset(multiplier_reset[i]);
+                multiplier[i]->multiplier_a(multiplier_a[i]);
+                multiplier[i]->multiplier_b(multiplier_b[i]);
+                multiplier[i]->multiplier_product(multiplier_product[i]);
+            }
 
             SC_CTHREAD(compute, cell_clock.pos());
             reset_signal_is(cell_reset, true);
@@ -63,7 +63,10 @@
 
         ~CELL(void) {
             delete adder_subtractor;
-            delete multiplier;
+
+            for(int i = 0; i < 4; i++) {
+                delete multiplier[i];
+            }
         }
     };
     template class CELL<TRITS>;

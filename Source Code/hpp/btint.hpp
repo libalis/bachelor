@@ -6,7 +6,7 @@
     #endif
 
     #ifndef TRITS
-        #define TRITS (8)
+        #define TRITS (32)
     #endif
 
     #include <systemc>
@@ -77,10 +77,7 @@
                 value /= 2;
             }
             if(isNegative) {
-                for(int i = 0; i < T; i++) {
-                    output = output.set_value(i, -output.get_value(i));
-                }
-                output = output.set_overflow(-1);
+                output = output.negate();
             }
             return output;
         }
@@ -91,6 +88,18 @@
 
         int get_value(int index) const {
             return btint_a[index] + btint_b[index] - 1;
+        }
+
+        btint negate(void) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            for(int i = 0; i < T; i++) {
+                output = output.set_value(i, -output.get_value(i));
+            }
+            output = output.set_overflow(-output.get_overflow());
+            return output;
         }
 
         btint<TRITS> range(int from, int to) const {
