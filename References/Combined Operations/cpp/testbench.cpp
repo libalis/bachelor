@@ -19,13 +19,13 @@ void TESTBENCH<T>::source(void) {
         printf("Matrix-Matrix-Multiplikation\n");
         printf("Matrix a:\n");
         for(int i = 0; i < X_DIMENSION; i++) {
-            for(int j = 0; j < X_DIMENSION; j++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
                 printf("%3d ", m_a<T>[i][j].to_int());
             }
             printf("\n");
         }
         printf("Matrix b:\n");
-        for(int i = 0; i < X_DIMENSION; i++) {
+        for(int i = 0; i < Y_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
                 printf("%3d ", m_b<T>[i][j].to_int());
             }

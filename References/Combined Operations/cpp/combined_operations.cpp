@@ -3,7 +3,7 @@
 template <size_t T>
 void COMBINED_OPERATIONS<T>::construct(void) {
     for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 0; j < X_DIMENSION; j++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
             cell[i][j]->cell_clock(combined_operations_clock);
             cell[i][j]->cell_reset(combined_operations_reset);
             cell[i][j]->cell_a_in(cell_a_in[i][j]);
@@ -20,7 +20,7 @@ void COMBINED_OPERATIONS<T>::construct(void) {
     controller->controller_clock(combined_operations_clock);
     controller->controller_reset(combined_operations_reset);
     for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 0; j < X_DIMENSION; j++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
             controller->controller_a_out[i][j](cell_a_out[i][j]);
             controller->controller_c_out_u[i][j](cell_c_out_u[i][j]);
             controller->controller_c_out_d[i][j](cell_c_out_d[i][j]);
