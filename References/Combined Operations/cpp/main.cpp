@@ -1,0 +1,52 @@
+#include "../hpp/combined_operations.hpp"
+#include "../hpp/testbench.hpp"
+
+template <size_t T>
+SC_MODULE(SYSTEM) {
+    COMBINED_OPERATIONS<T> *combined_operations;
+
+    sc_signal<bool> combined_operations_reset;
+
+    sc_signal<bool> combined_operations_done;
+    sc_signal<btint<T>> combined_operations_result_u[X_DIMENSION][X_DIMENSION];
+    sc_signal<btint<T>> combined_operations_result_d[X_DIMENSION][X_DIMENSION];
+
+    TESTBENCH<T> *testbench;
+
+    sc_clock system_clock;
+
+    SC_CTOR(SYSTEM) : system_clock("system_clock", 10, SC_NS) {
+        combined_operations = new COMBINED_OPERATIONS<T>("combined_operations");
+        combined_operations->combined_operations_clock(system_clock);
+        combined_operations->combined_operations_reset(combined_operations_reset);
+        combined_operations->combined_operations_done(combined_operations_done);
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                combined_operations->combined_operations_result_u[i][j](combined_operations_result_u[i][j]);
+                combined_operations->combined_operations_result_d[i][j](combined_operations_result_d[i][j]);
+            }
+        }
+
+        testbench = new TESTBENCH<T>("testbench");
+        testbench->testbench_clock(system_clock);
+        testbench->testbench_done(combined_operations_done);
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                testbench->testbench_result_u[i][j](combined_operations_result_u[i][j]);
+                testbench->testbench_result_d[i][j](combined_operations_result_d[i][j]);
+            }
+        }
+        testbench->testbench_reset(combined_operations_reset);
+    }
+
+    ~SYSTEM(void) {
+        delete combined_operations;
+        delete testbench;
+    }
+};
+
+int sc_main(int argc, char *argv[]) {
+    SYSTEM<TRITS> system("system");
+    sc_start();
+    return 0;
+}

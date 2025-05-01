@@ -1,7 +1,7 @@
 #ifndef CELL_HPP
     #define CELL_HPP
 
-    #include "../../Source Code/hpp/multiplier.hpp"
+    #include "multiplier.hpp"
 
     template <size_t T>
     SC_MODULE(CELL) {
@@ -12,13 +12,11 @@
         sc_in<btint<T>> cell_c_in_d;
         sc_in<bool> cell_s_in;
         sc_in<bool> cell_s_mm;
-        sc_in<bool> cell_op_in;
 
         sc_out<btint<T>> cell_a_out;
         sc_out<btint<T>> cell_c_out_u;
         sc_out<btint<T>> cell_c_out_d;
         sc_out<bool> cell_s_out;
-        sc_out<bool> cell_op_out;
 
         ADDER_SUBTRACTOR<T> *adder_subtractor;
 
@@ -58,7 +56,7 @@
             }
 
             SC_CTHREAD(compute, cell_clock.pos());
-            reset_signal_is(cell_reset, true);
+            reset_signal_is(cell_reset, 1);
         }
 
         ~CELL(void) {

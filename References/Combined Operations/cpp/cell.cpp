@@ -1,4 +1,5 @@
-#include "cell.hpp"
+#include "../hpp/cell.hpp"
+#include "../hpp/const.hpp"
 
 template <size_t T>
 void CELL<T>::compute(void) {
@@ -6,21 +7,19 @@ void CELL<T>::compute(void) {
     btint<2 * T> product[4];
     cell_a_out.write(cell_a_in.read());
     cell_c_out_u.write(BTINT_ZERO(T));
-    // cell_c_out_d
+    cell_c_out_d.write(BTINT_ZERO(T));
     cell_s_out.write(cell_s_in.read());
-    cell_op_out.write(cell_op_in.read());
     state_u = cell_a_in.read();
-    // state_d
+    state_d = BTINT_ZERO(T);
     wait();
-    while(true) {
+    while(1) {
         sum = adder_subtractor_sum.read();
         for(int i = 0; i < 4; i++) {
             product[i] = multiplier_product[i].read();
         }
         cell_a_out.write(cell_a_in.read());
         cell_s_out.write(cell_s_in.read());
-        cell_op_out.write(cell_op_in.read());
-        if(cell_op_in.read() == 1) {
+        if(op == INVERSION) {
             if(cell_s_mm.read()) {
                 if(cell_s_in.read()) {
                     state_u = cell_c_in_u.read();

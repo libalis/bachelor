@@ -1,25 +1,37 @@
-SYSTEMC_HOME=/home/lama/systemc-2.3.3
-LIB_DIRS= $(SYSTEMC_HOME)/lib-linux64
-INCLUDE_DIRS= -I. -I$(SYSTEMC_HOME)/include
+PROGRAM := bachelor
+CC := g++
+CFLAGS := -g
+LDFLAGS := -lsystemc
+BUILD_DIR := ./build
+CPP_DIR := ./cpp
+DAT_DIR := ./dat
+HPP_DIR := ./hpp
 
-HEADERS= cell.hpp const.hpp control.hpp kombi.hpp tb.hpp
-
-SOURCES= cell.cpp main.cpp control.cpp kombi.cpp tb.cpp ../../Source\ Code/cpp/adder_subtractor.cpp ../../Source\ Code/cpp/fulladder.cpp ../../Source\ Code/cpp/multiplier.cpp ../../Source\ Code/cpp/shift_register.cpp
-
-DEPENDENCIES= \
-	Makefile \
-	$(HEADERS) \
-	$(SOURCES)
-
-LIBS= -lsystemc -lstdc++ -lm
-
-TESTS= main
-
-all: $(TESTS)
-	./$(TESTS)
-
-$(TESTS): $(DEPENDENCIES)
-	gcc -g -o $@ $(SOURCES) $(INCLUDE_DIRS) -L$(LIB_DIRS) -Wl,-rpath=$(SYSTEMC_HOME)/lib-linux64 $(LIBS)
+all: $(BUILD_DIR)/$(PROGRAM)
+	$(BUILD_DIR)/$(PROGRAM)
+	@make check
 
 clean:
-	rm -f $(TESTS) *.vcd
+	rm -rf $(BUILD_DIR)
+
+check:
+	@echo "********************************"
+	@if diff -w $(DAT_DIR)/output.dat $(DAT_DIR)/reference_output.dat; then \
+	    echo -e "\033[32m\tSIMULATION PASSED\033[0m"; \
+	else \
+	    echo -e "\033[31m\tSIMULATION FAILED\033[0m"; \
+	fi
+	@echo "********************************"
+
+config:
+	sh/config.sh
+
+$(BUILD_DIR)/$(PROGRAM): $(patsubst $(CPP_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(CPP_DIR)/*.cpp))
+	mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(BUILD_DIR)/%.o: $(CPP_DIR)/%.cpp $(wildcard $(HPP_DIR)/%.hpp)
+	mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -o $@ -c $< $(LDFLAGS)
+
+.PHONY: all clean check config
