@@ -49,7 +49,7 @@ void CONTROLLER<T>::control(void) {
             }
         }
         for(int i = 0; i < Y_DIMENSION; i++) {
-            for(int j = 0; j < Y_DIMENSION - 1; j++) {
+            for(int j = 0; j < X_DIMENSION - 1; j++) {
                 controller_a_in[j + 1][i].write(controller_a_out[j][i].read());
             }
         }
@@ -59,21 +59,21 @@ void CONTROLLER<T>::control(void) {
                 controller_c_in_d[i][j + 1].write(controller_c_out_d[i][j].read());
             }
         }
-        if(op == INVERSION) {
-            for(int i = 0; i < X_DIMENSION; i++) {
-                if(steps >= 2 * X_DIMENSION - 2 - i) {
+        if(op == MATRIX_INVERSION) {
+            for(int i = 0; i < MIN_DIMENSION; i++) {
+                if(steps >= 2 * MIN_DIMENSION - 2 - i) {
                     controller_s_mm[i].write(1);
                 } else {
                     controller_s_mm[i].write(0);
                 }
             }
-            if(steps >= 3 * X_DIMENSION - 1) {
+            if(steps >= 3 * MIN_DIMENSION - 1) {
                 controller_done.write(1);
             } else {
                 controller_done.write(0);
             }
-            for(int i = 0; i < X_DIMENSION; i++) {
-                if(steps != X_DIMENSION - 1) {
+            for(int i = 0; i < MIN_DIMENSION; i++) {
+                if(steps != MIN_DIMENSION - 1) {
                     controller_s_in[i][0].write(0);
                     controller_c_in_u[i][0].write(BTINT_ZERO(T));
                     controller_c_in_d[i][0].write(BTINT_ZERO(T));
@@ -83,27 +83,27 @@ void CONTROLLER<T>::control(void) {
                     controller_c_in_d[i][0].write(btint<T>().from_int(1));
                 }
             }
-            for(int i = 0, k = 0; i < X_DIMENSION; i++, k += 2) {
-                if(steps >= 0 + k && steps < X_DIMENSION + i) {
-                    controller_a_in[0][i].write(m_a<T>[X_DIMENSION - 1 - steps + i][X_DIMENSION - 1 - i]);
+            for(int i = 0, k = 0; i < MIN_DIMENSION; i++, k += 2) {
+                if(steps >= 0 + k && steps < MIN_DIMENSION + i) {
+                    controller_a_in[0][i].write(m_a<T>[MIN_DIMENSION - 1 - steps + i][MIN_DIMENSION - 1 - i]);
                 } else {
                     controller_a_in[0][i].write(BTINT_ZERO(T));
                 }
             }
-            for(int i = 0; i < X_DIMENSION; i++) {
-                if(steps >= 2 * X_DIMENSION - 1 && steps < 2 * X_DIMENSION + i) {
-                    result_u[2 * X_DIMENSION - 1 - steps + i][i] = controller_c_out_u[i][X_DIMENSION - 1].read();
-                    result_d[2 * X_DIMENSION - 1 - steps + i][i] = controller_c_out_d[i][X_DIMENSION - 1].read();
+            for(int i = 0; i < MIN_DIMENSION; i++) {
+                if(steps >= 2 * MIN_DIMENSION - 1 && steps < 2 * MIN_DIMENSION + i) {
+                    result_u[2 * MIN_DIMENSION - 1 - steps + i][i] = controller_c_out_u[i][MIN_DIMENSION - 1].read();
+                    result_d[2 * MIN_DIMENSION - 1 - steps + i][i] = controller_c_out_d[i][MIN_DIMENSION - 1].read();
                 }
             }
-            for(int i = 1; i < X_DIMENSION; i++) {
-                for(int j = X_DIMENSION - 1 - i; j < X_DIMENSION - 1; j++) {
+            for(int i = 1; i < MIN_DIMENSION; i++) {
+                for(int j = MIN_DIMENSION - 1 - i; j < MIN_DIMENSION - 1; j++) {
                     controller_s_in[i][j + 1] = state[i][j + 1];
                     state[i][j + 1] = controller_s_out[i][j].read();
                 }
             }
-            for(int i = 0; i < X_DIMENSION - 1; i++) {
-                for(int j = 0; j < X_DIMENSION - 1 - i; j++) {
+            for(int i = 0; i < MIN_DIMENSION - 1; i++) {
+                for(int j = 0; j < MIN_DIMENSION - 1 - i; j++) {
                     controller_s_in[i][j + 1].write(controller_s_out[i][j].read());
                 }
             }
