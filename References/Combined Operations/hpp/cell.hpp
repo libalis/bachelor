@@ -7,6 +7,7 @@
     SC_MODULE(CELL) {
         sc_in<bool> cell_clock;
         sc_in<bool> cell_reset;
+        sc_in<sc_biguint<2>> cell_op;
         sc_in<btint<T>> cell_a_in;
         sc_in<btint<T>> cell_c_in_u;
         sc_in<btint<T>> cell_c_in_d;

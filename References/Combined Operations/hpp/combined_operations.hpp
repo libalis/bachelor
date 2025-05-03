@@ -8,6 +8,10 @@
     SC_MODULE(COMBINED_OPERATIONS) {
         sc_in<bool> combined_operations_clock;
         sc_in<bool> combined_operations_reset;
+        sc_in<btint<T>> combined_operations_m_a[X_DIMENSION][Y_DIMENSION];
+        sc_in<btint<T>> combined_operations_m_b[Y_DIMENSION][X_DIMENSION];
+        sc_in<btint<T>> combined_operations_v[Y_DIMENSION];
+        sc_in<sc_biguint<2>> combined_operations_op;
 
         sc_out<bool> combined_operations_done;
         sc_out<btint<T>> combined_operations_result_u[X_DIMENSION][X_DIMENSION];

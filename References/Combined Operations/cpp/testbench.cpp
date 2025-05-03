@@ -3,31 +3,45 @@
 template <size_t T>
 void TESTBENCH<T>::source(void) {
     testbench_reset.write(1);
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            testbench_m_a[i][j].write(m_a<T>[i][j]);
+        }
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        for(int j = 0; j < X_DIMENSION; j++) {
+            testbench_m_b[i][j].write(m_b<T>[i][j]);
+        }
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        testbench_v[i].write(v<T>[i]);
+    }
+    testbench_op.write(op);
     wait();
     testbench_reset.write(0);
     wait();
-    if(op == MATRIX_INVERSION) {
+    if(testbench_op.read() == MATRIX_INVERSION) {
         printf("Matrix-Inversion\n");
         printf("Matrix-A:\n");
         for(int i = 0; i < MIN_DIMENSION; i++) {
             for(int j = 0; j < MIN_DIMENSION; j++) {
-                printf("%7.3f ", (float)m_a<T>[i][j].to_int());
+                printf("%7.3f ", (float)testbench_m_a[i][j].read().to_int());
             }
             printf("\n");
         }
-    } else if(op == MATRIX_MATRIX_MULTIPLICATION) {
+    } else if(testbench_op.read() == MATRIX_MATRIX_MULTIPLICATION) {
         printf("Matrix-Matrix-Multiplication\n");
         printf("Matrix-A:\n");
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < Y_DIMENSION; j++) {
-                printf("%3d ", m_a<T>[i][j].to_int());
+                printf("%3d ", testbench_m_a[i][j].read().to_int());
             }
             printf("\n");
         }
         printf("Matrix-B:\n");
         for(int i = 0; i < Y_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
-                printf("%3d ", m_b<T>[i][j].to_int());
+                printf("%3d ", testbench_m_b[i][j].read().to_int());
             }
             printf("\n");
         }
@@ -36,13 +50,13 @@ void TESTBENCH<T>::source(void) {
         printf("Matrix-A:\n");
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < Y_DIMENSION; j++) {
-                printf("%3d ", m_a<T>[i][j].to_int());
+                printf("%3d ", testbench_m_a[i][j].read().to_int());
             }
             printf("\n");
         }
         printf("Vector:\n");
         for(int i = 0; i < Y_DIMENSION; i++) {
-            printf("%3d", v<T>[i].to_int());
+            printf("%3d", testbench_v[i].read().to_int());
             printf("\n");
         }
     }
@@ -57,7 +71,7 @@ void TESTBENCH<T>::sink(void) {
     } while(!testbench_done);
     wait();
     printf("Result:\n");
-    if(op == MATRIX_INVERSION) {
+    if(testbench_op.read() == MATRIX_INVERSION) {
         for(int i = 0; i < MIN_DIMENSION; i++) {
             for(int j = 0; j < MIN_DIMENSION; j++) {
                 indata_u[i][j] = testbench_result_u[i][j].read();
@@ -70,7 +84,7 @@ void TESTBENCH<T>::sink(void) {
             }
             printf("\n");
         }
-    } else if(op == MATRIX_MATRIX_MULTIPLICATION) {
+    } else if(testbench_op.read() == MATRIX_MATRIX_MULTIPLICATION) {
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
                 indata_u[i][j] = testbench_result_u[i][j].read();

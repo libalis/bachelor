@@ -7,6 +7,10 @@
     SC_MODULE(CONTROLLER) {
         sc_in<bool> controller_clock;
         sc_in<bool> controller_reset;
+        sc_in<btint<T>> controller_m_a[X_DIMENSION][Y_DIMENSION];
+        sc_in<btint<T>> controller_m_b[Y_DIMENSION][X_DIMENSION];
+        sc_in<btint<T>> controller_v[Y_DIMENSION];
+        sc_in<sc_biguint<2>> controller_op;
         sc_in<btint<T>> controller_a_out[X_DIMENSION][Y_DIMENSION];
         sc_in<btint<T>> controller_c_out_u[X_DIMENSION][Y_DIMENSION];
         sc_in<btint<T>> controller_c_out_d[X_DIMENSION][Y_DIMENSION];

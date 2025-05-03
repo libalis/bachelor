@@ -11,6 +11,10 @@
         sc_in<btint<T>> testbench_result_d[X_DIMENSION][X_DIMENSION];
 
         sc_out<bool> testbench_reset;
+        sc_out<btint<T>> testbench_m_a[X_DIMENSION][Y_DIMENSION];
+        sc_out<btint<T>> testbench_m_b[Y_DIMENSION][X_DIMENSION];
+        sc_out<btint<T>> testbench_v[Y_DIMENSION];
+        sc_out<sc_biguint<2>> testbench_op;
 
         void source(void);
         void sink(void);

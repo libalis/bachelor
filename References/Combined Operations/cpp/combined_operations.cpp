@@ -6,6 +6,7 @@ void COMBINED_OPERATIONS<T>::construct(void) {
         for(int j = 0; j < Y_DIMENSION; j++) {
             cell[i][j]->cell_clock(combined_operations_clock);
             cell[i][j]->cell_reset(combined_operations_reset);
+            cell[i][j]->cell_op(combined_operations_op);
             cell[i][j]->cell_a_in(cell_a_in[i][j]);
             cell[i][j]->cell_c_in_u(cell_c_in_u[i][j]);
             cell[i][j]->cell_c_in_d(cell_c_in_d[i][j]);
@@ -19,6 +20,20 @@ void COMBINED_OPERATIONS<T>::construct(void) {
     }
     controller->controller_clock(combined_operations_clock);
     controller->controller_reset(combined_operations_reset);
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            controller->controller_m_a[i][j](combined_operations_m_a[i][j]);
+        }
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        for(int j = 0; j < X_DIMENSION; j++) {
+            controller->controller_m_b[i][j](combined_operations_m_b[i][j]);
+        }
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        controller->controller_v[i](combined_operations_v[i]);
+    }
+    controller->controller_op(combined_operations_op);
     for(int i = 0; i < X_DIMENSION; i++) {
         for(int j = 0; j < Y_DIMENSION; j++) {
             controller->controller_a_out[i][j](cell_a_out[i][j]);

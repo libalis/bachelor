@@ -19,7 +19,7 @@ void CELL<T>::compute(void) {
         }
         cell_a_out.write(cell_a_in.read());
         cell_s_out.write(cell_s_in.read());
-        if(op == MATRIX_INVERSION) {
+        if(cell_op.read() == MATRIX_INVERSION) {
             if(cell_s_mm.read()) {
                 if(cell_s_in.read()) {
                     state_u = cell_c_in_u.read();
