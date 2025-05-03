@@ -1,5 +1,6 @@
 #include "../hpp/combined_operations.hpp"
 #include "../hpp/testbench.hpp"
+#include "../hpp/uart_transmitter.hpp"
 
 template <size_t T>
 SC_MODULE(SYSTEM) {
@@ -16,6 +17,13 @@ SC_MODULE(SYSTEM) {
     sc_signal<btint<T>> combined_operations_result_d[X_DIMENSION][X_DIMENSION];
 
     TESTBENCH<T> *testbench;
+
+    UART_TRANSMITTER<T> *uart_transmitter;
+
+    sc_signal<bool> uart_transmitter_reset_active_low;
+    sc_signal<btint<T>> uart_transmitter_input[X_DIMENSION][X_DIMENSION];
+
+    sc_signal<bool> uart_transmitter_output;
 
     sc_clock system_clock;
 
@@ -69,11 +77,22 @@ SC_MODULE(SYSTEM) {
             testbench->testbench_v[i](combined_operations_v[i]);
         }
         testbench->testbench_op(combined_operations_op);
+
+        uart_transmitter = new UART_TRANSMITTER<T>("uart_transmitter");
+        uart_transmitter->uart_transmitter_clock(system_clock);
+        uart_transmitter->uart_transmitter_reset_active_low(uart_transmitter_reset_active_low);
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                uart_transmitter->uart_transmitter_input[i][j](uart_transmitter_input[i][j]);
+            }
+        }
+        uart_transmitter->uart_transmitter_output(uart_transmitter_output);
     }
 
     ~SYSTEM(void) {
         delete combined_operations;
         delete testbench;
+        delete uart_transmitter;
     }
 };
 
