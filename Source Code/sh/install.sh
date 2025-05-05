@@ -17,6 +17,8 @@ make bachelor
 designs/bachelor/bachelor
 ctest -R bachelor
 cat designs/bachelor/sv_out/bachelor.sv
+ctest -R uart_transmitter
+cat designs/bachelor/sv_out/uart_transmitter.sv
 
 cd ../..
 rm -rfv sv2v
@@ -28,3 +30,5 @@ make
 cd ..
 sv2v/bin/sv2v sc_tools/build/designs/bachelor/sv_out/bachelor.sv > bachelor.v
 cat bachelor.v
+sv2v/bin/sv2v sc_tools/build/designs/bachelor/sv_out/uart_transmitter.sv > uart_transmitter.v
+cat uart_transmitter.v

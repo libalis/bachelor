@@ -1,6 +1,10 @@
 #ifndef CELL_HPP
     #define CELL_HPP
 
+    #ifndef MULTIPLIER_COUNT
+        #define MULTIPLIER_COUNT (4)
+    #endif
+
     #include "multiplier.hpp"
 
     template <size_t T>
@@ -27,13 +31,13 @@
 
         sc_signal<btint<T + 1>> adder_subtractor_sum;
 
-        MULTIPLIER<T> *multiplier[4];
+        MULTIPLIER<T> *multiplier[MULTIPLIER_COUNT];
 
-        sc_signal<bool> multiplier_reset[4];
-        sc_signal<btint<T>> multiplier_a[4];
-        sc_signal<btint<T>> multiplier_b[4];
+        sc_signal<bool> multiplier_reset[MULTIPLIER_COUNT];
+        sc_signal<btint<T>> multiplier_a[MULTIPLIER_COUNT];
+        sc_signal<btint<T>> multiplier_b[MULTIPLIER_COUNT];
 
-        sc_signal<btint<2 * T>> multiplier_product[4];
+        sc_signal<btint<2 * T>> multiplier_product[MULTIPLIER_COUNT];
 
         btint<T> state_u;
         btint<T> state_d;
@@ -47,7 +51,7 @@
             adder_subtractor->adder_subtractor_subtract(adder_subtractor_subtract);
             adder_subtractor->adder_subtractor_sum(adder_subtractor_sum);
 
-            for(int i = 0; i < 4; i++) {
+            for(int i = 0; i < MULTIPLIER_COUNT; i++) {
                 multiplier[i] = new MULTIPLIER<T>(("multiplier_" + to_string(i)).c_str());
                 multiplier[i]->multiplier_clock(cell_clock);
                 multiplier[i]->multiplier_reset(multiplier_reset[i]);
@@ -63,7 +67,7 @@
         ~CELL(void) {
             delete adder_subtractor;
 
-            for(int i = 0; i < 4; i++) {
+            for(int i = 0; i < MULTIPLIER_COUNT; i++) {
                 delete multiplier[i];
             }
         }

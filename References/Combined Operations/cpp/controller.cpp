@@ -83,12 +83,14 @@ void CONTROLLER<T>::control(void) {
                     controller_c_in_d[i][0].write(btint<T>().from_int(1));
                 }
             }
-            for(int i = 0, k = 0; i < MIN_DIMENSION; i++, k += 2) {
+            int k = 0;
+            for(int i = 0; i < MIN_DIMENSION; i++) {
                 if(steps >= 0 + k && steps < MIN_DIMENSION + i) {
                     controller_a_in[0][i].write(controller_m_a[MIN_DIMENSION - 1 - steps + i][MIN_DIMENSION - 1 - i].read());
                 } else {
                     controller_a_in[0][i].write(BTINT_ZERO(T));
                 }
+                k += 2;
             }
             for(int i = 0; i < MIN_DIMENSION; i++) {
                 if(steps >= 2 * MIN_DIMENSION - 1 && steps < 2 * MIN_DIMENSION + i) {

@@ -22,6 +22,7 @@ SC_MODULE(SYSTEM) {
 
     sc_signal<bool> uart_transmitter_reset_active_low;
     sc_signal<btint<T>> uart_transmitter_input[X_DIMENSION][X_DIMENSION];
+    sc_signal<int>  uart_transmitter_column;
 
     sc_signal<bool> uart_transmitter_output;
 
@@ -86,6 +87,7 @@ SC_MODULE(SYSTEM) {
                 uart_transmitter->uart_transmitter_input[i][j](uart_transmitter_input[i][j]);
             }
         }
+        uart_transmitter->uart_transmitter_column(uart_transmitter_column);
         uart_transmitter->uart_transmitter_output(uart_transmitter_output);
     }
 

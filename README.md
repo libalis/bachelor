@@ -20,14 +20,16 @@ An implementation of parameterized systolic arrays, the balanced ternary system,
 | Dependency name | Tested version | Minimum version |
 | --- | --- | --- |
 | [AMD Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html) | 2023.2 | 2019.1 |
-| [CMake](https://www.cmake.org) | 3.31 | 3.12 |
+| [CMake](https://www.cmake.org) | 3.28 | 3.12 |
 | [Dialog](https://invisible-island.net/dialog) | 1.3 | - |
-| [GNU Compiler Collection](https://gcc.gnu.org) | 14.2 | - |
-| [GNU Make](https://www.gnu.org/software/make) | 4.4 | - |
-| [Intel Compiler for SystemC](https://github.com/intel/systemc-compiler) | 1.6.15 | [1.6.12](https://github.com/intel/systemc-compiler/issues/80) |
-| [Stack](https://www.haskellstack.org) | 3.3 | - |
+| [Distrobox](https://distrobox.it) | 1.7 | - |
+| [GNU Compiler Collection](https://gcc.gnu.org) | 13.3 | - |
+| [GNU Make](https://www.gnu.org/software/make) | 4.3 | - |
+| [Intel Compiler for SystemC](https://github.com/intel/systemc-compiler) | 1.6.17 | [1.6.12](https://github.com/intel/systemc-compiler/issues/80) |
+| [Stack](https://www.haskellstack.org) | 2.9 | - |
 | [SystemC](https://www.accellera.org/downloads/standards/systemc) | 3.0 | 2.3 |
-| [SystemVerilog to Verilog](https://github.com/zachjs/sv2v) | 0.0.12 | - |
+| [SystemVerilog to Verilog](https://github.com/zachjs/sv2v) | 0.0.13 | - |
+| [Ubuntu](https://ubuntu.com) | 24.04 | 22.04 |
 
 (Compatibility with other versions is possible, but not guaranteed)
 ## Automated installation (binary, synthesis, and conversion)
