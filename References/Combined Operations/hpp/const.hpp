@@ -52,7 +52,7 @@
     #endif
 
     #ifdef INPUT_OUTPUT
-        sc_biguint<2> op;
+        inline sc_biguint<2> op;
     #else
         const sc_biguint<2> op = MATRIX_INVERSION;
     #endif

@@ -1,0 +1,2 @@
+CompileFlags:
+    Add: [-DINPUT_OUTPUT, -DDECIMAL_INPUT, -DINPUT_DAT="./dat/decimal_input.dat"]

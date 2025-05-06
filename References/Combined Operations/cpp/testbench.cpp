@@ -1,9 +1,10 @@
-#include <iomanip>
-
 #include "../hpp/testbench.hpp"
 
 template <size_t T>
 void TESTBENCH<T>::source(void) {
+    #ifdef INPUT_OUTPUT
+        io.read();
+    #endif
     testbench_reset.write(1);
     for(int i = 0; i < X_DIMENSION; i++) {
         for(int j = 0; j < Y_DIMENSION; j++) {
@@ -105,6 +106,12 @@ template <size_t T>
 void TESTBENCH<T>::sink(void) {
     btint<T> indata_u[X_DIMENSION][X_DIMENSION];
     btint<T> indata_d[X_DIMENSION][X_DIMENSION];
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < X_DIMENSION; j++) {
+            indata_u[i][j] = BTINT_ZERO(T);
+            indata_d[i][j] = BTINT_ZERO(T);
+        }
+    }
     do {
         wait();
     } while(!testbench_done);
@@ -115,7 +122,7 @@ void TESTBENCH<T>::sink(void) {
             for(int j = 0; j < MIN_DIMENSION; j++) {
                 indata_u[i][j] = testbench_result_u[i][j].read();
                 indata_d[i][j] = testbench_result_d[i][j].read();
-                if(indata_u[i][j].to_int() == 0) {
+                if(indata_d[i][j].to_int() == 0) {
                     cout << fixed << setprecision(3) << setw(7) << 0.0f << " ";
                 } else {
                     cout << fixed << setprecision(3) << setw(7) << (float)indata_u[i][j].to_int() / indata_d[i][j].to_int() << " ";
@@ -126,7 +133,7 @@ void TESTBENCH<T>::sink(void) {
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
                 for(int k = T - 1; k >= 0; k--) {
-                    cout << testbench_result_u[i][j].read().btint_a[k] << testbench_result_u[i][j].read().btint_b[k];
+                    cout << indata_u[i][j].btint_a[k] << indata_u[i][j].btint_b[k];
                 }
             }
         }
@@ -134,7 +141,7 @@ void TESTBENCH<T>::sink(void) {
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
                 for(int k = T - 1; k >= 0; k--) {
-                    cout << testbench_result_d[i][j].read().btint_a[k] << testbench_result_d[i][j].read().btint_b[k];
+                    cout << indata_d[i][j].btint_a[k] << indata_d[i][j].btint_b[k];
                 }
             }
         }
@@ -149,7 +156,7 @@ void TESTBENCH<T>::sink(void) {
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
                 for(int k = T - 1; k >= 0; k--) {
-                    cout << testbench_result_u[i][j].read().btint_a[k] << testbench_result_u[i][j].read().btint_b[k];
+                    cout << indata_u[i][j].btint_a[k] << indata_u[i][j].btint_b[k];
                 }
             }
         }
@@ -161,10 +168,13 @@ void TESTBENCH<T>::sink(void) {
         for(int i = 0; i < X_DIMENSION; i++) {
             for(int j = 0; j < X_DIMENSION; j++) {
                 for(int k = T - 1; k >= 0; k--) {
-                    cout << testbench_result_u[i][j].read().btint_a[k] << testbench_result_u[i][j].read().btint_b[k];
+                    cout << indata_u[i][j].btint_a[k] << indata_u[i][j].btint_b[k];
                 }
             }
         }
     }
+    #ifdef INPUT_OUTPUT
+        io.write(indata_u, indata_d);
+    #endif
     sc_stop();
 }

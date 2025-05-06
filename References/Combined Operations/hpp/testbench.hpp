@@ -2,6 +2,7 @@
     #define TESTBENCH_HPP
 
     #include "const.hpp"
+    #include "io.hpp"
 
     template <size_t T>
     SC_MODULE(TESTBENCH) {
@@ -15,6 +16,10 @@
         sc_out<btint<T>> testbench_m_b[Y_DIMENSION][X_DIMENSION];
         sc_out<btint<T>> testbench_v[Y_DIMENSION];
         sc_out<sc_biguint<2>> testbench_op;
+
+        #ifdef INPUT_OUTPUT
+            IO<T> io;
+        #endif
 
         void source(void);
         void sink(void);
