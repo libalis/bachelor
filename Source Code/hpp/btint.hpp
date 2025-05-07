@@ -6,7 +6,7 @@
     #endif
 
     #ifndef TRITS
-        #define TRITS (32)
+        #define TRITS (8)
     #endif
 
     #include <systemc>
@@ -108,6 +108,10 @@
             output.btint_b = btint_b.range(TRITS - 1 + to, to);
             output.overflow = overflow;
             return output;
+        }
+
+        btint<TRITS> reduce(void) const {
+            return btint<TRITS>().from_int(to_int());
         }
 
         btint set_overflow(int value) const {

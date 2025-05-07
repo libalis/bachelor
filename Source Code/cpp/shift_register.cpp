@@ -13,7 +13,8 @@ void SHIFT_REGISTER<T>::shift(void) {
         state = state.shift_right(1);
         state = state.set_value(T - 1, input.get_value(0));
         shift_register_state.write(state);
-        shift_register_output.write(input.range(T, 1));
+        input = input.shift_right(1);
+        shift_register_output.write(input.reduce());
         wait();
     }
 }

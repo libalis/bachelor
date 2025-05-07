@@ -79,7 +79,7 @@
 # ----------------------------------------------------------------------------
 # Clock Source - Bank 13
 # ----------------------------------------------------------------------------
-set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
+set_property PACKAGE_PIN Y9 [get_ports {combined_operations_clock}];  # "GCLK"
 
 # ----------------------------------------------------------------------------
 # JA Pmod - Bank 13
@@ -172,8 +172,8 @@ set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
 # ----------------------------------------------------------------------------
 # User LEDs - Bank 33
 # ----------------------------------------------------------------------------
-#set_property PACKAGE_PIN T22 [get_ports {LD0}];  # "LD0"
-#set_property PACKAGE_PIN T21 [get_ports {LD1}];  # "LD1"
+set_property PACKAGE_PIN T22 [get_ports {combined_operations_done}];  # "LD0"
+set_property PACKAGE_PIN T21 [get_ports {uart_transmitter_output}];  # "LD1"
 #set_property PACKAGE_PIN U22 [get_ports {LD2}];  # "LD2"
 #set_property PACKAGE_PIN U21 [get_ports {LD3}];  # "LD3"
 #set_property PACKAGE_PIN V22 [get_ports {LD4}];  # "LD4"
@@ -202,7 +202,7 @@ set_property PACKAGE_PIN Y9 [get_ports {matrix_vector_clock}];  # "GCLK"
 # ----------------------------------------------------------------------------
 # User Push Buttons - Bank 34
 # ----------------------------------------------------------------------------
-set_property PACKAGE_PIN P16 [get_ports {matrix_vector_reset}];  # "BTNC"
+set_property PACKAGE_PIN P16 [get_ports {combined_operations_reset}];  # "BTNC"
 #set_property PACKAGE_PIN R16 [get_ports {BTND}];  # "BTND"
 #set_property PACKAGE_PIN N15 [get_ports {BTNL}];  # "BTNL"
 #set_property PACKAGE_PIN R18 [get_ports {BTNR}];  # "BTNR"

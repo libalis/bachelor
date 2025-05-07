@@ -1,6 +1,6 @@
 PROGRAM := bachelor
 CC := g++
-CFLAGS := -g
+CFLAGS := -g -DINPUT_OUTPUT -DDECIMAL_INPUT -DINPUT_DAT=\"./dat/decimal_input.dat\"
 LDFLAGS := -lsystemc
 BUILD_DIR := ./build
 CPP_DIR := ./cpp

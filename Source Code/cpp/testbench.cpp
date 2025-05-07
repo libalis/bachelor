@@ -3,159 +3,178 @@
 template <size_t T>
 void TESTBENCH<T>::source(void) {
     #ifdef INPUT_OUTPUT
-        string line;
-        int i = 0;
-        while(i < X_DIMENSION) {
-            getline(input_dat, line);
-            char *token = strtok(&line[0], " \n");
-            int j = 0;
-            while(j < Y_DIMENSION) {
-                #ifdef DECIMAL_INPUT
-                    m<T>[i][j] = btint<T>().from_int(stoi(string(token)));
-                #else
-                    m<T>[i][j] = BTINT_ZERO(T);
-                    bool isNegative;
-                    for(char value : string(token)) {
-                        switch(value) {
-                            case '-':
-                                isNegative = 1;
-                                break;
-                            default:
-                                m<T>[i][j] = m<T>[i][j].shift_left(1);
-                                m<T>[i][j] = m<T>[i][j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
-                                isNegative = 0;
-                                break;
-                        }
-                    }
-                #endif
-                token = strtok(NULL, " \n");
-                j++;
-            }
-            i++;
-        }
-        getline(input_dat, line);
-        getline(input_dat, line);
-        char *token = strtok(&line[0], " \n");
-        int j = 0;
-        while(j < Y_DIMENSION) {
-            #ifdef DECIMAL_INPUT
-                v<T>[j] = btint<T>().from_int(stoi(string(token)));
-            #else
-                v<T>[j] = BTINT_ZERO(T);
-                bool isNegative;
-                for(char value : string(token)) {
-                    switch(value) {
-                        case '-':
-                            isNegative = 1;
-                            break;
-                        default:
-                            v<T>[j] = v<T>[j].shift_left(1);
-                            v<T>[j] = v<T>[j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
-                            isNegative = 0;
-                            break;
-                    }
-                }
-            #endif
-            token = strtok(NULL, " \n");
-            j++;
-        }
+        io.read();
     #endif
-    testbench_valid.write(0);
     testbench_reset.write(1);
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            testbench_m_a[i][j].write(m_a<T>[i][j]);
+        }
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        for(int j = 0; j < X_DIMENSION; j++) {
+            testbench_m_b[i][j].write(m_b<T>[i][j]);
+        }
+    }
+    for(int i = 0; i < Y_DIMENSION; i++) {
+        testbench_v[i].write(v<T>[i]);
+    }
+    testbench_op.write(op);
     wait();
     testbench_reset.write(0);
     wait();
-    printf("Matrix:\n");
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 0; j < Y_DIMENSION; j++) {
-            testbench_matrix[i][j].write(m<T>[i][j]);
-            printf("%3d ", m<T>[i][j].to_int());
+    if(testbench_op.read() == MATRIX_INVERSION) {
+        cout << "Matrix-Inversion" << endl;
+        cout << "Matrix-A:" << endl;
+        for(int i = 0; i < MIN_DIMENSION; i++) {
+            for(int j = 0; j < MIN_DIMENSION; j++) {
+                cout << fixed << setprecision(3) << setw(7) << (float)testbench_m_a[i][j].read().to_int() << " ";
+            }
+            cout << endl;
         }
-        printf("\n");
-    }
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 0; j < Y_DIMENSION; j++) {
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << testbench_m_a[i][j].read().btint_a[k] << testbench_m_a[i][j].read().btint_b[k];
+                }
+            }
+        }
+        cout << endl;
+    } else if(testbench_op.read() == MATRIX_MATRIX_MULTIPLICATION) {
+        cout << "Matrix-Matrix-Multiplication" << endl;
+        cout << "Matrix-A:" << endl;
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
+                cout << setw(3) << testbench_m_a[i][j].read().to_int() << " ";
+            }
+            cout << endl;
+        }
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << testbench_m_a[i][j].read().btint_a[k] << testbench_m_a[i][j].read().btint_b[k];
+                }
+            }
+        }
+        cout << endl;
+        cout << "Matrix-B:" << endl;
+        for(int i = 0; i < Y_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                cout << setw(3) << testbench_m_b[i][j].read().to_int() << " ";
+            }
+            cout << endl;
+        }
+        for(int i = 0; i < Y_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << testbench_m_b[i][j].read().btint_a[k] << testbench_m_b[i][j].read().btint_b[k];
+                }
+            }
+        }
+        cout << endl;
+    } else {
+        cout << "Matrix-Vector-Multiplication" << endl;
+        cout << "Matrix-A:" << endl;
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
+                cout << setw(3) << testbench_m_a[i][j].read().to_int() << " ";
+            }
+            cout << endl;
+        }
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < Y_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << testbench_m_a[i][j].read().btint_a[k] << testbench_m_a[i][j].read().btint_b[k];
+                }
+            }
+        }
+        cout << endl;
+        cout << "Vector:" << endl;
+        for(int i = 0; i < Y_DIMENSION; i++) {
+            cout << setw(3) << testbench_v[i].read().to_int() << endl;
+        }
+        for(int i = 0; i < Y_DIMENSION; i++) {
             for(int k = T - 1; k >= 0; k--) {
-                cout << m<T>[i][j].btint_a[k];
+                cout << testbench_v[i].read().btint_a[k] << testbench_v[i].read().btint_b[k];
             }
         }
+        cout << endl;
     }
-    cout << endl;
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 0; j < Y_DIMENSION; j++) {
-            for(int k = T - 1; k >= 0; k--) {
-                cout << m<T>[i][j].btint_b[k];
-            }
-        }
-    }
-    cout << endl;
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 0; j < Y_DIMENSION; j++) {
-            for(int k = 1; k >= 0; k--) {
-                cout << m<T>[i][j].overflow[k];
-            }
-        }
-    }
-    cout << endl;
-    printf("Vektor:\n");
-    for(int i = 0; i < Y_DIMENSION; i++) {
-        testbench_vector[i].write(v<T>[i]);
-        printf("%3d ", v<T>[i].to_int());
-        printf("\n");
-    }
-    for(int i = 0; i < Y_DIMENSION; i++) {
-        for(int j = T - 1; j >= 0; j--) {
-            cout << v<T>[i].btint_a[j];
-        }
-    }
-    cout << endl;
-    for(int i = 0; i < Y_DIMENSION; i++) {
-        for(int j = T - 1; j >= 0; j--) {
-            cout << v<T>[i].btint_b[j];
-        }
-    }
-    cout << endl;
-    for(int i = 0; i < Y_DIMENSION; i++) {
-        for(int j = 1; j >= 0; j--) {
-            cout << v<T>[i].overflow[j];
-        }
-    }
-    cout << endl;
-    testbench_valid.write(1);
 }
 
 template <size_t T>
 void TESTBENCH<T>::sink(void) {
-    btint<T> indata[X_DIMENSION];
+    btint<T> indata_u[X_DIMENSION][X_DIMENSION];
+    btint<T> indata_d[X_DIMENSION][X_DIMENSION];
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < X_DIMENSION; j++) {
+            indata_u[i][j] = BTINT_ZERO(T);
+            indata_d[i][j] = BTINT_ZERO(T);
+        }
+    }
     do {
         wait();
     } while(!testbench_done);
     wait();
-    printf("Result:\n");
-    for(int i = 0; i < X_DIMENSION; i++) {
-        indata[i] = testbench_result[i].read();
-        printf("%3d ", indata[i].to_int());
-        printf("\n");
-        #ifdef INPUT_OUTPUT
-            output_dat << indata[i].to_int() << endl;
-        #endif
-    }
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = T - 1; j >= 0; j--) {
-            cout << indata[i].btint_a[j];
+    cout << "Result:" << endl;
+    if(testbench_op.read() == MATRIX_INVERSION) {
+        for(int i = 0; i < MIN_DIMENSION; i++) {
+            for(int j = 0; j < MIN_DIMENSION; j++) {
+                indata_u[i][j] = testbench_result_u[i][j].read();
+                indata_d[i][j] = testbench_result_d[i][j].read();
+                if(indata_d[i][j].to_int() == 0) {
+                    cout << fixed << setprecision(3) << setw(7) << 0.0f << " ";
+                } else {
+                    cout << fixed << setprecision(3) << setw(7) << (float)indata_u[i][j].to_int() / indata_d[i][j].to_int() << " ";
+                }
+            }
+            cout << endl;
+        }
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << indata_u[i][j].btint_a[k] << indata_u[i][j].btint_b[k];
+                }
+            }
+        }
+        cout << endl;
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << indata_d[i][j].btint_a[k] << indata_d[i][j].btint_b[k];
+                }
+            }
+        }
+    } else if(testbench_op.read() == MATRIX_MATRIX_MULTIPLICATION) {
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                indata_u[i][j] = testbench_result_u[i][j].read();
+                cout << setw(3) << indata_u[i][j].to_int() << " ";
+            }
+            cout << endl;
+        }
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << indata_u[i][j].btint_a[k] << indata_u[i][j].btint_b[k];
+                }
+            }
+        }
+    } else {
+        for(int i = 0; i < X_DIMENSION; i++) {
+            indata_u[i][0] = testbench_result_u[i][0].read();
+            cout << setw(3) << indata_u[i][0].to_int() << endl;
+        }
+        for(int i = 0; i < X_DIMENSION; i++) {
+            for(int j = 0; j < X_DIMENSION; j++) {
+                for(int k = T - 1; k >= 0; k--) {
+                    cout << indata_u[i][j].btint_a[k] << indata_u[i][j].btint_b[k];
+                }
+            }
         }
     }
-    cout << endl;
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = T - 1; j >= 0; j--) {
-            cout << indata[i].btint_b[j];
-        }
-    }
-    cout << endl;
-    for(int i = 0; i < X_DIMENSION; i++) {
-        for(int j = 1; j >= 0; j--) {
-            cout << indata[i].overflow[j];
-        }
-    }
+    #ifdef INPUT_OUTPUT
+        io.write(indata_u, indata_d);
+    #endif
     sc_stop();
 }
