@@ -6,11 +6,14 @@
 # Block Designs: bd/bachelor/bachelor.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor || ORIG_REF_NAME==bachelor} -quiet] -quiet
 
-# IP: bd/bachelor/ip/bachelor_MATRIX_VECTOR_0_0/bachelor_MATRIX_VECTOR_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_MATRIX_VECTOR_0_0 || ORIG_REF_NAME==bachelor_MATRIX_VECTOR_0_0} -quiet] -quiet
+# IP: bd/bachelor/ip/bachelor_COMBINED_OPERATIONS_0_0/bachelor_COMBINED_OPERATIONS_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_COMBINED_OPERATIONS_0_0 || ORIG_REF_NAME==bachelor_COMBINED_OPERATIONS_0_0} -quiet] -quiet
 
 # IP: bd/bachelor/ip/bachelor_UART_TRANSMITTER_0_0/bachelor_UART_TRANSMITTER_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_UART_TRANSMITTER_0_0 || ORIG_REF_NAME==bachelor_UART_TRANSMITTER_0_0} -quiet] -quiet
+
+# IP: bd/bachelor/ip/bachelor_UART_TRANSMITTER_1_0/bachelor_UART_TRANSMITTER_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_UART_TRANSMITTER_1_0 || ORIG_REF_NAME==bachelor_UART_TRANSMITTER_1_0} -quiet] -quiet
 
 # IP: bd/bachelor/ip/bachelor_vio_0_0/bachelor_vio_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bachelor_vio_0_0 || ORIG_REF_NAME==bachelor_vio_0_0} -quiet] -quiet

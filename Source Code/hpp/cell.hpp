@@ -23,13 +23,13 @@
         sc_out<btint<T>> cell_c_out_d;
         sc_out<bool> cell_s_out;
 
-        ADDER_SUBTRACTOR<T> *adder_subtractor;
+        ADDER_SUBTRACTOR<2 * T> *adder_subtractor;
 
-        sc_signal<btint<T>> adder_subtractor_a;
-        sc_signal<btint<T>> adder_subtractor_b;
+        sc_signal<btint<2 * T>> adder_subtractor_a;
+        sc_signal<btint<2 * T>> adder_subtractor_b;
         sc_signal<bool> adder_subtractor_subtract;
 
-        sc_signal<btint<T + 1>> adder_subtractor_sum;
+        sc_signal<btint<2 * T + 1>> adder_subtractor_sum;
 
         MULTIPLIER<T> *multiplier[MULTIPLIER_COUNT];
 
@@ -45,7 +45,7 @@
         void compute(void);
 
         SC_CTOR(CELL) {
-            adder_subtractor = new ADDER_SUBTRACTOR<T>("adder_subtractor");
+            adder_subtractor = new ADDER_SUBTRACTOR<2 * T>("adder_subtractor");
             adder_subtractor->adder_subtractor_a(adder_subtractor_a);
             adder_subtractor->adder_subtractor_b(adder_subtractor_b);
             adder_subtractor->adder_subtractor_subtract(adder_subtractor_subtract);

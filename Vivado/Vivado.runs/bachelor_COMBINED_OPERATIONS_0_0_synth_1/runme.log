@@ -1,0 +1,817 @@
+
+*** Running vivado
+    with args -log bachelor_COMBINED_OPERATIONS_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bachelor_COMBINED_OPERATIONS_0_0.tcl
+
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source bachelor_COMBINED_OPERATIONS_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1322.801 ; gain = 0.023 ; free physical = 3859 ; free virtual = 25914
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: bachelor_COMBINED_OPERATIONS_0_0
+Command: synth_design -top bachelor_COMBINED_OPERATIONS_0_0 -part xc7z020clg484-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 4388
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1707.578 ; gain = 384.777 ; free physical = 3298 ; free virtual = 25356
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-1958] event expressions must result in a singular type [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2294]
+WARNING: [Synth 8-1958] event expressions must result in a singular type [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2294]
+WARNING: [Synth 8-1958] event expressions must result in a singular type [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2294]
+INFO: [Synth 8-6157] synthesizing module 'bachelor_COMBINED_OPERATIONS_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_COMBINED_OPERATIONS_0_0/synth/bachelor_COMBINED_OPERATIONS_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'COMBINED_OPERATIONS' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1]
+INFO: [Synth 8-6157] synthesizing module 'CELL' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:417]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:985]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1132]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1374]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1569]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1723]
+WARNING: [Synth 8-324] index 3 out of range [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1864]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1874]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2162]
+INFO: [Synth 8-6157] synthesizing module 'ADDER_SUBTRACTOR' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2736]
+INFO: [Synth 8-6157] synthesizing module 'FULLADDER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3073]
+INFO: [Synth 8-6155] done synthesizing module 'FULLADDER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3073]
+INFO: [Synth 8-6155] done synthesizing module 'ADDER_SUBTRACTOR' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2736]
+INFO: [Synth 8-6157] synthesizing module 'MULTIPLIER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3094]
+INFO: [Synth 8-6157] synthesizing module 'ADDER_SUBTRACTOR0' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4108]
+INFO: [Synth 8-6155] done synthesizing module 'ADDER_SUBTRACTOR0' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4108]
+INFO: [Synth 8-6157] synthesizing module 'SHIFT_REGISTER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4333]
+INFO: [Synth 8-6155] done synthesizing module 'SHIFT_REGISTER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4333]
+INFO: [Synth 8-6155] done synthesizing module 'MULTIPLIER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3094]
+INFO: [Synth 8-6155] done synthesizing module 'CELL' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:417]
+INFO: [Synth 8-6157] synthesizing module 'CONTROLLER' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5001]
+INFO: [Synth 8-6155] done synthesizing module 'CONTROLLER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5001]
+INFO: [Synth 8-6155] done synthesizing module 'COMBINED_OPERATIONS' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'bachelor_COMBINED_OPERATIONS_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_COMBINED_OPERATIONS_0_0/synth/bachelor_COMBINED_OPERATIONS_0_0.v:53]
+WARNING: [Synth 8-3848] Net output_sum[0][0] in module/entity ADDER_SUBTRACTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2762]
+WARNING: [Synth 8-3848] Net one in module/entity ADDER_SUBTRACTOR does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:2759]
+WARNING: [Synth 8-3848] Net output_sum[0][0] in module/entity ADDER_SUBTRACTOR0 does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4134]
+WARNING: [Synth 8-3848] Net one in module/entity ADDER_SUBTRACTOR0 does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4131]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.input_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4887]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.input_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4888]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.input_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4889]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.state_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4890]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.state_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4891]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.state_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4892]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_0_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4893]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4894]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4895]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4896]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_index_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4901]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4902]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_a_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4903]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_b_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4904]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_overflow_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4905]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_2_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4925]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_2_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4926]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_2_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4927]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_0_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4933]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_0_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4934]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_1_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4935]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_1_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4936]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_1_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4937]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_3_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4941]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_a_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4942]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_b_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4943]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_overflow_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4944]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_index_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4949]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_value_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4950]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_a_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4951]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_btint_b_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4952]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.output_overflow_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4953]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_3_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4981]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_3_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4982]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_4_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4983]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_4_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4984]
+WARNING: [Synth 8-6014] Unused sequential element shift_ff.sv2v_autoblock_3.TMP_4_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:4985]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_a_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3854]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_a_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3855]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_a_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3856]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_b_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3857]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_b_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3858]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.input_b_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3859]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3860]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3861]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.a_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3862]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.state_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3863]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.state_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3864]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.state_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3865]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.product_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3866]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.product_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3867]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.product_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3868]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_0_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3869]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3870]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3871]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3872]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_index_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3877]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3878]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3879]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3880]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3881]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_2_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3891]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_2_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3892]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_2_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3893]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_0_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3899]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_0_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3900]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_1_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3901]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_1_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3902]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_1_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3903]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_3_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3908]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3909]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3910]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3911]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_index_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3916]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_value_1_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3917]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3918]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3919]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_3_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3920]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_5_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3930]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_5_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3931]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_5_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3932]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_3_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3938]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_3_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3939]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_4_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3940]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_4_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3941]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_4_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3942]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_6_value_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3946]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_4_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3947]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_4_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3948]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_4_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3949]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_index_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3954]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_value_2_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3955]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_a_5_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3956]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_btint_b_5_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3957]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.output_overflow_5_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3958]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_6_isNegative_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3976]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_6_i_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3977]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_7_btint_a_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3978]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_7_btint_b_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3979]
+WARNING: [Synth 8-6014] Unused sequential element multiply_ff.sv2v_autoblock_10.TMP_7_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:3980]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3848] Net controller_a_in_btint_b_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5087]
+WARNING: [Synth 8-3848] Net controller_a_in_overflow_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5088]
+WARNING: [Synth 8-3848] Net controller_c_in_u_btint_b_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5090]
+WARNING: [Synth 8-3848] Net controller_c_in_u_overflow_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5091]
+WARNING: [Synth 8-3848] Net controller_c_in_d_btint_b_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5093]
+WARNING: [Synth 8-3848] Net controller_c_in_d_overflow_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5094]
+WARNING: [Synth 8-3848] Net controller_result_u_btint_b_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5099]
+WARNING: [Synth 8-3848] Net controller_result_u_overflow_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5100]
+WARNING: [Synth 8-3848] Net controller_result_d_btint_b_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5102]
+WARNING: [Synth 8-3848] Net controller_result_d_overflow_next in module/entity CONTROLLER does not have driver. [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5103]
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[23] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[22] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[21] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[20] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[19] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[18] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[17] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[16] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[15] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[14] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[13] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[12] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[11] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[10] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[9] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[8] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[7] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[6] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[5] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[4] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[3] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[2] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_a[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[23] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[22] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[21] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[20] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[19] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[18] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[17] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[16] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[15] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[14] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[13] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[12] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[11] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[10] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[9] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[8] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[7] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[6] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[5] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[4] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[3] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[2] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_btint_b[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_overflow[5] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_overflow[4] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_overflow[3] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_overflow[2] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_overflow[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_a_out_overflow[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[7] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[6] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[5] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[4] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[3] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[2] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_a[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[7] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[6] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[5] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[4] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[3] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[2] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_btint_b[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_overflow[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_c_out_d_overflow[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_s_out[9] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_s_out[6] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_s_out[3] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_s_out[2] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_s_out[1] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port controller_s_out[0] in module CONTROLLER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[1] in module MULTIPLIER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multiplier_b_overflow[0] in module MULTIPLIER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_sum_btint_a[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[1] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_a_overflow[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[1] in module ADDER_SUBTRACTOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port adder_subtractor_b_overflow[0] in module ADDER_SUBTRACTOR is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1814.516 ; gain = 491.715 ; free physical = 3204 ; free virtual = 25266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1826.391 ; gain = 503.590 ; free physical = 3208 ; free virtual = 25270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1834.395 ; gain = 511.594 ; free physical = 3208 ; free virtual = 25270
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+WARNING: [Synth 8-327] inferring latch for variable 'controller_a_in_btint_a_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5691]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_a_in_btint_b_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5738]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_a_in_overflow_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5739]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_c_in_u_btint_a_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5693]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_c_in_u_btint_b_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5751]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_c_in_u_overflow_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5752]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_c_in_d_btint_a_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5692]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_c_in_d_btint_b_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5754]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_c_in_d_overflow_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5755]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_result_u_btint_a_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5696]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_result_u_btint_b_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5722]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_result_u_overflow_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5723]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_result_d_btint_a_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5695]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_result_d_btint_b_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5725]
+WARNING: [Synth 8-327] inferring latch for variable 'controller_result_d_overflow_reg' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:5726]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 1898.160 ; gain = 575.359 ; free physical = 3145 ; free virtual = 25233
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 372   
+	   4 Input   32 Bit       Adders := 1596  
+	   2 Input   32 Bit       Adders := 499   
+	   2 Input    7 Bit       Adders := 4     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 4     
+	   2 Input    2 Bit       Adders := 636   
++---XORs : 
+	   2 Input      1 Bit         XORs := 1152  
++---Registers : 
+	              128 Bit    Registers := 4     
+	               96 Bit    Registers := 1     
+	               32 Bit    Registers := 100   
+	               16 Bit    Registers := 145   
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 720   
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 13    
+	                2 Bit    Registers := 276   
+	                1 Bit    Registers := 123   
++---Multipliers : 
+	               2x32  Multipliers := 3     
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 32    
+	   2 Input   96 Bit        Muxes := 21    
+	   4 Input   96 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 359   
+	   3 Input   32 Bit        Muxes := 36    
+	   6 Input   32 Bit        Muxes := 12    
+	   2 Input   24 Bit        Muxes := 13    
+	   4 Input   24 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 24    
+	   2 Input   12 Bit        Muxes := 3     
+	   2 Input   10 Bit        Muxes := 4     
+	   3 Input    8 Bit        Muxes := 96    
+	   2 Input    8 Bit        Muxes := 480   
+	   6 Input    8 Bit        Muxes := 12    
+	   3 Input    6 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   3 Input    5 Bit        Muxes := 1     
+	   6 Input    4 Bit        Muxes := 24    
+	   2 Input    4 Bit        Muxes := 16    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 12    
+	   3 Input    2 Bit        Muxes := 72    
+	   4 Input    2 Bit        Muxes := 780   
+	   2 Input    2 Bit        Muxes := 582   
+	   5 Input    2 Bit        Muxes := 12    
+	   3 Input    1 Bit        Muxes := 192   
+	   2 Input    1 Bit        Muxes := 238   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[95]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[94]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[93]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[92]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[91]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[90]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[89]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[88]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[87]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[86]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[85]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[84]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[83]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[82]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[81]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[80]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[79]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[78]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[77]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[76]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[75]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[74]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[73]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[72]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[71]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[70]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[69]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[68]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[67]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[66]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[65]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[64]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[63]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[62]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[61]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[60]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[59]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[58]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[57]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[56]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[55]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[54]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[53]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[52]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[51]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[50]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[49]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[48]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[47]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'controlleri_12/controller_a_in_btint_a_reg[46]/Q' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7249]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7251]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7251]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7251]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/robert/Downloads/Bachelor/Source Code/build/bachelor.v:7251]
+INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:00:52 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2862 ; free virtual = 24993
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:00:53 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2848 ; free virtual = 24986
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:00:57 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2860 ; free virtual = 24997
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:01:03 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2879 ; free virtual = 25009
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:01:04 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2878 ; free virtual = 25008
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|      536|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:08 ; elapsed = 00:01:06 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2873 ; free virtual = 25003
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:08 ; elapsed = 00:01:06 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2873 ; free virtual = 25003
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:08 ; elapsed = 00:01:06 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2863 ; free virtual = 24994
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:08 ; elapsed = 00:01:07 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2866 ; free virtual = 24997
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 | 11357|
+|2     |LUT1   | 37579|
+|3     |LUT2   |  3811|
+|4     |LUT3   |  1293|
+|5     |LUT4   |  2544|
+|6     |LUT5   |  1961|
+|7     |LUT6   |  2713|
+|8     |MUXF7  |   136|
+|9     |MUXF8  |    40|
+|10    |FDRE   |  3985|
+|11    |FDSE   |  2581|
+|12    |LD     |   536|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------------+--------------------+------+
+|      |Instance               |Module              |Cells |
++------+-----------------------+--------------------+------+
+|1     |top                    |                    | 68536|
+|2     |  inst                 |COMBINED_OPERATIONS | 68536|
+|3     |    cell_3_1           |CELL_9              |  5133|
+|4     |      multiplier_0     |MULTIPLIER_15       |  1399|
+|5     |        shift_register |SHIFT_REGISTER_22   |    24|
+|6     |      multiplier_1     |MULTIPLIER_16       |  1290|
+|7     |        shift_register |SHIFT_REGISTER_21   |    24|
+|8     |      multiplier_2     |MULTIPLIER_17       |   811|
+|9     |        shift_register |SHIFT_REGISTER_20   |    24|
+|10    |      multiplier_3     |MULTIPLIER_18       |   702|
+|11    |        shift_register |SHIFT_REGISTER_19   |    21|
+|12    |    cell_3_2           |CELL_10             |  4385|
+|13    |      multiplier_0     |MULTIPLIER          |  1399|
+|14    |        shift_register |SHIFT_REGISTER_14   |    24|
+|15    |      multiplier_1     |MULTIPLIER_11       |  1290|
+|16    |        shift_register |SHIFT_REGISTER_13   |    24|
+|17    |      multiplier_2     |MULTIPLIER_12       |   781|
+|18    |        shift_register |SHIFT_REGISTER      |    24|
+|19    |    cell_0_0           |CELL                |  5646|
+|20    |      multiplier_0     |MULTIPLIER_95       |  1402|
+|21    |        shift_register |SHIFT_REGISTER_102  |    24|
+|22    |      multiplier_1     |MULTIPLIER_96       |  1290|
+|23    |        shift_register |SHIFT_REGISTER_101  |    24|
+|24    |      multiplier_2     |MULTIPLIER_97       |   811|
+|25    |        shift_register |SHIFT_REGISTER_100  |    24|
+|26    |      multiplier_3     |MULTIPLIER_98       |  1223|
+|27    |        shift_register |SHIFT_REGISTER_99   |    24|
+|28    |    cell_0_1           |CELL_0              |  5646|
+|29    |      multiplier_0     |MULTIPLIER_87       |  1402|
+|30    |        shift_register |SHIFT_REGISTER_94   |    24|
+|31    |      multiplier_1     |MULTIPLIER_88       |  1290|
+|32    |        shift_register |SHIFT_REGISTER_93   |    24|
+|33    |      multiplier_2     |MULTIPLIER_89       |   811|
+|34    |        shift_register |SHIFT_REGISTER_92   |    24|
+|35    |      multiplier_3     |MULTIPLIER_90       |  1223|
+|36    |        shift_register |SHIFT_REGISTER_91   |    24|
+|37    |    cell_0_2           |CELL_1              |  5645|
+|38    |      multiplier_0     |MULTIPLIER_79       |  1402|
+|39    |        shift_register |SHIFT_REGISTER_86   |    24|
+|40    |      multiplier_1     |MULTIPLIER_80       |  1290|
+|41    |        shift_register |SHIFT_REGISTER_85   |    24|
+|42    |      multiplier_2     |MULTIPLIER_81       |   811|
+|43    |        shift_register |SHIFT_REGISTER_84   |    24|
+|44    |      multiplier_3     |MULTIPLIER_82       |  1223|
+|45    |        shift_register |SHIFT_REGISTER_83   |    24|
+|46    |    cell_1_0           |CELL_2              |  5645|
+|47    |      multiplier_0     |MULTIPLIER_71       |  1402|
+|48    |        shift_register |SHIFT_REGISTER_78   |    24|
+|49    |      multiplier_1     |MULTIPLIER_72       |  1290|
+|50    |        shift_register |SHIFT_REGISTER_77   |    24|
+|51    |      multiplier_2     |MULTIPLIER_73       |   811|
+|52    |        shift_register |SHIFT_REGISTER_76   |    24|
+|53    |      multiplier_3     |MULTIPLIER_74       |  1223|
+|54    |        shift_register |SHIFT_REGISTER_75   |    24|
+|55    |    cell_1_1           |CELL_3              |  5646|
+|56    |      multiplier_0     |MULTIPLIER_63       |  1402|
+|57    |        shift_register |SHIFT_REGISTER_70   |    24|
+|58    |      multiplier_1     |MULTIPLIER_64       |  1290|
+|59    |        shift_register |SHIFT_REGISTER_69   |    24|
+|60    |      multiplier_2     |MULTIPLIER_65       |   811|
+|61    |        shift_register |SHIFT_REGISTER_68   |    24|
+|62    |      multiplier_3     |MULTIPLIER_66       |  1223|
+|63    |        shift_register |SHIFT_REGISTER_67   |    24|
+|64    |    cell_1_2           |CELL_4              |  5645|
+|65    |      multiplier_0     |MULTIPLIER_55       |  1402|
+|66    |        shift_register |SHIFT_REGISTER_62   |    24|
+|67    |      multiplier_1     |MULTIPLIER_56       |  1290|
+|68    |        shift_register |SHIFT_REGISTER_61   |    24|
+|69    |      multiplier_2     |MULTIPLIER_57       |   811|
+|70    |        shift_register |SHIFT_REGISTER_60   |    24|
+|71    |      multiplier_3     |MULTIPLIER_58       |  1223|
+|72    |        shift_register |SHIFT_REGISTER_59   |    24|
+|73    |    cell_2_0           |CELL_5              |  5645|
+|74    |      multiplier_0     |MULTIPLIER_47       |  1402|
+|75    |        shift_register |SHIFT_REGISTER_54   |    24|
+|76    |      multiplier_1     |MULTIPLIER_48       |  1290|
+|77    |        shift_register |SHIFT_REGISTER_53   |    24|
+|78    |      multiplier_2     |MULTIPLIER_49       |   811|
+|79    |        shift_register |SHIFT_REGISTER_52   |    24|
+|80    |      multiplier_3     |MULTIPLIER_50       |  1223|
+|81    |        shift_register |SHIFT_REGISTER_51   |    24|
+|82    |    cell_2_1           |CELL_6              |  5648|
+|83    |      multiplier_0     |MULTIPLIER_39       |  1402|
+|84    |        shift_register |SHIFT_REGISTER_46   |    24|
+|85    |      multiplier_1     |MULTIPLIER_40       |  1290|
+|86    |        shift_register |SHIFT_REGISTER_45   |    24|
+|87    |      multiplier_2     |MULTIPLIER_41       |   811|
+|88    |        shift_register |SHIFT_REGISTER_44   |    24|
+|89    |      multiplier_3     |MULTIPLIER_42       |  1223|
+|90    |        shift_register |SHIFT_REGISTER_43   |    24|
+|91    |    cell_2_2           |CELL_7              |  5645|
+|92    |      multiplier_0     |MULTIPLIER_31       |  1402|
+|93    |        shift_register |SHIFT_REGISTER_38   |    24|
+|94    |      multiplier_1     |MULTIPLIER_32       |  1290|
+|95    |        shift_register |SHIFT_REGISTER_37   |    24|
+|96    |      multiplier_2     |MULTIPLIER_33       |   811|
+|97    |        shift_register |SHIFT_REGISTER_36   |    24|
+|98    |      multiplier_3     |MULTIPLIER_34       |  1223|
+|99    |        shift_register |SHIFT_REGISTER_35   |    24|
+|100   |    cell_3_0           |CELL_8              |  4970|
+|101   |      multiplier_0     |MULTIPLIER_23       |  1399|
+|102   |        shift_register |SHIFT_REGISTER_30   |    24|
+|103   |      multiplier_1     |MULTIPLIER_24       |  1290|
+|104   |        shift_register |SHIFT_REGISTER_29   |    24|
+|105   |      multiplier_2     |MULTIPLIER_25       |   733|
+|106   |        shift_register |SHIFT_REGISTER_28   |    24|
+|107   |      multiplier_3     |MULTIPLIER_26       |   639|
+|108   |        shift_register |SHIFT_REGISTER_27   |    21|
+|109   |    controller         |CONTROLLER          |  3237|
++------+-----------------------+--------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:08 ; elapsed = 00:01:07 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2867 ; free virtual = 24998
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 3082 critical warnings and 441 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:08 ; elapsed = 00:01:07 . Memory (MB): peak = 2149.816 ; gain = 827.016 ; free physical = 2867 ; free virtual = 24998
+Synthesis Optimization Complete : Time (s): cpu = 00:01:08 ; elapsed = 00:01:07 . Memory (MB): peak = 2149.824 ; gain = 827.016 ; free physical = 2867 ; free virtual = 24998
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.29 . Memory (MB): peak = 2149.824 ; gain = 0.000 ; free physical = 3149 ; free virtual = 25283
+INFO: [Netlist 29-17] Analyzing 12069 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2257.406 ; gain = 0.000 ; free physical = 3097 ; free virtual = 25246
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 536 instances were transformed.
+  LD => LDCE: 536 instances
+
+Synth Design complete | Checksum: 10fa3fff
+INFO: [Common 17-83] Releasing license: Synthesis
+45 Infos, 224 Warnings, 200 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:21 ; elapsed = 00:01:16 . Memory (MB): peak = 2257.441 ; gain = 934.641 ; free physical = 3096 ; free virtual = 25244
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1830.367; main = 1551.695; forked = 379.329
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3134.008; main = 2257.410; forked = 984.188
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.43 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2606.207 ; gain = 4.000 ; free physical = 2863 ; free virtual = 25045
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_COMBINED_OPERATIONS_0_0_synth_1/bachelor_COMBINED_OPERATIONS_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:10 . Memory (MB): peak = 2606.207 ; gain = 348.766 ; free physical = 2802 ; free virtual = 24980
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Coretcl 2-1174] Renamed 108 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.48 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2612.145 ; gain = 0.000 ; free physical = 2767 ; free virtual = 24996
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_COMBINED_OPERATIONS_0_0_synth_1/bachelor_COMBINED_OPERATIONS_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file bachelor_COMBINED_OPERATIONS_0_0_utilization_synth.rpt -pb bachelor_COMBINED_OPERATIONS_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jun  2 15:39:42 2025...

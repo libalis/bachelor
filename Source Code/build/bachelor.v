@@ -465,15 +465,15 @@ module CELL (
 	output reg [7:0] cell_c_out_d_btint_b;
 	output reg [1:0] cell_c_out_d_overflow;
 	output reg cell_s_out;
-	reg [7:0] adder_subtractor_a_btint_a;
-	reg [7:0] adder_subtractor_a_btint_b;
+	reg [15:0] adder_subtractor_a_btint_a;
+	reg [15:0] adder_subtractor_a_btint_b;
 	reg [1:0] adder_subtractor_a_overflow;
-	reg [7:0] adder_subtractor_b_btint_a;
-	reg [7:0] adder_subtractor_b_btint_b;
+	reg [15:0] adder_subtractor_b_btint_a;
+	reg [15:0] adder_subtractor_b_btint_b;
 	reg [1:0] adder_subtractor_b_overflow;
 	reg adder_subtractor_subtract;
-	wire [8:0] adder_subtractor_sum_btint_a;
-	wire [8:0] adder_subtractor_sum_btint_b;
+	wire [16:0] adder_subtractor_sum_btint_a;
+	wire [16:0] adder_subtractor_sum_btint_b;
 	wire [1:0] adder_subtractor_sum_overflow;
 	reg [0:3] multiplier_reset;
 	reg [31:0] multiplier_a_btint_a;
@@ -499,6 +499,8 @@ module CELL (
 	reg [63:0] product_btint_a_next;
 	reg [63:0] product_btint_b;
 	reg [63:0] product_btint_b_next;
+	reg [7:0] product_overflow;
+	reg [7:0] product_overflow_next;
 	reg [7:0] state_u_btint_a;
 	reg [7:0] state_u_btint_a_next;
 	reg [7:0] state_u_btint_b;
@@ -518,18 +520,17 @@ module CELL (
 	reg [31:0] multiplier_b_btint_a_next;
 	reg [31:0] multiplier_b_btint_b_next;
 	reg [7:0] multiplier_b_overflow_next;
-	reg [7:0] adder_subtractor_a_btint_a_next;
-	reg [7:0] adder_subtractor_a_btint_b_next;
+	reg [15:0] adder_subtractor_a_btint_a_next;
+	reg [15:0] adder_subtractor_a_btint_b_next;
 	reg [1:0] adder_subtractor_a_overflow_next;
-	reg [7:0] adder_subtractor_b_btint_a_next;
-	reg [7:0] adder_subtractor_b_btint_b_next;
+	reg [15:0] adder_subtractor_b_btint_a_next;
+	reg [15:0] adder_subtractor_b_btint_b_next;
 	reg [1:0] adder_subtractor_b_overflow_next;
 	reg adder_subtractor_subtract_next;
 	task compute_func;
-		reg [8:0] sum_btint_a;
-		reg [8:0] sum_btint_b;
+		reg [16:0] sum_btint_a;
+		reg [16:0] sum_btint_b;
 		reg [1:0] sum_overflow;
-		reg [1:0] product_overflow [0:3];
 		reg [7:0] c_in_u_btint_a;
 		reg [7:0] c_in_u_btint_b;
 		reg [1:0] c_in_u_overflow;
@@ -609,717 +610,295 @@ module CELL (
 		reg [7:0] TMP_10_btint_a;
 		reg [7:0] TMP_10_btint_b;
 		reg [1:0] TMP_10_overflow;
-		integer TMP_12;
-		integer product_output_v;
-		integer TMP_13;
-		integer product_index;
-		integer TMP_14_value;
-		reg [7:0] output_btint_a_10;
-		reg [7:0] output_btint_b_10;
+		reg [15:0] output_btint_a_10;
+		reg [15:0] output_btint_b_10;
 		reg [1:0] output_overflow_10;
+		integer TMP_13;
 		integer output_index_5;
+		integer product_msd;
+		integer TMP_15;
+		integer product_msd_1_1;
+		integer TMP_17;
+		integer product_msd_2_1;
+		integer output_index_6;
 		integer output_value_5;
-		reg [7:0] output_btint_a_11;
-		reg [7:0] output_btint_b_11;
+		reg [15:0] output_btint_a_11;
+		reg [15:0] output_btint_b_11;
 		reg [1:0] output_overflow_11;
-		reg TMP_14_isNegative;
-		integer TMP_14_i;
-		integer output_value_6;
+		reg [15:0] TMP_19_btint_a;
+		reg [15:0] TMP_19_btint_b;
+		reg [1:0] TMP_19_overflow;
+		reg [15:0] TMP_20_btint_a;
+		reg [15:0] TMP_20_btint_b;
+		reg [1:0] TMP_20_overflow;
+		reg [15:0] TMP_21_btint_a;
+		reg [15:0] TMP_21_btint_b;
+		reg [1:0] TMP_21_overflow;
+		reg [15:0] TMP_12_btint_a;
+		reg [15:0] TMP_12_btint_b;
+		reg [1:0] TMP_12_overflow;
+		integer TMP_12_from;
+		integer TMP_12_to;
 		reg [7:0] output_btint_a_12;
 		reg [7:0] output_btint_b_12;
 		reg [1:0] output_overflow_12;
-		reg [7:0] TMP_17_btint_a;
-		reg [7:0] TMP_17_btint_b;
-		reg [1:0] TMP_17_overflow;
-		reg [7:0] TMP_18_btint_a;
-		reg [7:0] TMP_18_btint_b;
-		reg [1:0] TMP_18_overflow;
-		reg [7:0] TMP_19_btint_a;
-		reg [7:0] TMP_19_btint_b;
-		reg [1:0] TMP_19_overflow;
-		reg [7:0] output_btint_a_13;
-		reg [7:0] output_btint_b_13;
-		reg [1:0] output_overflow_13;
-		integer TMP_21;
-		integer output_index_6;
-		integer output_index_7;
-		integer output_value_7;
-		reg [7:0] output_btint_a_14;
-		reg [7:0] output_btint_b_14;
-		reg [1:0] output_overflow_14;
 		reg [7:0] TMP_22_btint_a;
 		reg [7:0] TMP_22_btint_b;
 		reg [1:0] TMP_22_overflow;
-		integer TMP_24;
-		integer output_value_8;
+		integer TMP_27;
+		integer c_in_u_output_v;
+		integer TMP_28;
+		integer c_in_u_index;
+		reg [7:0] output_btint_a_13;
+		reg [7:0] output_btint_b_13;
+		reg [1:0] output_overflow_13;
+		integer TMP_30;
+		integer output_index_7;
+		integer output_index_8;
+		integer output_value_6;
+		reg [7:0] output_btint_a_14;
+		reg [7:0] output_btint_b_14;
+		reg [1:0] output_overflow_14;
+		reg [7:0] TMP_31_btint_a;
+		reg [7:0] TMP_31_btint_b;
+		reg [1:0] TMP_31_overflow;
+		integer TMP_33;
+		integer output_value_7;
 		reg [7:0] output_btint_a_15;
 		reg [7:0] output_btint_b_15;
 		reg [1:0] output_overflow_15;
-		reg [7:0] TMP_25_btint_a;
-		reg [7:0] TMP_25_btint_b;
-		reg [1:0] TMP_25_overflow;
-		reg [7:0] TMP_20_btint_a;
-		reg [7:0] TMP_20_btint_b;
-		reg [1:0] TMP_20_overflow;
-		reg [7:0] TMP_15_btint_a;
-		reg [7:0] TMP_15_btint_b;
-		reg [1:0] TMP_15_overflow;
-		integer TMP_28_value;
-		reg [7:0] output_btint_a_16;
-		reg [7:0] output_btint_b_16;
-		reg [1:0] output_overflow_16;
-		integer output_index_8;
-		integer output_value_9;
-		reg [7:0] output_btint_a_17;
-		reg [7:0] output_btint_b_17;
-		reg [1:0] output_overflow_17;
-		reg TMP_28_isNegative;
-		integer TMP_28_i;
-		integer output_value_10;
-		reg [7:0] output_btint_a_18;
-		reg [7:0] output_btint_b_18;
-		reg [1:0] output_overflow_18;
-		reg [7:0] output_btint_a_19;
-		reg [7:0] output_btint_b_19;
-		reg [1:0] output_overflow_19;
-		integer output_index_9;
-		integer output_index_10;
-		integer output_value_11;
-		reg [7:0] output_btint_a_20;
-		reg [7:0] output_btint_b_20;
-		reg [1:0] output_overflow_20;
-		integer output_value_12;
-		reg [7:0] output_btint_a_21;
-		reg [7:0] output_btint_b_21;
-		reg [1:0] output_overflow_21;
-		integer TMP_32;
-		integer c_in_u_output_v;
-		integer TMP_33;
-		integer c_in_u_index;
-		reg [7:0] output_btint_a_22;
-		reg [7:0] output_btint_b_22;
-		reg [1:0] output_overflow_22;
-		integer output_index_11;
-		integer output_index_12;
-		integer output_value_13;
-		reg [7:0] output_btint_a_23;
-		reg [7:0] output_btint_b_23;
-		reg [1:0] output_overflow_23;
-		integer output_value_14;
-		reg [7:0] output_btint_a_24;
-		reg [7:0] output_btint_b_24;
-		reg [1:0] output_overflow_24;
 		reg [7:0] TMP_34_btint_a;
 		reg [7:0] TMP_34_btint_b;
 		reg [1:0] TMP_34_overflow;
-		integer TMP_38_value;
-		reg [7:0] output_btint_a_25;
-		reg [7:0] output_btint_b_25;
-		reg [1:0] output_overflow_25;
-		integer output_index_13;
-		integer output_value_15;
-		reg [7:0] output_btint_a_26;
-		reg [7:0] output_btint_b_26;
-		reg [1:0] output_overflow_26;
-		reg TMP_38_isNegative;
-		integer TMP_38_i;
-		integer output_value_16;
-		reg [7:0] output_btint_a_27;
-		reg [7:0] output_btint_b_27;
-		reg [1:0] output_overflow_27;
-		reg [7:0] output_btint_a_28;
-		reg [7:0] output_btint_b_28;
-		reg [1:0] output_overflow_28;
-		integer output_index_14;
-		integer output_index_15;
-		integer output_value_17;
-		reg [7:0] output_btint_a_29;
-		reg [7:0] output_btint_b_29;
-		reg [1:0] output_overflow_29;
-		integer output_value_18;
-		reg [7:0] output_btint_a_30;
-		reg [7:0] output_btint_b_30;
-		reg [1:0] output_overflow_30;
-		integer TMP_42;
+		reg [7:0] TMP_29_btint_a;
+		reg [7:0] TMP_29_btint_b;
+		reg [1:0] TMP_29_overflow;
+		integer TMP_40;
 		integer a_in_output_v;
 		integer a_in_index;
-		integer TMP_43;
+		integer TMP_41;
 		integer output_v_1;
 		integer index;
-		integer TMP_45_value;
-		reg [7:0] output_btint_a_31;
-		reg [7:0] output_btint_b_31;
-		reg [1:0] output_overflow_31;
-		integer output_index_16;
-		integer output_value_19;
-		reg [7:0] output_btint_a_32;
-		reg [7:0] output_btint_b_32;
-		reg [1:0] output_overflow_32;
-		reg TMP_45_isNegative;
-		integer TMP_45_i;
-		integer output_value_20;
-		reg [7:0] output_btint_a_33;
-		reg [7:0] output_btint_b_33;
-		reg [1:0] output_overflow_33;
-		reg [7:0] output_btint_a_34;
-		reg [7:0] output_btint_b_34;
-		reg [1:0] output_overflow_34;
-		integer output_index_17;
-		integer output_index_18;
-		integer output_value_21;
-		reg [7:0] output_btint_a_35;
-		reg [7:0] output_btint_b_35;
-		reg [1:0] output_overflow_35;
-		integer output_value_22;
-		reg [7:0] output_btint_a_36;
-		reg [7:0] output_btint_b_36;
-		reg [1:0] output_overflow_36;
-		integer TMP_50_value;
-		reg [7:0] output_btint_a_37;
-		reg [7:0] output_btint_b_37;
-		reg [1:0] output_overflow_37;
-		integer output_index_19;
-		integer output_value_23;
-		reg [7:0] output_btint_a_38;
-		reg [7:0] output_btint_b_38;
-		reg [1:0] output_overflow_38;
-		reg TMP_50_isNegative;
-		integer TMP_50_i;
-		integer output_value_24;
-		reg [7:0] output_btint_a_39;
-		reg [7:0] output_btint_b_39;
-		reg [1:0] output_overflow_39;
-		reg [7:0] output_btint_a_40;
-		reg [7:0] output_btint_b_40;
-		reg [1:0] output_overflow_40;
-		integer output_index_20;
-		integer output_index_21;
-		integer output_value_25;
-		reg [7:0] output_btint_a_41;
-		reg [7:0] output_btint_b_41;
-		reg [1:0] output_overflow_41;
-		integer output_value_26;
-		reg [7:0] output_btint_a_42;
-		reg [7:0] output_btint_b_42;
-		reg [1:0] output_overflow_42;
-		integer TMP_55_value;
-		reg [7:0] output_btint_a_43;
-		reg [7:0] output_btint_b_43;
-		reg [1:0] output_overflow_43;
-		integer output_index_22;
-		integer output_value_27;
-		reg [7:0] output_btint_a_44;
-		reg [7:0] output_btint_b_44;
-		reg [1:0] output_overflow_44;
-		reg TMP_55_isNegative;
-		integer TMP_55_i;
-		integer output_value_28;
-		reg [7:0] output_btint_a_45;
-		reg [7:0] output_btint_b_45;
-		reg [1:0] output_overflow_45;
-		reg [7:0] output_btint_a_46;
-		reg [7:0] output_btint_b_46;
-		reg [1:0] output_overflow_46;
-		integer output_index_23;
-		integer output_index_24;
-		integer output_value_29;
-		reg [7:0] output_btint_a_47;
-		reg [7:0] output_btint_b_47;
-		reg [1:0] output_overflow_47;
-		integer output_value_30;
-		reg [7:0] output_btint_a_48;
-		reg [7:0] output_btint_b_48;
-		reg [1:0] output_overflow_48;
-		integer TMP_60;
-		integer sum_output_v;
-		integer TMP_61;
-		integer sum_index;
+		reg [16:0] output_btint_a_16;
+		reg [16:0] output_btint_b_16;
+		reg [1:0] output_overflow_16;
+		integer TMP_48;
+		integer output_index_9;
+		integer sum_msd;
+		integer TMP_50;
+		integer sum_msd_1_1;
+		integer TMP_52;
+		integer sum_msd_2_1;
+		integer output_index_10;
+		integer output_value_8;
+		reg [16:0] output_btint_a_17;
+		reg [16:0] output_btint_b_17;
+		reg [1:0] output_overflow_17;
+		reg [16:0] TMP_54_btint_a;
+		reg [16:0] TMP_54_btint_b;
+		reg [1:0] TMP_54_overflow;
+		reg [16:0] TMP_55_btint_a;
+		reg [16:0] TMP_55_btint_b;
+		reg [1:0] TMP_55_overflow;
+		reg [16:0] TMP_56_btint_a;
+		reg [16:0] TMP_56_btint_b;
+		reg [1:0] TMP_56_overflow;
+		reg [16:0] TMP_47_btint_a;
+		reg [16:0] TMP_47_btint_b;
+		reg [1:0] TMP_47_overflow;
+		integer TMP_47_from;
+		integer TMP_47_to;
+		reg [7:0] output_btint_a_18;
+		reg [7:0] output_btint_b_18;
+		reg [1:0] output_overflow_18;
+		reg [7:0] TMP_57_btint_a;
+		reg [7:0] TMP_57_btint_b;
+		reg [1:0] TMP_57_overflow;
 		integer TMP_62_value;
-		reg [7:0] output_btint_a_49;
-		reg [7:0] output_btint_b_49;
-		reg [1:0] output_overflow_49;
-		integer output_index_25;
-		integer output_value_31;
-		reg [7:0] output_btint_a_50;
-		reg [7:0] output_btint_b_50;
-		reg [1:0] output_overflow_50;
+		reg [7:0] output_btint_a_19;
+		reg [7:0] output_btint_b_19;
+		reg [1:0] output_overflow_19;
+		integer output_index_11;
+		integer output_value_9;
+		reg [7:0] output_btint_a_20;
+		reg [7:0] output_btint_b_20;
+		reg [1:0] output_overflow_20;
 		reg TMP_62_isNegative;
 		integer TMP_62_i;
-		integer output_value_32;
-		reg [7:0] output_btint_a_51;
-		reg [7:0] output_btint_b_51;
-		reg [1:0] output_overflow_51;
-		reg [7:0] output_btint_a_52;
-		reg [7:0] output_btint_b_52;
-		reg [1:0] output_overflow_52;
-		integer output_index_26;
-		integer output_index_27;
-		integer output_value_33;
-		reg [7:0] output_btint_a_53;
-		reg [7:0] output_btint_b_53;
-		reg [1:0] output_overflow_53;
-		integer output_value_34;
-		reg [7:0] output_btint_a_54;
-		reg [7:0] output_btint_b_54;
-		reg [1:0] output_overflow_54;
 		reg [7:0] TMP_63_btint_a;
 		reg [7:0] TMP_63_btint_b;
 		reg [1:0] TMP_63_overflow;
-		integer TMP_68_value;
-		reg [7:0] output_btint_a_55;
-		reg [7:0] output_btint_b_55;
-		reg [1:0] output_overflow_55;
-		integer output_index_28;
-		integer output_value_35;
-		reg [7:0] output_btint_a_56;
-		reg [7:0] output_btint_b_56;
-		reg [1:0] output_overflow_56;
-		reg TMP_68_isNegative;
-		integer TMP_68_i;
-		integer output_value_36;
-		reg [7:0] output_btint_a_57;
-		reg [7:0] output_btint_b_57;
-		reg [1:0] output_overflow_57;
-		reg [7:0] output_btint_a_58;
-		reg [7:0] output_btint_b_58;
-		reg [1:0] output_overflow_58;
-		integer output_index_29;
-		integer output_index_30;
-		integer output_value_37;
-		reg [7:0] output_btint_a_59;
-		reg [7:0] output_btint_b_59;
-		reg [1:0] output_overflow_59;
-		integer output_value_38;
-		reg [7:0] output_btint_a_60;
-		reg [7:0] output_btint_b_60;
-		reg [1:0] output_overflow_60;
-		integer TMP_72_value;
-		reg [7:0] output_btint_a_61;
-		reg [7:0] output_btint_b_61;
-		reg [1:0] output_overflow_61;
-		integer output_index_31;
-		integer output_value_39;
-		reg [7:0] output_btint_a_62;
-		reg [7:0] output_btint_b_62;
-		reg [1:0] output_overflow_62;
-		reg TMP_72_isNegative;
-		integer TMP_72_i;
-		reg [7:0] TMP_73_btint_a;
-		reg [7:0] TMP_73_btint_b;
-		reg [1:0] TMP_73_overflow;
-		integer TMP_75_value;
-		reg [7:0] output_btint_a_63;
-		reg [7:0] output_btint_b_63;
-		reg [1:0] output_overflow_63;
-		integer output_index_32;
-		integer output_value_40;
-		reg [7:0] output_btint_a_64;
-		reg [7:0] output_btint_b_64;
-		reg [1:0] output_overflow_64;
-		reg TMP_75_isNegative;
-		integer TMP_75_i;
-		integer output_value_41;
-		reg [7:0] output_btint_a_65;
-		reg [7:0] output_btint_b_65;
-		reg [1:0] output_overflow_65;
-		reg [7:0] output_btint_a_66;
-		reg [7:0] output_btint_b_66;
-		reg [1:0] output_overflow_66;
-		integer output_index_33;
-		integer output_index_34;
-		integer output_value_42;
-		reg [7:0] output_btint_a_67;
-		reg [7:0] output_btint_b_67;
-		reg [1:0] output_overflow_67;
-		integer output_value_43;
-		reg [7:0] output_btint_a_68;
-		reg [7:0] output_btint_b_68;
-		reg [1:0] output_overflow_68;
-		integer TMP_80_value;
-		reg [7:0] output_btint_a_69;
-		reg [7:0] output_btint_b_69;
-		reg [1:0] output_overflow_69;
-		integer output_index_35;
-		integer output_value_44;
-		reg [7:0] output_btint_a_70;
-		reg [7:0] output_btint_b_70;
-		reg [1:0] output_overflow_70;
-		reg TMP_80_isNegative;
-		integer TMP_80_i;
-		integer output_value_45;
-		reg [7:0] output_btint_a_71;
-		reg [7:0] output_btint_b_71;
-		reg [1:0] output_overflow_71;
-		reg [7:0] output_btint_a_72;
-		reg [7:0] output_btint_b_72;
-		reg [1:0] output_overflow_72;
-		integer output_index_36;
-		integer output_index_37;
-		integer output_value_46;
-		reg [7:0] output_btint_a_73;
-		reg [7:0] output_btint_b_73;
-		reg [1:0] output_overflow_73;
-		integer output_value_47;
-		reg [7:0] output_btint_a_74;
-		reg [7:0] output_btint_b_74;
-		reg [1:0] output_overflow_74;
-		reg [1:0] _sv2v_jump;
+		reg [7:0] output_btint_a_21;
+		reg [7:0] output_btint_b_21;
+		reg [1:0] output_overflow_21;
+		integer TMP_65_value;
+		reg [7:0] output_btint_a_22;
+		reg [7:0] output_btint_b_22;
+		reg [1:0] output_overflow_22;
+		integer output_index_12;
+		integer output_value_10;
+		reg [7:0] output_btint_a_23;
+		reg [7:0] output_btint_b_23;
+		reg [1:0] output_overflow_23;
+		reg TMP_65_isNegative;
+		integer TMP_65_i;
+		reg [7:0] TMP_66_btint_a;
+		reg [7:0] TMP_66_btint_b;
+		reg [1:0] TMP_66_overflow;
+		reg [7:0] low_btint_a;
+		reg [7:0] low_btint_b;
+		reg [1:0] low_overflow;
+		reg [15:0] output_btint_a_24;
+		reg [15:0] output_btint_b_24;
+		reg [1:0] output_overflow_24;
+		reg [15:0] TMP_67_btint_a;
+		reg [15:0] TMP_67_btint_b;
+		reg [1:0] TMP_67_overflow;
 		begin
-			_sv2v_jump = 2'b00;
-			TMP_12 = 0;
-			product_output_v = 0;
-			TMP_13 = 0;
-			product_index = 0;
-			TMP_14_value = 0;
 			output_btint_a_10 = 0;
 			output_btint_b_10 = 0;
 			output_overflow_10 = 0;
+			TMP_13 = 0;
 			output_index_5 = 0;
+			product_msd = 0;
+			TMP_15 = 0;
+			product_msd_1_1 = 0;
+			TMP_17 = 0;
+			product_msd_2_1 = 0;
+			output_index_6 = 0;
 			output_value_5 = 0;
 			output_btint_a_11 = 0;
 			output_btint_b_11 = 0;
 			output_overflow_11 = 0;
-			TMP_14_isNegative = 0;
-			TMP_14_i = 0;
-			output_value_6 = 0;
-			output_btint_a_12 = 0;
-			output_btint_b_12 = 0;
-			output_overflow_12 = 0;
-			TMP_17_btint_a = 0;
-			TMP_17_btint_b = 0;
-			TMP_17_overflow = 0;
-			TMP_18_btint_a = 0;
-			TMP_18_btint_b = 0;
-			TMP_18_overflow = 0;
 			TMP_19_btint_a = 0;
 			TMP_19_btint_b = 0;
 			TMP_19_overflow = 0;
-			output_btint_a_13 = 0;
-			output_btint_b_13 = 0;
-			output_overflow_13 = 0;
-			TMP_21 = 0;
-			output_index_6 = 0;
-			output_index_7 = 0;
-			output_value_7 = 0;
-			output_btint_a_14 = 0;
-			output_btint_b_14 = 0;
-			output_overflow_14 = 0;
-			TMP_22_btint_a = 0;
-			TMP_22_btint_b = 0;
-			TMP_22_overflow = 0;
-			TMP_24 = 0;
-			output_value_8 = 0;
-			output_btint_a_15 = 0;
-			output_btint_b_15 = 0;
-			output_overflow_15 = 0;
-			TMP_25_btint_a = 0;
-			TMP_25_btint_b = 0;
-			TMP_25_overflow = 0;
 			TMP_20_btint_a = 0;
 			TMP_20_btint_b = 0;
 			TMP_20_overflow = 0;
-			TMP_15_btint_a = 0;
-			TMP_15_btint_b = 0;
-			TMP_15_overflow = 0;
-			TMP_28_value = 0;
-			output_btint_a_16 = 0;
-			output_btint_b_16 = 0;
-			output_overflow_16 = 0;
-			output_index_8 = 0;
-			output_value_9 = 0;
-			output_btint_a_17 = 0;
-			output_btint_b_17 = 0;
-			output_overflow_17 = 0;
-			TMP_28_isNegative = 0;
-			TMP_28_i = 0;
-			output_value_10 = 0;
-			output_btint_a_18 = 0;
-			output_btint_b_18 = 0;
-			output_overflow_18 = 0;
-			output_btint_a_19 = 0;
-			output_btint_b_19 = 0;
-			output_overflow_19 = 0;
-			output_index_9 = 0;
-			output_index_10 = 0;
-			output_value_11 = 0;
-			output_btint_a_20 = 0;
-			output_btint_b_20 = 0;
-			output_overflow_20 = 0;
-			output_value_12 = 0;
-			output_btint_a_21 = 0;
-			output_btint_b_21 = 0;
-			output_overflow_21 = 0;
-			TMP_32 = 0;
+			TMP_21_btint_a = 0;
+			TMP_21_btint_b = 0;
+			TMP_21_overflow = 0;
+			TMP_12_btint_a = 0;
+			TMP_12_btint_b = 0;
+			TMP_12_overflow = 0;
+			TMP_12_from = 0;
+			TMP_12_to = 0;
+			output_btint_a_12 = 0;
+			output_btint_b_12 = 0;
+			output_overflow_12 = 0;
+			TMP_22_btint_a = 0;
+			TMP_22_btint_b = 0;
+			TMP_22_overflow = 0;
+			TMP_27 = 0;
 			c_in_u_output_v = 0;
-			TMP_33 = 0;
+			TMP_28 = 0;
 			c_in_u_index = 0;
-			output_btint_a_22 = 0;
-			output_btint_b_22 = 0;
-			output_overflow_22 = 0;
-			output_index_11 = 0;
-			output_index_12 = 0;
-			output_value_13 = 0;
-			output_btint_a_23 = 0;
-			output_btint_b_23 = 0;
-			output_overflow_23 = 0;
-			output_value_14 = 0;
-			output_btint_a_24 = 0;
-			output_btint_b_24 = 0;
-			output_overflow_24 = 0;
+			output_btint_a_13 = 0;
+			output_btint_b_13 = 0;
+			output_overflow_13 = 0;
+			TMP_30 = 0;
+			output_index_7 = 0;
+			output_index_8 = 0;
+			output_value_6 = 0;
+			output_btint_a_14 = 0;
+			output_btint_b_14 = 0;
+			output_overflow_14 = 0;
+			TMP_31_btint_a = 0;
+			TMP_31_btint_b = 0;
+			TMP_31_overflow = 0;
+			TMP_33 = 0;
+			output_value_7 = 0;
+			output_btint_a_15 = 0;
+			output_btint_b_15 = 0;
+			output_overflow_15 = 0;
 			TMP_34_btint_a = 0;
 			TMP_34_btint_b = 0;
 			TMP_34_overflow = 0;
-			TMP_38_value = 0;
-			output_btint_a_25 = 0;
-			output_btint_b_25 = 0;
-			output_overflow_25 = 0;
-			output_index_13 = 0;
-			output_value_15 = 0;
-			output_btint_a_26 = 0;
-			output_btint_b_26 = 0;
-			output_overflow_26 = 0;
-			TMP_38_isNegative = 0;
-			TMP_38_i = 0;
-			output_value_16 = 0;
-			output_btint_a_27 = 0;
-			output_btint_b_27 = 0;
-			output_overflow_27 = 0;
-			output_btint_a_28 = 0;
-			output_btint_b_28 = 0;
-			output_overflow_28 = 0;
-			output_index_14 = 0;
-			output_index_15 = 0;
-			output_value_17 = 0;
-			output_btint_a_29 = 0;
-			output_btint_b_29 = 0;
-			output_overflow_29 = 0;
-			output_value_18 = 0;
-			output_btint_a_30 = 0;
-			output_btint_b_30 = 0;
-			output_overflow_30 = 0;
-			TMP_42 = 0;
+			TMP_29_btint_a = 0;
+			TMP_29_btint_b = 0;
+			TMP_29_overflow = 0;
+			TMP_40 = 0;
 			a_in_output_v = 0;
 			a_in_index = 0;
-			TMP_43 = 0;
+			TMP_41 = 0;
 			output_v_1 = 0;
 			index = 0;
-			TMP_45_value = 0;
-			output_btint_a_31 = 0;
-			output_btint_b_31 = 0;
-			output_overflow_31 = 0;
-			output_index_16 = 0;
-			output_value_19 = 0;
-			output_btint_a_32 = 0;
-			output_btint_b_32 = 0;
-			output_overflow_32 = 0;
-			TMP_45_isNegative = 0;
-			TMP_45_i = 0;
-			output_value_20 = 0;
-			output_btint_a_33 = 0;
-			output_btint_b_33 = 0;
-			output_overflow_33 = 0;
-			output_btint_a_34 = 0;
-			output_btint_b_34 = 0;
-			output_overflow_34 = 0;
-			output_index_17 = 0;
-			output_index_18 = 0;
-			output_value_21 = 0;
-			output_btint_a_35 = 0;
-			output_btint_b_35 = 0;
-			output_overflow_35 = 0;
-			output_value_22 = 0;
-			output_btint_a_36 = 0;
-			output_btint_b_36 = 0;
-			output_overflow_36 = 0;
-			TMP_50_value = 0;
-			output_btint_a_37 = 0;
-			output_btint_b_37 = 0;
-			output_overflow_37 = 0;
-			output_index_19 = 0;
-			output_value_23 = 0;
-			output_btint_a_38 = 0;
-			output_btint_b_38 = 0;
-			output_overflow_38 = 0;
-			TMP_50_isNegative = 0;
-			TMP_50_i = 0;
-			output_value_24 = 0;
-			output_btint_a_39 = 0;
-			output_btint_b_39 = 0;
-			output_overflow_39 = 0;
-			output_btint_a_40 = 0;
-			output_btint_b_40 = 0;
-			output_overflow_40 = 0;
-			output_index_20 = 0;
-			output_index_21 = 0;
-			output_value_25 = 0;
-			output_btint_a_41 = 0;
-			output_btint_b_41 = 0;
-			output_overflow_41 = 0;
-			output_value_26 = 0;
-			output_btint_a_42 = 0;
-			output_btint_b_42 = 0;
-			output_overflow_42 = 0;
-			TMP_55_value = 0;
-			output_btint_a_43 = 0;
-			output_btint_b_43 = 0;
-			output_overflow_43 = 0;
-			output_index_22 = 0;
-			output_value_27 = 0;
-			output_btint_a_44 = 0;
-			output_btint_b_44 = 0;
-			output_overflow_44 = 0;
-			TMP_55_isNegative = 0;
-			TMP_55_i = 0;
-			output_value_28 = 0;
-			output_btint_a_45 = 0;
-			output_btint_b_45 = 0;
-			output_overflow_45 = 0;
-			output_btint_a_46 = 0;
-			output_btint_b_46 = 0;
-			output_overflow_46 = 0;
-			output_index_23 = 0;
-			output_index_24 = 0;
-			output_value_29 = 0;
-			output_btint_a_47 = 0;
-			output_btint_b_47 = 0;
-			output_overflow_47 = 0;
-			output_value_30 = 0;
-			output_btint_a_48 = 0;
-			output_btint_b_48 = 0;
-			output_overflow_48 = 0;
-			TMP_60 = 0;
-			sum_output_v = 0;
-			TMP_61 = 0;
-			sum_index = 0;
+			output_btint_a_16 = 0;
+			output_btint_b_16 = 0;
+			output_overflow_16 = 0;
+			TMP_48 = 0;
+			output_index_9 = 0;
+			sum_msd = 0;
+			TMP_50 = 0;
+			sum_msd_1_1 = 0;
+			TMP_52 = 0;
+			sum_msd_2_1 = 0;
+			output_index_10 = 0;
+			output_value_8 = 0;
+			output_btint_a_17 = 0;
+			output_btint_b_17 = 0;
+			output_overflow_17 = 0;
+			TMP_54_btint_a = 0;
+			TMP_54_btint_b = 0;
+			TMP_54_overflow = 0;
+			TMP_55_btint_a = 0;
+			TMP_55_btint_b = 0;
+			TMP_55_overflow = 0;
+			TMP_56_btint_a = 0;
+			TMP_56_btint_b = 0;
+			TMP_56_overflow = 0;
+			TMP_47_btint_a = 0;
+			TMP_47_btint_b = 0;
+			TMP_47_overflow = 0;
+			TMP_47_from = 0;
+			TMP_47_to = 0;
+			output_btint_a_18 = 0;
+			output_btint_b_18 = 0;
+			output_overflow_18 = 0;
+			TMP_57_btint_a = 0;
+			TMP_57_btint_b = 0;
+			TMP_57_overflow = 0;
 			TMP_62_value = 0;
-			output_btint_a_49 = 0;
-			output_btint_b_49 = 0;
-			output_overflow_49 = 0;
-			output_index_25 = 0;
-			output_value_31 = 0;
-			output_btint_a_50 = 0;
-			output_btint_b_50 = 0;
-			output_overflow_50 = 0;
+			output_btint_a_19 = 0;
+			output_btint_b_19 = 0;
+			output_overflow_19 = 0;
+			output_index_11 = 0;
+			output_value_9 = 0;
+			output_btint_a_20 = 0;
+			output_btint_b_20 = 0;
+			output_overflow_20 = 0;
 			TMP_62_isNegative = 0;
 			TMP_62_i = 0;
-			output_value_32 = 0;
-			output_btint_a_51 = 0;
-			output_btint_b_51 = 0;
-			output_overflow_51 = 0;
-			output_btint_a_52 = 0;
-			output_btint_b_52 = 0;
-			output_overflow_52 = 0;
-			output_index_26 = 0;
-			output_index_27 = 0;
-			output_value_33 = 0;
-			output_btint_a_53 = 0;
-			output_btint_b_53 = 0;
-			output_overflow_53 = 0;
-			output_value_34 = 0;
-			output_btint_a_54 = 0;
-			output_btint_b_54 = 0;
-			output_overflow_54 = 0;
 			TMP_63_btint_a = 0;
 			TMP_63_btint_b = 0;
 			TMP_63_overflow = 0;
-			TMP_68_value = 0;
-			output_btint_a_55 = 0;
-			output_btint_b_55 = 0;
-			output_overflow_55 = 0;
-			output_index_28 = 0;
-			output_value_35 = 0;
-			output_btint_a_56 = 0;
-			output_btint_b_56 = 0;
-			output_overflow_56 = 0;
-			TMP_68_isNegative = 0;
-			TMP_68_i = 0;
-			output_value_36 = 0;
-			output_btint_a_57 = 0;
-			output_btint_b_57 = 0;
-			output_overflow_57 = 0;
-			output_btint_a_58 = 0;
-			output_btint_b_58 = 0;
-			output_overflow_58 = 0;
-			output_index_29 = 0;
-			output_index_30 = 0;
-			output_value_37 = 0;
-			output_btint_a_59 = 0;
-			output_btint_b_59 = 0;
-			output_overflow_59 = 0;
-			output_value_38 = 0;
-			output_btint_a_60 = 0;
-			output_btint_b_60 = 0;
-			output_overflow_60 = 0;
-			TMP_72_value = 0;
-			output_btint_a_61 = 0;
-			output_btint_b_61 = 0;
-			output_overflow_61 = 0;
-			output_index_31 = 0;
-			output_value_39 = 0;
-			output_btint_a_62 = 0;
-			output_btint_b_62 = 0;
-			output_overflow_62 = 0;
-			TMP_72_isNegative = 0;
-			TMP_72_i = 0;
-			TMP_73_btint_a = 0;
-			TMP_73_btint_b = 0;
-			TMP_73_overflow = 0;
-			TMP_75_value = 0;
-			output_btint_a_63 = 0;
-			output_btint_b_63 = 0;
-			output_overflow_63 = 0;
-			output_index_32 = 0;
-			output_value_40 = 0;
-			output_btint_a_64 = 0;
-			output_btint_b_64 = 0;
-			output_overflow_64 = 0;
-			TMP_75_isNegative = 0;
-			TMP_75_i = 0;
-			output_value_41 = 0;
-			output_btint_a_65 = 0;
-			output_btint_b_65 = 0;
-			output_overflow_65 = 0;
-			output_btint_a_66 = 0;
-			output_btint_b_66 = 0;
-			output_overflow_66 = 0;
-			output_index_33 = 0;
-			output_index_34 = 0;
-			output_value_42 = 0;
-			output_btint_a_67 = 0;
-			output_btint_b_67 = 0;
-			output_overflow_67 = 0;
-			output_value_43 = 0;
-			output_btint_a_68 = 0;
-			output_btint_b_68 = 0;
-			output_overflow_68 = 0;
-			TMP_80_value = 0;
-			output_btint_a_69 = 0;
-			output_btint_b_69 = 0;
-			output_overflow_69 = 0;
-			output_index_35 = 0;
-			output_value_44 = 0;
-			output_btint_a_70 = 0;
-			output_btint_b_70 = 0;
-			output_overflow_70 = 0;
-			TMP_80_isNegative = 0;
-			TMP_80_i = 0;
-			output_value_45 = 0;
-			output_btint_a_71 = 0;
-			output_btint_b_71 = 0;
-			output_overflow_71 = 0;
-			output_btint_a_72 = 0;
-			output_btint_b_72 = 0;
-			output_overflow_72 = 0;
-			output_index_36 = 0;
-			output_index_37 = 0;
-			output_value_46 = 0;
-			output_btint_a_73 = 0;
-			output_btint_b_73 = 0;
-			output_overflow_73 = 0;
-			output_value_47 = 0;
-			output_btint_a_74 = 0;
-			output_btint_b_74 = 0;
-			output_overflow_74 = 0;
+			output_btint_a_21 = 0;
+			output_btint_b_21 = 0;
+			output_overflow_21 = 0;
+			TMP_65_value = 0;
+			output_btint_a_22 = 0;
+			output_btint_b_22 = 0;
+			output_overflow_22 = 0;
+			output_index_12 = 0;
+			output_value_10 = 0;
+			output_btint_a_23 = 0;
+			output_btint_b_23 = 0;
+			output_overflow_23 = 0;
+			TMP_65_isNegative = 0;
+			TMP_65_i = 0;
+			TMP_66_btint_a = 0;
+			TMP_66_btint_b = 0;
+			TMP_66_overflow = 0;
+			low_btint_a = 0;
+			low_btint_b = 0;
+			low_overflow = 0;
+			output_btint_a_24 = 0;
+			output_btint_b_24 = 0;
+			output_overflow_24 = 0;
+			TMP_67_btint_a = 0;
+			TMP_67_btint_b = 0;
+			TMP_67_overflow = 0;
 			adder_subtractor_a_btint_a_next = adder_subtractor_a_btint_a;
 			adder_subtractor_a_btint_b_next = adder_subtractor_a_btint_b;
 			adder_subtractor_a_overflow_next = adder_subtractor_a_overflow;
@@ -1346,6 +925,7 @@ module CELL (
 			multiplier_reset_next = multiplier_reset;
 			product_btint_a_next = product_btint_a;
 			product_btint_b_next = product_btint_b;
+			product_overflow_next = product_overflow;
 			state_d_btint_a_next = state_d_btint_a;
 			state_d_btint_b_next = state_d_btint_b;
 			state_d_overflow_next = state_d_overflow;
@@ -1361,7 +941,7 @@ module CELL (
 					begin
 						product_btint_a_next[(3 - i_5) * 16+:16] = multiplier_product_btint_a[i_5];
 						product_btint_b_next[(3 - i_5) * 16+:16] = multiplier_product_btint_b[i_5];
-						product_overflow[i_5] = multiplier_product_overflow[i_5];
+						product_overflow_next[(3 - i_5) * 2+:2] = multiplier_product_overflow[i_5];
 					end
 			end
 			c_in_u_btint_a = cell_c_in_u_btint_a;
@@ -1387,891 +967,567 @@ module CELL (
 						multiplier_b_btint_a_next[24+:8] = cell_a_in_btint_a;
 						multiplier_b_btint_b_next[24+:8] = cell_a_in_btint_b;
 						multiplier_b_overflow_next[6+:2] = cell_a_in_overflow;
-						product_output_v = 0;
-						begin : sv2v_autoblock_2
-							integer i_6;
-							for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-								begin
-									product_index = i_6;
-									TMP_13 = (product_btint_a_next[48 + product_index] + product_btint_b_next[48 + product_index]) - 1;
-									product_output_v = (2 * product_output_v) + TMP_13;
-								end
-						end
-						TMP_12 = product_output_v;
-						TMP_14_value = TMP_12;
 						output_btint_a_10 = 0;
 						output_btint_b_10 = 0;
 						output_overflow_10 = 0;
-						begin : sv2v_autoblock_3
-							integer i_7;
-							for (i_7 = 0; i_7 < 8; i_7 = i_7 + 1)
-								begin
-									output_index_5 = i_7;
-									output_value_5 = 0;
-									output_btint_a_11 = 0;
-									output_btint_b_11 = 0;
-									output_overflow_11 = 0;
-									output_btint_a_11 = output_btint_a_10;
-									output_btint_b_11 = output_btint_b_10;
-									output_overflow_11 = output_overflow_10;
-									case (0)
-										-1: begin
-											output_btint_a_11[output_index_5] = 0;
-											output_btint_b_11[output_index_5] = 0;
-										end
-										0: begin
-											output_btint_a_11[output_index_5] = 0;
-											output_btint_b_11[output_index_5] = 1;
-										end
-										1: begin
-											output_btint_a_11[output_index_5] = 1;
-											output_btint_b_11[output_index_5] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_2_btint_a = output_btint_a_11;
-									TMP_2_btint_b = output_btint_b_11;
-									TMP_2_overflow = output_overflow_11;
-									output_btint_a_10 = TMP_2_btint_a;
-									output_btint_b_10 = TMP_2_btint_b;
-									output_overflow_10 = TMP_2_overflow;
+						output_btint_a_10[0] = product_btint_a_next[48+:16];
+						output_btint_b_10[0] = product_btint_b_next[48+:16];
+						output_overflow_10[0] = product_overflow_next[6+:2];
+						output_index_5 = 8;
+						TMP_13 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+						product_msd = TMP_13;
+						output_index_5 = 7;
+						TMP_15 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+						product_msd_1_1 = TMP_15;
+						output_index_5 = 6;
+						TMP_17 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+						product_msd_2_1 = TMP_17;
+						case (product_msd)
+							-1:
+								if (product_msd_1_1 == 1) begin
+									product_msd = 0;
+									product_msd_1_1 = -2'sd1;
 								end
-						end
-						TMP_14_isNegative = TMP_14_value < 0;
-						if (TMP_14_isNegative)
-							TMP_14_value = -TMP_14_value;
-						TMP_14_i = 0;
-						while (|TMP_14_value && (_sv2v_jump < 2'b10)) begin
-							_sv2v_jump = 2'b00;
-							if (TMP_14_i >= 8) begin
-								output_value_6 = 1;
-								output_btint_a_12 = 0;
-								output_btint_b_12 = 0;
-								output_overflow_12 = 0;
-								output_btint_a_12 = output_btint_a_10;
-								output_btint_b_12 = output_btint_b_10;
-								output_overflow_12 = output_overflow_10;
-								case (1)
-									-1: begin
-										output_overflow_12[0] = 0;
-										output_overflow_12[1] = 0;
-									end
-									0: begin
-										output_overflow_12[0] = 0;
-										output_overflow_12[1] = 1;
-									end
-									1: begin
-										output_overflow_12[0] = 1;
-										output_overflow_12[1] = 1;
-									end
-									default:
-										;
-								endcase
-								TMP_17_btint_a = output_btint_a_12;
-								TMP_17_btint_b = output_btint_b_12;
-								TMP_17_overflow = output_overflow_12;
-								output_btint_a_10 = TMP_17_btint_a;
-								output_btint_b_10 = TMP_17_btint_b;
-								output_overflow_10 = TMP_17_overflow;
-								_sv2v_jump = 2'b10;
-							end
-							if (_sv2v_jump == 2'b00) begin
-								if (|(TMP_14_value % 2)) begin
-									TMP_14_i = TMP_14_i + 1;
-									output_index_5 = TMP_14_i + 1'sd1;
-									output_value_5 = 1;
-									output_btint_a_11 = 0;
-									output_btint_b_11 = 0;
-									output_overflow_11 = 0;
-									output_btint_a_11 = output_btint_a_10;
-									output_btint_b_11 = output_btint_b_10;
-									output_overflow_11 = output_overflow_10;
-									case (1)
-										-1: begin
-											output_btint_a_11[output_index_5] = 0;
-											output_btint_b_11[output_index_5] = 0;
-										end
-										0: begin
-											output_btint_a_11[output_index_5] = 0;
-											output_btint_b_11[output_index_5] = 1;
-										end
-										1: begin
-											output_btint_a_11[output_index_5] = 1;
-											output_btint_b_11[output_index_5] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_18_btint_a = output_btint_a_11;
-									TMP_18_btint_b = output_btint_b_11;
-									TMP_18_overflow = output_overflow_11;
-									output_btint_a_10 = TMP_18_btint_a;
-									output_btint_b_10 = TMP_18_btint_b;
-									output_overflow_10 = TMP_18_overflow;
-									TMP_14_value = TMP_14_value - 1;
+								else if ((product_msd_1_1 == 0) && (product_msd_2_1 == 1)) begin
+									product_msd = 0;
+									product_msd_2_1 = -2'sd1;
+									product_msd_1_1 = product_msd_2_1;
 								end
-								else begin
-									TMP_14_i = TMP_14_i + 1;
-									output_index_5 = TMP_14_i + 1'sd1;
-									output_value_5 = 0;
-									output_btint_a_11 = 0;
-									output_btint_b_11 = 0;
-									output_overflow_11 = 0;
-									output_btint_a_11 = output_btint_a_10;
-									output_btint_b_11 = output_btint_b_10;
-									output_overflow_11 = output_overflow_10;
-									case (0)
-										-1: begin
-											output_btint_a_11[output_index_5] = 0;
-											output_btint_b_11[output_index_5] = 0;
-										end
-										0: begin
-											output_btint_a_11[output_index_5] = 0;
-											output_btint_b_11[output_index_5] = 1;
-										end
-										1: begin
-											output_btint_a_11[output_index_5] = 1;
-											output_btint_b_11[output_index_5] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_19_btint_a = output_btint_a_11;
-									TMP_19_btint_b = output_btint_b_11;
-									TMP_19_overflow = output_overflow_11;
-									output_btint_a_10 = TMP_19_btint_a;
-									output_btint_b_10 = TMP_19_btint_b;
-									output_overflow_10 = TMP_19_overflow;
+							1:
+								if (product_msd_1_1 == -2'sd1) begin
+									product_msd = 0;
+									product_msd_1_1 = 1;
 								end
-								TMP_14_value = TMP_14_value / 2;
-							end
-						end
-						if (_sv2v_jump != 2'b11)
-							_sv2v_jump = 2'b00;
-						if (_sv2v_jump == 2'b00) begin
-							if (TMP_14_isNegative) begin
-								output_btint_a_13 = 0;
-								output_btint_b_13 = 0;
-								output_overflow_13 = 0;
-								output_btint_a_13 = output_btint_a_10;
-								output_btint_b_13 = output_btint_b_10;
-								output_overflow_13 = output_overflow_10;
-								begin : sv2v_autoblock_4
-									integer i_8;
-									for (i_8 = 0; i_8 < 8; i_8 = i_8 + 1)
-										begin
-											output_index_6 = i_8;
-											TMP_21 = (output_btint_a_13[output_index_6] + output_btint_b_13[output_index_6]) - 1;
-											output_index_7 = i_8;
-											output_value_7 = -TMP_21;
-											output_btint_a_14 = 0;
-											output_btint_b_14 = 0;
-											output_overflow_14 = 0;
-											output_btint_a_14 = output_btint_a_13;
-											output_btint_b_14 = output_btint_b_13;
-											output_overflow_14 = output_overflow_13;
-											case (output_value_7)
-												-1: begin
-													output_btint_a_14[output_index_7] = 0;
-													output_btint_b_14[output_index_7] = 0;
-												end
-												0: begin
-													output_btint_a_14[output_index_7] = 0;
-													output_btint_b_14[output_index_7] = 1;
-												end
-												1: begin
-													output_btint_a_14[output_index_7] = 1;
-													output_btint_b_14[output_index_7] = 1;
-												end
-												default:
-													;
-											endcase
-											TMP_22_btint_a = output_btint_a_14;
-											TMP_22_btint_b = output_btint_b_14;
-											TMP_22_overflow = output_overflow_14;
-											output_btint_a_13 = TMP_22_btint_a;
-											output_btint_b_13 = TMP_22_btint_b;
-											output_overflow_13 = TMP_22_overflow;
-										end
+								else if ((product_msd_1_1 == 0) && (product_msd_2_1 == -2'sd1)) begin
+									product_msd = 0;
+									product_msd_2_1 = 1;
+									product_msd_1_1 = product_msd_2_1;
 								end
-								TMP_24 = (output_overflow_13[0] + output_overflow_13[1]) - 1;
-								output_value_8 = -TMP_24;
-								output_btint_a_15 = 0;
-								output_btint_b_15 = 0;
-								output_overflow_15 = 0;
-								output_btint_a_15 = output_btint_a_13;
-								output_btint_b_15 = output_btint_b_13;
-								output_overflow_15 = output_overflow_13;
-								case (output_value_8)
-									-1: begin
-										output_overflow_15[0] = 0;
-										output_overflow_15[1] = 0;
-									end
-									0: begin
-										output_overflow_15[0] = 0;
-										output_overflow_15[1] = 1;
-									end
-									1: begin
-										output_overflow_15[0] = 1;
-										output_overflow_15[1] = 1;
-									end
-									default:
-										;
-								endcase
-								TMP_25_btint_a = output_btint_a_15;
-								TMP_25_btint_b = output_btint_b_15;
-								TMP_25_overflow = output_overflow_15;
-								output_btint_a_13 = TMP_25_btint_a;
-								output_btint_b_13 = TMP_25_btint_b;
-								output_overflow_13 = TMP_25_overflow;
-								TMP_20_btint_a = output_btint_a_13;
-								TMP_20_btint_b = output_btint_b_13;
-								TMP_20_overflow = output_overflow_13;
-								output_btint_a_10 = TMP_20_btint_a;
-								output_btint_b_10 = TMP_20_btint_b;
-								output_overflow_10 = TMP_20_overflow;
+						endcase
+						output_index_6 = 8;
+						output_value_5 = product_msd;
+						output_btint_a_11 = 0;
+						output_btint_b_11 = 0;
+						output_overflow_11 = 0;
+						output_btint_a_11 = output_btint_a_10;
+						output_btint_b_11 = output_btint_b_10;
+						output_overflow_11 = output_overflow_10;
+						case (output_value_5)
+							-1: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 0;
 							end
-							TMP_15_btint_a = output_btint_a_10;
-							TMP_15_btint_b = output_btint_b_10;
-							TMP_15_overflow = output_overflow_10;
-							state_d_btint_a_next = TMP_15_btint_a;
-							state_d_btint_b_next = TMP_15_btint_b;
-							state_d_overflow_next = TMP_15_overflow;
-							cell_c_out_u_btint_a_next = cell_c_in_u_btint_a;
-							cell_c_out_u_btint_b_next = cell_c_in_u_btint_b;
-							cell_c_out_u_overflow_next = cell_c_in_u_overflow;
-							product_output_v = 0;
-							begin : sv2v_autoblock_5
-								integer i_6;
-								for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-									begin
-										product_index = i_6;
-										TMP_13 = (product_btint_a_next[48 + product_index] + product_btint_b_next[48 + product_index]) - 1;
-										product_output_v = (2 * product_output_v) + TMP_13;
-									end
+							0: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 1;
 							end
-							TMP_12 = product_output_v;
-							TMP_28_value = TMP_12;
-							output_btint_a_16 = 0;
-							output_btint_b_16 = 0;
-							output_overflow_16 = 0;
-							begin : sv2v_autoblock_6
-								integer i_9;
-								for (i_9 = 0; i_9 < 8; i_9 = i_9 + 1)
-									begin
-										output_index_8 = i_9;
-										output_value_9 = 0;
-										output_btint_a_17 = 0;
-										output_btint_b_17 = 0;
-										output_overflow_17 = 0;
-										output_btint_a_17 = output_btint_a_16;
-										output_btint_b_17 = output_btint_b_16;
-										output_overflow_17 = output_overflow_16;
-										case (0)
-											-1: begin
-												output_btint_a_17[output_index_8] = 0;
-												output_btint_b_17[output_index_8] = 0;
-											end
-											0: begin
-												output_btint_a_17[output_index_8] = 0;
-												output_btint_b_17[output_index_8] = 1;
-											end
-											1: begin
-												output_btint_a_17[output_index_8] = 1;
-												output_btint_b_17[output_index_8] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_2_btint_a = output_btint_a_17;
-										TMP_2_btint_b = output_btint_b_17;
-										TMP_2_overflow = output_overflow_17;
-										output_btint_a_16 = TMP_2_btint_a;
-										output_btint_b_16 = TMP_2_btint_b;
-										output_overflow_16 = TMP_2_overflow;
-									end
+							1: begin
+								output_btint_a_11[output_index_6] = 1;
+								output_btint_b_11[output_index_6] = 1;
 							end
-							TMP_28_isNegative = TMP_28_value < 0;
-							if (TMP_28_isNegative)
-								TMP_28_value = -TMP_28_value;
-							TMP_28_i = 0;
-							while (|TMP_28_value && (_sv2v_jump < 2'b10)) begin
-								_sv2v_jump = 2'b00;
-								if (TMP_28_i >= 8) begin
-									output_value_10 = 1;
-									output_btint_a_18 = 0;
-									output_btint_b_18 = 0;
-									output_overflow_18 = 0;
-									output_btint_a_18 = output_btint_a_16;
-									output_btint_b_18 = output_btint_b_16;
-									output_overflow_18 = output_overflow_16;
-									case (1)
-										-1: begin
-											output_overflow_18[0] = 0;
-											output_overflow_18[1] = 0;
-										end
-										0: begin
-											output_overflow_18[0] = 0;
-											output_overflow_18[1] = 1;
-										end
-										1: begin
-											output_overflow_18[0] = 1;
-											output_overflow_18[1] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_17_btint_a = output_btint_a_18;
-									TMP_17_btint_b = output_btint_b_18;
-									TMP_17_overflow = output_overflow_18;
-									output_btint_a_16 = TMP_17_btint_a;
-									output_btint_b_16 = TMP_17_btint_b;
-									output_overflow_16 = TMP_17_overflow;
-									_sv2v_jump = 2'b10;
+							default:
+								;
+						endcase
+						TMP_19_btint_a = output_btint_a_11;
+						TMP_19_btint_b = output_btint_b_11;
+						TMP_19_overflow = output_overflow_11;
+						output_btint_a_10 = TMP_19_btint_a;
+						output_btint_b_10 = TMP_19_btint_b;
+						output_overflow_10 = TMP_19_overflow;
+						output_index_6 = 7;
+						output_value_5 = product_msd_1_1;
+						output_btint_a_11 = 0;
+						output_btint_b_11 = 0;
+						output_overflow_11 = 0;
+						output_btint_a_11 = output_btint_a_10;
+						output_btint_b_11 = output_btint_b_10;
+						output_overflow_11 = output_overflow_10;
+						case (output_value_5)
+							-1: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 0;
+							end
+							0: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							1: begin
+								output_btint_a_11[output_index_6] = 1;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							default:
+								;
+						endcase
+						TMP_20_btint_a = output_btint_a_11;
+						TMP_20_btint_b = output_btint_b_11;
+						TMP_20_overflow = output_overflow_11;
+						output_btint_a_10 = TMP_20_btint_a;
+						output_btint_b_10 = TMP_20_btint_b;
+						output_overflow_10 = TMP_20_overflow;
+						output_index_6 = 6;
+						output_value_5 = product_msd_2_1;
+						output_btint_a_11 = 0;
+						output_btint_b_11 = 0;
+						output_overflow_11 = 0;
+						output_btint_a_11 = output_btint_a_10;
+						output_btint_b_11 = output_btint_b_10;
+						output_overflow_11 = output_overflow_10;
+						case (output_value_5)
+							-1: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 0;
+							end
+							0: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							1: begin
+								output_btint_a_11[output_index_6] = 1;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							default:
+								;
+						endcase
+						TMP_21_btint_a = output_btint_a_11;
+						TMP_21_btint_b = output_btint_b_11;
+						TMP_21_overflow = output_overflow_11;
+						output_btint_a_10 = TMP_21_btint_a;
+						output_btint_b_10 = TMP_21_btint_b;
+						output_overflow_10 = TMP_21_overflow;
+						TMP_12_btint_a = output_btint_a_10;
+						TMP_12_btint_b = output_btint_b_10;
+						TMP_12_overflow = output_overflow_10;
+						TMP_12_from = 15;
+						TMP_12_to = 0;
+						output_btint_a_12 = 0;
+						output_btint_b_12 = 0;
+						output_overflow_12 = 0;
+						output_btint_a_12 = TMP_12_btint_a[TMP_12_to+:8];
+						output_btint_b_12 = TMP_12_btint_b[TMP_12_to+:8];
+						output_overflow_12 = TMP_12_overflow;
+						TMP_22_btint_a = output_btint_a_12;
+						TMP_22_btint_b = output_btint_b_12;
+						TMP_22_overflow = output_overflow_12;
+						state_d_btint_a_next = TMP_22_btint_a;
+						state_d_btint_b_next = TMP_22_btint_b;
+						state_d_overflow_next = TMP_22_overflow;
+						cell_c_out_u_btint_a_next = cell_c_in_u_btint_a;
+						cell_c_out_u_btint_b_next = cell_c_in_u_btint_b;
+						cell_c_out_u_overflow_next = cell_c_in_u_overflow;
+						output_btint_a_10 = 0;
+						output_btint_b_10 = 0;
+						output_overflow_10 = 0;
+						output_btint_a_10[0] = product_btint_a_next[48+:16];
+						output_btint_b_10[0] = product_btint_b_next[48+:16];
+						output_overflow_10[0] = product_overflow_next[6+:2];
+						output_index_5 = 8;
+						TMP_13 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+						product_msd = TMP_13;
+						output_index_5 = 7;
+						TMP_15 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+						product_msd_1_1 = TMP_15;
+						output_index_5 = 6;
+						TMP_17 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+						product_msd_2_1 = TMP_17;
+						case (product_msd)
+							-1:
+								if (product_msd_1_1 == 1) begin
+									product_msd = 0;
+									product_msd_1_1 = -2'sd1;
 								end
-								if (_sv2v_jump == 2'b00) begin
-									if (|(TMP_28_value % 2)) begin
-										TMP_28_i = TMP_28_i + 1;
-										output_index_8 = TMP_28_i + 1'sd1;
-										output_value_9 = 1;
-										output_btint_a_17 = 0;
-										output_btint_b_17 = 0;
-										output_overflow_17 = 0;
-										output_btint_a_17 = output_btint_a_16;
-										output_btint_b_17 = output_btint_b_16;
-										output_overflow_17 = output_overflow_16;
-										case (1)
-											-1: begin
-												output_btint_a_17[output_index_8] = 0;
-												output_btint_b_17[output_index_8] = 0;
-											end
-											0: begin
-												output_btint_a_17[output_index_8] = 0;
-												output_btint_b_17[output_index_8] = 1;
-											end
-											1: begin
-												output_btint_a_17[output_index_8] = 1;
-												output_btint_b_17[output_index_8] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_18_btint_a = output_btint_a_17;
-										TMP_18_btint_b = output_btint_b_17;
-										TMP_18_overflow = output_overflow_17;
-										output_btint_a_16 = TMP_18_btint_a;
-										output_btint_b_16 = TMP_18_btint_b;
-										output_overflow_16 = TMP_18_overflow;
-										TMP_28_value = TMP_28_value - 1;
-									end
-									else begin
-										TMP_28_i = TMP_28_i + 1;
-										output_index_8 = TMP_28_i + 1'sd1;
-										output_value_9 = 0;
-										output_btint_a_17 = 0;
-										output_btint_b_17 = 0;
-										output_overflow_17 = 0;
-										output_btint_a_17 = output_btint_a_16;
-										output_btint_b_17 = output_btint_b_16;
-										output_overflow_17 = output_overflow_16;
-										case (0)
-											-1: begin
-												output_btint_a_17[output_index_8] = 0;
-												output_btint_b_17[output_index_8] = 0;
-											end
-											0: begin
-												output_btint_a_17[output_index_8] = 0;
-												output_btint_b_17[output_index_8] = 1;
-											end
-											1: begin
-												output_btint_a_17[output_index_8] = 1;
-												output_btint_b_17[output_index_8] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_19_btint_a = output_btint_a_17;
-										TMP_19_btint_b = output_btint_b_17;
-										TMP_19_overflow = output_overflow_17;
-										output_btint_a_16 = TMP_19_btint_a;
-										output_btint_b_16 = TMP_19_btint_b;
-										output_overflow_16 = TMP_19_overflow;
-									end
-									TMP_28_value = TMP_28_value / 2;
+								else if ((product_msd_1_1 == 0) && (product_msd_2_1 == 1)) begin
+									product_msd = 0;
+									product_msd_2_1 = -2'sd1;
+									product_msd_1_1 = product_msd_2_1;
 								end
-							end
-							if (_sv2v_jump != 2'b11)
-								_sv2v_jump = 2'b00;
-							if (_sv2v_jump == 2'b00) begin
-								if (TMP_28_isNegative) begin
-									output_btint_a_19 = 0;
-									output_btint_b_19 = 0;
-									output_overflow_19 = 0;
-									output_btint_a_19 = output_btint_a_16;
-									output_btint_b_19 = output_btint_b_16;
-									output_overflow_19 = output_overflow_16;
-									begin : sv2v_autoblock_7
-										integer i_10;
-										for (i_10 = 0; i_10 < 8; i_10 = i_10 + 1)
-											begin
-												output_index_9 = i_10;
-												TMP_21 = (output_btint_a_19[output_index_9] + output_btint_b_19[output_index_9]) - 1;
-												output_index_10 = i_10;
-												output_value_11 = -TMP_21;
-												output_btint_a_20 = 0;
-												output_btint_b_20 = 0;
-												output_overflow_20 = 0;
-												output_btint_a_20 = output_btint_a_19;
-												output_btint_b_20 = output_btint_b_19;
-												output_overflow_20 = output_overflow_19;
-												case (output_value_11)
-													-1: begin
-														output_btint_a_20[output_index_10] = 0;
-														output_btint_b_20[output_index_10] = 0;
-													end
-													0: begin
-														output_btint_a_20[output_index_10] = 0;
-														output_btint_b_20[output_index_10] = 1;
-													end
-													1: begin
-														output_btint_a_20[output_index_10] = 1;
-														output_btint_b_20[output_index_10] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_22_btint_a = output_btint_a_20;
-												TMP_22_btint_b = output_btint_b_20;
-												TMP_22_overflow = output_overflow_20;
-												output_btint_a_19 = TMP_22_btint_a;
-												output_btint_b_19 = TMP_22_btint_b;
-												output_overflow_19 = TMP_22_overflow;
-											end
-									end
-									TMP_24 = (output_overflow_19[0] + output_overflow_19[1]) - 1;
-									output_value_12 = -TMP_24;
-									output_btint_a_21 = 0;
-									output_btint_b_21 = 0;
-									output_overflow_21 = 0;
-									output_btint_a_21 = output_btint_a_19;
-									output_btint_b_21 = output_btint_b_19;
-									output_overflow_21 = output_overflow_19;
-									case (output_value_12)
-										-1: begin
-											output_overflow_21[0] = 0;
-											output_overflow_21[1] = 0;
-										end
-										0: begin
-											output_overflow_21[0] = 0;
-											output_overflow_21[1] = 1;
-										end
-										1: begin
-											output_overflow_21[0] = 1;
-											output_overflow_21[1] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_25_btint_a = output_btint_a_21;
-									TMP_25_btint_b = output_btint_b_21;
-									TMP_25_overflow = output_overflow_21;
-									output_btint_a_19 = TMP_25_btint_a;
-									output_btint_b_19 = TMP_25_btint_b;
-									output_overflow_19 = TMP_25_overflow;
-									TMP_20_btint_a = output_btint_a_19;
-									TMP_20_btint_b = output_btint_b_19;
-									TMP_20_overflow = output_overflow_19;
-									output_btint_a_16 = TMP_20_btint_a;
-									output_btint_b_16 = TMP_20_btint_b;
-									output_overflow_16 = TMP_20_overflow;
+							1:
+								if (product_msd_1_1 == -2'sd1) begin
+									product_msd = 0;
+									product_msd_1_1 = 1;
 								end
-								TMP_15_btint_a = output_btint_a_16;
-								TMP_15_btint_b = output_btint_b_16;
-								TMP_15_overflow = output_overflow_16;
-								cell_c_out_d_btint_a_next = TMP_15_btint_a;
-								cell_c_out_d_btint_b_next = TMP_15_btint_b;
-								cell_c_out_d_overflow_next = TMP_15_overflow;
+								else if ((product_msd_1_1 == 0) && (product_msd_2_1 == -2'sd1)) begin
+									product_msd = 0;
+									product_msd_2_1 = 1;
+									product_msd_1_1 = product_msd_2_1;
+								end
+						endcase
+						output_index_6 = 8;
+						output_value_5 = product_msd;
+						output_btint_a_11 = 0;
+						output_btint_b_11 = 0;
+						output_overflow_11 = 0;
+						output_btint_a_11 = output_btint_a_10;
+						output_btint_b_11 = output_btint_b_10;
+						output_overflow_11 = output_overflow_10;
+						case (output_value_5)
+							-1: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 0;
 							end
-						end
+							0: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							1: begin
+								output_btint_a_11[output_index_6] = 1;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							default:
+								;
+						endcase
+						TMP_19_btint_a = output_btint_a_11;
+						TMP_19_btint_b = output_btint_b_11;
+						TMP_19_overflow = output_overflow_11;
+						output_btint_a_10 = TMP_19_btint_a;
+						output_btint_b_10 = TMP_19_btint_b;
+						output_overflow_10 = TMP_19_overflow;
+						output_index_6 = 7;
+						output_value_5 = product_msd_1_1;
+						output_btint_a_11 = 0;
+						output_btint_b_11 = 0;
+						output_overflow_11 = 0;
+						output_btint_a_11 = output_btint_a_10;
+						output_btint_b_11 = output_btint_b_10;
+						output_overflow_11 = output_overflow_10;
+						case (output_value_5)
+							-1: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 0;
+							end
+							0: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							1: begin
+								output_btint_a_11[output_index_6] = 1;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							default:
+								;
+						endcase
+						TMP_20_btint_a = output_btint_a_11;
+						TMP_20_btint_b = output_btint_b_11;
+						TMP_20_overflow = output_overflow_11;
+						output_btint_a_10 = TMP_20_btint_a;
+						output_btint_b_10 = TMP_20_btint_b;
+						output_overflow_10 = TMP_20_overflow;
+						output_index_6 = 6;
+						output_value_5 = product_msd_2_1;
+						output_btint_a_11 = 0;
+						output_btint_b_11 = 0;
+						output_overflow_11 = 0;
+						output_btint_a_11 = output_btint_a_10;
+						output_btint_b_11 = output_btint_b_10;
+						output_overflow_11 = output_overflow_10;
+						case (output_value_5)
+							-1: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 0;
+							end
+							0: begin
+								output_btint_a_11[output_index_6] = 0;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							1: begin
+								output_btint_a_11[output_index_6] = 1;
+								output_btint_b_11[output_index_6] = 1;
+							end
+							default:
+								;
+						endcase
+						TMP_21_btint_a = output_btint_a_11;
+						TMP_21_btint_b = output_btint_b_11;
+						TMP_21_overflow = output_overflow_11;
+						output_btint_a_10 = TMP_21_btint_a;
+						output_btint_b_10 = TMP_21_btint_b;
+						output_overflow_10 = TMP_21_overflow;
+						TMP_12_btint_a = output_btint_a_10;
+						TMP_12_btint_b = output_btint_b_10;
+						TMP_12_overflow = output_overflow_10;
+						TMP_12_from = 15;
+						TMP_12_to = 0;
+						output_btint_a_12 = 0;
+						output_btint_b_12 = 0;
+						output_overflow_12 = 0;
+						output_btint_a_12 = TMP_12_btint_a[TMP_12_to+:8];
+						output_btint_b_12 = TMP_12_btint_b[TMP_12_to+:8];
+						output_overflow_12 = TMP_12_overflow;
+						TMP_22_btint_a = output_btint_a_12;
+						TMP_22_btint_b = output_btint_b_12;
+						TMP_22_overflow = output_overflow_12;
+						cell_c_out_d_btint_a_next = TMP_22_btint_a;
+						cell_c_out_d_btint_b_next = TMP_22_btint_b;
+						cell_c_out_d_overflow_next = TMP_22_overflow;
 					end
 					else begin
 						c_in_u_output_v = 0;
-						begin : sv2v_autoblock_8
-							integer i_11;
-							for (i_11 = 7; i_11 >= 0; i_11 = i_11 - 1)
+						begin : sv2v_autoblock_2
+							integer i_6;
+							for (i_6 = 7; i_6 >= 0; i_6 = i_6 - 1)
 								begin
-									c_in_u_index = i_11;
-									TMP_33 = (c_in_u_btint_a[c_in_u_index] + c_in_u_btint_b[c_in_u_index]) - 1;
-									c_in_u_output_v = (2 * c_in_u_output_v) + TMP_33;
+									c_in_u_index = i_6;
+									TMP_28 = (c_in_u_btint_a[c_in_u_index] + c_in_u_btint_b[c_in_u_index]) - 1;
+									c_in_u_output_v = (2 * c_in_u_output_v) + TMP_28;
 								end
 						end
-						TMP_32 = c_in_u_output_v;
-						if (TMP_32 == 0) begin
+						TMP_27 = c_in_u_output_v;
+						if (TMP_27 == 0) begin
 							multiplier_reset_next[0] = 0;
-							output_btint_a_22 = 0;
-							output_btint_b_22 = 0;
-							output_overflow_22 = 0;
-							output_btint_a_22 = state_u_btint_a_next;
-							output_btint_b_22 = state_u_btint_b_next;
-							output_overflow_22 = state_u_overflow_next;
-							begin : sv2v_autoblock_9
-								integer i_12;
-								for (i_12 = 0; i_12 < 8; i_12 = i_12 + 1)
+							output_btint_a_13 = 0;
+							output_btint_b_13 = 0;
+							output_overflow_13 = 0;
+							output_btint_a_13 = state_u_btint_a_next;
+							output_btint_b_13 = state_u_btint_b_next;
+							output_overflow_13 = state_u_overflow_next;
+							begin : sv2v_autoblock_3
+								integer i_7;
+								for (i_7 = 0; i_7 < 8; i_7 = i_7 + 1)
 									begin
-										output_index_11 = i_12;
-										TMP_21 = (output_btint_a_22[output_index_11] + output_btint_b_22[output_index_11]) - 1;
-										output_index_12 = i_12;
-										output_value_13 = -TMP_21;
-										output_btint_a_23 = 0;
-										output_btint_b_23 = 0;
-										output_overflow_23 = 0;
-										output_btint_a_23 = output_btint_a_22;
-										output_btint_b_23 = output_btint_b_22;
-										output_overflow_23 = output_overflow_22;
-										case (output_value_13)
+										output_index_7 = i_7;
+										TMP_30 = (output_btint_a_13[output_index_7] + output_btint_b_13[output_index_7]) - 1;
+										output_index_8 = i_7;
+										output_value_6 = -TMP_30;
+										output_btint_a_14 = 0;
+										output_btint_b_14 = 0;
+										output_overflow_14 = 0;
+										output_btint_a_14 = output_btint_a_13;
+										output_btint_b_14 = output_btint_b_13;
+										output_overflow_14 = output_overflow_13;
+										case (output_value_6)
 											-1: begin
-												output_btint_a_23[output_index_12] = 0;
-												output_btint_b_23[output_index_12] = 0;
+												output_btint_a_14[output_index_8] = 0;
+												output_btint_b_14[output_index_8] = 0;
 											end
 											0: begin
-												output_btint_a_23[output_index_12] = 0;
-												output_btint_b_23[output_index_12] = 1;
+												output_btint_a_14[output_index_8] = 0;
+												output_btint_b_14[output_index_8] = 1;
 											end
 											1: begin
-												output_btint_a_23[output_index_12] = 1;
-												output_btint_b_23[output_index_12] = 1;
+												output_btint_a_14[output_index_8] = 1;
+												output_btint_b_14[output_index_8] = 1;
 											end
 											default:
 												;
 										endcase
-										TMP_22_btint_a = output_btint_a_23;
-										TMP_22_btint_b = output_btint_b_23;
-										TMP_22_overflow = output_overflow_23;
-										output_btint_a_22 = TMP_22_btint_a;
-										output_btint_b_22 = TMP_22_btint_b;
-										output_overflow_22 = TMP_22_overflow;
+										TMP_31_btint_a = output_btint_a_14;
+										TMP_31_btint_b = output_btint_b_14;
+										TMP_31_overflow = output_overflow_14;
+										output_btint_a_13 = TMP_31_btint_a;
+										output_btint_b_13 = TMP_31_btint_b;
+										output_overflow_13 = TMP_31_overflow;
 									end
 							end
-							TMP_24 = (output_overflow_22[0] + output_overflow_22[1]) - 1;
-							output_value_14 = -TMP_24;
-							output_btint_a_24 = 0;
-							output_btint_b_24 = 0;
-							output_overflow_24 = 0;
-							output_btint_a_24 = output_btint_a_22;
-							output_btint_b_24 = output_btint_b_22;
-							output_overflow_24 = output_overflow_22;
-							case (output_value_14)
+							TMP_33 = (output_overflow_13[0] + output_overflow_13[1]) - 1;
+							output_value_7 = -TMP_33;
+							output_btint_a_15 = 0;
+							output_btint_b_15 = 0;
+							output_overflow_15 = 0;
+							output_btint_a_15 = output_btint_a_13;
+							output_btint_b_15 = output_btint_b_13;
+							output_overflow_15 = output_overflow_13;
+							case (output_value_7)
 								-1: begin
-									output_overflow_24[0] = 0;
-									output_overflow_24[1] = 0;
+									output_overflow_15[0] = 0;
+									output_overflow_15[1] = 0;
 								end
 								0: begin
-									output_overflow_24[0] = 0;
-									output_overflow_24[1] = 1;
+									output_overflow_15[0] = 0;
+									output_overflow_15[1] = 1;
 								end
 								1: begin
-									output_overflow_24[0] = 1;
-									output_overflow_24[1] = 1;
+									output_overflow_15[0] = 1;
+									output_overflow_15[1] = 1;
 								end
 								default:
 									;
 							endcase
-							TMP_25_btint_a = output_btint_a_24;
-							TMP_25_btint_b = output_btint_b_24;
-							TMP_25_overflow = output_overflow_24;
-							output_btint_a_22 = TMP_25_btint_a;
-							output_btint_b_22 = TMP_25_btint_b;
-							output_overflow_22 = TMP_25_overflow;
-							TMP_34_btint_a = output_btint_a_22;
-							TMP_34_btint_b = output_btint_b_22;
-							TMP_34_overflow = output_overflow_22;
-							multiplier_a_btint_a_next[24+:8] = TMP_34_btint_a;
-							multiplier_a_btint_b_next[24+:8] = TMP_34_btint_b;
-							multiplier_a_overflow_next[6+:2] = TMP_34_overflow;
+							TMP_34_btint_a = output_btint_a_15;
+							TMP_34_btint_b = output_btint_b_15;
+							TMP_34_overflow = output_overflow_15;
+							output_btint_a_13 = TMP_34_btint_a;
+							output_btint_b_13 = TMP_34_btint_b;
+							output_overflow_13 = TMP_34_overflow;
+							TMP_29_btint_a = output_btint_a_13;
+							TMP_29_btint_b = output_btint_b_13;
+							TMP_29_overflow = output_overflow_13;
+							multiplier_a_btint_a_next[24+:8] = TMP_29_btint_a;
+							multiplier_a_btint_b_next[24+:8] = TMP_29_btint_b;
+							multiplier_a_overflow_next[6+:2] = TMP_29_overflow;
 							multiplier_b_btint_a_next[24+:8] = cell_a_in_btint_a;
 							multiplier_b_btint_b_next[24+:8] = cell_a_in_btint_b;
 							multiplier_b_overflow_next[6+:2] = cell_a_in_overflow;
-							product_output_v = 0;
-							begin : sv2v_autoblock_10
-								integer i_6;
-								for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-									begin
-										product_index = i_6;
-										TMP_13 = (product_btint_a_next[48 + product_index] + product_btint_b_next[48 + product_index]) - 1;
-										product_output_v = (2 * product_output_v) + TMP_13;
+							output_btint_a_10 = 0;
+							output_btint_b_10 = 0;
+							output_overflow_10 = 0;
+							output_btint_a_10[0] = product_btint_a_next[48+:16];
+							output_btint_b_10[0] = product_btint_b_next[48+:16];
+							output_overflow_10[0] = product_overflow_next[6+:2];
+							output_index_5 = 8;
+							TMP_13 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+							product_msd = TMP_13;
+							output_index_5 = 7;
+							TMP_15 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+							product_msd_1_1 = TMP_15;
+							output_index_5 = 6;
+							TMP_17 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+							product_msd_2_1 = TMP_17;
+							case (product_msd)
+								-1:
+									if (product_msd_1_1 == 1) begin
+										product_msd = 0;
+										product_msd_1_1 = -2'sd1;
 									end
-							end
-							TMP_12 = product_output_v;
-							TMP_38_value = TMP_12;
-							output_btint_a_25 = 0;
-							output_btint_b_25 = 0;
-							output_overflow_25 = 0;
-							begin : sv2v_autoblock_11
-								integer i_13;
-								for (i_13 = 0; i_13 < 8; i_13 = i_13 + 1)
-									begin
-										output_index_13 = i_13;
-										output_value_15 = 0;
-										output_btint_a_26 = 0;
-										output_btint_b_26 = 0;
-										output_overflow_26 = 0;
-										output_btint_a_26 = output_btint_a_25;
-										output_btint_b_26 = output_btint_b_25;
-										output_overflow_26 = output_overflow_25;
-										case (0)
-											-1: begin
-												output_btint_a_26[output_index_13] = 0;
-												output_btint_b_26[output_index_13] = 0;
-											end
-											0: begin
-												output_btint_a_26[output_index_13] = 0;
-												output_btint_b_26[output_index_13] = 1;
-											end
-											1: begin
-												output_btint_a_26[output_index_13] = 1;
-												output_btint_b_26[output_index_13] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_2_btint_a = output_btint_a_26;
-										TMP_2_btint_b = output_btint_b_26;
-										TMP_2_overflow = output_overflow_26;
-										output_btint_a_25 = TMP_2_btint_a;
-										output_btint_b_25 = TMP_2_btint_b;
-										output_overflow_25 = TMP_2_overflow;
+									else if ((product_msd_1_1 == 0) && (product_msd_2_1 == 1)) begin
+										product_msd = 0;
+										product_msd_2_1 = -2'sd1;
+										product_msd_1_1 = product_msd_2_1;
 									end
-							end
-							TMP_38_isNegative = TMP_38_value < 0;
-							if (TMP_38_isNegative)
-								TMP_38_value = -TMP_38_value;
-							TMP_38_i = 0;
-							while (|TMP_38_value && (_sv2v_jump < 2'b10)) begin
-								_sv2v_jump = 2'b00;
-								if (TMP_38_i >= 8) begin
-									output_value_16 = 1;
-									output_btint_a_27 = 0;
-									output_btint_b_27 = 0;
-									output_overflow_27 = 0;
-									output_btint_a_27 = output_btint_a_25;
-									output_btint_b_27 = output_btint_b_25;
-									output_overflow_27 = output_overflow_25;
-									case (1)
-										-1: begin
-											output_overflow_27[0] = 0;
-											output_overflow_27[1] = 0;
-										end
-										0: begin
-											output_overflow_27[0] = 0;
-											output_overflow_27[1] = 1;
-										end
-										1: begin
-											output_overflow_27[0] = 1;
-											output_overflow_27[1] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_17_btint_a = output_btint_a_27;
-									TMP_17_btint_b = output_btint_b_27;
-									TMP_17_overflow = output_overflow_27;
-									output_btint_a_25 = TMP_17_btint_a;
-									output_btint_b_25 = TMP_17_btint_b;
-									output_overflow_25 = TMP_17_overflow;
-									_sv2v_jump = 2'b10;
+								1:
+									if (product_msd_1_1 == -2'sd1) begin
+										product_msd = 0;
+										product_msd_1_1 = 1;
+									end
+									else if ((product_msd_1_1 == 0) && (product_msd_2_1 == -2'sd1)) begin
+										product_msd = 0;
+										product_msd_2_1 = 1;
+										product_msd_1_1 = product_msd_2_1;
+									end
+							endcase
+							output_index_6 = 8;
+							output_value_5 = product_msd;
+							output_btint_a_11 = 0;
+							output_btint_b_11 = 0;
+							output_overflow_11 = 0;
+							output_btint_a_11 = output_btint_a_10;
+							output_btint_b_11 = output_btint_b_10;
+							output_overflow_11 = output_overflow_10;
+							case (output_value_5)
+								-1: begin
+									output_btint_a_11[output_index_6] = 0;
+									output_btint_b_11[output_index_6] = 0;
 								end
-								if (_sv2v_jump == 2'b00) begin
-									if (|(TMP_38_value % 2)) begin
-										TMP_38_i = TMP_38_i + 1;
-										output_index_13 = TMP_38_i + 1'sd1;
-										output_value_15 = 1;
-										output_btint_a_26 = 0;
-										output_btint_b_26 = 0;
-										output_overflow_26 = 0;
-										output_btint_a_26 = output_btint_a_25;
-										output_btint_b_26 = output_btint_b_25;
-										output_overflow_26 = output_overflow_25;
-										case (1)
-											-1: begin
-												output_btint_a_26[output_index_13] = 0;
-												output_btint_b_26[output_index_13] = 0;
-											end
-											0: begin
-												output_btint_a_26[output_index_13] = 0;
-												output_btint_b_26[output_index_13] = 1;
-											end
-											1: begin
-												output_btint_a_26[output_index_13] = 1;
-												output_btint_b_26[output_index_13] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_18_btint_a = output_btint_a_26;
-										TMP_18_btint_b = output_btint_b_26;
-										TMP_18_overflow = output_overflow_26;
-										output_btint_a_25 = TMP_18_btint_a;
-										output_btint_b_25 = TMP_18_btint_b;
-										output_overflow_25 = TMP_18_overflow;
-										TMP_38_value = TMP_38_value - 1;
-									end
-									else begin
-										TMP_38_i = TMP_38_i + 1;
-										output_index_13 = TMP_38_i + 1'sd1;
-										output_value_15 = 0;
-										output_btint_a_26 = 0;
-										output_btint_b_26 = 0;
-										output_overflow_26 = 0;
-										output_btint_a_26 = output_btint_a_25;
-										output_btint_b_26 = output_btint_b_25;
-										output_overflow_26 = output_overflow_25;
-										case (0)
-											-1: begin
-												output_btint_a_26[output_index_13] = 0;
-												output_btint_b_26[output_index_13] = 0;
-											end
-											0: begin
-												output_btint_a_26[output_index_13] = 0;
-												output_btint_b_26[output_index_13] = 1;
-											end
-											1: begin
-												output_btint_a_26[output_index_13] = 1;
-												output_btint_b_26[output_index_13] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_19_btint_a = output_btint_a_26;
-										TMP_19_btint_b = output_btint_b_26;
-										TMP_19_overflow = output_overflow_26;
-										output_btint_a_25 = TMP_19_btint_a;
-										output_btint_b_25 = TMP_19_btint_b;
-										output_overflow_25 = TMP_19_overflow;
-									end
-									TMP_38_value = TMP_38_value / 2;
+								0: begin
+									output_btint_a_11[output_index_6] = 0;
+									output_btint_b_11[output_index_6] = 1;
 								end
-							end
-							if (_sv2v_jump != 2'b11)
-								_sv2v_jump = 2'b00;
-							if (_sv2v_jump == 2'b00) begin
-								if (TMP_38_isNegative) begin
-									output_btint_a_28 = 0;
-									output_btint_b_28 = 0;
-									output_overflow_28 = 0;
-									output_btint_a_28 = output_btint_a_25;
-									output_btint_b_28 = output_btint_b_25;
-									output_overflow_28 = output_overflow_25;
-									begin : sv2v_autoblock_12
-										integer i_14;
-										for (i_14 = 0; i_14 < 8; i_14 = i_14 + 1)
-											begin
-												output_index_14 = i_14;
-												TMP_21 = (output_btint_a_28[output_index_14] + output_btint_b_28[output_index_14]) - 1;
-												output_index_15 = i_14;
-												output_value_17 = -TMP_21;
-												output_btint_a_29 = 0;
-												output_btint_b_29 = 0;
-												output_overflow_29 = 0;
-												output_btint_a_29 = output_btint_a_28;
-												output_btint_b_29 = output_btint_b_28;
-												output_overflow_29 = output_overflow_28;
-												case (output_value_17)
-													-1: begin
-														output_btint_a_29[output_index_15] = 0;
-														output_btint_b_29[output_index_15] = 0;
-													end
-													0: begin
-														output_btint_a_29[output_index_15] = 0;
-														output_btint_b_29[output_index_15] = 1;
-													end
-													1: begin
-														output_btint_a_29[output_index_15] = 1;
-														output_btint_b_29[output_index_15] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_22_btint_a = output_btint_a_29;
-												TMP_22_btint_b = output_btint_b_29;
-												TMP_22_overflow = output_overflow_29;
-												output_btint_a_28 = TMP_22_btint_a;
-												output_btint_b_28 = TMP_22_btint_b;
-												output_overflow_28 = TMP_22_overflow;
-											end
-									end
-									TMP_24 = (output_overflow_28[0] + output_overflow_28[1]) - 1;
-									output_value_18 = -TMP_24;
-									output_btint_a_30 = 0;
-									output_btint_b_30 = 0;
-									output_overflow_30 = 0;
-									output_btint_a_30 = output_btint_a_28;
-									output_btint_b_30 = output_btint_b_28;
-									output_overflow_30 = output_overflow_28;
-									case (output_value_18)
-										-1: begin
-											output_overflow_30[0] = 0;
-											output_overflow_30[1] = 0;
-										end
-										0: begin
-											output_overflow_30[0] = 0;
-											output_overflow_30[1] = 1;
-										end
-										1: begin
-											output_overflow_30[0] = 1;
-											output_overflow_30[1] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_25_btint_a = output_btint_a_30;
-									TMP_25_btint_b = output_btint_b_30;
-									TMP_25_overflow = output_overflow_30;
-									output_btint_a_28 = TMP_25_btint_a;
-									output_btint_b_28 = TMP_25_btint_b;
-									output_overflow_28 = TMP_25_overflow;
-									TMP_20_btint_a = output_btint_a_28;
-									TMP_20_btint_b = output_btint_b_28;
-									TMP_20_overflow = output_overflow_28;
-									output_btint_a_25 = TMP_20_btint_a;
-									output_btint_b_25 = TMP_20_btint_b;
-									output_overflow_25 = TMP_20_overflow;
+								1: begin
+									output_btint_a_11[output_index_6] = 1;
+									output_btint_b_11[output_index_6] = 1;
 								end
-								TMP_15_btint_a = output_btint_a_25;
-								TMP_15_btint_b = output_btint_b_25;
-								TMP_15_overflow = output_overflow_25;
-								cell_c_out_u_btint_a_next = TMP_15_btint_a;
-								cell_c_out_u_btint_b_next = TMP_15_btint_b;
-								cell_c_out_u_overflow_next = TMP_15_overflow;
-								cell_c_out_d_btint_a_next = state_d_btint_a_next;
-								cell_c_out_d_btint_b_next = state_d_btint_b_next;
-								cell_c_out_d_overflow_next = state_d_overflow_next;
-							end
+								default:
+									;
+							endcase
+							TMP_19_btint_a = output_btint_a_11;
+							TMP_19_btint_b = output_btint_b_11;
+							TMP_19_overflow = output_overflow_11;
+							output_btint_a_10 = TMP_19_btint_a;
+							output_btint_b_10 = TMP_19_btint_b;
+							output_overflow_10 = TMP_19_overflow;
+							output_index_6 = 7;
+							output_value_5 = product_msd_1_1;
+							output_btint_a_11 = 0;
+							output_btint_b_11 = 0;
+							output_overflow_11 = 0;
+							output_btint_a_11 = output_btint_a_10;
+							output_btint_b_11 = output_btint_b_10;
+							output_overflow_11 = output_overflow_10;
+							case (output_value_5)
+								-1: begin
+									output_btint_a_11[output_index_6] = 0;
+									output_btint_b_11[output_index_6] = 0;
+								end
+								0: begin
+									output_btint_a_11[output_index_6] = 0;
+									output_btint_b_11[output_index_6] = 1;
+								end
+								1: begin
+									output_btint_a_11[output_index_6] = 1;
+									output_btint_b_11[output_index_6] = 1;
+								end
+								default:
+									;
+							endcase
+							TMP_20_btint_a = output_btint_a_11;
+							TMP_20_btint_b = output_btint_b_11;
+							TMP_20_overflow = output_overflow_11;
+							output_btint_a_10 = TMP_20_btint_a;
+							output_btint_b_10 = TMP_20_btint_b;
+							output_overflow_10 = TMP_20_overflow;
+							output_index_6 = 6;
+							output_value_5 = product_msd_2_1;
+							output_btint_a_11 = 0;
+							output_btint_b_11 = 0;
+							output_overflow_11 = 0;
+							output_btint_a_11 = output_btint_a_10;
+							output_btint_b_11 = output_btint_b_10;
+							output_overflow_11 = output_overflow_10;
+							case (output_value_5)
+								-1: begin
+									output_btint_a_11[output_index_6] = 0;
+									output_btint_b_11[output_index_6] = 0;
+								end
+								0: begin
+									output_btint_a_11[output_index_6] = 0;
+									output_btint_b_11[output_index_6] = 1;
+								end
+								1: begin
+									output_btint_a_11[output_index_6] = 1;
+									output_btint_b_11[output_index_6] = 1;
+								end
+								default:
+									;
+							endcase
+							TMP_21_btint_a = output_btint_a_11;
+							TMP_21_btint_b = output_btint_b_11;
+							TMP_21_overflow = output_overflow_11;
+							output_btint_a_10 = TMP_21_btint_a;
+							output_btint_b_10 = TMP_21_btint_b;
+							output_overflow_10 = TMP_21_overflow;
+							TMP_12_btint_a = output_btint_a_10;
+							TMP_12_btint_b = output_btint_b_10;
+							TMP_12_overflow = output_overflow_10;
+							TMP_12_from = 15;
+							TMP_12_to = 0;
+							output_btint_a_12 = 0;
+							output_btint_b_12 = 0;
+							output_overflow_12 = 0;
+							output_btint_a_12 = TMP_12_btint_a[TMP_12_to+:8];
+							output_btint_b_12 = TMP_12_btint_b[TMP_12_to+:8];
+							output_overflow_12 = TMP_12_overflow;
+							TMP_22_btint_a = output_btint_a_12;
+							TMP_22_btint_b = output_btint_b_12;
+							TMP_22_overflow = output_overflow_12;
+							cell_c_out_u_btint_a_next = TMP_22_btint_a;
+							cell_c_out_u_btint_b_next = TMP_22_btint_b;
+							cell_c_out_u_overflow_next = TMP_22_overflow;
+							cell_c_out_d_btint_a_next = state_d_btint_a_next;
+							cell_c_out_d_btint_b_next = state_d_btint_b_next;
+							cell_c_out_d_overflow_next = state_d_overflow_next;
 						end
 						else begin
 							a_in_output_v = 0;
-							begin : sv2v_autoblock_13
-								integer i_15;
-								for (i_15 = 7; i_15 >= 0; i_15 = i_15 - 1)
+							begin : sv2v_autoblock_4
+								integer i_8;
+								for (i_8 = 7; i_8 >= 0; i_8 = i_8 - 1)
 									begin
-										a_in_index = i_15;
-										TMP_33 = (a_in_btint_a[a_in_index] + a_in_btint_b[a_in_index]) - 1;
-										a_in_output_v = (2 * a_in_output_v) + TMP_33;
+										a_in_index = i_8;
+										TMP_28 = (a_in_btint_a[a_in_index] + a_in_btint_b[a_in_index]) - 1;
+										a_in_output_v = (2 * a_in_output_v) + TMP_28;
 									end
 							end
-							TMP_42 = a_in_output_v;
+							TMP_40 = a_in_output_v;
 							output_v_1 = 0;
-							begin : sv2v_autoblock_14
-								integer i_16;
-								for (i_16 = 7; i_16 >= 0; i_16 = i_16 - 1)
+							begin : sv2v_autoblock_5
+								integer i_9;
+								for (i_9 = 7; i_9 >= 0; i_9 = i_9 - 1)
 									begin
-										index = i_16;
-										TMP_33 = (state_u_btint_a_next[index] + state_u_btint_b_next[index]) - 1;
-										output_v_1 = (2 * output_v_1) + TMP_33;
+										index = i_9;
+										TMP_28 = (state_u_btint_a_next[index] + state_u_btint_b_next[index]) - 1;
+										output_v_1 = (2 * output_v_1) + TMP_28;
 									end
 							end
-							TMP_43 = output_v_1;
-							if ((TMP_42 == 0) || (TMP_43 == 0)) begin
+							TMP_41 = output_v_1;
+							if ((TMP_40 == 0) || (TMP_41 == 0)) begin
 								cell_c_out_u_btint_a_next = cell_c_in_u_btint_a;
 								cell_c_out_u_btint_b_next = cell_c_in_u_btint_b;
 								cell_c_out_u_overflow_next = cell_c_in_u_overflow;
@@ -2295,1277 +1551,455 @@ module CELL (
 								multiplier_b_btint_b_next[16+:8] = cell_a_in_btint_b;
 								multiplier_b_overflow_next[4+:2] = cell_a_in_overflow;
 								multiplier_reset_next[2] = 0;
-								product_output_v = 0;
-								begin : sv2v_autoblock_15
-									integer i_6;
-									for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-										begin
-											product_index = i_6;
-											TMP_13 = (product_btint_a_next[32 + product_index] + product_btint_b_next[32 + product_index]) - 1;
-											product_output_v = (2 * product_output_v) + TMP_13;
+								output_btint_a_10 = 0;
+								output_btint_b_10 = 0;
+								output_overflow_10 = 0;
+								output_btint_a_10[1] = product_btint_a_next[32+:16];
+								output_btint_b_10[1] = product_btint_b_next[32+:16];
+								output_overflow_10[1] = product_overflow_next[4+:2];
+								output_index_5 = 8;
+								TMP_13 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+								product_msd = TMP_13;
+								output_index_5 = 7;
+								TMP_15 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+								product_msd_1_1 = TMP_15;
+								output_index_5 = 6;
+								TMP_17 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+								product_msd_2_1 = TMP_17;
+								case (product_msd)
+									-1:
+										if (product_msd_1_1 == 1) begin
+											product_msd = 0;
+											product_msd_1_1 = -2'sd1;
 										end
-								end
-								TMP_12 = product_output_v;
-								TMP_45_value = TMP_12;
-								output_btint_a_31 = 0;
-								output_btint_b_31 = 0;
-								output_overflow_31 = 0;
-								begin : sv2v_autoblock_16
-									integer i_17;
-									for (i_17 = 0; i_17 < 8; i_17 = i_17 + 1)
-										begin
-											output_index_16 = i_17;
-											output_value_19 = 0;
-											output_btint_a_32 = 0;
-											output_btint_b_32 = 0;
-											output_overflow_32 = 0;
-											output_btint_a_32 = output_btint_a_31;
-											output_btint_b_32 = output_btint_b_31;
-											output_overflow_32 = output_overflow_31;
-											case (0)
-												-1: begin
-													output_btint_a_32[output_index_16] = 0;
-													output_btint_b_32[output_index_16] = 0;
-												end
-												0: begin
-													output_btint_a_32[output_index_16] = 0;
-													output_btint_b_32[output_index_16] = 1;
-												end
-												1: begin
-													output_btint_a_32[output_index_16] = 1;
-													output_btint_b_32[output_index_16] = 1;
-												end
-												default:
-													;
-											endcase
-											TMP_2_btint_a = output_btint_a_32;
-											TMP_2_btint_b = output_btint_b_32;
-											TMP_2_overflow = output_overflow_32;
-											output_btint_a_31 = TMP_2_btint_a;
-											output_btint_b_31 = TMP_2_btint_b;
-											output_overflow_31 = TMP_2_overflow;
+										else if ((product_msd_1_1 == 0) && (product_msd_2_1 == 1)) begin
+											product_msd = 0;
+											product_msd_2_1 = -2'sd1;
+											product_msd_1_1 = product_msd_2_1;
 										end
-								end
-								TMP_45_isNegative = TMP_45_value < 0;
-								if (TMP_45_isNegative)
-									TMP_45_value = -TMP_45_value;
-								TMP_45_i = 0;
-								while (|TMP_45_value && (_sv2v_jump < 2'b10)) begin
-									_sv2v_jump = 2'b00;
-									if (TMP_45_i >= 8) begin
-										output_value_20 = 1;
-										output_btint_a_33 = 0;
-										output_btint_b_33 = 0;
-										output_overflow_33 = 0;
-										output_btint_a_33 = output_btint_a_31;
-										output_btint_b_33 = output_btint_b_31;
-										output_overflow_33 = output_overflow_31;
-										case (1)
-											-1: begin
-												output_overflow_33[0] = 0;
-												output_overflow_33[1] = 0;
-											end
-											0: begin
-												output_overflow_33[0] = 0;
-												output_overflow_33[1] = 1;
-											end
-											1: begin
-												output_overflow_33[0] = 1;
-												output_overflow_33[1] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_17_btint_a = output_btint_a_33;
-										TMP_17_btint_b = output_btint_b_33;
-										TMP_17_overflow = output_overflow_33;
-										output_btint_a_31 = TMP_17_btint_a;
-										output_btint_b_31 = TMP_17_btint_b;
-										output_overflow_31 = TMP_17_overflow;
-										_sv2v_jump = 2'b10;
+									1:
+										if (product_msd_1_1 == -2'sd1) begin
+											product_msd = 0;
+											product_msd_1_1 = 1;
+										end
+										else if ((product_msd_1_1 == 0) && (product_msd_2_1 == -2'sd1)) begin
+											product_msd = 0;
+											product_msd_2_1 = 1;
+											product_msd_1_1 = product_msd_2_1;
+										end
+								endcase
+								output_index_6 = 8;
+								output_value_5 = product_msd;
+								output_btint_a_11 = 0;
+								output_btint_b_11 = 0;
+								output_overflow_11 = 0;
+								output_btint_a_11 = output_btint_a_10;
+								output_btint_b_11 = output_btint_b_10;
+								output_overflow_11 = output_overflow_10;
+								case (output_value_5)
+									-1: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 0;
 									end
-									if (_sv2v_jump == 2'b00) begin
-										if (|(TMP_45_value % 2)) begin
-											TMP_45_i = TMP_45_i + 1;
-											output_index_16 = TMP_45_i + 1'sd1;
-											output_value_19 = 1;
-											output_btint_a_32 = 0;
-											output_btint_b_32 = 0;
-											output_overflow_32 = 0;
-											output_btint_a_32 = output_btint_a_31;
-											output_btint_b_32 = output_btint_b_31;
-											output_overflow_32 = output_overflow_31;
-											case (1)
-												-1: begin
-													output_btint_a_32[output_index_16] = 0;
-													output_btint_b_32[output_index_16] = 0;
-												end
-												0: begin
-													output_btint_a_32[output_index_16] = 0;
-													output_btint_b_32[output_index_16] = 1;
-												end
-												1: begin
-													output_btint_a_32[output_index_16] = 1;
-													output_btint_b_32[output_index_16] = 1;
-												end
-												default:
-													;
-											endcase
-											TMP_18_btint_a = output_btint_a_32;
-											TMP_18_btint_b = output_btint_b_32;
-											TMP_18_overflow = output_overflow_32;
-											output_btint_a_31 = TMP_18_btint_a;
-											output_btint_b_31 = TMP_18_btint_b;
-											output_overflow_31 = TMP_18_overflow;
-											TMP_45_value = TMP_45_value - 1;
-										end
-										else begin
-											TMP_45_i = TMP_45_i + 1;
-											output_index_16 = TMP_45_i + 1'sd1;
-											output_value_19 = 0;
-											output_btint_a_32 = 0;
-											output_btint_b_32 = 0;
-											output_overflow_32 = 0;
-											output_btint_a_32 = output_btint_a_31;
-											output_btint_b_32 = output_btint_b_31;
-											output_overflow_32 = output_overflow_31;
-											case (0)
-												-1: begin
-													output_btint_a_32[output_index_16] = 0;
-													output_btint_b_32[output_index_16] = 0;
-												end
-												0: begin
-													output_btint_a_32[output_index_16] = 0;
-													output_btint_b_32[output_index_16] = 1;
-												end
-												1: begin
-													output_btint_a_32[output_index_16] = 1;
-													output_btint_b_32[output_index_16] = 1;
-												end
-												default:
-													;
-											endcase
-											TMP_19_btint_a = output_btint_a_32;
-											TMP_19_btint_b = output_btint_b_32;
-											TMP_19_overflow = output_overflow_32;
-											output_btint_a_31 = TMP_19_btint_a;
-											output_btint_b_31 = TMP_19_btint_b;
-											output_overflow_31 = TMP_19_overflow;
-										end
-										TMP_45_value = TMP_45_value / 2;
+									0: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 1;
 									end
-								end
-								if (_sv2v_jump != 2'b11)
-									_sv2v_jump = 2'b00;
-								if (_sv2v_jump == 2'b00) begin
-									if (TMP_45_isNegative) begin
-										output_btint_a_34 = 0;
-										output_btint_b_34 = 0;
-										output_overflow_34 = 0;
-										output_btint_a_34 = output_btint_a_31;
-										output_btint_b_34 = output_btint_b_31;
-										output_overflow_34 = output_overflow_31;
-										begin : sv2v_autoblock_17
-											integer i_18;
-											for (i_18 = 0; i_18 < 8; i_18 = i_18 + 1)
-												begin
-													output_index_17 = i_18;
-													TMP_21 = (output_btint_a_34[output_index_17] + output_btint_b_34[output_index_17]) - 1;
-													output_index_18 = i_18;
-													output_value_21 = -TMP_21;
-													output_btint_a_35 = 0;
-													output_btint_b_35 = 0;
-													output_overflow_35 = 0;
-													output_btint_a_35 = output_btint_a_34;
-													output_btint_b_35 = output_btint_b_34;
-													output_overflow_35 = output_overflow_34;
-													case (output_value_21)
-														-1: begin
-															output_btint_a_35[output_index_18] = 0;
-															output_btint_b_35[output_index_18] = 0;
-														end
-														0: begin
-															output_btint_a_35[output_index_18] = 0;
-															output_btint_b_35[output_index_18] = 1;
-														end
-														1: begin
-															output_btint_a_35[output_index_18] = 1;
-															output_btint_b_35[output_index_18] = 1;
-														end
-														default:
-															;
-													endcase
-													TMP_22_btint_a = output_btint_a_35;
-													TMP_22_btint_b = output_btint_b_35;
-													TMP_22_overflow = output_overflow_35;
-													output_btint_a_34 = TMP_22_btint_a;
-													output_btint_b_34 = TMP_22_btint_b;
-													output_overflow_34 = TMP_22_overflow;
-												end
-										end
-										TMP_24 = (output_overflow_34[0] + output_overflow_34[1]) - 1;
-										output_value_22 = -TMP_24;
-										output_btint_a_36 = 0;
-										output_btint_b_36 = 0;
-										output_overflow_36 = 0;
-										output_btint_a_36 = output_btint_a_34;
-										output_btint_b_36 = output_btint_b_34;
-										output_overflow_36 = output_overflow_34;
-										case (output_value_22)
-											-1: begin
-												output_overflow_36[0] = 0;
-												output_overflow_36[1] = 0;
-											end
-											0: begin
-												output_overflow_36[0] = 0;
-												output_overflow_36[1] = 1;
-											end
-											1: begin
-												output_overflow_36[0] = 1;
-												output_overflow_36[1] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_25_btint_a = output_btint_a_36;
-										TMP_25_btint_b = output_btint_b_36;
-										TMP_25_overflow = output_overflow_36;
-										output_btint_a_34 = TMP_25_btint_a;
-										output_btint_b_34 = TMP_25_btint_b;
-										output_overflow_34 = TMP_25_overflow;
-										TMP_20_btint_a = output_btint_a_34;
-										TMP_20_btint_b = output_btint_b_34;
-										TMP_20_overflow = output_overflow_34;
-										output_btint_a_31 = TMP_20_btint_a;
-										output_btint_b_31 = TMP_20_btint_b;
-										output_overflow_31 = TMP_20_overflow;
+									1: begin
+										output_btint_a_11[output_index_6] = 1;
+										output_btint_b_11[output_index_6] = 1;
 									end
-									TMP_15_btint_a = output_btint_a_31;
-									TMP_15_btint_b = output_btint_b_31;
-									TMP_15_overflow = output_overflow_31;
-									multiplier_a_btint_a_next[8+:8] = TMP_15_btint_a;
-									multiplier_a_btint_b_next[8+:8] = TMP_15_btint_b;
-									multiplier_a_overflow_next[2+:2] = TMP_15_overflow;
-									multiplier_b_btint_a_next[8+:8] = cell_c_in_d_btint_a;
-									multiplier_b_btint_b_next[8+:8] = cell_c_in_d_btint_b;
-									multiplier_b_overflow_next[2+:2] = cell_c_in_d_overflow;
-									product_output_v = 0;
-									begin : sv2v_autoblock_18
-										integer i_6;
-										for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-											begin
-												product_index = i_6;
-												TMP_13 = (product_btint_a_next[48 + product_index] + product_btint_b_next[48 + product_index]) - 1;
-												product_output_v = (2 * product_output_v) + TMP_13;
-											end
+									default:
+										;
+								endcase
+								TMP_19_btint_a = output_btint_a_11;
+								TMP_19_btint_b = output_btint_b_11;
+								TMP_19_overflow = output_overflow_11;
+								output_btint_a_10 = TMP_19_btint_a;
+								output_btint_b_10 = TMP_19_btint_b;
+								output_overflow_10 = TMP_19_overflow;
+								output_index_6 = 7;
+								output_value_5 = product_msd_1_1;
+								output_btint_a_11 = 0;
+								output_btint_b_11 = 0;
+								output_overflow_11 = 0;
+								output_btint_a_11 = output_btint_a_10;
+								output_btint_b_11 = output_btint_b_10;
+								output_overflow_11 = output_overflow_10;
+								case (output_value_5)
+									-1: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 0;
 									end
-									TMP_12 = product_output_v;
-									TMP_50_value = TMP_12;
-									output_btint_a_37 = 0;
-									output_btint_b_37 = 0;
-									output_overflow_37 = 0;
-									begin : sv2v_autoblock_19
-										integer i_19;
-										for (i_19 = 0; i_19 < 8; i_19 = i_19 + 1)
-											begin
-												output_index_19 = i_19;
-												output_value_23 = 0;
-												output_btint_a_38 = 0;
-												output_btint_b_38 = 0;
-												output_overflow_38 = 0;
-												output_btint_a_38 = output_btint_a_37;
-												output_btint_b_38 = output_btint_b_37;
-												output_overflow_38 = output_overflow_37;
-												case (0)
-													-1: begin
-														output_btint_a_38[output_index_19] = 0;
-														output_btint_b_38[output_index_19] = 0;
-													end
-													0: begin
-														output_btint_a_38[output_index_19] = 0;
-														output_btint_b_38[output_index_19] = 1;
-													end
-													1: begin
-														output_btint_a_38[output_index_19] = 1;
-														output_btint_b_38[output_index_19] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_2_btint_a = output_btint_a_38;
-												TMP_2_btint_b = output_btint_b_38;
-												TMP_2_overflow = output_overflow_38;
-												output_btint_a_37 = TMP_2_btint_a;
-												output_btint_b_37 = TMP_2_btint_b;
-												output_overflow_37 = TMP_2_overflow;
-											end
+									0: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 1;
 									end
-									TMP_50_isNegative = TMP_50_value < 0;
-									if (TMP_50_isNegative)
-										TMP_50_value = -TMP_50_value;
-									TMP_50_i = 0;
-									while (|TMP_50_value && (_sv2v_jump < 2'b10)) begin
-										_sv2v_jump = 2'b00;
-										if (TMP_50_i >= 8) begin
-											output_value_24 = 1;
-											output_btint_a_39 = 0;
-											output_btint_b_39 = 0;
-											output_overflow_39 = 0;
-											output_btint_a_39 = output_btint_a_37;
-											output_btint_b_39 = output_btint_b_37;
-											output_overflow_39 = output_overflow_37;
-											case (1)
-												-1: begin
-													output_overflow_39[0] = 0;
-													output_overflow_39[1] = 0;
-												end
-												0: begin
-													output_overflow_39[0] = 0;
-													output_overflow_39[1] = 1;
-												end
-												1: begin
-													output_overflow_39[0] = 1;
-													output_overflow_39[1] = 1;
-												end
-												default:
-													;
-											endcase
-											TMP_17_btint_a = output_btint_a_39;
-											TMP_17_btint_b = output_btint_b_39;
-											TMP_17_overflow = output_overflow_39;
-											output_btint_a_37 = TMP_17_btint_a;
-											output_btint_b_37 = TMP_17_btint_b;
-											output_overflow_37 = TMP_17_overflow;
-											_sv2v_jump = 2'b10;
-										end
-										if (_sv2v_jump == 2'b00) begin
-											if (|(TMP_50_value % 2)) begin
-												TMP_50_i = TMP_50_i + 1;
-												output_index_19 = TMP_50_i + 1'sd1;
-												output_value_23 = 1;
-												output_btint_a_38 = 0;
-												output_btint_b_38 = 0;
-												output_overflow_38 = 0;
-												output_btint_a_38 = output_btint_a_37;
-												output_btint_b_38 = output_btint_b_37;
-												output_overflow_38 = output_overflow_37;
-												case (1)
-													-1: begin
-														output_btint_a_38[output_index_19] = 0;
-														output_btint_b_38[output_index_19] = 0;
-													end
-													0: begin
-														output_btint_a_38[output_index_19] = 0;
-														output_btint_b_38[output_index_19] = 1;
-													end
-													1: begin
-														output_btint_a_38[output_index_19] = 1;
-														output_btint_b_38[output_index_19] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_18_btint_a = output_btint_a_38;
-												TMP_18_btint_b = output_btint_b_38;
-												TMP_18_overflow = output_overflow_38;
-												output_btint_a_37 = TMP_18_btint_a;
-												output_btint_b_37 = TMP_18_btint_b;
-												output_overflow_37 = TMP_18_overflow;
-												TMP_50_value = TMP_50_value - 1;
-											end
-											else begin
-												TMP_50_i = TMP_50_i + 1;
-												output_index_19 = TMP_50_i + 1'sd1;
-												output_value_23 = 0;
-												output_btint_a_38 = 0;
-												output_btint_b_38 = 0;
-												output_overflow_38 = 0;
-												output_btint_a_38 = output_btint_a_37;
-												output_btint_b_38 = output_btint_b_37;
-												output_overflow_38 = output_overflow_37;
-												case (0)
-													-1: begin
-														output_btint_a_38[output_index_19] = 0;
-														output_btint_b_38[output_index_19] = 0;
-													end
-													0: begin
-														output_btint_a_38[output_index_19] = 0;
-														output_btint_b_38[output_index_19] = 1;
-													end
-													1: begin
-														output_btint_a_38[output_index_19] = 1;
-														output_btint_b_38[output_index_19] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_19_btint_a = output_btint_a_38;
-												TMP_19_btint_b = output_btint_b_38;
-												TMP_19_overflow = output_overflow_38;
-												output_btint_a_37 = TMP_19_btint_a;
-												output_btint_b_37 = TMP_19_btint_b;
-												output_overflow_37 = TMP_19_overflow;
-											end
-											TMP_50_value = TMP_50_value / 2;
-										end
+									1: begin
+										output_btint_a_11[output_index_6] = 1;
+										output_btint_b_11[output_index_6] = 1;
 									end
-									if (_sv2v_jump != 2'b11)
-										_sv2v_jump = 2'b00;
-									if (_sv2v_jump == 2'b00) begin
-										if (TMP_50_isNegative) begin
-											output_btint_a_40 = 0;
-											output_btint_b_40 = 0;
-											output_overflow_40 = 0;
-											output_btint_a_40 = output_btint_a_37;
-											output_btint_b_40 = output_btint_b_37;
-											output_overflow_40 = output_overflow_37;
-											begin : sv2v_autoblock_20
-												integer i_20;
-												for (i_20 = 0; i_20 < 8; i_20 = i_20 + 1)
-													begin
-														output_index_20 = i_20;
-														TMP_21 = (output_btint_a_40[output_index_20] + output_btint_b_40[output_index_20]) - 1;
-														output_index_21 = i_20;
-														output_value_25 = -TMP_21;
-														output_btint_a_41 = 0;
-														output_btint_b_41 = 0;
-														output_overflow_41 = 0;
-														output_btint_a_41 = output_btint_a_40;
-														output_btint_b_41 = output_btint_b_40;
-														output_overflow_41 = output_overflow_40;
-														case (output_value_25)
-															-1: begin
-																output_btint_a_41[output_index_21] = 0;
-																output_btint_b_41[output_index_21] = 0;
-															end
-															0: begin
-																output_btint_a_41[output_index_21] = 0;
-																output_btint_b_41[output_index_21] = 1;
-															end
-															1: begin
-																output_btint_a_41[output_index_21] = 1;
-																output_btint_b_41[output_index_21] = 1;
-															end
-															default:
-																;
-														endcase
-														TMP_22_btint_a = output_btint_a_41;
-														TMP_22_btint_b = output_btint_b_41;
-														TMP_22_overflow = output_overflow_41;
-														output_btint_a_40 = TMP_22_btint_a;
-														output_btint_b_40 = TMP_22_btint_b;
-														output_overflow_40 = TMP_22_overflow;
-													end
-											end
-											TMP_24 = (output_overflow_40[0] + output_overflow_40[1]) - 1;
-											output_value_26 = -TMP_24;
-											output_btint_a_42 = 0;
-											output_btint_b_42 = 0;
-											output_overflow_42 = 0;
-											output_btint_a_42 = output_btint_a_40;
-											output_btint_b_42 = output_btint_b_40;
-											output_overflow_42 = output_overflow_40;
-											case (output_value_26)
-												-1: begin
-													output_overflow_42[0] = 0;
-													output_overflow_42[1] = 0;
-												end
-												0: begin
-													output_overflow_42[0] = 0;
-													output_overflow_42[1] = 1;
-												end
-												1: begin
-													output_overflow_42[0] = 1;
-													output_overflow_42[1] = 1;
-												end
-												default:
-													;
-											endcase
-											TMP_25_btint_a = output_btint_a_42;
-											TMP_25_btint_b = output_btint_b_42;
-											TMP_25_overflow = output_overflow_42;
-											output_btint_a_40 = TMP_25_btint_a;
-											output_btint_b_40 = TMP_25_btint_b;
-											output_overflow_40 = TMP_25_overflow;
-											TMP_20_btint_a = output_btint_a_40;
-											TMP_20_btint_b = output_btint_b_40;
-											TMP_20_overflow = output_overflow_40;
-											output_btint_a_37 = TMP_20_btint_a;
-											output_btint_b_37 = TMP_20_btint_b;
-											output_overflow_37 = TMP_20_overflow;
-										end
-										TMP_15_btint_a = output_btint_a_37;
-										TMP_15_btint_b = output_btint_b_37;
-										TMP_15_overflow = output_overflow_37;
-										adder_subtractor_a_btint_a_next = TMP_15_btint_a;
-										adder_subtractor_a_btint_b_next = TMP_15_btint_b;
-										adder_subtractor_a_overflow_next = TMP_15_overflow;
-										product_output_v = 0;
-										begin : sv2v_autoblock_21
-											integer i_6;
-											for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-												begin
-													product_index = i_6;
-													TMP_13 = (product_btint_a_next[16 + product_index] + product_btint_b_next[16 + product_index]) - 1;
-													product_output_v = (2 * product_output_v) + TMP_13;
-												end
-										end
-										TMP_12 = product_output_v;
-										TMP_55_value = TMP_12;
-										output_btint_a_43 = 0;
-										output_btint_b_43 = 0;
-										output_overflow_43 = 0;
-										begin : sv2v_autoblock_22
-											integer i_21;
-											for (i_21 = 0; i_21 < 8; i_21 = i_21 + 1)
-												begin
-													output_index_22 = i_21;
-													output_value_27 = 0;
-													output_btint_a_44 = 0;
-													output_btint_b_44 = 0;
-													output_overflow_44 = 0;
-													output_btint_a_44 = output_btint_a_43;
-													output_btint_b_44 = output_btint_b_43;
-													output_overflow_44 = output_overflow_43;
-													case (0)
-														-1: begin
-															output_btint_a_44[output_index_22] = 0;
-															output_btint_b_44[output_index_22] = 0;
-														end
-														0: begin
-															output_btint_a_44[output_index_22] = 0;
-															output_btint_b_44[output_index_22] = 1;
-														end
-														1: begin
-															output_btint_a_44[output_index_22] = 1;
-															output_btint_b_44[output_index_22] = 1;
-														end
-														default:
-															;
-													endcase
-													TMP_2_btint_a = output_btint_a_44;
-													TMP_2_btint_b = output_btint_b_44;
-													TMP_2_overflow = output_overflow_44;
-													output_btint_a_43 = TMP_2_btint_a;
-													output_btint_b_43 = TMP_2_btint_b;
-													output_overflow_43 = TMP_2_overflow;
-												end
-										end
-										TMP_55_isNegative = TMP_55_value < 0;
-										if (TMP_55_isNegative)
-											TMP_55_value = -TMP_55_value;
-										TMP_55_i = 0;
-										while (|TMP_55_value && (_sv2v_jump < 2'b10)) begin
-											_sv2v_jump = 2'b00;
-											if (TMP_55_i >= 8) begin
-												output_value_28 = 1;
-												output_btint_a_45 = 0;
-												output_btint_b_45 = 0;
-												output_overflow_45 = 0;
-												output_btint_a_45 = output_btint_a_43;
-												output_btint_b_45 = output_btint_b_43;
-												output_overflow_45 = output_overflow_43;
-												case (1)
-													-1: begin
-														output_overflow_45[0] = 0;
-														output_overflow_45[1] = 0;
-													end
-													0: begin
-														output_overflow_45[0] = 0;
-														output_overflow_45[1] = 1;
-													end
-													1: begin
-														output_overflow_45[0] = 1;
-														output_overflow_45[1] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_17_btint_a = output_btint_a_45;
-												TMP_17_btint_b = output_btint_b_45;
-												TMP_17_overflow = output_overflow_45;
-												output_btint_a_43 = TMP_17_btint_a;
-												output_btint_b_43 = TMP_17_btint_b;
-												output_overflow_43 = TMP_17_overflow;
-												_sv2v_jump = 2'b10;
-											end
-											if (_sv2v_jump == 2'b00) begin
-												if (|(TMP_55_value % 2)) begin
-													TMP_55_i = TMP_55_i + 1;
-													output_index_22 = TMP_55_i + 1'sd1;
-													output_value_27 = 1;
-													output_btint_a_44 = 0;
-													output_btint_b_44 = 0;
-													output_overflow_44 = 0;
-													output_btint_a_44 = output_btint_a_43;
-													output_btint_b_44 = output_btint_b_43;
-													output_overflow_44 = output_overflow_43;
-													case (1)
-														-1: begin
-															output_btint_a_44[output_index_22] = 0;
-															output_btint_b_44[output_index_22] = 0;
-														end
-														0: begin
-															output_btint_a_44[output_index_22] = 0;
-															output_btint_b_44[output_index_22] = 1;
-														end
-														1: begin
-															output_btint_a_44[output_index_22] = 1;
-															output_btint_b_44[output_index_22] = 1;
-														end
-														default:
-															;
-													endcase
-													TMP_18_btint_a = output_btint_a_44;
-													TMP_18_btint_b = output_btint_b_44;
-													TMP_18_overflow = output_overflow_44;
-													output_btint_a_43 = TMP_18_btint_a;
-													output_btint_b_43 = TMP_18_btint_b;
-													output_overflow_43 = TMP_18_overflow;
-													TMP_55_value = TMP_55_value - 1;
-												end
-												else begin
-													TMP_55_i = TMP_55_i + 1;
-													output_index_22 = TMP_55_i + 1'sd1;
-													output_value_27 = 0;
-													output_btint_a_44 = 0;
-													output_btint_b_44 = 0;
-													output_overflow_44 = 0;
-													output_btint_a_44 = output_btint_a_43;
-													output_btint_b_44 = output_btint_b_43;
-													output_overflow_44 = output_overflow_43;
-													case (0)
-														-1: begin
-															output_btint_a_44[output_index_22] = 0;
-															output_btint_b_44[output_index_22] = 0;
-														end
-														0: begin
-															output_btint_a_44[output_index_22] = 0;
-															output_btint_b_44[output_index_22] = 1;
-														end
-														1: begin
-															output_btint_a_44[output_index_22] = 1;
-															output_btint_b_44[output_index_22] = 1;
-														end
-														default:
-															;
-													endcase
-													TMP_19_btint_a = output_btint_a_44;
-													TMP_19_btint_b = output_btint_b_44;
-													TMP_19_overflow = output_overflow_44;
-													output_btint_a_43 = TMP_19_btint_a;
-													output_btint_b_43 = TMP_19_btint_b;
-													output_overflow_43 = TMP_19_overflow;
-												end
-												TMP_55_value = TMP_55_value / 2;
-											end
-										end
-										if (_sv2v_jump != 2'b11)
-											_sv2v_jump = 2'b00;
-										if (_sv2v_jump == 2'b00) begin
-											if (TMP_55_isNegative) begin
-												output_btint_a_46 = 0;
-												output_btint_b_46 = 0;
-												output_overflow_46 = 0;
-												output_btint_a_46 = output_btint_a_43;
-												output_btint_b_46 = output_btint_b_43;
-												output_overflow_46 = output_overflow_43;
-												begin : sv2v_autoblock_23
-													integer i_22;
-													for (i_22 = 0; i_22 < 8; i_22 = i_22 + 1)
-														begin
-															output_index_23 = i_22;
-															TMP_21 = (output_btint_a_46[output_index_23] + output_btint_b_46[output_index_23]) - 1;
-															output_index_24 = i_22;
-															output_value_29 = -TMP_21;
-															output_btint_a_47 = 0;
-															output_btint_b_47 = 0;
-															output_overflow_47 = 0;
-															output_btint_a_47 = output_btint_a_46;
-															output_btint_b_47 = output_btint_b_46;
-															output_overflow_47 = output_overflow_46;
-															case (output_value_29)
-																-1: begin
-																	output_btint_a_47[output_index_24] = 0;
-																	output_btint_b_47[output_index_24] = 0;
-																end
-																0: begin
-																	output_btint_a_47[output_index_24] = 0;
-																	output_btint_b_47[output_index_24] = 1;
-																end
-																1: begin
-																	output_btint_a_47[output_index_24] = 1;
-																	output_btint_b_47[output_index_24] = 1;
-																end
-																default:
-																	;
-															endcase
-															TMP_22_btint_a = output_btint_a_47;
-															TMP_22_btint_b = output_btint_b_47;
-															TMP_22_overflow = output_overflow_47;
-															output_btint_a_46 = TMP_22_btint_a;
-															output_btint_b_46 = TMP_22_btint_b;
-															output_overflow_46 = TMP_22_overflow;
-														end
-												end
-												TMP_24 = (output_overflow_46[0] + output_overflow_46[1]) - 1;
-												output_value_30 = -TMP_24;
-												output_btint_a_48 = 0;
-												output_btint_b_48 = 0;
-												output_overflow_48 = 0;
-												output_btint_a_48 = output_btint_a_46;
-												output_btint_b_48 = output_btint_b_46;
-												output_overflow_48 = output_overflow_46;
-												case (output_value_30)
-													-1: begin
-														output_overflow_48[0] = 0;
-														output_overflow_48[1] = 0;
-													end
-													0: begin
-														output_overflow_48[0] = 0;
-														output_overflow_48[1] = 1;
-													end
-													1: begin
-														output_overflow_48[0] = 1;
-														output_overflow_48[1] = 1;
-													end
-													default:
-														;
-												endcase
-												TMP_25_btint_a = output_btint_a_48;
-												TMP_25_btint_b = output_btint_b_48;
-												TMP_25_overflow = output_overflow_48;
-												output_btint_a_46 = TMP_25_btint_a;
-												output_btint_b_46 = TMP_25_btint_b;
-												output_overflow_46 = TMP_25_overflow;
-												TMP_20_btint_a = output_btint_a_46;
-												TMP_20_btint_b = output_btint_b_46;
-												TMP_20_overflow = output_overflow_46;
-												output_btint_a_43 = TMP_20_btint_a;
-												output_btint_b_43 = TMP_20_btint_b;
-												output_overflow_43 = TMP_20_overflow;
-											end
-											TMP_15_btint_a = output_btint_a_43;
-											TMP_15_btint_b = output_btint_b_43;
-											TMP_15_overflow = output_overflow_43;
-											adder_subtractor_b_btint_a_next = TMP_15_btint_a;
-											adder_subtractor_b_btint_b_next = TMP_15_btint_b;
-											adder_subtractor_b_overflow_next = TMP_15_overflow;
-											adder_subtractor_subtract_next = 1;
-											sum_output_v = 0;
-											begin : sv2v_autoblock_24
-												integer i_23;
-												for (i_23 = 8; i_23 >= 0; i_23 = i_23 - 1)
-													begin
-														sum_index = i_23;
-														TMP_61 = (sum_btint_a[sum_index] + sum_btint_b[sum_index]) - 1;
-														sum_output_v = (2 * sum_output_v) + TMP_61;
-													end
-											end
-											TMP_60 = sum_output_v;
-											TMP_62_value = TMP_60;
-											output_btint_a_49 = 0;
-											output_btint_b_49 = 0;
-											output_overflow_49 = 0;
-											begin : sv2v_autoblock_25
-												integer i_24;
-												for (i_24 = 0; i_24 < 8; i_24 = i_24 + 1)
-													begin
-														output_index_25 = i_24;
-														output_value_31 = 0;
-														output_btint_a_50 = 0;
-														output_btint_b_50 = 0;
-														output_overflow_50 = 0;
-														output_btint_a_50 = output_btint_a_49;
-														output_btint_b_50 = output_btint_b_49;
-														output_overflow_50 = output_overflow_49;
-														case (0)
-															-1: begin
-																output_btint_a_50[output_index_25] = 0;
-																output_btint_b_50[output_index_25] = 0;
-															end
-															0: begin
-																output_btint_a_50[output_index_25] = 0;
-																output_btint_b_50[output_index_25] = 1;
-															end
-															1: begin
-																output_btint_a_50[output_index_25] = 1;
-																output_btint_b_50[output_index_25] = 1;
-															end
-															default:
-																;
-														endcase
-														TMP_2_btint_a = output_btint_a_50;
-														TMP_2_btint_b = output_btint_b_50;
-														TMP_2_overflow = output_overflow_50;
-														output_btint_a_49 = TMP_2_btint_a;
-														output_btint_b_49 = TMP_2_btint_b;
-														output_overflow_49 = TMP_2_overflow;
-													end
-											end
-											TMP_62_isNegative = TMP_62_value < 0;
-											if (TMP_62_isNegative)
-												TMP_62_value = -TMP_62_value;
-											TMP_62_i = 0;
-											while (|TMP_62_value && (_sv2v_jump < 2'b10)) begin
-												_sv2v_jump = 2'b00;
-												if (TMP_62_i >= 8) begin
-													output_value_32 = 1;
-													output_btint_a_51 = 0;
-													output_btint_b_51 = 0;
-													output_overflow_51 = 0;
-													output_btint_a_51 = output_btint_a_49;
-													output_btint_b_51 = output_btint_b_49;
-													output_overflow_51 = output_overflow_49;
-													case (1)
-														-1: begin
-															output_overflow_51[0] = 0;
-															output_overflow_51[1] = 0;
-														end
-														0: begin
-															output_overflow_51[0] = 0;
-															output_overflow_51[1] = 1;
-														end
-														1: begin
-															output_overflow_51[0] = 1;
-															output_overflow_51[1] = 1;
-														end
-														default:
-															;
-													endcase
-													TMP_17_btint_a = output_btint_a_51;
-													TMP_17_btint_b = output_btint_b_51;
-													TMP_17_overflow = output_overflow_51;
-													output_btint_a_49 = TMP_17_btint_a;
-													output_btint_b_49 = TMP_17_btint_b;
-													output_overflow_49 = TMP_17_overflow;
-													_sv2v_jump = 2'b10;
-												end
-												if (_sv2v_jump == 2'b00) begin
-													if (|(TMP_62_value % 2)) begin
-														TMP_62_i = TMP_62_i + 1;
-														output_index_25 = TMP_62_i + 1'sd1;
-														output_value_31 = 1;
-														output_btint_a_50 = 0;
-														output_btint_b_50 = 0;
-														output_overflow_50 = 0;
-														output_btint_a_50 = output_btint_a_49;
-														output_btint_b_50 = output_btint_b_49;
-														output_overflow_50 = output_overflow_49;
-														case (1)
-															-1: begin
-																output_btint_a_50[output_index_25] = 0;
-																output_btint_b_50[output_index_25] = 0;
-															end
-															0: begin
-																output_btint_a_50[output_index_25] = 0;
-																output_btint_b_50[output_index_25] = 1;
-															end
-															1: begin
-																output_btint_a_50[output_index_25] = 1;
-																output_btint_b_50[output_index_25] = 1;
-															end
-															default:
-																;
-														endcase
-														TMP_18_btint_a = output_btint_a_50;
-														TMP_18_btint_b = output_btint_b_50;
-														TMP_18_overflow = output_overflow_50;
-														output_btint_a_49 = TMP_18_btint_a;
-														output_btint_b_49 = TMP_18_btint_b;
-														output_overflow_49 = TMP_18_overflow;
-														TMP_62_value = TMP_62_value - 1;
-													end
-													else begin
-														TMP_62_i = TMP_62_i + 1;
-														output_index_25 = TMP_62_i + 1'sd1;
-														output_value_31 = 0;
-														output_btint_a_50 = 0;
-														output_btint_b_50 = 0;
-														output_overflow_50 = 0;
-														output_btint_a_50 = output_btint_a_49;
-														output_btint_b_50 = output_btint_b_49;
-														output_overflow_50 = output_overflow_49;
-														case (0)
-															-1: begin
-																output_btint_a_50[output_index_25] = 0;
-																output_btint_b_50[output_index_25] = 0;
-															end
-															0: begin
-																output_btint_a_50[output_index_25] = 0;
-																output_btint_b_50[output_index_25] = 1;
-															end
-															1: begin
-																output_btint_a_50[output_index_25] = 1;
-																output_btint_b_50[output_index_25] = 1;
-															end
-															default:
-																;
-														endcase
-														TMP_19_btint_a = output_btint_a_50;
-														TMP_19_btint_b = output_btint_b_50;
-														TMP_19_overflow = output_overflow_50;
-														output_btint_a_49 = TMP_19_btint_a;
-														output_btint_b_49 = TMP_19_btint_b;
-														output_overflow_49 = TMP_19_overflow;
-													end
-													TMP_62_value = TMP_62_value / 2;
-												end
-											end
-											if (_sv2v_jump != 2'b11)
-												_sv2v_jump = 2'b00;
-											if (_sv2v_jump == 2'b00) begin
-												if (TMP_62_isNegative) begin
-													output_btint_a_52 = 0;
-													output_btint_b_52 = 0;
-													output_overflow_52 = 0;
-													output_btint_a_52 = output_btint_a_49;
-													output_btint_b_52 = output_btint_b_49;
-													output_overflow_52 = output_overflow_49;
-													begin : sv2v_autoblock_26
-														integer i_25;
-														for (i_25 = 0; i_25 < 8; i_25 = i_25 + 1)
-															begin
-																output_index_26 = i_25;
-																TMP_21 = (output_btint_a_52[output_index_26] + output_btint_b_52[output_index_26]) - 1;
-																output_index_27 = i_25;
-																output_value_33 = -TMP_21;
-																output_btint_a_53 = 0;
-																output_btint_b_53 = 0;
-																output_overflow_53 = 0;
-																output_btint_a_53 = output_btint_a_52;
-																output_btint_b_53 = output_btint_b_52;
-																output_overflow_53 = output_overflow_52;
-																case (output_value_33)
-																	-1: begin
-																		output_btint_a_53[output_index_27] = 0;
-																		output_btint_b_53[output_index_27] = 0;
-																	end
-																	0: begin
-																		output_btint_a_53[output_index_27] = 0;
-																		output_btint_b_53[output_index_27] = 1;
-																	end
-																	1: begin
-																		output_btint_a_53[output_index_27] = 1;
-																		output_btint_b_53[output_index_27] = 1;
-																	end
-																	default:
-																		;
-																endcase
-																TMP_22_btint_a = output_btint_a_53;
-																TMP_22_btint_b = output_btint_b_53;
-																TMP_22_overflow = output_overflow_53;
-																output_btint_a_52 = TMP_22_btint_a;
-																output_btint_b_52 = TMP_22_btint_b;
-																output_overflow_52 = TMP_22_overflow;
-															end
-													end
-													TMP_24 = (output_overflow_52[0] + output_overflow_52[1]) - 1;
-													output_value_34 = -TMP_24;
-													output_btint_a_54 = 0;
-													output_btint_b_54 = 0;
-													output_overflow_54 = 0;
-													output_btint_a_54 = output_btint_a_52;
-													output_btint_b_54 = output_btint_b_52;
-													output_overflow_54 = output_overflow_52;
-													case (output_value_34)
-														-1: begin
-															output_overflow_54[0] = 0;
-															output_overflow_54[1] = 0;
-														end
-														0: begin
-															output_overflow_54[0] = 0;
-															output_overflow_54[1] = 1;
-														end
-														1: begin
-															output_overflow_54[0] = 1;
-															output_overflow_54[1] = 1;
-														end
-														default:
-															;
-													endcase
-													TMP_25_btint_a = output_btint_a_54;
-													TMP_25_btint_b = output_btint_b_54;
-													TMP_25_overflow = output_overflow_54;
-													output_btint_a_52 = TMP_25_btint_a;
-													output_btint_b_52 = TMP_25_btint_b;
-													output_overflow_52 = TMP_25_overflow;
-													TMP_20_btint_a = output_btint_a_52;
-													TMP_20_btint_b = output_btint_b_52;
-													TMP_20_overflow = output_overflow_52;
-													output_btint_a_49 = TMP_20_btint_a;
-													output_btint_b_49 = TMP_20_btint_b;
-													output_overflow_49 = TMP_20_overflow;
-												end
-												TMP_63_btint_a = output_btint_a_49;
-												TMP_63_btint_b = output_btint_b_49;
-												TMP_63_overflow = output_overflow_49;
-												cell_c_out_u_btint_a_next = TMP_63_btint_a;
-												cell_c_out_u_btint_b_next = TMP_63_btint_b;
-												cell_c_out_u_overflow_next = TMP_63_overflow;
-												multiplier_reset_next[3] = 0;
-												multiplier_a_btint_a_next[0+:8] = cell_c_in_d_btint_a;
-												multiplier_a_btint_b_next[0+:8] = cell_c_in_d_btint_b;
-												multiplier_a_overflow_next[0+:2] = cell_c_in_d_overflow;
-												multiplier_b_btint_a_next[0+:8] = state_d_btint_a_next;
-												multiplier_b_btint_b_next[0+:8] = state_d_btint_b_next;
-												multiplier_b_overflow_next[0+:2] = state_d_overflow_next;
-												product_output_v = 0;
-												begin : sv2v_autoblock_27
-													integer i_6;
-													for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
-														begin
-															product_index = i_6;
-															TMP_13 = (product_btint_a_next[0 + product_index] + product_btint_b_next[0 + product_index]) - 1;
-															product_output_v = (2 * product_output_v) + TMP_13;
-														end
-												end
-												TMP_12 = product_output_v;
-												TMP_68_value = TMP_12;
-												output_btint_a_55 = 0;
-												output_btint_b_55 = 0;
-												output_overflow_55 = 0;
-												begin : sv2v_autoblock_28
-													integer i_26;
-													for (i_26 = 0; i_26 < 8; i_26 = i_26 + 1)
-														begin
-															output_index_28 = i_26;
-															output_value_35 = 0;
-															output_btint_a_56 = 0;
-															output_btint_b_56 = 0;
-															output_overflow_56 = 0;
-															output_btint_a_56 = output_btint_a_55;
-															output_btint_b_56 = output_btint_b_55;
-															output_overflow_56 = output_overflow_55;
-															case (0)
-																-1: begin
-																	output_btint_a_56[output_index_28] = 0;
-																	output_btint_b_56[output_index_28] = 0;
-																end
-																0: begin
-																	output_btint_a_56[output_index_28] = 0;
-																	output_btint_b_56[output_index_28] = 1;
-																end
-																1: begin
-																	output_btint_a_56[output_index_28] = 1;
-																	output_btint_b_56[output_index_28] = 1;
-																end
-																default:
-																	;
-															endcase
-															TMP_2_btint_a = output_btint_a_56;
-															TMP_2_btint_b = output_btint_b_56;
-															TMP_2_overflow = output_overflow_56;
-															output_btint_a_55 = TMP_2_btint_a;
-															output_btint_b_55 = TMP_2_btint_b;
-															output_overflow_55 = TMP_2_overflow;
-														end
-												end
-												TMP_68_isNegative = TMP_68_value < 0;
-												if (TMP_68_isNegative)
-													TMP_68_value = -TMP_68_value;
-												TMP_68_i = 0;
-												while (|TMP_68_value && (_sv2v_jump < 2'b10)) begin
-													_sv2v_jump = 2'b00;
-													if (TMP_68_i >= 8) begin
-														output_value_36 = 1;
-														output_btint_a_57 = 0;
-														output_btint_b_57 = 0;
-														output_overflow_57 = 0;
-														output_btint_a_57 = output_btint_a_55;
-														output_btint_b_57 = output_btint_b_55;
-														output_overflow_57 = output_overflow_55;
-														case (1)
-															-1: begin
-																output_overflow_57[0] = 0;
-																output_overflow_57[1] = 0;
-															end
-															0: begin
-																output_overflow_57[0] = 0;
-																output_overflow_57[1] = 1;
-															end
-															1: begin
-																output_overflow_57[0] = 1;
-																output_overflow_57[1] = 1;
-															end
-															default:
-																;
-														endcase
-														TMP_17_btint_a = output_btint_a_57;
-														TMP_17_btint_b = output_btint_b_57;
-														TMP_17_overflow = output_overflow_57;
-														output_btint_a_55 = TMP_17_btint_a;
-														output_btint_b_55 = TMP_17_btint_b;
-														output_overflow_55 = TMP_17_overflow;
-														_sv2v_jump = 2'b10;
-													end
-													if (_sv2v_jump == 2'b00) begin
-														if (|(TMP_68_value % 2)) begin
-															TMP_68_i = TMP_68_i + 1;
-															output_index_28 = TMP_68_i + 1'sd1;
-															output_value_35 = 1;
-															output_btint_a_56 = 0;
-															output_btint_b_56 = 0;
-															output_overflow_56 = 0;
-															output_btint_a_56 = output_btint_a_55;
-															output_btint_b_56 = output_btint_b_55;
-															output_overflow_56 = output_overflow_55;
-															case (1)
-																-1: begin
-																	output_btint_a_56[output_index_28] = 0;
-																	output_btint_b_56[output_index_28] = 0;
-																end
-																0: begin
-																	output_btint_a_56[output_index_28] = 0;
-																	output_btint_b_56[output_index_28] = 1;
-																end
-																1: begin
-																	output_btint_a_56[output_index_28] = 1;
-																	output_btint_b_56[output_index_28] = 1;
-																end
-																default:
-																	;
-															endcase
-															TMP_18_btint_a = output_btint_a_56;
-															TMP_18_btint_b = output_btint_b_56;
-															TMP_18_overflow = output_overflow_56;
-															output_btint_a_55 = TMP_18_btint_a;
-															output_btint_b_55 = TMP_18_btint_b;
-															output_overflow_55 = TMP_18_overflow;
-															TMP_68_value = TMP_68_value - 1;
-														end
-														else begin
-															TMP_68_i = TMP_68_i + 1;
-															output_index_28 = TMP_68_i + 1'sd1;
-															output_value_35 = 0;
-															output_btint_a_56 = 0;
-															output_btint_b_56 = 0;
-															output_overflow_56 = 0;
-															output_btint_a_56 = output_btint_a_55;
-															output_btint_b_56 = output_btint_b_55;
-															output_overflow_56 = output_overflow_55;
-															case (0)
-																-1: begin
-																	output_btint_a_56[output_index_28] = 0;
-																	output_btint_b_56[output_index_28] = 0;
-																end
-																0: begin
-																	output_btint_a_56[output_index_28] = 0;
-																	output_btint_b_56[output_index_28] = 1;
-																end
-																1: begin
-																	output_btint_a_56[output_index_28] = 1;
-																	output_btint_b_56[output_index_28] = 1;
-																end
-																default:
-																	;
-															endcase
-															TMP_19_btint_a = output_btint_a_56;
-															TMP_19_btint_b = output_btint_b_56;
-															TMP_19_overflow = output_overflow_56;
-															output_btint_a_55 = TMP_19_btint_a;
-															output_btint_b_55 = TMP_19_btint_b;
-															output_overflow_55 = TMP_19_overflow;
-														end
-														TMP_68_value = TMP_68_value / 2;
-													end
-												end
-												if (_sv2v_jump != 2'b11)
-													_sv2v_jump = 2'b00;
-												if (_sv2v_jump == 2'b00) begin
-													if (TMP_68_isNegative) begin
-														output_btint_a_58 = 0;
-														output_btint_b_58 = 0;
-														output_overflow_58 = 0;
-														output_btint_a_58 = output_btint_a_55;
-														output_btint_b_58 = output_btint_b_55;
-														output_overflow_58 = output_overflow_55;
-														begin : sv2v_autoblock_29
-															integer i_27;
-															for (i_27 = 0; i_27 < 8; i_27 = i_27 + 1)
-																begin
-																	output_index_29 = i_27;
-																	TMP_21 = (output_btint_a_58[output_index_29] + output_btint_b_58[output_index_29]) - 1;
-																	output_index_30 = i_27;
-																	output_value_37 = -TMP_21;
-																	output_btint_a_59 = 0;
-																	output_btint_b_59 = 0;
-																	output_overflow_59 = 0;
-																	output_btint_a_59 = output_btint_a_58;
-																	output_btint_b_59 = output_btint_b_58;
-																	output_overflow_59 = output_overflow_58;
-																	case (output_value_37)
-																		-1: begin
-																			output_btint_a_59[output_index_30] = 0;
-																			output_btint_b_59[output_index_30] = 0;
-																		end
-																		0: begin
-																			output_btint_a_59[output_index_30] = 0;
-																			output_btint_b_59[output_index_30] = 1;
-																		end
-																		1: begin
-																			output_btint_a_59[output_index_30] = 1;
-																			output_btint_b_59[output_index_30] = 1;
-																		end
-																		default:
-																			;
-																	endcase
-																	TMP_22_btint_a = output_btint_a_59;
-																	TMP_22_btint_b = output_btint_b_59;
-																	TMP_22_overflow = output_overflow_59;
-																	output_btint_a_58 = TMP_22_btint_a;
-																	output_btint_b_58 = TMP_22_btint_b;
-																	output_overflow_58 = TMP_22_overflow;
-																end
-														end
-														TMP_24 = (output_overflow_58[0] + output_overflow_58[1]) - 1;
-														output_value_38 = -TMP_24;
-														output_btint_a_60 = 0;
-														output_btint_b_60 = 0;
-														output_overflow_60 = 0;
-														output_btint_a_60 = output_btint_a_58;
-														output_btint_b_60 = output_btint_b_58;
-														output_overflow_60 = output_overflow_58;
-														case (output_value_38)
-															-1: begin
-																output_overflow_60[0] = 0;
-																output_overflow_60[1] = 0;
-															end
-															0: begin
-																output_overflow_60[0] = 0;
-																output_overflow_60[1] = 1;
-															end
-															1: begin
-																output_overflow_60[0] = 1;
-																output_overflow_60[1] = 1;
-															end
-															default:
-																;
-														endcase
-														TMP_25_btint_a = output_btint_a_60;
-														TMP_25_btint_b = output_btint_b_60;
-														TMP_25_overflow = output_overflow_60;
-														output_btint_a_58 = TMP_25_btint_a;
-														output_btint_b_58 = TMP_25_btint_b;
-														output_overflow_58 = TMP_25_overflow;
-														TMP_20_btint_a = output_btint_a_58;
-														TMP_20_btint_b = output_btint_b_58;
-														TMP_20_overflow = output_overflow_58;
-														output_btint_a_55 = TMP_20_btint_a;
-														output_btint_b_55 = TMP_20_btint_b;
-														output_overflow_55 = TMP_20_overflow;
-													end
-													TMP_15_btint_a = output_btint_a_55;
-													TMP_15_btint_b = output_btint_b_55;
-													TMP_15_overflow = output_overflow_55;
-													cell_c_out_d_btint_a_next = TMP_15_btint_a;
-													cell_c_out_d_btint_b_next = TMP_15_btint_b;
-													cell_c_out_d_overflow_next = TMP_15_overflow;
-												end
-											end
-										end
+									default:
+										;
+								endcase
+								TMP_20_btint_a = output_btint_a_11;
+								TMP_20_btint_b = output_btint_b_11;
+								TMP_20_overflow = output_overflow_11;
+								output_btint_a_10 = TMP_20_btint_a;
+								output_btint_b_10 = TMP_20_btint_b;
+								output_overflow_10 = TMP_20_overflow;
+								output_index_6 = 6;
+								output_value_5 = product_msd_2_1;
+								output_btint_a_11 = 0;
+								output_btint_b_11 = 0;
+								output_overflow_11 = 0;
+								output_btint_a_11 = output_btint_a_10;
+								output_btint_b_11 = output_btint_b_10;
+								output_overflow_11 = output_overflow_10;
+								case (output_value_5)
+									-1: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 0;
 									end
-								end
+									0: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									1: begin
+										output_btint_a_11[output_index_6] = 1;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_21_btint_a = output_btint_a_11;
+								TMP_21_btint_b = output_btint_b_11;
+								TMP_21_overflow = output_overflow_11;
+								output_btint_a_10 = TMP_21_btint_a;
+								output_btint_b_10 = TMP_21_btint_b;
+								output_overflow_10 = TMP_21_overflow;
+								TMP_12_btint_a = output_btint_a_10;
+								TMP_12_btint_b = output_btint_b_10;
+								TMP_12_overflow = output_overflow_10;
+								TMP_12_from = 15;
+								TMP_12_to = 0;
+								output_btint_a_12 = 0;
+								output_btint_b_12 = 0;
+								output_overflow_12 = 0;
+								output_btint_a_12 = TMP_12_btint_a[TMP_12_to+:8];
+								output_btint_b_12 = TMP_12_btint_b[TMP_12_to+:8];
+								output_overflow_12 = TMP_12_overflow;
+								TMP_22_btint_a = output_btint_a_12;
+								TMP_22_btint_b = output_btint_b_12;
+								TMP_22_overflow = output_overflow_12;
+								multiplier_a_btint_a_next[8+:8] = TMP_22_btint_a;
+								multiplier_a_btint_b_next[8+:8] = TMP_22_btint_b;
+								multiplier_a_overflow_next[2+:2] = TMP_22_overflow;
+								multiplier_b_btint_a_next[8+:8] = cell_c_in_d_btint_a;
+								multiplier_b_btint_b_next[8+:8] = cell_c_in_d_btint_b;
+								multiplier_b_overflow_next[2+:2] = cell_c_in_d_overflow;
+								adder_subtractor_a_btint_a_next = product_btint_a_next[48+:16];
+								adder_subtractor_a_btint_b_next = product_btint_b_next[48+:16];
+								adder_subtractor_a_overflow_next = product_overflow_next[6+:2];
+								adder_subtractor_b_btint_a_next = product_btint_a_next[16+:16];
+								adder_subtractor_b_btint_b_next = product_btint_b_next[16+:16];
+								adder_subtractor_b_overflow_next = product_overflow_next[2+:2];
+								adder_subtractor_subtract_next = 1;
+								output_btint_a_16 = 0;
+								output_btint_b_16 = 0;
+								output_overflow_16 = 0;
+								output_btint_a_16 = sum_btint_a;
+								output_btint_b_16 = sum_btint_b;
+								output_overflow_16 = sum_overflow;
+								output_index_9 = 8;
+								TMP_48 = (output_btint_a_16[output_index_9] + output_btint_b_16[output_index_9]) - 1;
+								sum_msd = TMP_48;
+								output_index_9 = 7;
+								TMP_50 = (output_btint_a_16[output_index_9] + output_btint_b_16[output_index_9]) - 1;
+								sum_msd_1_1 = TMP_50;
+								output_index_9 = 6;
+								TMP_52 = (output_btint_a_16[output_index_9] + output_btint_b_16[output_index_9]) - 1;
+								sum_msd_2_1 = TMP_52;
+								case (sum_msd)
+									-1:
+										if (sum_msd_1_1 == 1) begin
+											sum_msd = 0;
+											sum_msd_1_1 = -2'sd1;
+										end
+										else if ((sum_msd_1_1 == 0) && (sum_msd_2_1 == 1)) begin
+											sum_msd = 0;
+											sum_msd_2_1 = -2'sd1;
+											sum_msd_1_1 = sum_msd_2_1;
+										end
+									1:
+										if (sum_msd_1_1 == -2'sd1) begin
+											sum_msd = 0;
+											sum_msd_1_1 = 1;
+										end
+										else if ((sum_msd_1_1 == 0) && (sum_msd_2_1 == -2'sd1)) begin
+											sum_msd = 0;
+											sum_msd_2_1 = 1;
+											sum_msd_1_1 = sum_msd_2_1;
+										end
+								endcase
+								output_index_10 = 8;
+								output_value_8 = sum_msd;
+								output_btint_a_17 = 0;
+								output_btint_b_17 = 0;
+								output_overflow_17 = 0;
+								output_btint_a_17 = output_btint_a_16;
+								output_btint_b_17 = output_btint_b_16;
+								output_overflow_17 = output_overflow_16;
+								case (output_value_8)
+									-1: begin
+										output_btint_a_17[output_index_10] = 0;
+										output_btint_b_17[output_index_10] = 0;
+									end
+									0: begin
+										output_btint_a_17[output_index_10] = 0;
+										output_btint_b_17[output_index_10] = 1;
+									end
+									1: begin
+										output_btint_a_17[output_index_10] = 1;
+										output_btint_b_17[output_index_10] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_54_btint_a = output_btint_a_17;
+								TMP_54_btint_b = output_btint_b_17;
+								TMP_54_overflow = output_overflow_17;
+								output_btint_a_16 = TMP_54_btint_a;
+								output_btint_b_16 = TMP_54_btint_b;
+								output_overflow_16 = TMP_54_overflow;
+								output_index_10 = 7;
+								output_value_8 = sum_msd_1_1;
+								output_btint_a_17 = 0;
+								output_btint_b_17 = 0;
+								output_overflow_17 = 0;
+								output_btint_a_17 = output_btint_a_16;
+								output_btint_b_17 = output_btint_b_16;
+								output_overflow_17 = output_overflow_16;
+								case (output_value_8)
+									-1: begin
+										output_btint_a_17[output_index_10] = 0;
+										output_btint_b_17[output_index_10] = 0;
+									end
+									0: begin
+										output_btint_a_17[output_index_10] = 0;
+										output_btint_b_17[output_index_10] = 1;
+									end
+									1: begin
+										output_btint_a_17[output_index_10] = 1;
+										output_btint_b_17[output_index_10] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_55_btint_a = output_btint_a_17;
+								TMP_55_btint_b = output_btint_b_17;
+								TMP_55_overflow = output_overflow_17;
+								output_btint_a_16 = TMP_55_btint_a;
+								output_btint_b_16 = TMP_55_btint_b;
+								output_overflow_16 = TMP_55_overflow;
+								output_index_10 = 6;
+								output_value_8 = sum_msd_2_1;
+								output_btint_a_17 = 0;
+								output_btint_b_17 = 0;
+								output_overflow_17 = 0;
+								output_btint_a_17 = output_btint_a_16;
+								output_btint_b_17 = output_btint_b_16;
+								output_overflow_17 = output_overflow_16;
+								case (output_value_8)
+									-1: begin
+										output_btint_a_17[output_index_10] = 0;
+										output_btint_b_17[output_index_10] = 0;
+									end
+									0: begin
+										output_btint_a_17[output_index_10] = 0;
+										output_btint_b_17[output_index_10] = 1;
+									end
+									1: begin
+										output_btint_a_17[output_index_10] = 1;
+										output_btint_b_17[output_index_10] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_56_btint_a = output_btint_a_17;
+								TMP_56_btint_b = output_btint_b_17;
+								TMP_56_overflow = output_overflow_17;
+								output_btint_a_16 = TMP_56_btint_a;
+								output_btint_b_16 = TMP_56_btint_b;
+								output_overflow_16 = TMP_56_overflow;
+								TMP_47_btint_a = output_btint_a_16;
+								TMP_47_btint_b = output_btint_b_16;
+								TMP_47_overflow = output_overflow_16;
+								TMP_47_from = 16;
+								TMP_47_to = 0;
+								output_btint_a_18 = 0;
+								output_btint_b_18 = 0;
+								output_overflow_18 = 0;
+								output_btint_a_18 = TMP_47_btint_a[TMP_47_to+:8];
+								output_btint_b_18 = TMP_47_btint_b[TMP_47_to+:8];
+								output_overflow_18 = TMP_47_overflow;
+								TMP_57_btint_a = output_btint_a_18;
+								TMP_57_btint_b = output_btint_b_18;
+								TMP_57_overflow = output_overflow_18;
+								cell_c_out_u_btint_a_next = TMP_57_btint_a;
+								cell_c_out_u_btint_b_next = TMP_57_btint_b;
+								cell_c_out_u_overflow_next = TMP_57_overflow;
+								multiplier_reset_next[3] = 0;
+								multiplier_a_btint_a_next[0+:8] = cell_c_in_d_btint_a;
+								multiplier_a_btint_b_next[0+:8] = cell_c_in_d_btint_b;
+								multiplier_a_overflow_next[0+:2] = cell_c_in_d_overflow;
+								multiplier_b_btint_a_next[0+:8] = state_d_btint_a_next;
+								multiplier_b_btint_b_next[0+:8] = state_d_btint_b_next;
+								multiplier_b_overflow_next[0+:2] = state_d_overflow_next;
+								output_btint_a_10 = 0;
+								output_btint_b_10 = 0;
+								output_overflow_10 = 0;
+								output_btint_a_10[3] = product_btint_a_next[0+:16];
+								output_btint_b_10[3] = product_btint_b_next[0+:16];
+								output_overflow_10[3] = product_overflow_next[0+:2];
+								output_index_5 = 8;
+								TMP_13 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+								product_msd = TMP_13;
+								output_index_5 = 7;
+								TMP_15 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+								product_msd_1_1 = TMP_15;
+								output_index_5 = 6;
+								TMP_17 = (output_btint_a_10[output_index_5] + output_btint_b_10[output_index_5]) - 1;
+								product_msd_2_1 = TMP_17;
+								case (product_msd)
+									-1:
+										if (product_msd_1_1 == 1) begin
+											product_msd = 0;
+											product_msd_1_1 = -2'sd1;
+										end
+										else if ((product_msd_1_1 == 0) && (product_msd_2_1 == 1)) begin
+											product_msd = 0;
+											product_msd_2_1 = -2'sd1;
+											product_msd_1_1 = product_msd_2_1;
+										end
+									1:
+										if (product_msd_1_1 == -2'sd1) begin
+											product_msd = 0;
+											product_msd_1_1 = 1;
+										end
+										else if ((product_msd_1_1 == 0) && (product_msd_2_1 == -2'sd1)) begin
+											product_msd = 0;
+											product_msd_2_1 = 1;
+											product_msd_1_1 = product_msd_2_1;
+										end
+								endcase
+								output_index_6 = 8;
+								output_value_5 = product_msd;
+								output_btint_a_11 = 0;
+								output_btint_b_11 = 0;
+								output_overflow_11 = 0;
+								output_btint_a_11 = output_btint_a_10;
+								output_btint_b_11 = output_btint_b_10;
+								output_overflow_11 = output_overflow_10;
+								case (output_value_5)
+									-1: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 0;
+									end
+									0: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									1: begin
+										output_btint_a_11[output_index_6] = 1;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_19_btint_a = output_btint_a_11;
+								TMP_19_btint_b = output_btint_b_11;
+								TMP_19_overflow = output_overflow_11;
+								output_btint_a_10 = TMP_19_btint_a;
+								output_btint_b_10 = TMP_19_btint_b;
+								output_overflow_10 = TMP_19_overflow;
+								output_index_6 = 7;
+								output_value_5 = product_msd_1_1;
+								output_btint_a_11 = 0;
+								output_btint_b_11 = 0;
+								output_overflow_11 = 0;
+								output_btint_a_11 = output_btint_a_10;
+								output_btint_b_11 = output_btint_b_10;
+								output_overflow_11 = output_overflow_10;
+								case (output_value_5)
+									-1: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 0;
+									end
+									0: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									1: begin
+										output_btint_a_11[output_index_6] = 1;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_20_btint_a = output_btint_a_11;
+								TMP_20_btint_b = output_btint_b_11;
+								TMP_20_overflow = output_overflow_11;
+								output_btint_a_10 = TMP_20_btint_a;
+								output_btint_b_10 = TMP_20_btint_b;
+								output_overflow_10 = TMP_20_overflow;
+								output_index_6 = 6;
+								output_value_5 = product_msd_2_1;
+								output_btint_a_11 = 0;
+								output_btint_b_11 = 0;
+								output_overflow_11 = 0;
+								output_btint_a_11 = output_btint_a_10;
+								output_btint_b_11 = output_btint_b_10;
+								output_overflow_11 = output_overflow_10;
+								case (output_value_5)
+									-1: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 0;
+									end
+									0: begin
+										output_btint_a_11[output_index_6] = 0;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									1: begin
+										output_btint_a_11[output_index_6] = 1;
+										output_btint_b_11[output_index_6] = 1;
+									end
+									default:
+										;
+								endcase
+								TMP_21_btint_a = output_btint_a_11;
+								TMP_21_btint_b = output_btint_b_11;
+								TMP_21_overflow = output_overflow_11;
+								output_btint_a_10 = TMP_21_btint_a;
+								output_btint_b_10 = TMP_21_btint_b;
+								output_overflow_10 = TMP_21_overflow;
+								TMP_12_btint_a = output_btint_a_10;
+								TMP_12_btint_b = output_btint_b_10;
+								TMP_12_overflow = output_overflow_10;
+								TMP_12_from = 15;
+								TMP_12_to = 0;
+								output_btint_a_12 = 0;
+								output_btint_b_12 = 0;
+								output_overflow_12 = 0;
+								output_btint_a_12 = TMP_12_btint_a[TMP_12_to+:8];
+								output_btint_b_12 = TMP_12_btint_b[TMP_12_to+:8];
+								output_overflow_12 = TMP_12_overflow;
+								TMP_22_btint_a = output_btint_a_12;
+								TMP_22_btint_b = output_btint_b_12;
+								TMP_22_overflow = output_overflow_12;
+								cell_c_out_d_btint_a_next = TMP_22_btint_a;
+								cell_c_out_d_btint_b_next = TMP_22_btint_b;
+								cell_c_out_d_overflow_next = TMP_22_overflow;
 							end
 						end
 					end
@@ -3583,54 +2017,54 @@ module CELL (
 				state_u_btint_a_next = cell_a_in_btint_a;
 				state_u_btint_b_next = cell_a_in_btint_b;
 				state_u_overflow_next = cell_a_in_overflow;
-				TMP_72_value = 0;
-				output_btint_a_61 = 0;
-				output_btint_b_61 = 0;
-				output_overflow_61 = 0;
-				begin : sv2v_autoblock_30
-					integer i_28;
-					for (i_28 = 0; i_28 < 8; i_28 = i_28 + 1)
+				TMP_62_value = 0;
+				output_btint_a_19 = 0;
+				output_btint_b_19 = 0;
+				output_overflow_19 = 0;
+				begin : sv2v_autoblock_6
+					integer i_10;
+					for (i_10 = 0; i_10 < 8; i_10 = i_10 + 1)
 						begin
-							output_index_31 = i_28;
-							output_value_39 = 0;
-							output_btint_a_62 = 0;
-							output_btint_b_62 = 0;
-							output_overflow_62 = 0;
-							output_btint_a_62 = output_btint_a_61;
-							output_btint_b_62 = output_btint_b_61;
-							output_overflow_62 = output_overflow_61;
+							output_index_11 = i_10;
+							output_value_9 = 0;
+							output_btint_a_20 = 0;
+							output_btint_b_20 = 0;
+							output_overflow_20 = 0;
+							output_btint_a_20 = output_btint_a_19;
+							output_btint_b_20 = output_btint_b_19;
+							output_overflow_20 = output_overflow_19;
 							case (0)
 								-1: begin
-									output_btint_a_62[output_index_31] = 0;
-									output_btint_b_62[output_index_31] = 0;
+									output_btint_a_20[output_index_11] = 0;
+									output_btint_b_20[output_index_11] = 0;
 								end
 								0: begin
-									output_btint_a_62[output_index_31] = 0;
-									output_btint_b_62[output_index_31] = 1;
+									output_btint_a_20[output_index_11] = 0;
+									output_btint_b_20[output_index_11] = 1;
 								end
 								1: begin
-									output_btint_a_62[output_index_31] = 1;
-									output_btint_b_62[output_index_31] = 1;
+									output_btint_a_20[output_index_11] = 1;
+									output_btint_b_20[output_index_11] = 1;
 								end
 								default:
 									;
 							endcase
-							TMP_2_btint_a = output_btint_a_62;
-							TMP_2_btint_b = output_btint_b_62;
-							TMP_2_overflow = output_overflow_62;
-							output_btint_a_61 = TMP_2_btint_a;
-							output_btint_b_61 = TMP_2_btint_b;
-							output_overflow_61 = TMP_2_overflow;
+							TMP_2_btint_a = output_btint_a_20;
+							TMP_2_btint_b = output_btint_b_20;
+							TMP_2_overflow = output_overflow_20;
+							output_btint_a_19 = TMP_2_btint_a;
+							output_btint_b_19 = TMP_2_btint_b;
+							output_overflow_19 = TMP_2_overflow;
 						end
 				end
-				TMP_72_isNegative = TMP_72_value < 0;
-				TMP_72_i = 0;
-				TMP_73_btint_a = output_btint_a_61;
-				TMP_73_btint_b = output_btint_b_61;
-				TMP_73_overflow = output_overflow_61;
-				cell_c_out_u_btint_a_next = TMP_73_btint_a;
-				cell_c_out_u_btint_b_next = TMP_73_btint_b;
-				cell_c_out_u_overflow_next = TMP_73_overflow;
+				TMP_62_isNegative = TMP_62_value < 0;
+				TMP_62_i = 0;
+				TMP_63_btint_a = output_btint_a_19;
+				TMP_63_btint_b = output_btint_b_19;
+				TMP_63_overflow = output_overflow_19;
+				cell_c_out_u_btint_a_next = TMP_63_btint_a;
+				cell_c_out_u_btint_b_next = TMP_63_btint_b;
+				cell_c_out_u_overflow_next = TMP_63_overflow;
 			end
 			else begin
 				multiplier_reset_next[0] = 0;
@@ -3640,526 +2074,232 @@ module CELL (
 				multiplier_b_btint_a_next[24+:8] = cell_a_in_btint_a;
 				multiplier_b_btint_b_next[24+:8] = cell_a_in_btint_b;
 				multiplier_b_overflow_next[6+:2] = cell_a_in_overflow;
-				product_output_v = 0;
-				begin : sv2v_autoblock_31
-					integer i_6;
-					for (i_6 = 15; i_6 >= 0; i_6 = i_6 - 1)
+				adder_subtractor_a_btint_a_next = product_btint_a_next[48+:16];
+				adder_subtractor_a_btint_b_next = product_btint_b_next[48+:16];
+				adder_subtractor_a_overflow_next = product_overflow_next[6+:2];
+				output_btint_a_21 = 0;
+				output_btint_b_21 = 0;
+				output_overflow_21 = 0;
+				output_btint_a_21 = c_in_u_btint_a;
+				output_btint_b_21 = c_in_u_btint_b;
+				output_overflow_21 = c_in_u_overflow;
+				TMP_65_value = 0;
+				output_btint_a_22 = 0;
+				output_btint_b_22 = 0;
+				output_overflow_22 = 0;
+				begin : sv2v_autoblock_7
+					integer i_11;
+					for (i_11 = 0; i_11 < 8; i_11 = i_11 + 1)
 						begin
-							product_index = i_6;
-							TMP_13 = (product_btint_a_next[48 + product_index] + product_btint_b_next[48 + product_index]) - 1;
-							product_output_v = (2 * product_output_v) + TMP_13;
-						end
-				end
-				TMP_12 = product_output_v;
-				TMP_75_value = TMP_12;
-				output_btint_a_63 = 0;
-				output_btint_b_63 = 0;
-				output_overflow_63 = 0;
-				begin : sv2v_autoblock_32
-					integer i_29;
-					for (i_29 = 0; i_29 < 8; i_29 = i_29 + 1)
-						begin
-							output_index_32 = i_29;
-							output_value_40 = 0;
-							output_btint_a_64 = 0;
-							output_btint_b_64 = 0;
-							output_overflow_64 = 0;
-							output_btint_a_64 = output_btint_a_63;
-							output_btint_b_64 = output_btint_b_63;
-							output_overflow_64 = output_overflow_63;
+							output_index_12 = i_11;
+							output_value_10 = 0;
+							output_btint_a_23 = 0;
+							output_btint_b_23 = 0;
+							output_overflow_23 = 0;
+							output_btint_a_23 = output_btint_a_22;
+							output_btint_b_23 = output_btint_b_22;
+							output_overflow_23 = output_overflow_22;
 							case (0)
 								-1: begin
-									output_btint_a_64[output_index_32] = 0;
-									output_btint_b_64[output_index_32] = 0;
+									output_btint_a_23[output_index_12] = 0;
+									output_btint_b_23[output_index_12] = 0;
 								end
 								0: begin
-									output_btint_a_64[output_index_32] = 0;
-									output_btint_b_64[output_index_32] = 1;
+									output_btint_a_23[output_index_12] = 0;
+									output_btint_b_23[output_index_12] = 1;
 								end
 								1: begin
-									output_btint_a_64[output_index_32] = 1;
-									output_btint_b_64[output_index_32] = 1;
+									output_btint_a_23[output_index_12] = 1;
+									output_btint_b_23[output_index_12] = 1;
 								end
 								default:
 									;
 							endcase
-							TMP_2_btint_a = output_btint_a_64;
-							TMP_2_btint_b = output_btint_b_64;
-							TMP_2_overflow = output_overflow_64;
-							output_btint_a_63 = TMP_2_btint_a;
-							output_btint_b_63 = TMP_2_btint_b;
-							output_overflow_63 = TMP_2_overflow;
+							TMP_2_btint_a = output_btint_a_23;
+							TMP_2_btint_b = output_btint_b_23;
+							TMP_2_overflow = output_overflow_23;
+							output_btint_a_22 = TMP_2_btint_a;
+							output_btint_b_22 = TMP_2_btint_b;
+							output_overflow_22 = TMP_2_overflow;
 						end
 				end
-				TMP_75_isNegative = TMP_75_value < 0;
-				if (TMP_75_isNegative)
-					TMP_75_value = -TMP_75_value;
-				TMP_75_i = 0;
-				while (|TMP_75_value && (_sv2v_jump < 2'b10)) begin
-					_sv2v_jump = 2'b00;
-					if (TMP_75_i >= 8) begin
-						output_value_41 = 1;
-						output_btint_a_65 = 0;
-						output_btint_b_65 = 0;
-						output_overflow_65 = 0;
-						output_btint_a_65 = output_btint_a_63;
-						output_btint_b_65 = output_btint_b_63;
-						output_overflow_65 = output_overflow_63;
-						case (1)
-							-1: begin
-								output_overflow_65[0] = 0;
-								output_overflow_65[1] = 0;
-							end
-							0: begin
-								output_overflow_65[0] = 0;
-								output_overflow_65[1] = 1;
-							end
-							1: begin
-								output_overflow_65[0] = 1;
-								output_overflow_65[1] = 1;
-							end
-							default:
-								;
-						endcase
-						TMP_17_btint_a = output_btint_a_65;
-						TMP_17_btint_b = output_btint_b_65;
-						TMP_17_overflow = output_overflow_65;
-						output_btint_a_63 = TMP_17_btint_a;
-						output_btint_b_63 = TMP_17_btint_b;
-						output_overflow_63 = TMP_17_overflow;
-						_sv2v_jump = 2'b10;
-					end
-					if (_sv2v_jump == 2'b00) begin
-						if (|(TMP_75_value % 2)) begin
-							TMP_75_i = TMP_75_i + 1;
-							output_index_32 = TMP_75_i + 1'sd1;
-							output_value_40 = 1;
-							output_btint_a_64 = 0;
-							output_btint_b_64 = 0;
-							output_overflow_64 = 0;
-							output_btint_a_64 = output_btint_a_63;
-							output_btint_b_64 = output_btint_b_63;
-							output_overflow_64 = output_overflow_63;
-							case (1)
-								-1: begin
-									output_btint_a_64[output_index_32] = 0;
-									output_btint_b_64[output_index_32] = 0;
-								end
-								0: begin
-									output_btint_a_64[output_index_32] = 0;
-									output_btint_b_64[output_index_32] = 1;
-								end
-								1: begin
-									output_btint_a_64[output_index_32] = 1;
-									output_btint_b_64[output_index_32] = 1;
-								end
-								default:
-									;
-							endcase
-							TMP_18_btint_a = output_btint_a_64;
-							TMP_18_btint_b = output_btint_b_64;
-							TMP_18_overflow = output_overflow_64;
-							output_btint_a_63 = TMP_18_btint_a;
-							output_btint_b_63 = TMP_18_btint_b;
-							output_overflow_63 = TMP_18_overflow;
-							TMP_75_value = TMP_75_value - 1;
+				TMP_65_isNegative = TMP_65_value < 0;
+				TMP_65_i = 0;
+				TMP_66_btint_a = output_btint_a_22;
+				TMP_66_btint_b = output_btint_b_22;
+				TMP_66_overflow = output_overflow_22;
+				low_btint_a = output_btint_a_21;
+				low_btint_b = output_btint_b_21;
+				low_overflow = output_overflow_21;
+				output_btint_a_24 = 0;
+				output_btint_b_24 = 0;
+				output_overflow_24 = 0;
+				output_btint_a_24 = {TMP_66_btint_a, low_btint_a};
+				output_btint_b_24 = {TMP_66_btint_b, low_btint_b};
+				output_overflow_24 = TMP_66_overflow;
+				TMP_67_btint_a = output_btint_a_24;
+				TMP_67_btint_b = output_btint_b_24;
+				TMP_67_overflow = output_overflow_24;
+				adder_subtractor_b_btint_a_next = TMP_67_btint_a;
+				adder_subtractor_b_btint_b_next = TMP_67_btint_b;
+				adder_subtractor_b_overflow_next = TMP_67_overflow;
+				adder_subtractor_subtract_next = 0;
+				output_btint_a_16 = 0;
+				output_btint_b_16 = 0;
+				output_overflow_16 = 0;
+				output_btint_a_16 = sum_btint_a;
+				output_btint_b_16 = sum_btint_b;
+				output_overflow_16 = sum_overflow;
+				output_index_9 = 8;
+				TMP_48 = (output_btint_a_16[output_index_9] + output_btint_b_16[output_index_9]) - 1;
+				sum_msd = TMP_48;
+				output_index_9 = 7;
+				TMP_50 = (output_btint_a_16[output_index_9] + output_btint_b_16[output_index_9]) - 1;
+				sum_msd_1_1 = TMP_50;
+				output_index_9 = 6;
+				TMP_52 = (output_btint_a_16[output_index_9] + output_btint_b_16[output_index_9]) - 1;
+				sum_msd_2_1 = TMP_52;
+				case (sum_msd)
+					-1:
+						if (sum_msd_1_1 == 1) begin
+							sum_msd = 0;
+							sum_msd_1_1 = -2'sd1;
 						end
-						else begin
-							TMP_75_i = TMP_75_i + 1;
-							output_index_32 = TMP_75_i + 1'sd1;
-							output_value_40 = 0;
-							output_btint_a_64 = 0;
-							output_btint_b_64 = 0;
-							output_overflow_64 = 0;
-							output_btint_a_64 = output_btint_a_63;
-							output_btint_b_64 = output_btint_b_63;
-							output_overflow_64 = output_overflow_63;
-							case (0)
-								-1: begin
-									output_btint_a_64[output_index_32] = 0;
-									output_btint_b_64[output_index_32] = 0;
-								end
-								0: begin
-									output_btint_a_64[output_index_32] = 0;
-									output_btint_b_64[output_index_32] = 1;
-								end
-								1: begin
-									output_btint_a_64[output_index_32] = 1;
-									output_btint_b_64[output_index_32] = 1;
-								end
-								default:
-									;
-							endcase
-							TMP_19_btint_a = output_btint_a_64;
-							TMP_19_btint_b = output_btint_b_64;
-							TMP_19_overflow = output_overflow_64;
-							output_btint_a_63 = TMP_19_btint_a;
-							output_btint_b_63 = TMP_19_btint_b;
-							output_overflow_63 = TMP_19_overflow;
+						else if ((sum_msd_1_1 == 0) && (sum_msd_2_1 == 1)) begin
+							sum_msd = 0;
+							sum_msd_2_1 = -2'sd1;
+							sum_msd_1_1 = sum_msd_2_1;
 						end
-						TMP_75_value = TMP_75_value / 2;
-					end
-				end
-				if (_sv2v_jump != 2'b11)
-					_sv2v_jump = 2'b00;
-				if (_sv2v_jump == 2'b00) begin
-					if (TMP_75_isNegative) begin
-						output_btint_a_66 = 0;
-						output_btint_b_66 = 0;
-						output_overflow_66 = 0;
-						output_btint_a_66 = output_btint_a_63;
-						output_btint_b_66 = output_btint_b_63;
-						output_overflow_66 = output_overflow_63;
-						begin : sv2v_autoblock_33
-							integer i_30;
-							for (i_30 = 0; i_30 < 8; i_30 = i_30 + 1)
-								begin
-									output_index_33 = i_30;
-									TMP_21 = (output_btint_a_66[output_index_33] + output_btint_b_66[output_index_33]) - 1;
-									output_index_34 = i_30;
-									output_value_42 = -TMP_21;
-									output_btint_a_67 = 0;
-									output_btint_b_67 = 0;
-									output_overflow_67 = 0;
-									output_btint_a_67 = output_btint_a_66;
-									output_btint_b_67 = output_btint_b_66;
-									output_overflow_67 = output_overflow_66;
-									case (output_value_42)
-										-1: begin
-											output_btint_a_67[output_index_34] = 0;
-											output_btint_b_67[output_index_34] = 0;
-										end
-										0: begin
-											output_btint_a_67[output_index_34] = 0;
-											output_btint_b_67[output_index_34] = 1;
-										end
-										1: begin
-											output_btint_a_67[output_index_34] = 1;
-											output_btint_b_67[output_index_34] = 1;
-										end
-										default:
-											;
-									endcase
-									TMP_22_btint_a = output_btint_a_67;
-									TMP_22_btint_b = output_btint_b_67;
-									TMP_22_overflow = output_overflow_67;
-									output_btint_a_66 = TMP_22_btint_a;
-									output_btint_b_66 = TMP_22_btint_b;
-									output_overflow_66 = TMP_22_overflow;
-								end
+					1:
+						if (sum_msd_1_1 == -2'sd1) begin
+							sum_msd = 0;
+							sum_msd_1_1 = 1;
 						end
-						TMP_24 = (output_overflow_66[0] + output_overflow_66[1]) - 1;
-						output_value_43 = -TMP_24;
-						output_btint_a_68 = 0;
-						output_btint_b_68 = 0;
-						output_overflow_68 = 0;
-						output_btint_a_68 = output_btint_a_66;
-						output_btint_b_68 = output_btint_b_66;
-						output_overflow_68 = output_overflow_66;
-						case (output_value_43)
-							-1: begin
-								output_overflow_68[0] = 0;
-								output_overflow_68[1] = 0;
-							end
-							0: begin
-								output_overflow_68[0] = 0;
-								output_overflow_68[1] = 1;
-							end
-							1: begin
-								output_overflow_68[0] = 1;
-								output_overflow_68[1] = 1;
-							end
-							default:
-								;
-						endcase
-						TMP_25_btint_a = output_btint_a_68;
-						TMP_25_btint_b = output_btint_b_68;
-						TMP_25_overflow = output_overflow_68;
-						output_btint_a_66 = TMP_25_btint_a;
-						output_btint_b_66 = TMP_25_btint_b;
-						output_overflow_66 = TMP_25_overflow;
-						TMP_20_btint_a = output_btint_a_66;
-						TMP_20_btint_b = output_btint_b_66;
-						TMP_20_overflow = output_overflow_66;
-						output_btint_a_63 = TMP_20_btint_a;
-						output_btint_b_63 = TMP_20_btint_b;
-						output_overflow_63 = TMP_20_overflow;
-					end
-					TMP_15_btint_a = output_btint_a_63;
-					TMP_15_btint_b = output_btint_b_63;
-					TMP_15_overflow = output_overflow_63;
-					adder_subtractor_a_btint_a_next = TMP_15_btint_a;
-					adder_subtractor_a_btint_b_next = TMP_15_btint_b;
-					adder_subtractor_a_overflow_next = TMP_15_overflow;
-					adder_subtractor_b_btint_a_next = cell_c_in_u_btint_a;
-					adder_subtractor_b_btint_b_next = cell_c_in_u_btint_b;
-					adder_subtractor_b_overflow_next = cell_c_in_u_overflow;
-					adder_subtractor_subtract_next = 0;
-					sum_output_v = 0;
-					begin : sv2v_autoblock_34
-						integer i_23;
-						for (i_23 = 8; i_23 >= 0; i_23 = i_23 - 1)
-							begin
-								sum_index = i_23;
-								TMP_61 = (sum_btint_a[sum_index] + sum_btint_b[sum_index]) - 1;
-								sum_output_v = (2 * sum_output_v) + TMP_61;
-							end
-					end
-					TMP_60 = sum_output_v;
-					TMP_80_value = TMP_60;
-					output_btint_a_69 = 0;
-					output_btint_b_69 = 0;
-					output_overflow_69 = 0;
-					begin : sv2v_autoblock_35
-						integer i_31;
-						for (i_31 = 0; i_31 < 8; i_31 = i_31 + 1)
-							begin
-								output_index_35 = i_31;
-								output_value_44 = 0;
-								output_btint_a_70 = 0;
-								output_btint_b_70 = 0;
-								output_overflow_70 = 0;
-								output_btint_a_70 = output_btint_a_69;
-								output_btint_b_70 = output_btint_b_69;
-								output_overflow_70 = output_overflow_69;
-								case (0)
-									-1: begin
-										output_btint_a_70[output_index_35] = 0;
-										output_btint_b_70[output_index_35] = 0;
-									end
-									0: begin
-										output_btint_a_70[output_index_35] = 0;
-										output_btint_b_70[output_index_35] = 1;
-									end
-									1: begin
-										output_btint_a_70[output_index_35] = 1;
-										output_btint_b_70[output_index_35] = 1;
-									end
-									default:
-										;
-								endcase
-								TMP_2_btint_a = output_btint_a_70;
-								TMP_2_btint_b = output_btint_b_70;
-								TMP_2_overflow = output_overflow_70;
-								output_btint_a_69 = TMP_2_btint_a;
-								output_btint_b_69 = TMP_2_btint_b;
-								output_overflow_69 = TMP_2_overflow;
-							end
-					end
-					TMP_80_isNegative = TMP_80_value < 0;
-					if (TMP_80_isNegative)
-						TMP_80_value = -TMP_80_value;
-					TMP_80_i = 0;
-					while (|TMP_80_value && (_sv2v_jump < 2'b10)) begin
-						_sv2v_jump = 2'b00;
-						if (TMP_80_i >= 8) begin
-							output_value_45 = 1;
-							output_btint_a_71 = 0;
-							output_btint_b_71 = 0;
-							output_overflow_71 = 0;
-							output_btint_a_71 = output_btint_a_69;
-							output_btint_b_71 = output_btint_b_69;
-							output_overflow_71 = output_overflow_69;
-							case (1)
-								-1: begin
-									output_overflow_71[0] = 0;
-									output_overflow_71[1] = 0;
-								end
-								0: begin
-									output_overflow_71[0] = 0;
-									output_overflow_71[1] = 1;
-								end
-								1: begin
-									output_overflow_71[0] = 1;
-									output_overflow_71[1] = 1;
-								end
-								default:
-									;
-							endcase
-							TMP_17_btint_a = output_btint_a_71;
-							TMP_17_btint_b = output_btint_b_71;
-							TMP_17_overflow = output_overflow_71;
-							output_btint_a_69 = TMP_17_btint_a;
-							output_btint_b_69 = TMP_17_btint_b;
-							output_overflow_69 = TMP_17_overflow;
-							_sv2v_jump = 2'b10;
+						else if ((sum_msd_1_1 == 0) && (sum_msd_2_1 == -2'sd1)) begin
+							sum_msd = 0;
+							sum_msd_2_1 = 1;
+							sum_msd_1_1 = sum_msd_2_1;
 						end
-						if (_sv2v_jump == 2'b00) begin
-							if (|(TMP_80_value % 2)) begin
-								TMP_80_i = TMP_80_i + 1;
-								output_index_35 = TMP_80_i + 1'sd1;
-								output_value_44 = 1;
-								output_btint_a_70 = 0;
-								output_btint_b_70 = 0;
-								output_overflow_70 = 0;
-								output_btint_a_70 = output_btint_a_69;
-								output_btint_b_70 = output_btint_b_69;
-								output_overflow_70 = output_overflow_69;
-								case (1)
-									-1: begin
-										output_btint_a_70[output_index_35] = 0;
-										output_btint_b_70[output_index_35] = 0;
-									end
-									0: begin
-										output_btint_a_70[output_index_35] = 0;
-										output_btint_b_70[output_index_35] = 1;
-									end
-									1: begin
-										output_btint_a_70[output_index_35] = 1;
-										output_btint_b_70[output_index_35] = 1;
-									end
-									default:
-										;
-								endcase
-								TMP_18_btint_a = output_btint_a_70;
-								TMP_18_btint_b = output_btint_b_70;
-								TMP_18_overflow = output_overflow_70;
-								output_btint_a_69 = TMP_18_btint_a;
-								output_btint_b_69 = TMP_18_btint_b;
-								output_overflow_69 = TMP_18_overflow;
-								TMP_80_value = TMP_80_value - 1;
-							end
-							else begin
-								TMP_80_i = TMP_80_i + 1;
-								output_index_35 = TMP_80_i + 1'sd1;
-								output_value_44 = 0;
-								output_btint_a_70 = 0;
-								output_btint_b_70 = 0;
-								output_overflow_70 = 0;
-								output_btint_a_70 = output_btint_a_69;
-								output_btint_b_70 = output_btint_b_69;
-								output_overflow_70 = output_overflow_69;
-								case (0)
-									-1: begin
-										output_btint_a_70[output_index_35] = 0;
-										output_btint_b_70[output_index_35] = 0;
-									end
-									0: begin
-										output_btint_a_70[output_index_35] = 0;
-										output_btint_b_70[output_index_35] = 1;
-									end
-									1: begin
-										output_btint_a_70[output_index_35] = 1;
-										output_btint_b_70[output_index_35] = 1;
-									end
-									default:
-										;
-								endcase
-								TMP_19_btint_a = output_btint_a_70;
-								TMP_19_btint_b = output_btint_b_70;
-								TMP_19_overflow = output_overflow_70;
-								output_btint_a_69 = TMP_19_btint_a;
-								output_btint_b_69 = TMP_19_btint_b;
-								output_overflow_69 = TMP_19_overflow;
-							end
-							TMP_80_value = TMP_80_value / 2;
-						end
+				endcase
+				output_index_10 = 8;
+				output_value_8 = sum_msd;
+				output_btint_a_17 = 0;
+				output_btint_b_17 = 0;
+				output_overflow_17 = 0;
+				output_btint_a_17 = output_btint_a_16;
+				output_btint_b_17 = output_btint_b_16;
+				output_overflow_17 = output_overflow_16;
+				case (output_value_8)
+					-1: begin
+						output_btint_a_17[output_index_10] = 0;
+						output_btint_b_17[output_index_10] = 0;
 					end
-					if (_sv2v_jump != 2'b11)
-						_sv2v_jump = 2'b00;
-					if (_sv2v_jump == 2'b00) begin
-						if (TMP_80_isNegative) begin
-							output_btint_a_72 = 0;
-							output_btint_b_72 = 0;
-							output_overflow_72 = 0;
-							output_btint_a_72 = output_btint_a_69;
-							output_btint_b_72 = output_btint_b_69;
-							output_overflow_72 = output_overflow_69;
-							begin : sv2v_autoblock_36
-								integer i_32;
-								for (i_32 = 0; i_32 < 8; i_32 = i_32 + 1)
-									begin
-										output_index_36 = i_32;
-										TMP_21 = (output_btint_a_72[output_index_36] + output_btint_b_72[output_index_36]) - 1;
-										output_index_37 = i_32;
-										output_value_46 = -TMP_21;
-										output_btint_a_73 = 0;
-										output_btint_b_73 = 0;
-										output_overflow_73 = 0;
-										output_btint_a_73 = output_btint_a_72;
-										output_btint_b_73 = output_btint_b_72;
-										output_overflow_73 = output_overflow_72;
-										case (output_value_46)
-											-1: begin
-												output_btint_a_73[output_index_37] = 0;
-												output_btint_b_73[output_index_37] = 0;
-											end
-											0: begin
-												output_btint_a_73[output_index_37] = 0;
-												output_btint_b_73[output_index_37] = 1;
-											end
-											1: begin
-												output_btint_a_73[output_index_37] = 1;
-												output_btint_b_73[output_index_37] = 1;
-											end
-											default:
-												;
-										endcase
-										TMP_22_btint_a = output_btint_a_73;
-										TMP_22_btint_b = output_btint_b_73;
-										TMP_22_overflow = output_overflow_73;
-										output_btint_a_72 = TMP_22_btint_a;
-										output_btint_b_72 = TMP_22_btint_b;
-										output_overflow_72 = TMP_22_overflow;
-									end
-							end
-							TMP_24 = (output_overflow_72[0] + output_overflow_72[1]) - 1;
-							output_value_47 = -TMP_24;
-							output_btint_a_74 = 0;
-							output_btint_b_74 = 0;
-							output_overflow_74 = 0;
-							output_btint_a_74 = output_btint_a_72;
-							output_btint_b_74 = output_btint_b_72;
-							output_overflow_74 = output_overflow_72;
-							case (output_value_47)
-								-1: begin
-									output_overflow_74[0] = 0;
-									output_overflow_74[1] = 0;
-								end
-								0: begin
-									output_overflow_74[0] = 0;
-									output_overflow_74[1] = 1;
-								end
-								1: begin
-									output_overflow_74[0] = 1;
-									output_overflow_74[1] = 1;
-								end
-								default:
-									;
-							endcase
-							TMP_25_btint_a = output_btint_a_74;
-							TMP_25_btint_b = output_btint_b_74;
-							TMP_25_overflow = output_overflow_74;
-							output_btint_a_72 = TMP_25_btint_a;
-							output_btint_b_72 = TMP_25_btint_b;
-							output_overflow_72 = TMP_25_overflow;
-							TMP_20_btint_a = output_btint_a_72;
-							TMP_20_btint_b = output_btint_b_72;
-							TMP_20_overflow = output_overflow_72;
-							output_btint_a_69 = TMP_20_btint_a;
-							output_btint_b_69 = TMP_20_btint_b;
-							output_overflow_69 = TMP_20_overflow;
-						end
-						TMP_63_btint_a = output_btint_a_69;
-						TMP_63_btint_b = output_btint_b_69;
-						TMP_63_overflow = output_overflow_69;
-						cell_c_out_u_btint_a_next = TMP_63_btint_a;
-						cell_c_out_u_btint_b_next = TMP_63_btint_b;
-						cell_c_out_u_overflow_next = TMP_63_overflow;
+					0: begin
+						output_btint_a_17[output_index_10] = 0;
+						output_btint_b_17[output_index_10] = 1;
 					end
-				end
+					1: begin
+						output_btint_a_17[output_index_10] = 1;
+						output_btint_b_17[output_index_10] = 1;
+					end
+					default:
+						;
+				endcase
+				TMP_54_btint_a = output_btint_a_17;
+				TMP_54_btint_b = output_btint_b_17;
+				TMP_54_overflow = output_overflow_17;
+				output_btint_a_16 = TMP_54_btint_a;
+				output_btint_b_16 = TMP_54_btint_b;
+				output_overflow_16 = TMP_54_overflow;
+				output_index_10 = 7;
+				output_value_8 = sum_msd_1_1;
+				output_btint_a_17 = 0;
+				output_btint_b_17 = 0;
+				output_overflow_17 = 0;
+				output_btint_a_17 = output_btint_a_16;
+				output_btint_b_17 = output_btint_b_16;
+				output_overflow_17 = output_overflow_16;
+				case (output_value_8)
+					-1: begin
+						output_btint_a_17[output_index_10] = 0;
+						output_btint_b_17[output_index_10] = 0;
+					end
+					0: begin
+						output_btint_a_17[output_index_10] = 0;
+						output_btint_b_17[output_index_10] = 1;
+					end
+					1: begin
+						output_btint_a_17[output_index_10] = 1;
+						output_btint_b_17[output_index_10] = 1;
+					end
+					default:
+						;
+				endcase
+				TMP_55_btint_a = output_btint_a_17;
+				TMP_55_btint_b = output_btint_b_17;
+				TMP_55_overflow = output_overflow_17;
+				output_btint_a_16 = TMP_55_btint_a;
+				output_btint_b_16 = TMP_55_btint_b;
+				output_overflow_16 = TMP_55_overflow;
+				output_index_10 = 6;
+				output_value_8 = sum_msd_2_1;
+				output_btint_a_17 = 0;
+				output_btint_b_17 = 0;
+				output_overflow_17 = 0;
+				output_btint_a_17 = output_btint_a_16;
+				output_btint_b_17 = output_btint_b_16;
+				output_overflow_17 = output_overflow_16;
+				case (output_value_8)
+					-1: begin
+						output_btint_a_17[output_index_10] = 0;
+						output_btint_b_17[output_index_10] = 0;
+					end
+					0: begin
+						output_btint_a_17[output_index_10] = 0;
+						output_btint_b_17[output_index_10] = 1;
+					end
+					1: begin
+						output_btint_a_17[output_index_10] = 1;
+						output_btint_b_17[output_index_10] = 1;
+					end
+					default:
+						;
+				endcase
+				TMP_56_btint_a = output_btint_a_17;
+				TMP_56_btint_b = output_btint_b_17;
+				TMP_56_overflow = output_overflow_17;
+				output_btint_a_16 = TMP_56_btint_a;
+				output_btint_b_16 = TMP_56_btint_b;
+				output_overflow_16 = TMP_56_overflow;
+				TMP_47_btint_a = output_btint_a_16;
+				TMP_47_btint_b = output_btint_b_16;
+				TMP_47_overflow = output_overflow_16;
+				TMP_47_from = 16;
+				TMP_47_to = 0;
+				output_btint_a_18 = 0;
+				output_btint_b_18 = 0;
+				output_overflow_18 = 0;
+				output_btint_a_18 = TMP_47_btint_a[TMP_47_to+:8];
+				output_btint_b_18 = TMP_47_btint_b[TMP_47_to+:8];
+				output_overflow_18 = TMP_47_overflow;
+				TMP_57_btint_a = output_btint_a_18;
+				TMP_57_btint_b = output_btint_b_18;
+				TMP_57_overflow = output_overflow_18;
+				cell_c_out_u_btint_a_next = TMP_57_btint_a;
+				cell_c_out_u_btint_b_next = TMP_57_btint_b;
+				cell_c_out_u_overflow_next = TMP_57_overflow;
 			end
 		end
 	endtask
-	always @(cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or state_u_overflow_next or state_u_btint_b_next or state_u_btint_a_next or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_s_mm or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or product_btint_b_next[0+:16] or product_btint_a_next[0+:16] or state_d_overflow_next or state_d_btint_b_next or state_d_btint_a_next or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or product_btint_b_next[16+:16] or product_btint_a_next[16+:16] or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or product_btint_b_next[32+:16] or product_btint_a_next[32+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or state_u_overflow_next or state_u_btint_b_next or state_u_btint_a_next or state_d_overflow_next or state_d_btint_b_next or state_d_btint_a_next or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or state_u_btint_b_next or state_u_btint_a_next or state_d_overflow_next or state_d_btint_b_next or state_d_btint_a_next or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or state_u_overflow_next or state_u_btint_b_next or state_u_btint_a_next or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or cell_s_in or cell_s_mm or cell_op or cell_s_in or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or multiplier_product_overflow or multiplier_product_btint_b or multiplier_product_btint_a or adder_subtractor_sum_overflow or adder_subtractor_sum_btint_b or adder_subtractor_sum_btint_a or state_u_overflow or state_u_btint_b or state_u_btint_a or state_d_overflow or state_d_btint_b or state_d_btint_a or product_btint_b or product_btint_a or multiplier_reset or multiplier_b_overflow or multiplier_b_btint_b or multiplier_b_btint_a or multiplier_a_overflow or multiplier_a_btint_b or multiplier_a_btint_a or cell_s_out or cell_c_out_u_overflow or cell_c_out_u_btint_b or cell_c_out_u_btint_a or cell_c_out_d_overflow or cell_c_out_d_btint_b or cell_c_out_d_btint_a or cell_a_out_overflow or cell_a_out_btint_b or cell_a_out_btint_a or adder_subtractor_subtract or adder_subtractor_b_overflow or adder_subtractor_b_btint_b or adder_subtractor_b_btint_a or adder_subtractor_a_overflow or adder_subtractor_a_btint_b or adder_subtractor_a_btint_a or _sv2v_0) begin : compute_comb
+	always @(product_overflow_next[6+:2] or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or state_u_overflow_next or state_u_btint_b_next or state_u_btint_a_next or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_s_mm or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or product_overflow_next[0+:2] or product_btint_b_next[0+:16] or product_btint_a_next[0+:16] or state_d_overflow_next or state_d_btint_b_next or state_d_btint_a_next or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or product_overflow_next[2+:2] or product_btint_b_next[16+:16] or product_btint_a_next[16+:16] or product_overflow_next[6+:2] or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or product_overflow_next[4+:2] or product_btint_b_next[32+:16] or product_btint_a_next[32+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or state_u_overflow_next or state_u_btint_b_next or state_u_btint_a_next or state_d_overflow_next or state_d_btint_b_next or state_d_btint_a_next or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or state_u_btint_b_next or state_u_btint_a_next or state_d_overflow_next or state_d_btint_b_next or state_d_btint_a_next or product_overflow_next[6+:2] or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or state_u_overflow_next or state_u_btint_b_next or state_u_btint_a_next or product_overflow_next[6+:2] or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or product_overflow_next[6+:2] or product_btint_b_next[48+:16] or product_btint_a_next[48+:16] or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_c_in_d_overflow or cell_c_in_d_btint_b or cell_c_in_d_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or cell_s_in or cell_s_mm or cell_op or cell_s_in or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_a_in_overflow or cell_a_in_btint_b or cell_a_in_btint_a or cell_c_in_u_overflow or cell_c_in_u_btint_b or cell_c_in_u_btint_a or multiplier_product_overflow or multiplier_product_btint_b or multiplier_product_btint_a or adder_subtractor_sum_overflow or adder_subtractor_sum_btint_b or adder_subtractor_sum_btint_a or state_u_overflow or state_u_btint_b or state_u_btint_a or state_d_overflow or state_d_btint_b or state_d_btint_a or product_overflow or product_btint_b or product_btint_a or multiplier_reset or multiplier_b_overflow or multiplier_b_btint_b or multiplier_b_btint_a or multiplier_a_overflow or multiplier_a_btint_b or multiplier_a_btint_a or cell_s_out or cell_c_out_u_overflow or cell_c_out_u_btint_b or cell_c_out_u_btint_a or cell_c_out_d_overflow or cell_c_out_d_btint_b or cell_c_out_d_btint_a or cell_a_out_overflow or cell_a_out_btint_b or cell_a_out_btint_a or adder_subtractor_subtract or adder_subtractor_b_overflow or adder_subtractor_b_btint_b or adder_subtractor_b_btint_a or adder_subtractor_a_overflow or adder_subtractor_a_btint_b or adder_subtractor_a_btint_a or _sv2v_0) begin : compute_comb
 		if (_sv2v_0)
 			;
 		compute_func;
 	end
 	always @(posedge cell_clock) begin : compute_ff
-		if (cell_reset) begin : sv2v_autoblock_37
-			reg [8:0] sum_btint_a;
-			reg [8:0] sum_btint_b;
+		if (cell_reset) begin : sv2v_autoblock_8
+			reg [16:0] sum_btint_a;
+			reg [16:0] sum_btint_b;
 			reg [1:0] sum_overflow;
 			reg [7:0] c_in_u_btint_a;
 			reg [7:0] c_in_u_btint_b;
@@ -4253,7 +2393,7 @@ module CELL (
 			output_btint_a = 0;
 			output_btint_b = 0;
 			output_overflow = 0;
-			begin : sv2v_autoblock_38
+			begin : sv2v_autoblock_9
 				integer i;
 				for (i = 0; i < 8; i = i + 1)
 					begin
@@ -4301,7 +2441,7 @@ module CELL (
 			output_btint_a_2 = 0;
 			output_btint_b_2 = 0;
 			output_overflow_2 = 0;
-			begin : sv2v_autoblock_39
+			begin : sv2v_autoblock_10
 				integer i_1;
 				for (i_1 = 0; i_1 < 8; i_1 = i_1 + 1)
 					begin
@@ -4349,7 +2489,7 @@ module CELL (
 			output_btint_a_4 = 0;
 			output_btint_b_4 = 0;
 			output_overflow_4 = 0;
-			begin : sv2v_autoblock_40
+			begin : sv2v_autoblock_11
 				integer i_2;
 				for (i_2 = 0; i_2 < 8; i_2 = i_2 + 1)
 					begin
@@ -4398,7 +2538,7 @@ module CELL (
 			output_btint_a_6 = 0;
 			output_btint_b_6 = 0;
 			output_overflow_6 = 0;
-			begin : sv2v_autoblock_41
+			begin : sv2v_autoblock_12
 				integer i_3;
 				for (i_3 = 0; i_3 < 8; i_3 = i_3 + 1)
 					begin
@@ -4446,7 +2586,7 @@ module CELL (
 			output_btint_a_8 = 0;
 			output_btint_b_8 = 0;
 			output_overflow_8 = 0;
-			begin : sv2v_autoblock_42
+			begin : sv2v_autoblock_13
 				integer i_4;
 				for (i_4 = 0; i_4 < 8; i_4 = i_4 + 1)
 					begin
@@ -4504,6 +2644,7 @@ module CELL (
 			cell_s_out <= cell_s_out_next;
 			product_btint_a <= product_btint_a_next;
 			product_btint_b <= product_btint_b_next;
+			product_overflow <= product_overflow_next;
 			state_u_btint_a <= state_u_btint_a_next;
 			state_u_btint_b <= state_u_btint_b_next;
 			state_u_overflow <= state_u_overflow_next;
@@ -4605,28 +2746,28 @@ module ADDER_SUBTRACTOR (
 	adder_subtractor_sum_overflow
 );
 	reg _sv2v_0;
-	input wire [7:0] adder_subtractor_a_btint_a;
-	input wire [7:0] adder_subtractor_a_btint_b;
+	input wire [15:0] adder_subtractor_a_btint_a;
+	input wire [15:0] adder_subtractor_a_btint_b;
 	input wire [1:0] adder_subtractor_a_overflow;
-	input wire [7:0] adder_subtractor_b_btint_a;
-	input wire [7:0] adder_subtractor_b_btint_b;
+	input wire [15:0] adder_subtractor_b_btint_a;
+	input wire [15:0] adder_subtractor_b_btint_b;
 	input wire [1:0] adder_subtractor_b_overflow;
 	input wire adder_subtractor_subtract;
-	output reg [8:0] adder_subtractor_sum_btint_a;
-	output reg [8:0] adder_subtractor_sum_btint_b;
+	output reg [16:0] adder_subtractor_sum_btint_a;
+	output reg [16:0] adder_subtractor_sum_btint_b;
 	output reg [1:0] adder_subtractor_sum_overflow;
 	wire one;
-	reg input_a [0:1][0:7];
-	reg input_b [0:1][0:7];
-	wire output_sum [0:1][0:8];
-	wire fulladder_sum [0:7];
-	wire fulladder_carry_out [0:6];
+	reg input_a [0:1][0:15];
+	reg input_b [0:1][0:15];
+	wire output_sum [0:1][0:16];
+	wire fulladder_sum [0:15];
+	wire fulladder_carry_out [0:14];
 	always @(*) begin : source
 		if (_sv2v_0)
 			;
 		begin : sv2v_autoblock_1
 			integer i;
-			for (i = 0; i < 8; i = i + 1)
+			for (i = 0; i < 16; i = i + 1)
 				begin
 					input_a[0][i] = adder_subtractor_a_btint_a[i];
 					input_a[1][i] = adder_subtractor_a_btint_b[i];
@@ -4636,17 +2777,17 @@ module ADDER_SUBTRACTOR (
 		end
 	end
 	always @(*) begin : sink
-		reg [8:0] sum_btint_a;
-		reg [8:0] sum_btint_b;
+		reg [16:0] sum_btint_a;
+		reg [16:0] sum_btint_b;
 		reg [1:0] sum_overflow;
 		integer TMP_0;
 		integer sum_index;
 		integer sum_value;
-		reg [8:0] output_btint_a;
-		reg [8:0] output_btint_b;
+		reg [16:0] output_btint_a;
+		reg [16:0] output_btint_b;
 		reg [1:0] output_overflow;
-		reg [8:0] TMP_1_btint_a;
-		reg [8:0] TMP_1_btint_b;
+		reg [16:0] TMP_1_btint_a;
+		reg [16:0] TMP_1_btint_b;
 		reg [1:0] TMP_1_overflow;
 		if (_sv2v_0)
 			;
@@ -4662,13 +2803,13 @@ module ADDER_SUBTRACTOR (
 		sum_overflow = 0;
 		begin : sv2v_autoblock_2
 			integer i;
-			for (i = 0; i < 9; i = i + 1)
+			for (i = 0; i < 17; i = i + 1)
 				begin
 					sum_btint_a[i] = output_sum[0][i];
 					sum_btint_b[i] = output_sum[1][i];
 				end
 		end
-		sum_index = 8;
+		sum_index = 16;
 		TMP_0 = (sum_btint_a[sum_index] + sum_btint_b[sum_index]) - 1;
 		sum_value = TMP_0;
 		output_btint_a = 0;
@@ -4757,7 +2898,63 @@ module ADDER_SUBTRACTOR (
 		.fulladder_b(input_b[0][7]),
 		.fulladder_carry_in(input_a[1][7]),
 		.fulladder_sum(fulladder_sum[7]),
-		.fulladder_carry_out(output_sum[1][8])
+		.fulladder_carry_out(fulladder_carry_out[7])
+	);
+	FULLADDER fulladder_0_8(
+		.fulladder_a(input_a[0][8]),
+		.fulladder_b(input_b[0][8]),
+		.fulladder_carry_in(input_a[1][8]),
+		.fulladder_sum(fulladder_sum[8]),
+		.fulladder_carry_out(fulladder_carry_out[8])
+	);
+	FULLADDER fulladder_0_9(
+		.fulladder_a(input_a[0][9]),
+		.fulladder_b(input_b[0][9]),
+		.fulladder_carry_in(input_a[1][9]),
+		.fulladder_sum(fulladder_sum[9]),
+		.fulladder_carry_out(fulladder_carry_out[9])
+	);
+	FULLADDER fulladder_0_10(
+		.fulladder_a(input_a[0][10]),
+		.fulladder_b(input_b[0][10]),
+		.fulladder_carry_in(input_a[1][10]),
+		.fulladder_sum(fulladder_sum[10]),
+		.fulladder_carry_out(fulladder_carry_out[10])
+	);
+	FULLADDER fulladder_0_11(
+		.fulladder_a(input_a[0][11]),
+		.fulladder_b(input_b[0][11]),
+		.fulladder_carry_in(input_a[1][11]),
+		.fulladder_sum(fulladder_sum[11]),
+		.fulladder_carry_out(fulladder_carry_out[11])
+	);
+	FULLADDER fulladder_0_12(
+		.fulladder_a(input_a[0][12]),
+		.fulladder_b(input_b[0][12]),
+		.fulladder_carry_in(input_a[1][12]),
+		.fulladder_sum(fulladder_sum[12]),
+		.fulladder_carry_out(fulladder_carry_out[12])
+	);
+	FULLADDER fulladder_0_13(
+		.fulladder_a(input_a[0][13]),
+		.fulladder_b(input_b[0][13]),
+		.fulladder_carry_in(input_a[1][13]),
+		.fulladder_sum(fulladder_sum[13]),
+		.fulladder_carry_out(fulladder_carry_out[13])
+	);
+	FULLADDER fulladder_0_14(
+		.fulladder_a(input_a[0][14]),
+		.fulladder_b(input_b[0][14]),
+		.fulladder_carry_in(input_a[1][14]),
+		.fulladder_sum(fulladder_sum[14]),
+		.fulladder_carry_out(fulladder_carry_out[14])
+	);
+	FULLADDER fulladder_0_15(
+		.fulladder_a(input_a[0][15]),
+		.fulladder_b(input_b[0][15]),
+		.fulladder_carry_in(input_a[1][15]),
+		.fulladder_sum(fulladder_sum[15]),
+		.fulladder_carry_out(output_sum[1][16])
 	);
 	FULLADDER fulladder_1_0(
 		.fulladder_a(one),
@@ -4814,6 +3011,62 @@ module ADDER_SUBTRACTOR (
 		.fulladder_carry_in(input_b[1][7]),
 		.fulladder_sum(output_sum[1][7]),
 		.fulladder_carry_out(output_sum[0][8])
+	);
+	FULLADDER fulladder_1_8(
+		.fulladder_a(fulladder_carry_out[7]),
+		.fulladder_b(fulladder_sum[8]),
+		.fulladder_carry_in(input_b[1][8]),
+		.fulladder_sum(output_sum[1][8]),
+		.fulladder_carry_out(output_sum[0][9])
+	);
+	FULLADDER fulladder_1_9(
+		.fulladder_a(fulladder_carry_out[8]),
+		.fulladder_b(fulladder_sum[9]),
+		.fulladder_carry_in(input_b[1][9]),
+		.fulladder_sum(output_sum[1][9]),
+		.fulladder_carry_out(output_sum[0][10])
+	);
+	FULLADDER fulladder_1_10(
+		.fulladder_a(fulladder_carry_out[9]),
+		.fulladder_b(fulladder_sum[10]),
+		.fulladder_carry_in(input_b[1][10]),
+		.fulladder_sum(output_sum[1][10]),
+		.fulladder_carry_out(output_sum[0][11])
+	);
+	FULLADDER fulladder_1_11(
+		.fulladder_a(fulladder_carry_out[10]),
+		.fulladder_b(fulladder_sum[11]),
+		.fulladder_carry_in(input_b[1][11]),
+		.fulladder_sum(output_sum[1][11]),
+		.fulladder_carry_out(output_sum[0][12])
+	);
+	FULLADDER fulladder_1_12(
+		.fulladder_a(fulladder_carry_out[11]),
+		.fulladder_b(fulladder_sum[12]),
+		.fulladder_carry_in(input_b[1][12]),
+		.fulladder_sum(output_sum[1][12]),
+		.fulladder_carry_out(output_sum[0][13])
+	);
+	FULLADDER fulladder_1_13(
+		.fulladder_a(fulladder_carry_out[12]),
+		.fulladder_b(fulladder_sum[13]),
+		.fulladder_carry_in(input_b[1][13]),
+		.fulladder_sum(output_sum[1][13]),
+		.fulladder_carry_out(output_sum[0][14])
+	);
+	FULLADDER fulladder_1_14(
+		.fulladder_a(fulladder_carry_out[13]),
+		.fulladder_b(fulladder_sum[14]),
+		.fulladder_carry_in(input_b[1][14]),
+		.fulladder_sum(output_sum[1][14]),
+		.fulladder_carry_out(output_sum[0][15])
+	);
+	FULLADDER fulladder_1_15(
+		.fulladder_a(fulladder_carry_out[14]),
+		.fulladder_b(fulladder_sum[15]),
+		.fulladder_carry_in(input_b[1][15]),
+		.fulladder_sum(output_sum[1][15]),
+		.fulladder_carry_out(output_sum[0][16])
 	);
 	initial _sv2v_0 = 0;
 endmodule
@@ -5825,7 +4078,7 @@ module MULTIPLIER (
 			adder_subtractor_subtract <= adder_subtractor_subtract_next;
 		end
 	end
-	ADDER_SUBTRACTOR adder_subtractor(
+	ADDER_SUBTRACTOR0 adder_subtractor(
 		.adder_subtractor_a_btint_a(adder_subtractor_a_btint_a),
 		.adder_subtractor_a_btint_b(adder_subtractor_a_btint_b),
 		.adder_subtractor_a_overflow(adder_subtractor_a_overflow),
@@ -5849,6 +4102,231 @@ module MULTIPLIER (
 		.shift_register_output_btint_a(adder_subtractor_a_btint_a),
 		.shift_register_output_btint_b(adder_subtractor_a_btint_b),
 		.shift_register_output_overflow(adder_subtractor_a_overflow)
+	);
+	initial _sv2v_0 = 0;
+endmodule
+module ADDER_SUBTRACTOR0 (
+	adder_subtractor_a_btint_a,
+	adder_subtractor_a_btint_b,
+	adder_subtractor_a_overflow,
+	adder_subtractor_b_btint_a,
+	adder_subtractor_b_btint_b,
+	adder_subtractor_b_overflow,
+	adder_subtractor_subtract,
+	adder_subtractor_sum_btint_a,
+	adder_subtractor_sum_btint_b,
+	adder_subtractor_sum_overflow
+);
+	reg _sv2v_0;
+	input wire [7:0] adder_subtractor_a_btint_a;
+	input wire [7:0] adder_subtractor_a_btint_b;
+	input wire [1:0] adder_subtractor_a_overflow;
+	input wire [7:0] adder_subtractor_b_btint_a;
+	input wire [7:0] adder_subtractor_b_btint_b;
+	input wire [1:0] adder_subtractor_b_overflow;
+	input wire adder_subtractor_subtract;
+	output reg [8:0] adder_subtractor_sum_btint_a;
+	output reg [8:0] adder_subtractor_sum_btint_b;
+	output reg [1:0] adder_subtractor_sum_overflow;
+	wire one;
+	reg input_a [0:1][0:7];
+	reg input_b [0:1][0:7];
+	wire output_sum [0:1][0:8];
+	wire fulladder_sum [0:7];
+	wire fulladder_carry_out [0:6];
+	always @(*) begin : source
+		if (_sv2v_0)
+			;
+		begin : sv2v_autoblock_1
+			integer i;
+			for (i = 0; i < 8; i = i + 1)
+				begin
+					input_a[0][i] = adder_subtractor_a_btint_a[i];
+					input_a[1][i] = adder_subtractor_a_btint_b[i];
+					input_b[0][i] = adder_subtractor_b_btint_a[i] ^ adder_subtractor_subtract;
+					input_b[1][i] = adder_subtractor_b_btint_b[i] ^ adder_subtractor_subtract;
+				end
+		end
+	end
+	always @(*) begin : sink
+		reg [8:0] sum_btint_a;
+		reg [8:0] sum_btint_b;
+		reg [1:0] sum_overflow;
+		integer TMP_0;
+		integer sum_index;
+		integer sum_value;
+		reg [8:0] output_btint_a;
+		reg [8:0] output_btint_b;
+		reg [1:0] output_overflow;
+		reg [8:0] TMP_1_btint_a;
+		reg [8:0] TMP_1_btint_b;
+		reg [1:0] TMP_1_overflow;
+		if (_sv2v_0)
+			;
+		TMP_0 = 0;
+		output_btint_a = 0;
+		output_btint_b = 0;
+		output_overflow = 0;
+		TMP_1_btint_a = 0;
+		TMP_1_btint_b = 0;
+		TMP_1_overflow = 0;
+		sum_btint_a = 0;
+		sum_btint_b = 0;
+		sum_overflow = 0;
+		begin : sv2v_autoblock_2
+			integer i;
+			for (i = 0; i < 9; i = i + 1)
+				begin
+					sum_btint_a[i] = output_sum[0][i];
+					sum_btint_b[i] = output_sum[1][i];
+				end
+		end
+		sum_index = 8;
+		TMP_0 = (sum_btint_a[sum_index] + sum_btint_b[sum_index]) - 1;
+		sum_value = TMP_0;
+		output_btint_a = 0;
+		output_btint_b = 0;
+		output_overflow = 0;
+		output_btint_a = sum_btint_a;
+		output_btint_b = sum_btint_b;
+		output_overflow = sum_overflow;
+		case (sum_value)
+			-1: begin
+				output_overflow[0] = 0;
+				output_overflow[1] = 0;
+			end
+			0: begin
+				output_overflow[0] = 0;
+				output_overflow[1] = 1;
+			end
+			1: begin
+				output_overflow[0] = 1;
+				output_overflow[1] = 1;
+			end
+			default:
+				;
+		endcase
+		TMP_1_btint_a = output_btint_a;
+		TMP_1_btint_b = output_btint_b;
+		TMP_1_overflow = output_overflow;
+		sum_btint_a = TMP_1_btint_a;
+		sum_btint_b = TMP_1_btint_b;
+		sum_overflow = TMP_1_overflow;
+		adder_subtractor_sum_btint_a = sum_btint_a;
+		adder_subtractor_sum_btint_b = sum_btint_b;
+		adder_subtractor_sum_overflow = sum_overflow;
+	end
+	FULLADDER fulladder_0_0(
+		.fulladder_a(input_a[0][0]),
+		.fulladder_b(input_b[0][0]),
+		.fulladder_carry_in(input_a[1][0]),
+		.fulladder_sum(fulladder_sum[0]),
+		.fulladder_carry_out(fulladder_carry_out[0])
+	);
+	FULLADDER fulladder_0_1(
+		.fulladder_a(input_a[0][1]),
+		.fulladder_b(input_b[0][1]),
+		.fulladder_carry_in(input_a[1][1]),
+		.fulladder_sum(fulladder_sum[1]),
+		.fulladder_carry_out(fulladder_carry_out[1])
+	);
+	FULLADDER fulladder_0_2(
+		.fulladder_a(input_a[0][2]),
+		.fulladder_b(input_b[0][2]),
+		.fulladder_carry_in(input_a[1][2]),
+		.fulladder_sum(fulladder_sum[2]),
+		.fulladder_carry_out(fulladder_carry_out[2])
+	);
+	FULLADDER fulladder_0_3(
+		.fulladder_a(input_a[0][3]),
+		.fulladder_b(input_b[0][3]),
+		.fulladder_carry_in(input_a[1][3]),
+		.fulladder_sum(fulladder_sum[3]),
+		.fulladder_carry_out(fulladder_carry_out[3])
+	);
+	FULLADDER fulladder_0_4(
+		.fulladder_a(input_a[0][4]),
+		.fulladder_b(input_b[0][4]),
+		.fulladder_carry_in(input_a[1][4]),
+		.fulladder_sum(fulladder_sum[4]),
+		.fulladder_carry_out(fulladder_carry_out[4])
+	);
+	FULLADDER fulladder_0_5(
+		.fulladder_a(input_a[0][5]),
+		.fulladder_b(input_b[0][5]),
+		.fulladder_carry_in(input_a[1][5]),
+		.fulladder_sum(fulladder_sum[5]),
+		.fulladder_carry_out(fulladder_carry_out[5])
+	);
+	FULLADDER fulladder_0_6(
+		.fulladder_a(input_a[0][6]),
+		.fulladder_b(input_b[0][6]),
+		.fulladder_carry_in(input_a[1][6]),
+		.fulladder_sum(fulladder_sum[6]),
+		.fulladder_carry_out(fulladder_carry_out[6])
+	);
+	FULLADDER fulladder_0_7(
+		.fulladder_a(input_a[0][7]),
+		.fulladder_b(input_b[0][7]),
+		.fulladder_carry_in(input_a[1][7]),
+		.fulladder_sum(fulladder_sum[7]),
+		.fulladder_carry_out(output_sum[1][8])
+	);
+	FULLADDER fulladder_1_0(
+		.fulladder_a(one),
+		.fulladder_b(fulladder_sum[0]),
+		.fulladder_carry_in(input_b[1][0]),
+		.fulladder_sum(output_sum[1][0]),
+		.fulladder_carry_out(output_sum[0][1])
+	);
+	FULLADDER fulladder_1_1(
+		.fulladder_a(fulladder_carry_out[0]),
+		.fulladder_b(fulladder_sum[1]),
+		.fulladder_carry_in(input_b[1][1]),
+		.fulladder_sum(output_sum[1][1]),
+		.fulladder_carry_out(output_sum[0][2])
+	);
+	FULLADDER fulladder_1_2(
+		.fulladder_a(fulladder_carry_out[1]),
+		.fulladder_b(fulladder_sum[2]),
+		.fulladder_carry_in(input_b[1][2]),
+		.fulladder_sum(output_sum[1][2]),
+		.fulladder_carry_out(output_sum[0][3])
+	);
+	FULLADDER fulladder_1_3(
+		.fulladder_a(fulladder_carry_out[2]),
+		.fulladder_b(fulladder_sum[3]),
+		.fulladder_carry_in(input_b[1][3]),
+		.fulladder_sum(output_sum[1][3]),
+		.fulladder_carry_out(output_sum[0][4])
+	);
+	FULLADDER fulladder_1_4(
+		.fulladder_a(fulladder_carry_out[3]),
+		.fulladder_b(fulladder_sum[4]),
+		.fulladder_carry_in(input_b[1][4]),
+		.fulladder_sum(output_sum[1][4]),
+		.fulladder_carry_out(output_sum[0][5])
+	);
+	FULLADDER fulladder_1_5(
+		.fulladder_a(fulladder_carry_out[4]),
+		.fulladder_b(fulladder_sum[5]),
+		.fulladder_carry_in(input_b[1][5]),
+		.fulladder_sum(output_sum[1][5]),
+		.fulladder_carry_out(output_sum[0][6])
+	);
+	FULLADDER fulladder_1_6(
+		.fulladder_a(fulladder_carry_out[5]),
+		.fulladder_b(fulladder_sum[6]),
+		.fulladder_carry_in(input_b[1][6]),
+		.fulladder_sum(output_sum[1][6]),
+		.fulladder_carry_out(output_sum[0][7])
+	);
+	FULLADDER fulladder_1_7(
+		.fulladder_a(fulladder_carry_out[6]),
+		.fulladder_b(fulladder_sum[7]),
+		.fulladder_carry_in(input_b[1][7]),
+		.fulladder_sum(output_sum[1][7]),
+		.fulladder_carry_out(output_sum[0][8])
 	);
 	initial _sv2v_0 = 0;
 endmodule
@@ -5961,63 +4439,42 @@ module SHIFT_REGISTER (
 		reg [8:0] TMP_10_btint_a;
 		reg [8:0] TMP_10_btint_b;
 		reg [1:0] TMP_10_overflow;
-		integer TMP_13;
-		integer input_output_v_1;
-		integer TMP_14;
-		integer TMP_15_value;
-		reg [7:0] output_btint_a_9;
-		reg [7:0] output_btint_b_9;
+		reg [8:0] output_btint_a_9;
+		reg [8:0] output_btint_b_9;
 		reg [1:0] output_overflow_9;
+		integer TMP_14;
 		integer output_index_4;
+		integer input_msd;
+		integer TMP_16;
+		integer input_msd_1_1;
+		integer TMP_18;
+		integer input_msd_2_1;
+		integer output_index_5;
 		integer output_value_4;
-		reg [7:0] output_btint_a_10;
-		reg [7:0] output_btint_b_10;
+		reg [8:0] output_btint_a_10;
+		reg [8:0] output_btint_b_10;
 		reg [1:0] output_overflow_10;
-		reg TMP_15_isNegative;
-		integer TMP_15_i;
-		integer output_value_5;
+		reg [8:0] TMP_20_btint_a;
+		reg [8:0] TMP_20_btint_b;
+		reg [1:0] TMP_20_overflow;
+		reg [8:0] TMP_21_btint_a;
+		reg [8:0] TMP_21_btint_b;
+		reg [1:0] TMP_21_overflow;
+		reg [8:0] TMP_22_btint_a;
+		reg [8:0] TMP_22_btint_b;
+		reg [1:0] TMP_22_overflow;
+		reg [8:0] TMP_13_btint_a;
+		reg [8:0] TMP_13_btint_b;
+		reg [1:0] TMP_13_overflow;
+		integer TMP_13_from;
+		integer TMP_13_to;
 		reg [7:0] output_btint_a_11;
 		reg [7:0] output_btint_b_11;
 		reg [1:0] output_overflow_11;
-		reg [7:0] TMP_18_btint_a;
-		reg [7:0] TMP_18_btint_b;
-		reg [1:0] TMP_18_overflow;
-		reg [7:0] TMP_19_btint_a;
-		reg [7:0] TMP_19_btint_b;
-		reg [1:0] TMP_19_overflow;
-		reg [7:0] TMP_20_btint_a;
-		reg [7:0] TMP_20_btint_b;
-		reg [1:0] TMP_20_overflow;
-		reg [7:0] output_btint_a_12;
-		reg [7:0] output_btint_b_12;
-		reg [1:0] output_overflow_12;
-		integer TMP_22;
-		integer output_index_5;
-		integer output_index_6;
-		integer output_value_6;
-		reg [7:0] output_btint_a_13;
-		reg [7:0] output_btint_b_13;
-		reg [1:0] output_overflow_13;
 		reg [7:0] TMP_23_btint_a;
 		reg [7:0] TMP_23_btint_b;
 		reg [1:0] TMP_23_overflow;
-		integer TMP_25;
-		integer output_value_7;
-		reg [7:0] output_btint_a_14;
-		reg [7:0] output_btint_b_14;
-		reg [1:0] output_overflow_14;
-		reg [7:0] TMP_26_btint_a;
-		reg [7:0] TMP_26_btint_b;
-		reg [1:0] TMP_26_overflow;
-		reg [7:0] TMP_21_btint_a;
-		reg [7:0] TMP_21_btint_b;
-		reg [1:0] TMP_21_overflow;
-		reg [7:0] TMP_16_btint_a;
-		reg [7:0] TMP_16_btint_b;
-		reg [1:0] TMP_16_overflow;
-		reg [1:0] _sv2v_jump;
 		begin
-			_sv2v_jump = 2'b00;
 			output_btint_a_4 = 0;
 			output_btint_b_4 = 0;
 			output_overflow_4 = 0;
@@ -6053,60 +4510,41 @@ module SHIFT_REGISTER (
 			TMP_10_btint_a = 0;
 			TMP_10_btint_b = 0;
 			TMP_10_overflow = 0;
-			TMP_13 = 0;
-			input_output_v_1 = 0;
-			TMP_14 = 0;
-			TMP_15_value = 0;
 			output_btint_a_9 = 0;
 			output_btint_b_9 = 0;
 			output_overflow_9 = 0;
+			TMP_14 = 0;
 			output_index_4 = 0;
+			input_msd = 0;
+			TMP_16 = 0;
+			input_msd_1_1 = 0;
+			TMP_18 = 0;
+			input_msd_2_1 = 0;
+			output_index_5 = 0;
 			output_value_4 = 0;
 			output_btint_a_10 = 0;
 			output_btint_b_10 = 0;
 			output_overflow_10 = 0;
-			TMP_15_isNegative = 0;
-			TMP_15_i = 0;
-			output_value_5 = 0;
-			output_btint_a_11 = 0;
-			output_btint_b_11 = 0;
-			output_overflow_11 = 0;
-			TMP_18_btint_a = 0;
-			TMP_18_btint_b = 0;
-			TMP_18_overflow = 0;
-			TMP_19_btint_a = 0;
-			TMP_19_btint_b = 0;
-			TMP_19_overflow = 0;
 			TMP_20_btint_a = 0;
 			TMP_20_btint_b = 0;
 			TMP_20_overflow = 0;
-			output_btint_a_12 = 0;
-			output_btint_b_12 = 0;
-			output_overflow_12 = 0;
-			TMP_22 = 0;
-			output_index_5 = 0;
-			output_index_6 = 0;
-			output_value_6 = 0;
-			output_btint_a_13 = 0;
-			output_btint_b_13 = 0;
-			output_overflow_13 = 0;
-			TMP_23_btint_a = 0;
-			TMP_23_btint_b = 0;
-			TMP_23_overflow = 0;
-			TMP_25 = 0;
-			output_value_7 = 0;
-			output_btint_a_14 = 0;
-			output_btint_b_14 = 0;
-			output_overflow_14 = 0;
-			TMP_26_btint_a = 0;
-			TMP_26_btint_b = 0;
-			TMP_26_overflow = 0;
 			TMP_21_btint_a = 0;
 			TMP_21_btint_b = 0;
 			TMP_21_overflow = 0;
-			TMP_16_btint_a = 0;
-			TMP_16_btint_b = 0;
-			TMP_16_overflow = 0;
+			TMP_22_btint_a = 0;
+			TMP_22_btint_b = 0;
+			TMP_22_overflow = 0;
+			TMP_13_btint_a = 0;
+			TMP_13_btint_b = 0;
+			TMP_13_overflow = 0;
+			TMP_13_from = 0;
+			TMP_13_to = 0;
+			output_btint_a_11 = 0;
+			output_btint_b_11 = 0;
+			output_overflow_11 = 0;
+			TMP_23_btint_a = 0;
+			TMP_23_btint_b = 0;
+			TMP_23_overflow = 0;
 			shift_register_output_btint_a_next = shift_register_output_btint_a;
 			shift_register_output_btint_b_next = shift_register_output_btint_b;
 			shift_register_output_overflow_next = shift_register_output_overflow;
@@ -6227,10 +4665,20 @@ module SHIFT_REGISTER (
 						output_btint_b_8 = output_btint_b_7;
 						output_overflow_8 = output_overflow_7;
 						case (0)
+							-1: begin
+								output_btint_a_8[output_index_3] = 0;
+								output_btint_b_8[output_index_3] = 0;
+							end
 							0: begin
 								output_btint_a_8[output_index_3] = 0;
 								output_btint_b_8[output_index_3] = 1;
 							end
+							1: begin
+								output_btint_a_8[output_index_3] = 1;
+								output_btint_b_8[output_index_3] = 1;
+							end
+							default:
+								;
 						endcase
 						TMP_11_btint_a = output_btint_a_8;
 						TMP_11_btint_b = output_btint_b_8;
@@ -6246,258 +4694,150 @@ module SHIFT_REGISTER (
 			input_btint_a = TMP_10_btint_a;
 			input_btint_b = TMP_10_btint_b;
 			input_overflow = TMP_10_overflow;
-			input_output_v_1 = 0;
-			begin : sv2v_autoblock_3
-				integer i_4;
-				for (i_4 = 8; i_4 >= 0; i_4 = i_4 - 1)
-					begin
-						input_index = i_4;
-						TMP_14 = (input_btint_a[input_index] + input_btint_b[input_index]) - 1;
-						input_output_v_1 = (2 * input_output_v_1) + TMP_14;
-					end
-			end
-			TMP_13 = input_output_v_1;
-			TMP_15_value = TMP_13;
 			output_btint_a_9 = 0;
 			output_btint_b_9 = 0;
 			output_overflow_9 = 0;
-			begin : sv2v_autoblock_4
-				integer i_5;
-				for (i_5 = 0; i_5 < 8; i_5 = i_5 + 1)
-					begin
-						output_index_4 = i_5;
-						output_value_4 = 0;
-						output_btint_a_10 = 0;
-						output_btint_b_10 = 0;
-						output_overflow_10 = 0;
-						output_btint_a_10 = output_btint_a_9;
-						output_btint_b_10 = output_btint_b_9;
-						output_overflow_10 = output_overflow_9;
-						case (0)
-							-1: begin
-								output_btint_a_10[output_index_4] = 0;
-								output_btint_b_10[output_index_4] = 0;
-							end
-							0: begin
-								output_btint_a_10[output_index_4] = 0;
-								output_btint_b_10[output_index_4] = 1;
-							end
-							1: begin
-								output_btint_a_10[output_index_4] = 1;
-								output_btint_b_10[output_index_4] = 1;
-							end
-							default:
-								;
-						endcase
-						TMP_2_btint_a = output_btint_a_10;
-						TMP_2_btint_b = output_btint_b_10;
-						TMP_2_overflow = output_overflow_10;
-						output_btint_a_9 = TMP_2_btint_a;
-						output_btint_b_9 = TMP_2_btint_b;
-						output_overflow_9 = TMP_2_overflow;
+			output_btint_a_9 = input_btint_a;
+			output_btint_b_9 = input_btint_b;
+			output_overflow_9 = input_overflow;
+			output_index_4 = 8;
+			TMP_14 = (output_btint_a_9[output_index_4] + output_btint_b_9[output_index_4]) - 1;
+			input_msd = TMP_14;
+			output_index_4 = 7;
+			TMP_16 = (output_btint_a_9[output_index_4] + output_btint_b_9[output_index_4]) - 1;
+			input_msd_1_1 = TMP_16;
+			output_index_4 = 6;
+			TMP_18 = (output_btint_a_9[output_index_4] + output_btint_b_9[output_index_4]) - 1;
+			input_msd_2_1 = TMP_18;
+			case (input_msd)
+				-1:
+					if (input_msd_1_1 == 1) begin
+						input_msd = 0;
+						input_msd_1_1 = -2'sd1;
 					end
-			end
-			TMP_15_isNegative = TMP_15_value < 0;
-			if (TMP_15_isNegative)
-				TMP_15_value = -TMP_15_value;
-			TMP_15_i = 0;
-			while (|TMP_15_value && (_sv2v_jump < 2'b10)) begin
-				_sv2v_jump = 2'b00;
-				if (TMP_15_i >= 8) begin
-					output_value_5 = 1;
-					output_btint_a_11 = 0;
-					output_btint_b_11 = 0;
-					output_overflow_11 = 0;
-					output_btint_a_11 = output_btint_a_9;
-					output_btint_b_11 = output_btint_b_9;
-					output_overflow_11 = output_overflow_9;
-					case (1)
-						-1: begin
-							output_overflow_11[0] = 0;
-							output_overflow_11[1] = 0;
-						end
-						0: begin
-							output_overflow_11[0] = 0;
-							output_overflow_11[1] = 1;
-						end
-						1: begin
-							output_overflow_11[0] = 1;
-							output_overflow_11[1] = 1;
-						end
-						default:
-							;
-					endcase
-					TMP_18_btint_a = output_btint_a_11;
-					TMP_18_btint_b = output_btint_b_11;
-					TMP_18_overflow = output_overflow_11;
-					output_btint_a_9 = TMP_18_btint_a;
-					output_btint_b_9 = TMP_18_btint_b;
-					output_overflow_9 = TMP_18_overflow;
-					_sv2v_jump = 2'b10;
+					else if ((input_msd_1_1 == 0) && (input_msd_2_1 == 1)) begin
+						input_msd = 0;
+						input_msd_2_1 = -2'sd1;
+						input_msd_1_1 = input_msd_2_1;
+					end
+				1:
+					if (input_msd_1_1 == -2'sd1) begin
+						input_msd = 0;
+						input_msd_1_1 = 1;
+					end
+					else if ((input_msd_1_1 == 0) && (input_msd_2_1 == -2'sd1)) begin
+						input_msd = 0;
+						input_msd_2_1 = 1;
+						input_msd_1_1 = input_msd_2_1;
+					end
+			endcase
+			output_index_5 = 8;
+			output_value_4 = input_msd;
+			output_btint_a_10 = 0;
+			output_btint_b_10 = 0;
+			output_overflow_10 = 0;
+			output_btint_a_10 = output_btint_a_9;
+			output_btint_b_10 = output_btint_b_9;
+			output_overflow_10 = output_overflow_9;
+			case (output_value_4)
+				-1: begin
+					output_btint_a_10[output_index_5] = 0;
+					output_btint_b_10[output_index_5] = 0;
 				end
-				if (_sv2v_jump == 2'b00) begin
-					if (|(TMP_15_value % 2)) begin
-						TMP_15_i = TMP_15_i + 1;
-						output_index_4 = TMP_15_i + 1'sd1;
-						output_value_4 = 1;
-						output_btint_a_10 = 0;
-						output_btint_b_10 = 0;
-						output_overflow_10 = 0;
-						output_btint_a_10 = output_btint_a_9;
-						output_btint_b_10 = output_btint_b_9;
-						output_overflow_10 = output_overflow_9;
-						case (1)
-							-1: begin
-								output_btint_a_10[output_index_4] = 0;
-								output_btint_b_10[output_index_4] = 0;
-							end
-							0: begin
-								output_btint_a_10[output_index_4] = 0;
-								output_btint_b_10[output_index_4] = 1;
-							end
-							1: begin
-								output_btint_a_10[output_index_4] = 1;
-								output_btint_b_10[output_index_4] = 1;
-							end
-							default:
-								;
-						endcase
-						TMP_19_btint_a = output_btint_a_10;
-						TMP_19_btint_b = output_btint_b_10;
-						TMP_19_overflow = output_overflow_10;
-						output_btint_a_9 = TMP_19_btint_a;
-						output_btint_b_9 = TMP_19_btint_b;
-						output_overflow_9 = TMP_19_overflow;
-						TMP_15_value = TMP_15_value - 1;
-					end
-					else begin
-						TMP_15_i = TMP_15_i + 1;
-						output_index_4 = TMP_15_i + 1'sd1;
-						output_value_4 = 0;
-						output_btint_a_10 = 0;
-						output_btint_b_10 = 0;
-						output_overflow_10 = 0;
-						output_btint_a_10 = output_btint_a_9;
-						output_btint_b_10 = output_btint_b_9;
-						output_overflow_10 = output_overflow_9;
-						case (0)
-							-1: begin
-								output_btint_a_10[output_index_4] = 0;
-								output_btint_b_10[output_index_4] = 0;
-							end
-							0: begin
-								output_btint_a_10[output_index_4] = 0;
-								output_btint_b_10[output_index_4] = 1;
-							end
-							1: begin
-								output_btint_a_10[output_index_4] = 1;
-								output_btint_b_10[output_index_4] = 1;
-							end
-							default:
-								;
-						endcase
-						TMP_20_btint_a = output_btint_a_10;
-						TMP_20_btint_b = output_btint_b_10;
-						TMP_20_overflow = output_overflow_10;
-						output_btint_a_9 = TMP_20_btint_a;
-						output_btint_b_9 = TMP_20_btint_b;
-						output_overflow_9 = TMP_20_overflow;
-					end
-					TMP_15_value = TMP_15_value / 2;
+				0: begin
+					output_btint_a_10[output_index_5] = 0;
+					output_btint_b_10[output_index_5] = 1;
 				end
-			end
-			if (_sv2v_jump != 2'b11)
-				_sv2v_jump = 2'b00;
-			if (_sv2v_jump == 2'b00) begin
-				if (TMP_15_isNegative) begin
-					output_btint_a_12 = 0;
-					output_btint_b_12 = 0;
-					output_overflow_12 = 0;
-					output_btint_a_12 = output_btint_a_9;
-					output_btint_b_12 = output_btint_b_9;
-					output_overflow_12 = output_overflow_9;
-					begin : sv2v_autoblock_5
-						integer i_6;
-						for (i_6 = 0; i_6 < 8; i_6 = i_6 + 1)
-							begin
-								output_index_5 = i_6;
-								TMP_22 = (output_btint_a_12[output_index_5] + output_btint_b_12[output_index_5]) - 1;
-								output_index_6 = i_6;
-								output_value_6 = -TMP_22;
-								output_btint_a_13 = 0;
-								output_btint_b_13 = 0;
-								output_overflow_13 = 0;
-								output_btint_a_13 = output_btint_a_12;
-								output_btint_b_13 = output_btint_b_12;
-								output_overflow_13 = output_overflow_12;
-								case (output_value_6)
-									-1: begin
-										output_btint_a_13[output_index_6] = 0;
-										output_btint_b_13[output_index_6] = 0;
-									end
-									0: begin
-										output_btint_a_13[output_index_6] = 0;
-										output_btint_b_13[output_index_6] = 1;
-									end
-									1: begin
-										output_btint_a_13[output_index_6] = 1;
-										output_btint_b_13[output_index_6] = 1;
-									end
-									default:
-										;
-								endcase
-								TMP_23_btint_a = output_btint_a_13;
-								TMP_23_btint_b = output_btint_b_13;
-								TMP_23_overflow = output_overflow_13;
-								output_btint_a_12 = TMP_23_btint_a;
-								output_btint_b_12 = TMP_23_btint_b;
-								output_overflow_12 = TMP_23_overflow;
-							end
-					end
-					TMP_25 = (output_overflow_12[0] + output_overflow_12[1]) - 1;
-					output_value_7 = -TMP_25;
-					output_btint_a_14 = 0;
-					output_btint_b_14 = 0;
-					output_overflow_14 = 0;
-					output_btint_a_14 = output_btint_a_12;
-					output_btint_b_14 = output_btint_b_12;
-					output_overflow_14 = output_overflow_12;
-					case (output_value_7)
-						-1: begin
-							output_overflow_14[0] = 0;
-							output_overflow_14[1] = 0;
-						end
-						0: begin
-							output_overflow_14[0] = 0;
-							output_overflow_14[1] = 1;
-						end
-						1: begin
-							output_overflow_14[0] = 1;
-							output_overflow_14[1] = 1;
-						end
-						default:
-							;
-					endcase
-					TMP_26_btint_a = output_btint_a_14;
-					TMP_26_btint_b = output_btint_b_14;
-					TMP_26_overflow = output_overflow_14;
-					output_btint_a_12 = TMP_26_btint_a;
-					output_btint_b_12 = TMP_26_btint_b;
-					output_overflow_12 = TMP_26_overflow;
-					TMP_21_btint_a = output_btint_a_12;
-					TMP_21_btint_b = output_btint_b_12;
-					TMP_21_overflow = output_overflow_12;
-					output_btint_a_9 = TMP_21_btint_a;
-					output_btint_b_9 = TMP_21_btint_b;
-					output_overflow_9 = TMP_21_overflow;
+				1: begin
+					output_btint_a_10[output_index_5] = 1;
+					output_btint_b_10[output_index_5] = 1;
 				end
-				TMP_16_btint_a = output_btint_a_9;
-				TMP_16_btint_b = output_btint_b_9;
-				TMP_16_overflow = output_overflow_9;
-				shift_register_output_btint_a_next = TMP_16_btint_a;
-				shift_register_output_btint_b_next = TMP_16_btint_b;
-				shift_register_output_overflow_next = TMP_16_overflow;
-			end
+				default:
+					;
+			endcase
+			TMP_20_btint_a = output_btint_a_10;
+			TMP_20_btint_b = output_btint_b_10;
+			TMP_20_overflow = output_overflow_10;
+			output_btint_a_9 = TMP_20_btint_a;
+			output_btint_b_9 = TMP_20_btint_b;
+			output_overflow_9 = TMP_20_overflow;
+			output_index_5 = 7;
+			output_value_4 = input_msd_1_1;
+			output_btint_a_10 = 0;
+			output_btint_b_10 = 0;
+			output_overflow_10 = 0;
+			output_btint_a_10 = output_btint_a_9;
+			output_btint_b_10 = output_btint_b_9;
+			output_overflow_10 = output_overflow_9;
+			case (output_value_4)
+				-1: begin
+					output_btint_a_10[output_index_5] = 0;
+					output_btint_b_10[output_index_5] = 0;
+				end
+				0: begin
+					output_btint_a_10[output_index_5] = 0;
+					output_btint_b_10[output_index_5] = 1;
+				end
+				1: begin
+					output_btint_a_10[output_index_5] = 1;
+					output_btint_b_10[output_index_5] = 1;
+				end
+				default:
+					;
+			endcase
+			TMP_21_btint_a = output_btint_a_10;
+			TMP_21_btint_b = output_btint_b_10;
+			TMP_21_overflow = output_overflow_10;
+			output_btint_a_9 = TMP_21_btint_a;
+			output_btint_b_9 = TMP_21_btint_b;
+			output_overflow_9 = TMP_21_overflow;
+			output_index_5 = 6;
+			output_value_4 = input_msd_2_1;
+			output_btint_a_10 = 0;
+			output_btint_b_10 = 0;
+			output_overflow_10 = 0;
+			output_btint_a_10 = output_btint_a_9;
+			output_btint_b_10 = output_btint_b_9;
+			output_overflow_10 = output_overflow_9;
+			case (output_value_4)
+				-1: begin
+					output_btint_a_10[output_index_5] = 0;
+					output_btint_b_10[output_index_5] = 0;
+				end
+				0: begin
+					output_btint_a_10[output_index_5] = 0;
+					output_btint_b_10[output_index_5] = 1;
+				end
+				1: begin
+					output_btint_a_10[output_index_5] = 1;
+					output_btint_b_10[output_index_5] = 1;
+				end
+				default:
+					;
+			endcase
+			TMP_22_btint_a = output_btint_a_10;
+			TMP_22_btint_b = output_btint_b_10;
+			TMP_22_overflow = output_overflow_10;
+			output_btint_a_9 = TMP_22_btint_a;
+			output_btint_b_9 = TMP_22_btint_b;
+			output_overflow_9 = TMP_22_overflow;
+			TMP_13_btint_a = output_btint_a_9;
+			TMP_13_btint_b = output_btint_b_9;
+			TMP_13_overflow = output_overflow_9;
+			TMP_13_from = 8;
+			TMP_13_to = 0;
+			output_btint_a_11 = 0;
+			output_btint_b_11 = 0;
+			output_overflow_11 = 0;
+			output_btint_a_11 = TMP_13_btint_a[TMP_13_to+:8];
+			output_btint_b_11 = TMP_13_btint_b[TMP_13_to+:8];
+			output_overflow_11 = TMP_13_overflow;
+			TMP_23_btint_a = output_btint_a_11;
+			TMP_23_btint_b = output_btint_b_11;
+			TMP_23_overflow = output_overflow_11;
+			shift_register_output_btint_a_next = TMP_23_btint_a;
+			shift_register_output_btint_b_next = TMP_23_btint_b;
+			shift_register_output_overflow_next = TMP_23_overflow;
 		end
 	endtask
 	always @(shift_register_state_overflow or shift_register_state_btint_b or shift_register_state_btint_a or shift_register_input_overflow or shift_register_input_btint_b or shift_register_input_btint_a or shift_register_state_overflow or shift_register_state_btint_b or shift_register_state_btint_a or shift_register_output_overflow or shift_register_output_btint_b or shift_register_output_btint_a or _sv2v_0) begin : shift_comb
@@ -6506,7 +4846,7 @@ module SHIFT_REGISTER (
 		shift_func;
 	end
 	always @(posedge shift_register_clock) begin : shift_ff
-		if (shift_register_reset) begin : sv2v_autoblock_6
+		if (shift_register_reset) begin : sv2v_autoblock_3
 			reg [8:0] input_btint_a;
 			reg [8:0] input_btint_b;
 			reg [1:0] input_overflow;
@@ -6554,7 +4894,7 @@ module SHIFT_REGISTER (
 			output_btint_a = 0;
 			output_btint_b = 0;
 			output_overflow = 0;
-			begin : sv2v_autoblock_7
+			begin : sv2v_autoblock_4
 				integer i;
 				for (i = 0; i < 8; i = i + 1)
 					begin
@@ -6602,7 +4942,7 @@ module SHIFT_REGISTER (
 			output_btint_a_2 = 0;
 			output_btint_b_2 = 0;
 			output_overflow_2 = 0;
-			begin : sv2v_autoblock_8
+			begin : sv2v_autoblock_5
 				integer i_1;
 				for (i_1 = 0; i_1 < 8; i_1 = i_1 + 1)
 					begin
@@ -7994,7 +6334,7 @@ module CONTROLLER (
 							end
 							begin : sv2v_autoblock_35
 								integer i_41;
-								for (i_41 = 0; i_41 < 3; i_41 = i_41 + 1)
+								for (i_41 = 0; i_41 < 4; i_41 = i_41 + 1)
 									begin
 										TMP_32_value = 0;
 										output_btint_a_30 = 0;
@@ -8686,7 +7026,7 @@ module CONTROLLER (
 								end
 								begin : sv2v_autoblock_72
 									integer i_41;
-									for (i_41 = 0; i_41 < 3; i_41 = i_41 + 1)
+									for (i_41 = 0; i_41 < 4; i_41 = i_41 + 1)
 										begin
 											TMP_42_value = 0;
 											output_btint_a_48 = 0;

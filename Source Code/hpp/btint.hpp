@@ -53,6 +53,14 @@
             return output;
         }
 
+        btint<2 * T> expand(void) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            return BTINT_ZERO(T).concatenate(output);
+        }
+
         btint from_int(int value) const {
             btint output;
             for(int i = 0; i < T; i++) {
@@ -102,6 +110,40 @@
             return output;
         }
 
+        btint normalize(void) const {
+            btint output;
+            output.btint_a = btint_a;
+            output.btint_b = btint_b;
+            output.overflow = overflow;
+            int msd = output.get_value(TRITS);
+            int msd_1 = output.get_value(TRITS - 1);
+            int msd_2 = output.get_value(TRITS - 2);
+            switch(msd) {
+                case -1:
+                    if(msd_1 == 1) {
+                        msd = 0;
+                        msd_1 = -1;
+                    } else if(msd_1 == 0 && msd_2 == 1) {
+                        msd = 0;
+                        msd_1 = msd_2 = -1;
+                    }
+                    break;
+                case 1:
+                    if(msd_1 == -1) {
+                        msd = 0;
+                        msd_1 = 1;
+                    } else if(msd_1 == 0 && msd_2 == -1) {
+                        msd = 0;
+                        msd_1 = msd_2 = 1;
+                    }
+                    break;
+            }
+            output = output.set_value(TRITS, msd);
+            output = output.set_value(TRITS - 1, msd_1);
+            output = output.set_value(TRITS - 2, msd_2);
+            return output;
+        }
+
         btint<TRITS> range(int from, int to) const {
             btint<TRITS> output;
             output.btint_a = btint_a.range(TRITS - 1 + to, to);
@@ -111,7 +153,7 @@
         }
 
         btint<TRITS> reduce(void) const {
-            return btint<TRITS>().from_int(to_int());
+            return normalize().range(T - 1, 0);
         }
 
         btint set_overflow(int value) const {

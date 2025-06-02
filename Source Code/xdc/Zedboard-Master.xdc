@@ -173,8 +173,8 @@ set_property PACKAGE_PIN Y9 [get_ports {combined_operations_clock}];  # "GCLK"
 # User LEDs - Bank 33
 # ----------------------------------------------------------------------------
 set_property PACKAGE_PIN T22 [get_ports {combined_operations_done}];  # "LD0"
-set_property PACKAGE_PIN T21 [get_ports {uart_transmitter_output}];  # "LD1"
-#set_property PACKAGE_PIN U22 [get_ports {LD2}];  # "LD2"
+set_property PACKAGE_PIN T21 [get_ports {uart_transmitter_output_u}];  # "LD1"
+set_property PACKAGE_PIN U22 [get_ports {uart_transmitter_output_d}];  # "LD2"
 #set_property PACKAGE_PIN U21 [get_ports {LD3}];  # "LD3"
 #set_property PACKAGE_PIN V22 [get_ports {LD4}];  # "LD4"
 #set_property PACKAGE_PIN W22 [get_ports {LD5}];  # "LD5"

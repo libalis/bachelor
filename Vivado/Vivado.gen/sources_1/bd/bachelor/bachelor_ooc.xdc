@@ -6,6 +6,6 @@
 # This constraints file is not used in normal top-down synthesis (default flow
 # of Vivado)
 ################################################################################
-create_clock -name matrix_vector_clock -period 10 [get_ports matrix_vector_clock]
+create_clock -name combined_operations_clock -period 10 [get_ports combined_operations_clock]
 
 ################################################################################

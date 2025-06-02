@@ -31,30 +31,14 @@ logic signed [31:0] j;
 logic signed [31:0] j_next;
 logic signed [31:0] i;
 logic signed [31:0] i_next;
-logic [7:0] input_btint_a[4][4];
-logic [7:0] input_btint_a_next[4][4];
+logic [7:0] input_btint_a[4];
+logic [7:0] input_btint_a_next[4];
 logic signed [31:0] k0;
 logic signed [31:0] k_next0;
-logic [7:0] input_btint_b[4][4];
-logic [7:0] input_btint_b_next[4][4];
-logic [1:0] input_overflow[4][4];
-logic [1:0] input_overflow_next[4][4];
-logic [7:0] output_btint_a;
-logic [7:0] output_btint_a_next;
-logic [7:0] output_btint_b;
-logic [7:0] output_btint_b_next;
-logic [1:0] output_overflow;
-logic [1:0] output_overflow_next;
-logic [7:0] output_btint_a0;
-logic [7:0] output_btint_a_next0;
-logic [7:0] output_btint_b0;
-logic [7:0] output_btint_b_next0;
-logic [7:0] btint_a;
-logic [7:0] btint_a_next;
-logic [7:0] btint_b;
-logic [7:0] btint_b_next;
-logic [1:0] overflow;
-logic [1:0] overflow_next;
+logic [7:0] input_btint_b[4];
+logic [7:0] input_btint_b_next[4];
+logic [1:0] input_overflow[4];
+logic [1:0] input_overflow_next[4];
 logic [2:0] transmit_PROC_STATE;
 logic [2:0] transmit_PROC_STATE_next;
 
@@ -63,15 +47,16 @@ always_comb begin : transmit_comb     // uart_transmitter.cpp:4:1
     transmit_func;
 end
 function void transmit_func;
+    integer column;
     integer input_index;
+    logic [7:0] output_btint_a;
+    logic [7:0] output_btint_b;
+    logic [1:0] output_overflow;
+    integer output_index;
+    integer output_value;
     logic [7:0] output_btint_a_1;
     logic [7:0] output_btint_b_1;
     logic [1:0] output_overflow_1;
-    integer output_index;
-    integer output_value;
-    logic [7:0] output_btint_a_2;
-    logic [7:0] output_btint_b_2;
-    logic [1:0] output_overflow_2;
     logic [7:0] TMP_1_btint_a;
     logic [7:0] TMP_1_btint_b;
     logic [1:0] TMP_1_overflow;
@@ -79,22 +64,20 @@ function void transmit_func;
     logic [7:0] TMP_0_btint_b;
     logic [1:0] TMP_0_overflow;
     input_index = 0;
+    output_btint_a = 0;
+    output_btint_b = 0;
+    output_overflow = 0;
+    output_index = 0;
+    output_value = 0;
     output_btint_a_1 = 0;
     output_btint_b_1 = 0;
     output_overflow_1 = 0;
-    output_index = 0;
-    output_value = 0;
-    output_btint_a_2 = 0;
-    output_btint_b_2 = 0;
-    output_overflow_2 = 0;
     TMP_1_btint_a = 0;
     TMP_1_btint_b = 0;
     TMP_1_overflow = 0;
     TMP_0_btint_a = 0;
     TMP_0_btint_b = 0;
     TMP_0_overflow = 0;
-    btint_a_next = btint_a;
-    btint_b_next = btint_b;
     i_next = i;
     input_btint_a_next = input_btint_a;
     input_btint_b_next = input_btint_b;
@@ -102,23 +85,15 @@ function void transmit_func;
     j_next = j;
     k_next = k;
     k_next0 = k0;
-    output_btint_a_next = output_btint_a;
-    output_btint_a_next0 = output_btint_a0;
-    output_btint_b_next = output_btint_b;
-    output_btint_b_next0 = output_btint_b0;
-    output_overflow_next = output_overflow;
-    overflow_next = overflow;
     uart_transmitter_output_next = uart_transmitter_output;
     transmit_PROC_STATE_next = transmit_PROC_STATE;
     
     case (transmit_PROC_STATE)
         0: begin
+            column = uart_transmitter_column;
             for (integer i_1 = 0; i_1 < 4; i_1++)
             begin
-                for (integer j_1 = 0; j_1 < 4; j_1++)
-                begin
-                    input_btint_a_next[i_1][j_1] = uart_transmitter_input_btint_a[i_1][j_1]; input_btint_b_next[i_1][j_1] = uart_transmitter_input_btint_b[i_1][j_1]; input_overflow_next[i_1][j_1] = uart_transmitter_input_overflow[i_1][j_1];
-                end
+                input_btint_a_next[i_1] = uart_transmitter_input_btint_a[i_1][column]; input_btint_b_next[i_1] = uart_transmitter_input_btint_b[i_1][column]; input_overflow_next[i_1] = uart_transmitter_input_overflow[i_1][column];
             end
             i_next = 0;
             j_next = 8 - 1;
@@ -127,61 +102,51 @@ function void transmit_func;
         end
         1: begin
             k_next0 = 0;
-            uart_transmitter_output_next = input_btint_a_next[i_next][uart_transmitter_column][0];
+            uart_transmitter_output_next = input_btint_a_next[i_next][0];
             transmit_PROC_STATE_next = 2; return;    // uart_transmitter.cpp:20:21;
         end
         2: begin
-            uart_transmitter_output_next = input_btint_b_next[i_next][uart_transmitter_column][0];
+            uart_transmitter_output_next = input_btint_b_next[i_next][0];
             input_index = 1;
             // Call shift_right() begin
-            output_btint_a_1 = 0;
-            output_btint_b_1 = 0;
-            output_overflow_1 = 0;
-            output_btint_a_1[i_next][uart_transmitter_column] = input_btint_a_next[i_next][uart_transmitter_column];
-            output_btint_b_1[i_next][uart_transmitter_column] = input_btint_b_next[i_next][uart_transmitter_column];
-            output_overflow_1[i_next][uart_transmitter_column] = input_overflow_next[i_next][uart_transmitter_column];
+            output_btint_a = 0;
+            output_btint_b = 0;
+            output_overflow = 0;
+            output_btint_a[i_next] = input_btint_a_next[i_next];
+            output_btint_b[i_next] = input_btint_b_next[i_next];
+            output_overflow[i_next] = input_overflow_next[i_next];
             for (integer i_2 = 0; i_2 < input_index; i_2++)
             begin
-                output_btint_a_1[i_next][uart_transmitter_column] = output_btint_a_1[i_next][uart_transmitter_column] >>> 1;
-                output_btint_b_1[i_next][uart_transmitter_column] = output_btint_b_1[i_next][uart_transmitter_column] >>> 1;
+                output_btint_a[i_next] = output_btint_a[i_next] >>> 1;
+                output_btint_b[i_next] = output_btint_b[i_next] >>> 1;
                 output_index = 8 - 1; output_value = 0;
                 // Call set_value() begin
-                output_btint_a_2 = 0;
-                output_btint_b_2 = 0;
-                output_overflow_2 = 0;
-                output_btint_a_2 = output_btint_a_1;
-                output_btint_b_2 = output_btint_b_1;
-                output_overflow_2 = output_overflow_1;
-                case (output_value)
-                -1 : begin
-                    output_btint_a_2[output_index] = 0;
-                    output_btint_b_2[output_index] = 0;
-                end
+                output_btint_a_1 = 0;
+                output_btint_b_1 = 0;
+                output_overflow_1 = 0;
+                output_btint_a_1 = output_btint_a;
+                output_btint_b_1 = output_btint_b;
+                output_overflow_1 = output_overflow;
+                case (0)
                 0 : begin
-                    output_btint_a_2[output_index] = 0;
-                    output_btint_b_2[output_index] = 1;
-                end
-                1 : begin
-                    output_btint_a_2[output_index] = 1;
-                    output_btint_b_2[output_index] = 1;
-                end
-                default : begin
+                    output_btint_a_1[output_index] = 0;
+                    output_btint_b_1[output_index] = 1;
                 end
                 endcase
-                TMP_1_btint_a = output_btint_a_2; TMP_1_btint_b = output_btint_b_2; TMP_1_overflow = output_overflow_2;
+                TMP_1_btint_a = output_btint_a_1; TMP_1_btint_b = output_btint_b_1; TMP_1_overflow = output_overflow_1;
                 // Call set_value() end
-                output_btint_a_1 = TMP_1_btint_a; output_btint_b_1 = TMP_1_btint_b; output_overflow_1 = TMP_1_overflow;
+                output_btint_a = TMP_1_btint_a; output_btint_b = TMP_1_btint_b; output_overflow = TMP_1_overflow;
             end
-            TMP_0_btint_a = output_btint_a_1; TMP_0_btint_b = output_btint_b_1; TMP_0_overflow = output_overflow_1;
+            TMP_0_btint_a = output_btint_a; TMP_0_btint_b = output_btint_b; TMP_0_overflow = output_overflow;
             // Call shift_right() end
-            input_btint_a_next[i_next][uart_transmitter_column] = TMP_0_btint_a; input_btint_b_next[i_next][uart_transmitter_column] = TMP_0_btint_b; input_overflow_next[i_next][uart_transmitter_column] = TMP_0_overflow;
+            input_btint_a_next[i_next] = TMP_0_btint_a; input_btint_b_next[i_next] = TMP_0_btint_b; input_overflow_next[i_next] = TMP_0_overflow;
             transmit_PROC_STATE_next = 3; return;    // uart_transmitter.cpp:23:21;
         end
         3: begin
             k_next0++;
             if (k_next0 < 4)
             begin
-                uart_transmitter_output_next = input_btint_a_next[i_next][uart_transmitter_column][0];
+                uart_transmitter_output_next = input_btint_a_next[i_next][0];
                 transmit_PROC_STATE_next = 2; return;    // uart_transmitter.cpp:20:21;
             end
             k_next = 0;
@@ -208,12 +173,10 @@ function void transmit_func;
                 uart_transmitter_output_next = 0;
                 transmit_PROC_STATE_next = 1; return;    // uart_transmitter.cpp:17:17;
             end
+            column = uart_transmitter_column;
             for (integer i_1 = 0; i_1 < 4; i_1++)
             begin
-                for (integer j_1 = 0; j_1 < 4; j_1++)
-                begin
-                    input_btint_a_next[i_1][j_1] = uart_transmitter_input_btint_a[i_1][j_1]; input_btint_b_next[i_1][j_1] = uart_transmitter_input_btint_b[i_1][j_1]; input_overflow_next[i_1][j_1] = uart_transmitter_input_overflow[i_1][j_1];
-                end
+                input_btint_a_next[i_1] = uart_transmitter_input_btint_a[i_1][column]; input_btint_b_next[i_1] = uart_transmitter_input_btint_b[i_1][column]; input_overflow_next[i_1] = uart_transmitter_input_overflow[i_1][column];
             end
             i_next = 0;
             j_next = 8 - 1;
@@ -228,7 +191,7 @@ always_ff @(posedge uart_transmitter_clock /*sync uart_transmitter_reset_active_
 begin : transmit_ff
     if ( ~uart_transmitter_reset_active_low ) begin
         uart_transmitter_output <= 1;
-        transmit_PROC_STATE <= 0;    // uart_transmitter.cpp:7:5;
+        transmit_PROC_STATE <= 0;    // uart_transmitter.cpp:8:5;
     end
     else begin
         uart_transmitter_output <= uart_transmitter_output_next;
@@ -239,14 +202,6 @@ begin : transmit_ff
         k0 <= k_next0;
         input_btint_b <= input_btint_b_next;
         input_overflow <= input_overflow_next;
-        output_btint_a <= output_btint_a_next;
-        output_btint_b <= output_btint_b_next;
-        output_overflow <= output_overflow_next;
-        output_btint_a0 <= output_btint_a_next0;
-        output_btint_b0 <= output_btint_b_next0;
-        btint_a <= btint_a_next;
-        btint_b <= btint_b_next;
-        overflow <= overflow_next;
         transmit_PROC_STATE <= transmit_PROC_STATE_next;
     end
 end

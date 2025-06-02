@@ -1,0 +1,726 @@
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+// --------------------------------------------------------------------------------
+// Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+// Date        : Mon May 26 01:02:36 2025
+// Host        : arch running 64-bit unknown
+// Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ bachelor_COMBINED_OPERATIONS_0_0_sim_netlist.v
+// Design      : bachelor_COMBINED_OPERATIONS_0_0
+// Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
+//               or synthesized. This netlist cannot be used for SDF annotated simulation.
+// Device      : xc7z020clg484-1
+// --------------------------------------------------------------------------------
+`timescale 1 ps / 1 ps
+
+(* CHECK_LICENSE_TYPE = "bachelor_COMBINED_OPERATIONS_0_0,COMBINED_OPERATIONS,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "COMBINED_OPERATIONS,Vivado 2023.2" *) 
+(* NotValidForBitStream *)
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
+   (combined_operations_clock,
+    combined_operations_reset,
+    combined_operations_m_a_btint_a,
+    combined_operations_m_a_btint_b,
+    combined_operations_m_a_overflow,
+    combined_operations_m_b_btint_a,
+    combined_operations_m_b_btint_b,
+    combined_operations_m_b_overflow,
+    combined_operations_v_btint_a,
+    combined_operations_v_btint_b,
+    combined_operations_v_overflow,
+    combined_operations_op,
+    combined_operations_done,
+    combined_operations_result_u_btint_a,
+    combined_operations_result_u_btint_b,
+    combined_operations_result_u_overflow,
+    combined_operations_result_d_btint_a,
+    combined_operations_result_d_btint_b,
+    combined_operations_result_d_overflow);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 combined_operations_clock CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME combined_operations_clock, ASSOCIATED_RESET combined_operations_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bachelor_combined_operations_clock_0, INSERT_VIP 0" *) input combined_operations_clock;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 combined_operations_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME combined_operations_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input combined_operations_reset;
+  input [95:0]combined_operations_m_a_btint_a;
+  input [95:0]combined_operations_m_a_btint_b;
+  input [23:0]combined_operations_m_a_overflow;
+  input [95:0]combined_operations_m_b_btint_a;
+  input [95:0]combined_operations_m_b_btint_b;
+  input [23:0]combined_operations_m_b_overflow;
+  input [23:0]combined_operations_v_btint_a;
+  input [23:0]combined_operations_v_btint_b;
+  input [5:0]combined_operations_v_overflow;
+  input [1:0]combined_operations_op;
+  output combined_operations_done;
+  output [127:0]combined_operations_result_u_btint_a;
+  output [127:0]combined_operations_result_u_btint_b;
+  output [31:0]combined_operations_result_u_overflow;
+  output [127:0]combined_operations_result_d_btint_a;
+  output [127:0]combined_operations_result_d_btint_b;
+  output [31:0]combined_operations_result_d_overflow;
+
+  wire \<const0> ;
+  wire \<const1> ;
+
+  assign combined_operations_done = \<const1> ;
+  assign combined_operations_result_d_btint_a[127] = \<const0> ;
+  assign combined_operations_result_d_btint_a[126] = \<const0> ;
+  assign combined_operations_result_d_btint_a[125] = \<const0> ;
+  assign combined_operations_result_d_btint_a[124] = \<const0> ;
+  assign combined_operations_result_d_btint_a[123] = \<const0> ;
+  assign combined_operations_result_d_btint_a[122] = \<const0> ;
+  assign combined_operations_result_d_btint_a[121] = \<const0> ;
+  assign combined_operations_result_d_btint_a[120] = \<const0> ;
+  assign combined_operations_result_d_btint_a[119] = \<const0> ;
+  assign combined_operations_result_d_btint_a[118] = \<const0> ;
+  assign combined_operations_result_d_btint_a[117] = \<const0> ;
+  assign combined_operations_result_d_btint_a[116] = \<const0> ;
+  assign combined_operations_result_d_btint_a[115] = \<const0> ;
+  assign combined_operations_result_d_btint_a[114] = \<const0> ;
+  assign combined_operations_result_d_btint_a[113] = \<const0> ;
+  assign combined_operations_result_d_btint_a[112] = \<const0> ;
+  assign combined_operations_result_d_btint_a[111] = \<const0> ;
+  assign combined_operations_result_d_btint_a[110] = \<const0> ;
+  assign combined_operations_result_d_btint_a[109] = \<const0> ;
+  assign combined_operations_result_d_btint_a[108] = \<const0> ;
+  assign combined_operations_result_d_btint_a[107] = \<const0> ;
+  assign combined_operations_result_d_btint_a[106] = \<const0> ;
+  assign combined_operations_result_d_btint_a[105] = \<const0> ;
+  assign combined_operations_result_d_btint_a[104] = \<const0> ;
+  assign combined_operations_result_d_btint_a[103] = \<const0> ;
+  assign combined_operations_result_d_btint_a[102] = \<const0> ;
+  assign combined_operations_result_d_btint_a[101] = \<const0> ;
+  assign combined_operations_result_d_btint_a[100] = \<const0> ;
+  assign combined_operations_result_d_btint_a[99] = \<const0> ;
+  assign combined_operations_result_d_btint_a[98] = \<const0> ;
+  assign combined_operations_result_d_btint_a[97] = \<const0> ;
+  assign combined_operations_result_d_btint_a[96] = \<const0> ;
+  assign combined_operations_result_d_btint_a[95] = \<const0> ;
+  assign combined_operations_result_d_btint_a[94] = \<const0> ;
+  assign combined_operations_result_d_btint_a[93] = \<const0> ;
+  assign combined_operations_result_d_btint_a[92] = \<const0> ;
+  assign combined_operations_result_d_btint_a[91] = \<const0> ;
+  assign combined_operations_result_d_btint_a[90] = \<const0> ;
+  assign combined_operations_result_d_btint_a[89] = \<const0> ;
+  assign combined_operations_result_d_btint_a[88] = \<const0> ;
+  assign combined_operations_result_d_btint_a[87] = \<const0> ;
+  assign combined_operations_result_d_btint_a[86] = \<const0> ;
+  assign combined_operations_result_d_btint_a[85] = \<const0> ;
+  assign combined_operations_result_d_btint_a[84] = \<const0> ;
+  assign combined_operations_result_d_btint_a[83] = \<const0> ;
+  assign combined_operations_result_d_btint_a[82] = \<const0> ;
+  assign combined_operations_result_d_btint_a[81] = \<const0> ;
+  assign combined_operations_result_d_btint_a[80] = \<const0> ;
+  assign combined_operations_result_d_btint_a[79] = \<const0> ;
+  assign combined_operations_result_d_btint_a[78] = \<const0> ;
+  assign combined_operations_result_d_btint_a[77] = \<const0> ;
+  assign combined_operations_result_d_btint_a[76] = \<const0> ;
+  assign combined_operations_result_d_btint_a[75] = \<const0> ;
+  assign combined_operations_result_d_btint_a[74] = \<const0> ;
+  assign combined_operations_result_d_btint_a[73] = \<const0> ;
+  assign combined_operations_result_d_btint_a[72] = \<const0> ;
+  assign combined_operations_result_d_btint_a[71] = \<const0> ;
+  assign combined_operations_result_d_btint_a[70] = \<const0> ;
+  assign combined_operations_result_d_btint_a[69] = \<const0> ;
+  assign combined_operations_result_d_btint_a[68] = \<const0> ;
+  assign combined_operations_result_d_btint_a[67] = \<const0> ;
+  assign combined_operations_result_d_btint_a[66] = \<const0> ;
+  assign combined_operations_result_d_btint_a[65] = \<const0> ;
+  assign combined_operations_result_d_btint_a[64] = \<const0> ;
+  assign combined_operations_result_d_btint_a[63] = \<const0> ;
+  assign combined_operations_result_d_btint_a[62] = \<const0> ;
+  assign combined_operations_result_d_btint_a[61] = \<const0> ;
+  assign combined_operations_result_d_btint_a[60] = \<const0> ;
+  assign combined_operations_result_d_btint_a[59] = \<const0> ;
+  assign combined_operations_result_d_btint_a[58] = \<const0> ;
+  assign combined_operations_result_d_btint_a[57] = \<const0> ;
+  assign combined_operations_result_d_btint_a[56] = \<const0> ;
+  assign combined_operations_result_d_btint_a[55] = \<const0> ;
+  assign combined_operations_result_d_btint_a[54] = \<const0> ;
+  assign combined_operations_result_d_btint_a[53] = \<const0> ;
+  assign combined_operations_result_d_btint_a[52] = \<const0> ;
+  assign combined_operations_result_d_btint_a[51] = \<const0> ;
+  assign combined_operations_result_d_btint_a[50] = \<const0> ;
+  assign combined_operations_result_d_btint_a[49] = \<const0> ;
+  assign combined_operations_result_d_btint_a[48] = \<const0> ;
+  assign combined_operations_result_d_btint_a[47] = \<const0> ;
+  assign combined_operations_result_d_btint_a[46] = \<const0> ;
+  assign combined_operations_result_d_btint_a[45] = \<const0> ;
+  assign combined_operations_result_d_btint_a[44] = \<const0> ;
+  assign combined_operations_result_d_btint_a[43] = \<const0> ;
+  assign combined_operations_result_d_btint_a[42] = \<const0> ;
+  assign combined_operations_result_d_btint_a[41] = \<const0> ;
+  assign combined_operations_result_d_btint_a[40] = \<const0> ;
+  assign combined_operations_result_d_btint_a[39] = \<const0> ;
+  assign combined_operations_result_d_btint_a[38] = \<const0> ;
+  assign combined_operations_result_d_btint_a[37] = \<const0> ;
+  assign combined_operations_result_d_btint_a[36] = \<const0> ;
+  assign combined_operations_result_d_btint_a[35] = \<const0> ;
+  assign combined_operations_result_d_btint_a[34] = \<const0> ;
+  assign combined_operations_result_d_btint_a[33] = \<const0> ;
+  assign combined_operations_result_d_btint_a[32] = \<const0> ;
+  assign combined_operations_result_d_btint_a[31] = \<const0> ;
+  assign combined_operations_result_d_btint_a[30] = \<const0> ;
+  assign combined_operations_result_d_btint_a[29] = \<const0> ;
+  assign combined_operations_result_d_btint_a[28] = \<const0> ;
+  assign combined_operations_result_d_btint_a[27] = \<const0> ;
+  assign combined_operations_result_d_btint_a[26] = \<const0> ;
+  assign combined_operations_result_d_btint_a[25] = \<const0> ;
+  assign combined_operations_result_d_btint_a[24] = \<const0> ;
+  assign combined_operations_result_d_btint_a[23] = \<const0> ;
+  assign combined_operations_result_d_btint_a[22] = \<const0> ;
+  assign combined_operations_result_d_btint_a[21] = \<const0> ;
+  assign combined_operations_result_d_btint_a[20] = \<const0> ;
+  assign combined_operations_result_d_btint_a[19] = \<const0> ;
+  assign combined_operations_result_d_btint_a[18] = \<const0> ;
+  assign combined_operations_result_d_btint_a[17] = \<const0> ;
+  assign combined_operations_result_d_btint_a[16] = \<const0> ;
+  assign combined_operations_result_d_btint_a[15] = \<const0> ;
+  assign combined_operations_result_d_btint_a[14] = \<const0> ;
+  assign combined_operations_result_d_btint_a[13] = \<const0> ;
+  assign combined_operations_result_d_btint_a[12] = \<const0> ;
+  assign combined_operations_result_d_btint_a[11] = \<const0> ;
+  assign combined_operations_result_d_btint_a[10] = \<const0> ;
+  assign combined_operations_result_d_btint_a[9] = \<const0> ;
+  assign combined_operations_result_d_btint_a[8] = \<const0> ;
+  assign combined_operations_result_d_btint_a[7] = \<const0> ;
+  assign combined_operations_result_d_btint_a[6] = \<const0> ;
+  assign combined_operations_result_d_btint_a[5] = \<const0> ;
+  assign combined_operations_result_d_btint_a[4] = \<const0> ;
+  assign combined_operations_result_d_btint_a[3] = \<const0> ;
+  assign combined_operations_result_d_btint_a[2] = \<const0> ;
+  assign combined_operations_result_d_btint_a[1] = \<const0> ;
+  assign combined_operations_result_d_btint_a[0] = \<const0> ;
+  assign combined_operations_result_d_btint_b[127] = \<const0> ;
+  assign combined_operations_result_d_btint_b[126] = \<const0> ;
+  assign combined_operations_result_d_btint_b[125] = \<const0> ;
+  assign combined_operations_result_d_btint_b[124] = \<const0> ;
+  assign combined_operations_result_d_btint_b[123] = \<const0> ;
+  assign combined_operations_result_d_btint_b[122] = \<const0> ;
+  assign combined_operations_result_d_btint_b[121] = \<const0> ;
+  assign combined_operations_result_d_btint_b[120] = \<const0> ;
+  assign combined_operations_result_d_btint_b[119] = \<const0> ;
+  assign combined_operations_result_d_btint_b[118] = \<const0> ;
+  assign combined_operations_result_d_btint_b[117] = \<const0> ;
+  assign combined_operations_result_d_btint_b[116] = \<const0> ;
+  assign combined_operations_result_d_btint_b[115] = \<const0> ;
+  assign combined_operations_result_d_btint_b[114] = \<const0> ;
+  assign combined_operations_result_d_btint_b[113] = \<const0> ;
+  assign combined_operations_result_d_btint_b[112] = \<const0> ;
+  assign combined_operations_result_d_btint_b[111] = \<const0> ;
+  assign combined_operations_result_d_btint_b[110] = \<const0> ;
+  assign combined_operations_result_d_btint_b[109] = \<const0> ;
+  assign combined_operations_result_d_btint_b[108] = \<const0> ;
+  assign combined_operations_result_d_btint_b[107] = \<const0> ;
+  assign combined_operations_result_d_btint_b[106] = \<const0> ;
+  assign combined_operations_result_d_btint_b[105] = \<const0> ;
+  assign combined_operations_result_d_btint_b[104] = \<const0> ;
+  assign combined_operations_result_d_btint_b[103] = \<const0> ;
+  assign combined_operations_result_d_btint_b[102] = \<const0> ;
+  assign combined_operations_result_d_btint_b[101] = \<const0> ;
+  assign combined_operations_result_d_btint_b[100] = \<const0> ;
+  assign combined_operations_result_d_btint_b[99] = \<const0> ;
+  assign combined_operations_result_d_btint_b[98] = \<const0> ;
+  assign combined_operations_result_d_btint_b[97] = \<const0> ;
+  assign combined_operations_result_d_btint_b[96] = \<const0> ;
+  assign combined_operations_result_d_btint_b[95] = \<const0> ;
+  assign combined_operations_result_d_btint_b[94] = \<const0> ;
+  assign combined_operations_result_d_btint_b[93] = \<const0> ;
+  assign combined_operations_result_d_btint_b[92] = \<const0> ;
+  assign combined_operations_result_d_btint_b[91] = \<const0> ;
+  assign combined_operations_result_d_btint_b[90] = \<const0> ;
+  assign combined_operations_result_d_btint_b[89] = \<const0> ;
+  assign combined_operations_result_d_btint_b[88] = \<const0> ;
+  assign combined_operations_result_d_btint_b[87] = \<const0> ;
+  assign combined_operations_result_d_btint_b[86] = \<const0> ;
+  assign combined_operations_result_d_btint_b[85] = \<const0> ;
+  assign combined_operations_result_d_btint_b[84] = \<const0> ;
+  assign combined_operations_result_d_btint_b[83] = \<const0> ;
+  assign combined_operations_result_d_btint_b[82] = \<const0> ;
+  assign combined_operations_result_d_btint_b[81] = \<const0> ;
+  assign combined_operations_result_d_btint_b[80] = \<const0> ;
+  assign combined_operations_result_d_btint_b[79] = \<const0> ;
+  assign combined_operations_result_d_btint_b[78] = \<const0> ;
+  assign combined_operations_result_d_btint_b[77] = \<const0> ;
+  assign combined_operations_result_d_btint_b[76] = \<const0> ;
+  assign combined_operations_result_d_btint_b[75] = \<const0> ;
+  assign combined_operations_result_d_btint_b[74] = \<const0> ;
+  assign combined_operations_result_d_btint_b[73] = \<const0> ;
+  assign combined_operations_result_d_btint_b[72] = \<const0> ;
+  assign combined_operations_result_d_btint_b[71] = \<const0> ;
+  assign combined_operations_result_d_btint_b[70] = \<const0> ;
+  assign combined_operations_result_d_btint_b[69] = \<const0> ;
+  assign combined_operations_result_d_btint_b[68] = \<const0> ;
+  assign combined_operations_result_d_btint_b[67] = \<const0> ;
+  assign combined_operations_result_d_btint_b[66] = \<const0> ;
+  assign combined_operations_result_d_btint_b[65] = \<const0> ;
+  assign combined_operations_result_d_btint_b[64] = \<const0> ;
+  assign combined_operations_result_d_btint_b[63] = \<const0> ;
+  assign combined_operations_result_d_btint_b[62] = \<const0> ;
+  assign combined_operations_result_d_btint_b[61] = \<const0> ;
+  assign combined_operations_result_d_btint_b[60] = \<const0> ;
+  assign combined_operations_result_d_btint_b[59] = \<const0> ;
+  assign combined_operations_result_d_btint_b[58] = \<const0> ;
+  assign combined_operations_result_d_btint_b[57] = \<const0> ;
+  assign combined_operations_result_d_btint_b[56] = \<const0> ;
+  assign combined_operations_result_d_btint_b[55] = \<const0> ;
+  assign combined_operations_result_d_btint_b[54] = \<const0> ;
+  assign combined_operations_result_d_btint_b[53] = \<const0> ;
+  assign combined_operations_result_d_btint_b[52] = \<const0> ;
+  assign combined_operations_result_d_btint_b[51] = \<const0> ;
+  assign combined_operations_result_d_btint_b[50] = \<const0> ;
+  assign combined_operations_result_d_btint_b[49] = \<const0> ;
+  assign combined_operations_result_d_btint_b[48] = \<const0> ;
+  assign combined_operations_result_d_btint_b[47] = \<const0> ;
+  assign combined_operations_result_d_btint_b[46] = \<const0> ;
+  assign combined_operations_result_d_btint_b[45] = \<const0> ;
+  assign combined_operations_result_d_btint_b[44] = \<const0> ;
+  assign combined_operations_result_d_btint_b[43] = \<const0> ;
+  assign combined_operations_result_d_btint_b[42] = \<const0> ;
+  assign combined_operations_result_d_btint_b[41] = \<const0> ;
+  assign combined_operations_result_d_btint_b[40] = \<const0> ;
+  assign combined_operations_result_d_btint_b[39] = \<const0> ;
+  assign combined_operations_result_d_btint_b[38] = \<const0> ;
+  assign combined_operations_result_d_btint_b[37] = \<const0> ;
+  assign combined_operations_result_d_btint_b[36] = \<const0> ;
+  assign combined_operations_result_d_btint_b[35] = \<const0> ;
+  assign combined_operations_result_d_btint_b[34] = \<const0> ;
+  assign combined_operations_result_d_btint_b[33] = \<const0> ;
+  assign combined_operations_result_d_btint_b[32] = \<const0> ;
+  assign combined_operations_result_d_btint_b[31] = \<const0> ;
+  assign combined_operations_result_d_btint_b[30] = \<const0> ;
+  assign combined_operations_result_d_btint_b[29] = \<const0> ;
+  assign combined_operations_result_d_btint_b[28] = \<const0> ;
+  assign combined_operations_result_d_btint_b[27] = \<const0> ;
+  assign combined_operations_result_d_btint_b[26] = \<const0> ;
+  assign combined_operations_result_d_btint_b[25] = \<const0> ;
+  assign combined_operations_result_d_btint_b[24] = \<const0> ;
+  assign combined_operations_result_d_btint_b[23] = \<const0> ;
+  assign combined_operations_result_d_btint_b[22] = \<const0> ;
+  assign combined_operations_result_d_btint_b[21] = \<const0> ;
+  assign combined_operations_result_d_btint_b[20] = \<const0> ;
+  assign combined_operations_result_d_btint_b[19] = \<const0> ;
+  assign combined_operations_result_d_btint_b[18] = \<const0> ;
+  assign combined_operations_result_d_btint_b[17] = \<const0> ;
+  assign combined_operations_result_d_btint_b[16] = \<const0> ;
+  assign combined_operations_result_d_btint_b[15] = \<const0> ;
+  assign combined_operations_result_d_btint_b[14] = \<const0> ;
+  assign combined_operations_result_d_btint_b[13] = \<const0> ;
+  assign combined_operations_result_d_btint_b[12] = \<const0> ;
+  assign combined_operations_result_d_btint_b[11] = \<const0> ;
+  assign combined_operations_result_d_btint_b[10] = \<const0> ;
+  assign combined_operations_result_d_btint_b[9] = \<const0> ;
+  assign combined_operations_result_d_btint_b[8] = \<const0> ;
+  assign combined_operations_result_d_btint_b[7] = \<const0> ;
+  assign combined_operations_result_d_btint_b[6] = \<const0> ;
+  assign combined_operations_result_d_btint_b[5] = \<const0> ;
+  assign combined_operations_result_d_btint_b[4] = \<const0> ;
+  assign combined_operations_result_d_btint_b[3] = \<const0> ;
+  assign combined_operations_result_d_btint_b[2] = \<const0> ;
+  assign combined_operations_result_d_btint_b[1] = \<const0> ;
+  assign combined_operations_result_d_btint_b[0] = \<const0> ;
+  assign combined_operations_result_d_overflow[31] = \<const0> ;
+  assign combined_operations_result_d_overflow[30] = \<const0> ;
+  assign combined_operations_result_d_overflow[29] = \<const0> ;
+  assign combined_operations_result_d_overflow[28] = \<const0> ;
+  assign combined_operations_result_d_overflow[27] = \<const0> ;
+  assign combined_operations_result_d_overflow[26] = \<const0> ;
+  assign combined_operations_result_d_overflow[25] = \<const0> ;
+  assign combined_operations_result_d_overflow[24] = \<const0> ;
+  assign combined_operations_result_d_overflow[23] = \<const0> ;
+  assign combined_operations_result_d_overflow[22] = \<const0> ;
+  assign combined_operations_result_d_overflow[21] = \<const0> ;
+  assign combined_operations_result_d_overflow[20] = \<const0> ;
+  assign combined_operations_result_d_overflow[19] = \<const0> ;
+  assign combined_operations_result_d_overflow[18] = \<const0> ;
+  assign combined_operations_result_d_overflow[17] = \<const0> ;
+  assign combined_operations_result_d_overflow[16] = \<const0> ;
+  assign combined_operations_result_d_overflow[15] = \<const0> ;
+  assign combined_operations_result_d_overflow[14] = \<const0> ;
+  assign combined_operations_result_d_overflow[13] = \<const0> ;
+  assign combined_operations_result_d_overflow[12] = \<const0> ;
+  assign combined_operations_result_d_overflow[11] = \<const0> ;
+  assign combined_operations_result_d_overflow[10] = \<const0> ;
+  assign combined_operations_result_d_overflow[9] = \<const0> ;
+  assign combined_operations_result_d_overflow[8] = \<const0> ;
+  assign combined_operations_result_d_overflow[7] = \<const0> ;
+  assign combined_operations_result_d_overflow[6] = \<const0> ;
+  assign combined_operations_result_d_overflow[5] = \<const0> ;
+  assign combined_operations_result_d_overflow[4] = \<const0> ;
+  assign combined_operations_result_d_overflow[3] = \<const0> ;
+  assign combined_operations_result_d_overflow[2] = \<const0> ;
+  assign combined_operations_result_d_overflow[1] = \<const0> ;
+  assign combined_operations_result_d_overflow[0] = \<const0> ;
+  assign combined_operations_result_u_btint_a[127] = \<const0> ;
+  assign combined_operations_result_u_btint_a[126] = \<const0> ;
+  assign combined_operations_result_u_btint_a[125] = \<const0> ;
+  assign combined_operations_result_u_btint_a[124] = \<const0> ;
+  assign combined_operations_result_u_btint_a[123] = \<const0> ;
+  assign combined_operations_result_u_btint_a[122] = \<const0> ;
+  assign combined_operations_result_u_btint_a[121] = \<const0> ;
+  assign combined_operations_result_u_btint_a[120] = \<const0> ;
+  assign combined_operations_result_u_btint_a[119] = \<const0> ;
+  assign combined_operations_result_u_btint_a[118] = \<const0> ;
+  assign combined_operations_result_u_btint_a[117] = \<const0> ;
+  assign combined_operations_result_u_btint_a[116] = \<const0> ;
+  assign combined_operations_result_u_btint_a[115] = \<const0> ;
+  assign combined_operations_result_u_btint_a[114] = \<const0> ;
+  assign combined_operations_result_u_btint_a[113] = \<const0> ;
+  assign combined_operations_result_u_btint_a[112] = \<const0> ;
+  assign combined_operations_result_u_btint_a[111] = \<const0> ;
+  assign combined_operations_result_u_btint_a[110] = \<const0> ;
+  assign combined_operations_result_u_btint_a[109] = \<const0> ;
+  assign combined_operations_result_u_btint_a[108] = \<const0> ;
+  assign combined_operations_result_u_btint_a[107] = \<const0> ;
+  assign combined_operations_result_u_btint_a[106] = \<const0> ;
+  assign combined_operations_result_u_btint_a[105] = \<const0> ;
+  assign combined_operations_result_u_btint_a[104] = \<const0> ;
+  assign combined_operations_result_u_btint_a[103] = \<const0> ;
+  assign combined_operations_result_u_btint_a[102] = \<const0> ;
+  assign combined_operations_result_u_btint_a[101] = \<const0> ;
+  assign combined_operations_result_u_btint_a[100] = \<const0> ;
+  assign combined_operations_result_u_btint_a[99] = \<const0> ;
+  assign combined_operations_result_u_btint_a[98] = \<const0> ;
+  assign combined_operations_result_u_btint_a[97] = \<const0> ;
+  assign combined_operations_result_u_btint_a[96] = \<const0> ;
+  assign combined_operations_result_u_btint_a[95] = \<const0> ;
+  assign combined_operations_result_u_btint_a[94] = \<const0> ;
+  assign combined_operations_result_u_btint_a[93] = \<const0> ;
+  assign combined_operations_result_u_btint_a[92] = \<const0> ;
+  assign combined_operations_result_u_btint_a[91] = \<const0> ;
+  assign combined_operations_result_u_btint_a[90] = \<const0> ;
+  assign combined_operations_result_u_btint_a[89] = \<const0> ;
+  assign combined_operations_result_u_btint_a[88] = \<const0> ;
+  assign combined_operations_result_u_btint_a[87] = \<const0> ;
+  assign combined_operations_result_u_btint_a[86] = \<const0> ;
+  assign combined_operations_result_u_btint_a[85] = \<const0> ;
+  assign combined_operations_result_u_btint_a[84] = \<const0> ;
+  assign combined_operations_result_u_btint_a[83] = \<const0> ;
+  assign combined_operations_result_u_btint_a[82] = \<const0> ;
+  assign combined_operations_result_u_btint_a[81] = \<const0> ;
+  assign combined_operations_result_u_btint_a[80] = \<const0> ;
+  assign combined_operations_result_u_btint_a[79] = \<const0> ;
+  assign combined_operations_result_u_btint_a[78] = \<const0> ;
+  assign combined_operations_result_u_btint_a[77] = \<const0> ;
+  assign combined_operations_result_u_btint_a[76] = \<const0> ;
+  assign combined_operations_result_u_btint_a[75] = \<const0> ;
+  assign combined_operations_result_u_btint_a[74] = \<const0> ;
+  assign combined_operations_result_u_btint_a[73] = \<const0> ;
+  assign combined_operations_result_u_btint_a[72] = \<const0> ;
+  assign combined_operations_result_u_btint_a[71] = \<const0> ;
+  assign combined_operations_result_u_btint_a[70] = \<const0> ;
+  assign combined_operations_result_u_btint_a[69] = \<const0> ;
+  assign combined_operations_result_u_btint_a[68] = \<const0> ;
+  assign combined_operations_result_u_btint_a[67] = \<const0> ;
+  assign combined_operations_result_u_btint_a[66] = \<const0> ;
+  assign combined_operations_result_u_btint_a[65] = \<const0> ;
+  assign combined_operations_result_u_btint_a[64] = \<const0> ;
+  assign combined_operations_result_u_btint_a[63] = \<const0> ;
+  assign combined_operations_result_u_btint_a[62] = \<const0> ;
+  assign combined_operations_result_u_btint_a[61] = \<const0> ;
+  assign combined_operations_result_u_btint_a[60] = \<const0> ;
+  assign combined_operations_result_u_btint_a[59] = \<const0> ;
+  assign combined_operations_result_u_btint_a[58] = \<const0> ;
+  assign combined_operations_result_u_btint_a[57] = \<const0> ;
+  assign combined_operations_result_u_btint_a[56] = \<const0> ;
+  assign combined_operations_result_u_btint_a[55] = \<const0> ;
+  assign combined_operations_result_u_btint_a[54] = \<const0> ;
+  assign combined_operations_result_u_btint_a[53] = \<const0> ;
+  assign combined_operations_result_u_btint_a[52] = \<const0> ;
+  assign combined_operations_result_u_btint_a[51] = \<const0> ;
+  assign combined_operations_result_u_btint_a[50] = \<const0> ;
+  assign combined_operations_result_u_btint_a[49] = \<const0> ;
+  assign combined_operations_result_u_btint_a[48] = \<const0> ;
+  assign combined_operations_result_u_btint_a[47] = \<const0> ;
+  assign combined_operations_result_u_btint_a[46] = \<const0> ;
+  assign combined_operations_result_u_btint_a[45] = \<const0> ;
+  assign combined_operations_result_u_btint_a[44] = \<const0> ;
+  assign combined_operations_result_u_btint_a[43] = \<const0> ;
+  assign combined_operations_result_u_btint_a[42] = \<const0> ;
+  assign combined_operations_result_u_btint_a[41] = \<const0> ;
+  assign combined_operations_result_u_btint_a[40] = \<const0> ;
+  assign combined_operations_result_u_btint_a[39] = \<const0> ;
+  assign combined_operations_result_u_btint_a[38] = \<const0> ;
+  assign combined_operations_result_u_btint_a[37] = \<const0> ;
+  assign combined_operations_result_u_btint_a[36] = \<const0> ;
+  assign combined_operations_result_u_btint_a[35] = \<const0> ;
+  assign combined_operations_result_u_btint_a[34] = \<const0> ;
+  assign combined_operations_result_u_btint_a[33] = \<const0> ;
+  assign combined_operations_result_u_btint_a[32] = \<const0> ;
+  assign combined_operations_result_u_btint_a[31] = \<const0> ;
+  assign combined_operations_result_u_btint_a[30] = \<const0> ;
+  assign combined_operations_result_u_btint_a[29] = \<const0> ;
+  assign combined_operations_result_u_btint_a[28] = \<const0> ;
+  assign combined_operations_result_u_btint_a[27] = \<const0> ;
+  assign combined_operations_result_u_btint_a[26] = \<const0> ;
+  assign combined_operations_result_u_btint_a[25] = \<const0> ;
+  assign combined_operations_result_u_btint_a[24] = \<const0> ;
+  assign combined_operations_result_u_btint_a[23] = \<const0> ;
+  assign combined_operations_result_u_btint_a[22] = \<const0> ;
+  assign combined_operations_result_u_btint_a[21] = \<const0> ;
+  assign combined_operations_result_u_btint_a[20] = \<const0> ;
+  assign combined_operations_result_u_btint_a[19] = \<const0> ;
+  assign combined_operations_result_u_btint_a[18] = \<const0> ;
+  assign combined_operations_result_u_btint_a[17] = \<const0> ;
+  assign combined_operations_result_u_btint_a[16] = \<const0> ;
+  assign combined_operations_result_u_btint_a[15] = \<const0> ;
+  assign combined_operations_result_u_btint_a[14] = \<const0> ;
+  assign combined_operations_result_u_btint_a[13] = \<const0> ;
+  assign combined_operations_result_u_btint_a[12] = \<const0> ;
+  assign combined_operations_result_u_btint_a[11] = \<const0> ;
+  assign combined_operations_result_u_btint_a[10] = \<const0> ;
+  assign combined_operations_result_u_btint_a[9] = \<const0> ;
+  assign combined_operations_result_u_btint_a[8] = \<const0> ;
+  assign combined_operations_result_u_btint_a[7] = \<const0> ;
+  assign combined_operations_result_u_btint_a[6] = \<const0> ;
+  assign combined_operations_result_u_btint_a[5] = \<const0> ;
+  assign combined_operations_result_u_btint_a[4] = \<const0> ;
+  assign combined_operations_result_u_btint_a[3] = \<const0> ;
+  assign combined_operations_result_u_btint_a[2] = \<const0> ;
+  assign combined_operations_result_u_btint_a[1] = \<const0> ;
+  assign combined_operations_result_u_btint_a[0] = \<const0> ;
+  assign combined_operations_result_u_btint_b[127] = \<const0> ;
+  assign combined_operations_result_u_btint_b[126] = \<const0> ;
+  assign combined_operations_result_u_btint_b[125] = \<const0> ;
+  assign combined_operations_result_u_btint_b[124] = \<const0> ;
+  assign combined_operations_result_u_btint_b[123] = \<const0> ;
+  assign combined_operations_result_u_btint_b[122] = \<const0> ;
+  assign combined_operations_result_u_btint_b[121] = \<const0> ;
+  assign combined_operations_result_u_btint_b[120] = \<const0> ;
+  assign combined_operations_result_u_btint_b[119] = \<const0> ;
+  assign combined_operations_result_u_btint_b[118] = \<const0> ;
+  assign combined_operations_result_u_btint_b[117] = \<const0> ;
+  assign combined_operations_result_u_btint_b[116] = \<const0> ;
+  assign combined_operations_result_u_btint_b[115] = \<const0> ;
+  assign combined_operations_result_u_btint_b[114] = \<const0> ;
+  assign combined_operations_result_u_btint_b[113] = \<const0> ;
+  assign combined_operations_result_u_btint_b[112] = \<const0> ;
+  assign combined_operations_result_u_btint_b[111] = \<const0> ;
+  assign combined_operations_result_u_btint_b[110] = \<const0> ;
+  assign combined_operations_result_u_btint_b[109] = \<const0> ;
+  assign combined_operations_result_u_btint_b[108] = \<const0> ;
+  assign combined_operations_result_u_btint_b[107] = \<const0> ;
+  assign combined_operations_result_u_btint_b[106] = \<const0> ;
+  assign combined_operations_result_u_btint_b[105] = \<const0> ;
+  assign combined_operations_result_u_btint_b[104] = \<const0> ;
+  assign combined_operations_result_u_btint_b[103] = \<const0> ;
+  assign combined_operations_result_u_btint_b[102] = \<const0> ;
+  assign combined_operations_result_u_btint_b[101] = \<const0> ;
+  assign combined_operations_result_u_btint_b[100] = \<const0> ;
+  assign combined_operations_result_u_btint_b[99] = \<const0> ;
+  assign combined_operations_result_u_btint_b[98] = \<const0> ;
+  assign combined_operations_result_u_btint_b[97] = \<const0> ;
+  assign combined_operations_result_u_btint_b[96] = \<const0> ;
+  assign combined_operations_result_u_btint_b[95] = \<const0> ;
+  assign combined_operations_result_u_btint_b[94] = \<const0> ;
+  assign combined_operations_result_u_btint_b[93] = \<const0> ;
+  assign combined_operations_result_u_btint_b[92] = \<const0> ;
+  assign combined_operations_result_u_btint_b[91] = \<const0> ;
+  assign combined_operations_result_u_btint_b[90] = \<const0> ;
+  assign combined_operations_result_u_btint_b[89] = \<const0> ;
+  assign combined_operations_result_u_btint_b[88] = \<const0> ;
+  assign combined_operations_result_u_btint_b[87] = \<const0> ;
+  assign combined_operations_result_u_btint_b[86] = \<const0> ;
+  assign combined_operations_result_u_btint_b[85] = \<const0> ;
+  assign combined_operations_result_u_btint_b[84] = \<const0> ;
+  assign combined_operations_result_u_btint_b[83] = \<const0> ;
+  assign combined_operations_result_u_btint_b[82] = \<const0> ;
+  assign combined_operations_result_u_btint_b[81] = \<const0> ;
+  assign combined_operations_result_u_btint_b[80] = \<const0> ;
+  assign combined_operations_result_u_btint_b[79] = \<const0> ;
+  assign combined_operations_result_u_btint_b[78] = \<const0> ;
+  assign combined_operations_result_u_btint_b[77] = \<const0> ;
+  assign combined_operations_result_u_btint_b[76] = \<const0> ;
+  assign combined_operations_result_u_btint_b[75] = \<const0> ;
+  assign combined_operations_result_u_btint_b[74] = \<const0> ;
+  assign combined_operations_result_u_btint_b[73] = \<const0> ;
+  assign combined_operations_result_u_btint_b[72] = \<const0> ;
+  assign combined_operations_result_u_btint_b[71] = \<const0> ;
+  assign combined_operations_result_u_btint_b[70] = \<const0> ;
+  assign combined_operations_result_u_btint_b[69] = \<const0> ;
+  assign combined_operations_result_u_btint_b[68] = \<const0> ;
+  assign combined_operations_result_u_btint_b[67] = \<const0> ;
+  assign combined_operations_result_u_btint_b[66] = \<const0> ;
+  assign combined_operations_result_u_btint_b[65] = \<const0> ;
+  assign combined_operations_result_u_btint_b[64] = \<const0> ;
+  assign combined_operations_result_u_btint_b[63] = \<const0> ;
+  assign combined_operations_result_u_btint_b[62] = \<const0> ;
+  assign combined_operations_result_u_btint_b[61] = \<const0> ;
+  assign combined_operations_result_u_btint_b[60] = \<const0> ;
+  assign combined_operations_result_u_btint_b[59] = \<const0> ;
+  assign combined_operations_result_u_btint_b[58] = \<const0> ;
+  assign combined_operations_result_u_btint_b[57] = \<const0> ;
+  assign combined_operations_result_u_btint_b[56] = \<const0> ;
+  assign combined_operations_result_u_btint_b[55] = \<const0> ;
+  assign combined_operations_result_u_btint_b[54] = \<const0> ;
+  assign combined_operations_result_u_btint_b[53] = \<const0> ;
+  assign combined_operations_result_u_btint_b[52] = \<const0> ;
+  assign combined_operations_result_u_btint_b[51] = \<const0> ;
+  assign combined_operations_result_u_btint_b[50] = \<const0> ;
+  assign combined_operations_result_u_btint_b[49] = \<const0> ;
+  assign combined_operations_result_u_btint_b[48] = \<const0> ;
+  assign combined_operations_result_u_btint_b[47] = \<const0> ;
+  assign combined_operations_result_u_btint_b[46] = \<const0> ;
+  assign combined_operations_result_u_btint_b[45] = \<const0> ;
+  assign combined_operations_result_u_btint_b[44] = \<const0> ;
+  assign combined_operations_result_u_btint_b[43] = \<const0> ;
+  assign combined_operations_result_u_btint_b[42] = \<const0> ;
+  assign combined_operations_result_u_btint_b[41] = \<const0> ;
+  assign combined_operations_result_u_btint_b[40] = \<const0> ;
+  assign combined_operations_result_u_btint_b[39] = \<const0> ;
+  assign combined_operations_result_u_btint_b[38] = \<const0> ;
+  assign combined_operations_result_u_btint_b[37] = \<const0> ;
+  assign combined_operations_result_u_btint_b[36] = \<const0> ;
+  assign combined_operations_result_u_btint_b[35] = \<const0> ;
+  assign combined_operations_result_u_btint_b[34] = \<const0> ;
+  assign combined_operations_result_u_btint_b[33] = \<const0> ;
+  assign combined_operations_result_u_btint_b[32] = \<const0> ;
+  assign combined_operations_result_u_btint_b[31] = \<const0> ;
+  assign combined_operations_result_u_btint_b[30] = \<const0> ;
+  assign combined_operations_result_u_btint_b[29] = \<const0> ;
+  assign combined_operations_result_u_btint_b[28] = \<const0> ;
+  assign combined_operations_result_u_btint_b[27] = \<const0> ;
+  assign combined_operations_result_u_btint_b[26] = \<const0> ;
+  assign combined_operations_result_u_btint_b[25] = \<const0> ;
+  assign combined_operations_result_u_btint_b[24] = \<const0> ;
+  assign combined_operations_result_u_btint_b[23] = \<const0> ;
+  assign combined_operations_result_u_btint_b[22] = \<const0> ;
+  assign combined_operations_result_u_btint_b[21] = \<const0> ;
+  assign combined_operations_result_u_btint_b[20] = \<const0> ;
+  assign combined_operations_result_u_btint_b[19] = \<const0> ;
+  assign combined_operations_result_u_btint_b[18] = \<const0> ;
+  assign combined_operations_result_u_btint_b[17] = \<const0> ;
+  assign combined_operations_result_u_btint_b[16] = \<const0> ;
+  assign combined_operations_result_u_btint_b[15] = \<const0> ;
+  assign combined_operations_result_u_btint_b[14] = \<const0> ;
+  assign combined_operations_result_u_btint_b[13] = \<const0> ;
+  assign combined_operations_result_u_btint_b[12] = \<const0> ;
+  assign combined_operations_result_u_btint_b[11] = \<const0> ;
+  assign combined_operations_result_u_btint_b[10] = \<const0> ;
+  assign combined_operations_result_u_btint_b[9] = \<const0> ;
+  assign combined_operations_result_u_btint_b[8] = \<const0> ;
+  assign combined_operations_result_u_btint_b[7] = \<const0> ;
+  assign combined_operations_result_u_btint_b[6] = \<const0> ;
+  assign combined_operations_result_u_btint_b[5] = \<const0> ;
+  assign combined_operations_result_u_btint_b[4] = \<const0> ;
+  assign combined_operations_result_u_btint_b[3] = \<const0> ;
+  assign combined_operations_result_u_btint_b[2] = \<const0> ;
+  assign combined_operations_result_u_btint_b[1] = \<const0> ;
+  assign combined_operations_result_u_btint_b[0] = \<const0> ;
+  assign combined_operations_result_u_overflow[31] = \<const0> ;
+  assign combined_operations_result_u_overflow[30] = \<const0> ;
+  assign combined_operations_result_u_overflow[29] = \<const0> ;
+  assign combined_operations_result_u_overflow[28] = \<const0> ;
+  assign combined_operations_result_u_overflow[27] = \<const0> ;
+  assign combined_operations_result_u_overflow[26] = \<const0> ;
+  assign combined_operations_result_u_overflow[25] = \<const0> ;
+  assign combined_operations_result_u_overflow[24] = \<const0> ;
+  assign combined_operations_result_u_overflow[23] = \<const0> ;
+  assign combined_operations_result_u_overflow[22] = \<const0> ;
+  assign combined_operations_result_u_overflow[21] = \<const0> ;
+  assign combined_operations_result_u_overflow[20] = \<const0> ;
+  assign combined_operations_result_u_overflow[19] = \<const0> ;
+  assign combined_operations_result_u_overflow[18] = \<const0> ;
+  assign combined_operations_result_u_overflow[17] = \<const0> ;
+  assign combined_operations_result_u_overflow[16] = \<const0> ;
+  assign combined_operations_result_u_overflow[15] = \<const0> ;
+  assign combined_operations_result_u_overflow[14] = \<const0> ;
+  assign combined_operations_result_u_overflow[13] = \<const0> ;
+  assign combined_operations_result_u_overflow[12] = \<const0> ;
+  assign combined_operations_result_u_overflow[11] = \<const0> ;
+  assign combined_operations_result_u_overflow[10] = \<const0> ;
+  assign combined_operations_result_u_overflow[9] = \<const0> ;
+  assign combined_operations_result_u_overflow[8] = \<const0> ;
+  assign combined_operations_result_u_overflow[7] = \<const0> ;
+  assign combined_operations_result_u_overflow[6] = \<const0> ;
+  assign combined_operations_result_u_overflow[5] = \<const0> ;
+  assign combined_operations_result_u_overflow[4] = \<const0> ;
+  assign combined_operations_result_u_overflow[3] = \<const0> ;
+  assign combined_operations_result_u_overflow[2] = \<const0> ;
+  assign combined_operations_result_u_overflow[1] = \<const0> ;
+  assign combined_operations_result_u_overflow[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  VCC VCC
+       (.P(\<const1> ));
+endmodule
+`ifndef GLBL
+`define GLBL
+`timescale  1 ps / 1 ps
+
+module glbl ();
+
+    parameter ROC_WIDTH = 100000;
+    parameter TOC_WIDTH = 0;
+    parameter GRES_WIDTH = 10000;
+    parameter GRES_START = 10000;
+
+//--------   STARTUP Globals --------------
+    wire GSR;
+    wire GTS;
+    wire GWE;
+    wire PRLD;
+    wire GRESTORE;
+    tri1 p_up_tmp;
+    tri (weak1, strong0) PLL_LOCKG = p_up_tmp;
+
+    wire PROGB_GLBL;
+    wire CCLKO_GLBL;
+    wire FCSBO_GLBL;
+    wire [3:0] DO_GLBL;
+    wire [3:0] DI_GLBL;
+   
+    reg GSR_int;
+    reg GTS_int;
+    reg PRLD_int;
+    reg GRESTORE_int;
+
+//--------   JTAG Globals --------------
+    wire JTAG_TDO_GLBL;
+    wire JTAG_TCK_GLBL;
+    wire JTAG_TDI_GLBL;
+    wire JTAG_TMS_GLBL;
+    wire JTAG_TRST_GLBL;
+
+    reg JTAG_CAPTURE_GLBL;
+    reg JTAG_RESET_GLBL;
+    reg JTAG_SHIFT_GLBL;
+    reg JTAG_UPDATE_GLBL;
+    reg JTAG_RUNTEST_GLBL;
+
+    reg JTAG_SEL1_GLBL = 0;
+    reg JTAG_SEL2_GLBL = 0 ;
+    reg JTAG_SEL3_GLBL = 0;
+    reg JTAG_SEL4_GLBL = 0;
+
+    reg JTAG_USER_TDO1_GLBL = 1'bz;
+    reg JTAG_USER_TDO2_GLBL = 1'bz;
+    reg JTAG_USER_TDO3_GLBL = 1'bz;
+    reg JTAG_USER_TDO4_GLBL = 1'bz;
+
+    assign (strong1, weak0) GSR = GSR_int;
+    assign (strong1, weak0) GTS = GTS_int;
+    assign (weak1, weak0) PRLD = PRLD_int;
+    assign (strong1, weak0) GRESTORE = GRESTORE_int;
+
+    initial begin
+	GSR_int = 1'b1;
+	PRLD_int = 1'b1;
+	#(ROC_WIDTH)
+	GSR_int = 1'b0;
+	PRLD_int = 1'b0;
+    end
+
+    initial begin
+	GTS_int = 1'b1;
+	#(TOC_WIDTH)
+	GTS_int = 1'b0;
+    end
+
+    initial begin 
+	GRESTORE_int = 1'b0;
+	#(GRES_START);
+	GRESTORE_int = 1'b1;
+	#(GRES_WIDTH);
+	GRESTORE_int = 1'b0;
+    end
+
+endmodule
+`endif

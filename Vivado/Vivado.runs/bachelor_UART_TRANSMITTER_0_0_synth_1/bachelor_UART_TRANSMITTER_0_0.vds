@@ -3,16 +3,16 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Mar 21 18:54:24 2025
-# Process ID: 17610
+# Start of session at: Wed May  7 19:19:27 2025
+# Process ID: 158120
 # Current directory: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_0_0_synth_1
 # Command line: vivado -log bachelor_UART_TRANSMITTER_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bachelor_UART_TRANSMITTER_0_0.tcl
 # Log file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_0_0_synth_1/bachelor_UART_TRANSMITTER_0_0.vds
 # Journal file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_0_0_synth_1/vivado.jou
-# Running On: arch, OS: Linux, CPU Frequency: 925.457 MHz, CPU Physical cores: 4, Host memory: 16494 MB
+# Running On: arch, OS: Linux, CPU Frequency: 1426.114 MHz, CPU Physical cores: 4, Host memory: 16490 MB
 #-----------------------------------------------------------
 source bachelor_UART_TRANSMITTER_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1341.289 ; gain = 0.023 ; free physical = 2081 ; free virtual = 24621
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1317.340 ; gain = 0.023 ; free physical = 673 ; free virtual = 24688
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.2/data/ip'.
@@ -24,35 +24,86 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 17658
+INFO: [Synth 8-7075] Helper process launched with PID 158290
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1740.066 ; gain = 398.777 ; free physical = 341 ; free virtual = 22895
+Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1708.117 ; gain = 390.777 ; free physical = 296 ; free virtual = 22509
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'bachelor_UART_TRANSMITTER_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_0_0/synth/bachelor_UART_TRANSMITTER_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'UART_TRANSMITTER' [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:1]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:76]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:79]
 INFO: [Synth 8-6155] done synthesizing module 'UART_TRANSMITTER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'bachelor_UART_TRANSMITTER_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_0_0/synth/bachelor_UART_TRANSMITTER_0_0.v:53]
-WARNING: [Synth 8-6014] Unused sequential element input_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:221]
+WARNING: [Synth 8-6014] Unused sequential element input_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:226]
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[31] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[30] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[29] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[28] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[27] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[26] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[25] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[24] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[23] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[22] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[21] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[20] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[19] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[18] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[17] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[16] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[15] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[14] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[13] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[12] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[11] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[10] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[9] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[8] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[7] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[6] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[5] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[4] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[3] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[2] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[1] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[0] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[31] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[30] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[29] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[28] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[27] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[26] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[25] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[24] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[23] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[22] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[21] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[20] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[19] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[18] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[17] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[16] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[15] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[14] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[13] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[12] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[11] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[10] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[9] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[8] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[7] in module UART_TRANSMITTER is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1815.035 ; gain = 473.746 ; free physical = 399 ; free virtual = 22505
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1784.086 ; gain = 466.746 ; free physical = 206 ; free virtual = 22099
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1832.848 ; gain = 491.559 ; free physical = 291 ; free virtual = 22398
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1801.898 ; gain = 484.559 ; free physical = 214 ; free virtual = 21857
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
-INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1848.852 ; gain = 507.562 ; free physical = 289 ; free virtual = 22396
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1809.902 ; gain = 492.562 ; free physical = 198 ; free virtual = 21842
+INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'transmit_PROC_STATE_reg' in module 'UART_TRANSMITTER'
 ---------------------------------------------------------------------------------------------------
@@ -66,7 +117,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'transmit_PROC_STATE_reg' in
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'transmit_PROC_STATE_reg' using encoding 'sequential' in module 'UART_TRANSMITTER'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1857.758 ; gain = 516.469 ; free physical = 439 ; free virtual = 22266
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1828.887 ; gain = 511.547 ; free physical = 258 ; free virtual = 21708
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -75,16 +126,14 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 4     
+	   2 Input    7 Bit       Adders := 4     
 	   2 Input    5 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 4     
-	               24 Bit    Registers := 2     
+	               32 Bit    Registers := 6     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 4     
-	   5 Input   32 Bit        Muxes := 4     
-	   2 Input   24 Bit        Muxes := 3     
-	   5 Input   24 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 7     
+	   5 Input   32 Bit        Muxes := 7     
 	   5 Input    3 Bit        Muxes := 1     
 	  13 Input    3 Bit        Muxes := 1     
 	   2 Input    1 Bit        Muxes := 17    
@@ -106,27 +155,65 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[31] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[30] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[29] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[28] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[27] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[26] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[25] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[24] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[23] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[22] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[21] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[20] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[19] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[18] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[17] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[16] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[15] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[14] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[13] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[12] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[11] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[10] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[9] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[8] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[7] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[6] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[5] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[4] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[3] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[2] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[1] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[0] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[31] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[30] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[29] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[28] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[27] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[26] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[25] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[24] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[23] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[22] in module UART_TRANSMITTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uart_transmitter_column[21] in module UART_TRANSMITTER is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 273 ; free virtual = 21450
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 186 ; free virtual = 21059
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 272 ; free virtual = 21449
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 185 ; free virtual = 21059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 272 ; free virtual = 21449
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 191 ; free virtual = 21064
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -144,37 +231,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 211 ; free virtual = 21087
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 211 ; free virtual = 21087
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 210 ; free virtual = 21086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 210 ; free virtual = 21086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 210 ; free virtual = 21086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 210 ; free virtual = 21086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -192,12 +279,12 @@ Report Cell Usage:
 +------+-------+------+
 |1     |CARRY4 |    44|
 |2     |LUT1   |    33|
-|3     |LUT2   |    51|
-|4     |LUT3   |    37|
+|3     |LUT2   |    49|
+|4     |LUT3   |     5|
 |5     |LUT4   |     1|
-|6     |LUT5   |    10|
-|7     |LUT6   |     8|
-|8     |FDRE   |   135|
+|6     |LUT5   |    30|
+|7     |LUT6   |    25|
+|8     |FDRE   |   137|
 |9     |FDSE   |     1|
 +------+-------+------+
 
@@ -205,38 +292,37 @@ Report Instance Areas:
 +------+---------+-----------------+------+
 |      |Instance |Module           |Cells |
 +------+---------+-----------------+------+
-|1     |top      |                 |   320|
-|2     |  inst   |UART_TRANSMITTER |   320|
+|1     |top      |                 |   325|
+|2     |  inst   |UART_TRANSMITTER |   325|
 +------+---------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 210 ; free virtual = 21086
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.023 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2012.031 ; gain = 670.734 ; free physical = 391 ; free virtual = 21381
+Synthesis finished with 0 errors, 0 critical warnings and 116 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.223 ; gain = 665.883 ; free physical = 209 ; free virtual = 21085
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1983.230 ; gain = 665.883 ; free physical = 209 ; free virtual = 21085
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2014.992 ; gain = 0.000 ; free physical = 668 ; free virtual = 21658
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1983.230 ; gain = 0.000 ; free physical = 463 ; free virtual = 21339
 INFO: [Netlist 29-17] Analyzing 44 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2207.707 ; gain = 0.000 ; free physical = 578 ; free virtual = 21568
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2112.969 ; gain = 0.000 ; free physical = 296 ; free virtual = 20861
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 122c6b62
+Synth Design complete | Checksum: cb60fede
 INFO: [Common 17-83] Releasing license: Synthesis
-24 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+25 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:19 . Memory (MB): peak = 2207.742 ; gain = 866.453 ; free physical = 578 ; free virtual = 21567
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1362.580; main = 1251.458; forked = 328.382
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2886.676; main = 2207.711; forked = 1000.195
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:32 . Memory (MB): peak = 2113.004 ; gain = 795.664 ; free physical = 333 ; free virtual = 20845
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1438.826; main = 1221.156; forked = 324.866
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2931.480; main = 2112.973; forked = 972.277
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2651.680 ; gain = 0.000 ; free physical = 275 ; free virtual = 21289
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2469.941 ; gain = 0.000 ; free physical = 1236 ; free virtual = 19463
 INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_0_0_synth_1/bachelor_UART_TRANSMITTER_0_0.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2651.680 ; gain = 443.938 ; free physical = 274 ; free virtual = 21289
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bachelor_UART_TRANSMITTER_0_0, cache-ID = 486f87283b1c4c7a
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2654.648 ; gain = 2.969 ; free physical = 274 ; free virtual = 21289
+write_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 2469.941 ; gain = 356.938 ; free physical = 1309 ; free virtual = 19542
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2469.941 ; gain = 0.000 ; free physical = 1299 ; free virtual = 19532
 INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_0_0_synth_1/bachelor_UART_TRANSMITTER_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file bachelor_UART_TRANSMITTER_0_0_utilization_synth.rpt -pb bachelor_UART_TRANSMITTER_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Mar 21 18:55:00 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed May  7 19:20:40 2025...

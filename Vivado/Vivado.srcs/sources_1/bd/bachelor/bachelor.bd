@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x643DEC1803ED7F00",
+      "boundary_crc": "0x347EB1D4009C36E1",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../Vivado.gen/sources_1/bd/bachelor",
       "name": "bachelor",
@@ -11,20 +11,21 @@
       "validated": "true"
     },
     "design_tree": {
-      "MATRIX_VECTOR_0": "",
+      "COMBINED_OPERATIONS_0": "",
       "UART_TRANSMITTER_0": "",
+      "UART_TRANSMITTER_1": "",
       "vio_0": ""
     },
     "ports": {
-      "matrix_vector_clock": {
+      "combined_operations_clock": {
         "type": "clk",
         "direction": "I",
         "parameters": {
           "ASSOCIATED_RESET": {
-            "value": "matrix_vector_reset"
+            "value": "combined_operations_reset"
           },
           "CLK_DOMAIN": {
-            "value": "bachelor_matrix_vector_clock_0",
+            "value": "bachelor_combined_operations_clock_0",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -45,7 +46,7 @@
           }
         }
       },
-      "matrix_vector_reset": {
+      "combined_operations_reset": {
         "type": "rst",
         "direction": "I",
         "parameters": {
@@ -58,89 +59,130 @@
             "value_src": "default"
           }
         }
+      },
+      "combined_operations_done": {
+        "direction": "O"
+      },
+      "uart_transmitter_output_u": {
+        "direction": "O"
+      },
+      "uart_transmitter_output_d": {
+        "direction": "O"
       }
     },
     "components": {
-      "MATRIX_VECTOR_0": {
-        "vlnv": "xilinx.com:module_ref:MATRIX_VECTOR:1.0",
+      "COMBINED_OPERATIONS_0": {
+        "vlnv": "xilinx.com:module_ref:COMBINED_OPERATIONS:1.0",
         "ip_revision": "1",
-        "xci_name": "bachelor_MATRIX_VECTOR_0_0",
-        "xci_path": "ip/bachelor_MATRIX_VECTOR_0_0/bachelor_MATRIX_VECTOR_0_0.xci",
-        "inst_hier_path": "MATRIX_VECTOR_0",
+        "xci_name": "bachelor_COMBINED_OPERATIONS_0_0",
+        "xci_path": "ip/bachelor_COMBINED_OPERATIONS_0_0/bachelor_COMBINED_OPERATIONS_0_0.xci",
+        "inst_hier_path": "COMBINED_OPERATIONS_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "MATRIX_VECTOR",
+          "ref_name": "COMBINED_OPERATIONS",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "matrix_vector_clock": {
+          "combined_operations_clock": {
             "type": "clk",
             "direction": "I",
             "parameters": {
               "ASSOCIATED_RESET": {
-                "value": "matrix_vector_reset",
+                "value": "combined_operations_reset",
                 "value_src": "constant"
               },
               "CLK_DOMAIN": {
-                "value": "bachelor_matrix_vector_clock_0",
+                "value": "bachelor_combined_operations_clock_0",
                 "value_src": "default_prop"
               }
             }
           },
-          "matrix_vector_reset": {
+          "combined_operations_reset": {
             "type": "rst",
             "direction": "I"
           },
-          "matrix_vector_valid": {
-            "direction": "I"
-          },
-          "matrix_vector_matrix_btint_a": {
+          "combined_operations_m_a_btint_a": {
             "direction": "I",
             "left": "95",
             "right": "0"
           },
-          "matrix_vector_matrix_btint_b": {
+          "combined_operations_m_a_btint_b": {
             "direction": "I",
             "left": "95",
             "right": "0"
           },
-          "matrix_vector_matrix_overflow": {
+          "combined_operations_m_a_overflow": {
             "direction": "I",
             "left": "23",
             "right": "0"
           },
-          "matrix_vector_vector_btint_a": {
+          "combined_operations_m_b_btint_a": {
             "direction": "I",
-            "left": "31",
+            "left": "95",
             "right": "0"
           },
-          "matrix_vector_vector_btint_b": {
+          "combined_operations_m_b_btint_b": {
             "direction": "I",
-            "left": "31",
+            "left": "95",
             "right": "0"
           },
-          "matrix_vector_vector_overflow": {
+          "combined_operations_m_b_overflow": {
             "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "matrix_vector_result_btint_a": {
-            "direction": "O",
             "left": "23",
             "right": "0"
           },
-          "matrix_vector_result_btint_b": {
-            "direction": "O",
+          "combined_operations_v_btint_a": {
+            "direction": "I",
             "left": "23",
             "right": "0"
           },
-          "matrix_vector_result_overflow": {
-            "direction": "O",
+          "combined_operations_v_btint_b": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "combined_operations_v_overflow": {
+            "direction": "I",
             "left": "5",
             "right": "0"
           },
-          "matrix_vector_done": {
+          "combined_operations_op": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "combined_operations_done": {
             "direction": "O"
+          },
+          "combined_operations_result_u_btint_a": {
+            "direction": "O",
+            "left": "127",
+            "right": "0"
+          },
+          "combined_operations_result_u_btint_b": {
+            "direction": "O",
+            "left": "127",
+            "right": "0"
+          },
+          "combined_operations_result_u_overflow": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "combined_operations_result_d_btint_a": {
+            "direction": "O",
+            "left": "127",
+            "right": "0"
+          },
+          "combined_operations_result_d_btint_b": {
+            "direction": "O",
+            "left": "127",
+            "right": "0"
+          },
+          "combined_operations_result_d_overflow": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         }
       },
@@ -160,33 +202,83 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "uart_transmitter_reset",
-                "value_src": "constant"
-              },
               "CLK_DOMAIN": {
-                "value": "bachelor_matrix_vector_clock_0",
+                "value": "bachelor_combined_operations_clock_0",
                 "value_src": "default_prop"
               }
             }
           },
-          "uart_transmitter_reset": {
-            "type": "rst",
+          "uart_transmitter_reset_active_low": {
             "direction": "I"
           },
           "uart_transmitter_input_btint_a": {
             "direction": "I",
-            "left": "23",
+            "left": "127",
             "right": "0"
           },
           "uart_transmitter_input_btint_b": {
             "direction": "I",
-            "left": "23",
+            "left": "127",
             "right": "0"
           },
           "uart_transmitter_input_overflow": {
             "direction": "I",
-            "left": "5",
+            "left": "31",
+            "right": "0"
+          },
+          "uart_transmitter_column": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "uart_transmitter_output": {
+            "direction": "O"
+          }
+        }
+      },
+      "UART_TRANSMITTER_1": {
+        "vlnv": "xilinx.com:module_ref:UART_TRANSMITTER:1.0",
+        "ip_revision": "1",
+        "xci_name": "bachelor_UART_TRANSMITTER_1_0",
+        "xci_path": "ip/bachelor_UART_TRANSMITTER_1_0/bachelor_UART_TRANSMITTER_1_0.xci",
+        "inst_hier_path": "UART_TRANSMITTER_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "UART_TRANSMITTER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "uart_transmitter_clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "bachelor_combined_operations_clock_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "uart_transmitter_reset_active_low": {
+            "direction": "I"
+          },
+          "uart_transmitter_input_btint_a": {
+            "direction": "I",
+            "left": "127",
+            "right": "0"
+          },
+          "uart_transmitter_input_btint_b": {
+            "direction": "I",
+            "left": "127",
+            "right": "0"
+          },
+          "uart_transmitter_input_overflow": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "uart_transmitter_column": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
           "uart_transmitter_output": {
@@ -202,121 +294,201 @@
         "inst_hier_path": "vio_0",
         "parameters": {
           "C_NUM_PROBE_IN": {
-            "value": "5"
+            "value": "9"
           },
           "C_NUM_PROBE_OUT": {
-            "value": "7"
+            "value": "12"
+          },
+          "C_PROBE_OUT0_WIDTH": {
+            "value": "96"
+          },
+          "C_PROBE_OUT10_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT11_WIDTH": {
+            "value": "32"
           },
           "C_PROBE_OUT1_WIDTH": {
             "value": "96"
           },
           "C_PROBE_OUT2_WIDTH": {
-            "value": "96"
-          },
-          "C_PROBE_OUT3_WIDTH": {
             "value": "24"
           },
+          "C_PROBE_OUT3_WIDTH": {
+            "value": "96"
+          },
           "C_PROBE_OUT4_WIDTH": {
-            "value": "32"
+            "value": "96"
           },
           "C_PROBE_OUT5_WIDTH": {
-            "value": "32"
+            "value": "24"
           },
           "C_PROBE_OUT6_WIDTH": {
-            "value": "8"
+            "value": "24"
+          },
+          "C_PROBE_OUT7_WIDTH": {
+            "value": "24"
+          },
+          "C_PROBE_OUT8_WIDTH": {
+            "value": "6"
+          },
+          "C_PROBE_OUT9_WIDTH": {
+            "value": "2"
           }
         }
       }
     },
     "nets": {
-      "MATRIX_VECTOR_0_matrix_vector_done": {
+      "COMBINED_OPERATIONS_0_combined_operations_done": {
         "ports": [
-          "MATRIX_VECTOR_0/matrix_vector_done",
-          "vio_0/probe_in3",
-          "UART_TRANSMITTER_0/uart_transmitter_reset"
+          "COMBINED_OPERATIONS_0/combined_operations_done",
+          "combined_operations_done",
+          "vio_0/probe_in0",
+          "UART_TRANSMITTER_0/uart_transmitter_reset_active_low",
+          "UART_TRANSMITTER_1/uart_transmitter_reset_active_low"
         ]
       },
-      "MATRIX_VECTOR_0_matrix_vector_result_btint_a": {
+      "COMBINED_OPERATIONS_0_combined_operations_result_d_btint_a": {
         "ports": [
-          "MATRIX_VECTOR_0/matrix_vector_result_btint_a",
-          "vio_0/probe_in0",
+          "COMBINED_OPERATIONS_0/combined_operations_result_d_btint_a",
+          "vio_0/probe_in4",
+          "UART_TRANSMITTER_1/uart_transmitter_input_btint_a"
+        ]
+      },
+      "COMBINED_OPERATIONS_0_combined_operations_result_d_btint_b": {
+        "ports": [
+          "COMBINED_OPERATIONS_0/combined_operations_result_d_btint_b",
+          "vio_0/probe_in5",
+          "UART_TRANSMITTER_1/uart_transmitter_input_btint_b"
+        ]
+      },
+      "COMBINED_OPERATIONS_0_combined_operations_result_d_overflow": {
+        "ports": [
+          "COMBINED_OPERATIONS_0/combined_operations_result_d_overflow",
+          "vio_0/probe_in6",
+          "UART_TRANSMITTER_1/uart_transmitter_input_overflow"
+        ]
+      },
+      "COMBINED_OPERATIONS_0_combined_operations_result_u_btint_a": {
+        "ports": [
+          "COMBINED_OPERATIONS_0/combined_operations_result_u_btint_a",
+          "vio_0/probe_in1",
           "UART_TRANSMITTER_0/uart_transmitter_input_btint_a"
         ]
       },
-      "MATRIX_VECTOR_0_matrix_vector_result_btint_b": {
+      "COMBINED_OPERATIONS_0_combined_operations_result_u_btint_b": {
         "ports": [
-          "MATRIX_VECTOR_0/matrix_vector_result_btint_b",
-          "vio_0/probe_in1",
+          "COMBINED_OPERATIONS_0/combined_operations_result_u_btint_b",
+          "vio_0/probe_in2",
           "UART_TRANSMITTER_0/uart_transmitter_input_btint_b"
         ]
       },
-      "MATRIX_VECTOR_0_matrix_vector_result_overflow": {
+      "COMBINED_OPERATIONS_0_combined_operations_result_u_overflow": {
         "ports": [
-          "MATRIX_VECTOR_0/matrix_vector_result_overflow",
-          "vio_0/probe_in2",
+          "COMBINED_OPERATIONS_0/combined_operations_result_u_overflow",
+          "vio_0/probe_in3",
           "UART_TRANSMITTER_0/uart_transmitter_input_overflow"
         ]
       },
       "UART_TRANSMITTER_0_uart_transmitter_output": {
         "ports": [
           "UART_TRANSMITTER_0/uart_transmitter_output",
-          "vio_0/probe_in4"
+          "uart_transmitter_output_u",
+          "vio_0/probe_in7"
         ]
       },
-      "matrix_vector_clock_1": {
+      "UART_TRANSMITTER_1_uart_transmitter_output": {
         "ports": [
-          "matrix_vector_clock",
-          "MATRIX_VECTOR_0/matrix_vector_clock",
+          "UART_TRANSMITTER_1/uart_transmitter_output",
+          "uart_transmitter_output_d",
+          "vio_0/probe_in8"
+        ]
+      },
+      "combined_operations_clock_0_1": {
+        "ports": [
+          "combined_operations_clock",
           "vio_0/clk",
-          "UART_TRANSMITTER_0/uart_transmitter_clock"
+          "UART_TRANSMITTER_0/uart_transmitter_clock",
+          "UART_TRANSMITTER_1/uart_transmitter_clock",
+          "COMBINED_OPERATIONS_0/combined_operations_clock"
         ]
       },
-      "matrix_vector_reset_1": {
+      "combined_operations_reset_0_1": {
         "ports": [
-          "matrix_vector_reset",
-          "MATRIX_VECTOR_0/matrix_vector_reset"
+          "combined_operations_reset",
+          "COMBINED_OPERATIONS_0/combined_operations_reset"
         ]
       },
       "vio_0_probe_out0": {
         "ports": [
           "vio_0/probe_out0",
-          "MATRIX_VECTOR_0/matrix_vector_valid"
+          "COMBINED_OPERATIONS_0/combined_operations_m_a_btint_a"
         ]
       },
       "vio_0_probe_out1": {
         "ports": [
           "vio_0/probe_out1",
-          "MATRIX_VECTOR_0/matrix_vector_matrix_btint_a"
+          "COMBINED_OPERATIONS_0/combined_operations_m_a_btint_b"
         ]
       },
       "vio_0_probe_out2": {
         "ports": [
           "vio_0/probe_out2",
-          "MATRIX_VECTOR_0/matrix_vector_matrix_btint_b"
+          "COMBINED_OPERATIONS_0/combined_operations_m_a_overflow"
         ]
       },
       "vio_0_probe_out3": {
         "ports": [
           "vio_0/probe_out3",
-          "MATRIX_VECTOR_0/matrix_vector_matrix_overflow"
+          "COMBINED_OPERATIONS_0/combined_operations_m_b_btint_a"
         ]
       },
       "vio_0_probe_out4": {
         "ports": [
           "vio_0/probe_out4",
-          "MATRIX_VECTOR_0/matrix_vector_vector_btint_a"
+          "COMBINED_OPERATIONS_0/combined_operations_m_b_btint_b"
         ]
       },
       "vio_0_probe_out5": {
         "ports": [
           "vio_0/probe_out5",
-          "MATRIX_VECTOR_0/matrix_vector_vector_btint_b"
+          "COMBINED_OPERATIONS_0/combined_operations_m_b_overflow"
         ]
       },
       "vio_0_probe_out6": {
         "ports": [
           "vio_0/probe_out6",
-          "MATRIX_VECTOR_0/matrix_vector_vector_overflow"
+          "COMBINED_OPERATIONS_0/combined_operations_v_btint_a"
+        ]
+      },
+      "vio_0_probe_out7": {
+        "ports": [
+          "vio_0/probe_out7",
+          "COMBINED_OPERATIONS_0/combined_operations_v_btint_b"
+        ]
+      },
+      "vio_0_probe_out8": {
+        "ports": [
+          "vio_0/probe_out8",
+          "COMBINED_OPERATIONS_0/combined_operations_v_overflow"
+        ]
+      },
+      "vio_0_probe_out9": {
+        "ports": [
+          "vio_0/probe_out9",
+          "COMBINED_OPERATIONS_0/combined_operations_op"
+        ]
+      },
+      "vio_0_probe_out10": {
+        "ports": [
+          "vio_0/probe_out10",
+          "UART_TRANSMITTER_0/uart_transmitter_column"
+        ]
+      },
+      "vio_0_probe_out11": {
+        "ports": [
+          "vio_0/probe_out11",
+          "UART_TRANSMITTER_1/uart_transmitter_column"
         ]
       }
     }

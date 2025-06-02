@@ -3,12 +3,12 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Mar 21 18:54:24 2025
-# Process ID: 17612
+# Start of session at: Wed May  7 19:19:27 2025
+# Process ID: 158119
 # Current directory: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_vio_0_0_synth_1
 # Command line: vivado -log bachelor_vio_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bachelor_vio_0_0.tcl
 # Log file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_vio_0_0_synth_1/bachelor_vio_0_0.vds
 # Journal file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_vio_0_0_synth_1/vivado.jou
-# Running On: arch, OS: Linux, CPU Frequency: 2821.890 MHz, CPU Physical cores: 4, Host memory: 16494 MB
+# Running On: arch, OS: Linux, CPU Frequency: 2850.620 MHz, CPU Physical cores: 4, Host memory: 16490 MB
 #-----------------------------------------------------------
 source bachelor_vio_0_0.tcl -notrace

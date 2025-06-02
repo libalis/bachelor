@@ -3,7 +3,7 @@
 
 template <size_t T>
 void CELL<T>::compute(void) {
-    btint<T + 1> sum;
+    btint<2 * T + 1> sum;
     btint<2 * T> product[MULTIPLIER_COUNT];
     btint<T> c_in_u;
     btint<T> a_in;
@@ -53,8 +53,8 @@ void CELL<T>::compute(void) {
                         multiplier_reset[2].write(0);
                         multiplier_a[2].write(product[1].reduce());
                         multiplier_b[2].write(cell_c_in_d.read());
-                        adder_subtractor_a.write(product[0].reduce());
-                        adder_subtractor_b.write(product[2].reduce());
+                        adder_subtractor_a.write(product[0]);
+                        adder_subtractor_b.write(product[2]);
                         adder_subtractor_subtract.write(1);
                         cell_c_out_u.write(sum.reduce());
                         multiplier_reset[3].write(0);
@@ -75,8 +75,8 @@ void CELL<T>::compute(void) {
                 multiplier_reset[0].write(0);
                 multiplier_a[0].write(state_u);
                 multiplier_b[0].write(cell_a_in.read());
-                adder_subtractor_a.write(product[0].reduce());
-                adder_subtractor_b.write(cell_c_in_u.read());
+                adder_subtractor_a.write(product[0]);
+                adder_subtractor_b.write(c_in_u.expand());
                 adder_subtractor_subtract.write(0);
                 cell_c_out_u.write(sum.reduce());
             }

@@ -100,7 +100,7 @@ void CONTROLLER<T>::control(void) {
             }
             for(int i = 1; i < MIN_DIMENSION; i++) {
                 for(int j = MIN_DIMENSION - 1 - i; j < MIN_DIMENSION - 1; j++) {
-                    controller_s_in[i][j + 1] = state[i][j + 1];
+                    controller_s_in[i][j + 1].write(state[i][j + 1]);
                     state[i][j + 1] = controller_s_out[i][j].read();
                 }
             }
@@ -179,7 +179,7 @@ void CONTROLLER<T>::control(void) {
                         controller_a_in[0][i].write(controller_m_a[index_a[i]][i].read());
                     }
                 }
-                for(int i = 0; i < Y_DIMENSION; i++) {
+                for(int i = 0; i < X_DIMENSION; i++) {
                     controller_c_in_u[i][0].write(BTINT_ZERO(T));
                 }
                 if(index_a[Y_DIMENSION - 1] >= 1 && index_a[Y_DIMENSION - 1] <= X_DIMENSION) {

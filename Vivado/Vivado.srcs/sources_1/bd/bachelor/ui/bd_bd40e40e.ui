@@ -1,31 +1,44 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.38401",
-   "Default View_TopLeft":"-196,-209",
+   "Default View_ScaleFactor":"0.615112",
+   "Default View_TopLeft":"-372,3",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_matrix_vector_clock -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
-preplace port port-id_matrix_vector_reset -pg 1 -lvl 0 -x 0 -y 310 -defaultsOSRD
-preplace inst MATRIX_VECTOR_0 -pg 1 -lvl 3 -x 1260 -y 150 -defaultsOSRD
-preplace inst UART_TRANSMITTER_0 -pg 1 -lvl 1 -x 320 -y 160 -defaultsOSRD
-preplace inst vio_0 -pg 1 -lvl 2 -x 790 -y 170 -defaultsOSRD
-preplace netloc matrix_vector_clock_1 1 0 3 20 280 590 300 960J
-preplace netloc matrix_vector_reset_1 1 0 3 NJ 310 NJ 310 970J
-preplace netloc vio_0_probe_out0 1 2 1 N 110
-preplace netloc vio_0_probe_out1 1 2 1 N 130
-preplace netloc vio_0_probe_out2 1 2 1 N 150
-preplace netloc vio_0_probe_out3 1 2 1 N 170
-preplace netloc vio_0_probe_out4 1 2 1 N 190
-preplace netloc vio_0_probe_out5 1 2 1 N 210
-preplace netloc vio_0_probe_out6 1 2 1 N 230
-preplace netloc MATRIX_VECTOR_0_matrix_vector_result_btint_a 1 0 4 60 260 630 290 950J 10 1550
-preplace netloc MATRIX_VECTOR_0_matrix_vector_result_btint_b 1 0 4 50 290 610 320 NJ 320 1570
-preplace netloc MATRIX_VECTOR_0_matrix_vector_result_overflow 1 0 4 30 300 580 330 NJ 330 1560
-preplace netloc MATRIX_VECTOR_0_matrix_vector_done 1 0 4 40 270 620 340 NJ 340 1550
-preplace netloc UART_TRANSMITTER_0_uart_transmitter_output 1 1 1 600 160n
-levelinfo -pg 1 0 320 790 1260 1590
-pagesize -pg 1 -db -bbox -sgen -200 0 1590 350
+preplace port port-id_combined_operations_clock -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port port-id_combined_operations_reset -pg 1 -lvl 0 -x 0 -y 390 -defaultsOSRD
+preplace port port-id_combined_operations_done -pg 1 -lvl 3 -x 1230 -y 110 -defaultsOSRD
+preplace port port-id_uart_transmitter_output_u -pg 1 -lvl 3 -x 1230 -y 590 -defaultsOSRD
+preplace port port-id_uart_transmitter_output_d -pg 1 -lvl 3 -x 1230 -y 470 -defaultsOSRD
+preplace inst COMBINED_OPERATIONS_0 -pg 1 -lvl 2 -x 820 -y 170 -defaultsOSRD
+preplace inst UART_TRANSMITTER_0 -pg 1 -lvl 2 -x 820 -y 700 -defaultsOSRD
+preplace inst UART_TRANSMITTER_1 -pg 1 -lvl 2 -x 820 -y 470 -defaultsOSRD
+preplace inst vio_0 -pg 1 -lvl 1 -x 260 -y 210 -defaultsOSRD
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_done 1 0 3 110 380 480 340 1200
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_result_d_btint_a 1 0 3 80 410 450 580 1170
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_result_d_btint_b 1 0 3 70 420 440 590 1160
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_result_d_overflow 1 0 3 100 390 500 350 1140
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_result_u_btint_a 1 0 3 90 400 490 360 1150
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_result_u_btint_b 1 0 3 50 430 420 810 1190
+preplace netloc COMBINED_OPERATIONS_0_combined_operations_result_u_overflow 1 0 3 20 440 410 820 1180
+preplace netloc UART_TRANSMITTER_0_uart_transmitter_output 1 0 3 60 830 NJ 830 1210
+preplace netloc UART_TRANSMITTER_1_uart_transmitter_output 1 0 3 40 840 NJ 840 1200
+preplace netloc combined_operations_clock_0_1 1 0 2 20 30 470
+preplace netloc combined_operations_reset_0_1 1 0 2 30J 40 500J
+preplace netloc vio_0_probe_out0 1 1 1 N 100
+preplace netloc vio_0_probe_out1 1 1 1 N 120
+preplace netloc vio_0_probe_out2 1 1 1 N 140
+preplace netloc vio_0_probe_out3 1 1 1 N 160
+preplace netloc vio_0_probe_out4 1 1 1 N 180
+preplace netloc vio_0_probe_out5 1 1 1 N 200
+preplace netloc vio_0_probe_out6 1 1 1 N 220
+preplace netloc vio_0_probe_out7 1 1 1 N 240
+preplace netloc vio_0_probe_out8 1 1 1 N 260
+preplace netloc vio_0_probe_out9 1 1 1 N 280
+preplace netloc vio_0_probe_out10 1 1 1 430 300n
+preplace netloc vio_0_probe_out11 1 1 1 460 320n
+levelinfo -pg 1 0 260 820 1230
+pagesize -pg 1 -db -bbox -sgen -240 0 1470 850
 "
 }
-
+0
