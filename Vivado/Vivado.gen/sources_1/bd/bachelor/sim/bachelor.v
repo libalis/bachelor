@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-//Date        : Mon Jun  2 15:37:43 2025
+//Date        : Wed Jun  4 23:09:02 2025
 //Host        : arch running 64-bit unknown
 //Command     : generate_target bachelor.bd
 //Design      : bachelor

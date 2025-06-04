@@ -399,44 +399,420 @@ CONTROLLER controller
 (
   .controller_clock(combined_operations_clock),
   .controller_reset(combined_operations_reset),
-  .controller_m_a_btint_a(combined_operations_m_a_btint_a),
-  .controller_m_a_btint_b(combined_operations_m_a_btint_b),
-  .controller_m_a_overflow(combined_operations_m_a_overflow),
-  .controller_m_b_btint_a(combined_operations_m_b_btint_a),
-  .controller_m_b_btint_b(combined_operations_m_b_btint_b),
-  .controller_m_b_overflow(combined_operations_m_b_overflow),
+  .controller_m_a_btint_a0(combined_operations_m_a_btint_a[0][0]),
+  .controller_m_a_btint_b0(combined_operations_m_a_btint_b[0][0]),
+  .controller_m_a_overflow0(combined_operations_m_a_overflow[0][0]),
+  .controller_m_a_btint_a1(combined_operations_m_a_btint_a[0][1]),
+  .controller_m_a_btint_b1(combined_operations_m_a_btint_b[0][1]),
+  .controller_m_a_overflow1(combined_operations_m_a_overflow[0][1]),
+  .controller_m_a_btint_a2(combined_operations_m_a_btint_a[0][2]),
+  .controller_m_a_btint_b2(combined_operations_m_a_btint_b[0][2]),
+  .controller_m_a_overflow2(combined_operations_m_a_overflow[0][2]),
+  .controller_m_a_btint_a3(combined_operations_m_a_btint_a[1][0]),
+  .controller_m_a_btint_b3(combined_operations_m_a_btint_b[1][0]),
+  .controller_m_a_overflow3(combined_operations_m_a_overflow[1][0]),
+  .controller_m_a_btint_a4(combined_operations_m_a_btint_a[1][1]),
+  .controller_m_a_btint_b4(combined_operations_m_a_btint_b[1][1]),
+  .controller_m_a_overflow4(combined_operations_m_a_overflow[1][1]),
+  .controller_m_a_btint_a5(combined_operations_m_a_btint_a[1][2]),
+  .controller_m_a_btint_b5(combined_operations_m_a_btint_b[1][2]),
+  .controller_m_a_overflow5(combined_operations_m_a_overflow[1][2]),
+  .controller_m_a_btint_a6(combined_operations_m_a_btint_a[2][0]),
+  .controller_m_a_btint_b6(combined_operations_m_a_btint_b[2][0]),
+  .controller_m_a_overflow6(combined_operations_m_a_overflow[2][0]),
+  .controller_m_a_btint_a7(combined_operations_m_a_btint_a[2][1]),
+  .controller_m_a_btint_b7(combined_operations_m_a_btint_b[2][1]),
+  .controller_m_a_overflow7(combined_operations_m_a_overflow[2][1]),
+  .controller_m_a_btint_a8(combined_operations_m_a_btint_a[2][2]),
+  .controller_m_a_btint_b8(combined_operations_m_a_btint_b[2][2]),
+  .controller_m_a_overflow8(combined_operations_m_a_overflow[2][2]),
+  .controller_m_a_btint_a9(combined_operations_m_a_btint_a[3][0]),
+  .controller_m_a_btint_b9(combined_operations_m_a_btint_b[3][0]),
+  .controller_m_a_overflow9(combined_operations_m_a_overflow[3][0]),
+  .controller_m_a_btint_a10(combined_operations_m_a_btint_a[3][1]),
+  .controller_m_a_btint_b10(combined_operations_m_a_btint_b[3][1]),
+  .controller_m_a_overflow10(combined_operations_m_a_overflow[3][1]),
+  .controller_m_a_btint_a11(combined_operations_m_a_btint_a[3][2]),
+  .controller_m_a_btint_b11(combined_operations_m_a_btint_b[3][2]),
+  .controller_m_a_overflow11(combined_operations_m_a_overflow[3][2]),
+  .controller_m_b_btint_a0(combined_operations_m_b_btint_a[0][0]),
+  .controller_m_b_btint_b0(combined_operations_m_b_btint_b[0][0]),
+  .controller_m_b_overflow0(combined_operations_m_b_overflow[0][0]),
+  .controller_m_b_btint_a1(combined_operations_m_b_btint_a[0][1]),
+  .controller_m_b_btint_b1(combined_operations_m_b_btint_b[0][1]),
+  .controller_m_b_overflow1(combined_operations_m_b_overflow[0][1]),
+  .controller_m_b_btint_a2(combined_operations_m_b_btint_a[0][2]),
+  .controller_m_b_btint_b2(combined_operations_m_b_btint_b[0][2]),
+  .controller_m_b_overflow2(combined_operations_m_b_overflow[0][2]),
+  .controller_m_b_btint_a3(combined_operations_m_b_btint_a[0][3]),
+  .controller_m_b_btint_b3(combined_operations_m_b_btint_b[0][3]),
+  .controller_m_b_overflow3(combined_operations_m_b_overflow[0][3]),
+  .controller_m_b_btint_a4(combined_operations_m_b_btint_a[1][0]),
+  .controller_m_b_btint_b4(combined_operations_m_b_btint_b[1][0]),
+  .controller_m_b_overflow4(combined_operations_m_b_overflow[1][0]),
+  .controller_m_b_btint_a5(combined_operations_m_b_btint_a[1][1]),
+  .controller_m_b_btint_b5(combined_operations_m_b_btint_b[1][1]),
+  .controller_m_b_overflow5(combined_operations_m_b_overflow[1][1]),
+  .controller_m_b_btint_a6(combined_operations_m_b_btint_a[1][2]),
+  .controller_m_b_btint_b6(combined_operations_m_b_btint_b[1][2]),
+  .controller_m_b_overflow6(combined_operations_m_b_overflow[1][2]),
+  .controller_m_b_btint_a7(combined_operations_m_b_btint_a[1][3]),
+  .controller_m_b_btint_b7(combined_operations_m_b_btint_b[1][3]),
+  .controller_m_b_overflow7(combined_operations_m_b_overflow[1][3]),
+  .controller_m_b_btint_a8(combined_operations_m_b_btint_a[2][0]),
+  .controller_m_b_btint_b8(combined_operations_m_b_btint_b[2][0]),
+  .controller_m_b_overflow8(combined_operations_m_b_overflow[2][0]),
+  .controller_m_b_btint_a9(combined_operations_m_b_btint_a[2][1]),
+  .controller_m_b_btint_b9(combined_operations_m_b_btint_b[2][1]),
+  .controller_m_b_overflow9(combined_operations_m_b_overflow[2][1]),
+  .controller_m_b_btint_a10(combined_operations_m_b_btint_a[2][2]),
+  .controller_m_b_btint_b10(combined_operations_m_b_btint_b[2][2]),
+  .controller_m_b_overflow10(combined_operations_m_b_overflow[2][2]),
+  .controller_m_b_btint_a11(combined_operations_m_b_btint_a[2][3]),
+  .controller_m_b_btint_b11(combined_operations_m_b_btint_b[2][3]),
+  .controller_m_b_overflow11(combined_operations_m_b_overflow[2][3]),
   .controller_v_btint_a(combined_operations_v_btint_a),
   .controller_v_btint_b(combined_operations_v_btint_b),
   .controller_v_overflow(combined_operations_v_overflow),
   .controller_op(combined_operations_op),
-  .controller_a_out_btint_a(cell_a_out_btint_a),
-  .controller_a_out_btint_b(cell_a_out_btint_b),
-  .controller_a_out_overflow(cell_a_out_overflow),
-  .controller_c_out_u_btint_a(cell_c_out_u_btint_a),
-  .controller_c_out_u_btint_b(cell_c_out_u_btint_b),
-  .controller_c_out_u_overflow(cell_c_out_u_overflow),
-  .controller_c_out_d_btint_a(cell_c_out_d_btint_a),
-  .controller_c_out_d_btint_b(cell_c_out_d_btint_b),
-  .controller_c_out_d_overflow(cell_c_out_d_overflow),
-  .controller_s_out(cell_s_out),
-  .controller_a_in_btint_a(cell_a_in_btint_a),
-  .controller_a_in_btint_b(cell_a_in_btint_b),
-  .controller_a_in_overflow(cell_a_in_overflow),
-  .controller_c_in_u_btint_a(cell_c_in_u_btint_a),
-  .controller_c_in_u_btint_b(cell_c_in_u_btint_b),
-  .controller_c_in_u_overflow(cell_c_in_u_overflow),
-  .controller_c_in_d_btint_a(cell_c_in_d_btint_a),
-  .controller_c_in_d_btint_b(cell_c_in_d_btint_b),
-  .controller_c_in_d_overflow(cell_c_in_d_overflow),
-  .controller_s_in(cell_s_in),
+  .controller_a_out_btint_a0(cell_a_out_btint_a[0][0]),
+  .controller_a_out_btint_b0(cell_a_out_btint_b[0][0]),
+  .controller_a_out_overflow0(cell_a_out_overflow[0][0]),
+  .controller_a_out_btint_a1(cell_a_out_btint_a[0][1]),
+  .controller_a_out_btint_b1(cell_a_out_btint_b[0][1]),
+  .controller_a_out_overflow1(cell_a_out_overflow[0][1]),
+  .controller_a_out_btint_a2(cell_a_out_btint_a[0][2]),
+  .controller_a_out_btint_b2(cell_a_out_btint_b[0][2]),
+  .controller_a_out_overflow2(cell_a_out_overflow[0][2]),
+  .controller_a_out_btint_a3(cell_a_out_btint_a[1][0]),
+  .controller_a_out_btint_b3(cell_a_out_btint_b[1][0]),
+  .controller_a_out_overflow3(cell_a_out_overflow[1][0]),
+  .controller_a_out_btint_a4(cell_a_out_btint_a[1][1]),
+  .controller_a_out_btint_b4(cell_a_out_btint_b[1][1]),
+  .controller_a_out_overflow4(cell_a_out_overflow[1][1]),
+  .controller_a_out_btint_a5(cell_a_out_btint_a[1][2]),
+  .controller_a_out_btint_b5(cell_a_out_btint_b[1][2]),
+  .controller_a_out_overflow5(cell_a_out_overflow[1][2]),
+  .controller_a_out_btint_a6(cell_a_out_btint_a[2][0]),
+  .controller_a_out_btint_b6(cell_a_out_btint_b[2][0]),
+  .controller_a_out_overflow6(cell_a_out_overflow[2][0]),
+  .controller_a_out_btint_a7(cell_a_out_btint_a[2][1]),
+  .controller_a_out_btint_b7(cell_a_out_btint_b[2][1]),
+  .controller_a_out_overflow7(cell_a_out_overflow[2][1]),
+  .controller_a_out_btint_a8(cell_a_out_btint_a[2][2]),
+  .controller_a_out_btint_b8(cell_a_out_btint_b[2][2]),
+  .controller_a_out_overflow8(cell_a_out_overflow[2][2]),
+  .controller_a_out_btint_a9(cell_a_out_btint_a[3][0]),
+  .controller_a_out_btint_b9(cell_a_out_btint_b[3][0]),
+  .controller_a_out_overflow9(cell_a_out_overflow[3][0]),
+  .controller_a_out_btint_a10(cell_a_out_btint_a[3][1]),
+  .controller_a_out_btint_b10(cell_a_out_btint_b[3][1]),
+  .controller_a_out_overflow10(cell_a_out_overflow[3][1]),
+  .controller_a_out_btint_a11(cell_a_out_btint_a[3][2]),
+  .controller_a_out_btint_b11(cell_a_out_btint_b[3][2]),
+  .controller_a_out_overflow11(cell_a_out_overflow[3][2]),
+  .controller_c_out_u_btint_a0(cell_c_out_u_btint_a[0][0]),
+  .controller_c_out_u_btint_b0(cell_c_out_u_btint_b[0][0]),
+  .controller_c_out_u_overflow0(cell_c_out_u_overflow[0][0]),
+  .controller_c_out_u_btint_a1(cell_c_out_u_btint_a[0][1]),
+  .controller_c_out_u_btint_b1(cell_c_out_u_btint_b[0][1]),
+  .controller_c_out_u_overflow1(cell_c_out_u_overflow[0][1]),
+  .controller_c_out_u_btint_a2(cell_c_out_u_btint_a[0][2]),
+  .controller_c_out_u_btint_b2(cell_c_out_u_btint_b[0][2]),
+  .controller_c_out_u_overflow2(cell_c_out_u_overflow[0][2]),
+  .controller_c_out_u_btint_a3(cell_c_out_u_btint_a[1][0]),
+  .controller_c_out_u_btint_b3(cell_c_out_u_btint_b[1][0]),
+  .controller_c_out_u_overflow3(cell_c_out_u_overflow[1][0]),
+  .controller_c_out_u_btint_a4(cell_c_out_u_btint_a[1][1]),
+  .controller_c_out_u_btint_b4(cell_c_out_u_btint_b[1][1]),
+  .controller_c_out_u_overflow4(cell_c_out_u_overflow[1][1]),
+  .controller_c_out_u_btint_a5(cell_c_out_u_btint_a[1][2]),
+  .controller_c_out_u_btint_b5(cell_c_out_u_btint_b[1][2]),
+  .controller_c_out_u_overflow5(cell_c_out_u_overflow[1][2]),
+  .controller_c_out_u_btint_a6(cell_c_out_u_btint_a[2][0]),
+  .controller_c_out_u_btint_b6(cell_c_out_u_btint_b[2][0]),
+  .controller_c_out_u_overflow6(cell_c_out_u_overflow[2][0]),
+  .controller_c_out_u_btint_a7(cell_c_out_u_btint_a[2][1]),
+  .controller_c_out_u_btint_b7(cell_c_out_u_btint_b[2][1]),
+  .controller_c_out_u_overflow7(cell_c_out_u_overflow[2][1]),
+  .controller_c_out_u_btint_a8(cell_c_out_u_btint_a[2][2]),
+  .controller_c_out_u_btint_b8(cell_c_out_u_btint_b[2][2]),
+  .controller_c_out_u_overflow8(cell_c_out_u_overflow[2][2]),
+  .controller_c_out_u_btint_a9(cell_c_out_u_btint_a[3][0]),
+  .controller_c_out_u_btint_b9(cell_c_out_u_btint_b[3][0]),
+  .controller_c_out_u_overflow9(cell_c_out_u_overflow[3][0]),
+  .controller_c_out_u_btint_a10(cell_c_out_u_btint_a[3][1]),
+  .controller_c_out_u_btint_b10(cell_c_out_u_btint_b[3][1]),
+  .controller_c_out_u_overflow10(cell_c_out_u_overflow[3][1]),
+  .controller_c_out_u_btint_a11(cell_c_out_u_btint_a[3][2]),
+  .controller_c_out_u_btint_b11(cell_c_out_u_btint_b[3][2]),
+  .controller_c_out_u_overflow11(cell_c_out_u_overflow[3][2]),
+  .controller_c_out_d_btint_a0(cell_c_out_d_btint_a[0][0]),
+  .controller_c_out_d_btint_b0(cell_c_out_d_btint_b[0][0]),
+  .controller_c_out_d_overflow0(cell_c_out_d_overflow[0][0]),
+  .controller_c_out_d_btint_a1(cell_c_out_d_btint_a[0][1]),
+  .controller_c_out_d_btint_b1(cell_c_out_d_btint_b[0][1]),
+  .controller_c_out_d_overflow1(cell_c_out_d_overflow[0][1]),
+  .controller_c_out_d_btint_a2(cell_c_out_d_btint_a[0][2]),
+  .controller_c_out_d_btint_b2(cell_c_out_d_btint_b[0][2]),
+  .controller_c_out_d_overflow2(cell_c_out_d_overflow[0][2]),
+  .controller_c_out_d_btint_a3(cell_c_out_d_btint_a[1][0]),
+  .controller_c_out_d_btint_b3(cell_c_out_d_btint_b[1][0]),
+  .controller_c_out_d_overflow3(cell_c_out_d_overflow[1][0]),
+  .controller_c_out_d_btint_a4(cell_c_out_d_btint_a[1][1]),
+  .controller_c_out_d_btint_b4(cell_c_out_d_btint_b[1][1]),
+  .controller_c_out_d_overflow4(cell_c_out_d_overflow[1][1]),
+  .controller_c_out_d_btint_a5(cell_c_out_d_btint_a[1][2]),
+  .controller_c_out_d_btint_b5(cell_c_out_d_btint_b[1][2]),
+  .controller_c_out_d_overflow5(cell_c_out_d_overflow[1][2]),
+  .controller_c_out_d_btint_a6(cell_c_out_d_btint_a[2][0]),
+  .controller_c_out_d_btint_b6(cell_c_out_d_btint_b[2][0]),
+  .controller_c_out_d_overflow6(cell_c_out_d_overflow[2][0]),
+  .controller_c_out_d_btint_a7(cell_c_out_d_btint_a[2][1]),
+  .controller_c_out_d_btint_b7(cell_c_out_d_btint_b[2][1]),
+  .controller_c_out_d_overflow7(cell_c_out_d_overflow[2][1]),
+  .controller_c_out_d_btint_a8(cell_c_out_d_btint_a[2][2]),
+  .controller_c_out_d_btint_b8(cell_c_out_d_btint_b[2][2]),
+  .controller_c_out_d_overflow8(cell_c_out_d_overflow[2][2]),
+  .controller_c_out_d_btint_a9(cell_c_out_d_btint_a[3][0]),
+  .controller_c_out_d_btint_b9(cell_c_out_d_btint_b[3][0]),
+  .controller_c_out_d_overflow9(cell_c_out_d_overflow[3][0]),
+  .controller_c_out_d_btint_a10(cell_c_out_d_btint_a[3][1]),
+  .controller_c_out_d_btint_b10(cell_c_out_d_btint_b[3][1]),
+  .controller_c_out_d_overflow10(cell_c_out_d_overflow[3][1]),
+  .controller_c_out_d_btint_a11(cell_c_out_d_btint_a[3][2]),
+  .controller_c_out_d_btint_b11(cell_c_out_d_btint_b[3][2]),
+  .controller_c_out_d_overflow11(cell_c_out_d_overflow[3][2]),
+  .controller_s_out0(cell_s_out[0][0]),
+  .controller_s_out1(cell_s_out[0][1]),
+  .controller_s_out2(cell_s_out[0][2]),
+  .controller_s_out3(cell_s_out[1][0]),
+  .controller_s_out4(cell_s_out[1][1]),
+  .controller_s_out5(cell_s_out[1][2]),
+  .controller_s_out6(cell_s_out[2][0]),
+  .controller_s_out7(cell_s_out[2][1]),
+  .controller_s_out8(cell_s_out[2][2]),
+  .controller_s_out9(cell_s_out[3][0]),
+  .controller_s_out10(cell_s_out[3][1]),
+  .controller_s_out11(cell_s_out[3][2]),
+  .controller_a_in_btint_a0(cell_a_in_btint_a[0][0]),
+  .controller_a_in_btint_b0(cell_a_in_btint_b[0][0]),
+  .controller_a_in_overflow0(cell_a_in_overflow[0][0]),
+  .controller_a_in_btint_a1(cell_a_in_btint_a[0][1]),
+  .controller_a_in_btint_b1(cell_a_in_btint_b[0][1]),
+  .controller_a_in_overflow1(cell_a_in_overflow[0][1]),
+  .controller_a_in_btint_a2(cell_a_in_btint_a[0][2]),
+  .controller_a_in_btint_b2(cell_a_in_btint_b[0][2]),
+  .controller_a_in_overflow2(cell_a_in_overflow[0][2]),
+  .controller_a_in_btint_a3(cell_a_in_btint_a[1][0]),
+  .controller_a_in_btint_b3(cell_a_in_btint_b[1][0]),
+  .controller_a_in_overflow3(cell_a_in_overflow[1][0]),
+  .controller_a_in_btint_a4(cell_a_in_btint_a[1][1]),
+  .controller_a_in_btint_b4(cell_a_in_btint_b[1][1]),
+  .controller_a_in_overflow4(cell_a_in_overflow[1][1]),
+  .controller_a_in_btint_a5(cell_a_in_btint_a[1][2]),
+  .controller_a_in_btint_b5(cell_a_in_btint_b[1][2]),
+  .controller_a_in_overflow5(cell_a_in_overflow[1][2]),
+  .controller_a_in_btint_a6(cell_a_in_btint_a[2][0]),
+  .controller_a_in_btint_b6(cell_a_in_btint_b[2][0]),
+  .controller_a_in_overflow6(cell_a_in_overflow[2][0]),
+  .controller_a_in_btint_a7(cell_a_in_btint_a[2][1]),
+  .controller_a_in_btint_b7(cell_a_in_btint_b[2][1]),
+  .controller_a_in_overflow7(cell_a_in_overflow[2][1]),
+  .controller_a_in_btint_a8(cell_a_in_btint_a[2][2]),
+  .controller_a_in_btint_b8(cell_a_in_btint_b[2][2]),
+  .controller_a_in_overflow8(cell_a_in_overflow[2][2]),
+  .controller_a_in_btint_a9(cell_a_in_btint_a[3][0]),
+  .controller_a_in_btint_b9(cell_a_in_btint_b[3][0]),
+  .controller_a_in_overflow9(cell_a_in_overflow[3][0]),
+  .controller_a_in_btint_a10(cell_a_in_btint_a[3][1]),
+  .controller_a_in_btint_b10(cell_a_in_btint_b[3][1]),
+  .controller_a_in_overflow10(cell_a_in_overflow[3][1]),
+  .controller_a_in_btint_a11(cell_a_in_btint_a[3][2]),
+  .controller_a_in_btint_b11(cell_a_in_btint_b[3][2]),
+  .controller_a_in_overflow11(cell_a_in_overflow[3][2]),
+  .controller_c_in_u_btint_a0(cell_c_in_u_btint_a[0][0]),
+  .controller_c_in_u_btint_b0(cell_c_in_u_btint_b[0][0]),
+  .controller_c_in_u_overflow0(cell_c_in_u_overflow[0][0]),
+  .controller_c_in_u_btint_a1(cell_c_in_u_btint_a[0][1]),
+  .controller_c_in_u_btint_b1(cell_c_in_u_btint_b[0][1]),
+  .controller_c_in_u_overflow1(cell_c_in_u_overflow[0][1]),
+  .controller_c_in_u_btint_a2(cell_c_in_u_btint_a[0][2]),
+  .controller_c_in_u_btint_b2(cell_c_in_u_btint_b[0][2]),
+  .controller_c_in_u_overflow2(cell_c_in_u_overflow[0][2]),
+  .controller_c_in_u_btint_a3(cell_c_in_u_btint_a[1][0]),
+  .controller_c_in_u_btint_b3(cell_c_in_u_btint_b[1][0]),
+  .controller_c_in_u_overflow3(cell_c_in_u_overflow[1][0]),
+  .controller_c_in_u_btint_a4(cell_c_in_u_btint_a[1][1]),
+  .controller_c_in_u_btint_b4(cell_c_in_u_btint_b[1][1]),
+  .controller_c_in_u_overflow4(cell_c_in_u_overflow[1][1]),
+  .controller_c_in_u_btint_a5(cell_c_in_u_btint_a[1][2]),
+  .controller_c_in_u_btint_b5(cell_c_in_u_btint_b[1][2]),
+  .controller_c_in_u_overflow5(cell_c_in_u_overflow[1][2]),
+  .controller_c_in_u_btint_a6(cell_c_in_u_btint_a[2][0]),
+  .controller_c_in_u_btint_b6(cell_c_in_u_btint_b[2][0]),
+  .controller_c_in_u_overflow6(cell_c_in_u_overflow[2][0]),
+  .controller_c_in_u_btint_a7(cell_c_in_u_btint_a[2][1]),
+  .controller_c_in_u_btint_b7(cell_c_in_u_btint_b[2][1]),
+  .controller_c_in_u_overflow7(cell_c_in_u_overflow[2][1]),
+  .controller_c_in_u_btint_a8(cell_c_in_u_btint_a[2][2]),
+  .controller_c_in_u_btint_b8(cell_c_in_u_btint_b[2][2]),
+  .controller_c_in_u_overflow8(cell_c_in_u_overflow[2][2]),
+  .controller_c_in_u_btint_a9(cell_c_in_u_btint_a[3][0]),
+  .controller_c_in_u_btint_b9(cell_c_in_u_btint_b[3][0]),
+  .controller_c_in_u_overflow9(cell_c_in_u_overflow[3][0]),
+  .controller_c_in_u_btint_a10(cell_c_in_u_btint_a[3][1]),
+  .controller_c_in_u_btint_b10(cell_c_in_u_btint_b[3][1]),
+  .controller_c_in_u_overflow10(cell_c_in_u_overflow[3][1]),
+  .controller_c_in_u_btint_a11(cell_c_in_u_btint_a[3][2]),
+  .controller_c_in_u_btint_b11(cell_c_in_u_btint_b[3][2]),
+  .controller_c_in_u_overflow11(cell_c_in_u_overflow[3][2]),
+  .controller_c_in_d_btint_a0(cell_c_in_d_btint_a[0][0]),
+  .controller_c_in_d_btint_b0(cell_c_in_d_btint_b[0][0]),
+  .controller_c_in_d_overflow0(cell_c_in_d_overflow[0][0]),
+  .controller_c_in_d_btint_a1(cell_c_in_d_btint_a[0][1]),
+  .controller_c_in_d_btint_b1(cell_c_in_d_btint_b[0][1]),
+  .controller_c_in_d_overflow1(cell_c_in_d_overflow[0][1]),
+  .controller_c_in_d_btint_a2(cell_c_in_d_btint_a[0][2]),
+  .controller_c_in_d_btint_b2(cell_c_in_d_btint_b[0][2]),
+  .controller_c_in_d_overflow2(cell_c_in_d_overflow[0][2]),
+  .controller_c_in_d_btint_a3(cell_c_in_d_btint_a[1][0]),
+  .controller_c_in_d_btint_b3(cell_c_in_d_btint_b[1][0]),
+  .controller_c_in_d_overflow3(cell_c_in_d_overflow[1][0]),
+  .controller_c_in_d_btint_a4(cell_c_in_d_btint_a[1][1]),
+  .controller_c_in_d_btint_b4(cell_c_in_d_btint_b[1][1]),
+  .controller_c_in_d_overflow4(cell_c_in_d_overflow[1][1]),
+  .controller_c_in_d_btint_a5(cell_c_in_d_btint_a[1][2]),
+  .controller_c_in_d_btint_b5(cell_c_in_d_btint_b[1][2]),
+  .controller_c_in_d_overflow5(cell_c_in_d_overflow[1][2]),
+  .controller_c_in_d_btint_a6(cell_c_in_d_btint_a[2][0]),
+  .controller_c_in_d_btint_b6(cell_c_in_d_btint_b[2][0]),
+  .controller_c_in_d_overflow6(cell_c_in_d_overflow[2][0]),
+  .controller_c_in_d_btint_a7(cell_c_in_d_btint_a[2][1]),
+  .controller_c_in_d_btint_b7(cell_c_in_d_btint_b[2][1]),
+  .controller_c_in_d_overflow7(cell_c_in_d_overflow[2][1]),
+  .controller_c_in_d_btint_a8(cell_c_in_d_btint_a[2][2]),
+  .controller_c_in_d_btint_b8(cell_c_in_d_btint_b[2][2]),
+  .controller_c_in_d_overflow8(cell_c_in_d_overflow[2][2]),
+  .controller_c_in_d_btint_a9(cell_c_in_d_btint_a[3][0]),
+  .controller_c_in_d_btint_b9(cell_c_in_d_btint_b[3][0]),
+  .controller_c_in_d_overflow9(cell_c_in_d_overflow[3][0]),
+  .controller_c_in_d_btint_a10(cell_c_in_d_btint_a[3][1]),
+  .controller_c_in_d_btint_b10(cell_c_in_d_btint_b[3][1]),
+  .controller_c_in_d_overflow10(cell_c_in_d_overflow[3][1]),
+  .controller_c_in_d_btint_a11(cell_c_in_d_btint_a[3][2]),
+  .controller_c_in_d_btint_b11(cell_c_in_d_btint_b[3][2]),
+  .controller_c_in_d_overflow11(cell_c_in_d_overflow[3][2]),
+  .controller_s_in0(cell_s_in[0][0]),
+  .controller_s_in1(cell_s_in[0][1]),
+  .controller_s_in2(cell_s_in[0][2]),
+  .controller_s_in3(cell_s_in[1][0]),
+  .controller_s_in4(cell_s_in[1][1]),
+  .controller_s_in5(cell_s_in[1][2]),
+  .controller_s_in6(cell_s_in[2][0]),
+  .controller_s_in7(cell_s_in[2][1]),
+  .controller_s_in8(cell_s_in[2][2]),
+  .controller_s_in9(cell_s_in[3][0]),
+  .controller_s_in10(cell_s_in[3][1]),
+  .controller_s_in11(cell_s_in[3][2]),
   .controller_s_mm(cell_s_mm),
   .controller_done(combined_operations_done),
-  .controller_result_u_btint_a(combined_operations_result_u_btint_a),
-  .controller_result_u_btint_b(combined_operations_result_u_btint_b),
-  .controller_result_u_overflow(combined_operations_result_u_overflow),
-  .controller_result_d_btint_a(combined_operations_result_d_btint_a),
-  .controller_result_d_btint_b(combined_operations_result_d_btint_b),
-  .controller_result_d_overflow(combined_operations_result_d_overflow)
+  .controller_result_u_btint_a0(combined_operations_result_u_btint_a[0][0]),
+  .controller_result_u_btint_b0(combined_operations_result_u_btint_b[0][0]),
+  .controller_result_u_overflow0(combined_operations_result_u_overflow[0][0]),
+  .controller_result_u_btint_a1(combined_operations_result_u_btint_a[0][1]),
+  .controller_result_u_btint_b1(combined_operations_result_u_btint_b[0][1]),
+  .controller_result_u_overflow1(combined_operations_result_u_overflow[0][1]),
+  .controller_result_u_btint_a2(combined_operations_result_u_btint_a[0][2]),
+  .controller_result_u_btint_b2(combined_operations_result_u_btint_b[0][2]),
+  .controller_result_u_overflow2(combined_operations_result_u_overflow[0][2]),
+  .controller_result_u_btint_a3(combined_operations_result_u_btint_a[0][3]),
+  .controller_result_u_btint_b3(combined_operations_result_u_btint_b[0][3]),
+  .controller_result_u_overflow3(combined_operations_result_u_overflow[0][3]),
+  .controller_result_u_btint_a4(combined_operations_result_u_btint_a[1][0]),
+  .controller_result_u_btint_b4(combined_operations_result_u_btint_b[1][0]),
+  .controller_result_u_overflow4(combined_operations_result_u_overflow[1][0]),
+  .controller_result_u_btint_a5(combined_operations_result_u_btint_a[1][1]),
+  .controller_result_u_btint_b5(combined_operations_result_u_btint_b[1][1]),
+  .controller_result_u_overflow5(combined_operations_result_u_overflow[1][1]),
+  .controller_result_u_btint_a6(combined_operations_result_u_btint_a[1][2]),
+  .controller_result_u_btint_b6(combined_operations_result_u_btint_b[1][2]),
+  .controller_result_u_overflow6(combined_operations_result_u_overflow[1][2]),
+  .controller_result_u_btint_a7(combined_operations_result_u_btint_a[1][3]),
+  .controller_result_u_btint_b7(combined_operations_result_u_btint_b[1][3]),
+  .controller_result_u_overflow7(combined_operations_result_u_overflow[1][3]),
+  .controller_result_u_btint_a8(combined_operations_result_u_btint_a[2][0]),
+  .controller_result_u_btint_b8(combined_operations_result_u_btint_b[2][0]),
+  .controller_result_u_overflow8(combined_operations_result_u_overflow[2][0]),
+  .controller_result_u_btint_a9(combined_operations_result_u_btint_a[2][1]),
+  .controller_result_u_btint_b9(combined_operations_result_u_btint_b[2][1]),
+  .controller_result_u_overflow9(combined_operations_result_u_overflow[2][1]),
+  .controller_result_u_btint_a10(combined_operations_result_u_btint_a[2][2]),
+  .controller_result_u_btint_b10(combined_operations_result_u_btint_b[2][2]),
+  .controller_result_u_overflow10(combined_operations_result_u_overflow[2][2]),
+  .controller_result_u_btint_a11(combined_operations_result_u_btint_a[2][3]),
+  .controller_result_u_btint_b11(combined_operations_result_u_btint_b[2][3]),
+  .controller_result_u_overflow11(combined_operations_result_u_overflow[2][3]),
+  .controller_result_u_btint_a12(combined_operations_result_u_btint_a[3][0]),
+  .controller_result_u_btint_b12(combined_operations_result_u_btint_b[3][0]),
+  .controller_result_u_overflow12(combined_operations_result_u_overflow[3][0]),
+  .controller_result_u_btint_a13(combined_operations_result_u_btint_a[3][1]),
+  .controller_result_u_btint_b13(combined_operations_result_u_btint_b[3][1]),
+  .controller_result_u_overflow13(combined_operations_result_u_overflow[3][1]),
+  .controller_result_u_btint_a14(combined_operations_result_u_btint_a[3][2]),
+  .controller_result_u_btint_b14(combined_operations_result_u_btint_b[3][2]),
+  .controller_result_u_overflow14(combined_operations_result_u_overflow[3][2]),
+  .controller_result_u_btint_a15(combined_operations_result_u_btint_a[3][3]),
+  .controller_result_u_btint_b15(combined_operations_result_u_btint_b[3][3]),
+  .controller_result_u_overflow15(combined_operations_result_u_overflow[3][3]),
+  .controller_result_d_btint_a0(combined_operations_result_d_btint_a[0][0]),
+  .controller_result_d_btint_b0(combined_operations_result_d_btint_b[0][0]),
+  .controller_result_d_overflow0(combined_operations_result_d_overflow[0][0]),
+  .controller_result_d_btint_a1(combined_operations_result_d_btint_a[0][1]),
+  .controller_result_d_btint_b1(combined_operations_result_d_btint_b[0][1]),
+  .controller_result_d_overflow1(combined_operations_result_d_overflow[0][1]),
+  .controller_result_d_btint_a2(combined_operations_result_d_btint_a[0][2]),
+  .controller_result_d_btint_b2(combined_operations_result_d_btint_b[0][2]),
+  .controller_result_d_overflow2(combined_operations_result_d_overflow[0][2]),
+  .controller_result_d_btint_a3(combined_operations_result_d_btint_a[0][3]),
+  .controller_result_d_btint_b3(combined_operations_result_d_btint_b[0][3]),
+  .controller_result_d_overflow3(combined_operations_result_d_overflow[0][3]),
+  .controller_result_d_btint_a4(combined_operations_result_d_btint_a[1][0]),
+  .controller_result_d_btint_b4(combined_operations_result_d_btint_b[1][0]),
+  .controller_result_d_overflow4(combined_operations_result_d_overflow[1][0]),
+  .controller_result_d_btint_a5(combined_operations_result_d_btint_a[1][1]),
+  .controller_result_d_btint_b5(combined_operations_result_d_btint_b[1][1]),
+  .controller_result_d_overflow5(combined_operations_result_d_overflow[1][1]),
+  .controller_result_d_btint_a6(combined_operations_result_d_btint_a[1][2]),
+  .controller_result_d_btint_b6(combined_operations_result_d_btint_b[1][2]),
+  .controller_result_d_overflow6(combined_operations_result_d_overflow[1][2]),
+  .controller_result_d_btint_a7(combined_operations_result_d_btint_a[1][3]),
+  .controller_result_d_btint_b7(combined_operations_result_d_btint_b[1][3]),
+  .controller_result_d_overflow7(combined_operations_result_d_overflow[1][3]),
+  .controller_result_d_btint_a8(combined_operations_result_d_btint_a[2][0]),
+  .controller_result_d_btint_b8(combined_operations_result_d_btint_b[2][0]),
+  .controller_result_d_overflow8(combined_operations_result_d_overflow[2][0]),
+  .controller_result_d_btint_a9(combined_operations_result_d_btint_a[2][1]),
+  .controller_result_d_btint_b9(combined_operations_result_d_btint_b[2][1]),
+  .controller_result_d_overflow9(combined_operations_result_d_overflow[2][1]),
+  .controller_result_d_btint_a10(combined_operations_result_d_btint_a[2][2]),
+  .controller_result_d_btint_b10(combined_operations_result_d_btint_b[2][2]),
+  .controller_result_d_overflow10(combined_operations_result_d_overflow[2][2]),
+  .controller_result_d_btint_a11(combined_operations_result_d_btint_a[2][3]),
+  .controller_result_d_btint_b11(combined_operations_result_d_btint_b[2][3]),
+  .controller_result_d_overflow11(combined_operations_result_d_overflow[2][3]),
+  .controller_result_d_btint_a12(combined_operations_result_d_btint_a[3][0]),
+  .controller_result_d_btint_b12(combined_operations_result_d_btint_b[3][0]),
+  .controller_result_d_overflow12(combined_operations_result_d_overflow[3][0]),
+  .controller_result_d_btint_a13(combined_operations_result_d_btint_a[3][1]),
+  .controller_result_d_btint_b13(combined_operations_result_d_btint_b[3][1]),
+  .controller_result_d_overflow13(combined_operations_result_d_overflow[3][1]),
+  .controller_result_d_btint_a14(combined_operations_result_d_btint_a[3][2]),
+  .controller_result_d_btint_b14(combined_operations_result_d_btint_b[3][2]),
+  .controller_result_d_overflow14(combined_operations_result_d_overflow[3][2]),
+  .controller_result_d_btint_a15(combined_operations_result_d_btint_a[3][3]),
+  .controller_result_d_btint_b15(combined_operations_result_d_btint_b[3][3]),
+  .controller_result_d_overflow15(combined_operations_result_d_overflow[3][3])
 );
 
 endmodule
@@ -4937,45 +5313,865 @@ module CONTROLLER // "system.combined_operations.controller"
 (
     input logic controller_clock,
     input logic controller_reset,
-    input logic [7:0] controller_m_a_btint_a[4][3],
-    input logic [7:0] controller_m_a_btint_b[4][3],
-    input logic [1:0] controller_m_a_overflow[4][3],
-    input logic [7:0] controller_m_b_btint_a[3][4],
-    input logic [7:0] controller_m_b_btint_b[3][4],
-    input logic [1:0] controller_m_b_overflow[3][4],
+    input logic [7:0] controller_m_a_btint_a0,
+    input logic [7:0] controller_m_a_btint_b0,
+    input logic [1:0] controller_m_a_overflow0,
+    input logic [7:0] controller_m_a_btint_a1,
+    input logic [7:0] controller_m_a_btint_b1,
+    input logic [1:0] controller_m_a_overflow1,
+    input logic [7:0] controller_m_a_btint_a2,
+    input logic [7:0] controller_m_a_btint_b2,
+    input logic [1:0] controller_m_a_overflow2,
+    input logic [7:0] controller_m_a_btint_a3,
+    input logic [7:0] controller_m_a_btint_b3,
+    input logic [1:0] controller_m_a_overflow3,
+    input logic [7:0] controller_m_a_btint_a4,
+    input logic [7:0] controller_m_a_btint_b4,
+    input logic [1:0] controller_m_a_overflow4,
+    input logic [7:0] controller_m_a_btint_a5,
+    input logic [7:0] controller_m_a_btint_b5,
+    input logic [1:0] controller_m_a_overflow5,
+    input logic [7:0] controller_m_a_btint_a6,
+    input logic [7:0] controller_m_a_btint_b6,
+    input logic [1:0] controller_m_a_overflow6,
+    input logic [7:0] controller_m_a_btint_a7,
+    input logic [7:0] controller_m_a_btint_b7,
+    input logic [1:0] controller_m_a_overflow7,
+    input logic [7:0] controller_m_a_btint_a8,
+    input logic [7:0] controller_m_a_btint_b8,
+    input logic [1:0] controller_m_a_overflow8,
+    input logic [7:0] controller_m_a_btint_a9,
+    input logic [7:0] controller_m_a_btint_b9,
+    input logic [1:0] controller_m_a_overflow9,
+    input logic [7:0] controller_m_a_btint_a10,
+    input logic [7:0] controller_m_a_btint_b10,
+    input logic [1:0] controller_m_a_overflow10,
+    input logic [7:0] controller_m_a_btint_a11,
+    input logic [7:0] controller_m_a_btint_b11,
+    input logic [1:0] controller_m_a_overflow11,
+    input logic [7:0] controller_m_b_btint_a0,
+    input logic [7:0] controller_m_b_btint_b0,
+    input logic [1:0] controller_m_b_overflow0,
+    input logic [7:0] controller_m_b_btint_a1,
+    input logic [7:0] controller_m_b_btint_b1,
+    input logic [1:0] controller_m_b_overflow1,
+    input logic [7:0] controller_m_b_btint_a2,
+    input logic [7:0] controller_m_b_btint_b2,
+    input logic [1:0] controller_m_b_overflow2,
+    input logic [7:0] controller_m_b_btint_a3,
+    input logic [7:0] controller_m_b_btint_b3,
+    input logic [1:0] controller_m_b_overflow3,
+    input logic [7:0] controller_m_b_btint_a4,
+    input logic [7:0] controller_m_b_btint_b4,
+    input logic [1:0] controller_m_b_overflow4,
+    input logic [7:0] controller_m_b_btint_a5,
+    input logic [7:0] controller_m_b_btint_b5,
+    input logic [1:0] controller_m_b_overflow5,
+    input logic [7:0] controller_m_b_btint_a6,
+    input logic [7:0] controller_m_b_btint_b6,
+    input logic [1:0] controller_m_b_overflow6,
+    input logic [7:0] controller_m_b_btint_a7,
+    input logic [7:0] controller_m_b_btint_b7,
+    input logic [1:0] controller_m_b_overflow7,
+    input logic [7:0] controller_m_b_btint_a8,
+    input logic [7:0] controller_m_b_btint_b8,
+    input logic [1:0] controller_m_b_overflow8,
+    input logic [7:0] controller_m_b_btint_a9,
+    input logic [7:0] controller_m_b_btint_b9,
+    input logic [1:0] controller_m_b_overflow9,
+    input logic [7:0] controller_m_b_btint_a10,
+    input logic [7:0] controller_m_b_btint_b10,
+    input logic [1:0] controller_m_b_overflow10,
+    input logic [7:0] controller_m_b_btint_a11,
+    input logic [7:0] controller_m_b_btint_b11,
+    input logic [1:0] controller_m_b_overflow11,
     input logic [7:0] controller_v_btint_a[3],
     input logic [7:0] controller_v_btint_b[3],
     input logic [1:0] controller_v_overflow[3],
     input logic [1:0] controller_op,
-    input logic [7:0] controller_a_out_btint_a[4][3],
-    input logic [7:0] controller_a_out_btint_b[4][3],
-    input logic [1:0] controller_a_out_overflow[4][3],
-    input logic [7:0] controller_c_out_u_btint_a[4][3],
-    input logic [7:0] controller_c_out_u_btint_b[4][3],
-    input logic [1:0] controller_c_out_u_overflow[4][3],
-    input logic [7:0] controller_c_out_d_btint_a[4][3],
-    input logic [7:0] controller_c_out_d_btint_b[4][3],
-    input logic [1:0] controller_c_out_d_overflow[4][3],
-    input logic controller_s_out[4][3],
-    output logic [7:0] controller_a_in_btint_a[4][3],
-    output logic [7:0] controller_a_in_btint_b[4][3],
-    output logic [1:0] controller_a_in_overflow[4][3],
-    output logic [7:0] controller_c_in_u_btint_a[4][3],
-    output logic [7:0] controller_c_in_u_btint_b[4][3],
-    output logic [1:0] controller_c_in_u_overflow[4][3],
-    output logic [7:0] controller_c_in_d_btint_a[4][3],
-    output logic [7:0] controller_c_in_d_btint_b[4][3],
-    output logic [1:0] controller_c_in_d_overflow[4][3],
-    output logic controller_s_in[4][3],
+    input logic [7:0] controller_a_out_btint_a0,
+    input logic [7:0] controller_a_out_btint_b0,
+    input logic [1:0] controller_a_out_overflow0,
+    input logic [7:0] controller_a_out_btint_a1,
+    input logic [7:0] controller_a_out_btint_b1,
+    input logic [1:0] controller_a_out_overflow1,
+    input logic [7:0] controller_a_out_btint_a2,
+    input logic [7:0] controller_a_out_btint_b2,
+    input logic [1:0] controller_a_out_overflow2,
+    input logic [7:0] controller_a_out_btint_a3,
+    input logic [7:0] controller_a_out_btint_b3,
+    input logic [1:0] controller_a_out_overflow3,
+    input logic [7:0] controller_a_out_btint_a4,
+    input logic [7:0] controller_a_out_btint_b4,
+    input logic [1:0] controller_a_out_overflow4,
+    input logic [7:0] controller_a_out_btint_a5,
+    input logic [7:0] controller_a_out_btint_b5,
+    input logic [1:0] controller_a_out_overflow5,
+    input logic [7:0] controller_a_out_btint_a6,
+    input logic [7:0] controller_a_out_btint_b6,
+    input logic [1:0] controller_a_out_overflow6,
+    input logic [7:0] controller_a_out_btint_a7,
+    input logic [7:0] controller_a_out_btint_b7,
+    input logic [1:0] controller_a_out_overflow7,
+    input logic [7:0] controller_a_out_btint_a8,
+    input logic [7:0] controller_a_out_btint_b8,
+    input logic [1:0] controller_a_out_overflow8,
+    input logic [7:0] controller_a_out_btint_a9,
+    input logic [7:0] controller_a_out_btint_b9,
+    input logic [1:0] controller_a_out_overflow9,
+    input logic [7:0] controller_a_out_btint_a10,
+    input logic [7:0] controller_a_out_btint_b10,
+    input logic [1:0] controller_a_out_overflow10,
+    input logic [7:0] controller_a_out_btint_a11,
+    input logic [7:0] controller_a_out_btint_b11,
+    input logic [1:0] controller_a_out_overflow11,
+    input logic [7:0] controller_c_out_u_btint_a0,
+    input logic [7:0] controller_c_out_u_btint_b0,
+    input logic [1:0] controller_c_out_u_overflow0,
+    input logic [7:0] controller_c_out_u_btint_a1,
+    input logic [7:0] controller_c_out_u_btint_b1,
+    input logic [1:0] controller_c_out_u_overflow1,
+    input logic [7:0] controller_c_out_u_btint_a2,
+    input logic [7:0] controller_c_out_u_btint_b2,
+    input logic [1:0] controller_c_out_u_overflow2,
+    input logic [7:0] controller_c_out_u_btint_a3,
+    input logic [7:0] controller_c_out_u_btint_b3,
+    input logic [1:0] controller_c_out_u_overflow3,
+    input logic [7:0] controller_c_out_u_btint_a4,
+    input logic [7:0] controller_c_out_u_btint_b4,
+    input logic [1:0] controller_c_out_u_overflow4,
+    input logic [7:0] controller_c_out_u_btint_a5,
+    input logic [7:0] controller_c_out_u_btint_b5,
+    input logic [1:0] controller_c_out_u_overflow5,
+    input logic [7:0] controller_c_out_u_btint_a6,
+    input logic [7:0] controller_c_out_u_btint_b6,
+    input logic [1:0] controller_c_out_u_overflow6,
+    input logic [7:0] controller_c_out_u_btint_a7,
+    input logic [7:0] controller_c_out_u_btint_b7,
+    input logic [1:0] controller_c_out_u_overflow7,
+    input logic [7:0] controller_c_out_u_btint_a8,
+    input logic [7:0] controller_c_out_u_btint_b8,
+    input logic [1:0] controller_c_out_u_overflow8,
+    input logic [7:0] controller_c_out_u_btint_a9,
+    input logic [7:0] controller_c_out_u_btint_b9,
+    input logic [1:0] controller_c_out_u_overflow9,
+    input logic [7:0] controller_c_out_u_btint_a10,
+    input logic [7:0] controller_c_out_u_btint_b10,
+    input logic [1:0] controller_c_out_u_overflow10,
+    input logic [7:0] controller_c_out_u_btint_a11,
+    input logic [7:0] controller_c_out_u_btint_b11,
+    input logic [1:0] controller_c_out_u_overflow11,
+    input logic [7:0] controller_c_out_d_btint_a0,
+    input logic [7:0] controller_c_out_d_btint_b0,
+    input logic [1:0] controller_c_out_d_overflow0,
+    input logic [7:0] controller_c_out_d_btint_a1,
+    input logic [7:0] controller_c_out_d_btint_b1,
+    input logic [1:0] controller_c_out_d_overflow1,
+    input logic [7:0] controller_c_out_d_btint_a2,
+    input logic [7:0] controller_c_out_d_btint_b2,
+    input logic [1:0] controller_c_out_d_overflow2,
+    input logic [7:0] controller_c_out_d_btint_a3,
+    input logic [7:0] controller_c_out_d_btint_b3,
+    input logic [1:0] controller_c_out_d_overflow3,
+    input logic [7:0] controller_c_out_d_btint_a4,
+    input logic [7:0] controller_c_out_d_btint_b4,
+    input logic [1:0] controller_c_out_d_overflow4,
+    input logic [7:0] controller_c_out_d_btint_a5,
+    input logic [7:0] controller_c_out_d_btint_b5,
+    input logic [1:0] controller_c_out_d_overflow5,
+    input logic [7:0] controller_c_out_d_btint_a6,
+    input logic [7:0] controller_c_out_d_btint_b6,
+    input logic [1:0] controller_c_out_d_overflow6,
+    input logic [7:0] controller_c_out_d_btint_a7,
+    input logic [7:0] controller_c_out_d_btint_b7,
+    input logic [1:0] controller_c_out_d_overflow7,
+    input logic [7:0] controller_c_out_d_btint_a8,
+    input logic [7:0] controller_c_out_d_btint_b8,
+    input logic [1:0] controller_c_out_d_overflow8,
+    input logic [7:0] controller_c_out_d_btint_a9,
+    input logic [7:0] controller_c_out_d_btint_b9,
+    input logic [1:0] controller_c_out_d_overflow9,
+    input logic [7:0] controller_c_out_d_btint_a10,
+    input logic [7:0] controller_c_out_d_btint_b10,
+    input logic [1:0] controller_c_out_d_overflow10,
+    input logic [7:0] controller_c_out_d_btint_a11,
+    input logic [7:0] controller_c_out_d_btint_b11,
+    input logic [1:0] controller_c_out_d_overflow11,
+    input logic controller_s_out0,
+    input logic controller_s_out1,
+    input logic controller_s_out2,
+    input logic controller_s_out3,
+    input logic controller_s_out4,
+    input logic controller_s_out5,
+    input logic controller_s_out6,
+    input logic controller_s_out7,
+    input logic controller_s_out8,
+    input logic controller_s_out9,
+    input logic controller_s_out10,
+    input logic controller_s_out11,
+    output logic [7:0] controller_a_in_btint_a0,
+    output logic [7:0] controller_a_in_btint_b0,
+    output logic [1:0] controller_a_in_overflow0,
+    output logic [7:0] controller_a_in_btint_a1,
+    output logic [7:0] controller_a_in_btint_b1,
+    output logic [1:0] controller_a_in_overflow1,
+    output logic [7:0] controller_a_in_btint_a2,
+    output logic [7:0] controller_a_in_btint_b2,
+    output logic [1:0] controller_a_in_overflow2,
+    output logic [7:0] controller_a_in_btint_a3,
+    output logic [7:0] controller_a_in_btint_b3,
+    output logic [1:0] controller_a_in_overflow3,
+    output logic [7:0] controller_a_in_btint_a4,
+    output logic [7:0] controller_a_in_btint_b4,
+    output logic [1:0] controller_a_in_overflow4,
+    output logic [7:0] controller_a_in_btint_a5,
+    output logic [7:0] controller_a_in_btint_b5,
+    output logic [1:0] controller_a_in_overflow5,
+    output logic [7:0] controller_a_in_btint_a6,
+    output logic [7:0] controller_a_in_btint_b6,
+    output logic [1:0] controller_a_in_overflow6,
+    output logic [7:0] controller_a_in_btint_a7,
+    output logic [7:0] controller_a_in_btint_b7,
+    output logic [1:0] controller_a_in_overflow7,
+    output logic [7:0] controller_a_in_btint_a8,
+    output logic [7:0] controller_a_in_btint_b8,
+    output logic [1:0] controller_a_in_overflow8,
+    output logic [7:0] controller_a_in_btint_a9,
+    output logic [7:0] controller_a_in_btint_b9,
+    output logic [1:0] controller_a_in_overflow9,
+    output logic [7:0] controller_a_in_btint_a10,
+    output logic [7:0] controller_a_in_btint_b10,
+    output logic [1:0] controller_a_in_overflow10,
+    output logic [7:0] controller_a_in_btint_a11,
+    output logic [7:0] controller_a_in_btint_b11,
+    output logic [1:0] controller_a_in_overflow11,
+    output logic [7:0] controller_c_in_u_btint_a0,
+    output logic [7:0] controller_c_in_u_btint_b0,
+    output logic [1:0] controller_c_in_u_overflow0,
+    output logic [7:0] controller_c_in_u_btint_a1,
+    output logic [7:0] controller_c_in_u_btint_b1,
+    output logic [1:0] controller_c_in_u_overflow1,
+    output logic [7:0] controller_c_in_u_btint_a2,
+    output logic [7:0] controller_c_in_u_btint_b2,
+    output logic [1:0] controller_c_in_u_overflow2,
+    output logic [7:0] controller_c_in_u_btint_a3,
+    output logic [7:0] controller_c_in_u_btint_b3,
+    output logic [1:0] controller_c_in_u_overflow3,
+    output logic [7:0] controller_c_in_u_btint_a4,
+    output logic [7:0] controller_c_in_u_btint_b4,
+    output logic [1:0] controller_c_in_u_overflow4,
+    output logic [7:0] controller_c_in_u_btint_a5,
+    output logic [7:0] controller_c_in_u_btint_b5,
+    output logic [1:0] controller_c_in_u_overflow5,
+    output logic [7:0] controller_c_in_u_btint_a6,
+    output logic [7:0] controller_c_in_u_btint_b6,
+    output logic [1:0] controller_c_in_u_overflow6,
+    output logic [7:0] controller_c_in_u_btint_a7,
+    output logic [7:0] controller_c_in_u_btint_b7,
+    output logic [1:0] controller_c_in_u_overflow7,
+    output logic [7:0] controller_c_in_u_btint_a8,
+    output logic [7:0] controller_c_in_u_btint_b8,
+    output logic [1:0] controller_c_in_u_overflow8,
+    output logic [7:0] controller_c_in_u_btint_a9,
+    output logic [7:0] controller_c_in_u_btint_b9,
+    output logic [1:0] controller_c_in_u_overflow9,
+    output logic [7:0] controller_c_in_u_btint_a10,
+    output logic [7:0] controller_c_in_u_btint_b10,
+    output logic [1:0] controller_c_in_u_overflow10,
+    output logic [7:0] controller_c_in_u_btint_a11,
+    output logic [7:0] controller_c_in_u_btint_b11,
+    output logic [1:0] controller_c_in_u_overflow11,
+    output logic [7:0] controller_c_in_d_btint_a0,
+    output logic [7:0] controller_c_in_d_btint_b0,
+    output logic [1:0] controller_c_in_d_overflow0,
+    output logic [7:0] controller_c_in_d_btint_a1,
+    output logic [7:0] controller_c_in_d_btint_b1,
+    output logic [1:0] controller_c_in_d_overflow1,
+    output logic [7:0] controller_c_in_d_btint_a2,
+    output logic [7:0] controller_c_in_d_btint_b2,
+    output logic [1:0] controller_c_in_d_overflow2,
+    output logic [7:0] controller_c_in_d_btint_a3,
+    output logic [7:0] controller_c_in_d_btint_b3,
+    output logic [1:0] controller_c_in_d_overflow3,
+    output logic [7:0] controller_c_in_d_btint_a4,
+    output logic [7:0] controller_c_in_d_btint_b4,
+    output logic [1:0] controller_c_in_d_overflow4,
+    output logic [7:0] controller_c_in_d_btint_a5,
+    output logic [7:0] controller_c_in_d_btint_b5,
+    output logic [1:0] controller_c_in_d_overflow5,
+    output logic [7:0] controller_c_in_d_btint_a6,
+    output logic [7:0] controller_c_in_d_btint_b6,
+    output logic [1:0] controller_c_in_d_overflow6,
+    output logic [7:0] controller_c_in_d_btint_a7,
+    output logic [7:0] controller_c_in_d_btint_b7,
+    output logic [1:0] controller_c_in_d_overflow7,
+    output logic [7:0] controller_c_in_d_btint_a8,
+    output logic [7:0] controller_c_in_d_btint_b8,
+    output logic [1:0] controller_c_in_d_overflow8,
+    output logic [7:0] controller_c_in_d_btint_a9,
+    output logic [7:0] controller_c_in_d_btint_b9,
+    output logic [1:0] controller_c_in_d_overflow9,
+    output logic [7:0] controller_c_in_d_btint_a10,
+    output logic [7:0] controller_c_in_d_btint_b10,
+    output logic [1:0] controller_c_in_d_overflow10,
+    output logic [7:0] controller_c_in_d_btint_a11,
+    output logic [7:0] controller_c_in_d_btint_b11,
+    output logic [1:0] controller_c_in_d_overflow11,
+    output logic controller_s_in0,
+    output logic controller_s_in1,
+    output logic controller_s_in2,
+    output logic controller_s_in3,
+    output logic controller_s_in4,
+    output logic controller_s_in5,
+    output logic controller_s_in6,
+    output logic controller_s_in7,
+    output logic controller_s_in8,
+    output logic controller_s_in9,
+    output logic controller_s_in10,
+    output logic controller_s_in11,
     output logic controller_s_mm[4],
     output logic controller_done,
-    output logic [7:0] controller_result_u_btint_a[4][4],
-    output logic [7:0] controller_result_u_btint_b[4][4],
-    output logic [1:0] controller_result_u_overflow[4][4],
-    output logic [7:0] controller_result_d_btint_a[4][4],
-    output logic [7:0] controller_result_d_btint_b[4][4],
-    output logic [1:0] controller_result_d_overflow[4][4]
+    output logic [7:0] controller_result_u_btint_a0,
+    output logic [7:0] controller_result_u_btint_b0,
+    output logic [1:0] controller_result_u_overflow0,
+    output logic [7:0] controller_result_u_btint_a1,
+    output logic [7:0] controller_result_u_btint_b1,
+    output logic [1:0] controller_result_u_overflow1,
+    output logic [7:0] controller_result_u_btint_a2,
+    output logic [7:0] controller_result_u_btint_b2,
+    output logic [1:0] controller_result_u_overflow2,
+    output logic [7:0] controller_result_u_btint_a3,
+    output logic [7:0] controller_result_u_btint_b3,
+    output logic [1:0] controller_result_u_overflow3,
+    output logic [7:0] controller_result_u_btint_a4,
+    output logic [7:0] controller_result_u_btint_b4,
+    output logic [1:0] controller_result_u_overflow4,
+    output logic [7:0] controller_result_u_btint_a5,
+    output logic [7:0] controller_result_u_btint_b5,
+    output logic [1:0] controller_result_u_overflow5,
+    output logic [7:0] controller_result_u_btint_a6,
+    output logic [7:0] controller_result_u_btint_b6,
+    output logic [1:0] controller_result_u_overflow6,
+    output logic [7:0] controller_result_u_btint_a7,
+    output logic [7:0] controller_result_u_btint_b7,
+    output logic [1:0] controller_result_u_overflow7,
+    output logic [7:0] controller_result_u_btint_a8,
+    output logic [7:0] controller_result_u_btint_b8,
+    output logic [1:0] controller_result_u_overflow8,
+    output logic [7:0] controller_result_u_btint_a9,
+    output logic [7:0] controller_result_u_btint_b9,
+    output logic [1:0] controller_result_u_overflow9,
+    output logic [7:0] controller_result_u_btint_a10,
+    output logic [7:0] controller_result_u_btint_b10,
+    output logic [1:0] controller_result_u_overflow10,
+    output logic [7:0] controller_result_u_btint_a11,
+    output logic [7:0] controller_result_u_btint_b11,
+    output logic [1:0] controller_result_u_overflow11,
+    output logic [7:0] controller_result_u_btint_a12,
+    output logic [7:0] controller_result_u_btint_b12,
+    output logic [1:0] controller_result_u_overflow12,
+    output logic [7:0] controller_result_u_btint_a13,
+    output logic [7:0] controller_result_u_btint_b13,
+    output logic [1:0] controller_result_u_overflow13,
+    output logic [7:0] controller_result_u_btint_a14,
+    output logic [7:0] controller_result_u_btint_b14,
+    output logic [1:0] controller_result_u_overflow14,
+    output logic [7:0] controller_result_u_btint_a15,
+    output logic [7:0] controller_result_u_btint_b15,
+    output logic [1:0] controller_result_u_overflow15,
+    output logic [7:0] controller_result_d_btint_a0,
+    output logic [7:0] controller_result_d_btint_b0,
+    output logic [1:0] controller_result_d_overflow0,
+    output logic [7:0] controller_result_d_btint_a1,
+    output logic [7:0] controller_result_d_btint_b1,
+    output logic [1:0] controller_result_d_overflow1,
+    output logic [7:0] controller_result_d_btint_a2,
+    output logic [7:0] controller_result_d_btint_b2,
+    output logic [1:0] controller_result_d_overflow2,
+    output logic [7:0] controller_result_d_btint_a3,
+    output logic [7:0] controller_result_d_btint_b3,
+    output logic [1:0] controller_result_d_overflow3,
+    output logic [7:0] controller_result_d_btint_a4,
+    output logic [7:0] controller_result_d_btint_b4,
+    output logic [1:0] controller_result_d_overflow4,
+    output logic [7:0] controller_result_d_btint_a5,
+    output logic [7:0] controller_result_d_btint_b5,
+    output logic [1:0] controller_result_d_overflow5,
+    output logic [7:0] controller_result_d_btint_a6,
+    output logic [7:0] controller_result_d_btint_b6,
+    output logic [1:0] controller_result_d_overflow6,
+    output logic [7:0] controller_result_d_btint_a7,
+    output logic [7:0] controller_result_d_btint_b7,
+    output logic [1:0] controller_result_d_overflow7,
+    output logic [7:0] controller_result_d_btint_a8,
+    output logic [7:0] controller_result_d_btint_b8,
+    output logic [1:0] controller_result_d_overflow8,
+    output logic [7:0] controller_result_d_btint_a9,
+    output logic [7:0] controller_result_d_btint_b9,
+    output logic [1:0] controller_result_d_overflow9,
+    output logic [7:0] controller_result_d_btint_a10,
+    output logic [7:0] controller_result_d_btint_b10,
+    output logic [1:0] controller_result_d_overflow10,
+    output logic [7:0] controller_result_d_btint_a11,
+    output logic [7:0] controller_result_d_btint_b11,
+    output logic [1:0] controller_result_d_overflow11,
+    output logic [7:0] controller_result_d_btint_a12,
+    output logic [7:0] controller_result_d_btint_b12,
+    output logic [1:0] controller_result_d_overflow12,
+    output logic [7:0] controller_result_d_btint_a13,
+    output logic [7:0] controller_result_d_btint_b13,
+    output logic [1:0] controller_result_d_overflow13,
+    output logic [7:0] controller_result_d_btint_a14,
+    output logic [7:0] controller_result_d_btint_b14,
+    output logic [1:0] controller_result_d_overflow14,
+    output logic [7:0] controller_result_d_btint_a15,
+    output logic [7:0] controller_result_d_btint_b15,
+    output logic [1:0] controller_result_d_overflow15
 );
+
+// Variables generated for SystemC signals
+logic [7:0] controller_m_a_btint_a[12];
+logic [7:0] controller_m_a_btint_b[12];
+logic [1:0] controller_m_a_overflow[12];
+logic [7:0] controller_m_b_btint_a[12];
+logic [7:0] controller_m_b_btint_b[12];
+logic [1:0] controller_m_b_overflow[12];
+logic [7:0] controller_a_out_btint_a[12];
+logic [7:0] controller_a_out_btint_b[12];
+logic [1:0] controller_a_out_overflow[12];
+logic [7:0] controller_c_out_u_btint_a[12];
+logic [7:0] controller_c_out_u_btint_b[12];
+logic [1:0] controller_c_out_u_overflow[12];
+logic [7:0] controller_c_out_d_btint_a[12];
+logic [7:0] controller_c_out_d_btint_b[12];
+logic [1:0] controller_c_out_d_overflow[12];
+logic controller_s_out[12];
+logic [7:0] controller_a_in_btint_a[12];
+logic [7:0] controller_a_in_btint_b[12];
+logic [1:0] controller_a_in_overflow[12];
+logic [7:0] controller_c_in_u_btint_a[12];
+logic [7:0] controller_c_in_u_btint_b[12];
+logic [1:0] controller_c_in_u_overflow[12];
+logic [7:0] controller_c_in_d_btint_a[12];
+logic [7:0] controller_c_in_d_btint_b[12];
+logic [1:0] controller_c_in_d_overflow[12];
+logic controller_s_in[12];
+logic [7:0] controller_result_u_btint_a[16];
+logic [7:0] controller_result_u_btint_b[16];
+logic [1:0] controller_result_u_overflow[16];
+logic [7:0] controller_result_d_btint_a[16];
+logic [7:0] controller_result_d_btint_b[16];
+logic [1:0] controller_result_d_overflow[16];
+
+// Assignments generated for C++ channel arrays
+assign controller_m_a_btint_a[0] = controller_m_a_btint_a0;
+assign controller_m_a_btint_b[0] = controller_m_a_btint_b0;
+assign controller_m_a_overflow[0] = controller_m_a_overflow0;
+assign controller_m_a_btint_a[1] = controller_m_a_btint_a1;
+assign controller_m_a_btint_b[1] = controller_m_a_btint_b1;
+assign controller_m_a_overflow[1] = controller_m_a_overflow1;
+assign controller_m_a_btint_a[2] = controller_m_a_btint_a2;
+assign controller_m_a_btint_b[2] = controller_m_a_btint_b2;
+assign controller_m_a_overflow[2] = controller_m_a_overflow2;
+assign controller_m_a_btint_a[3] = controller_m_a_btint_a3;
+assign controller_m_a_btint_b[3] = controller_m_a_btint_b3;
+assign controller_m_a_overflow[3] = controller_m_a_overflow3;
+assign controller_m_a_btint_a[4] = controller_m_a_btint_a4;
+assign controller_m_a_btint_b[4] = controller_m_a_btint_b4;
+assign controller_m_a_overflow[4] = controller_m_a_overflow4;
+assign controller_m_a_btint_a[5] = controller_m_a_btint_a5;
+assign controller_m_a_btint_b[5] = controller_m_a_btint_b5;
+assign controller_m_a_overflow[5] = controller_m_a_overflow5;
+assign controller_m_a_btint_a[6] = controller_m_a_btint_a6;
+assign controller_m_a_btint_b[6] = controller_m_a_btint_b6;
+assign controller_m_a_overflow[6] = controller_m_a_overflow6;
+assign controller_m_a_btint_a[7] = controller_m_a_btint_a7;
+assign controller_m_a_btint_b[7] = controller_m_a_btint_b7;
+assign controller_m_a_overflow[7] = controller_m_a_overflow7;
+assign controller_m_a_btint_a[8] = controller_m_a_btint_a8;
+assign controller_m_a_btint_b[8] = controller_m_a_btint_b8;
+assign controller_m_a_overflow[8] = controller_m_a_overflow8;
+assign controller_m_a_btint_a[9] = controller_m_a_btint_a9;
+assign controller_m_a_btint_b[9] = controller_m_a_btint_b9;
+assign controller_m_a_overflow[9] = controller_m_a_overflow9;
+assign controller_m_a_btint_a[10] = controller_m_a_btint_a10;
+assign controller_m_a_btint_b[10] = controller_m_a_btint_b10;
+assign controller_m_a_overflow[10] = controller_m_a_overflow10;
+assign controller_m_a_btint_a[11] = controller_m_a_btint_a11;
+assign controller_m_a_btint_b[11] = controller_m_a_btint_b11;
+assign controller_m_a_overflow[11] = controller_m_a_overflow11;
+assign controller_m_b_btint_a[0] = controller_m_b_btint_a0;
+assign controller_m_b_btint_b[0] = controller_m_b_btint_b0;
+assign controller_m_b_overflow[0] = controller_m_b_overflow0;
+assign controller_m_b_btint_a[1] = controller_m_b_btint_a1;
+assign controller_m_b_btint_b[1] = controller_m_b_btint_b1;
+assign controller_m_b_overflow[1] = controller_m_b_overflow1;
+assign controller_m_b_btint_a[2] = controller_m_b_btint_a2;
+assign controller_m_b_btint_b[2] = controller_m_b_btint_b2;
+assign controller_m_b_overflow[2] = controller_m_b_overflow2;
+assign controller_m_b_btint_a[3] = controller_m_b_btint_a3;
+assign controller_m_b_btint_b[3] = controller_m_b_btint_b3;
+assign controller_m_b_overflow[3] = controller_m_b_overflow3;
+assign controller_m_b_btint_a[4] = controller_m_b_btint_a4;
+assign controller_m_b_btint_b[4] = controller_m_b_btint_b4;
+assign controller_m_b_overflow[4] = controller_m_b_overflow4;
+assign controller_m_b_btint_a[5] = controller_m_b_btint_a5;
+assign controller_m_b_btint_b[5] = controller_m_b_btint_b5;
+assign controller_m_b_overflow[5] = controller_m_b_overflow5;
+assign controller_m_b_btint_a[6] = controller_m_b_btint_a6;
+assign controller_m_b_btint_b[6] = controller_m_b_btint_b6;
+assign controller_m_b_overflow[6] = controller_m_b_overflow6;
+assign controller_m_b_btint_a[7] = controller_m_b_btint_a7;
+assign controller_m_b_btint_b[7] = controller_m_b_btint_b7;
+assign controller_m_b_overflow[7] = controller_m_b_overflow7;
+assign controller_m_b_btint_a[8] = controller_m_b_btint_a8;
+assign controller_m_b_btint_b[8] = controller_m_b_btint_b8;
+assign controller_m_b_overflow[8] = controller_m_b_overflow8;
+assign controller_m_b_btint_a[9] = controller_m_b_btint_a9;
+assign controller_m_b_btint_b[9] = controller_m_b_btint_b9;
+assign controller_m_b_overflow[9] = controller_m_b_overflow9;
+assign controller_m_b_btint_a[10] = controller_m_b_btint_a10;
+assign controller_m_b_btint_b[10] = controller_m_b_btint_b10;
+assign controller_m_b_overflow[10] = controller_m_b_overflow10;
+assign controller_m_b_btint_a[11] = controller_m_b_btint_a11;
+assign controller_m_b_btint_b[11] = controller_m_b_btint_b11;
+assign controller_m_b_overflow[11] = controller_m_b_overflow11;
+assign controller_a_out_btint_a[0] = controller_a_out_btint_a0;
+assign controller_a_out_btint_b[0] = controller_a_out_btint_b0;
+assign controller_a_out_overflow[0] = controller_a_out_overflow0;
+assign controller_a_out_btint_a[1] = controller_a_out_btint_a1;
+assign controller_a_out_btint_b[1] = controller_a_out_btint_b1;
+assign controller_a_out_overflow[1] = controller_a_out_overflow1;
+assign controller_a_out_btint_a[2] = controller_a_out_btint_a2;
+assign controller_a_out_btint_b[2] = controller_a_out_btint_b2;
+assign controller_a_out_overflow[2] = controller_a_out_overflow2;
+assign controller_a_out_btint_a[3] = controller_a_out_btint_a3;
+assign controller_a_out_btint_b[3] = controller_a_out_btint_b3;
+assign controller_a_out_overflow[3] = controller_a_out_overflow3;
+assign controller_a_out_btint_a[4] = controller_a_out_btint_a4;
+assign controller_a_out_btint_b[4] = controller_a_out_btint_b4;
+assign controller_a_out_overflow[4] = controller_a_out_overflow4;
+assign controller_a_out_btint_a[5] = controller_a_out_btint_a5;
+assign controller_a_out_btint_b[5] = controller_a_out_btint_b5;
+assign controller_a_out_overflow[5] = controller_a_out_overflow5;
+assign controller_a_out_btint_a[6] = controller_a_out_btint_a6;
+assign controller_a_out_btint_b[6] = controller_a_out_btint_b6;
+assign controller_a_out_overflow[6] = controller_a_out_overflow6;
+assign controller_a_out_btint_a[7] = controller_a_out_btint_a7;
+assign controller_a_out_btint_b[7] = controller_a_out_btint_b7;
+assign controller_a_out_overflow[7] = controller_a_out_overflow7;
+assign controller_a_out_btint_a[8] = controller_a_out_btint_a8;
+assign controller_a_out_btint_b[8] = controller_a_out_btint_b8;
+assign controller_a_out_overflow[8] = controller_a_out_overflow8;
+assign controller_a_out_btint_a[9] = controller_a_out_btint_a9;
+assign controller_a_out_btint_b[9] = controller_a_out_btint_b9;
+assign controller_a_out_overflow[9] = controller_a_out_overflow9;
+assign controller_a_out_btint_a[10] = controller_a_out_btint_a10;
+assign controller_a_out_btint_b[10] = controller_a_out_btint_b10;
+assign controller_a_out_overflow[10] = controller_a_out_overflow10;
+assign controller_a_out_btint_a[11] = controller_a_out_btint_a11;
+assign controller_a_out_btint_b[11] = controller_a_out_btint_b11;
+assign controller_a_out_overflow[11] = controller_a_out_overflow11;
+assign controller_c_out_u_btint_a[0] = controller_c_out_u_btint_a0;
+assign controller_c_out_u_btint_b[0] = controller_c_out_u_btint_b0;
+assign controller_c_out_u_overflow[0] = controller_c_out_u_overflow0;
+assign controller_c_out_u_btint_a[1] = controller_c_out_u_btint_a1;
+assign controller_c_out_u_btint_b[1] = controller_c_out_u_btint_b1;
+assign controller_c_out_u_overflow[1] = controller_c_out_u_overflow1;
+assign controller_c_out_u_btint_a[2] = controller_c_out_u_btint_a2;
+assign controller_c_out_u_btint_b[2] = controller_c_out_u_btint_b2;
+assign controller_c_out_u_overflow[2] = controller_c_out_u_overflow2;
+assign controller_c_out_u_btint_a[3] = controller_c_out_u_btint_a3;
+assign controller_c_out_u_btint_b[3] = controller_c_out_u_btint_b3;
+assign controller_c_out_u_overflow[3] = controller_c_out_u_overflow3;
+assign controller_c_out_u_btint_a[4] = controller_c_out_u_btint_a4;
+assign controller_c_out_u_btint_b[4] = controller_c_out_u_btint_b4;
+assign controller_c_out_u_overflow[4] = controller_c_out_u_overflow4;
+assign controller_c_out_u_btint_a[5] = controller_c_out_u_btint_a5;
+assign controller_c_out_u_btint_b[5] = controller_c_out_u_btint_b5;
+assign controller_c_out_u_overflow[5] = controller_c_out_u_overflow5;
+assign controller_c_out_u_btint_a[6] = controller_c_out_u_btint_a6;
+assign controller_c_out_u_btint_b[6] = controller_c_out_u_btint_b6;
+assign controller_c_out_u_overflow[6] = controller_c_out_u_overflow6;
+assign controller_c_out_u_btint_a[7] = controller_c_out_u_btint_a7;
+assign controller_c_out_u_btint_b[7] = controller_c_out_u_btint_b7;
+assign controller_c_out_u_overflow[7] = controller_c_out_u_overflow7;
+assign controller_c_out_u_btint_a[8] = controller_c_out_u_btint_a8;
+assign controller_c_out_u_btint_b[8] = controller_c_out_u_btint_b8;
+assign controller_c_out_u_overflow[8] = controller_c_out_u_overflow8;
+assign controller_c_out_u_btint_a[9] = controller_c_out_u_btint_a9;
+assign controller_c_out_u_btint_b[9] = controller_c_out_u_btint_b9;
+assign controller_c_out_u_overflow[9] = controller_c_out_u_overflow9;
+assign controller_c_out_u_btint_a[10] = controller_c_out_u_btint_a10;
+assign controller_c_out_u_btint_b[10] = controller_c_out_u_btint_b10;
+assign controller_c_out_u_overflow[10] = controller_c_out_u_overflow10;
+assign controller_c_out_u_btint_a[11] = controller_c_out_u_btint_a11;
+assign controller_c_out_u_btint_b[11] = controller_c_out_u_btint_b11;
+assign controller_c_out_u_overflow[11] = controller_c_out_u_overflow11;
+assign controller_c_out_d_btint_a[0] = controller_c_out_d_btint_a0;
+assign controller_c_out_d_btint_b[0] = controller_c_out_d_btint_b0;
+assign controller_c_out_d_overflow[0] = controller_c_out_d_overflow0;
+assign controller_c_out_d_btint_a[1] = controller_c_out_d_btint_a1;
+assign controller_c_out_d_btint_b[1] = controller_c_out_d_btint_b1;
+assign controller_c_out_d_overflow[1] = controller_c_out_d_overflow1;
+assign controller_c_out_d_btint_a[2] = controller_c_out_d_btint_a2;
+assign controller_c_out_d_btint_b[2] = controller_c_out_d_btint_b2;
+assign controller_c_out_d_overflow[2] = controller_c_out_d_overflow2;
+assign controller_c_out_d_btint_a[3] = controller_c_out_d_btint_a3;
+assign controller_c_out_d_btint_b[3] = controller_c_out_d_btint_b3;
+assign controller_c_out_d_overflow[3] = controller_c_out_d_overflow3;
+assign controller_c_out_d_btint_a[4] = controller_c_out_d_btint_a4;
+assign controller_c_out_d_btint_b[4] = controller_c_out_d_btint_b4;
+assign controller_c_out_d_overflow[4] = controller_c_out_d_overflow4;
+assign controller_c_out_d_btint_a[5] = controller_c_out_d_btint_a5;
+assign controller_c_out_d_btint_b[5] = controller_c_out_d_btint_b5;
+assign controller_c_out_d_overflow[5] = controller_c_out_d_overflow5;
+assign controller_c_out_d_btint_a[6] = controller_c_out_d_btint_a6;
+assign controller_c_out_d_btint_b[6] = controller_c_out_d_btint_b6;
+assign controller_c_out_d_overflow[6] = controller_c_out_d_overflow6;
+assign controller_c_out_d_btint_a[7] = controller_c_out_d_btint_a7;
+assign controller_c_out_d_btint_b[7] = controller_c_out_d_btint_b7;
+assign controller_c_out_d_overflow[7] = controller_c_out_d_overflow7;
+assign controller_c_out_d_btint_a[8] = controller_c_out_d_btint_a8;
+assign controller_c_out_d_btint_b[8] = controller_c_out_d_btint_b8;
+assign controller_c_out_d_overflow[8] = controller_c_out_d_overflow8;
+assign controller_c_out_d_btint_a[9] = controller_c_out_d_btint_a9;
+assign controller_c_out_d_btint_b[9] = controller_c_out_d_btint_b9;
+assign controller_c_out_d_overflow[9] = controller_c_out_d_overflow9;
+assign controller_c_out_d_btint_a[10] = controller_c_out_d_btint_a10;
+assign controller_c_out_d_btint_b[10] = controller_c_out_d_btint_b10;
+assign controller_c_out_d_overflow[10] = controller_c_out_d_overflow10;
+assign controller_c_out_d_btint_a[11] = controller_c_out_d_btint_a11;
+assign controller_c_out_d_btint_b[11] = controller_c_out_d_btint_b11;
+assign controller_c_out_d_overflow[11] = controller_c_out_d_overflow11;
+assign controller_s_out[0] = controller_s_out0;
+assign controller_s_out[1] = controller_s_out1;
+assign controller_s_out[2] = controller_s_out2;
+assign controller_s_out[3] = controller_s_out3;
+assign controller_s_out[4] = controller_s_out4;
+assign controller_s_out[5] = controller_s_out5;
+assign controller_s_out[6] = controller_s_out6;
+assign controller_s_out[7] = controller_s_out7;
+assign controller_s_out[8] = controller_s_out8;
+assign controller_s_out[9] = controller_s_out9;
+assign controller_s_out[10] = controller_s_out10;
+assign controller_s_out[11] = controller_s_out11;
+assign controller_a_in_btint_a0 = controller_a_in_btint_a[0];
+assign controller_a_in_btint_b0 = controller_a_in_btint_b[0];
+assign controller_a_in_overflow0 = controller_a_in_overflow[0];
+assign controller_a_in_btint_a1 = controller_a_in_btint_a[1];
+assign controller_a_in_btint_b1 = controller_a_in_btint_b[1];
+assign controller_a_in_overflow1 = controller_a_in_overflow[1];
+assign controller_a_in_btint_a2 = controller_a_in_btint_a[2];
+assign controller_a_in_btint_b2 = controller_a_in_btint_b[2];
+assign controller_a_in_overflow2 = controller_a_in_overflow[2];
+assign controller_a_in_btint_a3 = controller_a_in_btint_a[3];
+assign controller_a_in_btint_b3 = controller_a_in_btint_b[3];
+assign controller_a_in_overflow3 = controller_a_in_overflow[3];
+assign controller_a_in_btint_a4 = controller_a_in_btint_a[4];
+assign controller_a_in_btint_b4 = controller_a_in_btint_b[4];
+assign controller_a_in_overflow4 = controller_a_in_overflow[4];
+assign controller_a_in_btint_a5 = controller_a_in_btint_a[5];
+assign controller_a_in_btint_b5 = controller_a_in_btint_b[5];
+assign controller_a_in_overflow5 = controller_a_in_overflow[5];
+assign controller_a_in_btint_a6 = controller_a_in_btint_a[6];
+assign controller_a_in_btint_b6 = controller_a_in_btint_b[6];
+assign controller_a_in_overflow6 = controller_a_in_overflow[6];
+assign controller_a_in_btint_a7 = controller_a_in_btint_a[7];
+assign controller_a_in_btint_b7 = controller_a_in_btint_b[7];
+assign controller_a_in_overflow7 = controller_a_in_overflow[7];
+assign controller_a_in_btint_a8 = controller_a_in_btint_a[8];
+assign controller_a_in_btint_b8 = controller_a_in_btint_b[8];
+assign controller_a_in_overflow8 = controller_a_in_overflow[8];
+assign controller_a_in_btint_a9 = controller_a_in_btint_a[9];
+assign controller_a_in_btint_b9 = controller_a_in_btint_b[9];
+assign controller_a_in_overflow9 = controller_a_in_overflow[9];
+assign controller_a_in_btint_a10 = controller_a_in_btint_a[10];
+assign controller_a_in_btint_b10 = controller_a_in_btint_b[10];
+assign controller_a_in_overflow10 = controller_a_in_overflow[10];
+assign controller_a_in_btint_a11 = controller_a_in_btint_a[11];
+assign controller_a_in_btint_b11 = controller_a_in_btint_b[11];
+assign controller_a_in_overflow11 = controller_a_in_overflow[11];
+assign controller_c_in_u_btint_a0 = controller_c_in_u_btint_a[0];
+assign controller_c_in_u_btint_b0 = controller_c_in_u_btint_b[0];
+assign controller_c_in_u_overflow0 = controller_c_in_u_overflow[0];
+assign controller_c_in_u_btint_a1 = controller_c_in_u_btint_a[1];
+assign controller_c_in_u_btint_b1 = controller_c_in_u_btint_b[1];
+assign controller_c_in_u_overflow1 = controller_c_in_u_overflow[1];
+assign controller_c_in_u_btint_a2 = controller_c_in_u_btint_a[2];
+assign controller_c_in_u_btint_b2 = controller_c_in_u_btint_b[2];
+assign controller_c_in_u_overflow2 = controller_c_in_u_overflow[2];
+assign controller_c_in_u_btint_a3 = controller_c_in_u_btint_a[3];
+assign controller_c_in_u_btint_b3 = controller_c_in_u_btint_b[3];
+assign controller_c_in_u_overflow3 = controller_c_in_u_overflow[3];
+assign controller_c_in_u_btint_a4 = controller_c_in_u_btint_a[4];
+assign controller_c_in_u_btint_b4 = controller_c_in_u_btint_b[4];
+assign controller_c_in_u_overflow4 = controller_c_in_u_overflow[4];
+assign controller_c_in_u_btint_a5 = controller_c_in_u_btint_a[5];
+assign controller_c_in_u_btint_b5 = controller_c_in_u_btint_b[5];
+assign controller_c_in_u_overflow5 = controller_c_in_u_overflow[5];
+assign controller_c_in_u_btint_a6 = controller_c_in_u_btint_a[6];
+assign controller_c_in_u_btint_b6 = controller_c_in_u_btint_b[6];
+assign controller_c_in_u_overflow6 = controller_c_in_u_overflow[6];
+assign controller_c_in_u_btint_a7 = controller_c_in_u_btint_a[7];
+assign controller_c_in_u_btint_b7 = controller_c_in_u_btint_b[7];
+assign controller_c_in_u_overflow7 = controller_c_in_u_overflow[7];
+assign controller_c_in_u_btint_a8 = controller_c_in_u_btint_a[8];
+assign controller_c_in_u_btint_b8 = controller_c_in_u_btint_b[8];
+assign controller_c_in_u_overflow8 = controller_c_in_u_overflow[8];
+assign controller_c_in_u_btint_a9 = controller_c_in_u_btint_a[9];
+assign controller_c_in_u_btint_b9 = controller_c_in_u_btint_b[9];
+assign controller_c_in_u_overflow9 = controller_c_in_u_overflow[9];
+assign controller_c_in_u_btint_a10 = controller_c_in_u_btint_a[10];
+assign controller_c_in_u_btint_b10 = controller_c_in_u_btint_b[10];
+assign controller_c_in_u_overflow10 = controller_c_in_u_overflow[10];
+assign controller_c_in_u_btint_a11 = controller_c_in_u_btint_a[11];
+assign controller_c_in_u_btint_b11 = controller_c_in_u_btint_b[11];
+assign controller_c_in_u_overflow11 = controller_c_in_u_overflow[11];
+assign controller_c_in_d_btint_a0 = controller_c_in_d_btint_a[0];
+assign controller_c_in_d_btint_b0 = controller_c_in_d_btint_b[0];
+assign controller_c_in_d_overflow0 = controller_c_in_d_overflow[0];
+assign controller_c_in_d_btint_a1 = controller_c_in_d_btint_a[1];
+assign controller_c_in_d_btint_b1 = controller_c_in_d_btint_b[1];
+assign controller_c_in_d_overflow1 = controller_c_in_d_overflow[1];
+assign controller_c_in_d_btint_a2 = controller_c_in_d_btint_a[2];
+assign controller_c_in_d_btint_b2 = controller_c_in_d_btint_b[2];
+assign controller_c_in_d_overflow2 = controller_c_in_d_overflow[2];
+assign controller_c_in_d_btint_a3 = controller_c_in_d_btint_a[3];
+assign controller_c_in_d_btint_b3 = controller_c_in_d_btint_b[3];
+assign controller_c_in_d_overflow3 = controller_c_in_d_overflow[3];
+assign controller_c_in_d_btint_a4 = controller_c_in_d_btint_a[4];
+assign controller_c_in_d_btint_b4 = controller_c_in_d_btint_b[4];
+assign controller_c_in_d_overflow4 = controller_c_in_d_overflow[4];
+assign controller_c_in_d_btint_a5 = controller_c_in_d_btint_a[5];
+assign controller_c_in_d_btint_b5 = controller_c_in_d_btint_b[5];
+assign controller_c_in_d_overflow5 = controller_c_in_d_overflow[5];
+assign controller_c_in_d_btint_a6 = controller_c_in_d_btint_a[6];
+assign controller_c_in_d_btint_b6 = controller_c_in_d_btint_b[6];
+assign controller_c_in_d_overflow6 = controller_c_in_d_overflow[6];
+assign controller_c_in_d_btint_a7 = controller_c_in_d_btint_a[7];
+assign controller_c_in_d_btint_b7 = controller_c_in_d_btint_b[7];
+assign controller_c_in_d_overflow7 = controller_c_in_d_overflow[7];
+assign controller_c_in_d_btint_a8 = controller_c_in_d_btint_a[8];
+assign controller_c_in_d_btint_b8 = controller_c_in_d_btint_b[8];
+assign controller_c_in_d_overflow8 = controller_c_in_d_overflow[8];
+assign controller_c_in_d_btint_a9 = controller_c_in_d_btint_a[9];
+assign controller_c_in_d_btint_b9 = controller_c_in_d_btint_b[9];
+assign controller_c_in_d_overflow9 = controller_c_in_d_overflow[9];
+assign controller_c_in_d_btint_a10 = controller_c_in_d_btint_a[10];
+assign controller_c_in_d_btint_b10 = controller_c_in_d_btint_b[10];
+assign controller_c_in_d_overflow10 = controller_c_in_d_overflow[10];
+assign controller_c_in_d_btint_a11 = controller_c_in_d_btint_a[11];
+assign controller_c_in_d_btint_b11 = controller_c_in_d_btint_b[11];
+assign controller_c_in_d_overflow11 = controller_c_in_d_overflow[11];
+assign controller_s_in0 = controller_s_in[0];
+assign controller_s_in1 = controller_s_in[1];
+assign controller_s_in2 = controller_s_in[2];
+assign controller_s_in3 = controller_s_in[3];
+assign controller_s_in4 = controller_s_in[4];
+assign controller_s_in5 = controller_s_in[5];
+assign controller_s_in6 = controller_s_in[6];
+assign controller_s_in7 = controller_s_in[7];
+assign controller_s_in8 = controller_s_in[8];
+assign controller_s_in9 = controller_s_in[9];
+assign controller_s_in10 = controller_s_in[10];
+assign controller_s_in11 = controller_s_in[11];
+assign controller_result_u_btint_a0 = controller_result_u_btint_a[0];
+assign controller_result_u_btint_b0 = controller_result_u_btint_b[0];
+assign controller_result_u_overflow0 = controller_result_u_overflow[0];
+assign controller_result_u_btint_a1 = controller_result_u_btint_a[1];
+assign controller_result_u_btint_b1 = controller_result_u_btint_b[1];
+assign controller_result_u_overflow1 = controller_result_u_overflow[1];
+assign controller_result_u_btint_a2 = controller_result_u_btint_a[2];
+assign controller_result_u_btint_b2 = controller_result_u_btint_b[2];
+assign controller_result_u_overflow2 = controller_result_u_overflow[2];
+assign controller_result_u_btint_a3 = controller_result_u_btint_a[3];
+assign controller_result_u_btint_b3 = controller_result_u_btint_b[3];
+assign controller_result_u_overflow3 = controller_result_u_overflow[3];
+assign controller_result_u_btint_a4 = controller_result_u_btint_a[4];
+assign controller_result_u_btint_b4 = controller_result_u_btint_b[4];
+assign controller_result_u_overflow4 = controller_result_u_overflow[4];
+assign controller_result_u_btint_a5 = controller_result_u_btint_a[5];
+assign controller_result_u_btint_b5 = controller_result_u_btint_b[5];
+assign controller_result_u_overflow5 = controller_result_u_overflow[5];
+assign controller_result_u_btint_a6 = controller_result_u_btint_a[6];
+assign controller_result_u_btint_b6 = controller_result_u_btint_b[6];
+assign controller_result_u_overflow6 = controller_result_u_overflow[6];
+assign controller_result_u_btint_a7 = controller_result_u_btint_a[7];
+assign controller_result_u_btint_b7 = controller_result_u_btint_b[7];
+assign controller_result_u_overflow7 = controller_result_u_overflow[7];
+assign controller_result_u_btint_a8 = controller_result_u_btint_a[8];
+assign controller_result_u_btint_b8 = controller_result_u_btint_b[8];
+assign controller_result_u_overflow8 = controller_result_u_overflow[8];
+assign controller_result_u_btint_a9 = controller_result_u_btint_a[9];
+assign controller_result_u_btint_b9 = controller_result_u_btint_b[9];
+assign controller_result_u_overflow9 = controller_result_u_overflow[9];
+assign controller_result_u_btint_a10 = controller_result_u_btint_a[10];
+assign controller_result_u_btint_b10 = controller_result_u_btint_b[10];
+assign controller_result_u_overflow10 = controller_result_u_overflow[10];
+assign controller_result_u_btint_a11 = controller_result_u_btint_a[11];
+assign controller_result_u_btint_b11 = controller_result_u_btint_b[11];
+assign controller_result_u_overflow11 = controller_result_u_overflow[11];
+assign controller_result_u_btint_a12 = controller_result_u_btint_a[12];
+assign controller_result_u_btint_b12 = controller_result_u_btint_b[12];
+assign controller_result_u_overflow12 = controller_result_u_overflow[12];
+assign controller_result_u_btint_a13 = controller_result_u_btint_a[13];
+assign controller_result_u_btint_b13 = controller_result_u_btint_b[13];
+assign controller_result_u_overflow13 = controller_result_u_overflow[13];
+assign controller_result_u_btint_a14 = controller_result_u_btint_a[14];
+assign controller_result_u_btint_b14 = controller_result_u_btint_b[14];
+assign controller_result_u_overflow14 = controller_result_u_overflow[14];
+assign controller_result_u_btint_a15 = controller_result_u_btint_a[15];
+assign controller_result_u_btint_b15 = controller_result_u_btint_b[15];
+assign controller_result_u_overflow15 = controller_result_u_overflow[15];
+assign controller_result_d_btint_a0 = controller_result_d_btint_a[0];
+assign controller_result_d_btint_b0 = controller_result_d_btint_b[0];
+assign controller_result_d_overflow0 = controller_result_d_overflow[0];
+assign controller_result_d_btint_a1 = controller_result_d_btint_a[1];
+assign controller_result_d_btint_b1 = controller_result_d_btint_b[1];
+assign controller_result_d_overflow1 = controller_result_d_overflow[1];
+assign controller_result_d_btint_a2 = controller_result_d_btint_a[2];
+assign controller_result_d_btint_b2 = controller_result_d_btint_b[2];
+assign controller_result_d_overflow2 = controller_result_d_overflow[2];
+assign controller_result_d_btint_a3 = controller_result_d_btint_a[3];
+assign controller_result_d_btint_b3 = controller_result_d_btint_b[3];
+assign controller_result_d_overflow3 = controller_result_d_overflow[3];
+assign controller_result_d_btint_a4 = controller_result_d_btint_a[4];
+assign controller_result_d_btint_b4 = controller_result_d_btint_b[4];
+assign controller_result_d_overflow4 = controller_result_d_overflow[4];
+assign controller_result_d_btint_a5 = controller_result_d_btint_a[5];
+assign controller_result_d_btint_b5 = controller_result_d_btint_b[5];
+assign controller_result_d_overflow5 = controller_result_d_overflow[5];
+assign controller_result_d_btint_a6 = controller_result_d_btint_a[6];
+assign controller_result_d_btint_b6 = controller_result_d_btint_b[6];
+assign controller_result_d_overflow6 = controller_result_d_overflow[6];
+assign controller_result_d_btint_a7 = controller_result_d_btint_a[7];
+assign controller_result_d_btint_b7 = controller_result_d_btint_b[7];
+assign controller_result_d_overflow7 = controller_result_d_overflow[7];
+assign controller_result_d_btint_a8 = controller_result_d_btint_a[8];
+assign controller_result_d_btint_b8 = controller_result_d_btint_b[8];
+assign controller_result_d_overflow8 = controller_result_d_overflow[8];
+assign controller_result_d_btint_a9 = controller_result_d_btint_a[9];
+assign controller_result_d_btint_b9 = controller_result_d_btint_b[9];
+assign controller_result_d_overflow9 = controller_result_d_overflow[9];
+assign controller_result_d_btint_a10 = controller_result_d_btint_a[10];
+assign controller_result_d_btint_b10 = controller_result_d_btint_b[10];
+assign controller_result_d_overflow10 = controller_result_d_overflow[10];
+assign controller_result_d_btint_a11 = controller_result_d_btint_a[11];
+assign controller_result_d_btint_b11 = controller_result_d_btint_b[11];
+assign controller_result_d_overflow11 = controller_result_d_overflow[11];
+assign controller_result_d_btint_a12 = controller_result_d_btint_a[12];
+assign controller_result_d_btint_b12 = controller_result_d_btint_b[12];
+assign controller_result_d_overflow12 = controller_result_d_overflow[12];
+assign controller_result_d_btint_a13 = controller_result_d_btint_a[13];
+assign controller_result_d_btint_b13 = controller_result_d_btint_b[13];
+assign controller_result_d_overflow13 = controller_result_d_overflow[13];
+assign controller_result_d_btint_a14 = controller_result_d_btint_a[14];
+assign controller_result_d_btint_b14 = controller_result_d_btint_b[14];
+assign controller_result_d_overflow14 = controller_result_d_overflow[14];
+assign controller_result_d_btint_a15 = controller_result_d_btint_a[15];
+assign controller_result_d_btint_b15 = controller_result_d_btint_b[15];
+assign controller_result_d_overflow15 = controller_result_d_overflow[15];
 
 //------------------------------------------------------------------------------
 // Clocked THREAD: control (controller.cpp:5:1) 
@@ -4983,46 +6179,46 @@ module CONTROLLER // "system.combined_operations.controller"
 // Thread-local variables
 logic [5:0] control_WAIT_N_COUNTER;
 logic [5:0] control_WAIT_N_COUNTER_next;
-logic [7:0] controller_a_in_btint_a_next[4][3];
-logic [7:0] controller_a_in_btint_b_next[4][3];
-logic [1:0] controller_a_in_overflow_next[4][3];
-logic [7:0] controller_c_in_u_btint_a_next[4][3];
-logic [7:0] controller_c_in_u_btint_b_next[4][3];
-logic [1:0] controller_c_in_u_overflow_next[4][3];
-logic [7:0] controller_c_in_d_btint_a_next[4][3];
-logic [7:0] controller_c_in_d_btint_b_next[4][3];
-logic [1:0] controller_c_in_d_overflow_next[4][3];
-logic controller_s_in_next[4][3];
-logic controller_s_mm_next[4];
-logic controller_done_next;
-logic [7:0] controller_result_u_btint_a_next[4][4];
-logic [7:0] controller_result_u_btint_b_next[4][4];
-logic [1:0] controller_result_u_overflow_next[4][4];
-logic [7:0] controller_result_d_btint_a_next[4][4];
-logic [7:0] controller_result_d_btint_b_next[4][4];
-logic [1:0] controller_result_d_overflow_next[4][4];
-logic [7:0] result_u_btint_a[4][4];
-logic [7:0] result_u_btint_a_next[4][4];
-logic [7:0] result_u_btint_b[4][4];
-logic [7:0] result_u_btint_b_next[4][4];
-logic [1:0] result_u_overflow[4][4];
-logic [1:0] result_u_overflow_next[4][4];
-logic [7:0] result_d_btint_a[4][4];
-logic [7:0] result_d_btint_a_next[4][4];
-logic [7:0] result_d_btint_b[4][4];
-logic [7:0] result_d_btint_b_next[4][4];
-logic [1:0] result_d_overflow[4][4];
-logic [1:0] result_d_overflow_next[4][4];
+logic [7:0] result_u_btint_a[16];
+logic [7:0] result_u_btint_a_next[16];
+logic [7:0] result_u_btint_b[16];
+logic [7:0] result_u_btint_b_next[16];
+logic [1:0] result_u_overflow[16];
+logic [1:0] result_u_overflow_next[16];
+logic [7:0] result_d_btint_a[16];
+logic [7:0] result_d_btint_a_next[16];
+logic [7:0] result_d_btint_b[16];
+logic [7:0] result_d_btint_b_next[16];
+logic [1:0] result_d_overflow[16];
+logic [1:0] result_d_overflow_next[16];
 logic signed [31:0] steps;
 logic signed [31:0] steps_next;
-logic state[4][4];
-logic state_next[4][4];
+logic state[16];
+logic state_next[16];
 logic signed [31:0] index_a[3];
 logic signed [31:0] index_a_next[3];
 logic load_done;
 logic load_done_next;
 logic signed [31:0] index_b;
 logic signed [31:0] index_b_next;
+logic [7:0] controller_result_u_btint_a_next[16];
+logic [7:0] controller_result_u_btint_b_next[16];
+logic [1:0] controller_result_u_overflow_next[16];
+logic [7:0] controller_result_d_btint_a_next[16];
+logic [7:0] controller_result_d_btint_b_next[16];
+logic [1:0] controller_result_d_overflow_next[16];
+logic controller_s_mm_next[4];
+logic controller_done_next;
+logic controller_s_in_next[12];
+logic [7:0] controller_c_in_u_btint_a_next[12];
+logic [7:0] controller_c_in_u_btint_b_next[12];
+logic [1:0] controller_c_in_u_overflow_next[12];
+logic [7:0] controller_c_in_d_btint_a_next[12];
+logic [7:0] controller_c_in_d_btint_b_next[12];
+logic [1:0] controller_c_in_d_overflow_next[12];
+logic [7:0] controller_a_in_btint_a_next[12];
+logic [7:0] controller_a_in_btint_b_next[12];
+logic [1:0] controller_a_in_overflow_next[12];
 logic control_PROC_STATE;
 logic control_PROC_STATE_next;
 
@@ -5101,10 +6297,13 @@ function void control_func;
     logic [1:0] output_overflow_9;
     logic TMP_9_isNegative;
     integer TMP_9_i;
+    logic [7:0] TMP_11_btint_a;
+    logic [7:0] TMP_11_btint_b;
+    logic [1:0] TMP_11_overflow;
     logic [7:0] TMP_10_btint_a;
     logic [7:0] TMP_10_btint_b;
     logic [1:0] TMP_10_overflow;
-    integer TMP_11_value;
+    integer TMP_12_value;
     logic [7:0] output_btint_a_10;
     logic [7:0] output_btint_b_10;
     logic [1:0] output_overflow_10;
@@ -5113,12 +6312,13 @@ function void control_func;
     logic [7:0] output_btint_a_11;
     logic [7:0] output_btint_b_11;
     logic [1:0] output_overflow_11;
-    logic TMP_11_isNegative;
-    integer TMP_11_i;
-    logic [7:0] TMP_12_btint_a;
-    logic [7:0] TMP_12_btint_b;
-    logic [1:0] TMP_12_overflow;
-    integer TMP_13_value;
+    logic TMP_12_isNegative;
+    integer TMP_12_i;
+    logic [7:0] TMP_13_btint_a;
+    logic [7:0] TMP_13_btint_b;
+    logic [1:0] TMP_13_overflow;
+    integer k;
+    integer TMP_14_value;
     logic [7:0] output_btint_a_12;
     logic [7:0] output_btint_b_12;
     logic [1:0] output_overflow_12;
@@ -5127,12 +6327,12 @@ function void control_func;
     logic [7:0] output_btint_a_13;
     logic [7:0] output_btint_b_13;
     logic [1:0] output_overflow_13;
-    logic TMP_13_isNegative;
-    integer TMP_13_i;
-    logic [7:0] TMP_14_btint_a;
-    logic [7:0] TMP_14_btint_b;
-    logic [1:0] TMP_14_overflow;
-    integer TMP_15_value;
+    logic TMP_14_isNegative;
+    integer TMP_14_i;
+    logic [7:0] TMP_15_btint_a;
+    logic [7:0] TMP_15_btint_b;
+    logic [1:0] TMP_15_overflow;
+    integer TMP_16_value;
     logic [7:0] output_btint_a_14;
     logic [7:0] output_btint_b_14;
     logic [1:0] output_overflow_14;
@@ -5141,12 +6341,12 @@ function void control_func;
     logic [7:0] output_btint_a_15;
     logic [7:0] output_btint_b_15;
     logic [1:0] output_overflow_15;
-    logic TMP_15_isNegative;
-    integer TMP_15_i;
-    logic [7:0] TMP_16_btint_a;
-    logic [7:0] TMP_16_btint_b;
-    logic [1:0] TMP_16_overflow;
-    integer TMP_17_value;
+    logic TMP_16_isNegative;
+    integer TMP_16_i;
+    logic [7:0] TMP_17_btint_a;
+    logic [7:0] TMP_17_btint_b;
+    logic [1:0] TMP_17_overflow;
+    integer TMP_18_value;
     logic [7:0] output_btint_a_16;
     logic [7:0] output_btint_b_16;
     logic [1:0] output_overflow_16;
@@ -5155,12 +6355,12 @@ function void control_func;
     logic [7:0] output_btint_a_17;
     logic [7:0] output_btint_b_17;
     logic [1:0] output_overflow_17;
-    logic TMP_17_isNegative;
-    integer TMP_17_i;
-    logic [7:0] TMP_18_btint_a;
-    logic [7:0] TMP_18_btint_b;
-    logic [1:0] TMP_18_overflow;
-    integer TMP_19_value;
+    logic TMP_18_isNegative;
+    integer TMP_18_i;
+    logic [7:0] TMP_19_btint_a;
+    logic [7:0] TMP_19_btint_b;
+    logic [1:0] TMP_19_overflow;
+    integer TMP_20_value;
     logic [7:0] output_btint_a_18;
     logic [7:0] output_btint_b_18;
     logic [1:0] output_overflow_18;
@@ -5169,14 +6369,11 @@ function void control_func;
     logic [7:0] output_btint_a_19;
     logic [7:0] output_btint_b_19;
     logic [1:0] output_overflow_19;
-    logic TMP_19_isNegative;
-    integer TMP_19_i;
+    logic TMP_20_isNegative;
+    integer TMP_20_i;
     logic [7:0] TMP_21_btint_a;
     logic [7:0] TMP_21_btint_b;
     logic [1:0] TMP_21_overflow;
-    logic [7:0] TMP_20_btint_a;
-    logic [7:0] TMP_20_btint_b;
-    logic [1:0] TMP_20_overflow;
     integer TMP_22_value;
     logic [7:0] output_btint_a_20;
     logic [7:0] output_btint_b_20;
@@ -5191,7 +6388,6 @@ function void control_func;
     logic [7:0] TMP_23_btint_a;
     logic [7:0] TMP_23_btint_b;
     logic [1:0] TMP_23_overflow;
-    integer k;
     integer TMP_24_value;
     logic [7:0] output_btint_a_22;
     logic [7:0] output_btint_b_22;
@@ -5203,10 +6399,7 @@ function void control_func;
     logic [1:0] output_overflow_23;
     logic TMP_24_isNegative;
     integer TMP_24_i;
-    logic [7:0] TMP_25_btint_a;
-    logic [7:0] TMP_25_btint_b;
-    logic [1:0] TMP_25_overflow;
-    integer TMP_26_value;
+    integer TMP_25_value;
     logic [7:0] output_btint_a_24;
     logic [7:0] output_btint_b_24;
     logic [1:0] output_overflow_24;
@@ -5215,12 +6408,9 @@ function void control_func;
     logic [7:0] output_btint_a_25;
     logic [7:0] output_btint_b_25;
     logic [1:0] output_overflow_25;
-    logic TMP_26_isNegative;
-    integer TMP_26_i;
-    logic [7:0] TMP_27_btint_a;
-    logic [7:0] TMP_27_btint_b;
-    logic [1:0] TMP_27_overflow;
-    integer TMP_28_value;
+    logic TMP_25_isNegative;
+    integer TMP_25_i;
+    integer TMP_26_value;
     logic [7:0] output_btint_a_26;
     logic [7:0] output_btint_b_26;
     logic [1:0] output_overflow_26;
@@ -5229,12 +6419,9 @@ function void control_func;
     logic [7:0] output_btint_a_27;
     logic [7:0] output_btint_b_27;
     logic [1:0] output_overflow_27;
-    logic TMP_28_isNegative;
-    integer TMP_28_i;
-    logic [7:0] TMP_29_btint_a;
-    logic [7:0] TMP_29_btint_b;
-    logic [1:0] TMP_29_overflow;
-    integer TMP_30_value;
+    logic TMP_26_isNegative;
+    integer TMP_26_i;
+    integer TMP_27_value;
     logic [7:0] output_btint_a_28;
     logic [7:0] output_btint_b_28;
     logic [1:0] output_overflow_28;
@@ -5243,12 +6430,9 @@ function void control_func;
     logic [7:0] output_btint_a_29;
     logic [7:0] output_btint_b_29;
     logic [1:0] output_overflow_29;
-    logic TMP_30_isNegative;
-    integer TMP_30_i;
-    logic [7:0] TMP_31_btint_a;
-    logic [7:0] TMP_31_btint_b;
-    logic [1:0] TMP_31_overflow;
-    integer TMP_32_value;
+    logic TMP_27_isNegative;
+    integer TMP_27_i;
+    integer TMP_28_value;
     logic [7:0] output_btint_a_30;
     logic [7:0] output_btint_b_30;
     logic [1:0] output_overflow_30;
@@ -5257,12 +6441,9 @@ function void control_func;
     logic [7:0] output_btint_a_31;
     logic [7:0] output_btint_b_31;
     logic [1:0] output_overflow_31;
-    logic TMP_32_isNegative;
-    integer TMP_32_i;
-    logic [7:0] TMP_33_btint_a;
-    logic [7:0] TMP_33_btint_b;
-    logic [1:0] TMP_33_overflow;
-    integer TMP_34_value;
+    logic TMP_28_isNegative;
+    integer TMP_28_i;
+    integer TMP_29_value;
     logic [7:0] output_btint_a_32;
     logic [7:0] output_btint_b_32;
     logic [1:0] output_overflow_32;
@@ -5271,9 +6452,9 @@ function void control_func;
     logic [7:0] output_btint_a_33;
     logic [7:0] output_btint_b_33;
     logic [1:0] output_overflow_33;
-    logic TMP_34_isNegative;
-    integer TMP_34_i;
-    integer TMP_35_value;
+    logic TMP_29_isNegative;
+    integer TMP_29_i;
+    integer TMP_30_value;
     logic [7:0] output_btint_a_34;
     logic [7:0] output_btint_b_34;
     logic [1:0] output_overflow_34;
@@ -5282,9 +6463,9 @@ function void control_func;
     logic [7:0] output_btint_a_35;
     logic [7:0] output_btint_b_35;
     logic [1:0] output_overflow_35;
-    logic TMP_35_isNegative;
-    integer TMP_35_i;
-    integer TMP_36_value;
+    logic TMP_30_isNegative;
+    integer TMP_30_i;
+    integer TMP_31_value;
     logic [7:0] output_btint_a_36;
     logic [7:0] output_btint_b_36;
     logic [1:0] output_overflow_36;
@@ -5293,9 +6474,9 @@ function void control_func;
     logic [7:0] output_btint_a_37;
     logic [7:0] output_btint_b_37;
     logic [1:0] output_overflow_37;
-    logic TMP_36_isNegative;
-    integer TMP_36_i;
-    integer TMP_37_value;
+    logic TMP_31_isNegative;
+    integer TMP_31_i;
+    integer TMP_32_value;
     logic [7:0] output_btint_a_38;
     logic [7:0] output_btint_b_38;
     logic [1:0] output_overflow_38;
@@ -5304,64 +6485,83 @@ function void control_func;
     logic [7:0] output_btint_a_39;
     logic [7:0] output_btint_b_39;
     logic [1:0] output_overflow_39;
-    logic TMP_37_isNegative;
-    integer TMP_37_i;
-    integer TMP_38_value;
-    logic [7:0] output_btint_a_40;
-    logic [7:0] output_btint_b_40;
-    logic [1:0] output_overflow_40;
-    integer output_index_20;
-    integer output_value_20;
-    logic [7:0] output_btint_a_41;
-    logic [7:0] output_btint_b_41;
-    logic [1:0] output_overflow_41;
-    logic TMP_38_isNegative;
-    integer TMP_38_i;
-    integer TMP_39_value;
-    logic [7:0] output_btint_a_42;
-    logic [7:0] output_btint_b_42;
-    logic [1:0] output_overflow_42;
-    integer output_index_21;
-    integer output_value_21;
-    logic [7:0] output_btint_a_43;
-    logic [7:0] output_btint_b_43;
-    logic [1:0] output_overflow_43;
-    logic TMP_39_isNegative;
-    integer TMP_39_i;
-    integer TMP_40_value;
-    logic [7:0] output_btint_a_44;
-    logic [7:0] output_btint_b_44;
-    logic [1:0] output_overflow_44;
-    integer output_index_22;
-    integer output_value_22;
-    logic [7:0] output_btint_a_45;
-    logic [7:0] output_btint_b_45;
-    logic [1:0] output_overflow_45;
-    logic TMP_40_isNegative;
-    integer TMP_40_i;
-    integer TMP_41_value;
-    logic [7:0] output_btint_a_46;
-    logic [7:0] output_btint_b_46;
-    logic [1:0] output_overflow_46;
-    integer output_index_23;
-    integer output_value_23;
-    logic [7:0] output_btint_a_47;
-    logic [7:0] output_btint_b_47;
-    logic [1:0] output_overflow_47;
-    logic TMP_41_isNegative;
-    integer TMP_41_i;
-    integer TMP_42_value;
-    logic [7:0] output_btint_a_48;
-    logic [7:0] output_btint_b_48;
-    logic [1:0] output_overflow_48;
-    integer output_index_24;
-    integer output_value_24;
-    logic [7:0] output_btint_a_49;
-    logic [7:0] output_btint_b_49;
-    logic [1:0] output_overflow_49;
-    logic TMP_42_isNegative;
-    integer TMP_42_i;
-    TMP_15_value = 0;
+    logic TMP_32_isNegative;
+    integer TMP_32_i;
+    TMP_5_value = 0;
+    output_btint_a_4 = 0;
+    output_btint_b_4 = 0;
+    output_overflow_4 = 0;
+    output_index_2 = 0;
+    output_value_2 = 0;
+    output_btint_a_5 = 0;
+    output_btint_b_5 = 0;
+    output_overflow_5 = 0;
+    TMP_5_isNegative = 0;
+    TMP_5_i = 0;
+    TMP_6_btint_a = 0;
+    TMP_6_btint_b = 0;
+    TMP_6_overflow = 0;
+    TMP_7_value = 0;
+    output_btint_a_6 = 0;
+    output_btint_b_6 = 0;
+    output_overflow_6 = 0;
+    output_index_3 = 0;
+    output_value_3 = 0;
+    output_btint_a_7 = 0;
+    output_btint_b_7 = 0;
+    output_overflow_7 = 0;
+    TMP_7_isNegative = 0;
+    TMP_7_i = 0;
+    TMP_8_btint_a = 0;
+    TMP_8_btint_b = 0;
+    TMP_8_overflow = 0;
+    TMP_9_value = 0;
+    output_btint_a_8 = 0;
+    output_btint_b_8 = 0;
+    output_overflow_8 = 0;
+    output_index_4 = 0;
+    output_value_4 = 0;
+    output_btint_a_9 = 0;
+    output_btint_b_9 = 0;
+    output_overflow_9 = 0;
+    TMP_9_isNegative = 0;
+    TMP_9_i = 0;
+    TMP_11_btint_a = 0;
+    TMP_11_btint_b = 0;
+    TMP_11_overflow = 0;
+    TMP_10_btint_a = 0;
+    TMP_10_btint_b = 0;
+    TMP_10_overflow = 0;
+    TMP_12_value = 0;
+    output_btint_a_10 = 0;
+    output_btint_b_10 = 0;
+    output_overflow_10 = 0;
+    output_index_5 = 0;
+    output_value_5 = 0;
+    output_btint_a_11 = 0;
+    output_btint_b_11 = 0;
+    output_overflow_11 = 0;
+    TMP_12_isNegative = 0;
+    TMP_12_i = 0;
+    TMP_13_btint_a = 0;
+    TMP_13_btint_b = 0;
+    TMP_13_overflow = 0;
+    k = 0;
+    TMP_14_value = 0;
+    output_btint_a_12 = 0;
+    output_btint_b_12 = 0;
+    output_overflow_12 = 0;
+    output_index_6 = 0;
+    output_value_6 = 0;
+    output_btint_a_13 = 0;
+    output_btint_b_13 = 0;
+    output_overflow_13 = 0;
+    TMP_14_isNegative = 0;
+    TMP_14_i = 0;
+    TMP_15_btint_a = 0;
+    TMP_15_btint_b = 0;
+    TMP_15_overflow = 0;
+    TMP_16_value = 0;
     output_btint_a_14 = 0;
     output_btint_b_14 = 0;
     output_overflow_14 = 0;
@@ -5370,12 +6570,12 @@ function void control_func;
     output_btint_a_15 = 0;
     output_btint_b_15 = 0;
     output_overflow_15 = 0;
-    TMP_15_isNegative = 0;
-    TMP_15_i = 0;
-    TMP_16_btint_a = 0;
-    TMP_16_btint_b = 0;
-    TMP_16_overflow = 0;
-    TMP_17_value = 0;
+    TMP_16_isNegative = 0;
+    TMP_16_i = 0;
+    TMP_17_btint_a = 0;
+    TMP_17_btint_b = 0;
+    TMP_17_overflow = 0;
+    TMP_18_value = 0;
     output_btint_a_16 = 0;
     output_btint_b_16 = 0;
     output_overflow_16 = 0;
@@ -5384,12 +6584,12 @@ function void control_func;
     output_btint_a_17 = 0;
     output_btint_b_17 = 0;
     output_overflow_17 = 0;
-    TMP_17_isNegative = 0;
-    TMP_17_i = 0;
-    TMP_18_btint_a = 0;
-    TMP_18_btint_b = 0;
-    TMP_18_overflow = 0;
-    TMP_19_value = 0;
+    TMP_18_isNegative = 0;
+    TMP_18_i = 0;
+    TMP_19_btint_a = 0;
+    TMP_19_btint_b = 0;
+    TMP_19_overflow = 0;
+    TMP_20_value = 0;
     output_btint_a_18 = 0;
     output_btint_b_18 = 0;
     output_overflow_18 = 0;
@@ -5398,14 +6598,11 @@ function void control_func;
     output_btint_a_19 = 0;
     output_btint_b_19 = 0;
     output_overflow_19 = 0;
-    TMP_19_isNegative = 0;
-    TMP_19_i = 0;
+    TMP_20_isNegative = 0;
+    TMP_20_i = 0;
     TMP_21_btint_a = 0;
     TMP_21_btint_b = 0;
     TMP_21_overflow = 0;
-    TMP_20_btint_a = 0;
-    TMP_20_btint_b = 0;
-    TMP_20_overflow = 0;
     TMP_22_value = 0;
     output_btint_a_20 = 0;
     output_btint_b_20 = 0;
@@ -5420,7 +6617,6 @@ function void control_func;
     TMP_23_btint_a = 0;
     TMP_23_btint_b = 0;
     TMP_23_overflow = 0;
-    k = 0;
     TMP_24_value = 0;
     output_btint_a_22 = 0;
     output_btint_b_22 = 0;
@@ -5432,10 +6628,7 @@ function void control_func;
     output_overflow_23 = 0;
     TMP_24_isNegative = 0;
     TMP_24_i = 0;
-    TMP_25_btint_a = 0;
-    TMP_25_btint_b = 0;
-    TMP_25_overflow = 0;
-    TMP_26_value = 0;
+    TMP_25_value = 0;
     output_btint_a_24 = 0;
     output_btint_b_24 = 0;
     output_overflow_24 = 0;
@@ -5444,12 +6637,9 @@ function void control_func;
     output_btint_a_25 = 0;
     output_btint_b_25 = 0;
     output_overflow_25 = 0;
-    TMP_26_isNegative = 0;
-    TMP_26_i = 0;
-    TMP_27_btint_a = 0;
-    TMP_27_btint_b = 0;
-    TMP_27_overflow = 0;
-    TMP_28_value = 0;
+    TMP_25_isNegative = 0;
+    TMP_25_i = 0;
+    TMP_26_value = 0;
     output_btint_a_26 = 0;
     output_btint_b_26 = 0;
     output_overflow_26 = 0;
@@ -5458,12 +6648,9 @@ function void control_func;
     output_btint_a_27 = 0;
     output_btint_b_27 = 0;
     output_overflow_27 = 0;
-    TMP_28_isNegative = 0;
-    TMP_28_i = 0;
-    TMP_29_btint_a = 0;
-    TMP_29_btint_b = 0;
-    TMP_29_overflow = 0;
-    TMP_30_value = 0;
+    TMP_26_isNegative = 0;
+    TMP_26_i = 0;
+    TMP_27_value = 0;
     output_btint_a_28 = 0;
     output_btint_b_28 = 0;
     output_overflow_28 = 0;
@@ -5472,12 +6659,9 @@ function void control_func;
     output_btint_a_29 = 0;
     output_btint_b_29 = 0;
     output_overflow_29 = 0;
-    TMP_30_isNegative = 0;
-    TMP_30_i = 0;
-    TMP_31_btint_a = 0;
-    TMP_31_btint_b = 0;
-    TMP_31_overflow = 0;
-    TMP_32_value = 0;
+    TMP_27_isNegative = 0;
+    TMP_27_i = 0;
+    TMP_28_value = 0;
     output_btint_a_30 = 0;
     output_btint_b_30 = 0;
     output_overflow_30 = 0;
@@ -5486,12 +6670,9 @@ function void control_func;
     output_btint_a_31 = 0;
     output_btint_b_31 = 0;
     output_overflow_31 = 0;
-    TMP_32_isNegative = 0;
-    TMP_32_i = 0;
-    TMP_33_btint_a = 0;
-    TMP_33_btint_b = 0;
-    TMP_33_overflow = 0;
-    TMP_34_value = 0;
+    TMP_28_isNegative = 0;
+    TMP_28_i = 0;
+    TMP_29_value = 0;
     output_btint_a_32 = 0;
     output_btint_b_32 = 0;
     output_overflow_32 = 0;
@@ -5500,9 +6681,9 @@ function void control_func;
     output_btint_a_33 = 0;
     output_btint_b_33 = 0;
     output_overflow_33 = 0;
-    TMP_34_isNegative = 0;
-    TMP_34_i = 0;
-    TMP_35_value = 0;
+    TMP_29_isNegative = 0;
+    TMP_29_i = 0;
+    TMP_30_value = 0;
     output_btint_a_34 = 0;
     output_btint_b_34 = 0;
     output_overflow_34 = 0;
@@ -5511,9 +6692,9 @@ function void control_func;
     output_btint_a_35 = 0;
     output_btint_b_35 = 0;
     output_overflow_35 = 0;
-    TMP_35_isNegative = 0;
-    TMP_35_i = 0;
-    TMP_36_value = 0;
+    TMP_30_isNegative = 0;
+    TMP_30_i = 0;
+    TMP_31_value = 0;
     output_btint_a_36 = 0;
     output_btint_b_36 = 0;
     output_overflow_36 = 0;
@@ -5522,9 +6703,9 @@ function void control_func;
     output_btint_a_37 = 0;
     output_btint_b_37 = 0;
     output_overflow_37 = 0;
-    TMP_36_isNegative = 0;
-    TMP_36_i = 0;
-    TMP_37_value = 0;
+    TMP_31_isNegative = 0;
+    TMP_31_i = 0;
+    TMP_32_value = 0;
     output_btint_a_38 = 0;
     output_btint_b_38 = 0;
     output_overflow_38 = 0;
@@ -5533,69 +6714,24 @@ function void control_func;
     output_btint_a_39 = 0;
     output_btint_b_39 = 0;
     output_overflow_39 = 0;
-    TMP_37_isNegative = 0;
-    TMP_37_i = 0;
-    TMP_38_value = 0;
-    output_btint_a_40 = 0;
-    output_btint_b_40 = 0;
-    output_overflow_40 = 0;
-    output_index_20 = 0;
-    output_value_20 = 0;
-    output_btint_a_41 = 0;
-    output_btint_b_41 = 0;
-    output_overflow_41 = 0;
-    TMP_38_isNegative = 0;
-    TMP_38_i = 0;
-    TMP_39_value = 0;
-    output_btint_a_42 = 0;
-    output_btint_b_42 = 0;
-    output_overflow_42 = 0;
-    output_index_21 = 0;
-    output_value_21 = 0;
-    output_btint_a_43 = 0;
-    output_btint_b_43 = 0;
-    output_overflow_43 = 0;
-    TMP_39_isNegative = 0;
-    TMP_39_i = 0;
-    TMP_40_value = 0;
-    output_btint_a_44 = 0;
-    output_btint_b_44 = 0;
-    output_overflow_44 = 0;
-    output_index_22 = 0;
-    output_value_22 = 0;
-    output_btint_a_45 = 0;
-    output_btint_b_45 = 0;
-    output_overflow_45 = 0;
-    TMP_40_isNegative = 0;
-    TMP_40_i = 0;
-    TMP_41_value = 0;
-    output_btint_a_46 = 0;
-    output_btint_b_46 = 0;
-    output_overflow_46 = 0;
-    output_index_23 = 0;
-    output_value_23 = 0;
-    output_btint_a_47 = 0;
-    output_btint_b_47 = 0;
-    output_overflow_47 = 0;
-    TMP_41_isNegative = 0;
-    TMP_41_i = 0;
-    TMP_42_value = 0;
-    output_btint_a_48 = 0;
-    output_btint_b_48 = 0;
-    output_overflow_48 = 0;
-    output_index_24 = 0;
-    output_value_24 = 0;
-    output_btint_a_49 = 0;
-    output_btint_b_49 = 0;
-    output_overflow_49 = 0;
-    TMP_42_isNegative = 0;
-    TMP_42_i = 0;
+    TMP_32_isNegative = 0;
+    TMP_32_i = 0;
     controller_a_in_btint_a_next = controller_a_in_btint_a;
+    controller_a_in_btint_b_next = controller_a_in_btint_b;
+    controller_a_in_overflow_next = controller_a_in_overflow;
     controller_c_in_d_btint_a_next = controller_c_in_d_btint_a;
+    controller_c_in_d_btint_b_next = controller_c_in_d_btint_b;
+    controller_c_in_d_overflow_next = controller_c_in_d_overflow;
     controller_c_in_u_btint_a_next = controller_c_in_u_btint_a;
+    controller_c_in_u_btint_b_next = controller_c_in_u_btint_b;
+    controller_c_in_u_overflow_next = controller_c_in_u_overflow;
     controller_done_next = controller_done;
     controller_result_d_btint_a_next = controller_result_d_btint_a;
+    controller_result_d_btint_b_next = controller_result_d_btint_b;
+    controller_result_d_overflow_next = controller_result_d_overflow;
     controller_result_u_btint_a_next = controller_result_u_btint_a;
+    controller_result_u_btint_b_next = controller_result_u_btint_b;
+    controller_result_u_overflow_next = controller_result_u_overflow;
     controller_s_in_next = controller_s_in;
     controller_s_mm_next = controller_s_mm;
     index_a_next = index_a;
@@ -5614,38 +6750,23 @@ function void control_func;
     
     case (control_PROC_STATE)
         0: begin
-            for (integer i_12 = 0; i_12 < 4; i_12++)
+            for (integer i_4 = 0; i_4 < 4; i_4++)
             begin
-                for (integer j_3 = 0; j_3 < 4; j_3++)
+                for (integer j_1 = 0; j_1 < 4; j_1++)
                 begin
-                    controller_result_u_btint_a[i_12][j_3] = result_u_btint_a_next[i_12][j_3]; controller_result_u_btint_b[i_12][j_3] = result_u_btint_b_next[i_12][j_3]; controller_result_u_overflow[i_12][j_3] = result_u_overflow_next[i_12][j_3];
-                    controller_result_d_btint_a[i_12][j_3] = result_d_btint_a_next[i_12][j_3]; controller_result_d_btint_b[i_12][j_3] = result_d_btint_b_next[i_12][j_3]; controller_result_d_overflow[i_12][j_3] = result_d_overflow_next[i_12][j_3];
-                end
-            end
-            for (integer i_13 = 0; i_13 < 3; i_13++)
-            begin
-                for (integer j_4 = 0; j_4 < 4 - 1; j_4++)
-                begin
-                    controller_a_in_btint_a[j_4 + 1][i_13] = controller_a_out_btint_a[j_4][i_13]; controller_a_in_btint_b[j_4 + 1][i_13] = controller_a_out_btint_b[j_4][i_13]; controller_a_in_overflow[j_4 + 1][i_13] = controller_a_out_overflow[j_4][i_13];
-                end
-            end
-            for (integer i_14 = 0; i_14 < 4; i_14++)
-            begin
-                for (integer j_5 = 0; j_5 < 3 - 1; j_5++)
-                begin
-                    controller_c_in_u_btint_a[i_14][j_5 + 1] = controller_c_out_u_btint_a[i_14][j_5]; controller_c_in_u_btint_b[i_14][j_5 + 1] = controller_c_out_u_btint_b[i_14][j_5]; controller_c_in_u_overflow[i_14][j_5 + 1] = controller_c_out_u_overflow[i_14][j_5];
-                    controller_c_in_d_btint_a[i_14][j_5 + 1] = controller_c_out_d_btint_a[i_14][j_5]; controller_c_in_d_btint_b[i_14][j_5 + 1] = controller_c_out_d_btint_b[i_14][j_5]; controller_c_in_d_overflow[i_14][j_5 + 1] = controller_c_out_d_overflow[i_14][j_5];
+                    controller_result_u_btint_a_next[(i_4 * 4 + j_1)] = result_u_btint_a_next[(i_4 * 4 + j_1)]; controller_result_u_btint_b_next[(i_4 * 4 + j_1)] = result_u_btint_b_next[(i_4 * 4 + j_1)]; controller_result_u_overflow_next[(i_4 * 4 + j_1)] = result_u_overflow_next[(i_4 * 4 + j_1)];
+                    controller_result_d_btint_a_next[(i_4 * 4 + j_1)] = result_d_btint_a_next[(i_4 * 4 + j_1)]; controller_result_d_btint_b_next[(i_4 * 4 + j_1)] = result_d_btint_b_next[(i_4 * 4 + j_1)]; controller_result_d_overflow_next[(i_4 * 4 + j_1)] = result_d_overflow_next[(i_4 * 4 + j_1)];
                 end
             end
             if (controller_op == 0)
             begin
-                for (integer i_15 = 0; i_15 < 3; i_15++)
+                for (integer i_5 = 0; i_5 < 3; i_5++)
                 begin
-                    if (steps_next >= 2 * 3 - 2 - i_15)
+                    if (steps_next >= 2 * 3 - 2 - i_5)
                     begin
-                        controller_s_mm_next[i_15] = 1;
+                        controller_s_mm_next[i_5] = 1;
                     end else begin
-                        controller_s_mm_next[i_15] = 0;
+                        controller_s_mm_next[i_5] = 0;
                     end
                 end
                 if (steps_next >= 3 * 3 - 1)
@@ -5654,268 +6775,288 @@ function void control_func;
                 end else begin
                     controller_done_next = 0;
                 end
-                for (integer i_16 = 0; i_16 < 3; i_16++)
+                for (integer i_6 = 0; i_6 < 4; i_6++)
                 begin
-                    if (steps_next != 3 - 1)
+                    for (integer j_2 = 0; j_2 < 3; j_2++)
                     begin
-                        controller_s_in_next[i_16][0] = 0;
-                        TMP_15_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_14 = 0;
-                        output_btint_b_14 = 0;
-                        output_overflow_14 = 0;
-                        for (integer i_17 = 0; i_17 < 8; i_17++)
+                        if (j_2 == 0 && j_2 < 3)
                         begin
-                            output_index_7 = i_17; output_value_7 = 0;
-                            // Call set_value() begin
-                            output_btint_a_15 = 0;
-                            output_btint_b_15 = 0;
-                            output_overflow_15 = 0;
-                            output_btint_a_15 = output_btint_a_14;
-                            output_btint_b_15 = output_btint_b_14;
-                            output_overflow_15 = output_overflow_14;
-                            case (0)
-                            0 : begin
-                                output_btint_a_15[output_index_7] = 0;
-                                output_btint_b_15[output_index_7] = 1;
+                            if (steps_next != 3 - 1)
+                            begin
+                                controller_s_in_next[(i_6 * 3 + j_2)] = 0;
+                                TMP_5_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_4 = 0;
+                                output_btint_b_4 = 0;
+                                output_overflow_4 = 0;
+                                for (integer i_7 = 0; i_7 < 8; i_7++)
+                                begin
+                                    output_index_2 = i_7; output_value_2 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_5 = 0;
+                                    output_btint_b_5 = 0;
+                                    output_overflow_5 = 0;
+                                    output_btint_a_5 = output_btint_a_4;
+                                    output_btint_b_5 = output_btint_b_4;
+                                    output_overflow_5 = output_overflow_4;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_5[output_index_2] = 0;
+                                        output_btint_b_5[output_index_2] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_5[output_index_2] = 1;
+                                        output_btint_b_5[output_index_2] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_5; TMP_2_btint_b = output_btint_b_5; TMP_2_overflow = output_overflow_5;
+                                    // Call set_value() end
+                                    output_btint_a_4 = TMP_2_btint_a; output_btint_b_4 = TMP_2_btint_b; output_overflow_4 = TMP_2_overflow;
+                                end
+                                TMP_5_isNegative = TMP_5_value < 0;
+                                TMP_5_i = 0;
+                                TMP_6_btint_a = output_btint_a_4; TMP_6_btint_b = output_btint_b_4; TMP_6_overflow = output_overflow_4;
+                                // Call from_int() end
+                                controller_c_in_u_btint_a_next[(i_6 * 3 + j_2)] = TMP_6_btint_a; controller_c_in_u_btint_b_next[(i_6 * 3 + j_2)] = TMP_6_btint_b; controller_c_in_u_overflow_next[(i_6 * 3 + j_2)] = TMP_6_overflow;
+                                TMP_7_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_6 = 0;
+                                output_btint_b_6 = 0;
+                                output_overflow_6 = 0;
+                                for (integer i_8 = 0; i_8 < 8; i_8++)
+                                begin
+                                    output_index_3 = i_8; output_value_3 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_7 = 0;
+                                    output_btint_b_7 = 0;
+                                    output_overflow_7 = 0;
+                                    output_btint_a_7 = output_btint_a_6;
+                                    output_btint_b_7 = output_btint_b_6;
+                                    output_overflow_7 = output_overflow_6;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_7[output_index_3] = 0;
+                                        output_btint_b_7[output_index_3] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_7[output_index_3] = 1;
+                                        output_btint_b_7[output_index_3] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_7; TMP_2_btint_b = output_btint_b_7; TMP_2_overflow = output_overflow_7;
+                                    // Call set_value() end
+                                    output_btint_a_6 = TMP_2_btint_a; output_btint_b_6 = TMP_2_btint_b; output_overflow_6 = TMP_2_overflow;
+                                end
+                                TMP_7_isNegative = TMP_7_value < 0;
+                                TMP_7_i = 0;
+                                TMP_8_btint_a = output_btint_a_6; TMP_8_btint_b = output_btint_b_6; TMP_8_overflow = output_overflow_6;
+                                // Call from_int() end
+                                controller_c_in_d_btint_a_next[(i_6 * 3 + j_2)] = TMP_8_btint_a; controller_c_in_d_btint_b_next[(i_6 * 3 + j_2)] = TMP_8_btint_b; controller_c_in_d_overflow_next[(i_6 * 3 + j_2)] = TMP_8_overflow;
+                            end else begin
+                                controller_s_in_next[(i_6 * 3 + j_2)] = 1;
+                                TMP_9_value = 1;
+                                // Call from_int() begin
+                                output_btint_a_8 = 0;
+                                output_btint_b_8 = 0;
+                                output_overflow_8 = 0;
+                                for (integer i_9 = 0; i_9 < 8; i_9++)
+                                begin
+                                    output_index_4 = i_9; output_value_4 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_9 = 0;
+                                    output_btint_b_9 = 0;
+                                    output_overflow_9 = 0;
+                                    output_btint_a_9 = output_btint_a_8;
+                                    output_btint_b_9 = output_btint_b_8;
+                                    output_overflow_9 = output_overflow_8;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_9[output_index_4] = 0;
+                                        output_btint_b_9[output_index_4] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_9[output_index_4] = 1;
+                                        output_btint_b_9[output_index_4] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_9; TMP_2_btint_b = output_btint_b_9; TMP_2_overflow = output_overflow_9;
+                                    // Call set_value() end
+                                    output_btint_a_8 = TMP_2_btint_a; output_btint_b_8 = TMP_2_btint_b; output_overflow_8 = TMP_2_overflow;
+                                end
+                                TMP_9_isNegative = TMP_9_value < 0;
+                                TMP_9_i = 0;
+                                while (|TMP_9_value)
+                                begin
+                                    output_index_4 = TMP_9_i++; output_value_4 = 1;
+                                    // Call set_value() begin
+                                    output_btint_a_9 = 0;
+                                    output_btint_b_9 = 0;
+                                    output_overflow_9 = 0;
+                                    output_btint_a_9 = output_btint_a_8;
+                                    output_btint_b_9 = output_btint_b_8;
+                                    output_overflow_9 = output_overflow_8;
+                                    case (1)
+                                    0 : begin
+                                        output_btint_a_9[output_index_4] = 0;
+                                        output_btint_b_9[output_index_4] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_9[output_index_4] = 1;
+                                        output_btint_b_9[output_index_4] = 1;
+                                    end
+                                    endcase
+                                    TMP_11_btint_a = output_btint_a_9; TMP_11_btint_b = output_btint_b_9; TMP_11_overflow = output_overflow_9;
+                                    // Call set_value() end
+                                    output_btint_a_8 = TMP_11_btint_a; output_btint_b_8 = TMP_11_btint_b; output_overflow_8 = TMP_11_overflow;
+                                    TMP_9_value = TMP_9_value - 1;
+                                    TMP_9_value = TMP_9_value / 2;
+                                end
+                                TMP_10_btint_a = output_btint_a_8; TMP_10_btint_b = output_btint_b_8; TMP_10_overflow = output_overflow_8;
+                                // Call from_int() end
+                                controller_c_in_u_btint_a_next[(i_6 * 3 + j_2)] = TMP_10_btint_a; controller_c_in_u_btint_b_next[(i_6 * 3 + j_2)] = TMP_10_btint_b; controller_c_in_u_overflow_next[(i_6 * 3 + j_2)] = TMP_10_overflow;
+                                TMP_12_value = 1;
+                                // Call from_int() begin
+                                output_btint_a_10 = 0;
+                                output_btint_b_10 = 0;
+                                output_overflow_10 = 0;
+                                for (integer i_10 = 0; i_10 < 8; i_10++)
+                                begin
+                                    output_index_5 = i_10; output_value_5 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_11 = 0;
+                                    output_btint_b_11 = 0;
+                                    output_overflow_11 = 0;
+                                    output_btint_a_11 = output_btint_a_10;
+                                    output_btint_b_11 = output_btint_b_10;
+                                    output_overflow_11 = output_overflow_10;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_11[output_index_5] = 0;
+                                        output_btint_b_11[output_index_5] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_11[output_index_5] = 1;
+                                        output_btint_b_11[output_index_5] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_11; TMP_2_btint_b = output_btint_b_11; TMP_2_overflow = output_overflow_11;
+                                    // Call set_value() end
+                                    output_btint_a_10 = TMP_2_btint_a; output_btint_b_10 = TMP_2_btint_b; output_overflow_10 = TMP_2_overflow;
+                                end
+                                TMP_12_isNegative = TMP_12_value < 0;
+                                TMP_12_i = 0;
+                                while (|TMP_12_value)
+                                begin
+                                    output_index_5 = TMP_12_i++; output_value_5 = 1;
+                                    // Call set_value() begin
+                                    output_btint_a_11 = 0;
+                                    output_btint_b_11 = 0;
+                                    output_overflow_11 = 0;
+                                    output_btint_a_11 = output_btint_a_10;
+                                    output_btint_b_11 = output_btint_b_10;
+                                    output_overflow_11 = output_overflow_10;
+                                    case (1)
+                                    0 : begin
+                                        output_btint_a_11[output_index_5] = 0;
+                                        output_btint_b_11[output_index_5] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_11[output_index_5] = 1;
+                                        output_btint_b_11[output_index_5] = 1;
+                                    end
+                                    endcase
+                                    TMP_11_btint_a = output_btint_a_11; TMP_11_btint_b = output_btint_b_11; TMP_11_overflow = output_overflow_11;
+                                    // Call set_value() end
+                                    output_btint_a_10 = TMP_11_btint_a; output_btint_b_10 = TMP_11_btint_b; output_overflow_10 = TMP_11_overflow;
+                                    TMP_12_value = TMP_12_value - 1;
+                                    TMP_12_value = TMP_12_value / 2;
+                                end
+                                TMP_13_btint_a = output_btint_a_10; TMP_13_btint_b = output_btint_b_10; TMP_13_overflow = output_overflow_10;
+                                // Call from_int() end
+                                controller_c_in_d_btint_a_next[(i_6 * 3 + j_2)] = TMP_13_btint_a; controller_c_in_d_btint_b_next[(i_6 * 3 + j_2)] = TMP_13_btint_b; controller_c_in_d_overflow_next[(i_6 * 3 + j_2)] = TMP_13_overflow;
                             end
-                            1 : begin
-                                output_btint_a_15[output_index_7] = 1;
-                                output_btint_b_15[output_index_7] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_15; TMP_2_btint_b = output_btint_b_15; TMP_2_overflow = output_overflow_15;
-                            // Call set_value() end
-                            output_btint_a_14 = TMP_2_btint_a; output_btint_b_14 = TMP_2_btint_b; output_overflow_14 = TMP_2_overflow;
+                        end else begin
+                            controller_c_in_u_btint_a_next[(i_6 * 3 + j_2)] = controller_c_out_u_btint_a[(i_6 * 3 + (j_2 - 1))]; controller_c_in_u_btint_b_next[(i_6 * 3 + j_2)] = controller_c_out_u_btint_b[(i_6 * 3 + (j_2 - 1))]; controller_c_in_u_overflow_next[(i_6 * 3 + j_2)] = controller_c_out_u_overflow[(i_6 * 3 + (j_2 - 1))];
+                            controller_c_in_d_btint_a_next[(i_6 * 3 + j_2)] = controller_c_out_d_btint_a[(i_6 * 3 + (j_2 - 1))]; controller_c_in_d_btint_b_next[(i_6 * 3 + j_2)] = controller_c_out_d_btint_b[(i_6 * 3 + (j_2 - 1))]; controller_c_in_d_overflow_next[(i_6 * 3 + j_2)] = controller_c_out_d_overflow[(i_6 * 3 + (j_2 - 1))];
                         end
-                        TMP_15_isNegative = TMP_15_value < 0;
-                        TMP_15_i = 0;
-                        TMP_16_btint_a = output_btint_a_14; TMP_16_btint_b = output_btint_b_14; TMP_16_overflow = output_overflow_14;
-                        // Call from_int() end
-                        controller_c_in_u_btint_a[i_16][0] = TMP_16_btint_a; controller_c_in_u_btint_b[i_16][0] = TMP_16_btint_b; controller_c_in_u_overflow[i_16][0] = TMP_16_overflow;
-                        TMP_17_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_16 = 0;
-                        output_btint_b_16 = 0;
-                        output_overflow_16 = 0;
-                        for (integer i_18 = 0; i_18 < 8; i_18++)
+                    end
+                end
+                for (integer i_11 = 0; i_11 < 4; i_11++)
+                begin
+                    if (i_11 == 0)
+                    begin
+                        k = 0;
+                        for (integer j_3 = 0; j_3 < 3; j_3++)
                         begin
-                            output_index_8 = i_18; output_value_8 = 0;
-                            // Call set_value() begin
-                            output_btint_a_17 = 0;
-                            output_btint_b_17 = 0;
-                            output_overflow_17 = 0;
-                            output_btint_a_17 = output_btint_a_16;
-                            output_btint_b_17 = output_btint_b_16;
-                            output_overflow_17 = output_overflow_16;
-                            case (0)
-                            0 : begin
-                                output_btint_a_17[output_index_8] = 0;
-                                output_btint_b_17[output_index_8] = 1;
+                            if (steps_next >= 0 + k && steps_next < 3 + j_3)
+                            begin
+                                controller_a_in_btint_a_next[(i_11 * 3 + j_3)] = controller_m_a_btint_a[((3 - 1 - steps_next + j_3) * 3 + (3 - 1 - j_3))]; controller_a_in_btint_b_next[(i_11 * 3 + j_3)] = controller_m_a_btint_b[((3 - 1 - steps_next + j_3) * 3 + (3 - 1 - j_3))]; controller_a_in_overflow_next[(i_11 * 3 + j_3)] = controller_m_a_overflow[((3 - 1 - steps_next + j_3) * 3 + (3 - 1 - j_3))];
+                            end else begin
+                                TMP_14_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_12 = 0;
+                                output_btint_b_12 = 0;
+                                output_overflow_12 = 0;
+                                for (integer i_12 = 0; i_12 < 8; i_12++)
+                                begin
+                                    output_index_6 = i_12; output_value_6 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_13 = 0;
+                                    output_btint_b_13 = 0;
+                                    output_overflow_13 = 0;
+                                    output_btint_a_13 = output_btint_a_12;
+                                    output_btint_b_13 = output_btint_b_12;
+                                    output_overflow_13 = output_overflow_12;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_13[output_index_6] = 0;
+                                        output_btint_b_13[output_index_6] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_13[output_index_6] = 1;
+                                        output_btint_b_13[output_index_6] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_13; TMP_2_btint_b = output_btint_b_13; TMP_2_overflow = output_overflow_13;
+                                    // Call set_value() end
+                                    output_btint_a_12 = TMP_2_btint_a; output_btint_b_12 = TMP_2_btint_b; output_overflow_12 = TMP_2_overflow;
+                                end
+                                TMP_14_isNegative = TMP_14_value < 0;
+                                TMP_14_i = 0;
+                                TMP_15_btint_a = output_btint_a_12; TMP_15_btint_b = output_btint_b_12; TMP_15_overflow = output_overflow_12;
+                                // Call from_int() end
+                                controller_a_in_btint_a_next[(i_11 * 3 + j_3)] = TMP_15_btint_a; controller_a_in_btint_b_next[(i_11 * 3 + j_3)] = TMP_15_btint_b; controller_a_in_overflow_next[(i_11 * 3 + j_3)] = TMP_15_overflow;
                             end
-                            1 : begin
-                                output_btint_a_17[output_index_8] = 1;
-                                output_btint_b_17[output_index_8] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_17; TMP_2_btint_b = output_btint_b_17; TMP_2_overflow = output_overflow_17;
-                            // Call set_value() end
-                            output_btint_a_16 = TMP_2_btint_a; output_btint_b_16 = TMP_2_btint_b; output_overflow_16 = TMP_2_overflow;
+                            k = k + 2;
                         end
-                        TMP_17_isNegative = TMP_17_value < 0;
-                        TMP_17_i = 0;
-                        TMP_18_btint_a = output_btint_a_16; TMP_18_btint_b = output_btint_b_16; TMP_18_overflow = output_overflow_16;
-                        // Call from_int() end
-                        controller_c_in_d_btint_a[i_16][0] = TMP_18_btint_a; controller_c_in_d_btint_b[i_16][0] = TMP_18_btint_b; controller_c_in_d_overflow[i_16][0] = TMP_18_overflow;
                     end else begin
-                        controller_s_in_next[i_16][0] = 1;
-                        TMP_19_value = 1;
-                        // Call from_int() begin
-                        output_btint_a_18 = 0;
-                        output_btint_b_18 = 0;
-                        output_overflow_18 = 0;
-                        for (integer i_19 = 0; i_19 < 8; i_19++)
+                        for (integer j_4 = 0; j_4 < 3; j_4++)
                         begin
-                            output_index_9 = i_19; output_value_9 = 0;
-                            // Call set_value() begin
-                            output_btint_a_19 = 0;
-                            output_btint_b_19 = 0;
-                            output_overflow_19 = 0;
-                            output_btint_a_19 = output_btint_a_18;
-                            output_btint_b_19 = output_btint_b_18;
-                            output_overflow_19 = output_overflow_18;
-                            case (0)
-                            0 : begin
-                                output_btint_a_19[output_index_9] = 0;
-                                output_btint_b_19[output_index_9] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_19[output_index_9] = 1;
-                                output_btint_b_19[output_index_9] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_19; TMP_2_btint_b = output_btint_b_19; TMP_2_overflow = output_overflow_19;
-                            // Call set_value() end
-                            output_btint_a_18 = TMP_2_btint_a; output_btint_b_18 = TMP_2_btint_b; output_overflow_18 = TMP_2_overflow;
+                            controller_a_in_btint_a_next[(i_11 * 3 + j_4)] = controller_a_out_btint_a[((i_11 - 1) * 3 + j_4)]; controller_a_in_btint_b_next[(i_11 * 3 + j_4)] = controller_a_out_btint_b[((i_11 - 1) * 3 + j_4)]; controller_a_in_overflow_next[(i_11 * 3 + j_4)] = controller_a_out_overflow[((i_11 - 1) * 3 + j_4)];
                         end
-                        TMP_19_isNegative = TMP_19_value < 0;
-                        TMP_19_i = 0;
-                        while (|TMP_19_value)
-                        begin
-                            output_index_9 = TMP_19_i++; output_value_9 = 1;
-                            // Call set_value() begin
-                            output_btint_a_19 = 0;
-                            output_btint_b_19 = 0;
-                            output_overflow_19 = 0;
-                            output_btint_a_19 = output_btint_a_18;
-                            output_btint_b_19 = output_btint_b_18;
-                            output_overflow_19 = output_overflow_18;
-                            case (1)
-                            0 : begin
-                                output_btint_a_19[output_index_9] = 0;
-                                output_btint_b_19[output_index_9] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_19[output_index_9] = 1;
-                                output_btint_b_19[output_index_9] = 1;
-                            end
-                            endcase
-                            TMP_21_btint_a = output_btint_a_19; TMP_21_btint_b = output_btint_b_19; TMP_21_overflow = output_overflow_19;
-                            // Call set_value() end
-                            output_btint_a_18 = TMP_21_btint_a; output_btint_b_18 = TMP_21_btint_b; output_overflow_18 = TMP_21_overflow;
-                            TMP_19_value = TMP_19_value - 1;
-                            TMP_19_value = TMP_19_value / 2;
-                        end
-                        TMP_20_btint_a = output_btint_a_18; TMP_20_btint_b = output_btint_b_18; TMP_20_overflow = output_overflow_18;
-                        // Call from_int() end
-                        controller_c_in_u_btint_a[i_16][0] = TMP_20_btint_a; controller_c_in_u_btint_b[i_16][0] = TMP_20_btint_b; controller_c_in_u_overflow[i_16][0] = TMP_20_overflow;
-                        TMP_22_value = 1;
-                        // Call from_int() begin
-                        output_btint_a_20 = 0;
-                        output_btint_b_20 = 0;
-                        output_overflow_20 = 0;
-                        for (integer i_20 = 0; i_20 < 8; i_20++)
-                        begin
-                            output_index_10 = i_20; output_value_10 = 0;
-                            // Call set_value() begin
-                            output_btint_a_21 = 0;
-                            output_btint_b_21 = 0;
-                            output_overflow_21 = 0;
-                            output_btint_a_21 = output_btint_a_20;
-                            output_btint_b_21 = output_btint_b_20;
-                            output_overflow_21 = output_overflow_20;
-                            case (0)
-                            0 : begin
-                                output_btint_a_21[output_index_10] = 0;
-                                output_btint_b_21[output_index_10] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_21[output_index_10] = 1;
-                                output_btint_b_21[output_index_10] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_21; TMP_2_btint_b = output_btint_b_21; TMP_2_overflow = output_overflow_21;
-                            // Call set_value() end
-                            output_btint_a_20 = TMP_2_btint_a; output_btint_b_20 = TMP_2_btint_b; output_overflow_20 = TMP_2_overflow;
-                        end
-                        TMP_22_isNegative = TMP_22_value < 0;
-                        TMP_22_i = 0;
-                        while (|TMP_22_value)
-                        begin
-                            output_index_10 = TMP_22_i++; output_value_10 = 1;
-                            // Call set_value() begin
-                            output_btint_a_21 = 0;
-                            output_btint_b_21 = 0;
-                            output_overflow_21 = 0;
-                            output_btint_a_21 = output_btint_a_20;
-                            output_btint_b_21 = output_btint_b_20;
-                            output_overflow_21 = output_overflow_20;
-                            case (1)
-                            0 : begin
-                                output_btint_a_21[output_index_10] = 0;
-                                output_btint_b_21[output_index_10] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_21[output_index_10] = 1;
-                                output_btint_b_21[output_index_10] = 1;
-                            end
-                            endcase
-                            TMP_21_btint_a = output_btint_a_21; TMP_21_btint_b = output_btint_b_21; TMP_21_overflow = output_overflow_21;
-                            // Call set_value() end
-                            output_btint_a_20 = TMP_21_btint_a; output_btint_b_20 = TMP_21_btint_b; output_overflow_20 = TMP_21_overflow;
-                            TMP_22_value = TMP_22_value - 1;
-                            TMP_22_value = TMP_22_value / 2;
-                        end
-                        TMP_23_btint_a = output_btint_a_20; TMP_23_btint_b = output_btint_b_20; TMP_23_overflow = output_overflow_20;
-                        // Call from_int() end
-                        controller_c_in_d_btint_a[i_16][0] = TMP_23_btint_a; controller_c_in_d_btint_b[i_16][0] = TMP_23_btint_b; controller_c_in_d_overflow[i_16][0] = TMP_23_overflow;
                     end
                 end
-                k = 0;
-                for (integer i_21 = 0; i_21 < 3; i_21++)
+                for (integer i_13 = 0; i_13 < 3; i_13++)
                 begin
-                    if (steps_next >= 0 + k && steps_next < 3 + i_21)
+                    if (steps_next >= 2 * 3 - 1 && steps_next < 2 * 3 + i_13)
                     begin
-                        controller_a_in_btint_a[0][i_21] = controller_m_a_btint_a[3 - 1 - steps_next + i_21][3 - 1 - i_21]; controller_a_in_btint_b[0][i_21] = controller_m_a_btint_b[3 - 1 - steps_next + i_21][3 - 1 - i_21]; controller_a_in_overflow[0][i_21] = controller_m_a_overflow[3 - 1 - steps_next + i_21][3 - 1 - i_21];
-                    end else begin
-                        TMP_24_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_22 = 0;
-                        output_btint_b_22 = 0;
-                        output_overflow_22 = 0;
-                        for (integer i_22 = 0; i_22 < 8; i_22++)
-                        begin
-                            output_index_11 = i_22; output_value_11 = 0;
-                            // Call set_value() begin
-                            output_btint_a_23 = 0;
-                            output_btint_b_23 = 0;
-                            output_overflow_23 = 0;
-                            output_btint_a_23 = output_btint_a_22;
-                            output_btint_b_23 = output_btint_b_22;
-                            output_overflow_23 = output_overflow_22;
-                            case (0)
-                            0 : begin
-                                output_btint_a_23[output_index_11] = 0;
-                                output_btint_b_23[output_index_11] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_23[output_index_11] = 1;
-                                output_btint_b_23[output_index_11] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_23; TMP_2_btint_b = output_btint_b_23; TMP_2_overflow = output_overflow_23;
-                            // Call set_value() end
-                            output_btint_a_22 = TMP_2_btint_a; output_btint_b_22 = TMP_2_btint_b; output_overflow_22 = TMP_2_overflow;
-                        end
-                        TMP_24_isNegative = TMP_24_value < 0;
-                        TMP_24_i = 0;
-                        TMP_25_btint_a = output_btint_a_22; TMP_25_btint_b = output_btint_b_22; TMP_25_overflow = output_overflow_22;
-                        // Call from_int() end
-                        controller_a_in_btint_a[0][i_21] = TMP_25_btint_a; controller_a_in_btint_b[0][i_21] = TMP_25_btint_b; controller_a_in_overflow[0][i_21] = TMP_25_overflow;
-                    end
-                    k = k + 2;
-                end
-                for (integer i_23 = 0; i_23 < 3; i_23++)
-                begin
-                    if (steps_next >= 2 * 3 - 1 && steps_next < 2 * 3 + i_23)
-                    begin
-                        result_u_btint_a_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_u_btint_a[i_23][3 - 1]; result_u_btint_b_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_u_btint_b[i_23][3 - 1]; result_u_overflow_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_u_overflow[i_23][3 - 1];
-                        result_d_btint_a_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_d_btint_a[i_23][3 - 1]; result_d_btint_b_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_d_btint_b[i_23][3 - 1]; result_d_overflow_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_d_overflow[i_23][3 - 1];
+                        result_u_btint_a_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_u_btint_a[(i_13 * 3 + (3 - 1))]; result_u_btint_b_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_u_btint_b[(i_13 * 3 + (3 - 1))]; result_u_overflow_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_u_overflow[(i_13 * 3 + (3 - 1))];
+                        result_d_btint_a_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_d_btint_a[(i_13 * 3 + (3 - 1))]; result_d_btint_b_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_d_btint_b[(i_13 * 3 + (3 - 1))]; result_d_overflow_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_d_overflow[(i_13 * 3 + (3 - 1))];
                     end
                 end
-                for (integer i_24 = 1; i_24 < 3; i_24++)
+                for (integer i_14 = 1; i_14 < 3; i_14++)
                 begin
-                    for (integer j_6 = 3 - 1 - i_24; j_6 < 3 - 1; j_6++)
+                    for (integer j_5 = 3 - 1 - i_14; j_5 < 3 - 1; j_5++)
                     begin
-                        controller_s_in_next[i_24][j_6 + 1] = state_next[i_24][j_6 + 1];
-                        state_next[i_24][j_6 + 1] = controller_s_out[i_24][j_6];
+                        controller_s_in_next[(i_14 * 3 + (j_5 + 1))] = state_next[(i_14 * 4 + (j_5 + 1))];
+                        state_next[(i_14 * 4 + (j_5 + 1))] = controller_s_out[(i_14 * 3 + j_5)];
                     end
                 end
-                for (integer i_25 = 0; i_25 < 3 - 1; i_25++)
+                for (integer i_15 = 0; i_15 < 3 - 1; i_15++)
                 begin
-                    for (integer j_7 = 0; j_7 < 3 - 1 - i_25; j_7++)
+                    for (integer j_6 = 0; j_6 < 3 - 1 - i_15; j_6++)
                     begin
-                        controller_s_in_next[i_25][j_7 + 1] = controller_s_out[i_25][j_7];
+                        controller_s_in_next[(i_15 * 3 + (j_6 + 1))] = controller_s_out[(i_15 * 3 + j_6)];
                     end
                 end
                 steps_next++;
@@ -5928,87 +7069,403 @@ function void control_func;
                     end else begin
                         controller_done_next = 0;
                     end
-                    for (integer i_26 = 0; i_26 < 4; i_26++)
+                    for (integer i_16 = 0; i_16 < 4; i_16++)
                     begin
-                        TMP_26_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_24 = 0;
-                        output_btint_b_24 = 0;
-                        output_overflow_24 = 0;
-                        for (integer i_27 = 0; i_27 < 8; i_27++)
+                        for (integer j_7 = 0; j_7 < 3; j_7++)
                         begin
-                            output_index_12 = i_27; output_value_12 = 0;
-                            // Call set_value() begin
-                            output_btint_a_25 = 0;
-                            output_btint_b_25 = 0;
-                            output_overflow_25 = 0;
-                            output_btint_a_25 = output_btint_a_24;
-                            output_btint_b_25 = output_btint_b_24;
-                            output_overflow_25 = output_overflow_24;
-                            case (0)
-                            0 : begin
-                                output_btint_a_25[output_index_12] = 0;
-                                output_btint_b_25[output_index_12] = 1;
+                            if (j_7 == 0)
+                            begin
+                                TMP_16_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_14 = 0;
+                                output_btint_b_14 = 0;
+                                output_overflow_14 = 0;
+                                for (integer i_17 = 0; i_17 < 8; i_17++)
+                                begin
+                                    output_index_7 = i_17; output_value_7 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_15 = 0;
+                                    output_btint_b_15 = 0;
+                                    output_overflow_15 = 0;
+                                    output_btint_a_15 = output_btint_a_14;
+                                    output_btint_b_15 = output_btint_b_14;
+                                    output_overflow_15 = output_overflow_14;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_15[output_index_7] = 0;
+                                        output_btint_b_15[output_index_7] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_15[output_index_7] = 1;
+                                        output_btint_b_15[output_index_7] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_15; TMP_2_btint_b = output_btint_b_15; TMP_2_overflow = output_overflow_15;
+                                    // Call set_value() end
+                                    output_btint_a_14 = TMP_2_btint_a; output_btint_b_14 = TMP_2_btint_b; output_overflow_14 = TMP_2_overflow;
+                                end
+                                TMP_16_isNegative = TMP_16_value < 0;
+                                TMP_16_i = 0;
+                                TMP_17_btint_a = output_btint_a_14; TMP_17_btint_b = output_btint_b_14; TMP_17_overflow = output_overflow_14;
+                                // Call from_int() end
+                                controller_c_in_u_btint_a_next[(i_16 * 3 + j_7)] = TMP_17_btint_a; controller_c_in_u_btint_b_next[(i_16 * 3 + j_7)] = TMP_17_btint_b; controller_c_in_u_overflow_next[(i_16 * 3 + j_7)] = TMP_17_overflow;
+                            end else begin
+                                controller_c_in_u_btint_a_next[(i_16 * 3 + j_7)] = controller_c_out_u_btint_a[(i_16 * 3 + (j_7 - 1))]; controller_c_in_u_btint_b_next[(i_16 * 3 + j_7)] = controller_c_out_u_btint_b[(i_16 * 3 + (j_7 - 1))]; controller_c_in_u_overflow_next[(i_16 * 3 + j_7)] = controller_c_out_u_overflow[(i_16 * 3 + (j_7 - 1))];
                             end
-                            1 : begin
-                                output_btint_a_25[output_index_12] = 1;
-                                output_btint_b_25[output_index_12] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_25; TMP_2_btint_b = output_btint_b_25; TMP_2_overflow = output_overflow_25;
-                            // Call set_value() end
-                            output_btint_a_24 = TMP_2_btint_a; output_btint_b_24 = TMP_2_btint_b; output_overflow_24 = TMP_2_overflow;
                         end
-                        TMP_26_isNegative = TMP_26_value < 0;
-                        TMP_26_i = 0;
-                        TMP_27_btint_a = output_btint_a_24; TMP_27_btint_b = output_btint_b_24; TMP_27_overflow = output_overflow_24;
-                        // Call from_int() end
-                        controller_c_in_u_btint_a[i_26][0] = TMP_27_btint_a; controller_c_in_u_btint_b[i_26][0] = TMP_27_btint_b; controller_c_in_u_overflow[i_26][0] = TMP_27_overflow;
                     end
-                    for (integer i_28 = 0; i_28 < 4; i_28++)
+                    for (integer i_18 = 0; i_18 < 4; i_18++)
                     begin
-                        if (index_a_next[0] >= 3 + i_28 && index_a_next[0] < 4 + 3 + i_28)
+                        if (index_a_next[0] >= 3 + i_18 && index_a_next[0] < 4 + 3 + i_18)
                         begin
-                            result_u_btint_a_next[index_a_next[0] - 3 - i_28][i_28] = controller_c_out_u_btint_a[i_28][3 - 1]; result_u_btint_b_next[index_a_next[0] - 3 - i_28][i_28] = controller_c_out_u_btint_b[i_28][3 - 1]; result_u_overflow_next[index_a_next[0] - 3 - i_28][i_28] = controller_c_out_u_overflow[i_28][3 - 1];
+                            result_u_btint_a_next[((index_a_next[0] - 3 - i_18) * 4 + i_18)] = controller_c_out_u_btint_a[(i_18 * 3 + (3 - 1))]; result_u_btint_b_next[((index_a_next[0] - 3 - i_18) * 4 + i_18)] = controller_c_out_u_btint_b[(i_18 * 3 + (3 - 1))]; result_u_overflow_next[((index_a_next[0] - 3 - i_18) * 4 + i_18)] = controller_c_out_u_overflow[(i_18 * 3 + (3 - 1))];
                         end
                     end
                     if (!load_done_next)
                     begin
-                        for (integer i_29 = 0; i_29 < 4; i_29++)
+                        for (integer i_19 = 0; i_19 < 4; i_19++)
                         begin
-                            controller_s_mm_next[i_29] = 0;
+                            controller_s_mm_next[i_19] = 0;
                         end
-                        for (integer i_30 = 0; i_30 < 3; i_30++)
+                        for (integer i_20 = 0; i_20 < 4; i_20++)
                         begin
-                            controller_a_in_btint_a[0][i_30] = controller_m_b_btint_a[i_30][4 - 1 - index_b_next]; controller_a_in_btint_b[0][i_30] = controller_m_b_btint_b[i_30][4 - 1 - index_b_next]; controller_a_in_overflow[0][i_30] = controller_m_b_overflow[i_30][4 - 1 - index_b_next];
+                            for (integer j_8 = 0; j_8 < 3; j_8++)
+                            begin
+                                if (i_20 == 0)
+                                begin
+                                    controller_a_in_btint_a_next[(i_20 * 3 + j_8)] = controller_m_b_btint_a[(j_8 * 4 + (4 - 1 - index_b_next))]; controller_a_in_btint_b_next[(i_20 * 3 + j_8)] = controller_m_b_btint_b[(j_8 * 4 + (4 - 1 - index_b_next))]; controller_a_in_overflow_next[(i_20 * 3 + j_8)] = controller_m_b_overflow[(j_8 * 4 + (4 - 1 - index_b_next))];
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_20 * 3 + j_8)] = controller_a_out_btint_a[((i_20 - 1) * 3 + j_8)]; controller_a_in_btint_b_next[(i_20 * 3 + j_8)] = controller_a_out_btint_b[((i_20 - 1) * 3 + j_8)]; controller_a_in_overflow_next[(i_20 * 3 + j_8)] = controller_a_out_overflow[((i_20 - 1) * 3 + j_8)];
+                                end
+                            end
                         end
                         if (index_b_next >= 4 - 1)
                         begin
                             load_done_next = 1;
-                            for (integer i_31 = 0; i_31 < 4; i_31++)
+                            for (integer i_21 = 0; i_21 < 4; i_21++)
                             begin
-                                controller_s_mm_next[i_31] = 1;
+                                controller_s_mm_next[i_21] = 1;
                             end
                         end else begin
                             index_b_next++;
                         end
                     end else begin
-                        for (integer i_32 = 0; i_32 < 4; i_32++)
+                        for (integer i_22 = 0; i_22 < 4; i_22++)
                         begin
-                            controller_s_mm_next[i_32] = 0;
+                            controller_s_mm_next[i_22] = 0;
+                        end
+                        for (integer i_23 = 0; i_23 < 4; i_23++)
+                        begin
+                            for (integer j_9 = 0; j_9 < 3; j_9++)
+                            begin
+                                if (i_23 == 0)
+                                begin
+                                    if (index_a_next[j_9] < 0 || index_a_next[j_9] > 4 - 1)
+                                    begin
+                                        TMP_18_value = 0;
+                                        // Call from_int() begin
+                                        output_btint_a_16 = 0;
+                                        output_btint_b_16 = 0;
+                                        output_overflow_16 = 0;
+                                        for (integer i_24 = 0; i_24 < 8; i_24++)
+                                        begin
+                                            output_index_8 = i_24; output_value_8 = 0;
+                                            // Call set_value() begin
+                                            output_btint_a_17 = 0;
+                                            output_btint_b_17 = 0;
+                                            output_overflow_17 = 0;
+                                            output_btint_a_17 = output_btint_a_16;
+                                            output_btint_b_17 = output_btint_b_16;
+                                            output_overflow_17 = output_overflow_16;
+                                            case (0)
+                                            0 : begin
+                                                output_btint_a_17[output_index_8] = 0;
+                                                output_btint_b_17[output_index_8] = 1;
+                                            end
+                                            1 : begin
+                                                output_btint_a_17[output_index_8] = 1;
+                                                output_btint_b_17[output_index_8] = 1;
+                                            end
+                                            endcase
+                                            TMP_2_btint_a = output_btint_a_17; TMP_2_btint_b = output_btint_b_17; TMP_2_overflow = output_overflow_17;
+                                            // Call set_value() end
+                                            output_btint_a_16 = TMP_2_btint_a; output_btint_b_16 = TMP_2_btint_b; output_overflow_16 = TMP_2_overflow;
+                                        end
+                                        TMP_18_isNegative = TMP_18_value < 0;
+                                        TMP_18_i = 0;
+                                        TMP_19_btint_a = output_btint_a_16; TMP_19_btint_b = output_btint_b_16; TMP_19_overflow = output_overflow_16;
+                                        // Call from_int() end
+                                        controller_a_in_btint_a_next[(i_23 * 3 + j_9)] = TMP_19_btint_a; controller_a_in_btint_b_next[(i_23 * 3 + j_9)] = TMP_19_btint_b; controller_a_in_overflow_next[(i_23 * 3 + j_9)] = TMP_19_overflow;
+                                    end else begin
+                                        controller_a_in_btint_a_next[(i_23 * 3 + j_9)] = controller_m_a_btint_a[(index_a_next[j_9] * 3 + j_9)]; controller_a_in_btint_b_next[(i_23 * 3 + j_9)] = controller_m_a_btint_b[(index_a_next[j_9] * 3 + j_9)]; controller_a_in_overflow_next[(i_23 * 3 + j_9)] = controller_m_a_overflow[(index_a_next[j_9] * 3 + j_9)];
+                                    end
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_23 * 3 + j_9)] = controller_a_out_btint_a[((i_23 - 1) * 3 + j_9)]; controller_a_in_btint_b_next[(i_23 * 3 + j_9)] = controller_a_out_btint_b[((i_23 - 1) * 3 + j_9)]; controller_a_in_overflow_next[(i_23 * 3 + j_9)] = controller_a_out_overflow[((i_23 - 1) * 3 + j_9)];
+                                end
+                            end
+                        end
+                        for (integer i_25 = 0; i_25 < 3; i_25++)
+                        begin
+                            index_a_next[i_25]++;
+                        end
+                    end
+                end else begin
+                    if (index_a_next[3 - 1] >= 4 + 1)
+                    begin
+                        controller_done_next = 1;
+                    end else begin
+                        controller_done_next = 0;
+                    end
+                    if (!load_done_next)
+                    begin
+                        for (integer i_26 = 0; i_26 < 4; i_26++)
+                        begin
+                            for (integer j_10 = 0; j_10 < 3; j_10++)
+                            begin
+                                if (i_26 == 0)
+                                begin
+                                    controller_a_in_btint_a_next[(i_26 * 3 + j_10)] = controller_v_btint_a[j_10]; controller_a_in_btint_b_next[(i_26 * 3 + j_10)] = controller_v_btint_b[j_10]; controller_a_in_overflow_next[(i_26 * 3 + j_10)] = controller_v_overflow[j_10];
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_26 * 3 + j_10)] = controller_a_out_btint_a[((i_26 - 1) * 3 + j_10)]; controller_a_in_btint_b_next[(i_26 * 3 + j_10)] = controller_a_out_btint_b[((i_26 - 1) * 3 + j_10)]; controller_a_in_overflow_next[(i_26 * 3 + j_10)] = controller_a_out_overflow[((i_26 - 1) * 3 + j_10)];
+                                end
+                            end
+                        end
+                        for (integer i_27 = 0; i_27 < 4; i_27++)
+                        begin
+                            controller_s_mm_next[i_27] = 1;
+                        end
+                        load_done_next = 1;
+                    end else begin
+                        for (integer i_28 = 0; i_28 < 4; i_28++)
+                        begin
+                            controller_s_mm_next[i_28] = 0;
+                        end
+                        for (integer i_29 = 0; i_29 < 4; i_29++)
+                        begin
+                            for (integer j_11 = 0; j_11 < 3; j_11++)
+                            begin
+                                if (i_29 == 0)
+                                begin
+                                    if (index_a_next[j_11] < 0 || index_a_next[j_11] > 4 - 1)
+                                    begin
+                                        TMP_20_value = 0;
+                                        // Call from_int() begin
+                                        output_btint_a_18 = 0;
+                                        output_btint_b_18 = 0;
+                                        output_overflow_18 = 0;
+                                        for (integer i_30 = 0; i_30 < 8; i_30++)
+                                        begin
+                                            output_index_9 = i_30; output_value_9 = 0;
+                                            // Call set_value() begin
+                                            output_btint_a_19 = 0;
+                                            output_btint_b_19 = 0;
+                                            output_overflow_19 = 0;
+                                            output_btint_a_19 = output_btint_a_18;
+                                            output_btint_b_19 = output_btint_b_18;
+                                            output_overflow_19 = output_overflow_18;
+                                            case (0)
+                                            0 : begin
+                                                output_btint_a_19[output_index_9] = 0;
+                                                output_btint_b_19[output_index_9] = 1;
+                                            end
+                                            1 : begin
+                                                output_btint_a_19[output_index_9] = 1;
+                                                output_btint_b_19[output_index_9] = 1;
+                                            end
+                                            endcase
+                                            TMP_2_btint_a = output_btint_a_19; TMP_2_btint_b = output_btint_b_19; TMP_2_overflow = output_overflow_19;
+                                            // Call set_value() end
+                                            output_btint_a_18 = TMP_2_btint_a; output_btint_b_18 = TMP_2_btint_b; output_overflow_18 = TMP_2_overflow;
+                                        end
+                                        TMP_20_isNegative = TMP_20_value < 0;
+                                        TMP_20_i = 0;
+                                        TMP_21_btint_a = output_btint_a_18; TMP_21_btint_b = output_btint_b_18; TMP_21_overflow = output_overflow_18;
+                                        // Call from_int() end
+                                        controller_a_in_btint_a_next[(i_29 * 3 + j_11)] = TMP_21_btint_a; controller_a_in_btint_b_next[(i_29 * 3 + j_11)] = TMP_21_btint_b; controller_a_in_overflow_next[(i_29 * 3 + j_11)] = TMP_21_overflow;
+                                    end else begin
+                                        controller_a_in_btint_a_next[(i_29 * 3 + j_11)] = controller_m_a_btint_a[(index_a_next[j_11] * 3 + j_11)]; controller_a_in_btint_b_next[(i_29 * 3 + j_11)] = controller_m_a_btint_b[(index_a_next[j_11] * 3 + j_11)]; controller_a_in_overflow_next[(i_29 * 3 + j_11)] = controller_m_a_overflow[(index_a_next[j_11] * 3 + j_11)];
+                                    end
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_29 * 3 + j_11)] = controller_a_out_btint_a[((i_29 - 1) * 3 + j_11)]; controller_a_in_btint_b_next[(i_29 * 3 + j_11)] = controller_a_out_btint_b[((i_29 - 1) * 3 + j_11)]; controller_a_in_overflow_next[(i_29 * 3 + j_11)] = controller_a_out_overflow[((i_29 - 1) * 3 + j_11)];
+                                end
+                            end
+                        end
+                        for (integer i_31 = 0; i_31 < 4; i_31++)
+                        begin
+                            for (integer j_12 = 0; j_12 < 3; j_12++)
+                            begin
+                                if (j_12 == 0)
+                                begin
+                                    TMP_22_value = 0;
+                                    // Call from_int() begin
+                                    output_btint_a_20 = 0;
+                                    output_btint_b_20 = 0;
+                                    output_overflow_20 = 0;
+                                    for (integer i_32 = 0; i_32 < 8; i_32++)
+                                    begin
+                                        output_index_10 = i_32; output_value_10 = 0;
+                                        // Call set_value() begin
+                                        output_btint_a_21 = 0;
+                                        output_btint_b_21 = 0;
+                                        output_overflow_21 = 0;
+                                        output_btint_a_21 = output_btint_a_20;
+                                        output_btint_b_21 = output_btint_b_20;
+                                        output_overflow_21 = output_overflow_20;
+                                        case (0)
+                                        0 : begin
+                                            output_btint_a_21[output_index_10] = 0;
+                                            output_btint_b_21[output_index_10] = 1;
+                                        end
+                                        1 : begin
+                                            output_btint_a_21[output_index_10] = 1;
+                                            output_btint_b_21[output_index_10] = 1;
+                                        end
+                                        endcase
+                                        TMP_2_btint_a = output_btint_a_21; TMP_2_btint_b = output_btint_b_21; TMP_2_overflow = output_overflow_21;
+                                        // Call set_value() end
+                                        output_btint_a_20 = TMP_2_btint_a; output_btint_b_20 = TMP_2_btint_b; output_overflow_20 = TMP_2_overflow;
+                                    end
+                                    TMP_22_isNegative = TMP_22_value < 0;
+                                    TMP_22_i = 0;
+                                    TMP_23_btint_a = output_btint_a_20; TMP_23_btint_b = output_btint_b_20; TMP_23_overflow = output_overflow_20;
+                                    // Call from_int() end
+                                    controller_c_in_u_btint_a_next[(i_31 * 3 + j_12)] = TMP_23_btint_a; controller_c_in_u_btint_b_next[(i_31 * 3 + j_12)] = TMP_23_btint_b; controller_c_in_u_overflow_next[(i_31 * 3 + j_12)] = TMP_23_overflow;
+                                end else begin
+                                    controller_c_in_u_btint_a_next[(i_31 * 3 + j_12)] = controller_c_out_u_btint_a[(i_31 * 3 + (j_12 - 1))]; controller_c_in_u_btint_b_next[(i_31 * 3 + j_12)] = controller_c_out_u_btint_b[(i_31 * 3 + (j_12 - 1))]; controller_c_in_u_overflow_next[(i_31 * 3 + j_12)] = controller_c_out_u_overflow[(i_31 * 3 + (j_12 - 1))];
+                                end
+                            end
+                        end
+                        if (index_a_next[3 - 1] >= 1 && index_a_next[3 - 1] <= 4)
+                        begin
+                            result_u_btint_a_next[((index_a_next[3 - 1] - 1) * 4 + 0)] = controller_c_out_u_btint_a[(0 * 3 + (3 - 1))]; result_u_btint_b_next[((index_a_next[3 - 1] - 1) * 4 + 0)] = controller_c_out_u_btint_b[(0 * 3 + (3 - 1))]; result_u_overflow_next[((index_a_next[3 - 1] - 1) * 4 + 0)] = controller_c_out_u_overflow[(0 * 3 + (3 - 1))];
                         end
                         for (integer i_33 = 0; i_33 < 3; i_33++)
                         begin
-                            if (index_a_next[i_33] < 0 || index_a_next[i_33] > 4 - 1)
+                            index_a_next[i_33]++;
+                        end
+                    end
+                end
+            end
+            control_WAIT_N_COUNTER_next = 3 * (8 + 3) + 4;
+            control_PROC_STATE_next = 1; return;    // controller.cpp:216:9;
+        end
+        1: begin
+            if (control_WAIT_N_COUNTER != 1) begin
+                control_WAIT_N_COUNTER_next = control_WAIT_N_COUNTER - 1;
+                control_PROC_STATE_next = 1; return;    // controller.cpp:216:9;
+            end;
+            for (integer i_4 = 0; i_4 < 4; i_4++)
+            begin
+                for (integer j_1 = 0; j_1 < 4; j_1++)
+                begin
+                    controller_result_u_btint_a_next[(i_4 * 4 + j_1)] = result_u_btint_a_next[(i_4 * 4 + j_1)]; controller_result_u_btint_b_next[(i_4 * 4 + j_1)] = result_u_btint_b_next[(i_4 * 4 + j_1)]; controller_result_u_overflow_next[(i_4 * 4 + j_1)] = result_u_overflow_next[(i_4 * 4 + j_1)];
+                    controller_result_d_btint_a_next[(i_4 * 4 + j_1)] = result_d_btint_a_next[(i_4 * 4 + j_1)]; controller_result_d_btint_b_next[(i_4 * 4 + j_1)] = result_d_btint_b_next[(i_4 * 4 + j_1)]; controller_result_d_overflow_next[(i_4 * 4 + j_1)] = result_d_overflow_next[(i_4 * 4 + j_1)];
+                end
+            end
+            if (controller_op == 0)
+            begin
+                for (integer i_5 = 0; i_5 < 3; i_5++)
+                begin
+                    if (steps_next >= 2 * 3 - 2 - i_5)
+                    begin
+                        controller_s_mm_next[i_5] = 1;
+                    end else begin
+                        controller_s_mm_next[i_5] = 0;
+                    end
+                end
+                if (steps_next >= 3 * 3 - 1)
+                begin
+                    controller_done_next = 1;
+                end else begin
+                    controller_done_next = 0;
+                end
+                for (integer i_6 = 0; i_6 < 4; i_6++)
+                begin
+                    for (integer j_2 = 0; j_2 < 3; j_2++)
+                    begin
+                        if (j_2 == 0 && j_2 < 3)
+                        begin
+                            if (steps_next != 3 - 1)
                             begin
-                                TMP_28_value = 0;
+                                controller_s_in_next[(i_6 * 3 + j_2)] = 0;
+                                TMP_24_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_22 = 0;
+                                output_btint_b_22 = 0;
+                                output_overflow_22 = 0;
+                                for (integer i_34 = 0; i_34 < 8; i_34++)
+                                begin
+                                    output_index_11 = i_34; output_value_11 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_23 = 0;
+                                    output_btint_b_23 = 0;
+                                    output_overflow_23 = 0;
+                                    output_btint_a_23 = output_btint_a_22;
+                                    output_btint_b_23 = output_btint_b_22;
+                                    output_overflow_23 = output_overflow_22;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_23[output_index_11] = 0;
+                                        output_btint_b_23[output_index_11] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_23[output_index_11] = 1;
+                                        output_btint_b_23[output_index_11] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_23; TMP_2_btint_b = output_btint_b_23; TMP_2_overflow = output_overflow_23;
+                                    // Call set_value() end
+                                    output_btint_a_22 = TMP_2_btint_a; output_btint_b_22 = TMP_2_btint_b; output_overflow_22 = TMP_2_overflow;
+                                end
+                                TMP_24_isNegative = TMP_24_value < 0;
+                                TMP_24_i = 0;
+                                TMP_6_btint_a = output_btint_a_22; TMP_6_btint_b = output_btint_b_22; TMP_6_overflow = output_overflow_22;
+                                // Call from_int() end
+                                controller_c_in_u_btint_a_next[(i_6 * 3 + j_2)] = TMP_6_btint_a; controller_c_in_u_btint_b_next[(i_6 * 3 + j_2)] = TMP_6_btint_b; controller_c_in_u_overflow_next[(i_6 * 3 + j_2)] = TMP_6_overflow;
+                                TMP_25_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_24 = 0;
+                                output_btint_b_24 = 0;
+                                output_overflow_24 = 0;
+                                for (integer i_35 = 0; i_35 < 8; i_35++)
+                                begin
+                                    output_index_12 = i_35; output_value_12 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_25 = 0;
+                                    output_btint_b_25 = 0;
+                                    output_overflow_25 = 0;
+                                    output_btint_a_25 = output_btint_a_24;
+                                    output_btint_b_25 = output_btint_b_24;
+                                    output_overflow_25 = output_overflow_24;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_25[output_index_12] = 0;
+                                        output_btint_b_25[output_index_12] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_25[output_index_12] = 1;
+                                        output_btint_b_25[output_index_12] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_25; TMP_2_btint_b = output_btint_b_25; TMP_2_overflow = output_overflow_25;
+                                    // Call set_value() end
+                                    output_btint_a_24 = TMP_2_btint_a; output_btint_b_24 = TMP_2_btint_b; output_overflow_24 = TMP_2_overflow;
+                                end
+                                TMP_25_isNegative = TMP_25_value < 0;
+                                TMP_25_i = 0;
+                                TMP_8_btint_a = output_btint_a_24; TMP_8_btint_b = output_btint_b_24; TMP_8_overflow = output_overflow_24;
+                                // Call from_int() end
+                                controller_c_in_d_btint_a_next[(i_6 * 3 + j_2)] = TMP_8_btint_a; controller_c_in_d_btint_b_next[(i_6 * 3 + j_2)] = TMP_8_btint_b; controller_c_in_d_overflow_next[(i_6 * 3 + j_2)] = TMP_8_overflow;
+                            end else begin
+                                controller_s_in_next[(i_6 * 3 + j_2)] = 1;
+                                TMP_26_value = 1;
                                 // Call from_int() begin
                                 output_btint_a_26 = 0;
                                 output_btint_b_26 = 0;
                                 output_overflow_26 = 0;
-                                for (integer i_34 = 0; i_34 < 8; i_34++)
+                                for (integer i_36 = 0; i_36 < 8; i_36++)
                                 begin
-                                    output_index_13 = i_34; output_value_13 = 0;
+                                    output_index_13 = i_36; output_value_13 = 0;
                                     // Call set_value() begin
                                     output_btint_a_27 = 0;
                                     output_btint_b_27 = 0;
@@ -6030,55 +7487,45 @@ function void control_func;
                                     // Call set_value() end
                                     output_btint_a_26 = TMP_2_btint_a; output_btint_b_26 = TMP_2_btint_b; output_overflow_26 = TMP_2_overflow;
                                 end
-                                TMP_28_isNegative = TMP_28_value < 0;
-                                TMP_28_i = 0;
-                                TMP_29_btint_a = output_btint_a_26; TMP_29_btint_b = output_btint_b_26; TMP_29_overflow = output_overflow_26;
+                                TMP_26_isNegative = TMP_26_value < 0;
+                                TMP_26_i = 0;
+                                while (|TMP_26_value)
+                                begin
+                                    output_index_13 = TMP_26_i++; output_value_13 = 1;
+                                    // Call set_value() begin
+                                    output_btint_a_27 = 0;
+                                    output_btint_b_27 = 0;
+                                    output_overflow_27 = 0;
+                                    output_btint_a_27 = output_btint_a_26;
+                                    output_btint_b_27 = output_btint_b_26;
+                                    output_overflow_27 = output_overflow_26;
+                                    case (1)
+                                    0 : begin
+                                        output_btint_a_27[output_index_13] = 0;
+                                        output_btint_b_27[output_index_13] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_27[output_index_13] = 1;
+                                        output_btint_b_27[output_index_13] = 1;
+                                    end
+                                    endcase
+                                    TMP_11_btint_a = output_btint_a_27; TMP_11_btint_b = output_btint_b_27; TMP_11_overflow = output_overflow_27;
+                                    // Call set_value() end
+                                    output_btint_a_26 = TMP_11_btint_a; output_btint_b_26 = TMP_11_btint_b; output_overflow_26 = TMP_11_overflow;
+                                    TMP_26_value = TMP_26_value - 1;
+                                    TMP_26_value = TMP_26_value / 2;
+                                end
+                                TMP_10_btint_a = output_btint_a_26; TMP_10_btint_b = output_btint_b_26; TMP_10_overflow = output_overflow_26;
                                 // Call from_int() end
-                                controller_a_in_btint_a[0][i_33] = TMP_29_btint_a; controller_a_in_btint_b[0][i_33] = TMP_29_btint_b; controller_a_in_overflow[0][i_33] = TMP_29_overflow;
-                            end else begin
-                                controller_a_in_btint_a[0][i_33] = controller_m_a_btint_a[index_a_next[i_33]][i_33]; controller_a_in_btint_b[0][i_33] = controller_m_a_btint_b[index_a_next[i_33]][i_33]; controller_a_in_overflow[0][i_33] = controller_m_a_overflow[index_a_next[i_33]][i_33];
-                            end
-                        end
-                        for (integer i_35 = 0; i_35 < 3; i_35++)
-                        begin
-                            index_a_next[i_35]++;
-                        end
-                    end
-                end else begin
-                    if (index_a_next[3 - 1] >= 4 + 1)
-                    begin
-                        controller_done_next = 1;
-                    end else begin
-                        controller_done_next = 0;
-                    end
-                    if (!load_done_next)
-                    begin
-                        for (integer i_36 = 0; i_36 < 3; i_36++)
-                        begin
-                            controller_a_in_btint_a[0][i_36] = controller_v_btint_a[i_36]; controller_a_in_btint_b[0][i_36] = controller_v_btint_b[i_36]; controller_a_in_overflow[0][i_36] = controller_v_overflow[i_36];
-                        end
-                        for (integer i_37 = 0; i_37 < 4; i_37++)
-                        begin
-                            controller_s_mm_next[i_37] = 1;
-                        end
-                        load_done_next = 1;
-                    end else begin
-                        for (integer i_38 = 0; i_38 < 4; i_38++)
-                        begin
-                            controller_s_mm_next[i_38] = 0;
-                        end
-                        for (integer i_39 = 0; i_39 < 3; i_39++)
-                        begin
-                            if (index_a_next[i_39] < 0 || index_a_next[i_39] > 4 - 1)
-                            begin
-                                TMP_30_value = 0;
+                                controller_c_in_u_btint_a_next[(i_6 * 3 + j_2)] = TMP_10_btint_a; controller_c_in_u_btint_b_next[(i_6 * 3 + j_2)] = TMP_10_btint_b; controller_c_in_u_overflow_next[(i_6 * 3 + j_2)] = TMP_10_overflow;
+                                TMP_27_value = 1;
                                 // Call from_int() begin
                                 output_btint_a_28 = 0;
                                 output_btint_b_28 = 0;
                                 output_overflow_28 = 0;
-                                for (integer i_40 = 0; i_40 < 8; i_40++)
+                                for (integer i_37 = 0; i_37 < 8; i_37++)
                                 begin
-                                    output_index_14 = i_40; output_value_14 = 0;
+                                    output_index_14 = i_37; output_value_14 = 0;
                                     // Call set_value() begin
                                     output_btint_a_29 = 0;
                                     output_btint_b_29 = 0;
@@ -6100,373 +7547,120 @@ function void control_func;
                                     // Call set_value() end
                                     output_btint_a_28 = TMP_2_btint_a; output_btint_b_28 = TMP_2_btint_b; output_overflow_28 = TMP_2_overflow;
                                 end
-                                TMP_30_isNegative = TMP_30_value < 0;
-                                TMP_30_i = 0;
-                                TMP_31_btint_a = output_btint_a_28; TMP_31_btint_b = output_btint_b_28; TMP_31_overflow = output_overflow_28;
+                                TMP_27_isNegative = TMP_27_value < 0;
+                                TMP_27_i = 0;
+                                while (|TMP_27_value)
+                                begin
+                                    output_index_14 = TMP_27_i++; output_value_14 = 1;
+                                    // Call set_value() begin
+                                    output_btint_a_29 = 0;
+                                    output_btint_b_29 = 0;
+                                    output_overflow_29 = 0;
+                                    output_btint_a_29 = output_btint_a_28;
+                                    output_btint_b_29 = output_btint_b_28;
+                                    output_overflow_29 = output_overflow_28;
+                                    case (1)
+                                    0 : begin
+                                        output_btint_a_29[output_index_14] = 0;
+                                        output_btint_b_29[output_index_14] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_29[output_index_14] = 1;
+                                        output_btint_b_29[output_index_14] = 1;
+                                    end
+                                    endcase
+                                    TMP_11_btint_a = output_btint_a_29; TMP_11_btint_b = output_btint_b_29; TMP_11_overflow = output_overflow_29;
+                                    // Call set_value() end
+                                    output_btint_a_28 = TMP_11_btint_a; output_btint_b_28 = TMP_11_btint_b; output_overflow_28 = TMP_11_overflow;
+                                    TMP_27_value = TMP_27_value - 1;
+                                    TMP_27_value = TMP_27_value / 2;
+                                end
+                                TMP_13_btint_a = output_btint_a_28; TMP_13_btint_b = output_btint_b_28; TMP_13_overflow = output_overflow_28;
                                 // Call from_int() end
-                                controller_a_in_btint_a[0][i_39] = TMP_31_btint_a; controller_a_in_btint_b[0][i_39] = TMP_31_btint_b; controller_a_in_overflow[0][i_39] = TMP_31_overflow;
-                            end else begin
-                                controller_a_in_btint_a[0][i_39] = controller_m_a_btint_a[index_a_next[i_39]][i_39]; controller_a_in_btint_b[0][i_39] = controller_m_a_btint_b[index_a_next[i_39]][i_39]; controller_a_in_overflow[0][i_39] = controller_m_a_overflow[index_a_next[i_39]][i_39];
+                                controller_c_in_d_btint_a_next[(i_6 * 3 + j_2)] = TMP_13_btint_a; controller_c_in_d_btint_b_next[(i_6 * 3 + j_2)] = TMP_13_btint_b; controller_c_in_d_overflow_next[(i_6 * 3 + j_2)] = TMP_13_overflow;
                             end
+                        end else begin
+                            controller_c_in_u_btint_a_next[(i_6 * 3 + j_2)] = controller_c_out_u_btint_a[(i_6 * 3 + (j_2 - 1))]; controller_c_in_u_btint_b_next[(i_6 * 3 + j_2)] = controller_c_out_u_btint_b[(i_6 * 3 + (j_2 - 1))]; controller_c_in_u_overflow_next[(i_6 * 3 + j_2)] = controller_c_out_u_overflow[(i_6 * 3 + (j_2 - 1))];
+                            controller_c_in_d_btint_a_next[(i_6 * 3 + j_2)] = controller_c_out_d_btint_a[(i_6 * 3 + (j_2 - 1))]; controller_c_in_d_btint_b_next[(i_6 * 3 + j_2)] = controller_c_out_d_btint_b[(i_6 * 3 + (j_2 - 1))]; controller_c_in_d_overflow_next[(i_6 * 3 + j_2)] = controller_c_out_d_overflow[(i_6 * 3 + (j_2 - 1))];
                         end
-                        for (integer i_41 = 0; i_41 < 4; i_41++)
+                    end
+                end
+                for (integer i_11 = 0; i_11 < 4; i_11++)
+                begin
+                    if (i_11 == 0)
+                    begin
+                        k = 0;
+                        for (integer j_3 = 0; j_3 < 3; j_3++)
                         begin
-                            TMP_32_value = 0;
-                            // Call from_int() begin
-                            output_btint_a_30 = 0;
-                            output_btint_b_30 = 0;
-                            output_overflow_30 = 0;
-                            for (integer i_42 = 0; i_42 < 8; i_42++)
+                            if (steps_next >= 0 + k && steps_next < 3 + j_3)
                             begin
-                                output_index_15 = i_42; output_value_15 = 0;
-                                // Call set_value() begin
-                                output_btint_a_31 = 0;
-                                output_btint_b_31 = 0;
-                                output_overflow_31 = 0;
-                                output_btint_a_31 = output_btint_a_30;
-                                output_btint_b_31 = output_btint_b_30;
-                                output_overflow_31 = output_overflow_30;
-                                case (0)
-                                0 : begin
-                                    output_btint_a_31[output_index_15] = 0;
-                                    output_btint_b_31[output_index_15] = 1;
+                                controller_a_in_btint_a_next[(i_11 * 3 + j_3)] = controller_m_a_btint_a[((3 - 1 - steps_next + j_3) * 3 + (3 - 1 - j_3))]; controller_a_in_btint_b_next[(i_11 * 3 + j_3)] = controller_m_a_btint_b[((3 - 1 - steps_next + j_3) * 3 + (3 - 1 - j_3))]; controller_a_in_overflow_next[(i_11 * 3 + j_3)] = controller_m_a_overflow[((3 - 1 - steps_next + j_3) * 3 + (3 - 1 - j_3))];
+                            end else begin
+                                TMP_28_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_30 = 0;
+                                output_btint_b_30 = 0;
+                                output_overflow_30 = 0;
+                                for (integer i_38 = 0; i_38 < 8; i_38++)
+                                begin
+                                    output_index_15 = i_38; output_value_15 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_31 = 0;
+                                    output_btint_b_31 = 0;
+                                    output_overflow_31 = 0;
+                                    output_btint_a_31 = output_btint_a_30;
+                                    output_btint_b_31 = output_btint_b_30;
+                                    output_overflow_31 = output_overflow_30;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_31[output_index_15] = 0;
+                                        output_btint_b_31[output_index_15] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_31[output_index_15] = 1;
+                                        output_btint_b_31[output_index_15] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_31; TMP_2_btint_b = output_btint_b_31; TMP_2_overflow = output_overflow_31;
+                                    // Call set_value() end
+                                    output_btint_a_30 = TMP_2_btint_a; output_btint_b_30 = TMP_2_btint_b; output_overflow_30 = TMP_2_overflow;
                                 end
-                                1 : begin
-                                    output_btint_a_31[output_index_15] = 1;
-                                    output_btint_b_31[output_index_15] = 1;
-                                end
-                                endcase
-                                TMP_2_btint_a = output_btint_a_31; TMP_2_btint_b = output_btint_b_31; TMP_2_overflow = output_overflow_31;
-                                // Call set_value() end
-                                output_btint_a_30 = TMP_2_btint_a; output_btint_b_30 = TMP_2_btint_b; output_overflow_30 = TMP_2_overflow;
+                                TMP_28_isNegative = TMP_28_value < 0;
+                                TMP_28_i = 0;
+                                TMP_15_btint_a = output_btint_a_30; TMP_15_btint_b = output_btint_b_30; TMP_15_overflow = output_overflow_30;
+                                // Call from_int() end
+                                controller_a_in_btint_a_next[(i_11 * 3 + j_3)] = TMP_15_btint_a; controller_a_in_btint_b_next[(i_11 * 3 + j_3)] = TMP_15_btint_b; controller_a_in_overflow_next[(i_11 * 3 + j_3)] = TMP_15_overflow;
                             end
-                            TMP_32_isNegative = TMP_32_value < 0;
-                            TMP_32_i = 0;
-                            TMP_33_btint_a = output_btint_a_30; TMP_33_btint_b = output_btint_b_30; TMP_33_overflow = output_overflow_30;
-                            // Call from_int() end
-                            controller_c_in_u_btint_a[i_41][0] = TMP_33_btint_a; controller_c_in_u_btint_b[i_41][0] = TMP_33_btint_b; controller_c_in_u_overflow[i_41][0] = TMP_33_overflow;
+                            k = k + 2;
                         end
-                        if (index_a_next[3 - 1] >= 1 && index_a_next[3 - 1] <= 4)
-                        begin
-                            result_u_btint_a_next[index_a_next[3 - 1] - 1][0] = controller_c_out_u_btint_a[0][3 - 1]; result_u_btint_b_next[index_a_next[3 - 1] - 1][0] = controller_c_out_u_btint_b[0][3 - 1]; result_u_overflow_next[index_a_next[3 - 1] - 1][0] = controller_c_out_u_overflow[0][3 - 1];
-                        end
-                        for (integer i_43 = 0; i_43 < 3; i_43++)
-                        begin
-                            index_a_next[i_43]++;
-                        end
-                    end
-                end
-            end
-            control_WAIT_N_COUNTER_next = 3 * (8 + 3) + 4;
-            control_PROC_STATE_next = 1; return;    // controller.cpp:193:9;
-        end
-        1: begin
-            if (control_WAIT_N_COUNTER != 1) begin
-                control_WAIT_N_COUNTER_next = control_WAIT_N_COUNTER - 1;
-                control_PROC_STATE_next = 1; return;    // controller.cpp:193:9;
-            end;
-            for (integer i_12 = 0; i_12 < 4; i_12++)
-            begin
-                for (integer j_3 = 0; j_3 < 4; j_3++)
-                begin
-                    controller_result_u_btint_a[i_12][j_3] = result_u_btint_a_next[i_12][j_3]; controller_result_u_btint_b[i_12][j_3] = result_u_btint_b_next[i_12][j_3]; controller_result_u_overflow[i_12][j_3] = result_u_overflow_next[i_12][j_3];
-                    controller_result_d_btint_a[i_12][j_3] = result_d_btint_a_next[i_12][j_3]; controller_result_d_btint_b[i_12][j_3] = result_d_btint_b_next[i_12][j_3]; controller_result_d_overflow[i_12][j_3] = result_d_overflow_next[i_12][j_3];
-                end
-            end
-            for (integer i_13 = 0; i_13 < 3; i_13++)
-            begin
-                for (integer j_4 = 0; j_4 < 4 - 1; j_4++)
-                begin
-                    controller_a_in_btint_a[j_4 + 1][i_13] = controller_a_out_btint_a[j_4][i_13]; controller_a_in_btint_b[j_4 + 1][i_13] = controller_a_out_btint_b[j_4][i_13]; controller_a_in_overflow[j_4 + 1][i_13] = controller_a_out_overflow[j_4][i_13];
-                end
-            end
-            for (integer i_14 = 0; i_14 < 4; i_14++)
-            begin
-                for (integer j_5 = 0; j_5 < 3 - 1; j_5++)
-                begin
-                    controller_c_in_u_btint_a[i_14][j_5 + 1] = controller_c_out_u_btint_a[i_14][j_5]; controller_c_in_u_btint_b[i_14][j_5 + 1] = controller_c_out_u_btint_b[i_14][j_5]; controller_c_in_u_overflow[i_14][j_5 + 1] = controller_c_out_u_overflow[i_14][j_5];
-                    controller_c_in_d_btint_a[i_14][j_5 + 1] = controller_c_out_d_btint_a[i_14][j_5]; controller_c_in_d_btint_b[i_14][j_5 + 1] = controller_c_out_d_btint_b[i_14][j_5]; controller_c_in_d_overflow[i_14][j_5 + 1] = controller_c_out_d_overflow[i_14][j_5];
-                end
-            end
-            if (controller_op == 0)
-            begin
-                for (integer i_15 = 0; i_15 < 3; i_15++)
-                begin
-                    if (steps_next >= 2 * 3 - 2 - i_15)
-                    begin
-                        controller_s_mm_next[i_15] = 1;
                     end else begin
-                        controller_s_mm_next[i_15] = 0;
+                        for (integer j_4 = 0; j_4 < 3; j_4++)
+                        begin
+                            controller_a_in_btint_a_next[(i_11 * 3 + j_4)] = controller_a_out_btint_a[((i_11 - 1) * 3 + j_4)]; controller_a_in_btint_b_next[(i_11 * 3 + j_4)] = controller_a_out_btint_b[((i_11 - 1) * 3 + j_4)]; controller_a_in_overflow_next[(i_11 * 3 + j_4)] = controller_a_out_overflow[((i_11 - 1) * 3 + j_4)];
+                        end
                     end
                 end
-                if (steps_next >= 3 * 3 - 1)
+                for (integer i_13 = 0; i_13 < 3; i_13++)
                 begin
-                    controller_done_next = 1;
-                end else begin
-                    controller_done_next = 0;
-                end
-                for (integer i_16 = 0; i_16 < 3; i_16++)
-                begin
-                    if (steps_next != 3 - 1)
+                    if (steps_next >= 2 * 3 - 1 && steps_next < 2 * 3 + i_13)
                     begin
-                        controller_s_in_next[i_16][0] = 0;
-                        TMP_34_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_32 = 0;
-                        output_btint_b_32 = 0;
-                        output_overflow_32 = 0;
-                        for (integer i_44 = 0; i_44 < 8; i_44++)
-                        begin
-                            output_index_16 = i_44; output_value_16 = 0;
-                            // Call set_value() begin
-                            output_btint_a_33 = 0;
-                            output_btint_b_33 = 0;
-                            output_overflow_33 = 0;
-                            output_btint_a_33 = output_btint_a_32;
-                            output_btint_b_33 = output_btint_b_32;
-                            output_overflow_33 = output_overflow_32;
-                            case (0)
-                            0 : begin
-                                output_btint_a_33[output_index_16] = 0;
-                                output_btint_b_33[output_index_16] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_33[output_index_16] = 1;
-                                output_btint_b_33[output_index_16] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_33; TMP_2_btint_b = output_btint_b_33; TMP_2_overflow = output_overflow_33;
-                            // Call set_value() end
-                            output_btint_a_32 = TMP_2_btint_a; output_btint_b_32 = TMP_2_btint_b; output_overflow_32 = TMP_2_overflow;
-                        end
-                        TMP_34_isNegative = TMP_34_value < 0;
-                        TMP_34_i = 0;
-                        TMP_16_btint_a = output_btint_a_32; TMP_16_btint_b = output_btint_b_32; TMP_16_overflow = output_overflow_32;
-                        // Call from_int() end
-                        controller_c_in_u_btint_a[i_16][0] = TMP_16_btint_a; controller_c_in_u_btint_b[i_16][0] = TMP_16_btint_b; controller_c_in_u_overflow[i_16][0] = TMP_16_overflow;
-                        TMP_35_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_34 = 0;
-                        output_btint_b_34 = 0;
-                        output_overflow_34 = 0;
-                        for (integer i_45 = 0; i_45 < 8; i_45++)
-                        begin
-                            output_index_17 = i_45; output_value_17 = 0;
-                            // Call set_value() begin
-                            output_btint_a_35 = 0;
-                            output_btint_b_35 = 0;
-                            output_overflow_35 = 0;
-                            output_btint_a_35 = output_btint_a_34;
-                            output_btint_b_35 = output_btint_b_34;
-                            output_overflow_35 = output_overflow_34;
-                            case (0)
-                            0 : begin
-                                output_btint_a_35[output_index_17] = 0;
-                                output_btint_b_35[output_index_17] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_35[output_index_17] = 1;
-                                output_btint_b_35[output_index_17] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_35; TMP_2_btint_b = output_btint_b_35; TMP_2_overflow = output_overflow_35;
-                            // Call set_value() end
-                            output_btint_a_34 = TMP_2_btint_a; output_btint_b_34 = TMP_2_btint_b; output_overflow_34 = TMP_2_overflow;
-                        end
-                        TMP_35_isNegative = TMP_35_value < 0;
-                        TMP_35_i = 0;
-                        TMP_18_btint_a = output_btint_a_34; TMP_18_btint_b = output_btint_b_34; TMP_18_overflow = output_overflow_34;
-                        // Call from_int() end
-                        controller_c_in_d_btint_a[i_16][0] = TMP_18_btint_a; controller_c_in_d_btint_b[i_16][0] = TMP_18_btint_b; controller_c_in_d_overflow[i_16][0] = TMP_18_overflow;
-                    end else begin
-                        controller_s_in_next[i_16][0] = 1;
-                        TMP_36_value = 1;
-                        // Call from_int() begin
-                        output_btint_a_36 = 0;
-                        output_btint_b_36 = 0;
-                        output_overflow_36 = 0;
-                        for (integer i_46 = 0; i_46 < 8; i_46++)
-                        begin
-                            output_index_18 = i_46; output_value_18 = 0;
-                            // Call set_value() begin
-                            output_btint_a_37 = 0;
-                            output_btint_b_37 = 0;
-                            output_overflow_37 = 0;
-                            output_btint_a_37 = output_btint_a_36;
-                            output_btint_b_37 = output_btint_b_36;
-                            output_overflow_37 = output_overflow_36;
-                            case (0)
-                            0 : begin
-                                output_btint_a_37[output_index_18] = 0;
-                                output_btint_b_37[output_index_18] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_37[output_index_18] = 1;
-                                output_btint_b_37[output_index_18] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_37; TMP_2_btint_b = output_btint_b_37; TMP_2_overflow = output_overflow_37;
-                            // Call set_value() end
-                            output_btint_a_36 = TMP_2_btint_a; output_btint_b_36 = TMP_2_btint_b; output_overflow_36 = TMP_2_overflow;
-                        end
-                        TMP_36_isNegative = TMP_36_value < 0;
-                        TMP_36_i = 0;
-                        while (|TMP_36_value)
-                        begin
-                            output_index_18 = TMP_36_i++; output_value_18 = 1;
-                            // Call set_value() begin
-                            output_btint_a_37 = 0;
-                            output_btint_b_37 = 0;
-                            output_overflow_37 = 0;
-                            output_btint_a_37 = output_btint_a_36;
-                            output_btint_b_37 = output_btint_b_36;
-                            output_overflow_37 = output_overflow_36;
-                            case (1)
-                            0 : begin
-                                output_btint_a_37[output_index_18] = 0;
-                                output_btint_b_37[output_index_18] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_37[output_index_18] = 1;
-                                output_btint_b_37[output_index_18] = 1;
-                            end
-                            endcase
-                            TMP_21_btint_a = output_btint_a_37; TMP_21_btint_b = output_btint_b_37; TMP_21_overflow = output_overflow_37;
-                            // Call set_value() end
-                            output_btint_a_36 = TMP_21_btint_a; output_btint_b_36 = TMP_21_btint_b; output_overflow_36 = TMP_21_overflow;
-                            TMP_36_value = TMP_36_value - 1;
-                            TMP_36_value = TMP_36_value / 2;
-                        end
-                        TMP_20_btint_a = output_btint_a_36; TMP_20_btint_b = output_btint_b_36; TMP_20_overflow = output_overflow_36;
-                        // Call from_int() end
-                        controller_c_in_u_btint_a[i_16][0] = TMP_20_btint_a; controller_c_in_u_btint_b[i_16][0] = TMP_20_btint_b; controller_c_in_u_overflow[i_16][0] = TMP_20_overflow;
-                        TMP_37_value = 1;
-                        // Call from_int() begin
-                        output_btint_a_38 = 0;
-                        output_btint_b_38 = 0;
-                        output_overflow_38 = 0;
-                        for (integer i_47 = 0; i_47 < 8; i_47++)
-                        begin
-                            output_index_19 = i_47; output_value_19 = 0;
-                            // Call set_value() begin
-                            output_btint_a_39 = 0;
-                            output_btint_b_39 = 0;
-                            output_overflow_39 = 0;
-                            output_btint_a_39 = output_btint_a_38;
-                            output_btint_b_39 = output_btint_b_38;
-                            output_overflow_39 = output_overflow_38;
-                            case (0)
-                            0 : begin
-                                output_btint_a_39[output_index_19] = 0;
-                                output_btint_b_39[output_index_19] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_39[output_index_19] = 1;
-                                output_btint_b_39[output_index_19] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_39; TMP_2_btint_b = output_btint_b_39; TMP_2_overflow = output_overflow_39;
-                            // Call set_value() end
-                            output_btint_a_38 = TMP_2_btint_a; output_btint_b_38 = TMP_2_btint_b; output_overflow_38 = TMP_2_overflow;
-                        end
-                        TMP_37_isNegative = TMP_37_value < 0;
-                        TMP_37_i = 0;
-                        while (|TMP_37_value)
-                        begin
-                            output_index_19 = TMP_37_i++; output_value_19 = 1;
-                            // Call set_value() begin
-                            output_btint_a_39 = 0;
-                            output_btint_b_39 = 0;
-                            output_overflow_39 = 0;
-                            output_btint_a_39 = output_btint_a_38;
-                            output_btint_b_39 = output_btint_b_38;
-                            output_overflow_39 = output_overflow_38;
-                            case (1)
-                            0 : begin
-                                output_btint_a_39[output_index_19] = 0;
-                                output_btint_b_39[output_index_19] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_39[output_index_19] = 1;
-                                output_btint_b_39[output_index_19] = 1;
-                            end
-                            endcase
-                            TMP_21_btint_a = output_btint_a_39; TMP_21_btint_b = output_btint_b_39; TMP_21_overflow = output_overflow_39;
-                            // Call set_value() end
-                            output_btint_a_38 = TMP_21_btint_a; output_btint_b_38 = TMP_21_btint_b; output_overflow_38 = TMP_21_overflow;
-                            TMP_37_value = TMP_37_value - 1;
-                            TMP_37_value = TMP_37_value / 2;
-                        end
-                        TMP_23_btint_a = output_btint_a_38; TMP_23_btint_b = output_btint_b_38; TMP_23_overflow = output_overflow_38;
-                        // Call from_int() end
-                        controller_c_in_d_btint_a[i_16][0] = TMP_23_btint_a; controller_c_in_d_btint_b[i_16][0] = TMP_23_btint_b; controller_c_in_d_overflow[i_16][0] = TMP_23_overflow;
+                        result_u_btint_a_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_u_btint_a[(i_13 * 3 + (3 - 1))]; result_u_btint_b_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_u_btint_b[(i_13 * 3 + (3 - 1))]; result_u_overflow_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_u_overflow[(i_13 * 3 + (3 - 1))];
+                        result_d_btint_a_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_d_btint_a[(i_13 * 3 + (3 - 1))]; result_d_btint_b_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_d_btint_b[(i_13 * 3 + (3 - 1))]; result_d_overflow_next[((2 * 3 - 1 - steps_next + i_13) * 4 + i_13)] = controller_c_out_d_overflow[(i_13 * 3 + (3 - 1))];
                     end
                 end
-                k = 0;
-                for (integer i_21 = 0; i_21 < 3; i_21++)
+                for (integer i_14 = 1; i_14 < 3; i_14++)
                 begin
-                    if (steps_next >= 0 + k && steps_next < 3 + i_21)
+                    for (integer j_5 = 3 - 1 - i_14; j_5 < 3 - 1; j_5++)
                     begin
-                        controller_a_in_btint_a[0][i_21] = controller_m_a_btint_a[3 - 1 - steps_next + i_21][3 - 1 - i_21]; controller_a_in_btint_b[0][i_21] = controller_m_a_btint_b[3 - 1 - steps_next + i_21][3 - 1 - i_21]; controller_a_in_overflow[0][i_21] = controller_m_a_overflow[3 - 1 - steps_next + i_21][3 - 1 - i_21];
-                    end else begin
-                        TMP_38_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_40 = 0;
-                        output_btint_b_40 = 0;
-                        output_overflow_40 = 0;
-                        for (integer i_48 = 0; i_48 < 8; i_48++)
-                        begin
-                            output_index_20 = i_48; output_value_20 = 0;
-                            // Call set_value() begin
-                            output_btint_a_41 = 0;
-                            output_btint_b_41 = 0;
-                            output_overflow_41 = 0;
-                            output_btint_a_41 = output_btint_a_40;
-                            output_btint_b_41 = output_btint_b_40;
-                            output_overflow_41 = output_overflow_40;
-                            case (0)
-                            0 : begin
-                                output_btint_a_41[output_index_20] = 0;
-                                output_btint_b_41[output_index_20] = 1;
-                            end
-                            1 : begin
-                                output_btint_a_41[output_index_20] = 1;
-                                output_btint_b_41[output_index_20] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_41; TMP_2_btint_b = output_btint_b_41; TMP_2_overflow = output_overflow_41;
-                            // Call set_value() end
-                            output_btint_a_40 = TMP_2_btint_a; output_btint_b_40 = TMP_2_btint_b; output_overflow_40 = TMP_2_overflow;
-                        end
-                        TMP_38_isNegative = TMP_38_value < 0;
-                        TMP_38_i = 0;
-                        TMP_25_btint_a = output_btint_a_40; TMP_25_btint_b = output_btint_b_40; TMP_25_overflow = output_overflow_40;
-                        // Call from_int() end
-                        controller_a_in_btint_a[0][i_21] = TMP_25_btint_a; controller_a_in_btint_b[0][i_21] = TMP_25_btint_b; controller_a_in_overflow[0][i_21] = TMP_25_overflow;
-                    end
-                    k = k + 2;
-                end
-                for (integer i_23 = 0; i_23 < 3; i_23++)
-                begin
-                    if (steps_next >= 2 * 3 - 1 && steps_next < 2 * 3 + i_23)
-                    begin
-                        result_u_btint_a_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_u_btint_a[i_23][3 - 1]; result_u_btint_b_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_u_btint_b[i_23][3 - 1]; result_u_overflow_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_u_overflow[i_23][3 - 1];
-                        result_d_btint_a_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_d_btint_a[i_23][3 - 1]; result_d_btint_b_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_d_btint_b[i_23][3 - 1]; result_d_overflow_next[2 * 3 - 1 - steps_next + i_23][i_23] = controller_c_out_d_overflow[i_23][3 - 1];
+                        controller_s_in_next[(i_14 * 3 + (j_5 + 1))] = state_next[(i_14 * 4 + (j_5 + 1))];
+                        state_next[(i_14 * 4 + (j_5 + 1))] = controller_s_out[(i_14 * 3 + j_5)];
                     end
                 end
-                for (integer i_24 = 1; i_24 < 3; i_24++)
+                for (integer i_15 = 0; i_15 < 3 - 1; i_15++)
                 begin
-                    for (integer j_6 = 3 - 1 - i_24; j_6 < 3 - 1; j_6++)
+                    for (integer j_6 = 0; j_6 < 3 - 1 - i_15; j_6++)
                     begin
-                        controller_s_in_next[i_24][j_6 + 1] = state_next[i_24][j_6 + 1];
-                        state_next[i_24][j_6 + 1] = controller_s_out[i_24][j_6];
-                    end
-                end
-                for (integer i_25 = 0; i_25 < 3 - 1; i_25++)
-                begin
-                    for (integer j_7 = 0; j_7 < 3 - 1 - i_25; j_7++)
-                    begin
-                        controller_s_in_next[i_25][j_7 + 1] = controller_s_out[i_25][j_7];
+                        controller_s_in_next[(i_15 * 3 + (j_6 + 1))] = controller_s_out[(i_15 * 3 + j_6)];
                     end
                 end
                 steps_next++;
@@ -6479,120 +7673,144 @@ function void control_func;
                     end else begin
                         controller_done_next = 0;
                     end
-                    for (integer i_26 = 0; i_26 < 4; i_26++)
+                    for (integer i_16 = 0; i_16 < 4; i_16++)
                     begin
-                        TMP_39_value = 0;
-                        // Call from_int() begin
-                        output_btint_a_42 = 0;
-                        output_btint_b_42 = 0;
-                        output_overflow_42 = 0;
-                        for (integer i_49 = 0; i_49 < 8; i_49++)
+                        for (integer j_7 = 0; j_7 < 3; j_7++)
                         begin
-                            output_index_21 = i_49; output_value_21 = 0;
-                            // Call set_value() begin
-                            output_btint_a_43 = 0;
-                            output_btint_b_43 = 0;
-                            output_overflow_43 = 0;
-                            output_btint_a_43 = output_btint_a_42;
-                            output_btint_b_43 = output_btint_b_42;
-                            output_overflow_43 = output_overflow_42;
-                            case (0)
-                            0 : begin
-                                output_btint_a_43[output_index_21] = 0;
-                                output_btint_b_43[output_index_21] = 1;
+                            if (j_7 == 0)
+                            begin
+                                TMP_29_value = 0;
+                                // Call from_int() begin
+                                output_btint_a_32 = 0;
+                                output_btint_b_32 = 0;
+                                output_overflow_32 = 0;
+                                for (integer i_39 = 0; i_39 < 8; i_39++)
+                                begin
+                                    output_index_16 = i_39; output_value_16 = 0;
+                                    // Call set_value() begin
+                                    output_btint_a_33 = 0;
+                                    output_btint_b_33 = 0;
+                                    output_overflow_33 = 0;
+                                    output_btint_a_33 = output_btint_a_32;
+                                    output_btint_b_33 = output_btint_b_32;
+                                    output_overflow_33 = output_overflow_32;
+                                    case (0)
+                                    0 : begin
+                                        output_btint_a_33[output_index_16] = 0;
+                                        output_btint_b_33[output_index_16] = 1;
+                                    end
+                                    1 : begin
+                                        output_btint_a_33[output_index_16] = 1;
+                                        output_btint_b_33[output_index_16] = 1;
+                                    end
+                                    endcase
+                                    TMP_2_btint_a = output_btint_a_33; TMP_2_btint_b = output_btint_b_33; TMP_2_overflow = output_overflow_33;
+                                    // Call set_value() end
+                                    output_btint_a_32 = TMP_2_btint_a; output_btint_b_32 = TMP_2_btint_b; output_overflow_32 = TMP_2_overflow;
+                                end
+                                TMP_29_isNegative = TMP_29_value < 0;
+                                TMP_29_i = 0;
+                                TMP_17_btint_a = output_btint_a_32; TMP_17_btint_b = output_btint_b_32; TMP_17_overflow = output_overflow_32;
+                                // Call from_int() end
+                                controller_c_in_u_btint_a_next[(i_16 * 3 + j_7)] = TMP_17_btint_a; controller_c_in_u_btint_b_next[(i_16 * 3 + j_7)] = TMP_17_btint_b; controller_c_in_u_overflow_next[(i_16 * 3 + j_7)] = TMP_17_overflow;
+                            end else begin
+                                controller_c_in_u_btint_a_next[(i_16 * 3 + j_7)] = controller_c_out_u_btint_a[(i_16 * 3 + (j_7 - 1))]; controller_c_in_u_btint_b_next[(i_16 * 3 + j_7)] = controller_c_out_u_btint_b[(i_16 * 3 + (j_7 - 1))]; controller_c_in_u_overflow_next[(i_16 * 3 + j_7)] = controller_c_out_u_overflow[(i_16 * 3 + (j_7 - 1))];
                             end
-                            1 : begin
-                                output_btint_a_43[output_index_21] = 1;
-                                output_btint_b_43[output_index_21] = 1;
-                            end
-                            endcase
-                            TMP_2_btint_a = output_btint_a_43; TMP_2_btint_b = output_btint_b_43; TMP_2_overflow = output_overflow_43;
-                            // Call set_value() end
-                            output_btint_a_42 = TMP_2_btint_a; output_btint_b_42 = TMP_2_btint_b; output_overflow_42 = TMP_2_overflow;
                         end
-                        TMP_39_isNegative = TMP_39_value < 0;
-                        TMP_39_i = 0;
-                        TMP_27_btint_a = output_btint_a_42; TMP_27_btint_b = output_btint_b_42; TMP_27_overflow = output_overflow_42;
-                        // Call from_int() end
-                        controller_c_in_u_btint_a[i_26][0] = TMP_27_btint_a; controller_c_in_u_btint_b[i_26][0] = TMP_27_btint_b; controller_c_in_u_overflow[i_26][0] = TMP_27_overflow;
                     end
-                    for (integer i_28 = 0; i_28 < 4; i_28++)
+                    for (integer i_18 = 0; i_18 < 4; i_18++)
                     begin
-                        if (index_a_next[0] >= 3 + i_28 && index_a_next[0] < 4 + 3 + i_28)
+                        if (index_a_next[0] >= 3 + i_18 && index_a_next[0] < 4 + 3 + i_18)
                         begin
-                            result_u_btint_a_next[index_a_next[0] - 3 - i_28][i_28] = controller_c_out_u_btint_a[i_28][3 - 1]; result_u_btint_b_next[index_a_next[0] - 3 - i_28][i_28] = controller_c_out_u_btint_b[i_28][3 - 1]; result_u_overflow_next[index_a_next[0] - 3 - i_28][i_28] = controller_c_out_u_overflow[i_28][3 - 1];
+                            result_u_btint_a_next[((index_a_next[0] - 3 - i_18) * 4 + i_18)] = controller_c_out_u_btint_a[(i_18 * 3 + (3 - 1))]; result_u_btint_b_next[((index_a_next[0] - 3 - i_18) * 4 + i_18)] = controller_c_out_u_btint_b[(i_18 * 3 + (3 - 1))]; result_u_overflow_next[((index_a_next[0] - 3 - i_18) * 4 + i_18)] = controller_c_out_u_overflow[(i_18 * 3 + (3 - 1))];
                         end
                     end
                     if (!load_done_next)
                     begin
-                        for (integer i_29 = 0; i_29 < 4; i_29++)
+                        for (integer i_19 = 0; i_19 < 4; i_19++)
                         begin
-                            controller_s_mm_next[i_29] = 0;
+                            controller_s_mm_next[i_19] = 0;
                         end
-                        for (integer i_30 = 0; i_30 < 3; i_30++)
+                        for (integer i_20 = 0; i_20 < 4; i_20++)
                         begin
-                            controller_a_in_btint_a[0][i_30] = controller_m_b_btint_a[i_30][4 - 1 - index_b_next]; controller_a_in_btint_b[0][i_30] = controller_m_b_btint_b[i_30][4 - 1 - index_b_next]; controller_a_in_overflow[0][i_30] = controller_m_b_overflow[i_30][4 - 1 - index_b_next];
+                            for (integer j_8 = 0; j_8 < 3; j_8++)
+                            begin
+                                if (i_20 == 0)
+                                begin
+                                    controller_a_in_btint_a_next[(i_20 * 3 + j_8)] = controller_m_b_btint_a[(j_8 * 4 + (4 - 1 - index_b_next))]; controller_a_in_btint_b_next[(i_20 * 3 + j_8)] = controller_m_b_btint_b[(j_8 * 4 + (4 - 1 - index_b_next))]; controller_a_in_overflow_next[(i_20 * 3 + j_8)] = controller_m_b_overflow[(j_8 * 4 + (4 - 1 - index_b_next))];
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_20 * 3 + j_8)] = controller_a_out_btint_a[((i_20 - 1) * 3 + j_8)]; controller_a_in_btint_b_next[(i_20 * 3 + j_8)] = controller_a_out_btint_b[((i_20 - 1) * 3 + j_8)]; controller_a_in_overflow_next[(i_20 * 3 + j_8)] = controller_a_out_overflow[((i_20 - 1) * 3 + j_8)];
+                                end
+                            end
                         end
                         if (index_b_next >= 4 - 1)
                         begin
                             load_done_next = 1;
-                            for (integer i_31 = 0; i_31 < 4; i_31++)
+                            for (integer i_21 = 0; i_21 < 4; i_21++)
                             begin
-                                controller_s_mm_next[i_31] = 1;
+                                controller_s_mm_next[i_21] = 1;
                             end
                         end else begin
                             index_b_next++;
                         end
                     end else begin
-                        for (integer i_32 = 0; i_32 < 4; i_32++)
+                        for (integer i_22 = 0; i_22 < 4; i_22++)
                         begin
-                            controller_s_mm_next[i_32] = 0;
+                            controller_s_mm_next[i_22] = 0;
                         end
-                        for (integer i_33 = 0; i_33 < 3; i_33++)
+                        for (integer i_23 = 0; i_23 < 4; i_23++)
                         begin
-                            if (index_a_next[i_33] < 0 || index_a_next[i_33] > 4 - 1)
+                            for (integer j_9 = 0; j_9 < 3; j_9++)
                             begin
-                                TMP_40_value = 0;
-                                // Call from_int() begin
-                                output_btint_a_44 = 0;
-                                output_btint_b_44 = 0;
-                                output_overflow_44 = 0;
-                                for (integer i_50 = 0; i_50 < 8; i_50++)
+                                if (i_23 == 0)
                                 begin
-                                    output_index_22 = i_50; output_value_22 = 0;
-                                    // Call set_value() begin
-                                    output_btint_a_45 = 0;
-                                    output_btint_b_45 = 0;
-                                    output_overflow_45 = 0;
-                                    output_btint_a_45 = output_btint_a_44;
-                                    output_btint_b_45 = output_btint_b_44;
-                                    output_overflow_45 = output_overflow_44;
-                                    case (0)
-                                    0 : begin
-                                        output_btint_a_45[output_index_22] = 0;
-                                        output_btint_b_45[output_index_22] = 1;
+                                    if (index_a_next[j_9] < 0 || index_a_next[j_9] > 4 - 1)
+                                    begin
+                                        TMP_30_value = 0;
+                                        // Call from_int() begin
+                                        output_btint_a_34 = 0;
+                                        output_btint_b_34 = 0;
+                                        output_overflow_34 = 0;
+                                        for (integer i_40 = 0; i_40 < 8; i_40++)
+                                        begin
+                                            output_index_17 = i_40; output_value_17 = 0;
+                                            // Call set_value() begin
+                                            output_btint_a_35 = 0;
+                                            output_btint_b_35 = 0;
+                                            output_overflow_35 = 0;
+                                            output_btint_a_35 = output_btint_a_34;
+                                            output_btint_b_35 = output_btint_b_34;
+                                            output_overflow_35 = output_overflow_34;
+                                            case (0)
+                                            0 : begin
+                                                output_btint_a_35[output_index_17] = 0;
+                                                output_btint_b_35[output_index_17] = 1;
+                                            end
+                                            1 : begin
+                                                output_btint_a_35[output_index_17] = 1;
+                                                output_btint_b_35[output_index_17] = 1;
+                                            end
+                                            endcase
+                                            TMP_2_btint_a = output_btint_a_35; TMP_2_btint_b = output_btint_b_35; TMP_2_overflow = output_overflow_35;
+                                            // Call set_value() end
+                                            output_btint_a_34 = TMP_2_btint_a; output_btint_b_34 = TMP_2_btint_b; output_overflow_34 = TMP_2_overflow;
+                                        end
+                                        TMP_30_isNegative = TMP_30_value < 0;
+                                        TMP_30_i = 0;
+                                        TMP_19_btint_a = output_btint_a_34; TMP_19_btint_b = output_btint_b_34; TMP_19_overflow = output_overflow_34;
+                                        // Call from_int() end
+                                        controller_a_in_btint_a_next[(i_23 * 3 + j_9)] = TMP_19_btint_a; controller_a_in_btint_b_next[(i_23 * 3 + j_9)] = TMP_19_btint_b; controller_a_in_overflow_next[(i_23 * 3 + j_9)] = TMP_19_overflow;
+                                    end else begin
+                                        controller_a_in_btint_a_next[(i_23 * 3 + j_9)] = controller_m_a_btint_a[(index_a_next[j_9] * 3 + j_9)]; controller_a_in_btint_b_next[(i_23 * 3 + j_9)] = controller_m_a_btint_b[(index_a_next[j_9] * 3 + j_9)]; controller_a_in_overflow_next[(i_23 * 3 + j_9)] = controller_m_a_overflow[(index_a_next[j_9] * 3 + j_9)];
                                     end
-                                    1 : begin
-                                        output_btint_a_45[output_index_22] = 1;
-                                        output_btint_b_45[output_index_22] = 1;
-                                    end
-                                    endcase
-                                    TMP_2_btint_a = output_btint_a_45; TMP_2_btint_b = output_btint_b_45; TMP_2_overflow = output_overflow_45;
-                                    // Call set_value() end
-                                    output_btint_a_44 = TMP_2_btint_a; output_btint_b_44 = TMP_2_btint_b; output_overflow_44 = TMP_2_overflow;
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_23 * 3 + j_9)] = controller_a_out_btint_a[((i_23 - 1) * 3 + j_9)]; controller_a_in_btint_b_next[(i_23 * 3 + j_9)] = controller_a_out_btint_b[((i_23 - 1) * 3 + j_9)]; controller_a_in_overflow_next[(i_23 * 3 + j_9)] = controller_a_out_overflow[((i_23 - 1) * 3 + j_9)];
                                 end
-                                TMP_40_isNegative = TMP_40_value < 0;
-                                TMP_40_i = 0;
-                                TMP_29_btint_a = output_btint_a_44; TMP_29_btint_b = output_btint_b_44; TMP_29_overflow = output_overflow_44;
-                                // Call from_int() end
-                                controller_a_in_btint_a[0][i_33] = TMP_29_btint_a; controller_a_in_btint_b[0][i_33] = TMP_29_btint_b; controller_a_in_overflow[0][i_33] = TMP_29_overflow;
-                            end else begin
-                                controller_a_in_btint_a[0][i_33] = controller_m_a_btint_a[index_a_next[i_33]][i_33]; controller_a_in_btint_b[0][i_33] = controller_m_a_btint_b[index_a_next[i_33]][i_33]; controller_a_in_overflow[0][i_33] = controller_m_a_overflow[index_a_next[i_33]][i_33];
                             end
                         end
-                        for (integer i_35 = 0; i_35 < 3; i_35++)
+                        for (integer i_25 = 0; i_25 < 3; i_25++)
                         begin
-                            index_a_next[i_35]++;
+                            index_a_next[i_25]++;
                         end
                     end
                 end else begin
@@ -6604,112 +7822,136 @@ function void control_func;
                     end
                     if (!load_done_next)
                     begin
-                        for (integer i_36 = 0; i_36 < 3; i_36++)
+                        for (integer i_26 = 0; i_26 < 4; i_26++)
                         begin
-                            controller_a_in_btint_a[0][i_36] = controller_v_btint_a[i_36]; controller_a_in_btint_b[0][i_36] = controller_v_btint_b[i_36]; controller_a_in_overflow[0][i_36] = controller_v_overflow[i_36];
+                            for (integer j_10 = 0; j_10 < 3; j_10++)
+                            begin
+                                if (i_26 == 0)
+                                begin
+                                    controller_a_in_btint_a_next[(i_26 * 3 + j_10)] = controller_v_btint_a[j_10]; controller_a_in_btint_b_next[(i_26 * 3 + j_10)] = controller_v_btint_b[j_10]; controller_a_in_overflow_next[(i_26 * 3 + j_10)] = controller_v_overflow[j_10];
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_26 * 3 + j_10)] = controller_a_out_btint_a[((i_26 - 1) * 3 + j_10)]; controller_a_in_btint_b_next[(i_26 * 3 + j_10)] = controller_a_out_btint_b[((i_26 - 1) * 3 + j_10)]; controller_a_in_overflow_next[(i_26 * 3 + j_10)] = controller_a_out_overflow[((i_26 - 1) * 3 + j_10)];
+                                end
+                            end
                         end
-                        for (integer i_37 = 0; i_37 < 4; i_37++)
+                        for (integer i_27 = 0; i_27 < 4; i_27++)
                         begin
-                            controller_s_mm_next[i_37] = 1;
+                            controller_s_mm_next[i_27] = 1;
                         end
                         load_done_next = 1;
                     end else begin
-                        for (integer i_38 = 0; i_38 < 4; i_38++)
+                        for (integer i_28 = 0; i_28 < 4; i_28++)
                         begin
-                            controller_s_mm_next[i_38] = 0;
+                            controller_s_mm_next[i_28] = 0;
                         end
-                        for (integer i_39 = 0; i_39 < 3; i_39++)
+                        for (integer i_29 = 0; i_29 < 4; i_29++)
                         begin
-                            if (index_a_next[i_39] < 0 || index_a_next[i_39] > 4 - 1)
+                            for (integer j_11 = 0; j_11 < 3; j_11++)
                             begin
-                                TMP_41_value = 0;
-                                // Call from_int() begin
-                                output_btint_a_46 = 0;
-                                output_btint_b_46 = 0;
-                                output_overflow_46 = 0;
-                                for (integer i_51 = 0; i_51 < 8; i_51++)
+                                if (i_29 == 0)
                                 begin
-                                    output_index_23 = i_51; output_value_23 = 0;
-                                    // Call set_value() begin
-                                    output_btint_a_47 = 0;
-                                    output_btint_b_47 = 0;
-                                    output_overflow_47 = 0;
-                                    output_btint_a_47 = output_btint_a_46;
-                                    output_btint_b_47 = output_btint_b_46;
-                                    output_overflow_47 = output_overflow_46;
-                                    case (0)
-                                    0 : begin
-                                        output_btint_a_47[output_index_23] = 0;
-                                        output_btint_b_47[output_index_23] = 1;
+                                    if (index_a_next[j_11] < 0 || index_a_next[j_11] > 4 - 1)
+                                    begin
+                                        TMP_31_value = 0;
+                                        // Call from_int() begin
+                                        output_btint_a_36 = 0;
+                                        output_btint_b_36 = 0;
+                                        output_overflow_36 = 0;
+                                        for (integer i_41 = 0; i_41 < 8; i_41++)
+                                        begin
+                                            output_index_18 = i_41; output_value_18 = 0;
+                                            // Call set_value() begin
+                                            output_btint_a_37 = 0;
+                                            output_btint_b_37 = 0;
+                                            output_overflow_37 = 0;
+                                            output_btint_a_37 = output_btint_a_36;
+                                            output_btint_b_37 = output_btint_b_36;
+                                            output_overflow_37 = output_overflow_36;
+                                            case (0)
+                                            0 : begin
+                                                output_btint_a_37[output_index_18] = 0;
+                                                output_btint_b_37[output_index_18] = 1;
+                                            end
+                                            1 : begin
+                                                output_btint_a_37[output_index_18] = 1;
+                                                output_btint_b_37[output_index_18] = 1;
+                                            end
+                                            endcase
+                                            TMP_2_btint_a = output_btint_a_37; TMP_2_btint_b = output_btint_b_37; TMP_2_overflow = output_overflow_37;
+                                            // Call set_value() end
+                                            output_btint_a_36 = TMP_2_btint_a; output_btint_b_36 = TMP_2_btint_b; output_overflow_36 = TMP_2_overflow;
+                                        end
+                                        TMP_31_isNegative = TMP_31_value < 0;
+                                        TMP_31_i = 0;
+                                        TMP_21_btint_a = output_btint_a_36; TMP_21_btint_b = output_btint_b_36; TMP_21_overflow = output_overflow_36;
+                                        // Call from_int() end
+                                        controller_a_in_btint_a_next[(i_29 * 3 + j_11)] = TMP_21_btint_a; controller_a_in_btint_b_next[(i_29 * 3 + j_11)] = TMP_21_btint_b; controller_a_in_overflow_next[(i_29 * 3 + j_11)] = TMP_21_overflow;
+                                    end else begin
+                                        controller_a_in_btint_a_next[(i_29 * 3 + j_11)] = controller_m_a_btint_a[(index_a_next[j_11] * 3 + j_11)]; controller_a_in_btint_b_next[(i_29 * 3 + j_11)] = controller_m_a_btint_b[(index_a_next[j_11] * 3 + j_11)]; controller_a_in_overflow_next[(i_29 * 3 + j_11)] = controller_m_a_overflow[(index_a_next[j_11] * 3 + j_11)];
                                     end
-                                    1 : begin
-                                        output_btint_a_47[output_index_23] = 1;
-                                        output_btint_b_47[output_index_23] = 1;
-                                    end
-                                    endcase
-                                    TMP_2_btint_a = output_btint_a_47; TMP_2_btint_b = output_btint_b_47; TMP_2_overflow = output_overflow_47;
-                                    // Call set_value() end
-                                    output_btint_a_46 = TMP_2_btint_a; output_btint_b_46 = TMP_2_btint_b; output_overflow_46 = TMP_2_overflow;
+                                end else begin
+                                    controller_a_in_btint_a_next[(i_29 * 3 + j_11)] = controller_a_out_btint_a[((i_29 - 1) * 3 + j_11)]; controller_a_in_btint_b_next[(i_29 * 3 + j_11)] = controller_a_out_btint_b[((i_29 - 1) * 3 + j_11)]; controller_a_in_overflow_next[(i_29 * 3 + j_11)] = controller_a_out_overflow[((i_29 - 1) * 3 + j_11)];
                                 end
-                                TMP_41_isNegative = TMP_41_value < 0;
-                                TMP_41_i = 0;
-                                TMP_31_btint_a = output_btint_a_46; TMP_31_btint_b = output_btint_b_46; TMP_31_overflow = output_overflow_46;
-                                // Call from_int() end
-                                controller_a_in_btint_a[0][i_39] = TMP_31_btint_a; controller_a_in_btint_b[0][i_39] = TMP_31_btint_b; controller_a_in_overflow[0][i_39] = TMP_31_overflow;
-                            end else begin
-                                controller_a_in_btint_a[0][i_39] = controller_m_a_btint_a[index_a_next[i_39]][i_39]; controller_a_in_btint_b[0][i_39] = controller_m_a_btint_b[index_a_next[i_39]][i_39]; controller_a_in_overflow[0][i_39] = controller_m_a_overflow[index_a_next[i_39]][i_39];
                             end
                         end
-                        for (integer i_41 = 0; i_41 < 4; i_41++)
+                        for (integer i_31 = 0; i_31 < 4; i_31++)
                         begin
-                            TMP_42_value = 0;
-                            // Call from_int() begin
-                            output_btint_a_48 = 0;
-                            output_btint_b_48 = 0;
-                            output_overflow_48 = 0;
-                            for (integer i_52 = 0; i_52 < 8; i_52++)
+                            for (integer j_12 = 0; j_12 < 3; j_12++)
                             begin
-                                output_index_24 = i_52; output_value_24 = 0;
-                                // Call set_value() begin
-                                output_btint_a_49 = 0;
-                                output_btint_b_49 = 0;
-                                output_overflow_49 = 0;
-                                output_btint_a_49 = output_btint_a_48;
-                                output_btint_b_49 = output_btint_b_48;
-                                output_overflow_49 = output_overflow_48;
-                                case (0)
-                                0 : begin
-                                    output_btint_a_49[output_index_24] = 0;
-                                    output_btint_b_49[output_index_24] = 1;
+                                if (j_12 == 0)
+                                begin
+                                    TMP_32_value = 0;
+                                    // Call from_int() begin
+                                    output_btint_a_38 = 0;
+                                    output_btint_b_38 = 0;
+                                    output_overflow_38 = 0;
+                                    for (integer i_42 = 0; i_42 < 8; i_42++)
+                                    begin
+                                        output_index_19 = i_42; output_value_19 = 0;
+                                        // Call set_value() begin
+                                        output_btint_a_39 = 0;
+                                        output_btint_b_39 = 0;
+                                        output_overflow_39 = 0;
+                                        output_btint_a_39 = output_btint_a_38;
+                                        output_btint_b_39 = output_btint_b_38;
+                                        output_overflow_39 = output_overflow_38;
+                                        case (0)
+                                        0 : begin
+                                            output_btint_a_39[output_index_19] = 0;
+                                            output_btint_b_39[output_index_19] = 1;
+                                        end
+                                        1 : begin
+                                            output_btint_a_39[output_index_19] = 1;
+                                            output_btint_b_39[output_index_19] = 1;
+                                        end
+                                        endcase
+                                        TMP_2_btint_a = output_btint_a_39; TMP_2_btint_b = output_btint_b_39; TMP_2_overflow = output_overflow_39;
+                                        // Call set_value() end
+                                        output_btint_a_38 = TMP_2_btint_a; output_btint_b_38 = TMP_2_btint_b; output_overflow_38 = TMP_2_overflow;
+                                    end
+                                    TMP_32_isNegative = TMP_32_value < 0;
+                                    TMP_32_i = 0;
+                                    TMP_23_btint_a = output_btint_a_38; TMP_23_btint_b = output_btint_b_38; TMP_23_overflow = output_overflow_38;
+                                    // Call from_int() end
+                                    controller_c_in_u_btint_a_next[(i_31 * 3 + j_12)] = TMP_23_btint_a; controller_c_in_u_btint_b_next[(i_31 * 3 + j_12)] = TMP_23_btint_b; controller_c_in_u_overflow_next[(i_31 * 3 + j_12)] = TMP_23_overflow;
+                                end else begin
+                                    controller_c_in_u_btint_a_next[(i_31 * 3 + j_12)] = controller_c_out_u_btint_a[(i_31 * 3 + (j_12 - 1))]; controller_c_in_u_btint_b_next[(i_31 * 3 + j_12)] = controller_c_out_u_btint_b[(i_31 * 3 + (j_12 - 1))]; controller_c_in_u_overflow_next[(i_31 * 3 + j_12)] = controller_c_out_u_overflow[(i_31 * 3 + (j_12 - 1))];
                                 end
-                                1 : begin
-                                    output_btint_a_49[output_index_24] = 1;
-                                    output_btint_b_49[output_index_24] = 1;
-                                end
-                                endcase
-                                TMP_2_btint_a = output_btint_a_49; TMP_2_btint_b = output_btint_b_49; TMP_2_overflow = output_overflow_49;
-                                // Call set_value() end
-                                output_btint_a_48 = TMP_2_btint_a; output_btint_b_48 = TMP_2_btint_b; output_overflow_48 = TMP_2_overflow;
                             end
-                            TMP_42_isNegative = TMP_42_value < 0;
-                            TMP_42_i = 0;
-                            TMP_33_btint_a = output_btint_a_48; TMP_33_btint_b = output_btint_b_48; TMP_33_overflow = output_overflow_48;
-                            // Call from_int() end
-                            controller_c_in_u_btint_a[i_41][0] = TMP_33_btint_a; controller_c_in_u_btint_b[i_41][0] = TMP_33_btint_b; controller_c_in_u_overflow[i_41][0] = TMP_33_overflow;
                         end
                         if (index_a_next[3 - 1] >= 1 && index_a_next[3 - 1] <= 4)
                         begin
-                            result_u_btint_a_next[index_a_next[3 - 1] - 1][0] = controller_c_out_u_btint_a[0][3 - 1]; result_u_btint_b_next[index_a_next[3 - 1] - 1][0] = controller_c_out_u_btint_b[0][3 - 1]; result_u_overflow_next[index_a_next[3 - 1] - 1][0] = controller_c_out_u_overflow[0][3 - 1];
+                            result_u_btint_a_next[((index_a_next[3 - 1] - 1) * 4 + 0)] = controller_c_out_u_btint_a[(0 * 3 + (3 - 1))]; result_u_btint_b_next[((index_a_next[3 - 1] - 1) * 4 + 0)] = controller_c_out_u_btint_b[(0 * 3 + (3 - 1))]; result_u_overflow_next[((index_a_next[3 - 1] - 1) * 4 + 0)] = controller_c_out_u_overflow[(0 * 3 + (3 - 1))];
                         end
-                        for (integer i_43 = 0; i_43 < 3; i_43++)
+                        for (integer i_33 = 0; i_33 < 3; i_33++)
                         begin
-                            index_a_next[i_43]++;
+                            index_a_next[i_33]++;
                         end
                     end
                 end
             end
             control_WAIT_N_COUNTER_next = 3 * (8 + 3) + 4;
-            control_PROC_STATE_next = 1; return;    // controller.cpp:193:9;
+            control_PROC_STATE_next = 1; return;    // controller.cpp:216:9;
         end
     endcase
 endfunction
@@ -6749,79 +7991,9 @@ begin : control_ff
         logic [7:0] TMP_4_btint_a;
         logic [7:0] TMP_4_btint_b;
         logic [1:0] TMP_4_overflow;
-        integer TMP_5_value;
-        logic [7:0] output_btint_a_4;
-        logic [7:0] output_btint_b_4;
-        logic [1:0] output_overflow_4;
-        integer output_index_2;
-        integer output_value_2;
-        logic [7:0] output_btint_a_5;
-        logic [7:0] output_btint_b_5;
-        logic [1:0] output_overflow_5;
-        logic TMP_5_isNegative;
-        integer TMP_5_i;
-        logic [7:0] TMP_6_btint_a;
-        logic [7:0] TMP_6_btint_b;
-        logic [1:0] TMP_6_overflow;
-        integer TMP_7_value;
-        logic [7:0] output_btint_a_6;
-        logic [7:0] output_btint_b_6;
-        logic [1:0] output_overflow_6;
-        integer output_index_3;
-        integer output_value_3;
-        logic [7:0] output_btint_a_7;
-        logic [7:0] output_btint_b_7;
-        logic [1:0] output_overflow_7;
-        logic TMP_7_isNegative;
-        integer TMP_7_i;
-        logic [7:0] TMP_8_btint_a;
-        logic [7:0] TMP_8_btint_b;
-        logic [1:0] TMP_8_overflow;
-        integer TMP_9_value;
-        logic [7:0] output_btint_a_8;
-        logic [7:0] output_btint_b_8;
-        logic [1:0] output_overflow_8;
-        integer output_index_4;
-        integer output_value_4;
-        logic [7:0] output_btint_a_9;
-        logic [7:0] output_btint_b_9;
-        logic [1:0] output_overflow_9;
-        logic TMP_9_isNegative;
-        integer TMP_9_i;
-        logic [7:0] TMP_10_btint_a;
-        logic [7:0] TMP_10_btint_b;
-        logic [1:0] TMP_10_overflow;
-        integer TMP_11_value;
-        logic [7:0] output_btint_a_10;
-        logic [7:0] output_btint_b_10;
-        logic [1:0] output_overflow_10;
-        integer output_index_5;
-        integer output_value_5;
-        logic [7:0] output_btint_a_11;
-        logic [7:0] output_btint_b_11;
-        logic [1:0] output_overflow_11;
-        logic TMP_11_isNegative;
-        integer TMP_11_i;
-        logic [7:0] TMP_12_btint_a;
-        logic [7:0] TMP_12_btint_b;
-        logic [1:0] TMP_12_overflow;
-        integer TMP_13_value;
-        logic [7:0] output_btint_a_12;
-        logic [7:0] output_btint_b_12;
-        logic [1:0] output_overflow_12;
-        integer output_index_6;
-        integer output_value_6;
-        logic [7:0] output_btint_a_13;
-        logic [7:0] output_btint_b_13;
-        logic [1:0] output_overflow_13;
-        logic TMP_13_isNegative;
-        integer TMP_13_i;
-        logic [7:0] TMP_14_btint_a;
-        logic [7:0] TMP_14_btint_b;
-        logic [1:0] TMP_14_overflow;
         for (integer i = 0; i < 4; i++)
         begin
-            for (integer j = 0; j < 3; j++)
+            for (integer j = 0; j < 4; j++)
             begin
                 TMP_0_value = 0;
                 // Call from_int() begin
@@ -6856,7 +8028,7 @@ begin : control_ff
                 TMP_0_i = 0;
                 TMP_1_btint_a = output_btint_a; TMP_1_btint_b = output_btint_b; TMP_1_overflow = output_overflow;
                 // Call from_int() end
-                controller_a_in_btint_a[i][j] <= TMP_1_btint_a; controller_a_in_btint_b[i][j] <= TMP_1_btint_b; controller_a_in_overflow[i][j] <= TMP_1_overflow;
+                result_u_btint_a[(i * 4 + j)] <= TMP_1_btint_a; result_u_btint_b[(i * 4 + j)] <= TMP_1_btint_b; result_u_overflow[(i * 4 + j)] <= TMP_1_overflow;
                 TMP_3_value = 0;
                 // Call from_int() begin
                 output_btint_a_2 = 0;
@@ -6890,227 +8062,22 @@ begin : control_ff
                 TMP_3_i = 0;
                 TMP_4_btint_a = output_btint_a_2; TMP_4_btint_b = output_btint_b_2; TMP_4_overflow = output_overflow_2;
                 // Call from_int() end
-                controller_c_in_u_btint_a[i][j] <= TMP_4_btint_a; controller_c_in_u_btint_b[i][j] <= TMP_4_btint_b; controller_c_in_u_overflow[i][j] <= TMP_4_overflow;
-                TMP_5_value = 0;
-                // Call from_int() begin
-                output_btint_a_4 = 0;
-                output_btint_b_4 = 0;
-                output_overflow_4 = 0;
-                for (integer i_3 = 0; i_3 < 8; i_3++)
-                begin
-                    output_index_2 = i_3; output_value_2 = 0;
-                    // Call set_value() begin
-                    output_btint_a_5 = 0;
-                    output_btint_b_5 = 0;
-                    output_overflow_5 = 0;
-                    output_btint_a_5 = output_btint_a_4;
-                    output_btint_b_5 = output_btint_b_4;
-                    output_overflow_5 = output_overflow_4;
-                    case (0)
-                    0 : begin
-                        output_btint_a_5[output_index_2] = 0;
-                        output_btint_b_5[output_index_2] = 1;
-                    end
-                    1 : begin
-                        output_btint_a_5[output_index_2] = 1;
-                        output_btint_b_5[output_index_2] = 1;
-                    end
-                    endcase
-                    TMP_2_btint_a = output_btint_a_5; TMP_2_btint_b = output_btint_b_5; TMP_2_overflow = output_overflow_5;
-                    // Call set_value() end
-                    output_btint_a_4 = TMP_2_btint_a; output_btint_b_4 = TMP_2_btint_b; output_overflow_4 = TMP_2_overflow;
-                end
-                TMP_5_isNegative = TMP_5_value < 0;
-                TMP_5_i = 0;
-                TMP_6_btint_a = output_btint_a_4; TMP_6_btint_b = output_btint_b_4; TMP_6_overflow = output_overflow_4;
-                // Call from_int() end
-                controller_c_in_d_btint_a[i][j] <= TMP_6_btint_a; controller_c_in_d_btint_b[i][j] <= TMP_6_btint_b; controller_c_in_d_overflow[i][j] <= TMP_6_overflow;
-                controller_s_in[i][j] <= 0;
-            end
-        end
-        for (integer i_4 = 0; i_4 < 4; i_4++)
-        begin
-            controller_s_mm[i_4] <= 0;
-        end
-        controller_done <= 0;
-        for (integer i_5 = 0; i_5 < 4; i_5++)
-        begin
-            for (integer j_1 = 0; j_1 < 4; j_1++)
-            begin
-                TMP_7_value = 0;
-                // Call from_int() begin
-                output_btint_a_6 = 0;
-                output_btint_b_6 = 0;
-                output_overflow_6 = 0;
-                for (integer i_6 = 0; i_6 < 8; i_6++)
-                begin
-                    output_index_3 = i_6; output_value_3 = 0;
-                    // Call set_value() begin
-                    output_btint_a_7 = 0;
-                    output_btint_b_7 = 0;
-                    output_overflow_7 = 0;
-                    output_btint_a_7 = output_btint_a_6;
-                    output_btint_b_7 = output_btint_b_6;
-                    output_overflow_7 = output_overflow_6;
-                    case (0)
-                    0 : begin
-                        output_btint_a_7[output_index_3] = 0;
-                        output_btint_b_7[output_index_3] = 1;
-                    end
-                    1 : begin
-                        output_btint_a_7[output_index_3] = 1;
-                        output_btint_b_7[output_index_3] = 1;
-                    end
-                    endcase
-                    TMP_2_btint_a = output_btint_a_7; TMP_2_btint_b = output_btint_b_7; TMP_2_overflow = output_overflow_7;
-                    // Call set_value() end
-                    output_btint_a_6 = TMP_2_btint_a; output_btint_b_6 = TMP_2_btint_b; output_overflow_6 = TMP_2_overflow;
-                end
-                TMP_7_isNegative = TMP_7_value < 0;
-                TMP_7_i = 0;
-                TMP_8_btint_a = output_btint_a_6; TMP_8_btint_b = output_btint_b_6; TMP_8_overflow = output_overflow_6;
-                // Call from_int() end
-                controller_result_u_btint_a[i_5][j_1] <= TMP_8_btint_a; controller_result_u_btint_b[i_5][j_1] <= TMP_8_btint_b; controller_result_u_overflow[i_5][j_1] <= TMP_8_overflow;
-                TMP_9_value = 0;
-                // Call from_int() begin
-                output_btint_a_8 = 0;
-                output_btint_b_8 = 0;
-                output_overflow_8 = 0;
-                for (integer i_7 = 0; i_7 < 8; i_7++)
-                begin
-                    output_index_4 = i_7; output_value_4 = 0;
-                    // Call set_value() begin
-                    output_btint_a_9 = 0;
-                    output_btint_b_9 = 0;
-                    output_overflow_9 = 0;
-                    output_btint_a_9 = output_btint_a_8;
-                    output_btint_b_9 = output_btint_b_8;
-                    output_overflow_9 = output_overflow_8;
-                    case (0)
-                    0 : begin
-                        output_btint_a_9[output_index_4] = 0;
-                        output_btint_b_9[output_index_4] = 1;
-                    end
-                    1 : begin
-                        output_btint_a_9[output_index_4] = 1;
-                        output_btint_b_9[output_index_4] = 1;
-                    end
-                    endcase
-                    TMP_2_btint_a = output_btint_a_9; TMP_2_btint_b = output_btint_b_9; TMP_2_overflow = output_overflow_9;
-                    // Call set_value() end
-                    output_btint_a_8 = TMP_2_btint_a; output_btint_b_8 = TMP_2_btint_b; output_overflow_8 = TMP_2_overflow;
-                end
-                TMP_9_isNegative = TMP_9_value < 0;
-                TMP_9_i = 0;
-                TMP_10_btint_a = output_btint_a_8; TMP_10_btint_b = output_btint_b_8; TMP_10_overflow = output_overflow_8;
-                // Call from_int() end
-                controller_result_d_btint_a[i_5][j_1] <= TMP_10_btint_a; controller_result_d_btint_b[i_5][j_1] <= TMP_10_btint_b; controller_result_d_overflow[i_5][j_1] <= TMP_10_overflow;
-            end
-        end
-        for (integer i_8 = 0; i_8 < 4; i_8++)
-        begin
-            for (integer j_2 = 0; j_2 < 4; j_2++)
-            begin
-                TMP_11_value = 0;
-                // Call from_int() begin
-                output_btint_a_10 = 0;
-                output_btint_b_10 = 0;
-                output_overflow_10 = 0;
-                for (integer i_9 = 0; i_9 < 8; i_9++)
-                begin
-                    output_index_5 = i_9; output_value_5 = 0;
-                    // Call set_value() begin
-                    output_btint_a_11 = 0;
-                    output_btint_b_11 = 0;
-                    output_overflow_11 = 0;
-                    output_btint_a_11 = output_btint_a_10;
-                    output_btint_b_11 = output_btint_b_10;
-                    output_overflow_11 = output_overflow_10;
-                    case (0)
-                    0 : begin
-                        output_btint_a_11[output_index_5] = 0;
-                        output_btint_b_11[output_index_5] = 1;
-                    end
-                    1 : begin
-                        output_btint_a_11[output_index_5] = 1;
-                        output_btint_b_11[output_index_5] = 1;
-                    end
-                    endcase
-                    TMP_2_btint_a = output_btint_a_11; TMP_2_btint_b = output_btint_b_11; TMP_2_overflow = output_overflow_11;
-                    // Call set_value() end
-                    output_btint_a_10 = TMP_2_btint_a; output_btint_b_10 = TMP_2_btint_b; output_overflow_10 = TMP_2_overflow;
-                end
-                TMP_11_isNegative = TMP_11_value < 0;
-                TMP_11_i = 0;
-                TMP_12_btint_a = output_btint_a_10; TMP_12_btint_b = output_btint_b_10; TMP_12_overflow = output_overflow_10;
-                // Call from_int() end
-                result_u_btint_a[i_8][j_2] <= TMP_12_btint_a; result_u_btint_b[i_8][j_2] <= TMP_12_btint_b; result_u_overflow[i_8][j_2] <= TMP_12_overflow;
-                TMP_13_value = 0;
-                // Call from_int() begin
-                output_btint_a_12 = 0;
-                output_btint_b_12 = 0;
-                output_overflow_12 = 0;
-                for (integer i_10 = 0; i_10 < 8; i_10++)
-                begin
-                    output_index_6 = i_10; output_value_6 = 0;
-                    // Call set_value() begin
-                    output_btint_a_13 = 0;
-                    output_btint_b_13 = 0;
-                    output_overflow_13 = 0;
-                    output_btint_a_13 = output_btint_a_12;
-                    output_btint_b_13 = output_btint_b_12;
-                    output_overflow_13 = output_overflow_12;
-                    case (0)
-                    0 : begin
-                        output_btint_a_13[output_index_6] = 0;
-                        output_btint_b_13[output_index_6] = 1;
-                    end
-                    1 : begin
-                        output_btint_a_13[output_index_6] = 1;
-                        output_btint_b_13[output_index_6] = 1;
-                    end
-                    endcase
-                    TMP_2_btint_a = output_btint_a_13; TMP_2_btint_b = output_btint_b_13; TMP_2_overflow = output_overflow_13;
-                    // Call set_value() end
-                    output_btint_a_12 = TMP_2_btint_a; output_btint_b_12 = TMP_2_btint_b; output_overflow_12 = TMP_2_overflow;
-                end
-                TMP_13_isNegative = TMP_13_value < 0;
-                TMP_13_i = 0;
-                TMP_14_btint_a = output_btint_a_12; TMP_14_btint_b = output_btint_b_12; TMP_14_overflow = output_overflow_12;
-                // Call from_int() end
-                result_d_btint_a[i_8][j_2] <= TMP_14_btint_a; result_d_btint_b[i_8][j_2] <= TMP_14_btint_b; result_d_overflow[i_8][j_2] <= TMP_14_overflow;
+                result_d_btint_a[(i * 4 + j)] <= TMP_4_btint_a; result_d_btint_b[(i * 4 + j)] <= TMP_4_btint_b; result_d_overflow[(i * 4 + j)] <= TMP_4_overflow;
+                state[(i * 4 + j)] <= 0;
             end
         end
         steps <= 0;
-        for (integer i_11 = 0; i_11 < 3; i_11++)
+        for (integer i_3 = 0; i_3 < 3; i_3++)
         begin
-            index_a[i_11] <= 0 - i_11 - 1;
+            index_a[i_3] <= 0 - i_3 - 1;
         end
         index_b <= 0;
         load_done <= 0;
-        control_PROC_STATE <= 0;    // controller.cpp:43:5;
+        control_PROC_STATE <= 0;    // controller.cpp:26:5;
         control_WAIT_N_COUNTER <= 0;
     end
     else begin
         control_WAIT_N_COUNTER <= control_WAIT_N_COUNTER_next;
-        controller_a_in_btint_a <= controller_a_in_btint_a_next;
-        controller_a_in_btint_b <= controller_a_in_btint_b_next;
-        controller_a_in_overflow <= controller_a_in_overflow_next;
-        controller_c_in_u_btint_a <= controller_c_in_u_btint_a_next;
-        controller_c_in_u_btint_b <= controller_c_in_u_btint_b_next;
-        controller_c_in_u_overflow <= controller_c_in_u_overflow_next;
-        controller_c_in_d_btint_a <= controller_c_in_d_btint_a_next;
-        controller_c_in_d_btint_b <= controller_c_in_d_btint_b_next;
-        controller_c_in_d_overflow <= controller_c_in_d_overflow_next;
-        controller_s_in <= controller_s_in_next;
-        controller_s_mm <= controller_s_mm_next;
-        controller_done <= controller_done_next;
-        controller_result_u_btint_a <= controller_result_u_btint_a_next;
-        controller_result_u_btint_b <= controller_result_u_btint_b_next;
-        controller_result_u_overflow <= controller_result_u_overflow_next;
-        controller_result_d_btint_a <= controller_result_d_btint_a_next;
-        controller_result_d_btint_b <= controller_result_d_btint_b_next;
-        controller_result_d_overflow <= controller_result_d_overflow_next;
         result_u_btint_a <= result_u_btint_a_next;
         result_u_btint_b <= result_u_btint_b_next;
         result_u_overflow <= result_u_overflow_next;
@@ -7122,6 +8089,24 @@ begin : control_ff
         index_a <= index_a_next;
         load_done <= load_done_next;
         index_b <= index_b_next;
+        controller_result_u_btint_a <= controller_result_u_btint_a_next;
+        controller_result_u_btint_b <= controller_result_u_btint_b_next;
+        controller_result_u_overflow <= controller_result_u_overflow_next;
+        controller_result_d_btint_a <= controller_result_d_btint_a_next;
+        controller_result_d_btint_b <= controller_result_d_btint_b_next;
+        controller_result_d_overflow <= controller_result_d_overflow_next;
+        controller_s_mm <= controller_s_mm_next;
+        controller_done <= controller_done_next;
+        controller_s_in <= controller_s_in_next;
+        controller_c_in_u_btint_a <= controller_c_in_u_btint_a_next;
+        controller_c_in_u_btint_b <= controller_c_in_u_btint_b_next;
+        controller_c_in_u_overflow <= controller_c_in_u_overflow_next;
+        controller_c_in_d_btint_a <= controller_c_in_d_btint_a_next;
+        controller_c_in_d_btint_b <= controller_c_in_d_btint_b_next;
+        controller_c_in_d_overflow <= controller_c_in_d_overflow_next;
+        controller_a_in_btint_a <= controller_a_in_btint_a_next;
+        controller_a_in_btint_b <= controller_a_in_btint_b_next;
+        controller_a_in_overflow <= controller_a_in_overflow_next;
         control_PROC_STATE <= control_PROC_STATE_next;
     end
 end

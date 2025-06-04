@@ -11,6 +11,7 @@
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source bachelor_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1333.191 ; gain = 0.023 ; free physical = 2576 ; free virtual = 25817
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.2/data/ip'.
@@ -22,8 +23,8 @@ INFO: [Project 1-454] Reading design checkpoint '/home/robert/Downloads/Bachelor
 INFO: [Project 1-454] Reading design checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_0_0/bachelor_UART_TRANSMITTER_0_0.dcp' for cell 'bachelor_i/UART_TRANSMITTER_0'
 INFO: [Project 1-454] Reading design checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_1_0/bachelor_UART_TRANSMITTER_1_0.dcp' for cell 'bachelor_i/UART_TRANSMITTER_1'
 INFO: [Project 1-454] Reading design checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_vio_0_0/bachelor_vio_0_0.dcp' for cell 'bachelor_i/vio_0'
-Netlist sorting complete. Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.19 . Memory (MB): peak = 1736.812 ; gain = 0.000 ; free physical = 4439 ; free virtual = 27586
-INFO: [Netlist 29-17] Analyzing 11919 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.24 . Memory (MB): peak = 1738.301 ; gain = 0.000 ; free physical = 2182 ; free virtual = 25424
+INFO: [Netlist 29-17] Analyzing 10986 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2023.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -36,13 +37,13 @@ CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/h
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [/home/robert/Downloads/Bachelor/Source Code/xdc/Zedboard-Master.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1970.457 ; gain = 0.000 ; free physical = 4332 ; free virtual = 27479
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1971.023 ; gain = 0.000 ; free physical = 2027 ; free virtual = 25270
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 15 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1970.492 ; gain = 668.789 ; free physical = 4332 ; free virtual = 27479
+link_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1971.059 ; gain = 637.867 ; free physical = 2026 ; free virtual = 25269
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -50,115 +51,807 @@ Running DRC as a precondition to command opt_design
 
 Starting DRC Task
 INFO: [DRC 23-27] Running DRC with 8 threads
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[0] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[0]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[0]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[10] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[10]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[10]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[11] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[11]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[11]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[12] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[12]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[12]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[13] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[13]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[13]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[14] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[14]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[14]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[15] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[15]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[15]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[16] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[16]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[16]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[17] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[17]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[17]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[18] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[18]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[18]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[19] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[19]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[19]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[1] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[1]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[1]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[20] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[20]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[20]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[21] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[21]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[21]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[22] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[22]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[22]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[23] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[23]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[23]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[24] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[24]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[24]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[25] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[25]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[25]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[26] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[26]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[26]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[27] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[27]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[27]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[28] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[28]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[28]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[29] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[29]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[29]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[2] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[2]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[2]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[30] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[30]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[30]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[31] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[31]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[31]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[32] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[32]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[32]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[33] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[33]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[33]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[34] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[34]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[34]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[35] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[35]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[35]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[36] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[36]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[36]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[37] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[37]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[37]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[38] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[38]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[38]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[39] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[39]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[39]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[3] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[3]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[3]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[40] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[40]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[40]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[41] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[41]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[41]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[42] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[42]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[42]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[43] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[43]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[43]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[44] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[44]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[44]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[45] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[45]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[45]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[46] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[46]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[46]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[47] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[47]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[47]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[48] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[48]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[48]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[49] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[49]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[49]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[4] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[4]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[4]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[50] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[50]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[50]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[51] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[51]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[51]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[52] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[52]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[52]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[53] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[53]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[53]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[54] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[54]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[54]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[55] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[55]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[55]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[56] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[56]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[56]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[57] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[57]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[57]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[58] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[58]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[58]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[59] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[59]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[59]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[5] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[5]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[5]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[60] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[60]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[60]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[61] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[61]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[61]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[62] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[62]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[62]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[63] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[63]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[63]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[64] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[64]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[64]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[65] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[65]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[65]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[66] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[66]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[66]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[67] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[67]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[67]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[68] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[68]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[68]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[69] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[69]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[69]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[6] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[6]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[6]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[70] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[70]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[70]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[71] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[71]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[71]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[72] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[72]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[72]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[73] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[73]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[73]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[74] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[74]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[74]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[75] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[75]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[75]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[76] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[76]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[76]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[77] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[77]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[77]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[78] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[78]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[78]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[79] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[79]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[79]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[7] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[7]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[7]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[80] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[80]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[80]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[81] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[81]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[81]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[82] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[82]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[82]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[83] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[83]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[83]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[84] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[84]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[84]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[85] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[85]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[85]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[86] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[86]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[86]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[87] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[87]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[87]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[88] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[88]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[88]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[89] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[89]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[89]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[8] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[8]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[8]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[90] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[90]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[90]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[91] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[91]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[91]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[92] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[92]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[92]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[93] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[93]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[93]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[94] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[94]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[94]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[95] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[95]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[95]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/Q[9] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[9]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_c_in_u_btint_b_reg[9]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/UNCONN_OUT[0] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[0]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[0]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/UNCONN_OUT[10] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[10]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[10]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/UNCONN_OUT[11] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[11]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[11]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net bachelor_i/COMBINED_OPERATIONS_0/inst/controller/UNCONN_OUT[12] has multiple drivers: bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[12]/Q, and bachelor_i/COMBINED_OPERATIONS_0/inst/controller/controller_a_in_btint_b_reg[12]__0/Q.
-INFO: [Common 17-14] Message 'DRC MDRV-1' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Project 1-461] DRC finished with 536 Errors
+INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
-ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 2078.082 ; gain = 107.590 ; free physical = 4296 ; free virtual = 27444
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.63 . Memory (MB): peak = 2079.648 ; gain = 108.590 ; free physical = 2038 ; free virtual = 25282
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1ce49d1c1
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 2599.500 ; gain = 519.852 ; free physical = 1557 ; free virtual = 24801
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+
+Phase 1.1.1 Generate And Synthesize Debug Cores
+INFO: [Chipscope 16-329] Generating Script for core instance : dbg_hub 
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
+INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:xsdbm:3.0, cache-ID = a6052144841d113e.
+Done building netlist checker database: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2928.031 ; gain = 0.000 ; free physical = 1225 ; free virtual = 24496
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "wr_clk_period": no such variable
+ [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:12]
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value": no such variable
+ [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value": no such variable
+ [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "rd_clk_period_2": no such variable
+ [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value_2": no such variable
+ [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:33]
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value_2": no such variable
+ [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/.Xil/Vivado-97369-arch/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:36]
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2928.031 ; gain = 0.000 ; free physical = 1180 ; free virtual = 24452
+Phase 1.1.1 Generate And Synthesize Debug Cores | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1180 ; free virtual = 24452
+Phase 1.1 Core Generation And Design Setup | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1180 ; free virtual = 24452
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1180 ; free virtual = 24452
+Phase 1 Initialization | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1180 ; free virtual = 24452
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1181 ; free virtual = 24453
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1177 ; free virtual = 24449
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1857142c8
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1177 ; free virtual = 24449
+
+Phase 3 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 260196867
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1183 ; free virtual = 24455
+Retarget | Checksum: 260196867
+INFO: [Opt 31-389] Phase Retarget created 30 cells and removed 36 cells
+INFO: [Opt 31-1021] In phase Retarget, 641 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 18e5a44d8
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:31 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1175 ; free virtual = 24447
+Constant propagation | Checksum: 18e5a44d8
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 108 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 625 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 1d9723bc8
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:33 . Memory (MB): peak = 2928.031 ; gain = 19.844 ; free physical = 1159 ; free virtual = 24431
+Sweep | Checksum: 1d9723bc8
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 12 cells
+INFO: [Opt 31-1021] In phase Sweep, 4208 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 6 BUFG optimization
+INFO: [Opt 31-194] Inserted BUFG combined_operations_clock_IBUF_BUFG_inst to drive 13130 load(s) on clock net combined_operations_clock_IBUF_BUFG
+INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
+Phase 6 BUFG optimization | Checksum: 1fed3be96
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1152 ; free virtual = 24424
+BUFG optimization | Checksum: 1fed3be96
+INFO: [Opt 31-662] Phase BUFG optimization created 1 cells of which 1 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 1fed3be96
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1151 ; free virtual = 24423
+Shift Register Optimization | Checksum: 1fed3be96
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 1fed3be96
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1151 ; free virtual = 24423
+Post Processing Netlist | Checksum: 1fed3be96
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 633 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 148835e47
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1184 ; free virtual = 24456
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2960.047 ; gain = 0.000 ; free physical = 1183 ; free virtual = 24456
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 148835e47
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1183 ; free virtual = 24456
+Phase 9 Finalization | Checksum: 148835e47
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1183 ; free virtual = 24456
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |              30  |              36  |                                            641  |
+|  Constant propagation         |               0  |             108  |                                            625  |
+|  Sweep                        |               0  |              12  |                                           4208  |
+|  BUFG optimization            |               1  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                            633  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 148835e47
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2960.047 ; gain = 51.859 ; free physical = 1183 ; free virtual = 24456
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2960.047 ; gain = 0.000 ; free physical = 1183 ; free virtual = 24456
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: 148835e47
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2960.047 ; gain = 0.000 ; free physical = 1183 ; free virtual = 24456
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 148835e47
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2960.047 ; gain = 0.000 ; free physical = 1183 ; free virtual = 24456
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2960.047 ; gain = 0.000 ; free physical = 1183 ; free virtual = 24456
+Ending Netlist Obfuscation Task | Checksum: 148835e47
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2960.047 ; gain = 0.000 ; free physical = 1183 ; free virtual = 24456
 INFO: [Common 17-83] Releasing license: Implementation
-21 Infos, 1 Warnings, 1 Critical Warnings and 101 Errors encountered.
-opt_design failed
-ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+49 Infos, 3 Warnings, 11 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 2960.047 ; gain = 988.988 ; free physical = 1183 ; free virtual = 24456
+INFO: [runtcl-4] Executing : report_drc -file bachelor_wrapper_drc_opted.rpt -pb bachelor_wrapper_drc_opted.pb -rpx bachelor_wrapper_drc_opted.rpx
+Command: report_drc -file bachelor_wrapper_drc_opted.rpt -pb bachelor_wrapper_drc_opted.pb -rpx bachelor_wrapper_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1160 ; free virtual = 24433
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1160 ; free virtual = 24433
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.64 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1134 ; free virtual = 24411
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1134 ; free virtual = 24411
+Wrote Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1134 ; free virtual = 24412
+Write Physdb Complete: Time (s): cpu = 00:00:00.67 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1134 ; free virtual = 24412
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2992.062 ; gain = 0.000 ; free physical = 1125 ; free virtual = 24409
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_opt.dcp' has been generated.
+INFO: [Chipscope 16-240] Debug cores have already been implemented
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
 
-INFO: [Common 17-206] Exiting Vivado at Mon Jun  2 19:06:42 2025...
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3027.719 ; gain = 0.000 ; free physical = 1064 ; free virtual = 24348
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 11a66cd61
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3027.719 ; gain = 0.000 ; free physical = 1064 ; free virtual = 24348
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3027.719 ; gain = 0.000 ; free physical = 1064 ; free virtual = 24348
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: de7239d0
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3027.719 ; gain = 0.000 ; free physical = 1063 ; free virtual = 24352
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 194a20fe6
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 3059.566 ; gain = 31.848 ; free physical = 999 ; free virtual = 24289
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 194a20fe6
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 3059.566 ; gain = 31.848 ; free physical = 999 ; free virtual = 24289
+Phase 1 Placer Initialization | Checksum: 194a20fe6
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 3059.566 ; gain = 31.848 ; free physical = 993 ; free virtual = 24284
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: e55e2f66
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 991 ; free virtual = 24282
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1c5150a14
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 993 ; free virtual = 24284
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1c5150a14
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 993 ; free virtual = 24284
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 130af02ed
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:17 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1000 ; free virtual = 24292
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 165 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 73 nets or LUTs. Breaked 0 LUT, combined 73 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3088.426 ; gain = 0.000 ; free physical = 1023 ; free virtual = 24317
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |             73  |                    73  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |             73  |                    73  |           0  |           4  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 2119e3816
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:19 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1022 ; free virtual = 24316
+Phase 2.4 Global Placement Core | Checksum: 162691879
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:19 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1016 ; free virtual = 24310
+Phase 2 Global Placement | Checksum: 162691879
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:19 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1016 ; free virtual = 24310
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 200fb6825
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:20 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1015 ; free virtual = 24309
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 14c6d2521
+
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:26 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1003 ; free virtual = 24297
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 20070248e
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:26 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1003 ; free virtual = 24297
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1e9dd87c1
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:26 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1003 ; free virtual = 24297
+
+Phase 3.5 Small Shape Detail Placement
+Phase 3.5 Small Shape Detail Placement | Checksum: 18657cadf
+
+Time (s): cpu = 00:01:17 ; elapsed = 00:00:34 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1113 ; free virtual = 24407
+
+Phase 3.6 Re-assign LUT pins
+Phase 3.6 Re-assign LUT pins | Checksum: 2068ddf25
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:00:37 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1101 ; free virtual = 24395
+
+Phase 3.7 Pipeline Register Optimization
+Phase 3.7 Pipeline Register Optimization | Checksum: 1f93c4de4
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:37 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1100 ; free virtual = 24394
+Phase 3 Detail Placement | Checksum: 1f93c4de4
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:38 . Memory (MB): peak = 3088.426 ; gain = 60.707 ; free physical = 1099 ; free virtual = 24393
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 21bf91062
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=24.098 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1aab0a961
+
+Time (s): cpu = 00:00:00.59 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 1071 ; free virtual = 24367
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 1aab0a961
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 1063 ; free virtual = 24357
+Phase 4.1.1.1 BUFG Insertion | Checksum: 21bf91062
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:42 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1063 ; free virtual = 24357
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=24.098. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1c6989b49
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:42 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1063 ; free virtual = 24357
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:42 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1063 ; free virtual = 24357
+Phase 4.1 Post Commit Optimization | Checksum: 1c6989b49
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:43 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1063 ; free virtual = 24357
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1c6989b49
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:43 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1061 ; free virtual = 24355
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                2x2|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1c6989b49
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:43 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1053 ; free virtual = 24347
+Phase 4.3 Placer Reporting | Checksum: 1c6989b49
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:44 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1053 ; free virtual = 24347
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 1053 ; free virtual = 24347
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:44 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1053 ; free virtual = 24347
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1b07f642a
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:44 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1053 ; free virtual = 24347
+Ending Placer Task | Checksum: 1667ae15c
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:44 . Memory (MB): peak = 3157.234 ; gain = 129.516 ; free physical = 1051 ; free virtual = 24345
+85 Infos, 3 Warnings, 11 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:34 ; elapsed = 00:00:45 . Memory (MB): peak = 3157.234 ; gain = 165.172 ; free physical = 1051 ; free virtual = 24345
+INFO: [runtcl-4] Executing : report_io -file bachelor_wrapper_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 1051 ; free virtual = 24345
+INFO: [runtcl-4] Executing : report_utilization -file bachelor_wrapper_utilization_placed.rpt -pb bachelor_wrapper_utilization_placed.pb
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file bachelor_wrapper_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 1054 ; free virtual = 24348
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.93 ; elapsed = 00:00:00.2 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 1030 ; free virtual = 24340
+Wrote PlaceDB: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 930 ; free virtual = 24299
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 930 ; free virtual = 24299
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 930 ; free virtual = 24299
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 930 ; free virtual = 24303
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 930 ; free virtual = 24304
+Write Physdb Complete: Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 930 ; free virtual = 24304
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 933 ; free virtual = 24245
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 908 ; free virtual = 24224
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+94 Infos, 3 Warnings, 11 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.85 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 891 ; free virtual = 24218
+Wrote PlaceDB: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 816 ; free virtual = 24202
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 816 ; free virtual = 24202
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 816 ; free virtual = 24202
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 812 ; free virtual = 24203
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 804 ; free virtual = 24196
+Write Physdb Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 797 ; free virtual = 24188
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_physopt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 3157.234 ; gain = 0.000 ; free physical = 853 ; free virtual = 24183
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: d4ca3ffa ConstDB: 0 ShapeSum: 91b0a162 RouteDB: 0
+Post Restoration Checksum: NetGraph: ad89562b | NumContArr: 19dd976d | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 24cb8e2d2
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3262.809 ; gain = 55.914 ; free physical = 731 ; free virtual = 24062
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 24cb8e2d2
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3264.809 ; gain = 57.914 ; free physical = 730 ; free virtual = 24062
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 24cb8e2d2
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3264.809 ; gain = 57.914 ; free physical = 730 ; free virtual = 24062
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 205e80320
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 3314.824 ; gain = 107.930 ; free physical = 666 ; free virtual = 23999
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=24.032 | TNS=0.000  | WHS=-0.148 | THS=-17.755|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 63088
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 63088
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 2ab691f67
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:25 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 650 ; free virtual = 23983
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 2ab691f67
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:25 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 650 ; free virtual = 23983
+
+Phase 3.2 Initial Net Routing
+Phase 3.2 Initial Net Routing | Checksum: 1ff8a5ad6
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:28 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 633 ; free virtual = 23967
+Phase 3 Initial Routing | Checksum: 1ff8a5ad6
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:28 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 633 ; free virtual = 23967
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1121
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=20.183 | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 25d749b94
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:33 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 676 ; free virtual = 24009
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=20.183 | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 293988a30
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:33 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 676 ; free virtual = 24009
+Phase 4 Rip-up And Reroute | Checksum: 293988a30
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:33 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 676 ; free virtual = 24009
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 293988a30
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:33 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 676 ; free virtual = 24009
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 293988a30
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:33 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+Phase 5 Delay and Skew Optimization | Checksum: 293988a30
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:33 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 2b3259927
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:34 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=20.314 | TNS=0.000  | WHS=0.060  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 31178ea55
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:34 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+Phase 6 Post Hold Fix | Checksum: 31178ea55
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:34 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 15.6904 %
+  Global Horizontal Routing Utilization  = 17.8546 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 31178ea55
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:34 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 31178ea55
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:34 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 671 ; free virtual = 24005
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 2bf7285fd
+
+Time (s): cpu = 00:01:17 ; elapsed = 00:00:37 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 809 ; free virtual = 24143
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=20.314 | TNS=0.000  | WHS=0.060  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 2bf7285fd
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:38 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 817 ; free virtual = 24151
+INFO: [Route 35-16] Router Completed Successfully
+
+Phase 11 Post-Route Event Processing
+Phase 11 Post-Route Event Processing | Checksum: 27b7905c2
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:00:39 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 809 ; free virtual = 24145
+Ending Routing Task | Checksum: 27b7905c2
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:40 . Memory (MB): peak = 3317.965 ; gain = 111.070 ; free physical = 820 ; free virtual = 24153
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+109 Infos, 3 Warnings, 11 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:26 ; elapsed = 00:00:43 . Memory (MB): peak = 3317.965 ; gain = 160.730 ; free physical = 820 ; free virtual = 24153
+INFO: [runtcl-4] Executing : report_drc -file bachelor_wrapper_drc_routed.rpt -pb bachelor_wrapper_drc_routed.pb -rpx bachelor_wrapper_drc_routed.rpx
+Command: report_drc -file bachelor_wrapper_drc_routed.rpt -pb bachelor_wrapper_drc_routed.pb -rpx bachelor_wrapper_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file bachelor_wrapper_methodology_drc_routed.rpt -pb bachelor_wrapper_methodology_drc_routed.pb -rpx bachelor_wrapper_methodology_drc_routed.rpx
+Command: report_methodology -file bachelor_wrapper_methodology_drc_routed.rpt -pb bachelor_wrapper_methodology_drc_routed.pb -rpx bachelor_wrapper_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:31 ; elapsed = 00:00:08 . Memory (MB): peak = 3464.547 ; gain = 0.000 ; free physical = 731 ; free virtual = 24066
+INFO: [runtcl-4] Executing : report_power -file bachelor_wrapper_power_routed.rpt -pb bachelor_wrapper_power_summary_routed.pb -rpx bachelor_wrapper_power_routed.rpx
+Command: report_power -file bachelor_wrapper_power_routed.rpt -pb bachelor_wrapper_power_summary_routed.pb -rpx bachelor_wrapper_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+119 Infos, 3 Warnings, 11 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:19 ; elapsed = 00:00:06 . Memory (MB): peak = 3509.367 ; gain = 44.820 ; free physical = 605 ; free virtual = 23948
+INFO: [runtcl-4] Executing : report_route_status -file bachelor_wrapper_route_status.rpt -pb bachelor_wrapper_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file bachelor_wrapper_timing_summary_routed.rpt -pb bachelor_wrapper_timing_summary_routed.pb -rpx bachelor_wrapper_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [runtcl-4] Executing : report_incremental_reuse -file bachelor_wrapper_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file bachelor_wrapper_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file bachelor_wrapper_bus_skew_routed.rpt -pb bachelor_wrapper_bus_skew_routed.pb -rpx bachelor_wrapper_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.87 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 575 ; free virtual = 23939
+Wrote PlaceDB: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 473 ; free virtual = 23895
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 473 ; free virtual = 23895
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.49 ; elapsed = 00:00:00.5 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 465 ; free virtual = 23895
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 458 ; free virtual = 23892
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 458 ; free virtual = 23893
+Write Physdb Complete: Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 458 ; free virtual = 23893
+INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/impl_1/bachelor_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 3509.367 ; gain = 0.000 ; free physical = 450 ; free virtual = 23819
+Command: write_bitstream -force bachelor_wrapper.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A1*A5)+(A1*(~A5)*(~A4))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A3' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A1*A5)+(A1*(~A5)*(~A4))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC RTSTAT-10] No routable loads: 129 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/TMS, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, bachelor_i/vio_0/inst/PROBE_OUT_ALL_INST/G_PROBE_OUT[2].PROBE_OUT0_INST/probe_out2[23:0], bachelor_i/vio_0/inst/PROBE_OUT_ALL_INST/G_PROBE_OUT[5].PROBE_OUT0_INST/probe_out5[23:0]... and (the first 15 of 76 listed).
+WARNING: [DRC ZPS7-1] PS7 block required: The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 5 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./bachelor_wrapper.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+14 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:01:09 ; elapsed = 00:00:29 . Memory (MB): peak = 3837.996 ; gain = 320.625 ; free physical = 314 ; free virtual = 23447
+INFO: [Common 17-206] Exiting Vivado at Wed Jun  4 23:16:21 2025...
+
+*** Running vivado
+    with args -log bachelor_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source bachelor_wrapper.tcl -notrace
+
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source bachelor_wrapper.tcl -notrace
+Command: open_checkpoint bachelor_wrapper_routed.dcp
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.22 . Memory (MB): peak = 1696.156 ; gain = 0.000 ; free physical = 2409 ; free virtual = 25541
+INFO: [Netlist 29-17] Analyzing 11004 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2023.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 1813.219 ; gain = 24.469 ; free physical = 2281 ; free virtual = 25413
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2466.750 ; gain = 0.000 ; free physical = 1639 ; free virtual = 24770
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2466.750 ; gain = 0.000 ; free physical = 1635 ; free virtual = 24766
+Read PlaceDB: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2512.688 ; gain = 45.938 ; free physical = 1631 ; free virtual = 24764
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2512.688 ; gain = 0.000 ; free physical = 1631 ; free virtual = 24764
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.87 ; elapsed = 00:00:00.88 . Memory (MB): peak = 2529.688 ; gain = 17.000 ; free physical = 1619 ; free virtual = 24752
+Read Physdb Files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2529.688 ; gain = 62.938 ; free physical = 1619 ; free virtual = 24752
+Restored from archive | CPU: 3.280000 secs | Memory: 74.671310 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2529.688 ; gain = 65.906 ; free physical = 1619 ; free virtual = 24752
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2529.688 ; gain = 0.000 ; free physical = 1619 ; free virtual = 24750
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2023.2 (64-bit) build 4029153
+WARNING: [Vivado 12-23575] Critical violations of the methodology design rules detected. Critical violations may contribute to timing failures or cause functional issues in hardware. Run report_methodology for more information.
+open_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2533.688 ; gain = 1263.695 ; free physical = 1619 ; free virtual = 24750
+Command: write_bitstream -force bachelor_wrapper.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A1*A5)+(A1*(~A5)*(~A4))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A3' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A1*A5)+(A1*(~A5)*(~A4))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC RTSTAT-10] No routable loads: 129 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/TMS, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, bachelor_i/vio_0/inst/PROBE_OUT_ALL_INST/G_PROBE_OUT[2].PROBE_OUT0_INST/probe_out2[23:0], bachelor_i/vio_0/inst/PROBE_OUT_ALL_INST/G_PROBE_OUT[5].PROBE_OUT0_INST/probe_out5[23:0]... and (the first 15 of 76 listed).
+WARNING: [DRC ZPS7-1] PS7 block required: The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 5 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./bachelor_wrapper.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+23 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:01:16 ; elapsed = 00:00:29 . Memory (MB): peak = 3173.613 ; gain = 639.926 ; free physical = 1248 ; free virtual = 24385
+INFO: [Common 17-206] Exiting Vivado at Wed Jun  4 23:19:59 2025...

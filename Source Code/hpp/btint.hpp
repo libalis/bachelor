@@ -5,6 +5,10 @@
         #define BTINT_ZERO(T) (btint<T>().from_int(0))
     #endif
 
+    #ifndef BTINT_ONE
+        #define BTINT_ONE(T) (btint<T>().from_int(1))
+    #endif
+
     #ifndef TRITS
         #define TRITS (8)
     #endif

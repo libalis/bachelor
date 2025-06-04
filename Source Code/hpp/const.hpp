@@ -3,6 +3,10 @@
 #ifndef CONST_HPP
     #define CONST_HPP
 
+    #ifndef get_idx
+        #define get_idx(x, y, z) ((x) * (z) + (y))
+    #endif
+
     #ifndef X_DIMENSION
         #define X_DIMENSION (4)
     #endif

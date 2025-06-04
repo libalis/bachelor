@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1748883945">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1749071346">
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="bachelor_wrapper_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS" Name="bachelor_wrapper_routed.rqs"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BG-BGN" Name="bachelor_wrapper.bgn"/>
-  <File Type="BITSTR-SYSDEF" Name="bachelor_wrapper.sysdef"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="bachelor_wrapper.ltx"/>
   <File Type="RBD_FILE" Name="bachelor_wrapper.rbd"/>
   <File Type="NPI_FILE" Name="bachelor_wrapper.npi"/>
   <File Type="RNPI_FILE" Name="bachelor_wrapper.rnpi"/>
@@ -15,16 +10,10 @@
   <File Type="RCFI_FILE" Name="bachelor_wrapper.rcfi"/>
   <File Type="PL-PDI-FILE" Name="bachelor_wrapper_pld.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="bachelor_wrapper_boot.pdi"/>
-  <File Type="RDI-RDI" Name="bachelor_wrapper.vdi"/>
-  <File Type="PDI-FILE" Name="bachelor_wrapper.pdi"/>
-  <File Type="BITSTR-MMI" Name="bachelor_wrapper.mmi"/>
-  <File Type="BITSTR-BMM" Name="bachelor_wrapper_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="bachelor_wrapper.nky"/>
-  <File Type="BITSTR-RBT" Name="bachelor_wrapper.rbt"/>
-  <File Type="BITSTR-MSK" Name="bachelor_wrapper.msk"/>
-  <File Type="BG-BIN" Name="bachelor_wrapper.bin"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
-  <File Type="BG-BIT" Name="bachelor_wrapper.bit"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="bachelor_wrapper_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-RPX" Name="bachelor_wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="bachelor_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="bachelor_wrapper_methodology_drc_routed.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="bachelor_wrapper_bus_skew_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="bachelor_wrapper_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="bachelor_wrapper_bus_skew_postroute_physopted.rpt"/>
@@ -33,57 +22,54 @@
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="bachelor_wrapper_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="bachelor_wrapper_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="bachelor_wrapper_postroute_physopt.dcp"/>
-  <File Type="BG-DRC" Name="bachelor_wrapper.drc"/>
-  <File Type="ROUTE-RQS-PB" Name="bachelor_wrapper_rqs_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="bachelor_wrapper_bus_skew_routed.rpx"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="bachelor_wrapper_bus_skew_routed.pb"/>
+  <File Type="PHYSOPT-DCP" Name="bachelor_wrapper_physopt.dcp"/>
+  <File Type="PLACE-IO" Name="bachelor_wrapper_io_placed.rpt"/>
+  <File Type="OPT-DRC" Name="bachelor_wrapper_drc_opted.rpt"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="bachelor_wrapper.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="bachelor_wrapper.sysdef"/>
+  <File Type="BITSTR-MMI" Name="bachelor_wrapper.mmi"/>
+  <File Type="BITSTR-BMM" Name="bachelor_wrapper_bd.bmm"/>
+  <File Type="PLACE-UTIL-PB" Name="bachelor_wrapper_utilization_placed.pb"/>
+  <File Type="BG-BGN" Name="bachelor_wrapper.bgn"/>
+  <File Type="OPT-DCP" Name="bachelor_wrapper_opt.dcp"/>
+  <File Type="OPT-HWDEF" Name="bachelor_wrapper.hwdef"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <File Type="BG-BIT" Name="bachelor_wrapper.bit"/>
   <File Type="ROUTE-BUS-SKEW" Name="bachelor_wrapper_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="bachelor_wrapper_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="bachelor_wrapper_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="bachelor_wrapper_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="bachelor_wrapper_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="bachelor_wrapper_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="bachelor_wrapper_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="bachelor_wrapper_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="bachelor_wrapper_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="bachelor_wrapper_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="bachelor_wrapper_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="bachelor_wrapper_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="bachelor_wrapper_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="bachelor_wrapper_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="bachelor_wrapper_drc_routed.pb"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="PA-TCL" Name="bachelor_wrapper.tcl"/>
+  <File Type="REPORTS-TCL" Name="bachelor_wrapper_reports.tcl"/>
+  <File Type="PLACE-UTIL" Name="bachelor_wrapper_utilization_placed.rpt"/>
+  <File Type="BG-DRC" Name="bachelor_wrapper.drc"/>
+  <File Type="PLACE-CTRL" Name="bachelor_wrapper_control_sets_placed.rpt"/>
+  <File Type="PDI-FILE" Name="bachelor_wrapper.pdi"/>
+  <File Type="RDI-RDI" Name="bachelor_wrapper.vdi"/>
+  <File Type="BG-BIN" Name="bachelor_wrapper.bin"/>
+  <File Type="PLACE-DCP" Name="bachelor_wrapper_placed.dcp"/>
+  <File Type="BITSTR-MSK" Name="bachelor_wrapper.msk"/>
+  <File Type="PWROPT-DCP" Name="bachelor_wrapper_pwropt.dcp"/>
+  <File Type="BITSTR-RBT" Name="bachelor_wrapper.rbt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="bachelor_wrapper_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-NKY" Name="bachelor_wrapper.nky"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_pre_placed.rpt"/>
   <File Type="ROUTE-DRC" Name="bachelor_wrapper_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="bachelor_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC-PB" Name="bachelor_wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="bachelor_wrapper_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="bachelor_wrapper_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="bachelor_wrapper_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="bachelor_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="bachelor_wrapper_route_status.pb"/>
   <File Type="ROUTE-DCP" Name="bachelor_wrapper_routed.dcp"/>
   <File Type="ROUTE-ERROR-DCP" Name="bachelor_wrapper_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="bachelor_wrapper_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="bachelor_wrapper_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="bachelor_wrapper_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="bachelor_wrapper_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="bachelor_wrapper_postplace_pwropt.dcp"/>
-  <File Type="PLACE-RQA-PB" Name="bachelor_wrapper_rqa_placed.pb"/>
-  <File Type="PLACE-TIMING" Name="bachelor_wrapper_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="bachelor_wrapper_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="bachelor_wrapper_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="bachelor_wrapper_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="bachelor_wrapper_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="bachelor_wrapper_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="bachelor_wrapper_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="bachelor_wrapper_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="bachelor_wrapper_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="bachelor_wrapper_pwropt.dcp"/>
-  <File Type="OPT-RQA-PB" Name="bachelor_wrapper_rqa_opted.pb"/>
-  <File Type="OPT-HWDEF" Name="bachelor_wrapper.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="bachelor_wrapper_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="bachelor_wrapper_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="bachelor_wrapper_opt.dcp"/>
-  <File Type="OPT-TIMING" Name="bachelor_wrapper_timing_summary_opted.rpt"/>
-  <File Type="REPORTS-TCL" Name="bachelor_wrapper_reports.tcl"/>
-  <File Type="INIT-TIMING" Name="bachelor_wrapper_timing_summary_init.rpt"/>
-  <File Type="PA-TCL" Name="bachelor_wrapper.tcl"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="bachelor_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="bachelor_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="bachelor_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="bachelor_wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="bachelor_wrapper_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="bachelor_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="bachelor_wrapper_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="bachelor_wrapper_bus_skew_routed.rpx"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../Source Code/build/bachelor.v">
@@ -157,8 +143,8 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="bachelor_COMBINED_OPERATIONS_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bachelor_UART_TRANSMITTER_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bachelor_UART_TRANSMITTER_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bachelor_vio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bachelor_UART_TRANSMITTER_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bachelor_UART_TRANSMITTER_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bachelor_COMBINED_OPERATIONS_0_0"/>
 </GenRun>
