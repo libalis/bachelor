@@ -79,6 +79,7 @@
 # ----------------------------------------------------------------------------
 # Clock Source - Bank 13
 # ----------------------------------------------------------------------------
+create_clock -period 10 [get_ports {combined_operations_clock}];  # virtual clock frequency for timing analysis!
 set_property PACKAGE_PIN Y9 [get_ports {combined_operations_clock}];  # "GCLK"
 
 # ----------------------------------------------------------------------------

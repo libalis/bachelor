@@ -104,12 +104,13 @@ void TESTBENCH<T>::source(void) {
 
 template <size_t T>
 void TESTBENCH<T>::sink(void) {
+    btint<T> zero = btint<T>().from_int(0);
     btint<T> indata_u[X_DIMENSION][X_DIMENSION];
     btint<T> indata_d[X_DIMENSION][X_DIMENSION];
     for(int i = 0; i < X_DIMENSION; i++) {
         for(int j = 0; j < X_DIMENSION; j++) {
-            indata_u[i][j] = BTINT_ZERO(T);
-            indata_d[i][j] = BTINT_ZERO(T);
+            indata_u[i][j] = zero;
+            indata_d[i][j] = zero;
         }
     }
     do {

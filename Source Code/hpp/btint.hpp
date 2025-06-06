@@ -1,14 +1,6 @@
 #ifndef BTINT_HPP
     #define BTINT_HPP
 
-    #ifndef BTINT_ZERO
-        #define BTINT_ZERO(T) (btint<T>().from_int(0))
-    #endif
-
-    #ifndef BTINT_ONE
-        #define BTINT_ONE(T) (btint<T>().from_int(1))
-    #endif
-
     #ifndef TRITS
         #define TRITS (8)
     #endif
@@ -59,10 +51,14 @@
 
         btint<2 * T> expand(void) const {
             btint output;
-            output.btint_a = btint_a;
-            output.btint_b = btint_b;
-            output.overflow = overflow;
-            return BTINT_ZERO(T).concatenate(output);
+            output.btint_a = 0;
+            output.btint_b = ~0;  // -1
+            output.overflow = 0;
+            btint input;
+            input.btint_a = btint_a;
+            input.btint_b = btint_b;
+            input.overflow = overflow;
+            return output.concatenate(input);
         }
 
         btint from_int(int value) const {

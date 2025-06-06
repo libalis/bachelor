@@ -1,4 +1,5 @@
 #include "../hpp/combined_operations.hpp"
+#include "../hpp/utils.hpp"
 
 template <size_t T>
 void COMBINED_OPERATIONS<T>::construct(void) {

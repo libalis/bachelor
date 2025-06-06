@@ -1,8 +1,11 @@
 #include "../hpp/controller.hpp"
 #include "../hpp/multiplier.hpp"
+#include "../hpp/utils.hpp"
 
 template <size_t T>
 void CONTROLLER<T>::control(void) {
+    btint<T> zero = btint<T>().from_int(0);
+    btint<T> one = btint<T>().from_int(1);
     btint<T> result_u[X_DIMENSION * X_DIMENSION];
     btint<T> result_d[X_DIMENSION * X_DIMENSION];
     bool state[X_DIMENSION * X_DIMENSION];
@@ -12,8 +15,8 @@ void CONTROLLER<T>::control(void) {
     bool load_done;
     for(int i = 0; i < X_DIMENSION; i++) {
         for(int j = 0; j < X_DIMENSION; j++) {
-            result_u[get_idx(i, j, X_DIMENSION)] = BTINT_ZERO(T);
-            result_d[get_idx(i, j, X_DIMENSION)] = BTINT_ZERO(T);
+            result_u[get_idx(i, j, X_DIMENSION)] = zero;
+            result_d[get_idx(i, j, X_DIMENSION)] = zero;
             state[get_idx(i, j, X_DIMENSION)] = 0;
         }
     }
@@ -49,12 +52,12 @@ void CONTROLLER<T>::control(void) {
                     if(j == 0 && j < MIN_DIMENSION) {
                         if(steps != MIN_DIMENSION - 1) {
                             controller_s_in[get_idx(i, j, Y_DIMENSION)].write(0);
-                            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
-                            controller_c_in_d[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
+                            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(zero);
+                            controller_c_in_d[get_idx(i, j, Y_DIMENSION)].write(zero);
                         } else {
                             controller_s_in[get_idx(i, j, Y_DIMENSION)].write(1);
-                            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(BTINT_ONE(T));
-                            controller_c_in_d[get_idx(i, j, Y_DIMENSION)].write(BTINT_ONE(T));
+                            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(one);
+                            controller_c_in_d[get_idx(i, j, Y_DIMENSION)].write(one);
                         }
                     } else {
                         controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(controller_c_out_u[get_idx(i, j - 1, Y_DIMENSION)].read());
@@ -69,7 +72,7 @@ void CONTROLLER<T>::control(void) {
                         if(steps >= 0 + k && steps < MIN_DIMENSION + j) {
                             controller_a_in[get_idx(i, j, Y_DIMENSION)].write(controller_m_a[get_idx(MIN_DIMENSION - 1 - steps + j, MIN_DIMENSION - 1 - j, Y_DIMENSION)].read());
                         } else {
-                            controller_a_in[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
+                            controller_a_in[get_idx(i, j, Y_DIMENSION)].write(zero);
                         }
                         k += 2;
                     }
@@ -106,7 +109,7 @@ void CONTROLLER<T>::control(void) {
             for(int i = 0; i < X_DIMENSION; i++) {
                 for(int j = 0; j < Y_DIMENSION; j++) {
                     if(j == 0) {
-                        controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
+                        controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(zero);
                     } else {
                         controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(controller_c_out_u[get_idx(i, j - 1, Y_DIMENSION)].read());
                     }
@@ -146,7 +149,7 @@ void CONTROLLER<T>::control(void) {
                     for(int j = 0; j < Y_DIMENSION; j++) {
                         if(i == 0) {
                             if(index_a[j] < 0 || index_a[j] > X_DIMENSION - 1) {
-                                controller_a_in[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
+                                controller_a_in[get_idx(i, j, Y_DIMENSION)].write(zero);
                             } else {
                                 controller_a_in[get_idx(i, j, Y_DIMENSION)].write(controller_m_a[get_idx(index_a[j], j, Y_DIMENSION)].read());
                             }
@@ -187,7 +190,7 @@ void CONTROLLER<T>::control(void) {
                     for(int j = 0; j < Y_DIMENSION; j++) {
                         if(i == 0) {
                             if(index_a[j] < 0 || index_a[j] > X_DIMENSION - 1) {
-                                controller_a_in[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
+                                controller_a_in[get_idx(i, j, Y_DIMENSION)].write(zero);
                             } else {
                                 controller_a_in[get_idx(i, j, Y_DIMENSION)].write(controller_m_a[get_idx(index_a[j], j, Y_DIMENSION)].read());
                             }
@@ -199,7 +202,7 @@ void CONTROLLER<T>::control(void) {
                 for(int i = 0; i < X_DIMENSION; i++) {
                     for(int j = 0; j < Y_DIMENSION; j++) {
                         if(j == 0) {
-                            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(BTINT_ZERO(T));
+                            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(zero);
                         } else {
                             controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(controller_c_out_u[get_idx(i, j - 1, Y_DIMENSION)].read());
                         }

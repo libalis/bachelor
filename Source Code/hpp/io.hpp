@@ -47,6 +47,7 @@
             }
 
             inline void read_matrix(int x, int y, enum matrix matrix) {
+                btint<T> zero = btint<T>().from_int(0);
                 string line;
                 int i = 0;
                 while(i < x) {
@@ -62,9 +63,9 @@
                             }
                         #else
                             if(matrix == A) {
-                                m_a<T>[i][j] = BTINT_ZERO(T);
+                                m_a<T>[i][j] = zero;
                             } else {
-                                m_b<T>[i][j] = BTINT_ZERO(T);
+                                m_b<T>[i][j] = zero;
                             }
                             bool isNegative;
                             for(char value : string(token)) {
@@ -106,6 +107,7 @@
             }
 
             inline void read_vector(int y) {
+                btint<T> zero = btint<T>().from_int(0);
                 string line;
                 getline(input_dat, line);
                 char *token = strtok(&line[0], " \n");
@@ -114,7 +116,7 @@
                     #ifdef DECIMAL_INPUT
                         v<T>[j] = btint<T>().from_int(stoi(string(token)));
                     #else
-                        v<T>[j] = BTINT_ZERO(T);
+                        v<T>[j] = zero;
                         bool isNegative;
                         for(char value : string(token)) {
                             switch(value) {
