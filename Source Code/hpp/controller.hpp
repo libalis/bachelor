@@ -29,7 +29,7 @@
 
         SC_CTOR(CONTROLLER) {
             SC_CTHREAD(control, controller_clock.pos());
-            reset_signal_is(controller_reset, 1);
+            reset_signal_is(controller_reset, true);
         }
     };
     template class CONTROLLER<TRITS>;

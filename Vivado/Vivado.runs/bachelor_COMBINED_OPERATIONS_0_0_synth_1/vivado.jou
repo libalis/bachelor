@@ -3,12 +3,12 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Jun  6 00:37:10 2025
-# Process ID: 124446
+# Start of session at: Sun Jun  8 01:00:09 2025
+# Process ID: 90905
 # Current directory: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_COMBINED_OPERATIONS_0_0_synth_1
 # Command line: vivado -log bachelor_COMBINED_OPERATIONS_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bachelor_COMBINED_OPERATIONS_0_0.tcl
 # Log file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_COMBINED_OPERATIONS_0_0_synth_1/bachelor_COMBINED_OPERATIONS_0_0.vds
 # Journal file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_COMBINED_OPERATIONS_0_0_synth_1/vivado.jou
-# Running On: arch, OS: Linux, CPU Frequency: 1552.671 MHz, CPU Physical cores: 4, Host memory: 16490 MB
+# Running On: arch, OS: Linux, CPU Frequency: 2836.826 MHz, CPU Physical cores: 4, Host memory: 16490 MB
 #-----------------------------------------------------------
 source bachelor_COMBINED_OPERATIONS_0_0.tcl -notrace

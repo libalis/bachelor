@@ -45,7 +45,9 @@
             btint<2 * T> output;
             output.btint_a = (btint_a, low.btint_a);
             output.btint_b = (btint_b, low.btint_b);
-            output.overflow = overflow;
+            output.set_overflow((overflow == 1 || low.overflow == 1) ? 1
+                              : (overflow == -1 || low.overflow == -1) ? -1
+                              : 0);
             return output;
         }
 

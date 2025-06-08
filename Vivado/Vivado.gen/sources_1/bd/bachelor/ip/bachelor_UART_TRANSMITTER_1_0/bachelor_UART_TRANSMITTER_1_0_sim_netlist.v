@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-// Date        : Wed May  7 19:20:28 2025
+// Date        : Sun Jun  8 01:00:45 2025
 // Host        : arch running 64-bit unknown
 // Command     : write_verilog -force -mode funcsim
 //               /home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_1_0/bachelor_UART_TRANSMITTER_1_0_sim_netlist.v
@@ -51,21 +51,18 @@ endmodule
 (* ORIG_REF_NAME = "UART_TRANSMITTER" *) 
 module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
    (uart_transmitter_output,
+    uart_transmitter_column,
     uart_transmitter_reset_active_low,
     uart_transmitter_clock,
-    uart_transmitter_column,
-    uart_transmitter_input_btint_b,
-    uart_transmitter_input_btint_a);
+    uart_transmitter_input_btint_a,
+    uart_transmitter_input_btint_b);
   output uart_transmitter_output;
+  input [3:0]uart_transmitter_column;
   input uart_transmitter_reset_active_low;
   input uart_transmitter_clock;
-  input [3:0]uart_transmitter_column;
-  input [15:0]uart_transmitter_input_btint_b;
   input [15:0]uart_transmitter_input_btint_a;
+  input [15:0]uart_transmitter_input_btint_b;
 
-  wire \FSM_sequential_transmit_PROC_STATE[0]_i_1_n_0 ;
-  wire \FSM_sequential_transmit_PROC_STATE[1]_i_1_n_0 ;
-  wire \FSM_sequential_transmit_PROC_STATE[2]_i_1_n_0 ;
   wire i;
   wire \i[0]_i_1_n_0 ;
   wire \i[31]_i_10_n_0 ;
@@ -193,51 +190,91 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire \i_reg_n_0_[7] ;
   wire \i_reg_n_0_[8] ;
   wire \i_reg_n_0_[9] ;
-  wire [31:1]in12;
-  wire [31:1]in22;
-  wire [24:0]input_btint_a;
+  wire \input_btint_a[0]_i_10_n_0 ;
+  wire \input_btint_a[0]_i_11_n_0 ;
   wire \input_btint_a[0]_i_1_n_0 ;
+  wire \input_btint_a[0]_i_2_n_0 ;
   wire \input_btint_a[0]_i_3_n_0 ;
+  wire \input_btint_a[0]_i_4_n_0 ;
+  wire \input_btint_a[0]_i_5_n_0 ;
+  wire \input_btint_a[0]_i_6_n_0 ;
+  wire \input_btint_a[0]_i_7_n_0 ;
+  wire \input_btint_a[0]_i_8_n_0 ;
+  wire \input_btint_a[0]_i_9_n_0 ;
+  wire \input_btint_a[16]_i_10_n_0 ;
+  wire \input_btint_a[16]_i_11_n_0 ;
   wire \input_btint_a[16]_i_1_n_0 ;
   wire \input_btint_a[16]_i_2_n_0 ;
   wire \input_btint_a[16]_i_3_n_0 ;
+  wire \input_btint_a[16]_i_4_n_0 ;
   wire \input_btint_a[16]_i_5_n_0 ;
+  wire \input_btint_a[16]_i_6_n_0 ;
+  wire \input_btint_a[16]_i_7_n_0 ;
+  wire \input_btint_a[16]_i_8_n_0 ;
+  wire \input_btint_a[16]_i_9_n_0 ;
   wire \input_btint_a[24]_i_10_n_0 ;
   wire \input_btint_a[24]_i_11_n_0 ;
-  wire \input_btint_a[24]_i_12_n_0 ;
-  wire \input_btint_a[24]_i_13_n_0 ;
-  wire \input_btint_a[24]_i_14_n_0 ;
   wire \input_btint_a[24]_i_1_n_0 ;
-  wire \input_btint_a[24]_i_2_n_0 ;
   wire \input_btint_a[24]_i_3_n_0 ;
+  wire \input_btint_a[24]_i_4_n_0 ;
   wire \input_btint_a[24]_i_5_n_0 ;
   wire \input_btint_a[24]_i_6_n_0 ;
-  wire \input_btint_a[24]_i_7_n_0 ;
   wire \input_btint_a[24]_i_8_n_0 ;
   wire \input_btint_a[24]_i_9_n_0 ;
   wire \input_btint_a[8]_i_1_n_0 ;
   wire \input_btint_a[8]_i_3_n_0 ;
+  wire \input_btint_a[8]_i_6_n_0 ;
+  wire \input_btint_a[8]_i_7_n_0 ;
+  wire \input_btint_a[8]_i_8_n_0 ;
+  wire \input_btint_a[8]_i_9_n_0 ;
+  wire [24:24]input_btint_a_next;
+  wire \input_btint_a_reg[24]_i_7_n_0 ;
+  wire \input_btint_a_reg[8]_i_2_n_0 ;
+  wire \input_btint_a_reg[8]_i_4_n_0 ;
+  wire \input_btint_a_reg[8]_i_5_n_0 ;
   wire \input_btint_a_reg_n_0_[0] ;
   wire \input_btint_a_reg_n_0_[16] ;
   wire \input_btint_a_reg_n_0_[24] ;
   wire \input_btint_a_reg_n_0_[8] ;
   wire [24:0]input_btint_b;
+  wire \input_btint_b[0]_i_10_n_0 ;
+  wire \input_btint_b[0]_i_11_n_0 ;
+  wire \input_btint_b[0]_i_12_n_0 ;
+  wire \input_btint_b[0]_i_13_n_0 ;
   wire \input_btint_b[0]_i_1_n_0 ;
+  wire \input_btint_b[0]_i_3_n_0 ;
+  wire \input_btint_b[0]_i_4_n_0 ;
+  wire \input_btint_b[0]_i_5_n_0 ;
+  wire \input_btint_b[0]_i_6_n_0 ;
+  wire \input_btint_b[0]_i_7_n_0 ;
+  wire \input_btint_b[0]_i_8_n_0 ;
+  wire \input_btint_b[0]_i_9_n_0 ;
+  wire \input_btint_b[16]_i_10_n_0 ;
   wire \input_btint_b[16]_i_1_n_0 ;
   wire \input_btint_b[16]_i_2_n_0 ;
   wire \input_btint_b[16]_i_3_n_0 ;
-  wire \input_btint_b[24]_i_10_n_0 ;
-  wire \input_btint_b[24]_i_11_n_0 ;
+  wire \input_btint_b[16]_i_4_n_0 ;
+  wire \input_btint_b[16]_i_5_n_0 ;
+  wire \input_btint_b[16]_i_6_n_0 ;
+  wire \input_btint_b[16]_i_7_n_0 ;
+  wire \input_btint_b[16]_i_8_n_0 ;
+  wire \input_btint_b[16]_i_9_n_0 ;
   wire \input_btint_b[24]_i_1_n_0 ;
   wire \input_btint_b[24]_i_2_n_0 ;
-  wire \input_btint_b[24]_i_3_n_0 ;
   wire \input_btint_b[24]_i_4_n_0 ;
   wire \input_btint_b[24]_i_5_n_0 ;
   wire \input_btint_b[24]_i_6_n_0 ;
   wire \input_btint_b[24]_i_7_n_0 ;
-  wire \input_btint_b[24]_i_8_n_0 ;
-  wire \input_btint_b[24]_i_9_n_0 ;
   wire \input_btint_b[8]_i_1_n_0 ;
+  wire \input_btint_b[8]_i_5_n_0 ;
+  wire \input_btint_b[8]_i_6_n_0 ;
+  wire \input_btint_b[8]_i_7_n_0 ;
+  wire \input_btint_b[8]_i_8_n_0 ;
+  wire \input_btint_b_reg[0]_i_2_n_0 ;
+  wire \input_btint_b_reg[24]_i_3_n_0 ;
+  wire \input_btint_b_reg[8]_i_2_n_0 ;
+  wire \input_btint_b_reg[8]_i_3_n_0 ;
+  wire \input_btint_b_reg[8]_i_4_n_0 ;
   wire j;
   wire \j[12]_i_2_n_0 ;
   wire \j[12]_i_3_n_0 ;
@@ -261,10 +298,8 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire \j[28]_i_4_n_0 ;
   wire \j[28]_i_5_n_0 ;
   wire \j[2]_i_1_n_0 ;
-  wire \j[2]_i_2_n_0 ;
-  wire \j[30]_i_1_n_0 ;
+  wire \j[30]_i_3_n_0 ;
   wire \j[30]_i_4_n_0 ;
-  wire \j[30]_i_5_n_0 ;
   wire \j[4]_i_2_n_0 ;
   wire \j[4]_i_3_n_0 ;
   wire \j[4]_i_4_n_0 ;
@@ -292,8 +327,8 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire \j_reg[28]_i_1_n_1 ;
   wire \j_reg[28]_i_1_n_2 ;
   wire \j_reg[28]_i_1_n_3 ;
-  wire \j_reg[30]_i_3_n_1 ;
-  wire \j_reg[30]_i_3_n_3 ;
+  wire \j_reg[30]_i_2_n_1 ;
+  wire \j_reg[30]_i_2_n_3 ;
   wire \j_reg[4]_i_1_n_0 ;
   wire \j_reg[4]_i_1_n_1 ;
   wire \j_reg[4]_i_1_n_2 ;
@@ -340,32 +375,63 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire \k0_reg[12]_i_1_n_1 ;
   wire \k0_reg[12]_i_1_n_2 ;
   wire \k0_reg[12]_i_1_n_3 ;
+  wire \k0_reg[12]_i_1_n_4 ;
+  wire \k0_reg[12]_i_1_n_5 ;
+  wire \k0_reg[12]_i_1_n_6 ;
+  wire \k0_reg[12]_i_1_n_7 ;
   wire \k0_reg[16]_i_1_n_0 ;
   wire \k0_reg[16]_i_1_n_1 ;
   wire \k0_reg[16]_i_1_n_2 ;
   wire \k0_reg[16]_i_1_n_3 ;
+  wire \k0_reg[16]_i_1_n_4 ;
+  wire \k0_reg[16]_i_1_n_5 ;
+  wire \k0_reg[16]_i_1_n_6 ;
+  wire \k0_reg[16]_i_1_n_7 ;
   wire \k0_reg[20]_i_1_n_0 ;
   wire \k0_reg[20]_i_1_n_1 ;
   wire \k0_reg[20]_i_1_n_2 ;
   wire \k0_reg[20]_i_1_n_3 ;
+  wire \k0_reg[20]_i_1_n_4 ;
+  wire \k0_reg[20]_i_1_n_5 ;
+  wire \k0_reg[20]_i_1_n_6 ;
+  wire \k0_reg[20]_i_1_n_7 ;
   wire \k0_reg[24]_i_1_n_0 ;
   wire \k0_reg[24]_i_1_n_1 ;
   wire \k0_reg[24]_i_1_n_2 ;
   wire \k0_reg[24]_i_1_n_3 ;
+  wire \k0_reg[24]_i_1_n_4 ;
+  wire \k0_reg[24]_i_1_n_5 ;
+  wire \k0_reg[24]_i_1_n_6 ;
+  wire \k0_reg[24]_i_1_n_7 ;
   wire \k0_reg[28]_i_1_n_0 ;
   wire \k0_reg[28]_i_1_n_1 ;
   wire \k0_reg[28]_i_1_n_2 ;
   wire \k0_reg[28]_i_1_n_3 ;
+  wire \k0_reg[28]_i_1_n_4 ;
+  wire \k0_reg[28]_i_1_n_5 ;
+  wire \k0_reg[28]_i_1_n_6 ;
+  wire \k0_reg[28]_i_1_n_7 ;
   wire \k0_reg[31]_i_3_n_2 ;
   wire \k0_reg[31]_i_3_n_3 ;
+  wire \k0_reg[31]_i_3_n_5 ;
+  wire \k0_reg[31]_i_3_n_6 ;
+  wire \k0_reg[31]_i_3_n_7 ;
   wire \k0_reg[4]_i_1_n_0 ;
   wire \k0_reg[4]_i_1_n_1 ;
   wire \k0_reg[4]_i_1_n_2 ;
   wire \k0_reg[4]_i_1_n_3 ;
+  wire \k0_reg[4]_i_1_n_4 ;
+  wire \k0_reg[4]_i_1_n_5 ;
+  wire \k0_reg[4]_i_1_n_6 ;
+  wire \k0_reg[4]_i_1_n_7 ;
   wire \k0_reg[8]_i_1_n_0 ;
   wire \k0_reg[8]_i_1_n_1 ;
   wire \k0_reg[8]_i_1_n_2 ;
   wire \k0_reg[8]_i_1_n_3 ;
+  wire \k0_reg[8]_i_1_n_4 ;
+  wire \k0_reg[8]_i_1_n_5 ;
+  wire \k0_reg[8]_i_1_n_6 ;
+  wire \k0_reg[8]_i_1_n_7 ;
   wire \k0_reg_n_0_[0] ;
   wire \k0_reg_n_0_[10] ;
   wire \k0_reg_n_0_[11] ;
@@ -399,37 +465,106 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire \k0_reg_n_0_[8] ;
   wire \k0_reg_n_0_[9] ;
   wire \k[0]_i_1_n_0 ;
+  wire \k[31]_i_10_n_0 ;
+  wire \k[31]_i_11_n_0 ;
+  wire \k[31]_i_13_n_0 ;
+  wire \k[31]_i_14_n_0 ;
+  wire \k[31]_i_15_n_0 ;
+  wire \k[31]_i_17_n_0 ;
+  wire \k[31]_i_18_n_0 ;
+  wire \k[31]_i_19_n_0 ;
   wire \k[31]_i_1_n_0 ;
+  wire \k[31]_i_20_n_0 ;
+  wire \k[31]_i_22_n_0 ;
+  wire \k[31]_i_23_n_0 ;
+  wire \k[31]_i_24_n_0 ;
+  wire \k[31]_i_25_n_0 ;
+  wire \k[31]_i_26_n_0 ;
+  wire \k[31]_i_27_n_0 ;
+  wire \k[31]_i_28_n_0 ;
+  wire \k[31]_i_29_n_0 ;
+  wire \k[31]_i_30_n_0 ;
+  wire \k[31]_i_4_n_0 ;
+  wire \k[31]_i_6_n_0 ;
+  wire \k[31]_i_7_n_0 ;
+  wire \k[31]_i_8_n_0 ;
+  wire \k[31]_i_9_n_0 ;
   wire \k_reg[12]_i_1_n_0 ;
   wire \k_reg[12]_i_1_n_1 ;
   wire \k_reg[12]_i_1_n_2 ;
   wire \k_reg[12]_i_1_n_3 ;
+  wire \k_reg[12]_i_1_n_4 ;
+  wire \k_reg[12]_i_1_n_5 ;
+  wire \k_reg[12]_i_1_n_6 ;
+  wire \k_reg[12]_i_1_n_7 ;
   wire \k_reg[16]_i_1_n_0 ;
   wire \k_reg[16]_i_1_n_1 ;
   wire \k_reg[16]_i_1_n_2 ;
   wire \k_reg[16]_i_1_n_3 ;
+  wire \k_reg[16]_i_1_n_4 ;
+  wire \k_reg[16]_i_1_n_5 ;
+  wire \k_reg[16]_i_1_n_6 ;
+  wire \k_reg[16]_i_1_n_7 ;
   wire \k_reg[20]_i_1_n_0 ;
   wire \k_reg[20]_i_1_n_1 ;
   wire \k_reg[20]_i_1_n_2 ;
   wire \k_reg[20]_i_1_n_3 ;
+  wire \k_reg[20]_i_1_n_4 ;
+  wire \k_reg[20]_i_1_n_5 ;
+  wire \k_reg[20]_i_1_n_6 ;
+  wire \k_reg[20]_i_1_n_7 ;
   wire \k_reg[24]_i_1_n_0 ;
   wire \k_reg[24]_i_1_n_1 ;
   wire \k_reg[24]_i_1_n_2 ;
   wire \k_reg[24]_i_1_n_3 ;
+  wire \k_reg[24]_i_1_n_4 ;
+  wire \k_reg[24]_i_1_n_5 ;
+  wire \k_reg[24]_i_1_n_6 ;
+  wire \k_reg[24]_i_1_n_7 ;
   wire \k_reg[28]_i_1_n_0 ;
   wire \k_reg[28]_i_1_n_1 ;
   wire \k_reg[28]_i_1_n_2 ;
   wire \k_reg[28]_i_1_n_3 ;
+  wire \k_reg[28]_i_1_n_4 ;
+  wire \k_reg[28]_i_1_n_5 ;
+  wire \k_reg[28]_i_1_n_6 ;
+  wire \k_reg[28]_i_1_n_7 ;
+  wire \k_reg[31]_i_12_n_0 ;
+  wire \k_reg[31]_i_12_n_1 ;
+  wire \k_reg[31]_i_12_n_2 ;
+  wire \k_reg[31]_i_12_n_3 ;
+  wire \k_reg[31]_i_16_n_0 ;
+  wire \k_reg[31]_i_16_n_1 ;
+  wire \k_reg[31]_i_16_n_2 ;
+  wire \k_reg[31]_i_16_n_3 ;
+  wire \k_reg[31]_i_21_n_0 ;
+  wire \k_reg[31]_i_21_n_1 ;
+  wire \k_reg[31]_i_21_n_2 ;
+  wire \k_reg[31]_i_21_n_3 ;
   wire \k_reg[31]_i_3_n_2 ;
   wire \k_reg[31]_i_3_n_3 ;
+  wire \k_reg[31]_i_3_n_5 ;
+  wire \k_reg[31]_i_3_n_6 ;
+  wire \k_reg[31]_i_3_n_7 ;
+  wire \k_reg[31]_i_5_n_1 ;
+  wire \k_reg[31]_i_5_n_2 ;
+  wire \k_reg[31]_i_5_n_3 ;
   wire \k_reg[4]_i_1_n_0 ;
   wire \k_reg[4]_i_1_n_1 ;
   wire \k_reg[4]_i_1_n_2 ;
   wire \k_reg[4]_i_1_n_3 ;
+  wire \k_reg[4]_i_1_n_4 ;
+  wire \k_reg[4]_i_1_n_5 ;
+  wire \k_reg[4]_i_1_n_6 ;
+  wire \k_reg[4]_i_1_n_7 ;
   wire \k_reg[8]_i_1_n_0 ;
   wire \k_reg[8]_i_1_n_1 ;
   wire \k_reg[8]_i_1_n_2 ;
   wire \k_reg[8]_i_1_n_3 ;
+  wire \k_reg[8]_i_1_n_4 ;
+  wire \k_reg[8]_i_1_n_5 ;
+  wire \k_reg[8]_i_1_n_6 ;
+  wire \k_reg[8]_i_1_n_7 ;
   wire \k_reg_n_0_[0] ;
   wire \k_reg_n_0_[10] ;
   wire \k_reg_n_0_[11] ;
@@ -464,82 +599,107 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire \k_reg_n_0_[9] ;
   wire p_4_in;
   wire [2:0]transmit_PROC_STATE;
+  wire \transmit_PROC_STATE[0]_i_2_n_0 ;
+  wire \transmit_PROC_STATE[0]_i_3_n_0 ;
+  wire \transmit_PROC_STATE[0]_i_4_n_0 ;
+  wire \transmit_PROC_STATE[0]_i_5_n_0 ;
+  wire \transmit_PROC_STATE[0]_i_6_n_0 ;
+  wire \transmit_PROC_STATE[2]_i_2_n_0 ;
+  wire [2:0]transmit_PROC_STATE_next;
+  wire [23:0]transmit_WAIT_N_COUNTER;
+  wire \transmit_WAIT_N_COUNTER[12]_i_3_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[12]_i_4_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[12]_i_5_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[12]_i_6_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[16]_i_3_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[16]_i_4_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[16]_i_5_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[16]_i_6_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[20]_i_3_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[20]_i_4_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[20]_i_5_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[20]_i_6_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[23]_i_1_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[23]_i_5_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[23]_i_6_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[23]_i_7_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[4]_i_3_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[4]_i_4_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[4]_i_5_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[4]_i_6_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[8]_i_3_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[8]_i_4_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[8]_i_5_n_0 ;
+  wire \transmit_WAIT_N_COUNTER[8]_i_6_n_0 ;
+  wire transmit_WAIT_N_COUNTER_next;
+  wire [23:1]transmit_WAIT_N_COUNTER_next0;
+  wire [23:0]transmit_WAIT_N_COUNTER_next1_in;
+  wire \transmit_WAIT_N_COUNTER_reg[12]_i_2_n_0 ;
+  wire \transmit_WAIT_N_COUNTER_reg[12]_i_2_n_1 ;
+  wire \transmit_WAIT_N_COUNTER_reg[12]_i_2_n_2 ;
+  wire \transmit_WAIT_N_COUNTER_reg[12]_i_2_n_3 ;
+  wire \transmit_WAIT_N_COUNTER_reg[16]_i_2_n_0 ;
+  wire \transmit_WAIT_N_COUNTER_reg[16]_i_2_n_1 ;
+  wire \transmit_WAIT_N_COUNTER_reg[16]_i_2_n_2 ;
+  wire \transmit_WAIT_N_COUNTER_reg[16]_i_2_n_3 ;
+  wire \transmit_WAIT_N_COUNTER_reg[20]_i_2_n_0 ;
+  wire \transmit_WAIT_N_COUNTER_reg[20]_i_2_n_1 ;
+  wire \transmit_WAIT_N_COUNTER_reg[20]_i_2_n_2 ;
+  wire \transmit_WAIT_N_COUNTER_reg[20]_i_2_n_3 ;
+  wire \transmit_WAIT_N_COUNTER_reg[23]_i_4_n_2 ;
+  wire \transmit_WAIT_N_COUNTER_reg[23]_i_4_n_3 ;
+  wire \transmit_WAIT_N_COUNTER_reg[4]_i_2_n_0 ;
+  wire \transmit_WAIT_N_COUNTER_reg[4]_i_2_n_1 ;
+  wire \transmit_WAIT_N_COUNTER_reg[4]_i_2_n_2 ;
+  wire \transmit_WAIT_N_COUNTER_reg[4]_i_2_n_3 ;
+  wire \transmit_WAIT_N_COUNTER_reg[8]_i_2_n_0 ;
+  wire \transmit_WAIT_N_COUNTER_reg[8]_i_2_n_1 ;
+  wire \transmit_WAIT_N_COUNTER_reg[8]_i_2_n_2 ;
+  wire \transmit_WAIT_N_COUNTER_reg[8]_i_2_n_3 ;
   wire uart_transmitter_clock;
   wire [3:0]uart_transmitter_column;
   wire [15:0]uart_transmitter_input_btint_a;
   wire [15:0]uart_transmitter_input_btint_b;
   wire uart_transmitter_output;
   wire uart_transmitter_output_i_10_n_0;
+  wire uart_transmitter_output_i_11_n_0;
   wire uart_transmitter_output_i_12_n_0;
-  wire uart_transmitter_output_i_13_n_0;
   wire uart_transmitter_output_i_14_n_0;
   wire uart_transmitter_output_i_15_n_0;
   wire uart_transmitter_output_i_16_n_0;
   wire uart_transmitter_output_i_17_n_0;
-  wire uart_transmitter_output_i_18_n_0;
+  wire uart_transmitter_output_i_19_n_0;
   wire uart_transmitter_output_i_1_n_0;
   wire uart_transmitter_output_i_20_n_0;
   wire uart_transmitter_output_i_21_n_0;
   wire uart_transmitter_output_i_22_n_0;
   wire uart_transmitter_output_i_23_n_0;
+  wire uart_transmitter_output_i_24_n_0;
   wire uart_transmitter_output_i_25_n_0;
   wire uart_transmitter_output_i_26_n_0;
   wire uart_transmitter_output_i_27_n_0;
-  wire uart_transmitter_output_i_28_n_0;
   wire uart_transmitter_output_i_2_n_0;
-  wire uart_transmitter_output_i_30_n_0;
-  wire uart_transmitter_output_i_31_n_0;
-  wire uart_transmitter_output_i_32_n_0;
-  wire uart_transmitter_output_i_33_n_0;
-  wire uart_transmitter_output_i_35_n_0;
-  wire uart_transmitter_output_i_36_n_0;
-  wire uart_transmitter_output_i_37_n_0;
-  wire uart_transmitter_output_i_38_n_0;
-  wire uart_transmitter_output_i_39_n_0;
-  wire uart_transmitter_output_i_40_n_0;
-  wire uart_transmitter_output_i_41_n_0;
-  wire uart_transmitter_output_i_42_n_0;
-  wire uart_transmitter_output_i_43_n_0;
-  wire uart_transmitter_output_i_44_n_0;
-  wire uart_transmitter_output_i_45_n_0;
-  wire uart_transmitter_output_i_46_n_0;
-  wire uart_transmitter_output_i_47_n_0;
-  wire uart_transmitter_output_i_48_n_0;
+  wire uart_transmitter_output_i_3_n_0;
+  wire uart_transmitter_output_i_5_n_0;
   wire uart_transmitter_output_i_6_n_0;
-  wire uart_transmitter_output_i_8_n_0;
+  wire uart_transmitter_output_i_7_n_0;
   wire uart_transmitter_output_i_9_n_0;
-  wire uart_transmitter_output_next;
   wire [30:1]uart_transmitter_output_next2;
-  wire uart_transmitter_output_reg_i_11_n_0;
-  wire uart_transmitter_output_reg_i_11_n_1;
-  wire uart_transmitter_output_reg_i_11_n_2;
-  wire uart_transmitter_output_reg_i_11_n_3;
-  wire uart_transmitter_output_reg_i_19_n_0;
-  wire uart_transmitter_output_reg_i_19_n_1;
-  wire uart_transmitter_output_reg_i_19_n_2;
-  wire uart_transmitter_output_reg_i_19_n_3;
-  wire uart_transmitter_output_reg_i_24_n_0;
-  wire uart_transmitter_output_reg_i_24_n_1;
-  wire uart_transmitter_output_reg_i_24_n_2;
-  wire uart_transmitter_output_reg_i_24_n_3;
-  wire uart_transmitter_output_reg_i_29_n_0;
-  wire uart_transmitter_output_reg_i_29_n_1;
-  wire uart_transmitter_output_reg_i_29_n_2;
-  wire uart_transmitter_output_reg_i_29_n_3;
-  wire uart_transmitter_output_reg_i_34_n_0;
-  wire uart_transmitter_output_reg_i_34_n_1;
-  wire uart_transmitter_output_reg_i_34_n_2;
-  wire uart_transmitter_output_reg_i_34_n_3;
+  wire uart_transmitter_output_reg_i_13_n_0;
+  wire uart_transmitter_output_reg_i_13_n_1;
+  wire uart_transmitter_output_reg_i_13_n_2;
+  wire uart_transmitter_output_reg_i_13_n_3;
+  wire uart_transmitter_output_reg_i_18_n_0;
+  wire uart_transmitter_output_reg_i_18_n_1;
+  wire uart_transmitter_output_reg_i_18_n_2;
+  wire uart_transmitter_output_reg_i_18_n_3;
   wire uart_transmitter_output_reg_i_4_n_1;
   wire uart_transmitter_output_reg_i_4_n_2;
   wire uart_transmitter_output_reg_i_4_n_3;
-  wire uart_transmitter_output_reg_i_5_n_1;
-  wire uart_transmitter_output_reg_i_5_n_2;
-  wire uart_transmitter_output_reg_i_5_n_3;
-  wire uart_transmitter_output_reg_i_7_n_0;
-  wire uart_transmitter_output_reg_i_7_n_1;
-  wire uart_transmitter_output_reg_i_7_n_2;
-  wire uart_transmitter_output_reg_i_7_n_3;
+  wire uart_transmitter_output_reg_i_8_n_0;
+  wire uart_transmitter_output_reg_i_8_n_1;
+  wire uart_transmitter_output_reg_i_8_n_2;
+  wire uart_transmitter_output_reg_i_8_n_3;
   wire uart_transmitter_reset_active_low;
   wire [3:0]\NLW_i_reg[31]_i_14_O_UNCONNECTED ;
   wire [3:2]\NLW_i_reg[31]_i_3_CO_UNCONNECTED ;
@@ -548,135 +708,85 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   wire [3:0]\NLW_i_reg[31]_i_4_O_UNCONNECTED ;
   wire [3:0]\NLW_i_reg[31]_i_5_O_UNCONNECTED ;
   wire [3:0]\NLW_i_reg[31]_i_9_O_UNCONNECTED ;
-  wire [3:1]\NLW_j_reg[30]_i_3_CO_UNCONNECTED ;
-  wire [3:2]\NLW_j_reg[30]_i_3_O_UNCONNECTED ;
+  wire [3:1]\NLW_j_reg[30]_i_2_CO_UNCONNECTED ;
+  wire [3:2]\NLW_j_reg[30]_i_2_O_UNCONNECTED ;
   wire [3:2]\NLW_k0_reg[31]_i_3_CO_UNCONNECTED ;
   wire [3:3]\NLW_k0_reg[31]_i_3_O_UNCONNECTED ;
+  wire [3:0]\NLW_k_reg[31]_i_12_O_UNCONNECTED ;
+  wire [3:0]\NLW_k_reg[31]_i_16_O_UNCONNECTED ;
+  wire [3:0]\NLW_k_reg[31]_i_21_O_UNCONNECTED ;
   wire [3:2]\NLW_k_reg[31]_i_3_CO_UNCONNECTED ;
   wire [3:3]\NLW_k_reg[31]_i_3_O_UNCONNECTED ;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_11_O_UNCONNECTED;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_19_O_UNCONNECTED;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_24_O_UNCONNECTED;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_29_O_UNCONNECTED;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_34_O_UNCONNECTED;
-  wire [3:3]NLW_uart_transmitter_output_reg_i_4_CO_UNCONNECTED;
+  wire [3:3]\NLW_k_reg[31]_i_5_CO_UNCONNECTED ;
+  wire [3:0]\NLW_k_reg[31]_i_5_O_UNCONNECTED ;
+  wire [3:2]\NLW_transmit_WAIT_N_COUNTER_reg[23]_i_4_CO_UNCONNECTED ;
+  wire [3:3]\NLW_transmit_WAIT_N_COUNTER_reg[23]_i_4_O_UNCONNECTED ;
+  wire [3:0]NLW_uart_transmitter_output_reg_i_13_O_UNCONNECTED;
+  wire [3:0]NLW_uart_transmitter_output_reg_i_18_O_UNCONNECTED;
   wire [3:0]NLW_uart_transmitter_output_reg_i_4_O_UNCONNECTED;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_5_O_UNCONNECTED;
-  wire [3:0]NLW_uart_transmitter_output_reg_i_7_O_UNCONNECTED;
+  wire [3:0]NLW_uart_transmitter_output_reg_i_8_O_UNCONNECTED;
 
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT3 #(
-    .INIT(8'h07)) 
-    \FSM_sequential_transmit_PROC_STATE[0]_i_1 
-       (.I0(p_4_in),
-        .I1(transmit_PROC_STATE[2]),
-        .I2(transmit_PROC_STATE[0]),
-        .O(\FSM_sequential_transmit_PROC_STATE[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'hBC)) 
-    \FSM_sequential_transmit_PROC_STATE[1]_i_1 
-       (.I0(uart_transmitter_output_reg_i_4_n_1),
-        .I1(transmit_PROC_STATE[1]),
-        .I2(transmit_PROC_STATE[0]),
-        .O(\FSM_sequential_transmit_PROC_STATE[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'h0F008C88)) 
-    \FSM_sequential_transmit_PROC_STATE[2]_i_1 
-       (.I0(p_4_in),
-        .I1(transmit_PROC_STATE[2]),
-        .I2(uart_transmitter_output_reg_i_4_n_1),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(transmit_PROC_STATE[1]),
-        .O(\FSM_sequential_transmit_PROC_STATE[2]_i_1_n_0 ));
-  (* FSM_ENCODED_STATES = "iSTATE:000,iSTATE0:011,iSTATE1:010,iSTATE2:100,iSTATE3:001" *) 
-  FDRE \FSM_sequential_transmit_PROC_STATE_reg[0] 
-       (.C(uart_transmitter_clock),
-        .CE(uart_transmitter_output_i_2_n_0),
-        .D(\FSM_sequential_transmit_PROC_STATE[0]_i_1_n_0 ),
-        .Q(transmit_PROC_STATE[0]),
-        .R(uart_transmitter_output_i_1_n_0));
-  (* FSM_ENCODED_STATES = "iSTATE:000,iSTATE0:011,iSTATE1:010,iSTATE2:100,iSTATE3:001" *) 
-  FDRE \FSM_sequential_transmit_PROC_STATE_reg[1] 
-       (.C(uart_transmitter_clock),
-        .CE(uart_transmitter_output_i_2_n_0),
-        .D(\FSM_sequential_transmit_PROC_STATE[1]_i_1_n_0 ),
-        .Q(transmit_PROC_STATE[1]),
-        .R(uart_transmitter_output_i_1_n_0));
-  (* FSM_ENCODED_STATES = "iSTATE:000,iSTATE0:011,iSTATE1:010,iSTATE2:100,iSTATE3:001" *) 
-  FDRE \FSM_sequential_transmit_PROC_STATE_reg[2] 
-       (.C(uart_transmitter_clock),
-        .CE(uart_transmitter_output_i_2_n_0),
-        .D(\FSM_sequential_transmit_PROC_STATE[2]_i_1_n_0 ),
-        .Q(transmit_PROC_STATE[2]),
-        .R(uart_transmitter_output_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h00000200)) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \i[0]_i_1 
-       (.I0(\i_reg[31]_i_4_n_1 ),
-        .I1(transmit_PROC_STATE[1]),
-        .I2(transmit_PROC_STATE[0]),
-        .I3(transmit_PROC_STATE[2]),
-        .I4(\i_reg_n_0_[0] ),
+       (.I0(\i_reg_n_0_[0] ),
         .O(\i[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hAAA2AAAA)) 
+  LUT4 #(
+    .INIT(16'h0C4C)) 
     \i[31]_i_1 
-       (.I0(i),
-        .I1(\i_reg[31]_i_4_n_1 ),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(transmit_PROC_STATE[2]),
+       (.I0(\j_reg[30]_i_2_n_1 ),
+        .I1(j),
+        .I2(transmit_PROC_STATE[2]),
+        .I3(\i_reg[31]_i_4_n_1 ),
         .O(\i[31]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_10 
-       (.I0(\i_reg[24]_i_1_n_4 ),
-        .I1(\i_reg[28]_i_1_n_7 ),
+       (.I0(\i_reg[28]_i_1_n_7 ),
+        .I1(\i_reg[24]_i_1_n_4 ),
         .O(\i[31]_i_10_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_11 
-       (.I0(\i_reg[24]_i_1_n_6 ),
-        .I1(\i_reg[24]_i_1_n_5 ),
+       (.I0(\i_reg[24]_i_1_n_5 ),
+        .I1(\i_reg[24]_i_1_n_6 ),
         .O(\i[31]_i_11_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_12 
-       (.I0(\i_reg[20]_i_1_n_4 ),
-        .I1(\i_reg[24]_i_1_n_7 ),
+       (.I0(\i_reg[24]_i_1_n_7 ),
+        .I1(\i_reg[20]_i_1_n_4 ),
         .O(\i[31]_i_12_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_13 
-       (.I0(\i_reg[20]_i_1_n_6 ),
-        .I1(\i_reg[20]_i_1_n_5 ),
+       (.I0(\i_reg[20]_i_1_n_5 ),
+        .I1(\i_reg[20]_i_1_n_6 ),
         .O(\i[31]_i_13_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_15 
-       (.I0(\i_reg[16]_i_1_n_4 ),
-        .I1(\i_reg[20]_i_1_n_7 ),
+       (.I0(\i_reg[20]_i_1_n_7 ),
+        .I1(\i_reg[16]_i_1_n_4 ),
         .O(\i[31]_i_15_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_16 
-       (.I0(\i_reg[16]_i_1_n_6 ),
-        .I1(\i_reg[16]_i_1_n_5 ),
+       (.I0(\i_reg[16]_i_1_n_5 ),
+        .I1(\i_reg[16]_i_1_n_6 ),
         .O(\i[31]_i_16_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_17 
-       (.I0(\i_reg[12]_i_1_n_4 ),
-        .I1(\i_reg[16]_i_1_n_7 ),
+       (.I0(\i_reg[16]_i_1_n_7 ),
+        .I1(\i_reg[12]_i_1_n_4 ),
         .O(\i[31]_i_17_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_18 
-       (.I0(\i_reg[12]_i_1_n_6 ),
-        .I1(\i_reg[12]_i_1_n_5 ),
+       (.I0(\i_reg[12]_i_1_n_5 ),
+        .I1(\i_reg[12]_i_1_n_6 ),
         .O(\i[31]_i_18_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
@@ -684,33 +794,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
        (.I0(\i_reg[4]_i_1_n_6 ),
         .I1(\i_reg[4]_i_1_n_5 ),
         .O(\i[31]_i_19_n_0 ));
-  LUT6 #(
-    .INIT(64'h0100010001000300)) 
+  LUT3 #(
+    .INIT(8'h2A)) 
     \i[31]_i_2 
-       (.I0(transmit_PROC_STATE[2]),
-        .I1(transmit_PROC_STATE[1]),
-        .I2(transmit_PROC_STATE[0]),
-        .I3(uart_transmitter_reset_active_low),
-        .I4(p_4_in),
-        .I5(\j_reg[30]_i_3_n_1 ),
+       (.I0(j),
+        .I1(\j_reg[30]_i_2_n_1 ),
+        .I2(transmit_PROC_STATE[2]),
         .O(i));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_20 
-       (.I0(\i_reg[8]_i_1_n_4 ),
-        .I1(\i_reg[12]_i_1_n_7 ),
+       (.I0(\i_reg[12]_i_1_n_7 ),
+        .I1(\i_reg[8]_i_1_n_4 ),
         .O(\i[31]_i_20_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_21 
-       (.I0(\i_reg[8]_i_1_n_6 ),
-        .I1(\i_reg[8]_i_1_n_5 ),
+       (.I0(\i_reg[8]_i_1_n_5 ),
+        .I1(\i_reg[8]_i_1_n_6 ),
         .O(\i[31]_i_21_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_22 
-       (.I0(\i_reg[4]_i_1_n_4 ),
-        .I1(\i_reg[8]_i_1_n_7 ),
+       (.I0(\i_reg[8]_i_1_n_7 ),
+        .I1(\i_reg[4]_i_1_n_4 ),
         .O(\i[31]_i_22_n_0 ));
   LUT2 #(
     .INIT(4'h2)) 
@@ -721,27 +828,27 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_6 
-       (.I0(\i_reg[31]_i_3_n_6 ),
-        .I1(\i_reg[31]_i_3_n_5 ),
+       (.I0(\i_reg[31]_i_3_n_5 ),
+        .I1(\i_reg[31]_i_3_n_6 ),
         .O(\i[31]_i_6_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_7 
-       (.I0(\i_reg[28]_i_1_n_4 ),
-        .I1(\i_reg[31]_i_3_n_7 ),
+       (.I0(\i_reg[31]_i_3_n_7 ),
+        .I1(\i_reg[28]_i_1_n_4 ),
         .O(\i[31]_i_7_n_0 ));
   LUT2 #(
     .INIT(4'h1)) 
     \i[31]_i_8 
-       (.I0(\i_reg[28]_i_1_n_6 ),
-        .I1(\i_reg[28]_i_1_n_5 ),
+       (.I0(\i_reg[28]_i_1_n_5 ),
+        .I1(\i_reg[28]_i_1_n_6 ),
         .O(\i[31]_i_8_n_0 ));
   FDRE \i_reg[0] 
        (.C(uart_transmitter_clock),
         .CE(i),
         .D(\i[0]_i_1_n_0 ),
         .Q(\i_reg_n_0_[0] ),
-        .R(1'b0));
+        .R(\i[31]_i_1_n_0 ));
   FDRE \i_reg[10] 
        (.C(uart_transmitter_clock),
         .CE(i),
@@ -1025,243 +1132,348 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .Q(\i_reg_n_0_[9] ),
         .R(\i[31]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hEB28FFFFEB280000)) 
+    .INIT(64'hFFFBBBBB00088888)) 
     \input_btint_a[0]_i_1 
-       (.I0(\input_btint_a[16]_i_3_n_0 ),
-        .I1(uart_transmitter_column[2]),
-        .I2(uart_transmitter_column[3]),
-        .I3(\input_btint_a[16]_i_2_n_0 ),
-        .I4(input_btint_a[0]),
+       (.I0(\input_btint_a[0]_i_2_n_0 ),
+        .I1(\input_btint_a[24]_i_3_n_0 ),
+        .I2(\input_btint_a[24]_i_5_n_0 ),
+        .I3(\input_btint_a[0]_i_3_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
         .I5(\input_btint_a_reg_n_0_[0] ),
         .O(\input_btint_a[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[0]_i_10 
+       (.I0(uart_transmitter_input_btint_a[6]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[14]),
+        .O(\input_btint_a[0]_i_10_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[0]_i_11 
+       (.I0(uart_transmitter_input_btint_a[10]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[2]),
+        .O(\input_btint_a[0]_i_11_n_0 ));
   LUT6 #(
-    .INIT(64'hAAABFFFFAAAAAAAA)) 
+    .INIT(64'h0000454455554544)) 
     \input_btint_a[0]_i_2 
-       (.I0(\input_btint_a[0]_i_3_n_0 ),
-        .I1(\i_reg[31]_i_4_n_1 ),
-        .I2(p_4_in),
-        .I3(\j_reg[30]_i_3_n_1 ),
-        .I4(transmit_PROC_STATE[2]),
-        .I5(\input_btint_a[24]_i_14_n_0 ),
-        .O(input_btint_a[0]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h00000080)) 
+       (.I0(transmit_PROC_STATE[1]),
+        .I1(\input_btint_a[0]_i_4_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_a[0]_i_5_n_0 ),
+        .I4(uart_transmitter_column[0]),
+        .I5(\input_btint_a[0]_i_6_n_0 ),
+        .O(\input_btint_a[0]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT2 #(
+    .INIT(4'h7)) 
     \input_btint_a[0]_i_3 
        (.I0(\i_reg_n_0_[1] ),
         .I1(\i_reg_n_0_[0] ),
-        .I2(uart_transmitter_reset_active_low),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(transmit_PROC_STATE[2]),
         .O(\input_btint_a[0]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hEB28FFFFEB280000)) 
+    .INIT(64'hB800FF00B8000000)) 
+    \input_btint_a[0]_i_4 
+       (.I0(uart_transmitter_input_btint_a[5]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[13]),
+        .I3(uart_transmitter_column[1]),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_a[0]_i_7_n_0 ),
+        .O(\input_btint_a[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[0]_i_5 
+       (.I0(uart_transmitter_input_btint_a[7]),
+        .I1(uart_transmitter_input_btint_a[15]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[11]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[3]),
+        .O(\input_btint_a[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'h505F3030505F3F3F)) 
+    \input_btint_a[0]_i_6 
+       (.I0(\input_btint_a[0]_i_8_n_0 ),
+        .I1(\input_btint_a[0]_i_9_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_a[0]_i_10_n_0 ),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_a[0]_i_11_n_0 ),
+        .O(\input_btint_a[0]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[0]_i_7 
+       (.I0(uart_transmitter_input_btint_a[9]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[1]),
+        .O(\input_btint_a[0]_i_7_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[0]_i_8 
+       (.I0(uart_transmitter_input_btint_a[4]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[12]),
+        .O(\input_btint_a[0]_i_8_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[0]_i_9 
+       (.I0(uart_transmitter_input_btint_a[8]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[0]),
+        .O(\input_btint_a[0]_i_9_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFBBBBB00088888)) 
     \input_btint_a[16]_i_1 
        (.I0(\input_btint_a[16]_i_2_n_0 ),
-        .I1(uart_transmitter_column[2]),
-        .I2(uart_transmitter_column[3]),
+        .I1(\input_btint_a[24]_i_3_n_0 ),
+        .I2(\input_btint_a[24]_i_5_n_0 ),
         .I3(\input_btint_a[16]_i_3_n_0 ),
-        .I4(input_btint_a[16]),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
         .I5(\input_btint_a_reg_n_0_[16] ),
         .O(\input_btint_a[16]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[16]_i_10 
+       (.I0(uart_transmitter_input_btint_a[3]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[11]),
+        .O(\input_btint_a[16]_i_10_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[16]_i_11 
+       (.I0(uart_transmitter_input_btint_a[12]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[4]),
+        .O(\input_btint_a[16]_i_11_n_0 ));
   LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
+    .INIT(64'h0101510151515151)) 
     \input_btint_a[16]_i_2 
-       (.I0(\input_btint_a[24]_i_7_n_0 ),
-        .I1(\input_btint_a[24]_i_8_n_0 ),
-        .I2(\input_btint_a[24]_i_5_n_0 ),
-        .I3(uart_transmitter_column[2]),
+       (.I0(transmit_PROC_STATE[1]),
+        .I1(\input_btint_a[16]_i_4_n_0 ),
+        .I2(uart_transmitter_column[0]),
+        .I3(\input_btint_a[16]_i_5_n_0 ),
         .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_a[24]_i_6_n_0 ),
+        .I5(\input_btint_a[16]_i_6_n_0 ),
         .O(\input_btint_a[16]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
     \input_btint_a[16]_i_3 
-       (.I0(\input_btint_a[24]_i_11_n_0 ),
-        .I1(\input_btint_a[24]_i_12_n_0 ),
-        .I2(\input_btint_a[24]_i_9_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_a[24]_i_10_n_0 ),
+       (.I0(\i_reg_n_0_[1] ),
+        .I1(\i_reg_n_0_[0] ),
         .O(\input_btint_a[16]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hAAABFFFFAAAAAAAA)) 
+    .INIT(64'h303F5050303F5F5F)) 
     \input_btint_a[16]_i_4 
-       (.I0(\input_btint_a[16]_i_5_n_0 ),
-        .I1(\i_reg[31]_i_4_n_1 ),
-        .I2(p_4_in),
-        .I3(\j_reg[30]_i_3_n_1 ),
-        .I4(transmit_PROC_STATE[2]),
-        .I5(\input_btint_a[24]_i_14_n_0 ),
-        .O(input_btint_a[16]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'h00000040)) 
+       (.I0(\input_btint_a[16]_i_7_n_0 ),
+        .I1(\input_btint_a[16]_i_8_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_a[16]_i_9_n_0 ),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_a[16]_i_10_n_0 ),
+        .O(\input_btint_a[16]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \input_btint_a[16]_i_5 
-       (.I0(\i_reg_n_0_[1] ),
-        .I1(\i_reg_n_0_[0] ),
-        .I2(uart_transmitter_reset_active_low),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(transmit_PROC_STATE[2]),
-        .O(\input_btint_a[16]_i_5_n_0 ));
-  LUT5 #(
-    .INIT(32'hB8FFB800)) 
-    \input_btint_a[24]_i_1 
-       (.I0(\input_btint_a[24]_i_2_n_0 ),
-        .I1(uart_transmitter_column[3]),
-        .I2(\input_btint_a[24]_i_3_n_0 ),
-        .I3(input_btint_a[24]),
-        .I4(\input_btint_a_reg_n_0_[24] ),
-        .O(\input_btint_a[24]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_a[24]_i_10 
        (.I0(uart_transmitter_input_btint_a[14]),
-        .I1(uart_transmitter_input_btint_a[15]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_a[24]_i_10_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_a[24]_i_11 
-       (.I0(uart_transmitter_input_btint_a[8]),
-        .I1(uart_transmitter_input_btint_a[9]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_a[24]_i_11_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_a[24]_i_12 
-       (.I0(uart_transmitter_input_btint_a[10]),
+        .I1(uart_transmitter_input_btint_a[6]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[2]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[10]),
+        .O(\input_btint_a[16]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'h00FF47FFFFFF47FF)) 
+    \input_btint_a[16]_i_6 
+       (.I0(uart_transmitter_input_btint_a[0]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[8]),
+        .I3(uart_transmitter_column[1]),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_a[16]_i_11_n_0 ),
+        .O(\input_btint_a[16]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[16]_i_7 
+       (.I0(uart_transmitter_input_btint_a[1]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[9]),
+        .O(\input_btint_a[16]_i_7_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[16]_i_8 
+       (.I0(uart_transmitter_input_btint_a[13]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[5]),
+        .O(\input_btint_a[16]_i_8_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_a[16]_i_9 
+       (.I0(uart_transmitter_input_btint_a[15]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_a[7]),
+        .O(\input_btint_a[16]_i_9_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFBBBBB00088888)) 
+    \input_btint_a[24]_i_1 
+       (.I0(input_btint_a_next),
+        .I1(\input_btint_a[24]_i_3_n_0 ),
+        .I2(\input_btint_a[24]_i_4_n_0 ),
+        .I3(\input_btint_a[24]_i_5_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
+        .I5(\input_btint_a_reg_n_0_[24] ),
+        .O(\input_btint_a[24]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[24]_i_10 
+       (.I0(uart_transmitter_input_btint_a[3]),
         .I1(uart_transmitter_input_btint_a[11]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_a[24]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'h00000010)) 
-    \input_btint_a[24]_i_13 
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[7]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[15]),
+        .O(\input_btint_a[24]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[24]_i_11 
+       (.I0(uart_transmitter_input_btint_a[1]),
+        .I1(uart_transmitter_input_btint_a[9]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[5]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[13]),
+        .O(\input_btint_a[24]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'h00000000EEE222E2)) 
+    \input_btint_a[24]_i_2 
+       (.I0(\input_btint_a_reg[24]_i_7_n_0 ),
+        .I1(uart_transmitter_column[0]),
+        .I2(\input_btint_a[24]_i_8_n_0 ),
+        .I3(uart_transmitter_column[1]),
+        .I4(\input_btint_a[24]_i_9_n_0 ),
+        .I5(transmit_PROC_STATE[1]),
+        .O(input_btint_a_next));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \input_btint_a[24]_i_3 
+       (.I0(uart_transmitter_reset_active_low),
+        .I1(transmit_PROC_STATE[0]),
+        .O(\input_btint_a[24]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \input_btint_a[24]_i_4 
        (.I0(\i_reg_n_0_[1] ),
         .I1(\i_reg_n_0_[0] ),
-        .I2(uart_transmitter_reset_active_low),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(transmit_PROC_STATE[2]),
-        .O(\input_btint_a[24]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'h10)) 
-    \input_btint_a[24]_i_14 
-       (.I0(transmit_PROC_STATE[1]),
-        .I1(transmit_PROC_STATE[0]),
-        .I2(uart_transmitter_reset_active_low),
-        .O(\input_btint_a[24]_i_14_n_0 ));
-  LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
-    \input_btint_a[24]_i_2 
-       (.I0(\input_btint_a[24]_i_5_n_0 ),
-        .I1(\input_btint_a[24]_i_6_n_0 ),
-        .I2(\input_btint_a[24]_i_7_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_a[24]_i_8_n_0 ),
-        .O(\input_btint_a[24]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
-    \input_btint_a[24]_i_3 
-       (.I0(\input_btint_a[24]_i_9_n_0 ),
-        .I1(\input_btint_a[24]_i_10_n_0 ),
-        .I2(\input_btint_a[24]_i_11_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_a[24]_i_12_n_0 ),
-        .O(\input_btint_a[24]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hAAABFFFFAAAAAAAA)) 
-    \input_btint_a[24]_i_4 
-       (.I0(\input_btint_a[24]_i_13_n_0 ),
-        .I1(\i_reg[31]_i_4_n_1 ),
-        .I2(p_4_in),
-        .I3(\j_reg[30]_i_3_n_1 ),
-        .I4(transmit_PROC_STATE[2]),
-        .I5(\input_btint_a[24]_i_14_n_0 ),
-        .O(input_btint_a[24]));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
+        .O(\input_btint_a[24]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
     \input_btint_a[24]_i_5 
-       (.I0(uart_transmitter_input_btint_a[4]),
-        .I1(uart_transmitter_input_btint_a[5]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(\k[31]_i_4_n_0 ),
         .O(\input_btint_a[24]_i_5_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
+  LUT6 #(
+    .INIT(64'hFFAAFFAAFEAAFFAA)) 
     \input_btint_a[24]_i_6 
-       (.I0(uart_transmitter_input_btint_a[6]),
-        .I1(uart_transmitter_input_btint_a[7]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
+       (.I0(transmit_PROC_STATE[1]),
+        .I1(\i_reg[31]_i_4_n_1 ),
+        .I2(\j_reg[30]_i_2_n_1 ),
+        .I3(transmit_PROC_STATE[2]),
+        .I4(\transmit_PROC_STATE[0]_i_2_n_0 ),
+        .I5(p_4_in),
         .O(\input_btint_a[24]_i_6_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_a[24]_i_7 
-       (.I0(uart_transmitter_input_btint_a[0]),
-        .I1(uart_transmitter_input_btint_a[1]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_a[24]_i_7_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \input_btint_a[24]_i_8 
        (.I0(uart_transmitter_input_btint_a[2]),
-        .I1(uart_transmitter_input_btint_a[3]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
+        .I1(uart_transmitter_input_btint_a[10]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[6]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[14]),
         .O(\input_btint_a[24]_i_8_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_a[24]_i_9 
-       (.I0(uart_transmitter_input_btint_a[12]),
-        .I1(uart_transmitter_input_btint_a[13]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_a[24]_i_9_n_0 ));
-  LUT5 #(
-    .INIT(32'hB8FFB800)) 
-    \input_btint_a[8]_i_1 
-       (.I0(\input_btint_a[24]_i_3_n_0 ),
-        .I1(uart_transmitter_column[3]),
-        .I2(\input_btint_a[24]_i_2_n_0 ),
-        .I3(input_btint_a[8]),
-        .I4(\input_btint_a_reg_n_0_[8] ),
-        .O(\input_btint_a[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hAAABFFFFAAAAAAAA)) 
-    \input_btint_a[8]_i_2 
-       (.I0(\input_btint_a[8]_i_3_n_0 ),
-        .I1(\i_reg[31]_i_4_n_1 ),
-        .I2(p_4_in),
-        .I3(\j_reg[30]_i_3_n_1 ),
-        .I4(transmit_PROC_STATE[2]),
-        .I5(\input_btint_a[24]_i_14_n_0 ),
-        .O(input_btint_a[8]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h00000040)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[24]_i_9 
+       (.I0(uart_transmitter_input_btint_a[0]),
+        .I1(uart_transmitter_input_btint_a[8]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[4]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[12]),
+        .O(\input_btint_a[24]_i_9_n_0 ));
+  LUT6 #(
+    .INIT(64'h2FFF2F2F20002020)) 
+    \input_btint_a[8]_i_1 
+       (.I0(\input_btint_a_reg[8]_i_2_n_0 ),
+        .I1(transmit_PROC_STATE[1]),
+        .I2(\input_btint_a[24]_i_3_n_0 ),
+        .I3(\input_btint_a[8]_i_3_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
+        .I5(\input_btint_a_reg_n_0_[8] ),
+        .O(\input_btint_a[8]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h0010)) 
     \input_btint_a[8]_i_3 
-       (.I0(\i_reg_n_0_[0] ),
-        .I1(\i_reg_n_0_[1] ),
-        .I2(uart_transmitter_reset_active_low),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(transmit_PROC_STATE[2]),
+       (.I0(\k[31]_i_4_n_0 ),
+        .I1(transmit_PROC_STATE[2]),
+        .I2(\i_reg_n_0_[1] ),
+        .I3(\i_reg_n_0_[0] ),
         .O(\input_btint_a[8]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[8]_i_6 
+       (.I0(uart_transmitter_input_btint_a[11]),
+        .I1(uart_transmitter_input_btint_a[3]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[15]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[7]),
+        .O(\input_btint_a[8]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[8]_i_7 
+       (.I0(uart_transmitter_input_btint_a[9]),
+        .I1(uart_transmitter_input_btint_a[1]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[13]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[5]),
+        .O(\input_btint_a[8]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[8]_i_8 
+       (.I0(uart_transmitter_input_btint_a[10]),
+        .I1(uart_transmitter_input_btint_a[2]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[14]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[6]),
+        .O(\input_btint_a[8]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_a[8]_i_9 
+       (.I0(uart_transmitter_input_btint_a[8]),
+        .I1(uart_transmitter_input_btint_a[0]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_a[12]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_a[4]),
+        .O(\input_btint_a[8]_i_9_n_0 ));
   FDRE \input_btint_a_reg[0] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
@@ -1280,168 +1492,345 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .D(\input_btint_a[24]_i_1_n_0 ),
         .Q(\input_btint_a_reg_n_0_[24] ),
         .R(1'b0));
+  MUXF7 \input_btint_a_reg[24]_i_7 
+       (.I0(\input_btint_a[24]_i_10_n_0 ),
+        .I1(\input_btint_a[24]_i_11_n_0 ),
+        .O(\input_btint_a_reg[24]_i_7_n_0 ),
+        .S(uart_transmitter_column[1]));
   FDRE \input_btint_a_reg[8] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
         .D(\input_btint_a[8]_i_1_n_0 ),
         .Q(\input_btint_a_reg_n_0_[8] ),
         .R(1'b0));
+  MUXF8 \input_btint_a_reg[8]_i_2 
+       (.I0(\input_btint_a_reg[8]_i_4_n_0 ),
+        .I1(\input_btint_a_reg[8]_i_5_n_0 ),
+        .O(\input_btint_a_reg[8]_i_2_n_0 ),
+        .S(uart_transmitter_column[0]));
+  MUXF7 \input_btint_a_reg[8]_i_4 
+       (.I0(\input_btint_a[8]_i_6_n_0 ),
+        .I1(\input_btint_a[8]_i_7_n_0 ),
+        .O(\input_btint_a_reg[8]_i_4_n_0 ),
+        .S(uart_transmitter_column[1]));
+  MUXF7 \input_btint_a_reg[8]_i_5 
+       (.I0(\input_btint_a[8]_i_8_n_0 ),
+        .I1(\input_btint_a[8]_i_9_n_0 ),
+        .O(\input_btint_a_reg[8]_i_5_n_0 ),
+        .S(uart_transmitter_column[1]));
   LUT6 #(
-    .INIT(64'hEB28FFFFEB280000)) 
+    .INIT(64'h1FFF1F1F10001010)) 
     \input_btint_b[0]_i_1 
-       (.I0(\input_btint_b[16]_i_3_n_0 ),
-        .I1(uart_transmitter_column[2]),
-        .I2(uart_transmitter_column[3]),
-        .I3(\input_btint_b[16]_i_2_n_0 ),
-        .I4(input_btint_a[0]),
+       (.I0(transmit_PROC_STATE[1]),
+        .I1(\input_btint_b_reg[0]_i_2_n_0 ),
+        .I2(\input_btint_a[24]_i_3_n_0 ),
+        .I3(\input_btint_b[0]_i_3_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
         .I5(input_btint_b[0]),
         .O(\input_btint_b[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_10 
+       (.I0(uart_transmitter_input_btint_b[4]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[12]),
+        .O(\input_btint_b[0]_i_10_n_0 ));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_11 
+       (.I0(uart_transmitter_input_btint_b[8]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[0]),
+        .O(\input_btint_b[0]_i_11_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_12 
+       (.I0(uart_transmitter_input_btint_b[6]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[14]),
+        .O(\input_btint_b[0]_i_12_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_13 
+       (.I0(uart_transmitter_input_btint_b[10]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[2]),
+        .O(\input_btint_b[0]_i_13_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h1000)) 
+    \input_btint_b[0]_i_3 
+       (.I0(\k[31]_i_4_n_0 ),
+        .I1(transmit_PROC_STATE[2]),
+        .I2(\i_reg_n_0_[0] ),
+        .I3(\i_reg_n_0_[1] ),
+        .O(\input_btint_b[0]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hEB28FFFFEB280000)) 
+    .INIT(64'h303F5050303F5F5F)) 
+    \input_btint_b[0]_i_4 
+       (.I0(\input_btint_b[0]_i_6_n_0 ),
+        .I1(\input_btint_b[0]_i_7_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_b[0]_i_8_n_0 ),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_b[0]_i_9_n_0 ),
+        .O(\input_btint_b[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h505F3030505F3F3F)) 
+    \input_btint_b[0]_i_5 
+       (.I0(\input_btint_b[0]_i_10_n_0 ),
+        .I1(\input_btint_b[0]_i_11_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_b[0]_i_12_n_0 ),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_b[0]_i_13_n_0 ),
+        .O(\input_btint_b[0]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_6 
+       (.I0(uart_transmitter_input_btint_b[9]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[1]),
+        .O(\input_btint_b[0]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_7 
+       (.I0(uart_transmitter_input_btint_b[5]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[13]),
+        .O(\input_btint_b[0]_i_7_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_8 
+       (.I0(uart_transmitter_input_btint_b[7]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[15]),
+        .O(\input_btint_b[0]_i_8_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[0]_i_9 
+       (.I0(uart_transmitter_input_btint_b[11]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[3]),
+        .O(\input_btint_b[0]_i_9_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFBBBBB00088888)) 
     \input_btint_b[16]_i_1 
        (.I0(\input_btint_b[16]_i_2_n_0 ),
-        .I1(uart_transmitter_column[2]),
-        .I2(uart_transmitter_column[3]),
-        .I3(\input_btint_b[16]_i_3_n_0 ),
-        .I4(input_btint_a[16]),
+        .I1(\input_btint_a[24]_i_3_n_0 ),
+        .I2(\input_btint_a[24]_i_5_n_0 ),
+        .I3(\input_btint_a[16]_i_3_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
         .I5(input_btint_b[16]),
         .O(\input_btint_b[16]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[16]_i_10 
+       (.I0(uart_transmitter_input_btint_b[2]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[10]),
+        .O(\input_btint_b[16]_i_10_n_0 ));
   LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
+    .INIT(64'h0000045555550455)) 
     \input_btint_b[16]_i_2 
-       (.I0(\input_btint_b[24]_i_6_n_0 ),
-        .I1(\input_btint_b[24]_i_7_n_0 ),
-        .I2(\input_btint_b[24]_i_4_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_b[24]_i_5_n_0 ),
+       (.I0(transmit_PROC_STATE[1]),
+        .I1(\input_btint_b[16]_i_3_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_b[16]_i_4_n_0 ),
+        .I4(uart_transmitter_column[0]),
+        .I5(\input_btint_b[16]_i_5_n_0 ),
         .O(\input_btint_b[16]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \input_btint_b[16]_i_3 
-       (.I0(\input_btint_b[24]_i_10_n_0 ),
-        .I1(\input_btint_b[24]_i_11_n_0 ),
-        .I2(\input_btint_b[24]_i_8_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_b[24]_i_9_n_0 ),
+       (.I0(uart_transmitter_input_btint_b[15]),
+        .I1(uart_transmitter_input_btint_b[7]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[3]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[11]),
         .O(\input_btint_b[16]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'hB8FFB800)) 
+  LUT6 #(
+    .INIT(64'h00FF47FFFFFF47FF)) 
+    \input_btint_b[16]_i_4 
+       (.I0(uart_transmitter_input_btint_b[1]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[9]),
+        .I3(uart_transmitter_column[1]),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_b[16]_i_6_n_0 ),
+        .O(\input_btint_b[16]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h303F5050303F5F5F)) 
+    \input_btint_b[16]_i_5 
+       (.I0(\input_btint_b[16]_i_7_n_0 ),
+        .I1(\input_btint_b[16]_i_8_n_0 ),
+        .I2(uart_transmitter_column[1]),
+        .I3(\input_btint_b[16]_i_9_n_0 ),
+        .I4(uart_transmitter_column[2]),
+        .I5(\input_btint_b[16]_i_10_n_0 ),
+        .O(\input_btint_b[16]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[16]_i_6 
+       (.I0(uart_transmitter_input_btint_b[13]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[5]),
+        .O(\input_btint_b[16]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[16]_i_7 
+       (.I0(uart_transmitter_input_btint_b[0]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[8]),
+        .O(\input_btint_b[16]_i_7_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[16]_i_8 
+       (.I0(uart_transmitter_input_btint_b[12]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[4]),
+        .O(\input_btint_b[16]_i_8_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \input_btint_b[16]_i_9 
+       (.I0(uart_transmitter_input_btint_b[14]),
+        .I1(uart_transmitter_column[3]),
+        .I2(uart_transmitter_input_btint_b[6]),
+        .O(\input_btint_b[16]_i_9_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFBBBBB00088888)) 
     \input_btint_b[24]_i_1 
        (.I0(\input_btint_b[24]_i_2_n_0 ),
-        .I1(uart_transmitter_column[3]),
-        .I2(\input_btint_b[24]_i_3_n_0 ),
-        .I3(input_btint_a[24]),
-        .I4(input_btint_b[24]),
+        .I1(\input_btint_a[24]_i_3_n_0 ),
+        .I2(\input_btint_a[24]_i_4_n_0 ),
+        .I3(\input_btint_a[24]_i_5_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
+        .I5(input_btint_b[24]),
         .O(\input_btint_b[24]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_10 
-       (.I0(uart_transmitter_input_btint_b[8]),
-        .I1(uart_transmitter_input_btint_b[9]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_10_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_11 
-       (.I0(uart_transmitter_input_btint_b[10]),
-        .I1(uart_transmitter_input_btint_b[11]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_11_n_0 ));
   LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
+    .INIT(64'h00000000EEE222E2)) 
     \input_btint_b[24]_i_2 
-       (.I0(\input_btint_b[24]_i_4_n_0 ),
-        .I1(\input_btint_b[24]_i_5_n_0 ),
-        .I2(\input_btint_b[24]_i_6_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_b[24]_i_7_n_0 ),
+       (.I0(\input_btint_b_reg[24]_i_3_n_0 ),
+        .I1(uart_transmitter_column[0]),
+        .I2(\input_btint_b[24]_i_4_n_0 ),
+        .I3(uart_transmitter_column[1]),
+        .I4(\input_btint_b[24]_i_5_n_0 ),
+        .I5(transmit_PROC_STATE[1]),
         .O(\input_btint_b[24]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hF0AAFFCCF0AA00CC)) 
-    \input_btint_b[24]_i_3 
-       (.I0(\input_btint_b[24]_i_8_n_0 ),
-        .I1(\input_btint_b[24]_i_9_n_0 ),
-        .I2(\input_btint_b[24]_i_10_n_0 ),
-        .I3(uart_transmitter_column[2]),
-        .I4(uart_transmitter_column[1]),
-        .I5(\input_btint_b[24]_i_11_n_0 ),
-        .O(\input_btint_b[24]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \input_btint_b[24]_i_4 
-       (.I0(uart_transmitter_input_btint_b[4]),
-        .I1(uart_transmitter_input_btint_b[5]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_4_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_5 
-       (.I0(uart_transmitter_input_btint_b[6]),
-        .I1(uart_transmitter_input_btint_b[7]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_5_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_6 
-       (.I0(uart_transmitter_input_btint_b[0]),
-        .I1(uart_transmitter_input_btint_b[1]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_6_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_7 
        (.I0(uart_transmitter_input_btint_b[2]),
-        .I1(uart_transmitter_input_btint_b[3]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
+        .I1(uart_transmitter_input_btint_b[10]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[6]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[14]),
+        .O(\input_btint_b[24]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[24]_i_5 
+       (.I0(uart_transmitter_input_btint_b[0]),
+        .I1(uart_transmitter_input_btint_b[8]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[4]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[12]),
+        .O(\input_btint_b[24]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[24]_i_6 
+       (.I0(uart_transmitter_input_btint_b[3]),
+        .I1(uart_transmitter_input_btint_b[11]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[7]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[15]),
+        .O(\input_btint_b[24]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[24]_i_7 
+       (.I0(uart_transmitter_input_btint_b[1]),
+        .I1(uart_transmitter_input_btint_b[9]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[5]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[13]),
         .O(\input_btint_b[24]_i_7_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_8 
-       (.I0(uart_transmitter_input_btint_b[12]),
-        .I1(uart_transmitter_input_btint_b[13]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_8_n_0 ));
-  LUT5 #(
-    .INIT(32'h000A000C)) 
-    \input_btint_b[24]_i_9 
-       (.I0(uart_transmitter_input_btint_b[14]),
-        .I1(uart_transmitter_input_btint_b[15]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[0]),
-        .I4(uart_transmitter_column[0]),
-        .O(\input_btint_b[24]_i_9_n_0 ));
-  LUT5 #(
-    .INIT(32'hB8FFB800)) 
+  LUT6 #(
+    .INIT(64'h2FFF2F2F20002020)) 
     \input_btint_b[8]_i_1 
-       (.I0(\input_btint_b[24]_i_3_n_0 ),
-        .I1(uart_transmitter_column[3]),
-        .I2(\input_btint_b[24]_i_2_n_0 ),
-        .I3(input_btint_a[8]),
-        .I4(input_btint_b[8]),
+       (.I0(\input_btint_b_reg[8]_i_2_n_0 ),
+        .I1(transmit_PROC_STATE[1]),
+        .I2(\input_btint_a[24]_i_3_n_0 ),
+        .I3(\input_btint_a[8]_i_3_n_0 ),
+        .I4(\input_btint_a[24]_i_6_n_0 ),
+        .I5(input_btint_b[8]),
         .O(\input_btint_b[8]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[8]_i_5 
+       (.I0(uart_transmitter_input_btint_b[11]),
+        .I1(uart_transmitter_input_btint_b[3]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[15]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[7]),
+        .O(\input_btint_b[8]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[8]_i_6 
+       (.I0(uart_transmitter_input_btint_b[9]),
+        .I1(uart_transmitter_input_btint_b[1]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[13]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[5]),
+        .O(\input_btint_b[8]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[8]_i_7 
+       (.I0(uart_transmitter_input_btint_b[10]),
+        .I1(uart_transmitter_input_btint_b[2]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[14]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[6]),
+        .O(\input_btint_b[8]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \input_btint_b[8]_i_8 
+       (.I0(uart_transmitter_input_btint_b[8]),
+        .I1(uart_transmitter_input_btint_b[0]),
+        .I2(uart_transmitter_column[2]),
+        .I3(uart_transmitter_input_btint_b[12]),
+        .I4(uart_transmitter_column[3]),
+        .I5(uart_transmitter_input_btint_b[4]),
+        .O(\input_btint_b[8]_i_8_n_0 ));
   FDRE \input_btint_b_reg[0] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
         .D(\input_btint_b[0]_i_1_n_0 ),
         .Q(input_btint_b[0]),
         .R(1'b0));
+  MUXF7 \input_btint_b_reg[0]_i_2 
+       (.I0(\input_btint_b[0]_i_4_n_0 ),
+        .I1(\input_btint_b[0]_i_5_n_0 ),
+        .O(\input_btint_b_reg[0]_i_2_n_0 ),
+        .S(uart_transmitter_column[0]));
   FDRE \input_btint_b_reg[16] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
@@ -1454,12 +1843,32 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .D(\input_btint_b[24]_i_1_n_0 ),
         .Q(input_btint_b[24]),
         .R(1'b0));
+  MUXF7 \input_btint_b_reg[24]_i_3 
+       (.I0(\input_btint_b[24]_i_6_n_0 ),
+        .I1(\input_btint_b[24]_i_7_n_0 ),
+        .O(\input_btint_b_reg[24]_i_3_n_0 ),
+        .S(uart_transmitter_column[1]));
   FDRE \input_btint_b_reg[8] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
         .D(\input_btint_b[8]_i_1_n_0 ),
         .Q(input_btint_b[8]),
         .R(1'b0));
+  MUXF8 \input_btint_b_reg[8]_i_2 
+       (.I0(\input_btint_b_reg[8]_i_3_n_0 ),
+        .I1(\input_btint_b_reg[8]_i_4_n_0 ),
+        .O(\input_btint_b_reg[8]_i_2_n_0 ),
+        .S(uart_transmitter_column[0]));
+  MUXF7 \input_btint_b_reg[8]_i_3 
+       (.I0(\input_btint_b[8]_i_5_n_0 ),
+        .I1(\input_btint_b[8]_i_6_n_0 ),
+        .O(\input_btint_b_reg[8]_i_3_n_0 ),
+        .S(uart_transmitter_column[1]));
+  MUXF7 \input_btint_b_reg[8]_i_4 
+       (.I0(\input_btint_b[8]_i_7_n_0 ),
+        .I1(\input_btint_b[8]_i_8_n_0 ),
+        .O(\input_btint_b_reg[8]_i_4_n_0 ),
+        .S(uart_transmitter_column[1]));
   LUT1 #(
     .INIT(2'h1)) 
     \j[12]_i_2 
@@ -1500,15 +1909,14 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
     \j[16]_i_5 
        (.I0(\j_reg_n_0_[13] ),
         .O(\j[16]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'hF700FFFFF7000000)) 
+  LUT5 #(
+    .INIT(32'hBFFFBF00)) 
     \j[1]_i_1 
-       (.I0(transmit_PROC_STATE[2]),
-        .I1(\j_reg[30]_i_3_n_1 ),
-        .I2(uart_transmitter_output_next2[1]),
-        .I3(\j[2]_i_2_n_0 ),
-        .I4(j),
-        .I5(\j_reg_n_0_[1] ),
+       (.I0(uart_transmitter_output_next2[1]),
+        .I1(\j_reg[30]_i_2_n_1 ),
+        .I2(transmit_PROC_STATE[2]),
+        .I3(j),
+        .I4(\j_reg_n_0_[1] ),
         .O(\j[1]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
@@ -1570,52 +1978,35 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
     \j[28]_i_5 
        (.I0(\j_reg_n_0_[25] ),
         .O(\j[28]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'hF700FFFFF7000000)) 
-    \j[2]_i_1 
-       (.I0(transmit_PROC_STATE[2]),
-        .I1(\j_reg[30]_i_3_n_1 ),
-        .I2(uart_transmitter_output_next2[2]),
-        .I3(\j[2]_i_2_n_0 ),
-        .I4(j),
-        .I5(\j_reg_n_0_[2] ),
-        .O(\j[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'h1)) 
-    \j[2]_i_2 
-       (.I0(transmit_PROC_STATE[0]),
-        .I1(transmit_PROC_STATE[1]),
-        .O(\j[2]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h00000002000000AA)) 
-    \j[30]_i_1 
-       (.I0(uart_transmitter_reset_active_low),
-        .I1(p_4_in),
-        .I2(\j_reg[30]_i_3_n_1 ),
-        .I3(transmit_PROC_STATE[1]),
-        .I4(transmit_PROC_STATE[0]),
-        .I5(transmit_PROC_STATE[2]),
-        .O(\j[30]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'h00000070)) 
-    \j[30]_i_2 
-       (.I0(p_4_in),
-        .I1(transmit_PROC_STATE[2]),
-        .I2(uart_transmitter_reset_active_low),
+    .INIT(32'hBFFFBF00)) 
+    \j[2]_i_1 
+       (.I0(uart_transmitter_output_next2[2]),
+        .I1(\j_reg[30]_i_2_n_1 ),
+        .I2(transmit_PROC_STATE[2]),
+        .I3(j),
+        .I4(\j_reg_n_0_[2] ),
+        .O(\j[2]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000005D00000000)) 
+    \j[30]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(\transmit_PROC_STATE[0]_i_2_n_0 ),
+        .I2(p_4_in),
         .I3(transmit_PROC_STATE[0]),
         .I4(transmit_PROC_STATE[1]),
+        .I5(uart_transmitter_reset_active_low),
         .O(j));
   LUT1 #(
     .INIT(2'h1)) 
-    \j[30]_i_4 
+    \j[30]_i_3 
        (.I0(\j_reg_n_0_[30] ),
-        .O(\j[30]_i_4_n_0 ));
+        .O(\j[30]_i_3_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \j[30]_i_5 
+    \j[30]_i_4 
        (.I0(\j_reg_n_0_[29] ),
-        .O(\j[30]_i_5_n_0 ));
+        .O(\j[30]_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     \j[4]_i_2 
@@ -1656,19 +2047,19 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[10]),
         .Q(\j_reg_n_0_[10] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[11] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[11]),
         .Q(\j_reg_n_0_[11] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[12] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[12]),
         .Q(\j_reg_n_0_[12] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[12]_i_1 
        (.CI(\j_reg[8]_i_1_n_0 ),
         .CO({\j_reg[12]_i_1_n_0 ,\j_reg[12]_i_1_n_1 ,\j_reg[12]_i_1_n_2 ,\j_reg[12]_i_1_n_3 }),
@@ -1681,25 +2072,25 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[13]),
         .Q(\j_reg_n_0_[13] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[14] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[14]),
         .Q(\j_reg_n_0_[14] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[15] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[15]),
         .Q(\j_reg_n_0_[15] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[16] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[16]),
         .Q(\j_reg_n_0_[16] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[16]_i_1 
        (.CI(\j_reg[12]_i_1_n_0 ),
         .CO({\j_reg[16]_i_1_n_0 ,\j_reg[16]_i_1_n_1 ,\j_reg[16]_i_1_n_2 ,\j_reg[16]_i_1_n_3 }),
@@ -1712,19 +2103,19 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[17]),
         .Q(\j_reg_n_0_[17] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[18] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[18]),
         .Q(\j_reg_n_0_[18] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[19] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[19]),
         .Q(\j_reg_n_0_[19] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[1] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
@@ -1736,7 +2127,7 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[20]),
         .Q(\j_reg_n_0_[20] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[20]_i_1 
        (.CI(\j_reg[16]_i_1_n_0 ),
         .CO({\j_reg[20]_i_1_n_0 ,\j_reg[20]_i_1_n_1 ,\j_reg[20]_i_1_n_2 ,\j_reg[20]_i_1_n_3 }),
@@ -1749,25 +2140,25 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[21]),
         .Q(\j_reg_n_0_[21] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[22] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[22]),
         .Q(\j_reg_n_0_[22] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[23] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[23]),
         .Q(\j_reg_n_0_[23] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[24] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[24]),
         .Q(\j_reg_n_0_[24] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[24]_i_1 
        (.CI(\j_reg[20]_i_1_n_0 ),
         .CO({\j_reg[24]_i_1_n_0 ,\j_reg[24]_i_1_n_1 ,\j_reg[24]_i_1_n_2 ,\j_reg[24]_i_1_n_3 }),
@@ -1780,25 +2171,25 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[25]),
         .Q(\j_reg_n_0_[25] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[26] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[26]),
         .Q(\j_reg_n_0_[26] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[27] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[27]),
         .Q(\j_reg_n_0_[27] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[28] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[28]),
         .Q(\j_reg_n_0_[28] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[28]_i_1 
        (.CI(\j_reg[24]_i_1_n_0 ),
         .CO({\j_reg[28]_i_1_n_0 ,\j_reg[28]_i_1_n_1 ,\j_reg[28]_i_1_n_2 ,\j_reg[28]_i_1_n_3 }),
@@ -1811,7 +2202,7 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[29]),
         .Q(\j_reg_n_0_[29] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[2] 
        (.C(uart_transmitter_clock),
         .CE(1'b1),
@@ -1823,26 +2214,26 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[30]),
         .Q(\j_reg_n_0_[30] ),
-        .R(\j[30]_i_1_n_0 ));
-  CARRY4 \j_reg[30]_i_3 
+        .R(i));
+  CARRY4 \j_reg[30]_i_2 
        (.CI(\j_reg[28]_i_1_n_0 ),
-        .CO({\NLW_j_reg[30]_i_3_CO_UNCONNECTED [3],\j_reg[30]_i_3_n_1 ,\NLW_j_reg[30]_i_3_CO_UNCONNECTED [1],\j_reg[30]_i_3_n_3 }),
+        .CO({\NLW_j_reg[30]_i_2_CO_UNCONNECTED [3],\j_reg[30]_i_2_n_1 ,\NLW_j_reg[30]_i_2_CO_UNCONNECTED [1],\j_reg[30]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,\j_reg_n_0_[30] ,\j_reg_n_0_[29] }),
-        .O({\NLW_j_reg[30]_i_3_O_UNCONNECTED [3:2],uart_transmitter_output_next2[30:29]}),
-        .S({1'b0,1'b1,\j[30]_i_4_n_0 ,\j[30]_i_5_n_0 }));
+        .O({\NLW_j_reg[30]_i_2_O_UNCONNECTED [3:2],uart_transmitter_output_next2[30:29]}),
+        .S({1'b0,1'b1,\j[30]_i_3_n_0 ,\j[30]_i_4_n_0 }));
   FDRE \j_reg[3] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[3]),
         .Q(\j_reg_n_0_[3] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[4] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[4]),
         .Q(\j_reg_n_0_[4] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[4]_i_1 
        (.CI(1'b0),
         .CO({\j_reg[4]_i_1_n_0 ,\j_reg[4]_i_1_n_1 ,\j_reg[4]_i_1_n_2 ,\j_reg[4]_i_1_n_3 }),
@@ -1855,25 +2246,25 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[5]),
         .Q(\j_reg_n_0_[5] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[6] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[6]),
         .Q(\j_reg_n_0_[6] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[7] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[7]),
         .Q(\j_reg_n_0_[7] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   FDRE \j_reg[8] 
        (.C(uart_transmitter_clock),
         .CE(j),
         .D(uart_transmitter_output_next2[8]),
         .Q(\j_reg_n_0_[8] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   CARRY4 \j_reg[8]_i_1 
        (.CI(\j_reg[4]_i_1_n_0 ),
         .CO({\j_reg[8]_i_1_n_0 ,\j_reg[8]_i_1_n_1 ,\j_reg[8]_i_1_n_2 ,\j_reg[8]_i_1_n_3 }),
@@ -1886,26 +2277,28 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CE(j),
         .D(uart_transmitter_output_next2[9]),
         .Q(\j_reg_n_0_[9] ),
-        .R(\j[30]_i_1_n_0 ));
+        .R(i));
   LUT1 #(
     .INIT(2'h1)) 
     \k0[0]_i_1 
        (.I0(\k0_reg_n_0_[0] ),
         .O(\k0[0]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'h0008)) 
+  LUT5 #(
+    .INIT(32'h00000200)) 
     \k0[31]_i_1 
-       (.I0(uart_transmitter_reset_active_low),
-        .I1(transmit_PROC_STATE[0]),
+       (.I0(transmit_PROC_STATE[0]),
+        .I1(\k[31]_i_4_n_0 ),
         .I2(transmit_PROC_STATE[2]),
-        .I3(transmit_PROC_STATE[1]),
+        .I3(uart_transmitter_reset_active_low),
+        .I4(transmit_PROC_STATE[1]),
         .O(\k0[31]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h40)) 
+  LUT4 #(
+    .INIT(16'h0020)) 
     \k0[31]_i_2 
-       (.I0(transmit_PROC_STATE[2]),
-        .I1(transmit_PROC_STATE[0]),
+       (.I0(transmit_PROC_STATE[0]),
+        .I1(\k[31]_i_4_n_0 ),
         .I2(uart_transmitter_reset_active_low),
+        .I3(transmit_PROC_STATE[2]),
         .O(k0));
   FDRE \k0_reg[0] 
        (.C(uart_transmitter_clock),
@@ -1916,19 +2309,19 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   FDRE \k0_reg[10] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[10]),
+        .D(\k0_reg[12]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[10] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[11] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[11]),
+        .D(\k0_reg[12]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[11] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[12] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[12]),
+        .D(\k0_reg[12]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[12] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1937,30 +2330,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[12]_i_1_n_0 ,\k0_reg[12]_i_1_n_1 ,\k0_reg[12]_i_1_n_2 ,\k0_reg[12]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[12:9]),
+        .O({\k0_reg[12]_i_1_n_4 ,\k0_reg[12]_i_1_n_5 ,\k0_reg[12]_i_1_n_6 ,\k0_reg[12]_i_1_n_7 }),
         .S({\k0_reg_n_0_[12] ,\k0_reg_n_0_[11] ,\k0_reg_n_0_[10] ,\k0_reg_n_0_[9] }));
   FDRE \k0_reg[13] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[13]),
+        .D(\k0_reg[16]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[13] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[14] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[14]),
+        .D(\k0_reg[16]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[14] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[15] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[15]),
+        .D(\k0_reg[16]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[15] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[16] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[16]),
+        .D(\k0_reg[16]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[16] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1969,36 +2362,36 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[16]_i_1_n_0 ,\k0_reg[16]_i_1_n_1 ,\k0_reg[16]_i_1_n_2 ,\k0_reg[16]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[16:13]),
+        .O({\k0_reg[16]_i_1_n_4 ,\k0_reg[16]_i_1_n_5 ,\k0_reg[16]_i_1_n_6 ,\k0_reg[16]_i_1_n_7 }),
         .S({\k0_reg_n_0_[16] ,\k0_reg_n_0_[15] ,\k0_reg_n_0_[14] ,\k0_reg_n_0_[13] }));
   FDRE \k0_reg[17] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[17]),
+        .D(\k0_reg[20]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[17] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[18] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[18]),
+        .D(\k0_reg[20]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[18] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[19] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[19]),
+        .D(\k0_reg[20]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[19] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[1] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[1]),
+        .D(\k0_reg[4]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[1] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[20] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[20]),
+        .D(\k0_reg[20]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[20] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2007,30 +2400,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[20]_i_1_n_0 ,\k0_reg[20]_i_1_n_1 ,\k0_reg[20]_i_1_n_2 ,\k0_reg[20]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[20:17]),
+        .O({\k0_reg[20]_i_1_n_4 ,\k0_reg[20]_i_1_n_5 ,\k0_reg[20]_i_1_n_6 ,\k0_reg[20]_i_1_n_7 }),
         .S({\k0_reg_n_0_[20] ,\k0_reg_n_0_[19] ,\k0_reg_n_0_[18] ,\k0_reg_n_0_[17] }));
   FDRE \k0_reg[21] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[21]),
+        .D(\k0_reg[24]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[21] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[22] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[22]),
+        .D(\k0_reg[24]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[22] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[23] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[23]),
+        .D(\k0_reg[24]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[23] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[24] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[24]),
+        .D(\k0_reg[24]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[24] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2039,30 +2432,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[24]_i_1_n_0 ,\k0_reg[24]_i_1_n_1 ,\k0_reg[24]_i_1_n_2 ,\k0_reg[24]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[24:21]),
+        .O({\k0_reg[24]_i_1_n_4 ,\k0_reg[24]_i_1_n_5 ,\k0_reg[24]_i_1_n_6 ,\k0_reg[24]_i_1_n_7 }),
         .S({\k0_reg_n_0_[24] ,\k0_reg_n_0_[23] ,\k0_reg_n_0_[22] ,\k0_reg_n_0_[21] }));
   FDRE \k0_reg[25] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[25]),
+        .D(\k0_reg[28]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[25] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[26] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[26]),
+        .D(\k0_reg[28]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[26] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[27] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[27]),
+        .D(\k0_reg[28]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[27] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[28] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[28]),
+        .D(\k0_reg[28]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[28] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2071,30 +2464,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[28]_i_1_n_0 ,\k0_reg[28]_i_1_n_1 ,\k0_reg[28]_i_1_n_2 ,\k0_reg[28]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[28:25]),
+        .O({\k0_reg[28]_i_1_n_4 ,\k0_reg[28]_i_1_n_5 ,\k0_reg[28]_i_1_n_6 ,\k0_reg[28]_i_1_n_7 }),
         .S({\k0_reg_n_0_[28] ,\k0_reg_n_0_[27] ,\k0_reg_n_0_[26] ,\k0_reg_n_0_[25] }));
   FDRE \k0_reg[29] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[29]),
+        .D(\k0_reg[31]_i_3_n_7 ),
         .Q(\k0_reg_n_0_[29] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[2] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[2]),
+        .D(\k0_reg[4]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[2] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[30] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[30]),
+        .D(\k0_reg[31]_i_3_n_6 ),
         .Q(\k0_reg_n_0_[30] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[31] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[31]),
+        .D(\k0_reg[31]_i_3_n_5 ),
         .Q(\k0_reg_n_0_[31] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2103,18 +2496,18 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\NLW_k0_reg[31]_i_3_CO_UNCONNECTED [3:2],\k0_reg[31]_i_3_n_2 ,\k0_reg[31]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_k0_reg[31]_i_3_O_UNCONNECTED [3],in22[31:29]}),
+        .O({\NLW_k0_reg[31]_i_3_O_UNCONNECTED [3],\k0_reg[31]_i_3_n_5 ,\k0_reg[31]_i_3_n_6 ,\k0_reg[31]_i_3_n_7 }),
         .S({1'b0,\k0_reg_n_0_[31] ,\k0_reg_n_0_[30] ,\k0_reg_n_0_[29] }));
   FDRE \k0_reg[3] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[3]),
+        .D(\k0_reg[4]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[3] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[4] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[4]),
+        .D(\k0_reg[4]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[4] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2123,30 +2516,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[4]_i_1_n_0 ,\k0_reg[4]_i_1_n_1 ,\k0_reg[4]_i_1_n_2 ,\k0_reg[4]_i_1_n_3 }),
         .CYINIT(\k0_reg_n_0_[0] ),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[4:1]),
+        .O({\k0_reg[4]_i_1_n_4 ,\k0_reg[4]_i_1_n_5 ,\k0_reg[4]_i_1_n_6 ,\k0_reg[4]_i_1_n_7 }),
         .S({\k0_reg_n_0_[4] ,\k0_reg_n_0_[3] ,\k0_reg_n_0_[2] ,\k0_reg_n_0_[1] }));
   FDRE \k0_reg[5] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[5]),
+        .D(\k0_reg[8]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[5] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[6] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[6]),
+        .D(\k0_reg[8]_i_1_n_6 ),
         .Q(\k0_reg_n_0_[6] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[7] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[7]),
+        .D(\k0_reg[8]_i_1_n_5 ),
         .Q(\k0_reg_n_0_[7] ),
         .R(\k0[31]_i_1_n_0 ));
   FDRE \k0_reg[8] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[8]),
+        .D(\k0_reg[8]_i_1_n_4 ),
         .Q(\k0_reg_n_0_[8] ),
         .R(\k0[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2155,12 +2548,12 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k0_reg[8]_i_1_n_0 ,\k0_reg[8]_i_1_n_1 ,\k0_reg[8]_i_1_n_2 ,\k0_reg[8]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[8:5]),
+        .O({\k0_reg[8]_i_1_n_4 ,\k0_reg[8]_i_1_n_5 ,\k0_reg[8]_i_1_n_6 ,\k0_reg[8]_i_1_n_7 }),
         .S({\k0_reg_n_0_[8] ,\k0_reg_n_0_[7] ,\k0_reg_n_0_[6] ,\k0_reg_n_0_[5] }));
   FDRE \k0_reg[9] 
        (.C(uart_transmitter_clock),
         .CE(k0),
-        .D(in22[9]),
+        .D(\k0_reg[12]_i_1_n_7 ),
         .Q(\k0_reg_n_0_[9] ),
         .R(\k0[31]_i_1_n_0 ));
   LUT1 #(
@@ -2168,24 +2561,180 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
     \k[0]_i_1 
        (.I0(\k_reg_n_0_[0] ),
         .O(\k[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h02000000)) 
+  LUT6 #(
+    .INIT(64'h0000000000002000)) 
     \k[31]_i_1 
        (.I0(uart_transmitter_reset_active_low),
-        .I1(transmit_PROC_STATE[2]),
-        .I2(uart_transmitter_output_reg_i_4_n_1),
+        .I1(\k[31]_i_4_n_0 ),
+        .I2(transmit_PROC_STATE[0]),
         .I3(transmit_PROC_STATE[1]),
-        .I4(transmit_PROC_STATE[0]),
+        .I4(\k_reg[31]_i_5_n_1 ),
+        .I5(transmit_PROC_STATE[2]),
         .O(\k[31]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h04300000)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \k[31]_i_10 
+       (.I0(transmit_WAIT_N_COUNTER[5]),
+        .I1(transmit_WAIT_N_COUNTER[9]),
+        .I2(transmit_WAIT_N_COUNTER[19]),
+        .I3(transmit_WAIT_N_COUNTER[17]),
+        .O(\k[31]_i_10_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \k[31]_i_11 
+       (.I0(transmit_WAIT_N_COUNTER[18]),
+        .I1(transmit_WAIT_N_COUNTER[10]),
+        .I2(transmit_WAIT_N_COUNTER[14]),
+        .I3(transmit_WAIT_N_COUNTER[15]),
+        .O(\k[31]_i_11_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_13 
+       (.I0(\k0_reg[31]_i_3_n_5 ),
+        .I1(\k0_reg[31]_i_3_n_6 ),
+        .O(\k[31]_i_13_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_14 
+       (.I0(\k0_reg[31]_i_3_n_7 ),
+        .I1(\k0_reg[28]_i_1_n_4 ),
+        .O(\k[31]_i_14_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_15 
+       (.I0(\k0_reg[28]_i_1_n_5 ),
+        .I1(\k0_reg[28]_i_1_n_6 ),
+        .O(\k[31]_i_15_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_17 
+       (.I0(\k0_reg[28]_i_1_n_7 ),
+        .I1(\k0_reg[24]_i_1_n_4 ),
+        .O(\k[31]_i_17_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_18 
+       (.I0(\k0_reg[24]_i_1_n_5 ),
+        .I1(\k0_reg[24]_i_1_n_6 ),
+        .O(\k[31]_i_18_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_19 
+       (.I0(\k0_reg[24]_i_1_n_7 ),
+        .I1(\k0_reg[20]_i_1_n_4 ),
+        .O(\k[31]_i_19_n_0 ));
+  LUT6 #(
+    .INIT(64'h0002000200002000)) 
     \k[31]_i_2 
-       (.I0(uart_transmitter_output_reg_i_4_n_1),
-        .I1(transmit_PROC_STATE[0]),
-        .I2(transmit_PROC_STATE[2]),
+       (.I0(uart_transmitter_reset_active_low),
+        .I1(\k[31]_i_4_n_0 ),
+        .I2(transmit_PROC_STATE[0]),
         .I3(transmit_PROC_STATE[1]),
-        .I4(uart_transmitter_reset_active_low),
+        .I4(\k_reg[31]_i_5_n_1 ),
+        .I5(transmit_PROC_STATE[2]),
         .O(k));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_20 
+       (.I0(\k0_reg[20]_i_1_n_5 ),
+        .I1(\k0_reg[20]_i_1_n_6 ),
+        .O(\k[31]_i_20_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_22 
+       (.I0(\k0_reg[20]_i_1_n_7 ),
+        .I1(\k0_reg[16]_i_1_n_4 ),
+        .O(\k[31]_i_22_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_23 
+       (.I0(\k0_reg[16]_i_1_n_5 ),
+        .I1(\k0_reg[16]_i_1_n_6 ),
+        .O(\k[31]_i_23_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_24 
+       (.I0(\k0_reg[16]_i_1_n_7 ),
+        .I1(\k0_reg[12]_i_1_n_4 ),
+        .O(\k[31]_i_24_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_25 
+       (.I0(\k0_reg[12]_i_1_n_5 ),
+        .I1(\k0_reg[12]_i_1_n_6 ),
+        .O(\k[31]_i_25_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_26 
+       (.I0(\k0_reg[4]_i_1_n_6 ),
+        .I1(\k0_reg[4]_i_1_n_5 ),
+        .O(\k[31]_i_26_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_27 
+       (.I0(\k0_reg[12]_i_1_n_7 ),
+        .I1(\k0_reg[8]_i_1_n_4 ),
+        .O(\k[31]_i_27_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_28 
+       (.I0(\k0_reg[8]_i_1_n_5 ),
+        .I1(\k0_reg[8]_i_1_n_6 ),
+        .O(\k[31]_i_28_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \k[31]_i_29 
+       (.I0(\k0_reg[8]_i_1_n_7 ),
+        .I1(\k0_reg[4]_i_1_n_4 ),
+        .O(\k[31]_i_29_n_0 ));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \k[31]_i_30 
+       (.I0(\k0_reg[4]_i_1_n_6 ),
+        .I1(\k0_reg[4]_i_1_n_5 ),
+        .O(\k[31]_i_30_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \k[31]_i_4 
+       (.I0(\k[31]_i_6_n_0 ),
+        .I1(\k[31]_i_7_n_0 ),
+        .I2(\k[31]_i_8_n_0 ),
+        .I3(\k[31]_i_9_n_0 ),
+        .I4(\k[31]_i_10_n_0 ),
+        .I5(\k[31]_i_11_n_0 ),
+        .O(\k[31]_i_4_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \k[31]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[7]),
+        .I1(transmit_WAIT_N_COUNTER[8]),
+        .I2(transmit_WAIT_N_COUNTER[4]),
+        .I3(transmit_WAIT_N_COUNTER[6]),
+        .O(\k[31]_i_6_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFEF)) 
+    \k[31]_i_7 
+       (.I0(transmit_WAIT_N_COUNTER[21]),
+        .I1(transmit_WAIT_N_COUNTER[1]),
+        .I2(transmit_WAIT_N_COUNTER[0]),
+        .I3(transmit_WAIT_N_COUNTER[16]),
+        .O(\k[31]_i_7_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \k[31]_i_8 
+       (.I0(transmit_WAIT_N_COUNTER[20]),
+        .I1(transmit_WAIT_N_COUNTER[11]),
+        .I2(transmit_WAIT_N_COUNTER[23]),
+        .I3(transmit_WAIT_N_COUNTER[13]),
+        .O(\k[31]_i_8_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \k[31]_i_9 
+       (.I0(transmit_WAIT_N_COUNTER[2]),
+        .I1(transmit_WAIT_N_COUNTER[3]),
+        .I2(transmit_WAIT_N_COUNTER[22]),
+        .I3(transmit_WAIT_N_COUNTER[12]),
+        .O(\k[31]_i_9_n_0 ));
   FDRE \k_reg[0] 
        (.C(uart_transmitter_clock),
         .CE(k),
@@ -2195,19 +2744,19 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
   FDRE \k_reg[10] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[10]),
+        .D(\k_reg[12]_i_1_n_6 ),
         .Q(\k_reg_n_0_[10] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[11] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[11]),
+        .D(\k_reg[12]_i_1_n_5 ),
         .Q(\k_reg_n_0_[11] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[12] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[12]),
+        .D(\k_reg[12]_i_1_n_4 ),
         .Q(\k_reg_n_0_[12] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2216,30 +2765,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[12]_i_1_n_0 ,\k_reg[12]_i_1_n_1 ,\k_reg[12]_i_1_n_2 ,\k_reg[12]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[12:9]),
+        .O({\k_reg[12]_i_1_n_4 ,\k_reg[12]_i_1_n_5 ,\k_reg[12]_i_1_n_6 ,\k_reg[12]_i_1_n_7 }),
         .S({\k_reg_n_0_[12] ,\k_reg_n_0_[11] ,\k_reg_n_0_[10] ,\k_reg_n_0_[9] }));
   FDRE \k_reg[13] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[13]),
+        .D(\k_reg[16]_i_1_n_7 ),
         .Q(\k_reg_n_0_[13] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[14] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[14]),
+        .D(\k_reg[16]_i_1_n_6 ),
         .Q(\k_reg_n_0_[14] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[15] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[15]),
+        .D(\k_reg[16]_i_1_n_5 ),
         .Q(\k_reg_n_0_[15] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[16] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[16]),
+        .D(\k_reg[16]_i_1_n_4 ),
         .Q(\k_reg_n_0_[16] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2248,36 +2797,36 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[16]_i_1_n_0 ,\k_reg[16]_i_1_n_1 ,\k_reg[16]_i_1_n_2 ,\k_reg[16]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[16:13]),
+        .O({\k_reg[16]_i_1_n_4 ,\k_reg[16]_i_1_n_5 ,\k_reg[16]_i_1_n_6 ,\k_reg[16]_i_1_n_7 }),
         .S({\k_reg_n_0_[16] ,\k_reg_n_0_[15] ,\k_reg_n_0_[14] ,\k_reg_n_0_[13] }));
   FDRE \k_reg[17] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[17]),
+        .D(\k_reg[20]_i_1_n_7 ),
         .Q(\k_reg_n_0_[17] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[18] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[18]),
+        .D(\k_reg[20]_i_1_n_6 ),
         .Q(\k_reg_n_0_[18] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[19] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[19]),
+        .D(\k_reg[20]_i_1_n_5 ),
         .Q(\k_reg_n_0_[19] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[1] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[1]),
+        .D(\k_reg[4]_i_1_n_7 ),
         .Q(\k_reg_n_0_[1] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[20] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[20]),
+        .D(\k_reg[20]_i_1_n_4 ),
         .Q(\k_reg_n_0_[20] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2286,30 +2835,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[20]_i_1_n_0 ,\k_reg[20]_i_1_n_1 ,\k_reg[20]_i_1_n_2 ,\k_reg[20]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[20:17]),
+        .O({\k_reg[20]_i_1_n_4 ,\k_reg[20]_i_1_n_5 ,\k_reg[20]_i_1_n_6 ,\k_reg[20]_i_1_n_7 }),
         .S({\k_reg_n_0_[20] ,\k_reg_n_0_[19] ,\k_reg_n_0_[18] ,\k_reg_n_0_[17] }));
   FDRE \k_reg[21] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[21]),
+        .D(\k_reg[24]_i_1_n_7 ),
         .Q(\k_reg_n_0_[21] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[22] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[22]),
+        .D(\k_reg[24]_i_1_n_6 ),
         .Q(\k_reg_n_0_[22] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[23] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[23]),
+        .D(\k_reg[24]_i_1_n_5 ),
         .Q(\k_reg_n_0_[23] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[24] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[24]),
+        .D(\k_reg[24]_i_1_n_4 ),
         .Q(\k_reg_n_0_[24] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2318,30 +2867,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[24]_i_1_n_0 ,\k_reg[24]_i_1_n_1 ,\k_reg[24]_i_1_n_2 ,\k_reg[24]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[24:21]),
+        .O({\k_reg[24]_i_1_n_4 ,\k_reg[24]_i_1_n_5 ,\k_reg[24]_i_1_n_6 ,\k_reg[24]_i_1_n_7 }),
         .S({\k_reg_n_0_[24] ,\k_reg_n_0_[23] ,\k_reg_n_0_[22] ,\k_reg_n_0_[21] }));
   FDRE \k_reg[25] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[25]),
+        .D(\k_reg[28]_i_1_n_7 ),
         .Q(\k_reg_n_0_[25] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[26] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[26]),
+        .D(\k_reg[28]_i_1_n_6 ),
         .Q(\k_reg_n_0_[26] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[27] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[27]),
+        .D(\k_reg[28]_i_1_n_5 ),
         .Q(\k_reg_n_0_[27] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[28] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[28]),
+        .D(\k_reg[28]_i_1_n_4 ),
         .Q(\k_reg_n_0_[28] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2350,50 +2899,82 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[28]_i_1_n_0 ,\k_reg[28]_i_1_n_1 ,\k_reg[28]_i_1_n_2 ,\k_reg[28]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[28:25]),
+        .O({\k_reg[28]_i_1_n_4 ,\k_reg[28]_i_1_n_5 ,\k_reg[28]_i_1_n_6 ,\k_reg[28]_i_1_n_7 }),
         .S({\k_reg_n_0_[28] ,\k_reg_n_0_[27] ,\k_reg_n_0_[26] ,\k_reg_n_0_[25] }));
   FDRE \k_reg[29] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[29]),
+        .D(\k_reg[31]_i_3_n_7 ),
         .Q(\k_reg_n_0_[29] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[2] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[2]),
+        .D(\k_reg[4]_i_1_n_6 ),
         .Q(\k_reg_n_0_[2] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[30] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[30]),
+        .D(\k_reg[31]_i_3_n_6 ),
         .Q(\k_reg_n_0_[30] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[31] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[31]),
+        .D(\k_reg[31]_i_3_n_5 ),
         .Q(\k_reg_n_0_[31] ),
         .R(\k[31]_i_1_n_0 ));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 \k_reg[31]_i_12 
+       (.CI(\k_reg[31]_i_16_n_0 ),
+        .CO({\k_reg[31]_i_12_n_0 ,\k_reg[31]_i_12_n_1 ,\k_reg[31]_i_12_n_2 ,\k_reg[31]_i_12_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(\NLW_k_reg[31]_i_12_O_UNCONNECTED [3:0]),
+        .S({\k[31]_i_17_n_0 ,\k[31]_i_18_n_0 ,\k[31]_i_19_n_0 ,\k[31]_i_20_n_0 }));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 \k_reg[31]_i_16 
+       (.CI(\k_reg[31]_i_21_n_0 ),
+        .CO({\k_reg[31]_i_16_n_0 ,\k_reg[31]_i_16_n_1 ,\k_reg[31]_i_16_n_2 ,\k_reg[31]_i_16_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(\NLW_k_reg[31]_i_16_O_UNCONNECTED [3:0]),
+        .S({\k[31]_i_22_n_0 ,\k[31]_i_23_n_0 ,\k[31]_i_24_n_0 ,\k[31]_i_25_n_0 }));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 \k_reg[31]_i_21 
+       (.CI(1'b0),
+        .CO({\k_reg[31]_i_21_n_0 ,\k_reg[31]_i_21_n_1 ,\k_reg[31]_i_21_n_2 ,\k_reg[31]_i_21_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,\k[31]_i_26_n_0 }),
+        .O(\NLW_k_reg[31]_i_21_O_UNCONNECTED [3:0]),
+        .S({\k[31]_i_27_n_0 ,\k[31]_i_28_n_0 ,\k[31]_i_29_n_0 ,\k[31]_i_30_n_0 }));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \k_reg[31]_i_3 
        (.CI(\k_reg[28]_i_1_n_0 ),
         .CO({\NLW_k_reg[31]_i_3_CO_UNCONNECTED [3:2],\k_reg[31]_i_3_n_2 ,\k_reg[31]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_k_reg[31]_i_3_O_UNCONNECTED [3],in12[31:29]}),
+        .O({\NLW_k_reg[31]_i_3_O_UNCONNECTED [3],\k_reg[31]_i_3_n_5 ,\k_reg[31]_i_3_n_6 ,\k_reg[31]_i_3_n_7 }),
         .S({1'b0,\k_reg_n_0_[31] ,\k_reg_n_0_[30] ,\k_reg_n_0_[29] }));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 \k_reg[31]_i_5 
+       (.CI(\k_reg[31]_i_12_n_0 ),
+        .CO({\NLW_k_reg[31]_i_5_CO_UNCONNECTED [3],\k_reg[31]_i_5_n_1 ,\k_reg[31]_i_5_n_2 ,\k_reg[31]_i_5_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,\k0_reg[31]_i_3_n_5 ,1'b0,1'b0}),
+        .O(\NLW_k_reg[31]_i_5_O_UNCONNECTED [3:0]),
+        .S({1'b0,\k[31]_i_13_n_0 ,\k[31]_i_14_n_0 ,\k[31]_i_15_n_0 }));
   FDRE \k_reg[3] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[3]),
+        .D(\k_reg[4]_i_1_n_5 ),
         .Q(\k_reg_n_0_[3] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[4] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[4]),
+        .D(\k_reg[4]_i_1_n_4 ),
         .Q(\k_reg_n_0_[4] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2402,30 +2983,30 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[4]_i_1_n_0 ,\k_reg[4]_i_1_n_1 ,\k_reg[4]_i_1_n_2 ,\k_reg[4]_i_1_n_3 }),
         .CYINIT(\k_reg_n_0_[0] ),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[4:1]),
+        .O({\k_reg[4]_i_1_n_4 ,\k_reg[4]_i_1_n_5 ,\k_reg[4]_i_1_n_6 ,\k_reg[4]_i_1_n_7 }),
         .S({\k_reg_n_0_[4] ,\k_reg_n_0_[3] ,\k_reg_n_0_[2] ,\k_reg_n_0_[1] }));
   FDRE \k_reg[5] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[5]),
+        .D(\k_reg[8]_i_1_n_7 ),
         .Q(\k_reg_n_0_[5] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[6] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[6]),
+        .D(\k_reg[8]_i_1_n_6 ),
         .Q(\k_reg_n_0_[6] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[7] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[7]),
+        .D(\k_reg[8]_i_1_n_5 ),
         .Q(\k_reg_n_0_[7] ),
         .R(\k[31]_i_1_n_0 ));
   FDRE \k_reg[8] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[8]),
+        .D(\k_reg[8]_i_1_n_4 ),
         .Q(\k_reg_n_0_[8] ),
         .R(\k[31]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2434,343 +3015,849 @@ module bachelor_UART_TRANSMITTER_1_0_UART_TRANSMITTER
         .CO({\k_reg[8]_i_1_n_0 ,\k_reg[8]_i_1_n_1 ,\k_reg[8]_i_1_n_2 ,\k_reg[8]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in12[8:5]),
+        .O({\k_reg[8]_i_1_n_4 ,\k_reg[8]_i_1_n_5 ,\k_reg[8]_i_1_n_6 ,\k_reg[8]_i_1_n_7 }),
         .S({\k_reg_n_0_[8] ,\k_reg_n_0_[7] ,\k_reg_n_0_[6] ,\k_reg_n_0_[5] }));
   FDRE \k_reg[9] 
        (.C(uart_transmitter_clock),
         .CE(k),
-        .D(in12[9]),
+        .D(\k_reg[12]_i_1_n_7 ),
         .Q(\k_reg_n_0_[9] ),
         .R(\k[31]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h7477300074773033)) 
+    \transmit_PROC_STATE[0]_i_1 
+       (.I0(p_4_in),
+        .I1(transmit_PROC_STATE[2]),
+        .I2(\k[31]_i_4_n_0 ),
+        .I3(transmit_PROC_STATE[0]),
+        .I4(\transmit_PROC_STATE[0]_i_2_n_0 ),
+        .I5(transmit_PROC_STATE[1]),
+        .O(transmit_PROC_STATE_next[0]));
+  LUT4 #(
+    .INIT(16'h0004)) 
+    \transmit_PROC_STATE[0]_i_2 
+       (.I0(\transmit_PROC_STATE[0]_i_3_n_0 ),
+        .I1(\transmit_PROC_STATE[0]_i_4_n_0 ),
+        .I2(\transmit_PROC_STATE[0]_i_5_n_0 ),
+        .I3(\transmit_PROC_STATE[0]_i_6_n_0 ),
+        .O(\transmit_PROC_STATE[0]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \transmit_PROC_STATE[0]_i_3 
+       (.I0(transmit_WAIT_N_COUNTER[18]),
+        .I1(transmit_WAIT_N_COUNTER[19]),
+        .I2(transmit_WAIT_N_COUNTER[20]),
+        .I3(transmit_WAIT_N_COUNTER[21]),
+        .I4(transmit_WAIT_N_COUNTER[23]),
+        .I5(transmit_WAIT_N_COUNTER[22]),
+        .O(\transmit_PROC_STATE[0]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000001)) 
+    \transmit_PROC_STATE[0]_i_4 
+       (.I0(transmit_WAIT_N_COUNTER[16]),
+        .I1(transmit_WAIT_N_COUNTER[15]),
+        .I2(transmit_WAIT_N_COUNTER[17]),
+        .I3(transmit_WAIT_N_COUNTER[13]),
+        .I4(transmit_WAIT_N_COUNTER[12]),
+        .I5(transmit_WAIT_N_COUNTER[14]),
+        .O(\transmit_PROC_STATE[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \transmit_PROC_STATE[0]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[7]),
+        .I1(transmit_WAIT_N_COUNTER[6]),
+        .I2(transmit_WAIT_N_COUNTER[8]),
+        .I3(transmit_WAIT_N_COUNTER[10]),
+        .I4(transmit_WAIT_N_COUNTER[9]),
+        .I5(transmit_WAIT_N_COUNTER[11]),
+        .O(\transmit_PROC_STATE[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFEFFFF)) 
+    \transmit_PROC_STATE[0]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[4]),
+        .I1(transmit_WAIT_N_COUNTER[3]),
+        .I2(transmit_WAIT_N_COUNTER[5]),
+        .I3(transmit_WAIT_N_COUNTER[1]),
+        .I4(transmit_WAIT_N_COUNTER[0]),
+        .I5(transmit_WAIT_N_COUNTER[2]),
+        .O(\transmit_PROC_STATE[0]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'h00FD0022)) 
+    \transmit_PROC_STATE[1]_i_1 
+       (.I0(transmit_PROC_STATE[0]),
+        .I1(\k[31]_i_4_n_0 ),
+        .I2(\k_reg[31]_i_5_n_1 ),
+        .I3(transmit_PROC_STATE[2]),
+        .I4(transmit_PROC_STATE[1]),
+        .O(transmit_PROC_STATE_next[1]));
+  LUT6 #(
+    .INIT(64'h0F0F0F0F0F0F2F0F)) 
+    \transmit_PROC_STATE[2]_i_1 
+       (.I0(transmit_PROC_STATE[0]),
+        .I1(\k[31]_i_4_n_0 ),
+        .I2(\transmit_PROC_STATE[2]_i_2_n_0 ),
+        .I3(transmit_PROC_STATE[1]),
+        .I4(\k_reg[31]_i_5_n_1 ),
+        .I5(transmit_PROC_STATE[2]),
+        .O(transmit_PROC_STATE_next[2]));
+  LUT3 #(
+    .INIT(8'h4F)) 
+    \transmit_PROC_STATE[2]_i_2 
+       (.I0(p_4_in),
+        .I1(\transmit_PROC_STATE[0]_i_2_n_0 ),
+        .I2(transmit_PROC_STATE[2]),
+        .O(\transmit_PROC_STATE[2]_i_2_n_0 ));
+  FDRE \transmit_PROC_STATE_reg[0] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_PROC_STATE_next[0]),
+        .Q(transmit_PROC_STATE[0]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_PROC_STATE_reg[1] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_PROC_STATE_next[1]),
+        .Q(transmit_PROC_STATE[1]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_PROC_STATE_reg[2] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_PROC_STATE_next[2]),
+        .Q(transmit_PROC_STATE[2]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h0000FE00)) 
+    \transmit_WAIT_N_COUNTER[0]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER[0]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[0]));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[10]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[10]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[10]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[11]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[11]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[11]));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[12]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[12]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[12]));
   LUT1 #(
     .INIT(2'h1)) 
-    uart_transmitter_output_i_1
+    \transmit_WAIT_N_COUNTER[12]_i_3 
+       (.I0(transmit_WAIT_N_COUNTER[12]),
+        .O(\transmit_WAIT_N_COUNTER[12]_i_3_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[12]_i_4 
+       (.I0(transmit_WAIT_N_COUNTER[11]),
+        .O(\transmit_WAIT_N_COUNTER[12]_i_4_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[12]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[10]),
+        .O(\transmit_WAIT_N_COUNTER[12]_i_5_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[12]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[9]),
+        .O(\transmit_WAIT_N_COUNTER[12]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[13]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[13]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[13]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[14]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[14]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[14]));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[15]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[15]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[15]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[16]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[16]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[16]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[16]_i_3 
+       (.I0(transmit_WAIT_N_COUNTER[16]),
+        .O(\transmit_WAIT_N_COUNTER[16]_i_3_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[16]_i_4 
+       (.I0(transmit_WAIT_N_COUNTER[15]),
+        .O(\transmit_WAIT_N_COUNTER[16]_i_4_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[16]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[14]),
+        .O(\transmit_WAIT_N_COUNTER[16]_i_5_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[16]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[13]),
+        .O(\transmit_WAIT_N_COUNTER[16]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[17]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[17]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[17]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[18]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[18]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[18]));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[19]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[19]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[19]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[1]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[1]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[1]));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[20]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[20]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[20]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[20]_i_3 
+       (.I0(transmit_WAIT_N_COUNTER[20]),
+        .O(\transmit_WAIT_N_COUNTER[20]_i_3_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[20]_i_4 
+       (.I0(transmit_WAIT_N_COUNTER[19]),
+        .O(\transmit_WAIT_N_COUNTER[20]_i_4_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[20]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[18]),
+        .O(\transmit_WAIT_N_COUNTER[20]_i_5_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[20]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[17]),
+        .O(\transmit_WAIT_N_COUNTER[20]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[21]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[21]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[21]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[22]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[22]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[22]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[23]_i_1 
        (.I0(uart_transmitter_reset_active_low),
+        .O(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'h1F)) 
+    \transmit_WAIT_N_COUNTER[23]_i_2 
+       (.I0(transmit_PROC_STATE[0]),
+        .I1(transmit_PROC_STATE[1]),
+        .I2(transmit_PROC_STATE[2]),
+        .O(transmit_WAIT_N_COUNTER_next));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[23]_i_3 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[23]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[23]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[23]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[23]),
+        .O(\transmit_WAIT_N_COUNTER[23]_i_5_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[23]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[22]),
+        .O(\transmit_WAIT_N_COUNTER[23]_i_6_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[23]_i_7 
+       (.I0(transmit_WAIT_N_COUNTER[21]),
+        .O(\transmit_WAIT_N_COUNTER[23]_i_7_n_0 ));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[2]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[2]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[2]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[3]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[3]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[3]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[4]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[4]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[4]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[4]_i_3 
+       (.I0(transmit_WAIT_N_COUNTER[4]),
+        .O(\transmit_WAIT_N_COUNTER[4]_i_3_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[4]_i_4 
+       (.I0(transmit_WAIT_N_COUNTER[3]),
+        .O(\transmit_WAIT_N_COUNTER[4]_i_4_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[4]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[2]),
+        .O(\transmit_WAIT_N_COUNTER[4]_i_5_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[4]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[1]),
+        .O(\transmit_WAIT_N_COUNTER[4]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[5]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[5]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[5]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[6]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[6]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[6]));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[7]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[7]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[7]));
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \transmit_WAIT_N_COUNTER[8]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[8]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[8]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[8]_i_3 
+       (.I0(transmit_WAIT_N_COUNTER[8]),
+        .O(\transmit_WAIT_N_COUNTER[8]_i_3_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[8]_i_4 
+       (.I0(transmit_WAIT_N_COUNTER[7]),
+        .O(\transmit_WAIT_N_COUNTER[8]_i_4_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[8]_i_5 
+       (.I0(transmit_WAIT_N_COUNTER[6]),
+        .O(\transmit_WAIT_N_COUNTER[8]_i_5_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \transmit_WAIT_N_COUNTER[8]_i_6 
+       (.I0(transmit_WAIT_N_COUNTER[5]),
+        .O(\transmit_WAIT_N_COUNTER[8]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'hDFDF01DF)) 
+    \transmit_WAIT_N_COUNTER[9]_i_1 
+       (.I0(transmit_PROC_STATE[2]),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(\k[31]_i_4_n_0 ),
+        .I4(transmit_WAIT_N_COUNTER_next0[9]),
+        .O(transmit_WAIT_N_COUNTER_next1_in[9]));
+  FDRE \transmit_WAIT_N_COUNTER_reg[0] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[0]),
+        .Q(transmit_WAIT_N_COUNTER[0]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[10] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[10]),
+        .Q(transmit_WAIT_N_COUNTER[10]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[11] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[11]),
+        .Q(transmit_WAIT_N_COUNTER[11]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[12] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[12]),
+        .Q(transmit_WAIT_N_COUNTER[12]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \transmit_WAIT_N_COUNTER_reg[12]_i_2 
+       (.CI(\transmit_WAIT_N_COUNTER_reg[8]_i_2_n_0 ),
+        .CO({\transmit_WAIT_N_COUNTER_reg[12]_i_2_n_0 ,\transmit_WAIT_N_COUNTER_reg[12]_i_2_n_1 ,\transmit_WAIT_N_COUNTER_reg[12]_i_2_n_2 ,\transmit_WAIT_N_COUNTER_reg[12]_i_2_n_3 }),
+        .CYINIT(1'b0),
+        .DI(transmit_WAIT_N_COUNTER[12:9]),
+        .O(transmit_WAIT_N_COUNTER_next0[12:9]),
+        .S({\transmit_WAIT_N_COUNTER[12]_i_3_n_0 ,\transmit_WAIT_N_COUNTER[12]_i_4_n_0 ,\transmit_WAIT_N_COUNTER[12]_i_5_n_0 ,\transmit_WAIT_N_COUNTER[12]_i_6_n_0 }));
+  FDRE \transmit_WAIT_N_COUNTER_reg[13] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[13]),
+        .Q(transmit_WAIT_N_COUNTER[13]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[14] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[14]),
+        .Q(transmit_WAIT_N_COUNTER[14]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[15] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[15]),
+        .Q(transmit_WAIT_N_COUNTER[15]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[16] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[16]),
+        .Q(transmit_WAIT_N_COUNTER[16]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \transmit_WAIT_N_COUNTER_reg[16]_i_2 
+       (.CI(\transmit_WAIT_N_COUNTER_reg[12]_i_2_n_0 ),
+        .CO({\transmit_WAIT_N_COUNTER_reg[16]_i_2_n_0 ,\transmit_WAIT_N_COUNTER_reg[16]_i_2_n_1 ,\transmit_WAIT_N_COUNTER_reg[16]_i_2_n_2 ,\transmit_WAIT_N_COUNTER_reg[16]_i_2_n_3 }),
+        .CYINIT(1'b0),
+        .DI(transmit_WAIT_N_COUNTER[16:13]),
+        .O(transmit_WAIT_N_COUNTER_next0[16:13]),
+        .S({\transmit_WAIT_N_COUNTER[16]_i_3_n_0 ,\transmit_WAIT_N_COUNTER[16]_i_4_n_0 ,\transmit_WAIT_N_COUNTER[16]_i_5_n_0 ,\transmit_WAIT_N_COUNTER[16]_i_6_n_0 }));
+  FDRE \transmit_WAIT_N_COUNTER_reg[17] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[17]),
+        .Q(transmit_WAIT_N_COUNTER[17]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[18] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[18]),
+        .Q(transmit_WAIT_N_COUNTER[18]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[19] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[19]),
+        .Q(transmit_WAIT_N_COUNTER[19]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[1] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[1]),
+        .Q(transmit_WAIT_N_COUNTER[1]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[20] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[20]),
+        .Q(transmit_WAIT_N_COUNTER[20]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \transmit_WAIT_N_COUNTER_reg[20]_i_2 
+       (.CI(\transmit_WAIT_N_COUNTER_reg[16]_i_2_n_0 ),
+        .CO({\transmit_WAIT_N_COUNTER_reg[20]_i_2_n_0 ,\transmit_WAIT_N_COUNTER_reg[20]_i_2_n_1 ,\transmit_WAIT_N_COUNTER_reg[20]_i_2_n_2 ,\transmit_WAIT_N_COUNTER_reg[20]_i_2_n_3 }),
+        .CYINIT(1'b0),
+        .DI(transmit_WAIT_N_COUNTER[20:17]),
+        .O(transmit_WAIT_N_COUNTER_next0[20:17]),
+        .S({\transmit_WAIT_N_COUNTER[20]_i_3_n_0 ,\transmit_WAIT_N_COUNTER[20]_i_4_n_0 ,\transmit_WAIT_N_COUNTER[20]_i_5_n_0 ,\transmit_WAIT_N_COUNTER[20]_i_6_n_0 }));
+  FDRE \transmit_WAIT_N_COUNTER_reg[21] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[21]),
+        .Q(transmit_WAIT_N_COUNTER[21]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[22] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[22]),
+        .Q(transmit_WAIT_N_COUNTER[22]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[23] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[23]),
+        .Q(transmit_WAIT_N_COUNTER[23]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \transmit_WAIT_N_COUNTER_reg[23]_i_4 
+       (.CI(\transmit_WAIT_N_COUNTER_reg[20]_i_2_n_0 ),
+        .CO({\NLW_transmit_WAIT_N_COUNTER_reg[23]_i_4_CO_UNCONNECTED [3:2],\transmit_WAIT_N_COUNTER_reg[23]_i_4_n_2 ,\transmit_WAIT_N_COUNTER_reg[23]_i_4_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,transmit_WAIT_N_COUNTER[22:21]}),
+        .O({\NLW_transmit_WAIT_N_COUNTER_reg[23]_i_4_O_UNCONNECTED [3],transmit_WAIT_N_COUNTER_next0[23:21]}),
+        .S({1'b0,\transmit_WAIT_N_COUNTER[23]_i_5_n_0 ,\transmit_WAIT_N_COUNTER[23]_i_6_n_0 ,\transmit_WAIT_N_COUNTER[23]_i_7_n_0 }));
+  FDRE \transmit_WAIT_N_COUNTER_reg[2] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[2]),
+        .Q(transmit_WAIT_N_COUNTER[2]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[3] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[3]),
+        .Q(transmit_WAIT_N_COUNTER[3]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[4] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[4]),
+        .Q(transmit_WAIT_N_COUNTER[4]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \transmit_WAIT_N_COUNTER_reg[4]_i_2 
+       (.CI(1'b0),
+        .CO({\transmit_WAIT_N_COUNTER_reg[4]_i_2_n_0 ,\transmit_WAIT_N_COUNTER_reg[4]_i_2_n_1 ,\transmit_WAIT_N_COUNTER_reg[4]_i_2_n_2 ,\transmit_WAIT_N_COUNTER_reg[4]_i_2_n_3 }),
+        .CYINIT(transmit_WAIT_N_COUNTER[0]),
+        .DI(transmit_WAIT_N_COUNTER[4:1]),
+        .O(transmit_WAIT_N_COUNTER_next0[4:1]),
+        .S({\transmit_WAIT_N_COUNTER[4]_i_3_n_0 ,\transmit_WAIT_N_COUNTER[4]_i_4_n_0 ,\transmit_WAIT_N_COUNTER[4]_i_5_n_0 ,\transmit_WAIT_N_COUNTER[4]_i_6_n_0 }));
+  FDRE \transmit_WAIT_N_COUNTER_reg[5] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[5]),
+        .Q(transmit_WAIT_N_COUNTER[5]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[6] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[6]),
+        .Q(transmit_WAIT_N_COUNTER[6]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[7] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[7]),
+        .Q(transmit_WAIT_N_COUNTER[7]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  FDRE \transmit_WAIT_N_COUNTER_reg[8] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[8]),
+        .Q(transmit_WAIT_N_COUNTER[8]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \transmit_WAIT_N_COUNTER_reg[8]_i_2 
+       (.CI(\transmit_WAIT_N_COUNTER_reg[4]_i_2_n_0 ),
+        .CO({\transmit_WAIT_N_COUNTER_reg[8]_i_2_n_0 ,\transmit_WAIT_N_COUNTER_reg[8]_i_2_n_1 ,\transmit_WAIT_N_COUNTER_reg[8]_i_2_n_2 ,\transmit_WAIT_N_COUNTER_reg[8]_i_2_n_3 }),
+        .CYINIT(1'b0),
+        .DI(transmit_WAIT_N_COUNTER[8:5]),
+        .O(transmit_WAIT_N_COUNTER_next0[8:5]),
+        .S({\transmit_WAIT_N_COUNTER[8]_i_3_n_0 ,\transmit_WAIT_N_COUNTER[8]_i_4_n_0 ,\transmit_WAIT_N_COUNTER[8]_i_5_n_0 ,\transmit_WAIT_N_COUNTER[8]_i_6_n_0 }));
+  FDRE \transmit_WAIT_N_COUNTER_reg[9] 
+       (.C(uart_transmitter_clock),
+        .CE(transmit_WAIT_N_COUNTER_next),
+        .D(transmit_WAIT_N_COUNTER_next1_in[9]),
+        .Q(transmit_WAIT_N_COUNTER[9]),
+        .R(\transmit_WAIT_N_COUNTER[23]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hEEE222E2FFFFFFFF)) 
+    uart_transmitter_output_i_1
+       (.I0(uart_transmitter_output),
+        .I1(uart_transmitter_output_i_2_n_0),
+        .I2(uart_transmitter_output_i_3_n_0),
+        .I3(transmit_PROC_STATE[2]),
+        .I4(p_4_in),
+        .I5(uart_transmitter_reset_active_low),
         .O(uart_transmitter_output_i_1_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     uart_transmitter_output_i_10
-       (.I0(in22[26]),
-        .I1(in22[27]),
+       (.I0(\k_reg[31]_i_3_n_7 ),
+        .I1(\k_reg[28]_i_1_n_4 ),
         .O(uart_transmitter_output_i_10_n_0));
   LUT2 #(
     .INIT(4'h1)) 
+    uart_transmitter_output_i_11
+       (.I0(\k_reg[28]_i_1_n_5 ),
+        .I1(\k_reg[28]_i_1_n_6 ),
+        .O(uart_transmitter_output_i_11_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
     uart_transmitter_output_i_12
-       (.I0(in12[31]),
-        .I1(in12[30]),
+       (.I0(\k_reg[28]_i_1_n_7 ),
+        .I1(\k_reg[24]_i_1_n_4 ),
         .O(uart_transmitter_output_i_12_n_0));
   LUT2 #(
     .INIT(4'h1)) 
-    uart_transmitter_output_i_13
-       (.I0(in12[29]),
-        .I1(in12[28]),
-        .O(uart_transmitter_output_i_13_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
     uart_transmitter_output_i_14
-       (.I0(in12[27]),
-        .I1(in12[26]),
+       (.I0(\k_reg[24]_i_1_n_5 ),
+        .I1(\k_reg[24]_i_1_n_6 ),
         .O(uart_transmitter_output_i_14_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     uart_transmitter_output_i_15
-       (.I0(in12[25]),
-        .I1(in12[24]),
+       (.I0(\k_reg[24]_i_1_n_7 ),
+        .I1(\k_reg[20]_i_1_n_4 ),
         .O(uart_transmitter_output_i_15_n_0));
-  LUT6 #(
-    .INIT(64'h0808080000000800)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     uart_transmitter_output_i_16
-       (.I0(\i_reg_n_0_[0] ),
-        .I1(transmit_PROC_STATE[0]),
-        .I2(transmit_PROC_STATE[2]),
-        .I3(\input_btint_a_reg_n_0_[16] ),
-        .I4(\i_reg_n_0_[1] ),
-        .I5(\input_btint_a_reg_n_0_[0] ),
+       (.I0(\k_reg[20]_i_1_n_5 ),
+        .I1(\k_reg[20]_i_1_n_6 ),
         .O(uart_transmitter_output_i_16_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_17
+       (.I0(\k_reg[20]_i_1_n_7 ),
+        .I1(\k_reg[16]_i_1_n_4 ),
+        .O(uart_transmitter_output_i_17_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_19
+       (.I0(\k_reg[16]_i_1_n_5 ),
+        .I1(\k_reg[16]_i_1_n_6 ),
+        .O(uart_transmitter_output_i_19_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h0157)) 
+    uart_transmitter_output_i_2
+       (.I0(\k[31]_i_4_n_0 ),
+        .I1(transmit_PROC_STATE[0]),
+        .I2(transmit_PROC_STATE[1]),
+        .I3(transmit_PROC_STATE[2]),
+        .O(uart_transmitter_output_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_20
+       (.I0(\k_reg[16]_i_1_n_7 ),
+        .I1(\k_reg[12]_i_1_n_4 ),
+        .O(uart_transmitter_output_i_20_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_21
+       (.I0(\k_reg[12]_i_1_n_5 ),
+        .I1(\k_reg[12]_i_1_n_6 ),
+        .O(uart_transmitter_output_i_21_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_22
+       (.I0(\k_reg[12]_i_1_n_7 ),
+        .I1(\k_reg[8]_i_1_n_4 ),
+        .O(uart_transmitter_output_i_22_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    uart_transmitter_output_i_23
+       (.I0(\k_reg[4]_i_1_n_7 ),
+        .O(uart_transmitter_output_i_23_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_24
+       (.I0(\k_reg[8]_i_1_n_5 ),
+        .I1(\k_reg[8]_i_1_n_6 ),
+        .O(uart_transmitter_output_i_24_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_25
+       (.I0(\k_reg[8]_i_1_n_7 ),
+        .I1(\k_reg[4]_i_1_n_4 ),
+        .O(uart_transmitter_output_i_25_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    uart_transmitter_output_i_26
+       (.I0(\k_reg[4]_i_1_n_5 ),
+        .I1(\k_reg[4]_i_1_n_6 ),
+        .O(uart_transmitter_output_i_26_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    uart_transmitter_output_i_27
+       (.I0(\k_reg[4]_i_1_n_7 ),
+        .I1(\k_reg_n_0_[0] ),
+        .O(uart_transmitter_output_i_27_n_0));
+  LUT6 #(
+    .INIT(64'hFBFFFA00FB00FA00)) 
+    uart_transmitter_output_i_3
+       (.I0(uart_transmitter_output_i_5_n_0),
+        .I1(\k_reg[31]_i_5_n_1 ),
+        .I2(uart_transmitter_output_i_6_n_0),
+        .I3(transmit_PROC_STATE[0]),
+        .I4(transmit_PROC_STATE[1]),
+        .I5(uart_transmitter_output_i_7_n_0),
+        .O(uart_transmitter_output_i_3_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'h08)) 
+    uart_transmitter_output_i_5
+       (.I0(\input_btint_a_reg_n_0_[16] ),
+        .I1(\i_reg_n_0_[0] ),
+        .I2(\i_reg_n_0_[1] ),
+        .O(uart_transmitter_output_i_5_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'hCFC00A0A)) 
+    uart_transmitter_output_i_6
+       (.I0(\input_btint_a_reg_n_0_[24] ),
+        .I1(\input_btint_a_reg_n_0_[0] ),
+        .I2(\i_reg_n_0_[0] ),
+        .I3(\input_btint_a_reg_n_0_[8] ),
+        .I4(\i_reg_n_0_[1] ),
+        .O(uart_transmitter_output_i_6_n_0));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    uart_transmitter_output_i_17
+    uart_transmitter_output_i_7
        (.I0(input_btint_b[0]),
         .I1(input_btint_b[16]),
         .I2(\i_reg_n_0_[0] ),
         .I3(input_btint_b[8]),
         .I4(\i_reg_n_0_[1] ),
         .I5(input_btint_b[24]),
-        .O(uart_transmitter_output_i_17_n_0));
-  LUT6 #(
-    .INIT(64'h0404040000000400)) 
-    uart_transmitter_output_i_18
-       (.I0(\i_reg_n_0_[0] ),
-        .I1(transmit_PROC_STATE[0]),
-        .I2(transmit_PROC_STATE[2]),
-        .I3(\input_btint_a_reg_n_0_[24] ),
-        .I4(\i_reg_n_0_[1] ),
-        .I5(\input_btint_a_reg_n_0_[8] ),
-        .O(uart_transmitter_output_i_18_n_0));
-  LUT3 #(
-    .INIT(8'h1F)) 
-    uart_transmitter_output_i_2
-       (.I0(transmit_PROC_STATE[1]),
-        .I1(transmit_PROC_STATE[0]),
-        .I2(transmit_PROC_STATE[2]),
-        .O(uart_transmitter_output_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_20
-       (.I0(in22[24]),
-        .I1(in22[25]),
-        .O(uart_transmitter_output_i_20_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_21
-       (.I0(in22[22]),
-        .I1(in22[23]),
-        .O(uart_transmitter_output_i_21_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_22
-       (.I0(in22[20]),
-        .I1(in22[21]),
-        .O(uart_transmitter_output_i_22_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_23
-       (.I0(in22[18]),
-        .I1(in22[19]),
-        .O(uart_transmitter_output_i_23_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_25
-       (.I0(in12[23]),
-        .I1(in12[22]),
-        .O(uart_transmitter_output_i_25_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_26
-       (.I0(in12[21]),
-        .I1(in12[20]),
-        .O(uart_transmitter_output_i_26_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_27
-       (.I0(in12[19]),
-        .I1(in12[18]),
-        .O(uart_transmitter_output_i_27_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_28
-       (.I0(in12[17]),
-        .I1(in12[16]),
-        .O(uart_transmitter_output_i_28_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF100C1000)) 
-    uart_transmitter_output_i_3
-       (.I0(uart_transmitter_output_reg_i_4_n_1),
-        .I1(transmit_PROC_STATE[2]),
-        .I2(transmit_PROC_STATE[0]),
-        .I3(transmit_PROC_STATE[1]),
-        .I4(p_4_in),
-        .I5(uart_transmitter_output_i_6_n_0),
-        .O(uart_transmitter_output_next));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_30
-       (.I0(in22[16]),
-        .I1(in22[17]),
-        .O(uart_transmitter_output_i_30_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_31
-       (.I0(in22[14]),
-        .I1(in22[15]),
-        .O(uart_transmitter_output_i_31_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_32
-       (.I0(in22[12]),
-        .I1(in22[13]),
-        .O(uart_transmitter_output_i_32_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_33
-       (.I0(in22[10]),
-        .I1(in22[11]),
-        .O(uart_transmitter_output_i_33_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_35
-       (.I0(in12[15]),
-        .I1(in12[14]),
-        .O(uart_transmitter_output_i_35_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_36
-       (.I0(in12[13]),
-        .I1(in12[12]),
-        .O(uart_transmitter_output_i_36_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_37
-       (.I0(in12[11]),
-        .I1(in12[10]),
-        .O(uart_transmitter_output_i_37_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_38
-       (.I0(in12[9]),
-        .I1(in12[8]),
-        .O(uart_transmitter_output_i_38_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_39
-       (.I0(in22[2]),
-        .I1(in22[3]),
-        .O(uart_transmitter_output_i_39_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_40
-       (.I0(in22[8]),
-        .I1(in22[9]),
-        .O(uart_transmitter_output_i_40_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_41
-       (.I0(in22[6]),
-        .I1(in22[7]),
-        .O(uart_transmitter_output_i_41_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_42
-       (.I0(in22[4]),
-        .I1(in22[5]),
-        .O(uart_transmitter_output_i_42_n_0));
-  LUT2 #(
-    .INIT(4'h2)) 
-    uart_transmitter_output_i_43
-       (.I0(in22[2]),
-        .I1(in22[3]),
-        .O(uart_transmitter_output_i_43_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    uart_transmitter_output_i_44
-       (.I0(in12[1]),
-        .O(uart_transmitter_output_i_44_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_45
-       (.I0(in12[7]),
-        .I1(in12[6]),
-        .O(uart_transmitter_output_i_45_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_46
-       (.I0(in12[5]),
-        .I1(in12[4]),
-        .O(uart_transmitter_output_i_46_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_47
-       (.I0(in12[3]),
-        .I1(in12[2]),
-        .O(uart_transmitter_output_i_47_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
-    uart_transmitter_output_i_48
-       (.I0(\k_reg_n_0_[0] ),
-        .I1(in12[1]),
-        .O(uart_transmitter_output_i_48_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFAABAAAAA)) 
-    uart_transmitter_output_i_6
-       (.I0(uart_transmitter_output_i_16_n_0),
-        .I1(transmit_PROC_STATE[0]),
-        .I2(transmit_PROC_STATE[1]),
-        .I3(transmit_PROC_STATE[2]),
-        .I4(uart_transmitter_output_i_17_n_0),
-        .I5(uart_transmitter_output_i_18_n_0),
-        .O(uart_transmitter_output_i_6_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    uart_transmitter_output_i_8
-       (.I0(in22[30]),
-        .I1(in22[31]),
-        .O(uart_transmitter_output_i_8_n_0));
+        .O(uart_transmitter_output_i_7_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     uart_transmitter_output_i_9
-       (.I0(in22[28]),
-        .I1(in22[29]),
+       (.I0(\k_reg[31]_i_3_n_5 ),
+        .I1(\k_reg[31]_i_3_n_6 ),
         .O(uart_transmitter_output_i_9_n_0));
-  FDSE uart_transmitter_output_reg
+  FDRE uart_transmitter_output_reg
        (.C(uart_transmitter_clock),
-        .CE(uart_transmitter_output_i_2_n_0),
-        .D(uart_transmitter_output_next),
+        .CE(1'b1),
+        .D(uart_transmitter_output_i_1_n_0),
         .Q(uart_transmitter_output),
-        .S(uart_transmitter_output_i_1_n_0));
+        .R(1'b0));
   (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_11
-       (.CI(uart_transmitter_output_reg_i_24_n_0),
-        .CO({uart_transmitter_output_reg_i_11_n_0,uart_transmitter_output_reg_i_11_n_1,uart_transmitter_output_reg_i_11_n_2,uart_transmitter_output_reg_i_11_n_3}),
+  CARRY4 uart_transmitter_output_reg_i_13
+       (.CI(uart_transmitter_output_reg_i_18_n_0),
+        .CO({uart_transmitter_output_reg_i_13_n_0,uart_transmitter_output_reg_i_13_n_1,uart_transmitter_output_reg_i_13_n_2,uart_transmitter_output_reg_i_13_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_uart_transmitter_output_reg_i_11_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_25_n_0,uart_transmitter_output_i_26_n_0,uart_transmitter_output_i_27_n_0,uart_transmitter_output_i_28_n_0}));
+        .O(NLW_uart_transmitter_output_reg_i_13_O_UNCONNECTED[3:0]),
+        .S({uart_transmitter_output_i_19_n_0,uart_transmitter_output_i_20_n_0,uart_transmitter_output_i_21_n_0,uart_transmitter_output_i_22_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_19
-       (.CI(uart_transmitter_output_reg_i_29_n_0),
-        .CO({uart_transmitter_output_reg_i_19_n_0,uart_transmitter_output_reg_i_19_n_1,uart_transmitter_output_reg_i_19_n_2,uart_transmitter_output_reg_i_19_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_uart_transmitter_output_reg_i_19_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_30_n_0,uart_transmitter_output_i_31_n_0,uart_transmitter_output_i_32_n_0,uart_transmitter_output_i_33_n_0}));
-  (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_24
-       (.CI(uart_transmitter_output_reg_i_34_n_0),
-        .CO({uart_transmitter_output_reg_i_24_n_0,uart_transmitter_output_reg_i_24_n_1,uart_transmitter_output_reg_i_24_n_2,uart_transmitter_output_reg_i_24_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_uart_transmitter_output_reg_i_24_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_35_n_0,uart_transmitter_output_i_36_n_0,uart_transmitter_output_i_37_n_0,uart_transmitter_output_i_38_n_0}));
-  (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_29
+  CARRY4 uart_transmitter_output_reg_i_18
        (.CI(1'b0),
-        .CO({uart_transmitter_output_reg_i_29_n_0,uart_transmitter_output_reg_i_29_n_1,uart_transmitter_output_reg_i_29_n_2,uart_transmitter_output_reg_i_29_n_3}),
+        .CO({uart_transmitter_output_reg_i_18_n_0,uart_transmitter_output_reg_i_18_n_1,uart_transmitter_output_reg_i_18_n_2,uart_transmitter_output_reg_i_18_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,uart_transmitter_output_i_39_n_0}),
-        .O(NLW_uart_transmitter_output_reg_i_29_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_40_n_0,uart_transmitter_output_i_41_n_0,uart_transmitter_output_i_42_n_0,uart_transmitter_output_i_43_n_0}));
-  (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_34
-       (.CI(1'b0),
-        .CO({uart_transmitter_output_reg_i_34_n_0,uart_transmitter_output_reg_i_34_n_1,uart_transmitter_output_reg_i_34_n_2,uart_transmitter_output_reg_i_34_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,uart_transmitter_output_i_44_n_0}),
-        .O(NLW_uart_transmitter_output_reg_i_34_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_45_n_0,uart_transmitter_output_i_46_n_0,uart_transmitter_output_i_47_n_0,uart_transmitter_output_i_48_n_0}));
+        .DI({1'b0,1'b0,1'b0,uart_transmitter_output_i_23_n_0}),
+        .O(NLW_uart_transmitter_output_reg_i_18_O_UNCONNECTED[3:0]),
+        .S({uart_transmitter_output_i_24_n_0,uart_transmitter_output_i_25_n_0,uart_transmitter_output_i_26_n_0,uart_transmitter_output_i_27_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 uart_transmitter_output_reg_i_4
-       (.CI(uart_transmitter_output_reg_i_7_n_0),
-        .CO({NLW_uart_transmitter_output_reg_i_4_CO_UNCONNECTED[3],uart_transmitter_output_reg_i_4_n_1,uart_transmitter_output_reg_i_4_n_2,uart_transmitter_output_reg_i_4_n_3}),
+       (.CI(uart_transmitter_output_reg_i_8_n_0),
+        .CO({p_4_in,uart_transmitter_output_reg_i_4_n_1,uart_transmitter_output_reg_i_4_n_2,uart_transmitter_output_reg_i_4_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,in22[31],1'b0,1'b0}),
+        .DI({\k_reg[31]_i_3_n_5 ,1'b0,1'b0,1'b0}),
         .O(NLW_uart_transmitter_output_reg_i_4_O_UNCONNECTED[3:0]),
-        .S({1'b0,uart_transmitter_output_i_8_n_0,uart_transmitter_output_i_9_n_0,uart_transmitter_output_i_10_n_0}));
+        .S({uart_transmitter_output_i_9_n_0,uart_transmitter_output_i_10_n_0,uart_transmitter_output_i_11_n_0,uart_transmitter_output_i_12_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_5
-       (.CI(uart_transmitter_output_reg_i_11_n_0),
-        .CO({p_4_in,uart_transmitter_output_reg_i_5_n_1,uart_transmitter_output_reg_i_5_n_2,uart_transmitter_output_reg_i_5_n_3}),
-        .CYINIT(1'b0),
-        .DI({in12[31],1'b0,1'b0,1'b0}),
-        .O(NLW_uart_transmitter_output_reg_i_5_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_12_n_0,uart_transmitter_output_i_13_n_0,uart_transmitter_output_i_14_n_0,uart_transmitter_output_i_15_n_0}));
-  (* COMPARATOR_THRESHOLD = "11" *) 
-  CARRY4 uart_transmitter_output_reg_i_7
-       (.CI(uart_transmitter_output_reg_i_19_n_0),
-        .CO({uart_transmitter_output_reg_i_7_n_0,uart_transmitter_output_reg_i_7_n_1,uart_transmitter_output_reg_i_7_n_2,uart_transmitter_output_reg_i_7_n_3}),
+  CARRY4 uart_transmitter_output_reg_i_8
+       (.CI(uart_transmitter_output_reg_i_13_n_0),
+        .CO({uart_transmitter_output_reg_i_8_n_0,uart_transmitter_output_reg_i_8_n_1,uart_transmitter_output_reg_i_8_n_2,uart_transmitter_output_reg_i_8_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_uart_transmitter_output_reg_i_7_O_UNCONNECTED[3:0]),
-        .S({uart_transmitter_output_i_20_n_0,uart_transmitter_output_i_21_n_0,uart_transmitter_output_i_22_n_0,uart_transmitter_output_i_23_n_0}));
+        .O(NLW_uart_transmitter_output_reg_i_8_O_UNCONNECTED[3:0]),
+        .S({uart_transmitter_output_i_14_n_0,uart_transmitter_output_i_15_n_0,uart_transmitter_output_i_16_n_0,uart_transmitter_output_i_17_n_0}));
 endmodule
 `ifndef GLBL
 `define GLBL

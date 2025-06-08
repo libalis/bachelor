@@ -11,7 +11,7 @@
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source bachelor_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1275.020 ; gain = 3.992 ; free physical = 2073 ; free virtual = 26743
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1276.770 ; gain = 5.961 ; free physical = 6013 ; free virtual = 28280
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.2/data/ip'.
@@ -27,20 +27,20 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 125952
+INFO: [Synth 8-7075] Helper process launched with PID 91762
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2056.953 ; gain = 404.746 ; free physical = 882 ; free virtual = 25601
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2056.703 ; gain = 404.715 ; free physical = 4916 ; free virtual = 27183
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'bachelor_wrapper' [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/hdl/bachelor_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'bachelor' [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/synth/bachelor.v:13]
-INFO: [Synth 8-6157] synthesizing module 'bachelor_COMBINED_OPERATIONS_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_COMBINED_OPERATIONS_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'bachelor_COMBINED_OPERATIONS_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_COMBINED_OPERATIONS_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'bachelor_UART_TRANSMITTER_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_UART_TRANSMITTER_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'bachelor_UART_TRANSMITTER_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_UART_TRANSMITTER_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'bachelor_UART_TRANSMITTER_1_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_UART_TRANSMITTER_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'bachelor_UART_TRANSMITTER_1_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_UART_TRANSMITTER_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'bachelor_vio_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_vio_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'bachelor_vio_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-125830-arch/realtime/bachelor_vio_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'bachelor_COMBINED_OPERATIONS_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_COMBINED_OPERATIONS_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bachelor_COMBINED_OPERATIONS_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_COMBINED_OPERATIONS_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'bachelor_UART_TRANSMITTER_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_UART_TRANSMITTER_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bachelor_UART_TRANSMITTER_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_UART_TRANSMITTER_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'bachelor_UART_TRANSMITTER_1_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_UART_TRANSMITTER_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bachelor_UART_TRANSMITTER_1_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_UART_TRANSMITTER_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'bachelor_vio_0_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_vio_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bachelor_vio_0_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/.Xil/Vivado-91713-arch/realtime/bachelor_vio_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'bachelor' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/synth/bachelor.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'bachelor_wrapper' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/hdl/bachelor_wrapper.v:13]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio_0'. This will prevent further optimization [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/synth/bachelor.v:91]
@@ -49,18 +49,18 @@ INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance '
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'UART_TRANSMITTER_1'. This will prevent further optimization [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/synth/bachelor.v:83]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'bachelor_i'. This will prevent further optimization [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/hdl/bachelor_wrapper.v:31]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2132.922 ; gain = 480.715 ; free physical = 793 ; free virtual = 25521
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2132.641 ; gain = 480.652 ; free physical = 4837 ; free virtual = 27105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2150.734 ; gain = 498.527 ; free physical = 779 ; free virtual = 25507
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2150.453 ; gain = 498.465 ; free physical = 4825 ; free virtual = 27093
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2150.734 ; gain = 498.527 ; free physical = 779 ; free virtual = 25507
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2150.453 ; gain = 498.465 ; free physical = 4825 ; free virtual = 27093
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2150.734 ; gain = 0.000 ; free physical = 783 ; free virtual = 25511
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2150.453 ; gain = 0.000 ; free physical = 4825 ; free virtual = 27093
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -85,22 +85,22 @@ Parsing XDC File [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/don
 Finished Parsing XDC File [/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.672 ; gain = 0.000 ; free physical = 774 ; free virtual = 25509
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.391 ; gain = 0.000 ; free physical = 4813 ; free virtual = 27081
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.707 ; gain = 0.000 ; free physical = 774 ; free virtual = 25509
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2223.426 ; gain = 0.000 ; free physical = 4812 ; free virtual = 27081
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 746 ; free virtual = 25511
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4812 ; free virtual = 27080
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 746 ; free virtual = 25511
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4812 ; free virtual = 27080
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -111,10 +111,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for bachelor_i/UART_TRANSMITTER_0. (c
 Applied set_property KEEP_HIERARCHY = SOFT for bachelor_i/UART_TRANSMITTER_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for bachelor_i/vio_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 746 ; free virtual = 25511
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4812 ; free virtual = 27080
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 743 ; free virtual = 25510
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4810 ; free virtual = 27079
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -137,25 +137,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 729 ; free virtual = 25509
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4807 ; free virtual = 27081
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 656 ; free virtual = 25461
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27081
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 656 ; free virtual = 25461
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27081
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 656 ; free virtual = 25461
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27081
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -173,37 +173,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 594 ; free virtual = 25426
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 594 ; free virtual = 25426
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 594 ; free virtual = 25426
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 594 ; free virtual = 25426
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 593 ; free virtual = 25425
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 593 ; free virtual = 25425
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -231,16 +231,16 @@ Report Cell Usage:
 |6     |OBUF                           |     3|
 +------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 593 ; free virtual = 25425
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2223.707 ; gain = 498.527 ; free physical = 593 ; free virtual = 25425
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.707 ; gain = 571.500 ; free physical = 593 ; free virtual = 25425
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2223.426 ; gain = 498.465 ; free physical = 4808 ; free virtual = 27083
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2223.426 ; gain = 571.438 ; free physical = 4808 ; free virtual = 27083
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2223.707 ; gain = 0.000 ; free physical = 669 ; free virtual = 25502
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.426 ; gain = 0.000 ; free physical = 5074 ; free virtual = 27349
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.707 ; gain = 0.000 ; free physical = 649 ; free virtual = 25485
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.426 ; gain = 0.000 ; free physical = 5077 ; free virtual = 27353
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -248,10 +248,10 @@ Synth Design complete | Checksum: 782c652b
 INFO: [Common 17-83] Releasing license: Synthesis
 39 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:26 . Memory (MB): peak = 2223.707 ; gain = 923.938 ; free physical = 649 ; free virtual = 25486
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1848.847; main = 1512.698; forked = 382.640
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3175.820; main = 2191.660; forked = 984.160
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.707 ; gain = 0.000 ; free physical = 657 ; free virtual = 25494
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:22 . Memory (MB): peak = 2223.426 ; gain = 922.906 ; free physical = 5077 ; free virtual = 27352
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1844.900; main = 1515.883; forked = 383.062
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3175.543; main = 2191.379; forked = 984.164
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2223.426 ; gain = 0.000 ; free physical = 5077 ; free virtual = 27352
 INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/synth_1/bachelor_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file bachelor_wrapper_utilization_synth.rpt -pb bachelor_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Jun  6 00:40:30 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun  8 01:03:03 2025...

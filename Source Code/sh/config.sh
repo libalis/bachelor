@@ -2,7 +2,7 @@
 CFLAGS=""
 
 decimal_input() {
-    DECIMAL_INPUT=$(dialog --title "Decimal input" --defaultno --yesno \
+    DECIMAL_INPUT=$(dialog --title "Decimal input" --yesno \
         "\nIs your input file in decimal format?" 10 70 3>&1 1>&2 2>&3)
     if [[ $? -eq 0 ]]; then
         if [ -n "$CFLAGS" ]; then
@@ -33,7 +33,7 @@ input_file() {
 }
 
 input_output() {
-    INPUT_OUTPUT=$(dialog --title "Input/output" --defaultno --yesno \
+    INPUT_OUTPUT=$(dialog --title "Input/output" --yesno \
         "\nDo you want to enable input and output files?" 10 70 3>&1 1>&2 2>&3)
     if [[ $? -eq 0 ]]; then
         if [ -n "$CFLAGS" ]; then
@@ -106,7 +106,7 @@ trits() {
 }
 
 x_dimension() {
-    X_DIMENSION=$(dialog --title "X dimension" --inputbox "\nPlease select your desired X dimension (>= 1):" 10 70 3 3>&1 1>&2 2>&3)
+    X_DIMENSION=$(dialog --title "X dimension" --inputbox "\nPlease select your desired X dimension (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
     if [[ $? -ne 0 || -z "$X_DIMENSION" || ! "$X_DIMENSION" =~ ^[1-9]+[0-9]*$ ]]; then
         exit
     elif [ -n "$CFLAGS" ]; then
@@ -118,7 +118,7 @@ x_dimension() {
 }
 
 y_dimension() {
-    Y_DIMENSION=$(dialog --title "Y dimension" --inputbox "\nPlease select your desired Y dimension (>= 1):" 10 70 4 3>&1 1>&2 2>&3)
+    Y_DIMENSION=$(dialog --title "Y dimension" --inputbox "\nPlease select your desired Y dimension (>= 1):" 10 70 3 3>&1 1>&2 2>&3)
     if [[ $? -ne 0 || -z "$Y_DIMENSION" || ! "$Y_DIMENSION" =~ ^[1-9]+[0-9]*$ ]]; then
         exit
     elif [ -n "$CFLAGS" ]; then

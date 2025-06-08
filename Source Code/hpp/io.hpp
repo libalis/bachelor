@@ -67,7 +67,7 @@
                             } else {
                                 m_b<T>[i][j] = zero;
                             }
-                            bool isNegative;
+                            bool isNegative = 0;
                             for(char value : string(token)) {
                                 switch(value) {
                                     case '-':
@@ -109,30 +109,29 @@
             inline void read_vector(int y) {
                 btint<T> zero = btint<T>().from_int(0);
                 string line;
-                getline(input_dat, line);
-                char *token = strtok(&line[0], " \n");
-                int j = 0;
-                while(j < y) {
+                int i = 0;
+                while(i < y) {
+                    getline(input_dat, line);
+                    char *token = strtok(&line[0], " \n");
                     #ifdef DECIMAL_INPUT
-                        v<T>[j] = btint<T>().from_int(stoi(string(token)));
+                        v<T>[i] = btint<T>().from_int(stoi(string(token)));
                     #else
-                        v<T>[j] = zero;
-                        bool isNegative;
+                        v<T>[i] = zero;
+                        bool isNegative = 0;
                         for(char value : string(token)) {
                             switch(value) {
                                 case '-':
                                     isNegative = 1;
                                     break;
                                 default:
-                                    v<T>[j] = v<T>[j].shift_left(1);
-                                    v<T>[j] = v<T>[j].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
+                                    v<T>[i] = v<T>[i].shift_left(1);
+                                    v<T>[i] = v<T>[i].set_value(0, isNegative ? -stoi(string(1, value)) : stoi(string(1, value)));
                                     isNegative = 0;
                                     break;
                             }
                         }
                     #endif
-                    token = strtok(NULL, " \n");
-                    j++;
+                    i++;
                 }
             }
 
@@ -149,34 +148,57 @@
             }
 
         private:
-            inline void write_line(void) {
-                output_dat << "Result:" << endl;
-            }
-
             inline void write_matrix(int x, int y, btint<T> matrix_u[X_DIMENSION][X_DIMENSION], btint<T> matrix_d[X_DIMENSION][X_DIMENSION]) {
-                for(int i = 0; i < x; i++) {
-                    for(int j = 0; j < y; j++) {
-                        if(op == MATRIX_INVERSION) {
+                output_dat << "Result:" << endl;
+                if(op == MATRIX_INVERSION) {
+                    for(int i = 0; i < x; i++) {
+                        for(int j = 0; j < y; j++) {
                             if(matrix_d[i][j].to_int() == 0) {
                                 output_dat << fixed << setprecision(3) << setw(7) << 0.0f;
                             } else {
-                                output_dat << fixed << setprecision(3) << setw(7) << (float)matrix_u[i][j].to_int() / matrix_d[i][j].to_int();
+                                output_dat << fixed << setprecision(3) << setw(7) << (float)matrix_u[i][j].to_int() / (float)matrix_d[i][j].to_int();
                             }
-                        } else {
-                            output_dat << setw(3) << matrix_u[i][j].to_int();
+                            if(j != y - 1) {
+                                output_dat << " ";
+                            }
                         }
-                        if(j != y - 1) {
-                            output_dat << " ";
-                        }
+                        output_dat << endl;
                     }
-                    output_dat << endl;
+                    output_dat << endl << "Result U:" << endl;
+                    for(int i = 0; i < x; i++) {
+                        for(int j = 0; j < y; j++) {
+                            output_dat << fixed << setprecision(3) << setw(7) << (float)matrix_u[i][j].to_int();
+                            if(j != y - 1) {
+                                output_dat << " ";
+                            }
+                        }
+                        output_dat << endl;
+                    }
+                    output_dat << endl << "Result D:" << endl;
+                    for(int i = 0; i < x; i++) {
+                        for(int j = 0; j < y; j++) {
+                            output_dat << fixed << setprecision(3) << setw(7) << (float)matrix_d[i][j].to_int();
+                            if(j != y - 1) {
+                                output_dat << " ";
+                            }
+                        }
+                        output_dat << endl;
+                    }
+                } else {
+                    for(int i = 0; i < x; i++) {
+                        for(int j = 0; j < y; j++) {
+                            output_dat << setw(3) << matrix_u[i][j].to_int();
+                            if(j != y - 1) {
+                                output_dat << " ";
+                            }
+                        }
+                        output_dat << endl;
+                    }
                 }
-                output_dat << endl;
             }
 
         public:
             inline void write(btint<T> matrix_u[X_DIMENSION][X_DIMENSION], btint<T> matrix_d[X_DIMENSION][X_DIMENSION]) {
-                write_line();
                 if(op == MATRIX_INVERSION) {
                     write_matrix(MIN_DIMENSION, MIN_DIMENSION, matrix_u, matrix_d);
                 } else if(op == MATRIX_MATRIX_MULTIPLICATION) {

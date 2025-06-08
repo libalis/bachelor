@@ -3,16 +3,16 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Wed May  7 19:19:27 2025
-# Process ID: 158121
+# Start of session at: Sun Jun  8 01:00:10 2025
+# Process ID: 90906
 # Current directory: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_1_0_synth_1
 # Command line: vivado -log bachelor_UART_TRANSMITTER_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bachelor_UART_TRANSMITTER_1_0.tcl
 # Log file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_1_0_synth_1/bachelor_UART_TRANSMITTER_1_0.vds
 # Journal file: /home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_1_0_synth_1/vivado.jou
-# Running On: arch, OS: Linux, CPU Frequency: 2550.694 MHz, CPU Physical cores: 4, Host memory: 16490 MB
+# Running On: arch, OS: Linux, CPU Frequency: 2800.000 MHz, CPU Physical cores: 4, Host memory: 16490 MB
 #-----------------------------------------------------------
 source bachelor_UART_TRANSMITTER_1_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1317.434 ; gain = 0.023 ; free physical = 1125 ; free virtual = 25140
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1322.285 ; gain = 0.023 ; free physical = 5187 ; free virtual = 27342
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.2/data/ip'.
@@ -24,16 +24,16 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 158244
+INFO: [Synth 8-7075] Helper process launched with PID 91032
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1708.211 ; gain = 390.777 ; free physical = 488 ; free virtual = 23403
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1708.062 ; gain = 385.777 ; free physical = 3079 ; free virtual = 25233
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'bachelor_UART_TRANSMITTER_1_0' [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_1_0/synth/bachelor_UART_TRANSMITTER_1_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'UART_TRANSMITTER' [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:1]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:79]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:82]
 INFO: [Synth 8-6155] done synthesizing module 'UART_TRANSMITTER' (0#1) [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'bachelor_UART_TRANSMITTER_1_0' (0#1) [/home/robert/Downloads/Bachelor/Vivado/Vivado.gen/sources_1/bd/bachelor/ip/bachelor_UART_TRANSMITTER_1_0/synth/bachelor_UART_TRANSMITTER_1_0.v:53]
-WARNING: [Synth 8-6014] Unused sequential element input_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:226]
+WARNING: [Synth 8-6014] Unused sequential element input_overflow_reg was removed.  [/home/robert/Downloads/Bachelor/Source Code/build/uart_transmitter.v:268]
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[31] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[30] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_input_overflow[29] in module UART_TRANSMITTER is either unconnected or has no load
@@ -92,32 +92,21 @@ WARNING: [Synth 8-7129] Port uart_transmitter_column[9] in module UART_TRANSMITT
 WARNING: [Synth 8-7129] Port uart_transmitter_column[8] in module UART_TRANSMITTER is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_transmitter_column[7] in module UART_TRANSMITTER is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1784.180 ; gain = 466.746 ; free physical = 364 ; free virtual = 22807
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1785.000 ; gain = 462.715 ; free physical = 2831 ; free virtual = 24987
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1801.992 ; gain = 484.559 ; free physical = 437 ; free virtual = 22650
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1802.812 ; gain = 480.527 ; free physical = 2771 ; free virtual = 24929
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1809.996 ; gain = 492.562 ; free physical = 437 ; free virtual = 22649
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1810.816 ; gain = 488.531 ; free physical = 2771 ; free virtual = 24929
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'transmit_PROC_STATE_reg' in module 'UART_TRANSMITTER'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                  iSTATE |                              000 |                              000
-                 iSTATE3 |                              001 |                              001
-                 iSTATE1 |                              010 |                              010
-                 iSTATE0 |                              011 |                              011
-                 iSTATE2 |                              100 |                              100
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'transmit_PROC_STATE_reg' using encoding 'sequential' in module 'UART_TRANSMITTER'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1823.941 ; gain = 506.508 ; free physical = 343 ; free virtual = 22556
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1824.762 ; gain = 502.477 ; free physical = 2747 ; free virtual = 24906
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -126,18 +115,23 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 4     
+	   2 Input   24 Bit       Adders := 1     
 	   2 Input    7 Bit       Adders := 4     
 	   2 Input    5 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 6     
+	               24 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 7     
-	   5 Input   32 Bit        Muxes := 7     
-	   5 Input    3 Bit        Muxes := 1     
-	  13 Input    3 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 17    
-	   5 Input    1 Bit        Muxes := 6     
+	   6 Input   32 Bit        Muxes := 7     
+	   2 Input   32 Bit        Muxes := 9     
+	   6 Input   24 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 11    
+	   2 Input    3 Bit        Muxes := 8     
+	   2 Input    2 Bit        Muxes := 2     
+	   6 Input    1 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 33    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -200,20 +194,20 @@ WARNING: [Synth 8-7129] Port uart_transmitter_column[22] in module UART_TRANSMIT
 WARNING: [Synth 8-7129] Port uart_transmitter_column[21] in module UART_TRANSMITTER is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1974.207 ; gain = 656.773 ; free physical = 368 ; free virtual = 21466
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2251 ; free virtual = 24415
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1974.207 ; gain = 656.773 ; free physical = 370 ; free virtual = 21454
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2251 ; free virtual = 24415
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 350 ; free virtual = 21421
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2251 ; free virtual = 24415
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -231,37 +225,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21059
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2422 ; free virtual = 24584
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21059
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2422 ; free virtual = 24584
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2421 ; free virtual = 24583
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2421 ; free virtual = 24583
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2421 ; free virtual = 24583
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2421 ; free virtual = 24583
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -277,53 +271,53 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |CARRY4 |    44|
-|2     |LUT1   |    33|
-|3     |LUT2   |    49|
-|4     |LUT3   |     5|
-|5     |LUT4   |     1|
-|6     |LUT5   |    30|
-|7     |LUT6   |    25|
-|8     |FDRE   |   137|
-|9     |FDSE   |     1|
+|1     |CARRY4 |    50|
+|2     |LUT1   |    57|
+|3     |LUT2   |    53|
+|4     |LUT3   |    27|
+|5     |LUT4   |    12|
+|6     |LUT5   |    29|
+|7     |LUT6   |    54|
+|8     |MUXF7  |     7|
+|9     |MUXF8  |     2|
+|10    |FDRE   |   162|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-----------------+------+
 |      |Instance |Module           |Cells |
 +------+---------+-----------------+------+
-|1     |top      |                 |   325|
-|2     |  inst   |UART_TRANSMITTER |   325|
+|1     |top      |                 |   453|
+|2     |  inst   |UART_TRANSMITTER |   453|
 +------+---------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2421 ; free virtual = 24583
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 116 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.215 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1982.223 ; gain = 664.781 ; free physical = 185 ; free virtual = 21060
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.027 ; gain = 653.742 ; free physical = 2419 ; free virtual = 24581
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1976.035 ; gain = 653.742 ; free physical = 2419 ; free virtual = 24581
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1982.223 ; gain = 0.000 ; free physical = 457 ; free virtual = 21332
-INFO: [Netlist 29-17] Analyzing 44 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1981.965 ; gain = 0.000 ; free physical = 2689 ; free virtual = 24852
+INFO: [Netlist 29-17] Analyzing 59 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2113.961 ; gain = 0.000 ; free physical = 315 ; free virtual = 21191
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2114.680 ; gain = 0.000 ; free physical = 2560 ; free virtual = 24722
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 9c8b0e0
+Synth Design complete | Checksum: 8dae5ca1
 INFO: [Common 17-83] Releasing license: Synthesis
-25 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+23 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:29 . Memory (MB): peak = 2113.996 ; gain = 796.562 ; free physical = 312 ; free virtual = 21188
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1490.358; main = 1232.393; forked = 340.638
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2987.469; main = 2113.965; forked = 1013.258
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:19 . Memory (MB): peak = 2114.715 ; gain = 792.430 ; free physical = 2559 ; free virtual = 24721
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1383.640; main = 1261.756; forked = 330.939
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2849.680; main = 2114.684; forked = 984.195
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2470.934 ; gain = 0.000 ; free physical = 281 ; free virtual = 19610
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2473.652 ; gain = 0.000 ; free physical = 2084 ; free virtual = 24245
 INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_1_0_synth_1/bachelor_UART_TRANSMITTER_1_0.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2470.934 ; gain = 356.938 ; free physical = 288 ; free virtual = 19545
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bachelor_UART_TRANSMITTER_1_0, cache-ID = 9a5422cc1b3adb22
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2470.934 ; gain = 0.000 ; free physical = 301 ; free virtual = 19513
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2473.652 ; gain = 358.938 ; free physical = 2080 ; free virtual = 24242
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2473.652 ; gain = 0.000 ; free physical = 2080 ; free virtual = 24242
 INFO: [Common 17-1381] The checkpoint '/home/robert/Downloads/Bachelor/Vivado/Vivado.runs/bachelor_UART_TRANSMITTER_1_0_synth_1/bachelor_UART_TRANSMITTER_1_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file bachelor_UART_TRANSMITTER_1_0_utilization_synth.rpt -pb bachelor_UART_TRANSMITTER_1_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May  7 19:20:28 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun  8 01:00:45 2025...

@@ -1,8 +1,6 @@
 # Bachelor
 ## Topic
-Implementierung eines synthesefähigen KI-Beschleunigers auf der Basis Systolischer Arrays in SystemC
-
-(Implementation of a synthesis-capable AI accelerator based on systolic arrays in SystemC)
+Design and Implementation of a Synthesizable AI Accelerator Using Ternary Data Representation and Systolic Arrays in SystemC
 ## Description
 **Parameterized Systolic Arrays with Ternary Arithmetic**
 

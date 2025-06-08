@@ -26,6 +26,22 @@ void CONTROLLER<T>::control(void) {
     }
     index_b = 0;
     load_done = 0;
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < Y_DIMENSION; j++) {
+            controller_a_in[get_idx(i, j, Y_DIMENSION)].write(zero);
+            controller_c_in_u[get_idx(i, j, Y_DIMENSION)].write(zero);
+            controller_c_in_d[get_idx(i, j, Y_DIMENSION)].write(zero);
+            controller_s_in[get_idx(i, j, Y_DIMENSION)].write(0);
+        }
+        controller_s_mm[i].write(0);
+    }
+    controller_done.write(0);
+    for(int i = 0; i < X_DIMENSION; i++) {
+        for(int j = 0; j < X_DIMENSION; j++) {
+            controller_result_u[get_idx(i, j, X_DIMENSION)].write(zero);
+            controller_result_d[get_idx(i, j, X_DIMENSION)].write(zero);
+        }
+    }
     wait();
     while(1) {
         for(int i = 0; i < X_DIMENSION; i++) {

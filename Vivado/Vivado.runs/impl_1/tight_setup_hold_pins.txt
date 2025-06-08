@@ -1,13 +1,12 @@
 +===========================+===========================+================================================================================+
 | Launch Setup Clock        | Launch Hold Clock         | Pin                                                                            |
 +===========================+===========================+================================================================================+
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_1/multiplier_2/lock_reg[23]/D     |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_1/multiplier_2/lock_reg[12]/D     |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_1_2/cell_c_out_u_btint_a_reg[1]/D   |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_a_btint_a_reg[28]/D  |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_a_btint_a_reg[26]/D  |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_a_btint_a_reg[27]/D  |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_0/b_btint_b_reg[3]/D |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_2_1/multiplier_1/b_btint_a_reg[3]/D |
-| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/controller/result_u_btint_b_reg[56]/D    |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_3_2/multiplier_2/b_btint_a_reg[0]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_1/multiplier_2/b_btint_b_reg[0]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_0/multiplier_0/b_btint_b_reg[6]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_2/b_btint_b_reg[1]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_2/b_btint_b_reg[2]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_2/b_btint_b_reg[6]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_2/b_btint_b_reg[0]/D |
+| combined_operations_clock | combined_operations_clock | bachelor_i/COMBINED_OPERATIONS_0/inst/cell_0_2/multiplier_2/b_btint_b_reg[5]/D |
 +---------------------------+---------------------------+--------------------------------------------------------------------------------+

@@ -24,6 +24,8 @@ module UART_TRANSMITTER // "system.uart_transmitter"
 // Clocked THREAD: transmit (uart_transmitter.cpp:4:1) 
 
 // Thread-local variables
+logic [23:0] transmit_WAIT_N_COUNTER;
+logic [23:0] transmit_WAIT_N_COUNTER_next;
 logic uart_transmitter_output_next;
 logic signed [31:0] k;
 logic signed [31:0] k_next;
@@ -86,6 +88,7 @@ function void transmit_func;
     k_next = k;
     k_next0 = k0;
     uart_transmitter_output_next = uart_transmitter_output;
+    transmit_WAIT_N_COUNTER_next = transmit_WAIT_N_COUNTER;
     transmit_PROC_STATE_next = transmit_PROC_STATE;
     
     case (transmit_PROC_STATE)
@@ -98,14 +101,24 @@ function void transmit_func;
             i_next = 0;
             j_next = 8 - 1;
             uart_transmitter_output_next = 0;
+            transmit_WAIT_N_COUNTER_next = 10000000;
             transmit_PROC_STATE_next = 1; return;    // uart_transmitter.cpp:17:17;
         end
         1: begin
+            if (transmit_WAIT_N_COUNTER != 1) begin
+                transmit_WAIT_N_COUNTER_next = transmit_WAIT_N_COUNTER - 1;
+                transmit_PROC_STATE_next = 1; return;    // uart_transmitter.cpp:17:17;
+            end;
             k_next0 = 0;
             uart_transmitter_output_next = input_btint_a_next[i_next][0];
+            transmit_WAIT_N_COUNTER_next = 10000000;
             transmit_PROC_STATE_next = 2; return;    // uart_transmitter.cpp:20:21;
         end
         2: begin
+            if (transmit_WAIT_N_COUNTER != 1) begin
+                transmit_WAIT_N_COUNTER_next = transmit_WAIT_N_COUNTER - 1;
+                transmit_PROC_STATE_next = 2; return;    // uart_transmitter.cpp:20:21;
+            end;
             uart_transmitter_output_next = input_btint_b_next[i_next][0];
             input_index = 1;
             // Call shift_right() begin
@@ -140,30 +153,43 @@ function void transmit_func;
             TMP_0_btint_a = output_btint_a; TMP_0_btint_b = output_btint_b; TMP_0_overflow = output_overflow;
             // Call shift_right() end
             input_btint_a_next[i_next] = TMP_0_btint_a; input_btint_b_next[i_next] = TMP_0_btint_b; input_overflow_next[i_next] = TMP_0_overflow;
+            transmit_WAIT_N_COUNTER_next = 10000000;
             transmit_PROC_STATE_next = 3; return;    // uart_transmitter.cpp:23:21;
         end
         3: begin
+            if (transmit_WAIT_N_COUNTER != 1) begin
+                transmit_WAIT_N_COUNTER_next = transmit_WAIT_N_COUNTER - 1;
+                transmit_PROC_STATE_next = 3; return;    // uart_transmitter.cpp:23:21;
+            end;
             k_next0++;
             if (k_next0 < 4)
             begin
                 uart_transmitter_output_next = input_btint_a_next[i_next][0];
+                transmit_WAIT_N_COUNTER_next = 10000000;
                 transmit_PROC_STATE_next = 2; return;    // uart_transmitter.cpp:20:21;
             end
             k_next = 0;
             uart_transmitter_output_next = 1;
+            transmit_WAIT_N_COUNTER_next = 10000000;
             transmit_PROC_STATE_next = 4; return;    // uart_transmitter.cpp:27:21;
         end
         4: begin
+            if (transmit_WAIT_N_COUNTER != 1) begin
+                transmit_WAIT_N_COUNTER_next = transmit_WAIT_N_COUNTER - 1;
+                transmit_PROC_STATE_next = 4; return;    // uart_transmitter.cpp:27:21;
+            end;
             k_next++;
             if (k_next < 2)
             begin
                 uart_transmitter_output_next = 1;
+                transmit_WAIT_N_COUNTER_next = 10000000;
                 transmit_PROC_STATE_next = 4; return;    // uart_transmitter.cpp:27:21;
             end
             j_next = j_next - 4;
             if (j_next >= 0)
             begin
                 uart_transmitter_output_next = 0;
+                transmit_WAIT_N_COUNTER_next = 10000000;
                 transmit_PROC_STATE_next = 1; return;    // uart_transmitter.cpp:17:17;
             end
             i_next++;
@@ -171,6 +197,7 @@ function void transmit_func;
             begin
                 j_next = 8 - 1;
                 uart_transmitter_output_next = 0;
+                transmit_WAIT_N_COUNTER_next = 10000000;
                 transmit_PROC_STATE_next = 1; return;    // uart_transmitter.cpp:17:17;
             end
             column = uart_transmitter_column;
@@ -181,6 +208,7 @@ function void transmit_func;
             i_next = 0;
             j_next = 8 - 1;
             uart_transmitter_output_next = 0;
+            transmit_WAIT_N_COUNTER_next = 10000000;
             transmit_PROC_STATE_next = 1; return;    // uart_transmitter.cpp:17:17;
         end
     endcase
@@ -192,8 +220,10 @@ begin : transmit_ff
     if ( ~uart_transmitter_reset_active_low ) begin
         uart_transmitter_output <= 1;
         transmit_PROC_STATE <= 0;    // uart_transmitter.cpp:8:5;
+        transmit_WAIT_N_COUNTER <= 0;
     end
     else begin
+        transmit_WAIT_N_COUNTER <= transmit_WAIT_N_COUNTER_next;
         uart_transmitter_output <= uart_transmitter_output_next;
         k <= k_next;
         j <= j_next;

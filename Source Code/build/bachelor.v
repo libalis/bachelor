@@ -1052,6 +1052,13 @@ module CELL (
 		reg [15:0] output_btint_a_12;
 		reg [15:0] output_btint_b_12;
 		reg [1:0] output_overflow_12;
+		integer output_value_5;
+		reg [15:0] output_btint_a_13;
+		reg [15:0] output_btint_b_13;
+		reg [1:0] output_overflow_13;
+		reg [15:0] TMP_58_btint_a;
+		reg [15:0] TMP_58_btint_b;
+		reg [1:0] TMP_58_overflow;
 		reg [15:0] TMP_57_btint_a;
 		reg [15:0] TMP_57_btint_b;
 		reg [1:0] TMP_57_overflow;
@@ -1172,6 +1179,13 @@ module CELL (
 			output_btint_a_12 = 0;
 			output_btint_b_12 = 0;
 			output_overflow_12 = 0;
+			output_value_5 = 0;
+			output_btint_a_13 = 0;
+			output_btint_b_13 = 0;
+			output_overflow_13 = 0;
+			TMP_58_btint_a = 0;
+			TMP_58_btint_b = 0;
+			TMP_58_overflow = 0;
 			TMP_57_btint_a = 0;
 			TMP_57_btint_b = 0;
 			TMP_57_overflow = 0;
@@ -2331,7 +2345,32 @@ module CELL (
 				output_overflow_12 = 0;
 				output_btint_a_12 = {output_btint_a_11, low_btint_a};
 				output_btint_b_12 = {output_btint_b_11, low_btint_b};
-				output_overflow_12 = output_overflow_11;
+				output_value_5 = ((output_overflow_11 == 1) || (low_overflow == 1) ? 1 : 0);
+				output_btint_a_13 = 0;
+				output_btint_b_13 = 0;
+				output_overflow_13 = 0;
+				output_btint_a_13 = output_btint_a_12;
+				output_btint_b_13 = output_btint_b_12;
+				output_overflow_13 = output_overflow_12;
+				case (output_value_5)
+					-1: begin
+						output_overflow_13[0] = 0;
+						output_overflow_13[1] = 0;
+					end
+					0: begin
+						output_overflow_13[0] = 0;
+						output_overflow_13[1] = 1;
+					end
+					1: begin
+						output_overflow_13[0] = 1;
+						output_overflow_13[1] = 1;
+					end
+					default:
+						;
+				endcase
+				TMP_58_btint_a = output_btint_a_13;
+				TMP_58_btint_b = output_btint_b_13;
+				TMP_58_overflow = output_overflow_13;
 				TMP_57_btint_a = output_btint_a_12;
 				TMP_57_btint_b = output_btint_b_12;
 				TMP_57_overflow = output_overflow_12;
@@ -3220,19 +3259,26 @@ module MULTIPLIER (
 		reg [15:0] output_btint_a_6;
 		reg [15:0] output_btint_b_6;
 		reg [1:0] output_overflow_6;
-		reg [15:0] TMP_19_btint_a;
-		reg [15:0] TMP_19_btint_b;
-		reg [1:0] TMP_19_overflow;
-		integer TMP_20;
-		integer product_index;
-		integer TMP_21;
-		integer product_value;
+		integer output_value_3;
 		reg [15:0] output_btint_a_7;
 		reg [15:0] output_btint_b_7;
 		reg [1:0] output_overflow_7;
-		reg [15:0] TMP_22_btint_a;
-		reg [15:0] TMP_22_btint_b;
-		reg [1:0] TMP_22_overflow;
+		reg [15:0] TMP_20_btint_a;
+		reg [15:0] TMP_20_btint_b;
+		reg [1:0] TMP_20_overflow;
+		reg [15:0] TMP_19_btint_a;
+		reg [15:0] TMP_19_btint_b;
+		reg [1:0] TMP_19_overflow;
+		integer TMP_21;
+		integer product_index;
+		integer TMP_22;
+		integer product_value;
+		reg [15:0] output_btint_a_8;
+		reg [15:0] output_btint_b_8;
+		reg [1:0] output_overflow_8;
+		reg [15:0] TMP_23_btint_a;
+		reg [15:0] TMP_23_btint_b;
+		reg [1:0] TMP_23_overflow;
 		begin
 			TMP_10 = 0;
 			input_a_output_v = 0;
@@ -3271,19 +3317,26 @@ module MULTIPLIER (
 			output_btint_a_6 = 0;
 			output_btint_b_6 = 0;
 			output_overflow_6 = 0;
-			TMP_19_btint_a = 0;
-			TMP_19_btint_b = 0;
-			TMP_19_overflow = 0;
-			TMP_20 = 0;
-			product_index = 0;
-			TMP_21 = 0;
-			product_value = 0;
+			output_value_3 = 0;
 			output_btint_a_7 = 0;
 			output_btint_b_7 = 0;
 			output_overflow_7 = 0;
-			TMP_22_btint_a = 0;
-			TMP_22_btint_b = 0;
-			TMP_22_overflow = 0;
+			TMP_20_btint_a = 0;
+			TMP_20_btint_b = 0;
+			TMP_20_overflow = 0;
+			TMP_19_btint_a = 0;
+			TMP_19_btint_b = 0;
+			TMP_19_overflow = 0;
+			TMP_21 = 0;
+			product_index = 0;
+			TMP_22 = 0;
+			product_value = 0;
+			output_btint_a_8 = 0;
+			output_btint_b_8 = 0;
+			output_overflow_8 = 0;
+			TMP_23_btint_a = 0;
+			TMP_23_btint_b = 0;
+			TMP_23_overflow = 0;
 			a_old_btint_a_next = a_old_btint_a;
 			a_old_btint_b_next = a_old_btint_b;
 			adder_subtractor_b_btint_a_next = adder_subtractor_b_btint_a;
@@ -3447,7 +3500,32 @@ module MULTIPLIER (
 				output_overflow_6 = 0;
 				output_btint_a_6 = {a_btint_a, low_btint_a};
 				output_btint_b_6 = {a_btint_b, low_btint_b};
-				output_overflow_6 = a_overflow;
+				output_value_3 = ((a_overflow == 1) || (low_overflow == 1) ? 1 : 0);
+				output_btint_a_7 = 0;
+				output_btint_b_7 = 0;
+				output_overflow_7 = 0;
+				output_btint_a_7 = output_btint_a_6;
+				output_btint_b_7 = output_btint_b_6;
+				output_overflow_7 = output_overflow_6;
+				case (output_value_3)
+					-1: begin
+						output_overflow_7[0] = 0;
+						output_overflow_7[1] = 0;
+					end
+					0: begin
+						output_overflow_7[0] = 0;
+						output_overflow_7[1] = 1;
+					end
+					1: begin
+						output_overflow_7[0] = 1;
+						output_overflow_7[1] = 1;
+					end
+					default:
+						;
+				endcase
+				TMP_20_btint_a = output_btint_a_7;
+				TMP_20_btint_b = output_btint_b_7;
+				TMP_20_overflow = output_overflow_7;
 				TMP_19_btint_a = output_btint_a_6;
 				TMP_19_btint_b = output_btint_b_6;
 				TMP_19_overflow = output_overflow_6;
@@ -3459,39 +3537,39 @@ module MULTIPLIER (
 					for (i_7 = 8; i_7 < 16; i_7 = i_7 + 1)
 						begin
 							product_index = i_7;
-							TMP_20 = (product_btint_a[product_index] + product_btint_b[product_index]) - 1;
-							if (|TMP_20) begin
+							TMP_21 = (product_btint_a[product_index] + product_btint_b[product_index]) - 1;
+							if (|TMP_21) begin
 								product_index = i_7;
-								TMP_21 = (product_btint_a[product_index] + product_btint_b[product_index]) - 1;
-								product_value = TMP_21;
-								output_btint_a_7 = 0;
-								output_btint_b_7 = 0;
-								output_overflow_7 = 0;
-								output_btint_a_7 = product_btint_a;
-								output_btint_b_7 = product_btint_b;
-								output_overflow_7 = product_overflow;
+								TMP_22 = (product_btint_a[product_index] + product_btint_b[product_index]) - 1;
+								product_value = TMP_22;
+								output_btint_a_8 = 0;
+								output_btint_b_8 = 0;
+								output_overflow_8 = 0;
+								output_btint_a_8 = product_btint_a;
+								output_btint_b_8 = product_btint_b;
+								output_overflow_8 = product_overflow;
 								case (product_value)
 									-1: begin
-										output_overflow_7[0] = 0;
-										output_overflow_7[1] = 0;
+										output_overflow_8[0] = 0;
+										output_overflow_8[1] = 0;
 									end
 									0: begin
-										output_overflow_7[0] = 0;
-										output_overflow_7[1] = 1;
+										output_overflow_8[0] = 0;
+										output_overflow_8[1] = 1;
 									end
 									1: begin
-										output_overflow_7[0] = 1;
-										output_overflow_7[1] = 1;
+										output_overflow_8[0] = 1;
+										output_overflow_8[1] = 1;
 									end
 									default:
 										;
 								endcase
-								TMP_22_btint_a = output_btint_a_7;
-								TMP_22_btint_b = output_btint_b_7;
-								TMP_22_overflow = output_overflow_7;
-								product_btint_a = TMP_22_btint_a;
-								product_btint_b = TMP_22_btint_b;
-								product_overflow = TMP_22_overflow;
+								TMP_23_btint_a = output_btint_a_8;
+								TMP_23_btint_b = output_btint_b_8;
+								TMP_23_overflow = output_overflow_8;
+								product_btint_a = TMP_23_btint_a;
+								product_btint_b = TMP_23_btint_b;
+								product_overflow = TMP_23_overflow;
 							end
 						end
 				end
@@ -5828,6 +5906,24 @@ module CONTROLLER (
 	assign controller_result_d_overflow15 = controller_result_d_overflow[0+:2];
 	reg [5:0] control_WAIT_N_COUNTER;
 	reg [5:0] control_WAIT_N_COUNTER_next;
+	reg [95:0] controller_a_in_btint_a_next;
+	reg [95:0] controller_a_in_btint_b_next;
+	reg [23:0] controller_a_in_overflow_next;
+	reg [95:0] controller_c_in_u_btint_a_next;
+	reg [95:0] controller_c_in_u_btint_b_next;
+	reg [23:0] controller_c_in_u_overflow_next;
+	reg [95:0] controller_c_in_d_btint_a_next;
+	reg [95:0] controller_c_in_d_btint_b_next;
+	reg [23:0] controller_c_in_d_overflow_next;
+	reg [0:11] controller_s_in_next;
+	reg [0:3] controller_s_mm_next;
+	reg controller_done_next;
+	reg [127:0] controller_result_u_btint_a_next;
+	reg [127:0] controller_result_u_btint_b_next;
+	reg [31:0] controller_result_u_overflow_next;
+	reg [127:0] controller_result_d_btint_a_next;
+	reg [127:0] controller_result_d_btint_b_next;
+	reg [31:0] controller_result_d_overflow_next;
 	reg [127:0] result_u_btint_a;
 	reg [127:0] result_u_btint_a_next;
 	reg [127:0] result_u_btint_b;
@@ -5862,24 +5958,6 @@ module CONTROLLER (
 	reg [7:0] one_btint_b_next;
 	reg [1:0] one_overflow;
 	reg [1:0] one_overflow_next;
-	reg [127:0] controller_result_u_btint_a_next;
-	reg [127:0] controller_result_u_btint_b_next;
-	reg [31:0] controller_result_u_overflow_next;
-	reg [127:0] controller_result_d_btint_a_next;
-	reg [127:0] controller_result_d_btint_b_next;
-	reg [31:0] controller_result_d_overflow_next;
-	reg [0:3] controller_s_mm_next;
-	reg controller_done_next;
-	reg [0:11] controller_s_in_next;
-	reg [95:0] controller_c_in_u_btint_a_next;
-	reg [95:0] controller_c_in_u_btint_b_next;
-	reg [23:0] controller_c_in_u_overflow_next;
-	reg [95:0] controller_c_in_d_btint_a_next;
-	reg [95:0] controller_c_in_d_btint_b_next;
-	reg [23:0] controller_c_in_d_overflow_next;
-	reg [95:0] controller_a_in_btint_a_next;
-	reg [95:0] controller_a_in_btint_b_next;
-	reg [23:0] controller_a_in_overflow_next;
 	reg control_PROC_STATE;
 	reg control_PROC_STATE_next;
 	task control_func;
@@ -5962,134 +6040,134 @@ module CONTROLLER (
 			case (control_PROC_STATE)
 				0: begin
 					begin : sv2v_autoblock_1
-						integer i_4;
-						for (i_4 = 0; i_4 < 4; i_4 = i_4 + 1)
+						integer i_6;
+						for (i_6 = 0; i_6 < 4; i_6 = i_6 + 1)
 							begin : sv2v_autoblock_2
-								integer j_1;
-								for (j_1 = 0; j_1 < 4; j_1 = j_1 + 1)
+								integer j_3;
+								for (j_3 = 0; j_3 < 4; j_3 = j_3 + 1)
 									begin
-										controller_result_u_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_u_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-										controller_result_u_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_u_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-										controller_result_u_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2] = result_u_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2];
-										controller_result_d_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_d_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-										controller_result_d_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_d_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-										controller_result_d_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2] = result_d_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2];
+										controller_result_u_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_u_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+										controller_result_u_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_u_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+										controller_result_u_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2] = result_u_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2];
+										controller_result_d_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_d_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+										controller_result_d_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_d_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+										controller_result_d_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2] = result_d_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2];
 									end
 							end
 					end
 					if (controller_op == 0) begin
 						begin : sv2v_autoblock_3
-							integer i_5;
-							for (i_5 = 0; i_5 < 3; i_5 = i_5 + 1)
-								if (steps_next >= (4 - i_5))
-									controller_s_mm_next[i_5] = 1;
+							integer i_7;
+							for (i_7 = 0; i_7 < 3; i_7 = i_7 + 1)
+								if (steps_next >= (4 - i_7))
+									controller_s_mm_next[i_7] = 1;
 								else
-									controller_s_mm_next[i_5] = 0;
+									controller_s_mm_next[i_7] = 0;
 						end
 						if (steps_next >= 8)
 							controller_done_next = 1;
 						else
 							controller_done_next = 0;
 						begin : sv2v_autoblock_4
-							integer i_6;
-							for (i_6 = 0; i_6 < 4; i_6 = i_6 + 1)
+							integer i_8;
+							for (i_8 = 0; i_8 < 4; i_8 = i_8 + 1)
 								begin : sv2v_autoblock_5
-									integer j_2;
-									for (j_2 = 0; j_2 < 3; j_2 = j_2 + 1)
-										if ((j_2 == 0) && (j_2 < 3)) begin
+									integer j_4;
+									for (j_4 = 0; j_4 < 3; j_4 = j_4 + 1)
+										if ((j_4 == 0) && (j_4 < 3)) begin
 											if (steps_next != 2) begin
-												controller_s_in_next[(i_6 * 3) + j_2] = 0;
-												controller_c_in_u_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_a_next;
-												controller_c_in_u_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_b_next;
-												controller_c_in_u_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = zero_overflow_next;
-												controller_c_in_d_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_a_next;
-												controller_c_in_d_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_b_next;
-												controller_c_in_d_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = zero_overflow_next;
+												controller_s_in_next[(i_8 * 3) + j_4] = 0;
+												controller_c_in_u_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_a_next;
+												controller_c_in_u_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_b_next;
+												controller_c_in_u_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = zero_overflow_next;
+												controller_c_in_d_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_a_next;
+												controller_c_in_d_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_b_next;
+												controller_c_in_d_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = zero_overflow_next;
 											end
 											else begin
-												controller_s_in_next[(i_6 * 3) + j_2] = 1;
-												controller_c_in_u_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_a_next;
-												controller_c_in_u_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_b_next;
-												controller_c_in_u_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = one_overflow_next;
-												controller_c_in_d_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_a_next;
-												controller_c_in_d_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_b_next;
-												controller_c_in_d_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = one_overflow_next;
+												controller_s_in_next[(i_8 * 3) + j_4] = 1;
+												controller_c_in_u_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_a_next;
+												controller_c_in_u_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_b_next;
+												controller_c_in_u_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = one_overflow_next;
+												controller_c_in_d_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_a_next;
+												controller_c_in_d_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_b_next;
+												controller_c_in_d_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = one_overflow_next;
 											end
 										end
 										else begin
-											controller_c_in_u_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_u_btint_a[(i_6 * 3) + (j_2 - 1)];
-											controller_c_in_u_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_u_btint_b[(i_6 * 3) + (j_2 - 1)];
-											controller_c_in_u_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = controller_c_out_u_overflow[(i_6 * 3) + (j_2 - 1)];
-											controller_c_in_d_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_d_btint_a[(i_6 * 3) + (j_2 - 1)];
-											controller_c_in_d_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_d_btint_b[(i_6 * 3) + (j_2 - 1)];
-											controller_c_in_d_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = controller_c_out_d_overflow[(i_6 * 3) + (j_2 - 1)];
+											controller_c_in_u_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_u_btint_a[(i_8 * 3) + (j_4 - 1)];
+											controller_c_in_u_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_u_btint_b[(i_8 * 3) + (j_4 - 1)];
+											controller_c_in_u_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = controller_c_out_u_overflow[(i_8 * 3) + (j_4 - 1)];
+											controller_c_in_d_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_d_btint_a[(i_8 * 3) + (j_4 - 1)];
+											controller_c_in_d_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_d_btint_b[(i_8 * 3) + (j_4 - 1)];
+											controller_c_in_d_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = controller_c_out_d_overflow[(i_8 * 3) + (j_4 - 1)];
 										end
 								end
 						end
 						begin : sv2v_autoblock_6
-							integer i_7;
-							for (i_7 = 0; i_7 < 4; i_7 = i_7 + 1)
-								if (i_7 == 0) begin
+							integer i_9;
+							for (i_9 = 0; i_9 < 4; i_9 = i_9 + 1)
+								if (i_9 == 0) begin
 									k = 0;
 									begin : sv2v_autoblock_7
-										integer j_3;
-										for (j_3 = 0; j_3 < 3; j_3 = j_3 + 1)
+										integer j_5;
+										for (j_5 = 0; j_5 < 3; j_5 = j_5 + 1)
 											begin
-												if ((steps_next >= (0 + k)) && (steps_next < (3 + j_3))) begin
-													controller_a_in_btint_a_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = controller_m_a_btint_a[(((2 - steps_next) + j_3) * 3) + (2 - j_3)];
-													controller_a_in_btint_b_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = controller_m_a_btint_b[(((2 - steps_next) + j_3) * 3) + (2 - j_3)];
-													controller_a_in_overflow_next[(11 - ((i_7 * 3) + j_3)) * 2+:2] = controller_m_a_overflow[(((2 - steps_next) + j_3) * 3) + (2 - j_3)];
+												if ((steps_next >= (0 + k)) && (steps_next < (3 + j_5))) begin
+													controller_a_in_btint_a_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = controller_m_a_btint_a[(((2 - steps_next) + j_5) * 3) + (2 - j_5)];
+													controller_a_in_btint_b_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = controller_m_a_btint_b[(((2 - steps_next) + j_5) * 3) + (2 - j_5)];
+													controller_a_in_overflow_next[(11 - ((i_9 * 3) + j_5)) * 2+:2] = controller_m_a_overflow[(((2 - steps_next) + j_5) * 3) + (2 - j_5)];
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = zero_btint_a_next;
-													controller_a_in_btint_b_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = zero_btint_b_next;
-													controller_a_in_overflow_next[(11 - ((i_7 * 3) + j_3)) * 2+:2] = zero_overflow_next;
+													controller_a_in_btint_a_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = zero_btint_a_next;
+													controller_a_in_btint_b_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = zero_btint_b_next;
+													controller_a_in_overflow_next[(11 - ((i_9 * 3) + j_5)) * 2+:2] = zero_overflow_next;
 												end
 												k = k + 2;
 											end
 									end
 								end
 								else begin : sv2v_autoblock_8
-									integer j_4;
-									for (j_4 = 0; j_4 < 3; j_4 = j_4 + 1)
+									integer j_6;
+									for (j_6 = 0; j_6 < 3; j_6 = j_6 + 1)
 										begin
-											controller_a_in_btint_a_next[(11 - ((i_7 * 3) + j_4)) * 8+:8] = controller_a_out_btint_a[((i_7 - 1) * 3) + j_4];
-											controller_a_in_btint_b_next[(11 - ((i_7 * 3) + j_4)) * 8+:8] = controller_a_out_btint_b[((i_7 - 1) * 3) + j_4];
-											controller_a_in_overflow_next[(11 - ((i_7 * 3) + j_4)) * 2+:2] = controller_a_out_overflow[((i_7 - 1) * 3) + j_4];
+											controller_a_in_btint_a_next[(11 - ((i_9 * 3) + j_6)) * 8+:8] = controller_a_out_btint_a[((i_9 - 1) * 3) + j_6];
+											controller_a_in_btint_b_next[(11 - ((i_9 * 3) + j_6)) * 8+:8] = controller_a_out_btint_b[((i_9 - 1) * 3) + j_6];
+											controller_a_in_overflow_next[(11 - ((i_9 * 3) + j_6)) * 2+:2] = controller_a_out_overflow[((i_9 - 1) * 3) + j_6];
 										end
 								end
 						end
 						begin : sv2v_autoblock_9
-							integer i_8;
-							for (i_8 = 0; i_8 < 3; i_8 = i_8 + 1)
-								if ((steps_next >= 5) && (steps_next < (6 + i_8))) begin
-									result_u_btint_a_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_u_btint_a[(i_8 * 3) + 2];
-									result_u_btint_b_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_u_btint_b[(i_8 * 3) + 2];
-									result_u_overflow_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 2+:2] = controller_c_out_u_overflow[(i_8 * 3) + 2];
-									result_d_btint_a_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_d_btint_a[(i_8 * 3) + 2];
-									result_d_btint_b_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_d_btint_b[(i_8 * 3) + 2];
-									result_d_overflow_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 2+:2] = controller_c_out_d_overflow[(i_8 * 3) + 2];
+							integer i_10;
+							for (i_10 = 0; i_10 < 3; i_10 = i_10 + 1)
+								if ((steps_next >= 5) && (steps_next < (6 + i_10))) begin
+									result_u_btint_a_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_u_btint_a[(i_10 * 3) + 2];
+									result_u_btint_b_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_u_btint_b[(i_10 * 3) + 2];
+									result_u_overflow_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 2+:2] = controller_c_out_u_overflow[(i_10 * 3) + 2];
+									result_d_btint_a_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_d_btint_a[(i_10 * 3) + 2];
+									result_d_btint_b_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_d_btint_b[(i_10 * 3) + 2];
+									result_d_overflow_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 2+:2] = controller_c_out_d_overflow[(i_10 * 3) + 2];
 								end
 						end
 						begin : sv2v_autoblock_10
-							integer i_9;
-							for (i_9 = 1; i_9 < 3; i_9 = i_9 + 1)
+							integer i_11;
+							for (i_11 = 1; i_11 < 3; i_11 = i_11 + 1)
 								begin : sv2v_autoblock_11
-									integer j_5;
-									for (j_5 = 2 - i_9; j_5 < 2; j_5 = j_5 + 1)
+									integer j_7;
+									for (j_7 = 2 - i_11; j_7 < 2; j_7 = j_7 + 1)
 										begin
-											controller_s_in_next[(i_9 * 3) + (j_5 + 1)] = state_next[(i_9 * 4) + (j_5 + 1)];
-											state_next[(i_9 * 4) + (j_5 + 1)] = controller_s_out[(i_9 * 3) + j_5];
+											controller_s_in_next[(i_11 * 3) + (j_7 + 1)] = state_next[(i_11 * 4) + (j_7 + 1)];
+											state_next[(i_11 * 4) + (j_7 + 1)] = controller_s_out[(i_11 * 3) + j_7];
 										end
 								end
 						end
 						begin : sv2v_autoblock_12
-							integer i_10;
-							for (i_10 = 0; i_10 < 2; i_10 = i_10 + 1)
+							integer i_12;
+							for (i_12 = 0; i_12 < 2; i_12 = i_12 + 1)
 								begin : sv2v_autoblock_13
-									integer j_6;
-									for (j_6 = 0; j_6 < (2 - i_10); j_6 = j_6 + 1)
-										controller_s_in_next[(i_10 * 3) + (j_6 + 1)] = controller_s_out[(i_10 * 3) + j_6];
+									integer j_8;
+									for (j_8 = 0; j_8 < (2 - i_12); j_8 = j_8 + 1)
+										controller_s_in_next[(i_12 * 3) + (j_8 + 1)] = controller_s_out[(i_12 * 3) + j_8];
 								end
 						end
 						steps_next = steps_next + 1;
@@ -6100,62 +6178,62 @@ module CONTROLLER (
 						else
 							controller_done_next = 0;
 						begin : sv2v_autoblock_14
-							integer i_11;
-							for (i_11 = 0; i_11 < 4; i_11 = i_11 + 1)
+							integer i_13;
+							for (i_13 = 0; i_13 < 4; i_13 = i_13 + 1)
 								begin : sv2v_autoblock_15
-									integer j_7;
-									for (j_7 = 0; j_7 < 3; j_7 = j_7 + 1)
-										if (j_7 == 0) begin
-											controller_c_in_u_btint_a_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = zero_btint_a_next;
-											controller_c_in_u_btint_b_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = zero_btint_b_next;
-											controller_c_in_u_overflow_next[(11 - ((i_11 * 3) + j_7)) * 2+:2] = zero_overflow_next;
+									integer j_9;
+									for (j_9 = 0; j_9 < 3; j_9 = j_9 + 1)
+										if (j_9 == 0) begin
+											controller_c_in_u_btint_a_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = zero_btint_a_next;
+											controller_c_in_u_btint_b_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = zero_btint_b_next;
+											controller_c_in_u_overflow_next[(11 - ((i_13 * 3) + j_9)) * 2+:2] = zero_overflow_next;
 										end
 										else begin
-											controller_c_in_u_btint_a_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = controller_c_out_u_btint_a[(i_11 * 3) + (j_7 - 1)];
-											controller_c_in_u_btint_b_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = controller_c_out_u_btint_b[(i_11 * 3) + (j_7 - 1)];
-											controller_c_in_u_overflow_next[(11 - ((i_11 * 3) + j_7)) * 2+:2] = controller_c_out_u_overflow[(i_11 * 3) + (j_7 - 1)];
+											controller_c_in_u_btint_a_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = controller_c_out_u_btint_a[(i_13 * 3) + (j_9 - 1)];
+											controller_c_in_u_btint_b_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = controller_c_out_u_btint_b[(i_13 * 3) + (j_9 - 1)];
+											controller_c_in_u_overflow_next[(11 - ((i_13 * 3) + j_9)) * 2+:2] = controller_c_out_u_overflow[(i_13 * 3) + (j_9 - 1)];
 										end
 								end
 						end
 						begin : sv2v_autoblock_16
-							integer i_12;
-							for (i_12 = 0; i_12 < 4; i_12 = i_12 + 1)
-								if ((index_a_next[64+:32] >= (3 + i_12)) && (index_a_next[64+:32] < (7 + i_12))) begin
-									result_u_btint_a_next[(15 - ((((index_a_next[64+:32] - 3) - i_12) * 4) + i_12)) * 8+:8] = controller_c_out_u_btint_a[(i_12 * 3) + 2];
-									result_u_btint_b_next[(15 - ((((index_a_next[64+:32] - 3) - i_12) * 4) + i_12)) * 8+:8] = controller_c_out_u_btint_b[(i_12 * 3) + 2];
-									result_u_overflow_next[(15 - ((((index_a_next[64+:32] - 3) - i_12) * 4) + i_12)) * 2+:2] = controller_c_out_u_overflow[(i_12 * 3) + 2];
+							integer i_14;
+							for (i_14 = 0; i_14 < 4; i_14 = i_14 + 1)
+								if ((index_a_next[64+:32] >= (3 + i_14)) && (index_a_next[64+:32] < (7 + i_14))) begin
+									result_u_btint_a_next[(15 - ((((index_a_next[64+:32] - 3) - i_14) * 4) + i_14)) * 8+:8] = controller_c_out_u_btint_a[(i_14 * 3) + 2];
+									result_u_btint_b_next[(15 - ((((index_a_next[64+:32] - 3) - i_14) * 4) + i_14)) * 8+:8] = controller_c_out_u_btint_b[(i_14 * 3) + 2];
+									result_u_overflow_next[(15 - ((((index_a_next[64+:32] - 3) - i_14) * 4) + i_14)) * 2+:2] = controller_c_out_u_overflow[(i_14 * 3) + 2];
 								end
 						end
 						if (!load_done_next) begin
 							begin : sv2v_autoblock_17
-								integer i_13;
-								for (i_13 = 0; i_13 < 4; i_13 = i_13 + 1)
-									controller_s_mm_next[i_13] = 0;
+								integer i_15;
+								for (i_15 = 0; i_15 < 4; i_15 = i_15 + 1)
+									controller_s_mm_next[i_15] = 0;
 							end
 							begin : sv2v_autoblock_18
-								integer i_14;
-								for (i_14 = 0; i_14 < 4; i_14 = i_14 + 1)
+								integer i_16;
+								for (i_16 = 0; i_16 < 4; i_16 = i_16 + 1)
 									begin : sv2v_autoblock_19
-										integer j_8;
-										for (j_8 = 0; j_8 < 3; j_8 = j_8 + 1)
-											if (i_14 == 0) begin
-												controller_a_in_btint_a_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_m_b_btint_a[(j_8 * 4) + (3 - index_b_next)];
-												controller_a_in_btint_b_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_m_b_btint_b[(j_8 * 4) + (3 - index_b_next)];
-												controller_a_in_overflow_next[(11 - ((i_14 * 3) + j_8)) * 2+:2] = controller_m_b_overflow[(j_8 * 4) + (3 - index_b_next)];
+										integer j_10;
+										for (j_10 = 0; j_10 < 3; j_10 = j_10 + 1)
+											if (i_16 == 0) begin
+												controller_a_in_btint_a_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_m_b_btint_a[(j_10 * 4) + (3 - index_b_next)];
+												controller_a_in_btint_b_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_m_b_btint_b[(j_10 * 4) + (3 - index_b_next)];
+												controller_a_in_overflow_next[(11 - ((i_16 * 3) + j_10)) * 2+:2] = controller_m_b_overflow[(j_10 * 4) + (3 - index_b_next)];
 											end
 											else begin
-												controller_a_in_btint_a_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_a_out_btint_a[((i_14 - 1) * 3) + j_8];
-												controller_a_in_btint_b_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_a_out_btint_b[((i_14 - 1) * 3) + j_8];
-												controller_a_in_overflow_next[(11 - ((i_14 * 3) + j_8)) * 2+:2] = controller_a_out_overflow[((i_14 - 1) * 3) + j_8];
+												controller_a_in_btint_a_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_a_out_btint_a[((i_16 - 1) * 3) + j_10];
+												controller_a_in_btint_b_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_a_out_btint_b[((i_16 - 1) * 3) + j_10];
+												controller_a_in_overflow_next[(11 - ((i_16 * 3) + j_10)) * 2+:2] = controller_a_out_overflow[((i_16 - 1) * 3) + j_10];
 											end
 									end
 							end
 							if (index_b_next >= 3) begin
 								load_done_next = 1;
 								begin : sv2v_autoblock_20
-									integer i_15;
-									for (i_15 = 0; i_15 < 4; i_15 = i_15 + 1)
-										controller_s_mm_next[i_15] = 1;
+									integer i_17;
+									for (i_17 = 0; i_17 < 4; i_17 = i_17 + 1)
+										controller_s_mm_next[i_17] = 1;
 								end
 							end
 							else
@@ -6163,39 +6241,39 @@ module CONTROLLER (
 						end
 						else begin
 							begin : sv2v_autoblock_21
-								integer i_16;
-								for (i_16 = 0; i_16 < 4; i_16 = i_16 + 1)
-									controller_s_mm_next[i_16] = 0;
+								integer i_18;
+								for (i_18 = 0; i_18 < 4; i_18 = i_18 + 1)
+									controller_s_mm_next[i_18] = 0;
 							end
 							begin : sv2v_autoblock_22
-								integer i_17;
-								for (i_17 = 0; i_17 < 4; i_17 = i_17 + 1)
+								integer i_19;
+								for (i_19 = 0; i_19 < 4; i_19 = i_19 + 1)
 									begin : sv2v_autoblock_23
-										integer j_9;
-										for (j_9 = 0; j_9 < 3; j_9 = j_9 + 1)
-											if (i_17 == 0) begin
-												if ((index_a_next[(2 - j_9) * 32+:32] < 0) || (index_a_next[(2 - j_9) * 32+:32] > 3)) begin
-													controller_a_in_btint_a_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = zero_btint_a_next;
-													controller_a_in_btint_b_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = zero_btint_b_next;
-													controller_a_in_overflow_next[(11 - ((i_17 * 3) + j_9)) * 2+:2] = zero_overflow_next;
+										integer j_11;
+										for (j_11 = 0; j_11 < 3; j_11 = j_11 + 1)
+											if (i_19 == 0) begin
+												if ((index_a_next[(2 - j_11) * 32+:32] < 0) || (index_a_next[(2 - j_11) * 32+:32] > 3)) begin
+													controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = zero_btint_a_next;
+													controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = zero_btint_b_next;
+													controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_11)) * 2+:2] = zero_overflow_next;
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_9) * 32+:32] * 3) + j_9];
-													controller_a_in_btint_b_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_9) * 32+:32] * 3) + j_9];
-													controller_a_in_overflow_next[(11 - ((i_17 * 3) + j_9)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_9) * 32+:32] * 3) + j_9];
+													controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
+													controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
+													controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_11)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
 												end
 											end
 											else begin
-												controller_a_in_btint_a_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_a_out_btint_a[((i_17 - 1) * 3) + j_9];
-												controller_a_in_btint_b_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_a_out_btint_b[((i_17 - 1) * 3) + j_9];
-												controller_a_in_overflow_next[(11 - ((i_17 * 3) + j_9)) * 2+:2] = controller_a_out_overflow[((i_17 - 1) * 3) + j_9];
+												controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_a_out_btint_a[((i_19 - 1) * 3) + j_11];
+												controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_a_out_btint_b[((i_19 - 1) * 3) + j_11];
+												controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_11)) * 2+:2] = controller_a_out_overflow[((i_19 - 1) * 3) + j_11];
 											end
 									end
 							end
 							begin : sv2v_autoblock_24
-								integer i_18;
-								for (i_18 = 0; i_18 < 3; i_18 = i_18 + 1)
-									index_a_next[(2 - i_18) * 32+:32] = index_a_next[(2 - i_18) * 32+:32] + 1;
+								integer i_20;
+								for (i_20 = 0; i_20 < 3; i_20 = i_20 + 1)
+									index_a_next[(2 - i_20) * 32+:32] = index_a_next[(2 - i_20) * 32+:32] + 1;
 							end
 						end
 					end
@@ -6206,76 +6284,76 @@ module CONTROLLER (
 							controller_done_next = 0;
 						if (!load_done_next) begin
 							begin : sv2v_autoblock_25
-								integer i_19;
-								for (i_19 = 0; i_19 < 4; i_19 = i_19 + 1)
+								integer i_21;
+								for (i_21 = 0; i_21 < 4; i_21 = i_21 + 1)
 									begin : sv2v_autoblock_26
-										integer j_10;
-										for (j_10 = 0; j_10 < 3; j_10 = j_10 + 1)
-											if (i_19 == 0) begin
-												controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_v_btint_a[(2 - j_10) * 8+:8];
-												controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_v_btint_b[(2 - j_10) * 8+:8];
-												controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_10)) * 2+:2] = controller_v_overflow[(2 - j_10) * 2+:2];
+										integer j_12;
+										for (j_12 = 0; j_12 < 3; j_12 = j_12 + 1)
+											if (i_21 == 0) begin
+												controller_a_in_btint_a_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_v_btint_a[(2 - j_12) * 8+:8];
+												controller_a_in_btint_b_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_v_btint_b[(2 - j_12) * 8+:8];
+												controller_a_in_overflow_next[(11 - ((i_21 * 3) + j_12)) * 2+:2] = controller_v_overflow[(2 - j_12) * 2+:2];
 											end
 											else begin
-												controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_a_out_btint_a[((i_19 - 1) * 3) + j_10];
-												controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_a_out_btint_b[((i_19 - 1) * 3) + j_10];
-												controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_10)) * 2+:2] = controller_a_out_overflow[((i_19 - 1) * 3) + j_10];
+												controller_a_in_btint_a_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_a_out_btint_a[((i_21 - 1) * 3) + j_12];
+												controller_a_in_btint_b_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_a_out_btint_b[((i_21 - 1) * 3) + j_12];
+												controller_a_in_overflow_next[(11 - ((i_21 * 3) + j_12)) * 2+:2] = controller_a_out_overflow[((i_21 - 1) * 3) + j_12];
 											end
 									end
 							end
 							begin : sv2v_autoblock_27
-								integer i_20;
-								for (i_20 = 0; i_20 < 4; i_20 = i_20 + 1)
-									controller_s_mm_next[i_20] = 1;
+								integer i_22;
+								for (i_22 = 0; i_22 < 4; i_22 = i_22 + 1)
+									controller_s_mm_next[i_22] = 1;
 							end
 							load_done_next = 1;
 						end
 						else begin
 							begin : sv2v_autoblock_28
-								integer i_21;
-								for (i_21 = 0; i_21 < 4; i_21 = i_21 + 1)
-									controller_s_mm_next[i_21] = 0;
+								integer i_23;
+								for (i_23 = 0; i_23 < 4; i_23 = i_23 + 1)
+									controller_s_mm_next[i_23] = 0;
 							end
 							begin : sv2v_autoblock_29
-								integer i_22;
-								for (i_22 = 0; i_22 < 4; i_22 = i_22 + 1)
+								integer i_24;
+								for (i_24 = 0; i_24 < 4; i_24 = i_24 + 1)
 									begin : sv2v_autoblock_30
-										integer j_11;
-										for (j_11 = 0; j_11 < 3; j_11 = j_11 + 1)
-											if (i_22 == 0) begin
-												if ((index_a_next[(2 - j_11) * 32+:32] < 0) || (index_a_next[(2 - j_11) * 32+:32] > 3)) begin
-													controller_a_in_btint_a_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = zero_btint_a_next;
-													controller_a_in_btint_b_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = zero_btint_b_next;
-													controller_a_in_overflow_next[(11 - ((i_22 * 3) + j_11)) * 2+:2] = zero_overflow_next;
+										integer j_13;
+										for (j_13 = 0; j_13 < 3; j_13 = j_13 + 1)
+											if (i_24 == 0) begin
+												if ((index_a_next[(2 - j_13) * 32+:32] < 0) || (index_a_next[(2 - j_13) * 32+:32] > 3)) begin
+													controller_a_in_btint_a_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = zero_btint_a_next;
+													controller_a_in_btint_b_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = zero_btint_b_next;
+													controller_a_in_overflow_next[(11 - ((i_24 * 3) + j_13)) * 2+:2] = zero_overflow_next;
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
-													controller_a_in_btint_b_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
-													controller_a_in_overflow_next[(11 - ((i_22 * 3) + j_11)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
+													controller_a_in_btint_a_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_13) * 32+:32] * 3) + j_13];
+													controller_a_in_btint_b_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_13) * 32+:32] * 3) + j_13];
+													controller_a_in_overflow_next[(11 - ((i_24 * 3) + j_13)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_13) * 32+:32] * 3) + j_13];
 												end
 											end
 											else begin
-												controller_a_in_btint_a_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_a_out_btint_a[((i_22 - 1) * 3) + j_11];
-												controller_a_in_btint_b_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_a_out_btint_b[((i_22 - 1) * 3) + j_11];
-												controller_a_in_overflow_next[(11 - ((i_22 * 3) + j_11)) * 2+:2] = controller_a_out_overflow[((i_22 - 1) * 3) + j_11];
+												controller_a_in_btint_a_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_a_out_btint_a[((i_24 - 1) * 3) + j_13];
+												controller_a_in_btint_b_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_a_out_btint_b[((i_24 - 1) * 3) + j_13];
+												controller_a_in_overflow_next[(11 - ((i_24 * 3) + j_13)) * 2+:2] = controller_a_out_overflow[((i_24 - 1) * 3) + j_13];
 											end
 									end
 							end
 							begin : sv2v_autoblock_31
-								integer i_23;
-								for (i_23 = 0; i_23 < 4; i_23 = i_23 + 1)
+								integer i_25;
+								for (i_25 = 0; i_25 < 4; i_25 = i_25 + 1)
 									begin : sv2v_autoblock_32
-										integer j_12;
-										for (j_12 = 0; j_12 < 3; j_12 = j_12 + 1)
-											if (j_12 == 0) begin
-												controller_c_in_u_btint_a_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = zero_btint_a_next;
-												controller_c_in_u_btint_b_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = zero_btint_b_next;
-												controller_c_in_u_overflow_next[(11 - ((i_23 * 3) + j_12)) * 2+:2] = zero_overflow_next;
+										integer j_14;
+										for (j_14 = 0; j_14 < 3; j_14 = j_14 + 1)
+											if (j_14 == 0) begin
+												controller_c_in_u_btint_a_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = zero_btint_a_next;
+												controller_c_in_u_btint_b_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = zero_btint_b_next;
+												controller_c_in_u_overflow_next[(11 - ((i_25 * 3) + j_14)) * 2+:2] = zero_overflow_next;
 											end
 											else begin
-												controller_c_in_u_btint_a_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = controller_c_out_u_btint_a[(i_23 * 3) + (j_12 - 1)];
-												controller_c_in_u_btint_b_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = controller_c_out_u_btint_b[(i_23 * 3) + (j_12 - 1)];
-												controller_c_in_u_overflow_next[(11 - ((i_23 * 3) + j_12)) * 2+:2] = controller_c_out_u_overflow[(i_23 * 3) + (j_12 - 1)];
+												controller_c_in_u_btint_a_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = controller_c_out_u_btint_a[(i_25 * 3) + (j_14 - 1)];
+												controller_c_in_u_btint_b_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = controller_c_out_u_btint_b[(i_25 * 3) + (j_14 - 1)];
+												controller_c_in_u_overflow_next[(11 - ((i_25 * 3) + j_14)) * 2+:2] = controller_c_out_u_overflow[(i_25 * 3) + (j_14 - 1)];
 											end
 									end
 							end
@@ -6285,9 +6363,9 @@ module CONTROLLER (
 								result_u_overflow_next[(15 - (((index_a_next[0+:32] - 1) * 4) + 0)) * 2+:2] = controller_c_out_u_overflow[2];
 							end
 							begin : sv2v_autoblock_33
-								integer i_24;
-								for (i_24 = 0; i_24 < 3; i_24 = i_24 + 1)
-									index_a_next[(2 - i_24) * 32+:32] = index_a_next[(2 - i_24) * 32+:32] + 1;
+								integer i_26;
+								for (i_26 = 0; i_26 < 3; i_26 = i_26 + 1)
+									index_a_next[(2 - i_26) * 32+:32] = index_a_next[(2 - i_26) * 32+:32] + 1;
 							end
 						end
 					end
@@ -6303,134 +6381,134 @@ module CONTROLLER (
 					end
 					if (_sv2v_jump == 2'b00) begin
 						begin : sv2v_autoblock_34
-							integer i_4;
-							for (i_4 = 0; i_4 < 4; i_4 = i_4 + 1)
+							integer i_6;
+							for (i_6 = 0; i_6 < 4; i_6 = i_6 + 1)
 								begin : sv2v_autoblock_35
-									integer j_1;
-									for (j_1 = 0; j_1 < 4; j_1 = j_1 + 1)
+									integer j_3;
+									for (j_3 = 0; j_3 < 4; j_3 = j_3 + 1)
 										begin
-											controller_result_u_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_u_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-											controller_result_u_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_u_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-											controller_result_u_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2] = result_u_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2];
-											controller_result_d_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_d_btint_a_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-											controller_result_d_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8] = result_d_btint_b_next[(15 - ((i_4 * 4) + j_1)) * 8+:8];
-											controller_result_d_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2] = result_d_overflow_next[(15 - ((i_4 * 4) + j_1)) * 2+:2];
+											controller_result_u_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_u_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+											controller_result_u_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_u_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+											controller_result_u_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2] = result_u_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2];
+											controller_result_d_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_d_btint_a_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+											controller_result_d_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8] = result_d_btint_b_next[(15 - ((i_6 * 4) + j_3)) * 8+:8];
+											controller_result_d_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2] = result_d_overflow_next[(15 - ((i_6 * 4) + j_3)) * 2+:2];
 										end
 								end
 						end
 						if (controller_op == 0) begin
 							begin : sv2v_autoblock_36
-								integer i_5;
-								for (i_5 = 0; i_5 < 3; i_5 = i_5 + 1)
-									if (steps_next >= (4 - i_5))
-										controller_s_mm_next[i_5] = 1;
+								integer i_7;
+								for (i_7 = 0; i_7 < 3; i_7 = i_7 + 1)
+									if (steps_next >= (4 - i_7))
+										controller_s_mm_next[i_7] = 1;
 									else
-										controller_s_mm_next[i_5] = 0;
+										controller_s_mm_next[i_7] = 0;
 							end
 							if (steps_next >= 8)
 								controller_done_next = 1;
 							else
 								controller_done_next = 0;
 							begin : sv2v_autoblock_37
-								integer i_6;
-								for (i_6 = 0; i_6 < 4; i_6 = i_6 + 1)
+								integer i_8;
+								for (i_8 = 0; i_8 < 4; i_8 = i_8 + 1)
 									begin : sv2v_autoblock_38
-										integer j_2;
-										for (j_2 = 0; j_2 < 3; j_2 = j_2 + 1)
-											if ((j_2 == 0) && (j_2 < 3)) begin
+										integer j_4;
+										for (j_4 = 0; j_4 < 3; j_4 = j_4 + 1)
+											if ((j_4 == 0) && (j_4 < 3)) begin
 												if (steps_next != 2) begin
-													controller_s_in_next[(i_6 * 3) + j_2] = 0;
-													controller_c_in_u_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_a_next;
-													controller_c_in_u_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_b_next;
-													controller_c_in_u_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = zero_overflow_next;
-													controller_c_in_d_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_a_next;
-													controller_c_in_d_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = zero_btint_b_next;
-													controller_c_in_d_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = zero_overflow_next;
+													controller_s_in_next[(i_8 * 3) + j_4] = 0;
+													controller_c_in_u_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_a_next;
+													controller_c_in_u_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_b_next;
+													controller_c_in_u_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = zero_overflow_next;
+													controller_c_in_d_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_a_next;
+													controller_c_in_d_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = zero_btint_b_next;
+													controller_c_in_d_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = zero_overflow_next;
 												end
 												else begin
-													controller_s_in_next[(i_6 * 3) + j_2] = 1;
-													controller_c_in_u_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_a_next;
-													controller_c_in_u_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_b_next;
-													controller_c_in_u_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = one_overflow_next;
-													controller_c_in_d_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_a_next;
-													controller_c_in_d_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = one_btint_b_next;
-													controller_c_in_d_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = one_overflow_next;
+													controller_s_in_next[(i_8 * 3) + j_4] = 1;
+													controller_c_in_u_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_a_next;
+													controller_c_in_u_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_b_next;
+													controller_c_in_u_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = one_overflow_next;
+													controller_c_in_d_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_a_next;
+													controller_c_in_d_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = one_btint_b_next;
+													controller_c_in_d_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = one_overflow_next;
 												end
 											end
 											else begin
-												controller_c_in_u_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_u_btint_a[(i_6 * 3) + (j_2 - 1)];
-												controller_c_in_u_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_u_btint_b[(i_6 * 3) + (j_2 - 1)];
-												controller_c_in_u_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = controller_c_out_u_overflow[(i_6 * 3) + (j_2 - 1)];
-												controller_c_in_d_btint_a_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_d_btint_a[(i_6 * 3) + (j_2 - 1)];
-												controller_c_in_d_btint_b_next[(11 - ((i_6 * 3) + j_2)) * 8+:8] = controller_c_out_d_btint_b[(i_6 * 3) + (j_2 - 1)];
-												controller_c_in_d_overflow_next[(11 - ((i_6 * 3) + j_2)) * 2+:2] = controller_c_out_d_overflow[(i_6 * 3) + (j_2 - 1)];
+												controller_c_in_u_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_u_btint_a[(i_8 * 3) + (j_4 - 1)];
+												controller_c_in_u_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_u_btint_b[(i_8 * 3) + (j_4 - 1)];
+												controller_c_in_u_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = controller_c_out_u_overflow[(i_8 * 3) + (j_4 - 1)];
+												controller_c_in_d_btint_a_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_d_btint_a[(i_8 * 3) + (j_4 - 1)];
+												controller_c_in_d_btint_b_next[(11 - ((i_8 * 3) + j_4)) * 8+:8] = controller_c_out_d_btint_b[(i_8 * 3) + (j_4 - 1)];
+												controller_c_in_d_overflow_next[(11 - ((i_8 * 3) + j_4)) * 2+:2] = controller_c_out_d_overflow[(i_8 * 3) + (j_4 - 1)];
 											end
 									end
 							end
 							begin : sv2v_autoblock_39
-								integer i_7;
-								for (i_7 = 0; i_7 < 4; i_7 = i_7 + 1)
-									if (i_7 == 0) begin
+								integer i_9;
+								for (i_9 = 0; i_9 < 4; i_9 = i_9 + 1)
+									if (i_9 == 0) begin
 										k = 0;
 										begin : sv2v_autoblock_40
-											integer j_3;
-											for (j_3 = 0; j_3 < 3; j_3 = j_3 + 1)
+											integer j_5;
+											for (j_5 = 0; j_5 < 3; j_5 = j_5 + 1)
 												begin
-													if ((steps_next >= (0 + k)) && (steps_next < (3 + j_3))) begin
-														controller_a_in_btint_a_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = controller_m_a_btint_a[(((2 - steps_next) + j_3) * 3) + (2 - j_3)];
-														controller_a_in_btint_b_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = controller_m_a_btint_b[(((2 - steps_next) + j_3) * 3) + (2 - j_3)];
-														controller_a_in_overflow_next[(11 - ((i_7 * 3) + j_3)) * 2+:2] = controller_m_a_overflow[(((2 - steps_next) + j_3) * 3) + (2 - j_3)];
+													if ((steps_next >= (0 + k)) && (steps_next < (3 + j_5))) begin
+														controller_a_in_btint_a_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = controller_m_a_btint_a[(((2 - steps_next) + j_5) * 3) + (2 - j_5)];
+														controller_a_in_btint_b_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = controller_m_a_btint_b[(((2 - steps_next) + j_5) * 3) + (2 - j_5)];
+														controller_a_in_overflow_next[(11 - ((i_9 * 3) + j_5)) * 2+:2] = controller_m_a_overflow[(((2 - steps_next) + j_5) * 3) + (2 - j_5)];
 													end
 													else begin
-														controller_a_in_btint_a_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = zero_btint_a_next;
-														controller_a_in_btint_b_next[(11 - ((i_7 * 3) + j_3)) * 8+:8] = zero_btint_b_next;
-														controller_a_in_overflow_next[(11 - ((i_7 * 3) + j_3)) * 2+:2] = zero_overflow_next;
+														controller_a_in_btint_a_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = zero_btint_a_next;
+														controller_a_in_btint_b_next[(11 - ((i_9 * 3) + j_5)) * 8+:8] = zero_btint_b_next;
+														controller_a_in_overflow_next[(11 - ((i_9 * 3) + j_5)) * 2+:2] = zero_overflow_next;
 													end
 													k = k + 2;
 												end
 										end
 									end
 									else begin : sv2v_autoblock_41
-										integer j_4;
-										for (j_4 = 0; j_4 < 3; j_4 = j_4 + 1)
+										integer j_6;
+										for (j_6 = 0; j_6 < 3; j_6 = j_6 + 1)
 											begin
-												controller_a_in_btint_a_next[(11 - ((i_7 * 3) + j_4)) * 8+:8] = controller_a_out_btint_a[((i_7 - 1) * 3) + j_4];
-												controller_a_in_btint_b_next[(11 - ((i_7 * 3) + j_4)) * 8+:8] = controller_a_out_btint_b[((i_7 - 1) * 3) + j_4];
-												controller_a_in_overflow_next[(11 - ((i_7 * 3) + j_4)) * 2+:2] = controller_a_out_overflow[((i_7 - 1) * 3) + j_4];
+												controller_a_in_btint_a_next[(11 - ((i_9 * 3) + j_6)) * 8+:8] = controller_a_out_btint_a[((i_9 - 1) * 3) + j_6];
+												controller_a_in_btint_b_next[(11 - ((i_9 * 3) + j_6)) * 8+:8] = controller_a_out_btint_b[((i_9 - 1) * 3) + j_6];
+												controller_a_in_overflow_next[(11 - ((i_9 * 3) + j_6)) * 2+:2] = controller_a_out_overflow[((i_9 - 1) * 3) + j_6];
 											end
 									end
 							end
 							begin : sv2v_autoblock_42
-								integer i_8;
-								for (i_8 = 0; i_8 < 3; i_8 = i_8 + 1)
-									if ((steps_next >= 5) && (steps_next < (6 + i_8))) begin
-										result_u_btint_a_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_u_btint_a[(i_8 * 3) + 2];
-										result_u_btint_b_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_u_btint_b[(i_8 * 3) + 2];
-										result_u_overflow_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 2+:2] = controller_c_out_u_overflow[(i_8 * 3) + 2];
-										result_d_btint_a_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_d_btint_a[(i_8 * 3) + 2];
-										result_d_btint_b_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 8+:8] = controller_c_out_d_btint_b[(i_8 * 3) + 2];
-										result_d_overflow_next[(15 - ((((5 - steps_next) + i_8) * 4) + i_8)) * 2+:2] = controller_c_out_d_overflow[(i_8 * 3) + 2];
+								integer i_10;
+								for (i_10 = 0; i_10 < 3; i_10 = i_10 + 1)
+									if ((steps_next >= 5) && (steps_next < (6 + i_10))) begin
+										result_u_btint_a_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_u_btint_a[(i_10 * 3) + 2];
+										result_u_btint_b_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_u_btint_b[(i_10 * 3) + 2];
+										result_u_overflow_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 2+:2] = controller_c_out_u_overflow[(i_10 * 3) + 2];
+										result_d_btint_a_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_d_btint_a[(i_10 * 3) + 2];
+										result_d_btint_b_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 8+:8] = controller_c_out_d_btint_b[(i_10 * 3) + 2];
+										result_d_overflow_next[(15 - ((((5 - steps_next) + i_10) * 4) + i_10)) * 2+:2] = controller_c_out_d_overflow[(i_10 * 3) + 2];
 									end
 							end
 							begin : sv2v_autoblock_43
-								integer i_9;
-								for (i_9 = 1; i_9 < 3; i_9 = i_9 + 1)
+								integer i_11;
+								for (i_11 = 1; i_11 < 3; i_11 = i_11 + 1)
 									begin : sv2v_autoblock_44
-										integer j_5;
-										for (j_5 = 2 - i_9; j_5 < 2; j_5 = j_5 + 1)
+										integer j_7;
+										for (j_7 = 2 - i_11; j_7 < 2; j_7 = j_7 + 1)
 											begin
-												controller_s_in_next[(i_9 * 3) + (j_5 + 1)] = state_next[(i_9 * 4) + (j_5 + 1)];
-												state_next[(i_9 * 4) + (j_5 + 1)] = controller_s_out[(i_9 * 3) + j_5];
+												controller_s_in_next[(i_11 * 3) + (j_7 + 1)] = state_next[(i_11 * 4) + (j_7 + 1)];
+												state_next[(i_11 * 4) + (j_7 + 1)] = controller_s_out[(i_11 * 3) + j_7];
 											end
 									end
 							end
 							begin : sv2v_autoblock_45
-								integer i_10;
-								for (i_10 = 0; i_10 < 2; i_10 = i_10 + 1)
+								integer i_12;
+								for (i_12 = 0; i_12 < 2; i_12 = i_12 + 1)
 									begin : sv2v_autoblock_46
-										integer j_6;
-										for (j_6 = 0; j_6 < (2 - i_10); j_6 = j_6 + 1)
-											controller_s_in_next[(i_10 * 3) + (j_6 + 1)] = controller_s_out[(i_10 * 3) + j_6];
+										integer j_8;
+										for (j_8 = 0; j_8 < (2 - i_12); j_8 = j_8 + 1)
+											controller_s_in_next[(i_12 * 3) + (j_8 + 1)] = controller_s_out[(i_12 * 3) + j_8];
 									end
 							end
 							steps_next = steps_next + 1;
@@ -6441,62 +6519,62 @@ module CONTROLLER (
 							else
 								controller_done_next = 0;
 							begin : sv2v_autoblock_47
-								integer i_11;
-								for (i_11 = 0; i_11 < 4; i_11 = i_11 + 1)
+								integer i_13;
+								for (i_13 = 0; i_13 < 4; i_13 = i_13 + 1)
 									begin : sv2v_autoblock_48
-										integer j_7;
-										for (j_7 = 0; j_7 < 3; j_7 = j_7 + 1)
-											if (j_7 == 0) begin
-												controller_c_in_u_btint_a_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = zero_btint_a_next;
-												controller_c_in_u_btint_b_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = zero_btint_b_next;
-												controller_c_in_u_overflow_next[(11 - ((i_11 * 3) + j_7)) * 2+:2] = zero_overflow_next;
+										integer j_9;
+										for (j_9 = 0; j_9 < 3; j_9 = j_9 + 1)
+											if (j_9 == 0) begin
+												controller_c_in_u_btint_a_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = zero_btint_a_next;
+												controller_c_in_u_btint_b_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = zero_btint_b_next;
+												controller_c_in_u_overflow_next[(11 - ((i_13 * 3) + j_9)) * 2+:2] = zero_overflow_next;
 											end
 											else begin
-												controller_c_in_u_btint_a_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = controller_c_out_u_btint_a[(i_11 * 3) + (j_7 - 1)];
-												controller_c_in_u_btint_b_next[(11 - ((i_11 * 3) + j_7)) * 8+:8] = controller_c_out_u_btint_b[(i_11 * 3) + (j_7 - 1)];
-												controller_c_in_u_overflow_next[(11 - ((i_11 * 3) + j_7)) * 2+:2] = controller_c_out_u_overflow[(i_11 * 3) + (j_7 - 1)];
+												controller_c_in_u_btint_a_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = controller_c_out_u_btint_a[(i_13 * 3) + (j_9 - 1)];
+												controller_c_in_u_btint_b_next[(11 - ((i_13 * 3) + j_9)) * 8+:8] = controller_c_out_u_btint_b[(i_13 * 3) + (j_9 - 1)];
+												controller_c_in_u_overflow_next[(11 - ((i_13 * 3) + j_9)) * 2+:2] = controller_c_out_u_overflow[(i_13 * 3) + (j_9 - 1)];
 											end
 									end
 							end
 							begin : sv2v_autoblock_49
-								integer i_12;
-								for (i_12 = 0; i_12 < 4; i_12 = i_12 + 1)
-									if ((index_a_next[64+:32] >= (3 + i_12)) && (index_a_next[64+:32] < (7 + i_12))) begin
-										result_u_btint_a_next[(15 - ((((index_a_next[64+:32] - 3) - i_12) * 4) + i_12)) * 8+:8] = controller_c_out_u_btint_a[(i_12 * 3) + 2];
-										result_u_btint_b_next[(15 - ((((index_a_next[64+:32] - 3) - i_12) * 4) + i_12)) * 8+:8] = controller_c_out_u_btint_b[(i_12 * 3) + 2];
-										result_u_overflow_next[(15 - ((((index_a_next[64+:32] - 3) - i_12) * 4) + i_12)) * 2+:2] = controller_c_out_u_overflow[(i_12 * 3) + 2];
+								integer i_14;
+								for (i_14 = 0; i_14 < 4; i_14 = i_14 + 1)
+									if ((index_a_next[64+:32] >= (3 + i_14)) && (index_a_next[64+:32] < (7 + i_14))) begin
+										result_u_btint_a_next[(15 - ((((index_a_next[64+:32] - 3) - i_14) * 4) + i_14)) * 8+:8] = controller_c_out_u_btint_a[(i_14 * 3) + 2];
+										result_u_btint_b_next[(15 - ((((index_a_next[64+:32] - 3) - i_14) * 4) + i_14)) * 8+:8] = controller_c_out_u_btint_b[(i_14 * 3) + 2];
+										result_u_overflow_next[(15 - ((((index_a_next[64+:32] - 3) - i_14) * 4) + i_14)) * 2+:2] = controller_c_out_u_overflow[(i_14 * 3) + 2];
 									end
 							end
 							if (!load_done_next) begin
 								begin : sv2v_autoblock_50
-									integer i_13;
-									for (i_13 = 0; i_13 < 4; i_13 = i_13 + 1)
-										controller_s_mm_next[i_13] = 0;
+									integer i_15;
+									for (i_15 = 0; i_15 < 4; i_15 = i_15 + 1)
+										controller_s_mm_next[i_15] = 0;
 								end
 								begin : sv2v_autoblock_51
-									integer i_14;
-									for (i_14 = 0; i_14 < 4; i_14 = i_14 + 1)
+									integer i_16;
+									for (i_16 = 0; i_16 < 4; i_16 = i_16 + 1)
 										begin : sv2v_autoblock_52
-											integer j_8;
-											for (j_8 = 0; j_8 < 3; j_8 = j_8 + 1)
-												if (i_14 == 0) begin
-													controller_a_in_btint_a_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_m_b_btint_a[(j_8 * 4) + (3 - index_b_next)];
-													controller_a_in_btint_b_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_m_b_btint_b[(j_8 * 4) + (3 - index_b_next)];
-													controller_a_in_overflow_next[(11 - ((i_14 * 3) + j_8)) * 2+:2] = controller_m_b_overflow[(j_8 * 4) + (3 - index_b_next)];
+											integer j_10;
+											for (j_10 = 0; j_10 < 3; j_10 = j_10 + 1)
+												if (i_16 == 0) begin
+													controller_a_in_btint_a_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_m_b_btint_a[(j_10 * 4) + (3 - index_b_next)];
+													controller_a_in_btint_b_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_m_b_btint_b[(j_10 * 4) + (3 - index_b_next)];
+													controller_a_in_overflow_next[(11 - ((i_16 * 3) + j_10)) * 2+:2] = controller_m_b_overflow[(j_10 * 4) + (3 - index_b_next)];
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_a_out_btint_a[((i_14 - 1) * 3) + j_8];
-													controller_a_in_btint_b_next[(11 - ((i_14 * 3) + j_8)) * 8+:8] = controller_a_out_btint_b[((i_14 - 1) * 3) + j_8];
-													controller_a_in_overflow_next[(11 - ((i_14 * 3) + j_8)) * 2+:2] = controller_a_out_overflow[((i_14 - 1) * 3) + j_8];
+													controller_a_in_btint_a_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_a_out_btint_a[((i_16 - 1) * 3) + j_10];
+													controller_a_in_btint_b_next[(11 - ((i_16 * 3) + j_10)) * 8+:8] = controller_a_out_btint_b[((i_16 - 1) * 3) + j_10];
+													controller_a_in_overflow_next[(11 - ((i_16 * 3) + j_10)) * 2+:2] = controller_a_out_overflow[((i_16 - 1) * 3) + j_10];
 												end
 										end
 								end
 								if (index_b_next >= 3) begin
 									load_done_next = 1;
 									begin : sv2v_autoblock_53
-										integer i_15;
-										for (i_15 = 0; i_15 < 4; i_15 = i_15 + 1)
-											controller_s_mm_next[i_15] = 1;
+										integer i_17;
+										for (i_17 = 0; i_17 < 4; i_17 = i_17 + 1)
+											controller_s_mm_next[i_17] = 1;
 									end
 								end
 								else
@@ -6504,39 +6582,39 @@ module CONTROLLER (
 							end
 							else begin
 								begin : sv2v_autoblock_54
-									integer i_16;
-									for (i_16 = 0; i_16 < 4; i_16 = i_16 + 1)
-										controller_s_mm_next[i_16] = 0;
+									integer i_18;
+									for (i_18 = 0; i_18 < 4; i_18 = i_18 + 1)
+										controller_s_mm_next[i_18] = 0;
 								end
 								begin : sv2v_autoblock_55
-									integer i_17;
-									for (i_17 = 0; i_17 < 4; i_17 = i_17 + 1)
+									integer i_19;
+									for (i_19 = 0; i_19 < 4; i_19 = i_19 + 1)
 										begin : sv2v_autoblock_56
-											integer j_9;
-											for (j_9 = 0; j_9 < 3; j_9 = j_9 + 1)
-												if (i_17 == 0) begin
-													if ((index_a_next[(2 - j_9) * 32+:32] < 0) || (index_a_next[(2 - j_9) * 32+:32] > 3)) begin
-														controller_a_in_btint_a_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = zero_btint_a_next;
-														controller_a_in_btint_b_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = zero_btint_b_next;
-														controller_a_in_overflow_next[(11 - ((i_17 * 3) + j_9)) * 2+:2] = zero_overflow_next;
+											integer j_11;
+											for (j_11 = 0; j_11 < 3; j_11 = j_11 + 1)
+												if (i_19 == 0) begin
+													if ((index_a_next[(2 - j_11) * 32+:32] < 0) || (index_a_next[(2 - j_11) * 32+:32] > 3)) begin
+														controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = zero_btint_a_next;
+														controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = zero_btint_b_next;
+														controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_11)) * 2+:2] = zero_overflow_next;
 													end
 													else begin
-														controller_a_in_btint_a_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_9) * 32+:32] * 3) + j_9];
-														controller_a_in_btint_b_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_9) * 32+:32] * 3) + j_9];
-														controller_a_in_overflow_next[(11 - ((i_17 * 3) + j_9)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_9) * 32+:32] * 3) + j_9];
+														controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
+														controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
+														controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_11)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
 													end
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_a_out_btint_a[((i_17 - 1) * 3) + j_9];
-													controller_a_in_btint_b_next[(11 - ((i_17 * 3) + j_9)) * 8+:8] = controller_a_out_btint_b[((i_17 - 1) * 3) + j_9];
-													controller_a_in_overflow_next[(11 - ((i_17 * 3) + j_9)) * 2+:2] = controller_a_out_overflow[((i_17 - 1) * 3) + j_9];
+													controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_a_out_btint_a[((i_19 - 1) * 3) + j_11];
+													controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_11)) * 8+:8] = controller_a_out_btint_b[((i_19 - 1) * 3) + j_11];
+													controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_11)) * 2+:2] = controller_a_out_overflow[((i_19 - 1) * 3) + j_11];
 												end
 										end
 								end
 								begin : sv2v_autoblock_57
-									integer i_18;
-									for (i_18 = 0; i_18 < 3; i_18 = i_18 + 1)
-										index_a_next[(2 - i_18) * 32+:32] = index_a_next[(2 - i_18) * 32+:32] + 1;
+									integer i_20;
+									for (i_20 = 0; i_20 < 3; i_20 = i_20 + 1)
+										index_a_next[(2 - i_20) * 32+:32] = index_a_next[(2 - i_20) * 32+:32] + 1;
 								end
 							end
 						end
@@ -6547,76 +6625,76 @@ module CONTROLLER (
 								controller_done_next = 0;
 							if (!load_done_next) begin
 								begin : sv2v_autoblock_58
-									integer i_19;
-									for (i_19 = 0; i_19 < 4; i_19 = i_19 + 1)
+									integer i_21;
+									for (i_21 = 0; i_21 < 4; i_21 = i_21 + 1)
 										begin : sv2v_autoblock_59
-											integer j_10;
-											for (j_10 = 0; j_10 < 3; j_10 = j_10 + 1)
-												if (i_19 == 0) begin
-													controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_v_btint_a[(2 - j_10) * 8+:8];
-													controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_v_btint_b[(2 - j_10) * 8+:8];
-													controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_10)) * 2+:2] = controller_v_overflow[(2 - j_10) * 2+:2];
+											integer j_12;
+											for (j_12 = 0; j_12 < 3; j_12 = j_12 + 1)
+												if (i_21 == 0) begin
+													controller_a_in_btint_a_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_v_btint_a[(2 - j_12) * 8+:8];
+													controller_a_in_btint_b_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_v_btint_b[(2 - j_12) * 8+:8];
+													controller_a_in_overflow_next[(11 - ((i_21 * 3) + j_12)) * 2+:2] = controller_v_overflow[(2 - j_12) * 2+:2];
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_a_out_btint_a[((i_19 - 1) * 3) + j_10];
-													controller_a_in_btint_b_next[(11 - ((i_19 * 3) + j_10)) * 8+:8] = controller_a_out_btint_b[((i_19 - 1) * 3) + j_10];
-													controller_a_in_overflow_next[(11 - ((i_19 * 3) + j_10)) * 2+:2] = controller_a_out_overflow[((i_19 - 1) * 3) + j_10];
+													controller_a_in_btint_a_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_a_out_btint_a[((i_21 - 1) * 3) + j_12];
+													controller_a_in_btint_b_next[(11 - ((i_21 * 3) + j_12)) * 8+:8] = controller_a_out_btint_b[((i_21 - 1) * 3) + j_12];
+													controller_a_in_overflow_next[(11 - ((i_21 * 3) + j_12)) * 2+:2] = controller_a_out_overflow[((i_21 - 1) * 3) + j_12];
 												end
 										end
 								end
 								begin : sv2v_autoblock_60
-									integer i_20;
-									for (i_20 = 0; i_20 < 4; i_20 = i_20 + 1)
-										controller_s_mm_next[i_20] = 1;
+									integer i_22;
+									for (i_22 = 0; i_22 < 4; i_22 = i_22 + 1)
+										controller_s_mm_next[i_22] = 1;
 								end
 								load_done_next = 1;
 							end
 							else begin
 								begin : sv2v_autoblock_61
-									integer i_21;
-									for (i_21 = 0; i_21 < 4; i_21 = i_21 + 1)
-										controller_s_mm_next[i_21] = 0;
+									integer i_23;
+									for (i_23 = 0; i_23 < 4; i_23 = i_23 + 1)
+										controller_s_mm_next[i_23] = 0;
 								end
 								begin : sv2v_autoblock_62
-									integer i_22;
-									for (i_22 = 0; i_22 < 4; i_22 = i_22 + 1)
+									integer i_24;
+									for (i_24 = 0; i_24 < 4; i_24 = i_24 + 1)
 										begin : sv2v_autoblock_63
-											integer j_11;
-											for (j_11 = 0; j_11 < 3; j_11 = j_11 + 1)
-												if (i_22 == 0) begin
-													if ((index_a_next[(2 - j_11) * 32+:32] < 0) || (index_a_next[(2 - j_11) * 32+:32] > 3)) begin
-														controller_a_in_btint_a_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = zero_btint_a_next;
-														controller_a_in_btint_b_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = zero_btint_b_next;
-														controller_a_in_overflow_next[(11 - ((i_22 * 3) + j_11)) * 2+:2] = zero_overflow_next;
+											integer j_13;
+											for (j_13 = 0; j_13 < 3; j_13 = j_13 + 1)
+												if (i_24 == 0) begin
+													if ((index_a_next[(2 - j_13) * 32+:32] < 0) || (index_a_next[(2 - j_13) * 32+:32] > 3)) begin
+														controller_a_in_btint_a_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = zero_btint_a_next;
+														controller_a_in_btint_b_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = zero_btint_b_next;
+														controller_a_in_overflow_next[(11 - ((i_24 * 3) + j_13)) * 2+:2] = zero_overflow_next;
 													end
 													else begin
-														controller_a_in_btint_a_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
-														controller_a_in_btint_b_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
-														controller_a_in_overflow_next[(11 - ((i_22 * 3) + j_11)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_11) * 32+:32] * 3) + j_11];
+														controller_a_in_btint_a_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_m_a_btint_a[(index_a_next[(2 - j_13) * 32+:32] * 3) + j_13];
+														controller_a_in_btint_b_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_m_a_btint_b[(index_a_next[(2 - j_13) * 32+:32] * 3) + j_13];
+														controller_a_in_overflow_next[(11 - ((i_24 * 3) + j_13)) * 2+:2] = controller_m_a_overflow[(index_a_next[(2 - j_13) * 32+:32] * 3) + j_13];
 													end
 												end
 												else begin
-													controller_a_in_btint_a_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_a_out_btint_a[((i_22 - 1) * 3) + j_11];
-													controller_a_in_btint_b_next[(11 - ((i_22 * 3) + j_11)) * 8+:8] = controller_a_out_btint_b[((i_22 - 1) * 3) + j_11];
-													controller_a_in_overflow_next[(11 - ((i_22 * 3) + j_11)) * 2+:2] = controller_a_out_overflow[((i_22 - 1) * 3) + j_11];
+													controller_a_in_btint_a_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_a_out_btint_a[((i_24 - 1) * 3) + j_13];
+													controller_a_in_btint_b_next[(11 - ((i_24 * 3) + j_13)) * 8+:8] = controller_a_out_btint_b[((i_24 - 1) * 3) + j_13];
+													controller_a_in_overflow_next[(11 - ((i_24 * 3) + j_13)) * 2+:2] = controller_a_out_overflow[((i_24 - 1) * 3) + j_13];
 												end
 										end
 								end
 								begin : sv2v_autoblock_64
-									integer i_23;
-									for (i_23 = 0; i_23 < 4; i_23 = i_23 + 1)
+									integer i_25;
+									for (i_25 = 0; i_25 < 4; i_25 = i_25 + 1)
 										begin : sv2v_autoblock_65
-											integer j_12;
-											for (j_12 = 0; j_12 < 3; j_12 = j_12 + 1)
-												if (j_12 == 0) begin
-													controller_c_in_u_btint_a_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = zero_btint_a_next;
-													controller_c_in_u_btint_b_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = zero_btint_b_next;
-													controller_c_in_u_overflow_next[(11 - ((i_23 * 3) + j_12)) * 2+:2] = zero_overflow_next;
+											integer j_14;
+											for (j_14 = 0; j_14 < 3; j_14 = j_14 + 1)
+												if (j_14 == 0) begin
+													controller_c_in_u_btint_a_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = zero_btint_a_next;
+													controller_c_in_u_btint_b_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = zero_btint_b_next;
+													controller_c_in_u_overflow_next[(11 - ((i_25 * 3) + j_14)) * 2+:2] = zero_overflow_next;
 												end
 												else begin
-													controller_c_in_u_btint_a_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = controller_c_out_u_btint_a[(i_23 * 3) + (j_12 - 1)];
-													controller_c_in_u_btint_b_next[(11 - ((i_23 * 3) + j_12)) * 8+:8] = controller_c_out_u_btint_b[(i_23 * 3) + (j_12 - 1)];
-													controller_c_in_u_overflow_next[(11 - ((i_23 * 3) + j_12)) * 2+:2] = controller_c_out_u_overflow[(i_23 * 3) + (j_12 - 1)];
+													controller_c_in_u_btint_a_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = controller_c_out_u_btint_a[(i_25 * 3) + (j_14 - 1)];
+													controller_c_in_u_btint_b_next[(11 - ((i_25 * 3) + j_14)) * 8+:8] = controller_c_out_u_btint_b[(i_25 * 3) + (j_14 - 1)];
+													controller_c_in_u_overflow_next[(11 - ((i_25 * 3) + j_14)) * 2+:2] = controller_c_out_u_overflow[(i_25 * 3) + (j_14 - 1)];
 												end
 										end
 								end
@@ -6626,9 +6704,9 @@ module CONTROLLER (
 									result_u_overflow_next[(15 - (((index_a_next[0+:32] - 1) * 4) + 0)) * 2+:2] = controller_c_out_u_overflow[2];
 								end
 								begin : sv2v_autoblock_66
-									integer i_24;
-									for (i_24 = 0; i_24 < 3; i_24 = i_24 + 1)
-										index_a_next[(2 - i_24) * 32+:32] = index_a_next[(2 - i_24) * 32+:32] + 1;
+									integer i_26;
+									for (i_26 = 0; i_26 < 3; i_26 = i_26 + 1)
+										index_a_next[(2 - i_26) * 32+:32] = index_a_next[(2 - i_26) * 32+:32] + 1;
 								end
 							end
 						end
@@ -6819,11 +6897,69 @@ module CONTROLLER (
 			end
 			index_b <= 0;
 			load_done <= 0;
+			begin : sv2v_autoblock_73
+				integer i_4;
+				for (i_4 = 0; i_4 < 4; i_4 = i_4 + 1)
+					begin
+						begin : sv2v_autoblock_74
+							integer j_1;
+							for (j_1 = 0; j_1 < 3; j_1 = j_1 + 1)
+								begin
+									controller_a_in_btint_a[(11 - ((i_4 * 3) + j_1)) * 8+:8] <= zero_btint_a;
+									controller_a_in_btint_b[(11 - ((i_4 * 3) + j_1)) * 8+:8] <= zero_btint_b;
+									controller_a_in_overflow[(11 - ((i_4 * 3) + j_1)) * 2+:2] <= zero_overflow;
+									controller_c_in_u_btint_a[(11 - ((i_4 * 3) + j_1)) * 8+:8] <= zero_btint_a;
+									controller_c_in_u_btint_b[(11 - ((i_4 * 3) + j_1)) * 8+:8] <= zero_btint_b;
+									controller_c_in_u_overflow[(11 - ((i_4 * 3) + j_1)) * 2+:2] <= zero_overflow;
+									controller_c_in_d_btint_a[(11 - ((i_4 * 3) + j_1)) * 8+:8] <= zero_btint_a;
+									controller_c_in_d_btint_b[(11 - ((i_4 * 3) + j_1)) * 8+:8] <= zero_btint_b;
+									controller_c_in_d_overflow[(11 - ((i_4 * 3) + j_1)) * 2+:2] <= zero_overflow;
+									controller_s_in[(i_4 * 3) + j_1] <= 0;
+								end
+						end
+						controller_s_mm[i_4] <= 0;
+					end
+			end
+			controller_done <= 0;
+			begin : sv2v_autoblock_75
+				integer i_5;
+				for (i_5 = 0; i_5 < 4; i_5 = i_5 + 1)
+					begin : sv2v_autoblock_76
+						integer j_2;
+						for (j_2 = 0; j_2 < 4; j_2 = j_2 + 1)
+							begin
+								controller_result_u_btint_a[(15 - ((i_5 * 4) + j_2)) * 8+:8] <= zero_btint_a;
+								controller_result_u_btint_b[(15 - ((i_5 * 4) + j_2)) * 8+:8] <= zero_btint_b;
+								controller_result_u_overflow[(15 - ((i_5 * 4) + j_2)) * 2+:2] <= zero_overflow;
+								controller_result_d_btint_a[(15 - ((i_5 * 4) + j_2)) * 8+:8] <= zero_btint_a;
+								controller_result_d_btint_b[(15 - ((i_5 * 4) + j_2)) * 8+:8] <= zero_btint_b;
+								controller_result_d_overflow[(15 - ((i_5 * 4) + j_2)) * 2+:2] <= zero_overflow;
+							end
+					end
+			end
 			control_PROC_STATE <= 0;
 			control_WAIT_N_COUNTER <= 0;
 		end
 		else begin
 			control_WAIT_N_COUNTER <= control_WAIT_N_COUNTER_next;
+			controller_a_in_btint_a <= controller_a_in_btint_a_next;
+			controller_a_in_btint_b <= controller_a_in_btint_b_next;
+			controller_a_in_overflow <= controller_a_in_overflow_next;
+			controller_c_in_u_btint_a <= controller_c_in_u_btint_a_next;
+			controller_c_in_u_btint_b <= controller_c_in_u_btint_b_next;
+			controller_c_in_u_overflow <= controller_c_in_u_overflow_next;
+			controller_c_in_d_btint_a <= controller_c_in_d_btint_a_next;
+			controller_c_in_d_btint_b <= controller_c_in_d_btint_b_next;
+			controller_c_in_d_overflow <= controller_c_in_d_overflow_next;
+			controller_s_in <= controller_s_in_next;
+			controller_s_mm <= controller_s_mm_next;
+			controller_done <= controller_done_next;
+			controller_result_u_btint_a <= controller_result_u_btint_a_next;
+			controller_result_u_btint_b <= controller_result_u_btint_b_next;
+			controller_result_u_overflow <= controller_result_u_overflow_next;
+			controller_result_d_btint_a <= controller_result_d_btint_a_next;
+			controller_result_d_btint_b <= controller_result_d_btint_b_next;
+			controller_result_d_overflow <= controller_result_d_overflow_next;
 			result_u_btint_a <= result_u_btint_a_next;
 			result_u_btint_b <= result_u_btint_b_next;
 			result_u_overflow <= result_u_overflow_next;
@@ -6841,24 +6977,6 @@ module CONTROLLER (
 			one_btint_a <= one_btint_a_next;
 			one_btint_b <= one_btint_b_next;
 			one_overflow <= one_overflow_next;
-			controller_result_u_btint_a <= controller_result_u_btint_a_next;
-			controller_result_u_btint_b <= controller_result_u_btint_b_next;
-			controller_result_u_overflow <= controller_result_u_overflow_next;
-			controller_result_d_btint_a <= controller_result_d_btint_a_next;
-			controller_result_d_btint_b <= controller_result_d_btint_b_next;
-			controller_result_d_overflow <= controller_result_d_overflow_next;
-			controller_s_mm <= controller_s_mm_next;
-			controller_done <= controller_done_next;
-			controller_s_in <= controller_s_in_next;
-			controller_c_in_u_btint_a <= controller_c_in_u_btint_a_next;
-			controller_c_in_u_btint_b <= controller_c_in_u_btint_b_next;
-			controller_c_in_u_overflow <= controller_c_in_u_overflow_next;
-			controller_c_in_d_btint_a <= controller_c_in_d_btint_a_next;
-			controller_c_in_d_btint_b <= controller_c_in_d_btint_b_next;
-			controller_c_in_d_overflow <= controller_c_in_d_overflow_next;
-			controller_a_in_btint_a <= controller_a_in_btint_a_next;
-			controller_a_in_btint_b <= controller_a_in_btint_b_next;
-			controller_a_in_overflow <= controller_a_in_overflow_next;
 			control_PROC_STATE <= control_PROC_STATE_next;
 		end
 	end

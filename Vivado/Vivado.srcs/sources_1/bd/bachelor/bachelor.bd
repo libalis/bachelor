@@ -408,9 +408,9 @@
         "ports": [
           "combined_operations_clock",
           "vio_0/clk",
+          "COMBINED_OPERATIONS_0/combined_operations_clock",
           "UART_TRANSMITTER_0/uart_transmitter_clock",
-          "UART_TRANSMITTER_1/uart_transmitter_clock",
-          "COMBINED_OPERATIONS_0/combined_operations_clock"
+          "UART_TRANSMITTER_1/uart_transmitter_clock"
         ]
       },
       "combined_operations_reset_0_1": {
